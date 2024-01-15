@@ -1,0 +1,573 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-derivative">
+    <title>The derivative</title>
+    <introduction>
+    <p>In this section, we will define the derivative of a vector valued function of many variables
+    <me>
+        \mb{F} : U \to \mathbb{R}^n
+    </me>
+    for an open set <m>U \subseteq \mathbb{R}^m</m>. We do not delay and present the definition in the abstract setting of inner product spaces.</p>
+
+    <definition xml:id="def-derivative">         
+        <notation>             
+            <usage><m>\tder{\mb{F}}{\mb{a}}</m></usage>             
+            <description>Derivative</description>         
+        </notation>         
+        <statement>
+            <p>Let <m>V_1</m> and <m>V_2</m> be inner product spaces and suppose <m>\mb{F} : U \to V_2</m> is a function defined in a neighborhood <m>\mb{F}</m> of <m>\mb{a}</m>. The <term>derivative</term> <m>\tder{\mb{a}}{\mb{F}}</m> of <m>\mb{F}</m> at <m>\mb{a}</m> is a linear transformation from <m>V_1</m> to <m>V_2</m> for which
+            <men xml:id="eq-derivative"> 
+                \lim_{\mb{x} \to \mb{a}} \frac{\| \mb{F} ( \mb{x} ) - \mb{F} (\mb{a} ) - \tder{\mb{a}}{\mb{F}} (\mb{x} - \mb{a}) \|}{\| \mb{x} - \mb{a} \|} = 0.
+            </men>
+            If <m>\tder{\mb{a}}{\mb{F}}</m> exists we say that <m>\mb{F}</m> is <term>differentiable at <m>\mb{a}</m> </term>.</p>
+        </statement>
+    </definition>
+
+    <p>This definition certainly needs some unpacking, but it is indeed quite beautiful in its simplicity. Before getting into this, let us mention a few points. First, the derivative is sometimes called the `total derivative' or 'differential' of <m>\mb{F}</m>, but the term derivative is used in the literature as well (see, for example, Spivak's "Calculus on Manifolds"). There are also alternative notations for the derivative like <m>D_\mb{a} \mb{F}</m> or <m>D \mb{F} (\mb{a})</m>. As we will use these notations for directional derivatives later on, we will stick with the above for the derivative. </p>
+
+    <p>Now, the main point to draw the student's attention to on first exposure to the derivative is what it is! 
+    <me>
+            \text{ The derivative of }\mb{F}\text{ at  }\mb{a}\text{ is a linear transformation!}
+    </me>
+    In fact, it is directly tied to the notion of a linear approximation. We can see this by considering the limit and noticing that for <m>\mb{x}</m> close to <m>\mb{a}</m>, we have <me> E ( \mb{x}) := \mb{F} ( \mb{x} ) - \mb{F} (\mb{a} ) - \tder{\mb{a}}{\mb{F}} (\mb{x} - \mb{a}) \approx \mb{0}. </me> Here <m>E ( \mb{x})</m> is the `error' in the approximation. Subtracting then gives <me> \mb{F} ( \mb{x} ) \approx \mb{F} (\mb{a} ) + \tder{\mb{a}}{\mb{F}} (\mb{x} - \mb{a}) </me> where the approximation is up to first order (which means dividing by <m>\|\mb{x} - \mb{a}\|</m> and taking limits gives equality). Indeed, the definition gives us the following fact. </p>
+
+    <proposition xml:id="prop-diffcont">
+        <statement>
+            <p>If <m>\mb{F}</m> is differentiable at <m>\mb{a}</m>, then it is continuous at <m>\mb{a}</m>. </p>
+        </statement>
+        <proof> <p>Suppose <m>\varepsilon \gt 0</m> is given and <m>\delta_1</m> gives us the limit in the definition of the derivative for <m>\frac{\varepsilon}{2}</m>. Since linear transformations are continuous, we also have that there is some <m>\delta_2</m> for which <m>\|\mb{x} - \mb{a} \| \lt \delta_2</m> implies <m>\tder{\mb{a}}{\mb{F}} (\mb{x} - \mb{a}) \lt \frac{\varepsilon}{2}</m>. Then letting <m>\delta = \min \{ \delta_1, \delta_2, 1\}</m> we have that for any <m>\| \mb{x} - \mb{a} \| \lt \delta</m> the triangle inequality gives 
+            <md>
+                <mrow>\| \mb{F} ( \mb{x} ) - \mb{F} (\mb{a}) \| \amp =  \| \mb{F} ( \mb{x} ) - \mb{F} (\mb{a}) - \tder{\mb{a}}{\mb{F}} (\mb{x} - \mb{a}) + \tder{\mb{a}}{\mb{F}} (\mb{x} - \mb{a}) \|, </mrow>
+                <mrow> \amp \leq \| \mb{F} ( \mb{x} ) - \mb{F} (\mb{a}) - \tder{\mb{a}}{\mb{F}} (\mb{x} - \mb{a}) \| +  \| \tder{\mb{a}}{\mb{F}} (\mb{x} - \mb{a}) \|,</mrow> 
+                <mrow>  \amp \lt \frac{\varepsilon}{2}  \|\mb{x} - \mb{a} \| + \frac{\varepsilon}{2}, </mrow>
+                <mrow> \amp \lt \varepsilon. </mrow>
+            </md>
+        Using our definition of limit, this gives us the result.</p>
+        </proof>
+    </proposition>
+
+    <p>Now, while this definition is important abstractly and useful to prove the basic properties of the derivative, it is not immediately helpful for computations. To compute we will consider a less abstract setting for the moment, replacing <m>V_1</m> with a Euclidean space <m>\mathbb{R}^m</m> and <m>V_2</m> with the real line <m>\mathbb{R}</m>, i.e. we will consider scalar functions. </p>
+    </introduction>
+
+
+<subsection xml:id="subsec-directional-derivative">
+    <title>Directional and partial derivatives</title>
+    <p>The existence of the derivative of a function (even a scalar one) can be a delicate issue, but there are large classes of functions where existence can be easily checked. To make such a check, we need partial derivatives which in fact are certain types of directional derivatives.</p>
+
+    <definition xml:id="def-directional-derivative">
+        <notation>
+            <usage><m>D_\mb{v} f ( \mb{a})</m></usage>
+            <description>directional derivative</description>
+        </notation>
+        <statement>
+        <p>Let <m>U</m> be an open subset of a real inner product space <m>V</m> and <m>f : U \to \mathbb{R}</m> be a scalar function. For a vector <m>\mb{v}</m> of <m>V</m>, the <term> directional derivative </term> of <m>f</m> at <m>\mb{a}</m> along <m>\mb{v}</m> is <me> D_\mb{v} f ( \mb{a}) = \left. \frac{d}{dt} f (\mb{a} + t\mb{v} )\right|_{t = 0}. </me> if it exists. We write <m>D_{\mb{v}} f</m> when regarding the directional derivative as a function of <m>U</m>.
+        </p>
+        </statement>
+    </definition>
+
+    <p>We note that some texts only consider directional derivatives when <m>\mb{v}</m> is a unit vector. The idea of a directional derivative is given in its name. It measures the rate of change of <m>f</m> as one moves in the direction <m>\mb{v}</m> at unit speed. Before computing, let us list a few properties.</p>
+
+    <proposition>
+        <statement>
+            <p> If <m>f, g : U \to \mathbb{R}</m> are scalar functions on <m>U \subset V</m>, <m>\lambda</m> a real number, and <m>\mb{v}</m> is a vector in <m>V</m>, then
+            <ol>
+                <li> <m>D_\mb{v} (f + \lambda g) = D_{\mb{v}} f + \lambda D_{\mb{v}}</m>, </li>
+                <li> <m>D_{\mb{v}} (fg) = f D_{\mb{v}} g + (D_{\mb{v}} f )g</m>, </li>
+                <li> <m>D_{\lambda \mb{v}} (f) =\lambda D_{\mb{v}} f </m>. </li>
+            </ol> </p>
+        </statement>
+    </proposition>
+
+    <p>The proof of this proposition is straightforward and follows from the properties of the one variable derivative. To see that finding directional derivatives is a straightforward computation, let us check a basic example. </p>
+    
+    <example>
+        <title>Directional derivative</title>
+        <statement>
+            <p>Let 
+                <me> f(x,y) = x \cos (y ) </me>
+            and <m>\mb{v} = \langle 2, 1\rangle</m>. Then
+            <md>
+                <mrow> D_{\mb{v}} f (0, 0) \amp = \left. \frac{d}{dt} f (\langle 0, 0\rangle + t \langle 2, 1 \rangle )\right|_{t = 0}, </mrow>  <mrow> </mrow> 
+                <mrow> \amp = \left. \frac{d}{dt} f ( 2t, t) \right|_{t = 0} ,</mrow> 
+                <mrow> \amp =  \left. \frac{d}{dt} 2t \cos t \right|_{t = 0} ,</mrow> 
+                <mrow> \amp =  \left. \frac{d}{dt} 2t \cos t \right|_{t = 0} ,</mrow>
+                <mrow> \amp = \left. 2 \cos t  - 2t\sin t \right|_{t = 0}, </mrow>
+                <mrow> \amp = 2. </mrow>
+            </md>
+            Had we not chosen to evaluate at <m>(0, 0)</m>, we can view the directional derivative as a function of <m>(x,y)</m>. Indeed,
+            <md>
+                <mrow> D_{\mb{v}} f  \amp = \left. \frac{d}{dt} f (\langle x, y\rangle + t \langle 2, 1 \rangle )\right|_{t = 0}, </mrow>
+                <mrow> \amp = \left. \frac{d}{dt} f ( x + 2t, y + t) \right|_{t = 0} , </mrow>
+                <mrow> \amp =  \left. \frac{d}{dt} (x + 2t) \cos (y + t) \right|_{t = 0} , </mrow>
+                <mrow> \amp = \left. 2 \cos (y + t)  - (x + 2t)\sin (y +  t) \right|_{t = 0}, </mrow>
+                <mrow>  \amp = 2 \cos y - x \sin y. </mrow>
+            </md> 
+            Note that when taking the <m>t</m> derivative, both <m>x</m> and <m>y</m> are viewed as constants.</p>
+        </statement>
+    </example>
+    
+    <p>By far the most popular examples of directional derivatives are partial derivatives. </p>
+
+    <definition xml:id="def-partial-derivative">
+        <notation>
+            <usage><m>\pd{f}{x_i}</m></usage>
+            <description>partial derivative</description>
+        </notation>
+        <statement>
+            <p>Let <m>U</m> be an open subset of <m>\mathbb{R}^m</m> and <m>f : U \to \mathbb{R}</m> be the scalar function <m>f(x_1, \ldots, x_m)</m>. For <m>1 \leq i \leq m</m>, the <m>i</m>-th partial derivative of <m>f</m> at <m>(a_1, \ldots, a_n)</m> is 
+            <me>
+                \left. \pd{f}{x_i} \right|_{(a_1, \ldots, a_n)} = D_{\mb{e}_i} f (a_1, \ldots, a_n).
+            </me>
+            where <m>\mb{e}_i</m> is the <m>i</m>-th standard basis vector.</p>
+        </statement>
+    </definition>
+
+    <p>When we have variables <m>(x,y)</m> or <m>(x,y,z)</m>, we use them instead of <m>x_i</m> in our notation. Alternative notation for partial derivatives abound. For example, we can write
+    <me>
+        f_{x} = \pd{f}{x} \hspace{.1in} \text{ or } \hspace{.1in} \pd{}{x} f = \pd{f}{x}\hspace{.1in} \text{ or } \hspace{.1in} \partial_x f = \pd{f}{x}.
+    </me> 
+    Also, in the case where the variable is <m>x_i</m>, one sometimes sees the notation <m>\partial_i f</m> for <m>\pd{f}{x_i}</m>. Note the very important fact that a partial derivative of a scalar function is <em>not</em> the derivative of a function. Indeed, partial derivatives may exist and yet a function may not even be differentiable (as we will observe shortly). While partial derivatives are as easy to compute (even easier) as directional derivatives, it is useful to practice a few to become familiar with them.</p>
+
+    <example>
+        <title>Partial derivative I</title>
+        <statement>
+            <p>Let us compute partial derivatives of 
+            <me>
+                f(x,y) = x^2 + \cos (xy) .
+            </me>
+            The key point to keep in mind as you take partial derivatives is to keep all variables constant <em> except </em> the one you are deriving. So
+            <me>
+                \pd{f}{x} = 2x - y \sin (xy)
+            </me>
+            and 
+            <me>
+                \pd{f}{y} = - x\sin (xy).
+            </me>
+            Notice that one needs to apply the chain rule while treating the other variables as constants.</p>
+        </statement>
+    </example>
+
+    <example>
+        <title>Partial Derivative II</title>
+        <statement>
+            <p> Let's try partial derivatives of 
+            <me>
+                f(x_1, x_2, x_3) = \ln (x_1 x_2 x_3 ) - 3 x_1 e^{x_2}.
+            </me>
+            Here we compute
+            <md>
+                <mrow> \pd{f}{x_1} \amp = \frac{1}{x_1} - 3 e^{x_2}, </mrow>
+                <mrow> \pd{f}{x_2} \amp = \frac{1}{x_2} - 3x_1 e^{x_2}, </mrow>
+                <mrow> \pd{f}{x_3} \amp = \frac{1}{x_3} . </mrow>
+            </md> </p>
+        </statement>
+    </example>
+    
+    <p>We can also consider higher partial derivatives by repeating. These can be written by naturally extending the notation. For example, the second derivative <m>f_{xy}</m> is obtained by taking the partial of <m>f</m> with respect to <m>x</m> and then taking the partial of that with respect to <m>y</m>. This is also written <m>\frac{\partial^2 f}{\partial x \partial y}</m>. </p>
+
+    <example>
+        <title>Partial Derivative III</title>
+        <statement>
+            <p> In the prior example of 
+            <me>
+                f(x,y) = x^2 + \cos (xy) .
+            </me>
+            we can compute the second partial derivatives 
+            <md>
+                <mrow> \frac{\partial^2 f}{\partial x^2} \amp = 2 - y^2 \cos (xy), </mrow>
+                <mrow> \frac{\partial^2 f}{\partial x \partial y} \amp = - \sin (xy) - xy \cos (xy), </mrow>
+                <mrow> \frac{\partial^2 f}{\partial y \partial x} \amp = - \sin (xy) - xy \cos (xy), </mrow>
+                <mrow> \frac{\partial^2 f}{\partial y^2} \amp =  - x^2 \cos (xy).</mrow>
+            </md> </p>
+        </statement>
+    </example>
+
+    <p>Notice that <m>f_{xy} = f_{yx}</m>. This is a symptom of a more general fact as the following Theorem proves.</p>
+
+    <theorem xml:id="thm-Clairaut">
+        <title>Clairaut's Theorem</title>
+        <statement>
+            <p>If <m>f (x_1, \ldots, x_n)</m> has continuous second partial derivatives in a neighborhood of <m>(a_1, \ldots, a_n)</m> then
+            <me>
+                 \left. \frac{\partial^2 f}{\partial x_i \partial x_j}\right|_{(a_1, \ldots, a_n)} = \left. \frac{\partial^2 f}{\partial x_j \partial x_i}\right|_{(a_1, \ldots, a_n)} .
+            </me> </p>
+        </statement>
+        <proof>
+        <p>We prove this for <m>f(x_1, x_2)</m> as the more general case follows the same outline with more notation. Note that,
+        <me>
+            \left. \frac{\partial^2 f}{\partial x_1 \partial x_2} \right|_{(a_1, a_2)} 
+        </me>
+        equals 
+        <me> \lim_{h, k \to 0} \frac{f(a_1 + h , a_2 + k) - f(a_1, a_2 + k) - f(a_1 + h, a_2) + f(a_1, a_2)}{hk} .
+        </me>
+        Now, consider the function 
+        <me>
+            F(t) = f(t, a_2 + k) - f( t, a_2)
+        </me>
+        defined on <m>[0, h]</m>. This function is differentiable so we can apply the Mean Value Theorem
+        and find <m>a_1^*</m> between <m>a_1</m> and <m>a_1 + h</m> such that <m>F^\prime (a_1^*) = \frac{F(h) - F(0)}{h}</m>. Noting that <m>F^\prime (t) = \partial_{x_1} f (t, a_2 + k) - \partial_{x_1} f (t, a_2)</m>, writing this out we have that
+        <me>
+            f(a_1 + h , a_2 + k) - f(a_1, a_2 + k) - f(a_1 + h, a_2) + f(a_1, a_2) 
+        </me>
+        equals
+        <me> 
+            \left( f_{x_1} (a_1^*, a_2 + k) -  f_{x_1} (a_1^*, a_2) \right) h.
+        </me>
+        Thus 
+        <md>
+            <mrow> \left. \frac{\partial^2 f}{\partial x_1 \partial x_2} \right|_{(a_1, a_2)} \amp = \lim_{h, k \to 0} \frac{f_{x_1} (a_1^*, a_2 + k) -  f_{x_1} (a_1^*, a_2)}{k}, </mrow>
+            <mrow> \amp = \lim_{h \to 0}\left. \frac{\partial^2 f}{\partial x_2 \partial x_1} \right|_{(a_1^*, a_2)} </mrow>
+            <mrow> \amp = \left. \frac{\partial^2 f}{\partial x_2 \partial x_1} \right|_{(a_1, a_2)} . </mrow>
+        </md>
+        The last equality here follows from the continuity of the second derivatives and the fact that <m>a_1 \leq a_1^* \leq a_1 + h</m>.</p>
+        </proof>
+    </theorem>
+
+    <p>Clairaut's Theorem is extremely useful in minimizing the number of higher partial derivatives one needs to take. </p>
+
+    </subsection>
+
+    <subsection xml:id="subsec-derivatives-scalar">
+        <title>Derivatives of scalar functions</title>
+        <p>Now that we have the computational tool of partial derivatives in hand, we can ask whether a scalar function is differentiable. In fact, this can often readily be checked using the following theorem.</p>
+
+        <theorem xml:id="thm-differentiable">
+            <statement>
+                <p>Suppose <m>f : U \to \mathbb{R}</m>  is a scalar function on an open subset <m>U</m> of <m>\mathbb{R}^m</m>. If <m>f</m> has continuous first partial derivatives then <m>f</m> is differentiable. Furthermore, in this case
+                <me>
+                    \tder{}{f} \left( \threevec{b_1}{\vdots}{b_m} \right) = b_1 \pd{f}{x_1} + b_2 \pd{f}{x_2} + \cdots + b_n \pd{f}{x_n}.
+                </me> </p>
+            </statement>
+            <proof> We will assume <m>U</m> is a neighborhood of <m>\mb{a}</m> and <m>\mb{x}</m> is in <m>U</m>. Let <m>\mb{x} - \mb{a} = b_1 \mb{e}_1 + \cdots + b_m \mb{e}_m</m>. Write 
+            <md>
+                <mrow> \mb{v}_1 \amp = b_1 \mb{e}_1 + \cdots + b_m \mb{e}_m, </mrow>
+                <mrow> \mb{v}_2 \amp = b_2 \mb{e}_2 + \cdots + b_m \mb{e}_m, </mrow>
+                <mrow> \amp \vdots </mrow>
+                <mrow> \mb{v}_m \amp = b_m \mb{e}_m. </mrow>
+            </md> 
+            Then 
+            <md>
+                <mrow> f(\mb{x} ) - f (\mb{a}) \amp = \left( f(\mb{a} + \mb{v}_1 ) - f (\mb{a} + \mb{v}_2) \right)  + \cdots + \left( f(\mb{a} + \mb{v}_m ) - f (\mb{a}) \right), </mrow>
+                <mrow>  \amp = \left( f(\mb{a} + \mb{v}_2 + b_1 \mb{e}_1 ) - f (\mb{a} + \mb{v}_2) \right)  + \cdots + \left( f(\mb{a} + b_m \mb{e}_m ) - f (\mb{a}) \right), </mrow>
+            </md>
+            The summands in this final expression are of the form
+            <me> 
+                f(\mb{a} + \mb{v}_{k + 1} + b_k \mb{e}_k ) - f(\mb{a} + \mb{v}_{k + 1}). 
+            </me>
+            Now, by the Mean Value Theorem, for each such <m>k</m> there exists a <m>t_k</m> between <m>0</m> and <m>b_k</m> with 
+            <me>
+                \left. \pd{f}{x_k} \right|_{\mb{a} + t_k \mb{e}_{k}} =  \frac{f(\mb{a} + \mb{v}_{k + 1} + b_k \mb{e}_k ) - f(\mb{a} + \mb{v}_{k + 1})}{b_k}
+            </me>
+            or 
+            <me>
+                f(\mb{a} + \mb{v}_{k + 1} + b_k \mb{e}_k ) - f(\mb{a} + \mb{v}_{k + 1}) = b_k \left. \pd{f}{x_k} \right|_{\mb{a} + \mb{v}_{k + 1} + t_k \mb{e}_{k}}.
+            </me>
+            Thus 
+            <md>
+                <mrow> f(\mb{x} ) - f (\mb{a}) \amp = \left( f(\mb{a} + \mb{v}_2 + b_1 \mb{e}_1 ) - f (\mb{a} + \mb{v}_2) \right)  + \cdots + \left( f(\mb{a} + b_m \mb{e}_m ) - f (\mb{a}) \right), </mrow>
+                <mrow> \amp = b_1  \left. \pd{f}{x_1} \right|_{\mb{a} + \mb{v}_{2} + t_1 \mb{e}_{1}} + \cdots + b_m  \left. \pd{f}{x_m} \right|_{\mb{a} + t_m \mb{e}_{m}} </mrow>
+            </md>
+            Write 
+            <me>
+                L (\mb{x} - \mb{a} ) =  b_1  \left. \pd{f}{x_1} \right|_{\mb{a}} + \cdots + b_m  \left. \pd{f}{x_m} \right|_{\mb{a}}
+            </me>
+            for the conjectured derivative of <m>f</m> at <m>\mb{a}</m>. Then the numerator
+            <me>
+                N (\mb{x} ) = f(\mb{x} ) - f (\mb{a}) - L (\mb{x} - \mb{a} )
+            </me>
+            of equation <xref ref="eq-derivative" /> is
+            <md>
+                <mrow> N(\mb{x}) \amp =  b_1 \left(  \left. \pd{f}{x_1} \right|_{\mb{a} + \mb{v}_{2} + t_1 \mb{e}_{1}} - \left. \pd{f}{x_1} \right|_{\mb{a}} \right) + \cdots + b_m \left(  \left. \pd{f}{x_m} \right|_{\mb{a} + t_m \mb{e}_{m}} - \left. \pd{f}{x_m} \right|_{\mb{a}} \right), </mrow>
+                <mrow> \amp = \left( \mb{x} - \mb{a} \right) \cdot  \threevec{\left. \pd{f}{x_1} \right|_{\mb{a} + \mb{v}_{2} + t_1 \mb{e}_{1}} - \left. \pd{f}{x_1} \right|_{\mb{a}} }{\vdots}{ \left. \pd{f}{x_m} \right|_{\mb{a} + t_m \mb{e}_{m}} - \left. \pd{f}{x_m} \right|_{\mb{a}} }. </mrow>
+            </md>
+            Now, as <m>\mb{x}</m> tends to <m>\mb{a}</m>, the <m>t_k</m> values must tend towards zero (since <m>b_k</m> are tending to zero) and so are <m>\mb{v}_k</m>. By the continuity of the first partials, we then have
+            <me>
+                \lim_{\mb{x} \to \mb{a}} \threevec{\left. \pd{f}{x_1} \right|_{\mb{a} + \mb{v}_{2} + t_1 \mb{e}_{1}} - \left. \pd{f}{x_1} \right|_{\mb{a}} }{\vdots}{ \left. \pd{f}{x_m} \right|_{\mb{a} + t_m \mb{e}_{m}} - \left. \pd{f}{x_m} \right|_{\mb{a}} } = \mb{0}.
+            </me> 
+            and moreover
+            <me>
+                \lim_{\mb{x} \to \mb{a}} \left\|  \threevec{\left. \pd{f}{x_1} \right|_{\mb{a} + \mb{v}_{2} + t_1 \mb{e}_{1}} - \left. \pd{f}{x_1} \right|_{\mb{a}} }{\vdots}{ \left. \pd{f}{x_m} \right|_{\mb{a} + t_m \mb{e}_{m}} - \left. \pd{f}{x_m} \right|_{\mb{a}} } \right\| = 0
+            </me>
+            But dividing <m>\mb{x} - \mb{a}</m> by <m>\| \mb{x} - \mb{a} \|</m> simply normalizes it. So taking <m>\mb{u}</m> to be  
+            <me>
+                \mb{u} = \frac{1}{\| \mb{v}_1\|} \mb{v}_1 = \frac{\mb{x} - \mb{a}}{\| \mb{x} - \mb{a}\|} 
+            </me>
+            we have
+            <md>
+                <mrow> \frac{N(\mb{x})}{\| \mb{x} - \mb{a}\|} \amp =  \left( \frac{\mb{x} - \mb{a}}{\|\mb{x} - \mb{a} \|} \right) \cdot  \threevec{\left. \pd{f}{x_1} \right|_{\mb{a} + \mb{v}_{2} + t_1 \mb{e}_{1}} - \left. \pd{f}{x_1} \right|_{\mb{a}} }{\vdots}{ \left. \pd{f}{x_m} \right|_{\mb{a} + t_m \mb{e}_{m}} - \left. \pd{f}{x_m} \right|_{\mb{a}} }, </mrow>
+                <mrow> \amp = \cos \theta_{\mb{x}} \|\mb{u} \| \left\| \threevec{\left. \pd{f}{x_1} \right|_{\mb{a} + \mb{v}_{2} + t_1 \mb{e}_{1}} - \left. \pd{f}{x_1} \right|_{\mb{a}} }{\vdots}{ \left. \pd{f}{x_m} \right|_{\mb{a} + t_m \mb{e}_{m}} - \left. \pd{f}{x_m} \right|_{\mb{a}} } \right\|, </mrow>
+                <mrow>  \amp = \cos \theta_{\mb{x}} \left\| \threevec{\left. \pd{f}{x_1} \right|_{\mb{a} + \mb{v}_{2} + t_1 \mb{e}_{1}} - \left. \pd{f}{x_1} \right|_{\mb{a}} }{\vdots}{ \left. \pd{f}{x_m} \right|_{\mb{a} + t_m \mb{e}_{m}} - \left. \pd{f}{x_m} \right|_{\mb{a}} } \right\|.</mrow>
+            </md>
+            Thus, a quick application of the Squeeze Theorem gives
+            <me>
+                \lim_{\mb{x} \to \mb{a}} \frac{N(\mb{x})}{\| \mb{x} - \mb{a}\|} = 0
+            </me>
+            which by definition implies <m>\tder{\mb{a}}{f} = L</m> and proves the theorem.
+            </proof>
+        </theorem>
+
+        <p>It is hard to overstate how beneficial this theorem is for us. This is for two main reasons (and possibly several more). First, we can proceed confidently and easily with computing derivatives of scalar (and soon general) vector valued functions. Second, we have bridged the gap between an abstract definition that is useful for general results (e.g. chain rule and change of variable formulas) and a concrete method which gives us the ability to check whether a given function satisfies the conditions for said result. However, we issue a stern warning that the continuity assumption in this theorem must be satisfied in order for it to hold. As you will see in <xref ref="exercise-notdiff"/>, there are examples for which relaxing this assumption results in a non-differentiable function.</p>
+
+        <p>As one final comment, we should remind the student that one of the themes of this course is to understand basis free mathematics. An astute student will see that the definition of the derivative did not make mention of a basis, even implicitly. It was for a function on an inner product space and involved limits and natural transformations (not on <m>\mathbb{R}^m</m> and matrices). However, Theorem~\ref{thm:differentiable} required that we work in <m>\mathbb{R}^m</m> and the reason was that it consulted partial derivatives which are defined relative to a given coordinate system! Now, one could just as easily have written this Theorem replacing continuous partial derivatives with directional derivatives along a basis of vectors, but this would certainly over complicate the statement. The point here is that to connect with computation, a basis is key and very useful - but we must keep in mind that in general it is a choice and will allow us to represent our structures numerically. In particular, in truth the derivative of a function is a linear transformation, not a matrix (although this is rarely pointed out in a first year multivariable calculus course!).</p>
+    
+    </subsection>
+
+    <subsection xml:id="subsec-linear-approximation-scalar">
+        <title>Linear approximation of scalar functions</title>
+        <p> As we have just seen in <xref ref="thm-differentiable"/>, one can often check for differentiability of a scalar function by looking at the first partial derivatives. This leads us to the following unfortunate definition. </p>
+
+        <definition xml:id="def-linear-approximation">         
+            <notation>             
+                <usage><m>L(\mb{x})</m></usage>             
+                <description>linear approximation</description>         
+            </notation>         
+            <statement>
+                <p>Given a function <m>f: U \to \mathbb{R}</m> on a neighborhood <m>U \subseteq \mathbb{R}^m</m> of a point <m>\mb{a}</m> and differentiable at <m>\mb{a}</m>, the <term> linear approximation</term> of <m>f</m> at <m>\mb{a}</m> is the function
+                <md>
+                    <mrow>L (\mb{x} ) \amp = f (\mb{a} ) + \tder{\mb{a}}{f} ( \mb{x} - \mb{a} ), </mrow>
+                    <mrow> \amp = f(a_1, \ldots, a_m) + f_{x_1} (a_1, \ldots, a_m) (x_1 - a_1) + \cdots +  f_{x_m} (a_1, \ldots, a_m) (x_m - a_m).</mrow>
+                </md>
+                </p>
+            </statement>
+        </definition>
+
+        <p>Now, while this vocabulary makes me mildly nauseous, it is completely standard and I cannot in good conscience avoid it. My nausea results from the fact that the linear approximation is \textit{not} a linear function. Rather it is what is known as an affine function which is quite close (the sum of a vector and a linear function). Indeed, it would be much better to use the term `first order approximation', but sadly this is less popular. None the less, we can make several notes about this approximation. First, the graph of <m>L</m> ought to give us the `linear' subspace of <m>\mathbb{R}^{m + 1}</m> which is tangent to the graph of <m>f</m> at the point <m>(\mb{a}, f(\mb{a})</m>. Let us see this in an example.</p>
+
+        <example>
+            <title>Linear approximation of scalar function I</title>
+            <statement>
+                <p>Suppose 
+                <me>
+                    f (x,y) = x^2 + xy - y^2
+                </me>
+                and we want to find the tangent plane to the graph of <m>f(x,y)</m> at <m>(1, 2, -1)</m>. For this, we can compute the partials of <m>f</m> to see
+                <md>
+                    <mrow> \pd{f}{x} \amp = 2x + y, </mrow>
+                    <mrow> \pd{f}{y} \amp = -2y + x. </mrow>
+                </md>
+                Evaluating them at <m>(1, 2)</m> gives
+                <md>
+                    <mrow> \left. \pd{f}{x} \right|_{(1,2)} \amp = 4, </mrow>
+                    <mrow> \left. \pd{f}{y} \right|_{(1,2)} \amp = -3. </mrow>
+                </md>
+                So we have an explicit form for our derivative (writing the vector <m>\twovec{b_1}{b_2}</m> in row form)
+                <me>
+                    \tder{(1,2)}{f} \left({b_1, b_2} \right) = 4 b_1 - 3 b_2 .
+                </me>
+                Thus the linear approximation <m>L</m> to <m>f</m> at <m>(1,2)</m> is precisely 
+                <me>
+                    L (x, y) = f(1,2) + \tder{(1,2)}{f} (x - 1, y - 2) = -1 + 4 (x - 1) - 3(y - 2) = 1 + 4x - 3y.
+                </me>
+                As the graph of <m>L</m> (which has equation <m>z = L(x,y)</m>) is the equation for the tangent plane, we obtain
+                <me>
+                    z = 1 + 4x - 3y
+                </me>
+                or 
+                <me>
+                    4x - 3y - z = -1
+                </me>
+                as the equation for the tangent plane.</p>
+            </statement>
+        </example>
+
+        <p>Another application of linear approximations is to compute approximations of functions near known values.</p>
+
+        <example>
+            <title>Linear approximation of scalar function II</title>
+            <statement>
+                <p> Suppose we wish to compute <m>\sqrt{4.1} + \ln (1.2)</m>. To do this, we consider the function
+                <me>
+                    f(x,y) = \sqrt{x} + \ln y
+                </me>
+                and it's linear approximation at <m>(4,1)</m>. We compute to see that 
+                <md>
+                    <mrow> f(4,1) \amp = 2 , </mrow>
+                    <mrow> \pd{f}{x} \amp = \frac{1}{2\sqrt{x}}, </mrow>
+                    <mrow> \pd{f}{y} \amp = \frac{1}{y}. </mrow>
+                </md>
+                Evaluating them at <m>(4,1)</m> gives
+                <md>
+                    <mrow> \left. \pd{f}{x} \right|_{(4,1)} \amp = \frac{1}{4}, </mrow>
+                    <mrow> \left. \pd{f}{y} \right|_{(4,1)} \amp = 1. </mrow>
+                </md>
+                so that the linear approximation is
+                <me>
+                    L(x,y) = 2 + \frac{1}{4} (x - 4) + (y - 1).
+                </me>
+                Evaluating gives
+                <me>
+                    L(4.1, 1.2) = 2 + \frac{1}{4} \frac{1}{10} + \frac{2}{10} = 2.225 
+                </me>
+                and we conclude that
+                <me>
+                    \sqrt{4.1} + \ln (1.2) \approx 2.225 .
+                </me>
+                In fact, the value is closer to <m>2.20716...</m>, but this approximation is definitely a step up from the first guess of <m>2</m>. </p>
+            </statement>
+        </example>            
+
+    </subsection>
+
+    <subsection xml:id="subsec-Jacobian">
+        <title>The Jacobian matrix</title>
+        <p>The following theorem's proof can be found in a standard analysis book, but quite easily follows from <xref ref="thm-differentiable"/>.</p>
+
+        <theorem xml:id="thm-Jacobianmatrix">
+            <statement>
+                <p> Let <m>U \subset \mathbb{R}^m</m> and <m>\mb{F} : U \to \mathbb{R}^n</m> a function which in coordinates is given by 
+                <me>
+                    \mb{F} (x_1, \ldots, x_m) = \threevec{f_1 (x_1, \ldots, x_m)}{\vdots}{f_n (x_1, \ldots,x_m)}. 
+                </me>
+                If the partial derivatives <m>\pd{f_i}{x_j}</m> are defined and continuous in <m>U</m> then <m>\mb{F}</m> is differentiable and 
+                <me>
+                    \tder{\mb{a}}{\mb{F}} \left( \left[ \begin{matrix} b_1 \\ b_2 \\ \vdots \\ b_m \end{matrix} \right] \right) = \left[ \begin{matrix} \pd{f_1}{x_1} \amp \pd{f_1}{x_2} \amp \cdots \amp \pd{f_1}{x_m} \\[2pt] \pd{f_2}{x_1} \amp \pd{f_2}{x_2} \amp \cdots \amp \pd{f_2}{x_m} \\ \vdots \amp \vdots \amp \amp \vdots \\ \pd{f_n}{x_1} \amp \pd{f_n}{x_2} \amp \cdots \amp \pd{f_n}{x_m} \end{matrix} \right] \left[ \begin{matrix} b_1 \\ b_2 \\ \vdots \\ b_m \end{matrix} \right].
+                </me>
+                The matrix on the right is called the <term> Jacobian matrix </term> of <m>\mb{F}</m>.</p>
+            </statement>
+        </theorem>
+
+        <p><xref ref="thm-Jacobianmatrix"/> is unfortunately rarely given in a multivariable calculus course, but gives us a concrete computational way to find derivatives of the most general types of vector valued functions. We will use the Jacobian matrix frequently, as it plays quite nicely with many important theorems and techniques. For now, we will be satisfied with the fact that we can compute derivatives and give a couple examples. 
+        </p>
+
+        <example>
+            <title>Jacobian of a linear transformation</title>
+            <statement>
+                <p> If <m>A</m> is an <m>n \times m</m> matrix with entries <m>(a_{ij} )</m> and <m>T_A : \mathbb{R}^m \to \mathbb{R}^n</m> is obtained by multiplication of a column vector on the left by <m>A</m>, then one can see that 
+                <me>
+                    T_A \left( \threevec{x_1}{\vdots}{x_m} \right) = \threevec{a_{11} x_1 + a_{12} x_2 + \cdots + a_{1m} x_m}{\vdots}{a_{n1} x_1 + a_{n2} x_2 + \cdots + a_{nm} x_m}.
+                </me>
+                Thus the <m>i</m>-th coordinate function of <m>T_A</m> is <m>f_i = a_{i1} x_1 + a_{i2} x_2 + \cdots + a_{im} x_m</m> and the partial derivative is
+                <me>
+                    \pd{f_i}{x_j} = a_{ij}.
+                </me>
+                These are all constant functions and thus continuous implying that <m>T_A</m> is differentiable. Furthermore, the Jacobian matrix in this case is just <m>A</m> itself and we see that <m>d T_A = T_A</m>. This is saying that the derivative of a linear transformation is constant and equals that linear transformation... which makes sense if you ask <sq>what is the linear approximation to a linear function?</sq>.</p>
+            </statement>
+        </example>
+
+        <example>
+            <title>Jacobian of a function of a complex variable</title>
+            <statement>
+                <p>Consider the function <m>\mb{f} : \mathbb{C} \to \mathbb{C}</m> given by <m>\mb{f} (z) = e^z</m>. If we identify <m>\mathbb{C}</m> with <m>\mathbb{R}^2</m> and <m>z</m> with <m>x + iy</m>, this function can be written 
+                <me>
+                    \mb{f} (x,y) = e^x \cos y + i e^x \sin y = u(x,y) + i v(x,y).
+                </me>
+                Taking partials gives 
+                <md>
+                    <mrow> \pd{u}{x} = e^x \cos y = \pd{v}{y}, </mrow>
+                    <mrow> \pd{u}{y} = -e^x \sin y = - \pd{v}{x}. </mrow>
+                </md>
+                These equations (without the middle terms) are known as the Cauchy-Riemann equations and tell us that <m>\mb{f}</m> is what is known as a holomorphic function. Regardless, we can see that in fact all partial derivatives are continuous everywhere so <m>\mb{f}</m> is differentiable with Jacobian matrix
+                <me>
+                     d \mb{f} = \left[ \begin{matrix}  e^x \cos y \amp  - e^x \sin y \\  e^x \sin y \amp  e^x \cos y \end{matrix} \right].
+                </me>
+                Finally, note that multiplication by this matrix is the same as complex multiplication by <m>e^z</m> (having identified <m>\mathbb{R}^2</m> with <m>\mathbb{C}</m>). This can be rephrased in complex analysis as saying that the derivative of <m>e^z</m> is <m>e^z</m>.</p>
+            </statement>
+        </example> 
+    </subsection>
+
+    <exercises xml:id="exe-derivative">
+
+        <exercise>
+            <statement>
+                <p> For the case of <m>m = 1 = n</m>, <m>\mb{F} (\mb{x}) = f(x)</m>, explain why <xref ref="def-derivative"/> is the same as the usual definition of the derivative. </p>
+            </statement>
+        </exercise>
+
+        <exercise>
+            <statement>
+                <p> The function <m>h (x,y) = 4 e^{-x^2 - y^2}</m> denotes the altitude of a point on a map given in Cartesian coordinates. If you are at the point <m>(1,1)</m> moving at unit speed in the north east direction, calculate the rate at which your altitude is changing.</p>
+            </statement>
+        </exercise>
+
+        <exercise>
+            <statement>
+                <p> The function <m>T (x,y, z) = x y z - x^2</m> denotes the temperature at a point in three space. If you are at the point <m>(0, 1,-1)</m> moving at unit speed towards <m>\tangthree{1}{-1}{1}</m>, calculate the rate at which the temperature is changing.</p>
+            </statement>
+        </exercise>
+
+        <exercise>
+            <statement>
+                <p> Let <m>\mb{v} = \tangtwo{-1}{2} </m> and compute the directional derivative <m>D_\mb{v} f</m> for 
+                <me>
+                    f (x, y) = x + e^{xy}.
+                </me></p>
+            </statement>
+        </exercise>
+        
+        <exercise>
+            <statement>
+                <p> Let <m>\mb{v}</m> be a vector in the inner product space <m>V</m> with pairing <m>\langle , \rangle</m> and <m>\mb{u}</m> some other vector. What is <m>D_{\mb{v}} N (\mb{u})</m> where <m>N (\mb{u} ) = \| \mb{u} \|^2</m>? (Express your answer without choosing a basis.) </p>
+            </statement>
+        </exercise>
+
+
+        <exercise>
+            <introduction><p>Compute the following partial derivatives.</p></introduction>
+        <task>
+            <statement>
+                <p> <m>\pd{f}{x}</m> and <m>\pd{f}{y}</m> for <m>f(x,y) = \ln (x + y^3) - x^2 y</m>. </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p> <m>\pd{f}{x}</m> and <m>\pd{f}{z}</m> for <m>f(x,y,z) = xe^{xyz}</m>. </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p> <m>\pd{f}{x_2}</m> for <m>f(x_1,x_2, \ldots, x_n) = (x_1 + x_2 + x_3 + \cdots x_n)^5</m>. </p>
+            </statement>
+        </task>
+        </exercise>
+
+        <exercise xml:id="exercise-notdiff">
+            <introduction><p>Consider the function
+            <me>
+                f(x,y) = \frac{xy}{\sqrt{x^2 + y^2}}
+            </me>
+            and define <m>f(0,0)</m> to equal <m>0</m>. </p></introduction>
+        <task>
+            <statement>
+                <p> Show that <m>f</m> is continuous at <m>(0,0)</m>.</p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p>  Show that <m>\pd{f}{x}</m> and <m>\pd{f}{y}</m> are both well defined everywhere (in particular they are well defined at <m>(0,0)</m>). </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p>  Prove that <m>f</m> is not differentiable at <m>(0,0)</m>. </p>
+            </statement>
+        </task>
+        <conclusion>
+        This example shows that the existence of partial derivatives is <em>not</em> sufficient for a function to be differentiable. 
+        </conclusion>
+        </exercise>
+
+        <exercise>
+            <statement>
+                <p> Find the linear approximation for the function <m>\sin (x ) \cos (y)</m> and and estimate the value <m>\sin (.05) \cos (.01)</m>. </p>
+            </statement>
+        </exercise>
+
+        <exercise xml:id="exercise-polarjacobian">
+            <statement>
+                <p> Consider the change of coordinates from polar to Cartesian. This is given by the function 
+                    <me> \mb{F} (r, \theta ) = \twovec{r \cos \theta}{r \sin \theta}. </me>
+                    Compute the Jacobian matrix of <m>\mb{F}</m>. </p>
+            </statement>
+        </exercise>
+
+        <exercise>
+            <statement>
+                <p> Consider the change of coordinates from spherical to Cartesian. This is given by the function
+                    <me> \mb{F} (\rho, \theta, \phi ) = \threevec{\rho \cos \theta \sin \phi}{\rho \sin \theta \sin \phi}{\rho \cos \phi} . </me>
+                    Compute the Jacobian matrix of <m>\mb{F}</m>. </p>
+            </statement>
+        </exercise>
+        
+    </exercises>
+
+</section>

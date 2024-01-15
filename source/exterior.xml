@@ -1,0 +1,647 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-exterior">
+    <title>Exterior algebras</title>
+    <introduction>
+    <p>This section had to come at some point, so I apologize now for presenting the inevitable content contained within! At the same time, exterior algebras could be considered a first introduction to a very intriguing subject and quite different from what you may have experienced in your mathematical education... so I retract my apology!!</p>
+    </introduction>
+    <subsection xml:id="subsec-exterior-product">
+        <title>The exterior product</title>
+        <p>For the last time, we return to linear algebra and consider an <m>n</m>-dimensional vector space <m>V</m> over <m>K</m> where <m>K</m> is either <m>\mathbb{R}</m> or <m>\mathbb{C}</m>. We want to take our vector space <m>V</m> and build several new ones <m>\bigwedge^k V</m>. These new vector spaces consists of linear combinations of <term>wedge products</term> (also known as <term>exterior products</term>) of vectors in <m>V</m>. We describe the rules of such a wedge product now.</p>
+
+        <definition xml:id="def-exterior-algebra">         
+            <notation>             
+                <usage><m>\bigwedge^* V</m></usage>             
+                <description>Exterior algebra</description>         
+            </notation>         
+            <statement>
+                <p>Let <m>V</m> be a vector space over <m>K</m>. The wedge product of vectors <m>\mb{u}</m> and <m>\mb{v}</m> is a formal vector
+                    <me>
+                    u \wedge v
+                    </me>
+                    subject to the properties:
+                    <dl>
+                        <li><b>Anti-symmetry</b>: <m>\mb{u} \wedge \mb{v} = - \mb{v} \wedge \mb{u}</m>, </li>
+                        <li><b>Bilinear</b>:  <m>\mb{u} \wedge (a \mb{v} + b \mb{w} ) = a \mb{u} \wedge \mb{v} + b \mb{u} \wedge \mb{w}</m>.</li>
+
+                    </dl>
+                    The vector space of linear combinations of exterior products of <m>k</m> vectors is called the <term><m>k</m>-th exterior product</term> of <m>V</m> and denoted <m>\bigwedge^k V</m>. By convention <m>\bigwedge^0 V  = K</m>.</p>
+            </statement>
+        </definition>
+
+        <p>The above definition should be taken as an informal one and leaves the technical notions of tensor products to a later course. In particular, the exterior product has to satisfy a so-called universal property which distinguishes it from other algebraic structures enjoying the two defining properties. Nevertheless, let us take a casual look at products in general and arrive at a more precise description of <m>\bigwedge^* V</m> using some propositions. </p>
+
+        <p>Consider linear functions from <m>\mathbb{R}^2</m> to itself. Such functions form a vector space <m>V</m> (the dual of <m>\mathbb{R}^2</m>). We can write such functions as <m>ax + by</m>. Of course, taking our usual product of functions makes new (non-linear) ones like 
+        <me>
+            (2x + 3y ) (x - y ) = 2x^2 - 2x y + 3 y x - 3 y^2 = 2 x^2 + xy - 3 y^2.
+        </me>
+        Now what about exterior products? First, we note that if we take any vector <m>\mb{v}</m> then by anti-symmetry, <m>\mb{v} \wedge \mb{v} = - \mb{v} \wedge \mb{v}</m> which implies <m>\mb{v} \wedge \mb{v} = 0</m>. I.e. taking an <sq>exterior square</sq> of a vector in <m>V</m> gives zero. This combined with bilinearity gives 
+        <me>
+            (2x + 3y ) \wedge (x - y ) = 2x \wedge x - 2x\wedge y + 3 y\wedge x - 3 y\wedge y = - 2x\wedge y - 3 x\wedge y = - 5 x \wedge y.
+        </me>
+        This type of exercise can be enhanced to the following proposition.</p>
+
+        <proposition xml:id="prop-wedgebasis">
+            <statement>
+                <p>If <m>\mathcal{B} = \{ \mb{v}_1 , \ldots, \mb{v}_n \}</m> is a basis for the vector space <m>V</m> then 
+                    <me>
+                        \left\{ \mb{v}_{i_1} \wedge \cdots \wedge \mb{v}_{i_k} :1 \leq i_1 \lt i_2 \lt \cdots \lt i_k \leq n\right\}
+                    </me>
+                    is a basis for the <m>k</m>-the wedge product <m>\bigwedge^k V</m>. Furthermore, if <m>k \gt n</m> then <m>\bigwedge^k V</m> is the zero vector space.</p>
+            </statement>
+            <proof> <p>We prove that this set spans <m>\bigwedge^k V</m> and leave linear independence to a more advanced treatment. Proceed by induction on <m>k</m>. Certainly when <m>k = 1</m> we have the case of <m>V</m> itself. Assume it to be true for <m>(k - 1)</m>, and consider the exterior product <m>\mb{u}_1 \wedge \cdots \wedge \mb{u}_k</m> in <m>\bigwedge^k V</m>. Then by the induction hypothesis, there are scalars <m>a_{i_1, \ldots, i_{k - 1}}</m> with
+            <me>
+                \mb{u}_1 \wedge \cdots \wedge \mb{u}_{k - 1} = \sum_{i_1 \lt \cdots \lt i_{k - 1}} a_{i_1, \ldots, i_{k - 1}}\mb{v}_{i_1} \wedge \cdots \mb{v}_{i_{k - 1}}
+            </me>
+            and since <m>\mathcal{B}</m> is a basis we also have 
+            <me>
+                \mb{u}_k = \sum_{j = 1}^n b_j \mb{v}_j.
+            </me>
+            Expanding their product and applying bilinearity then gives <m>\mb{u}_1 \wedge \cdots \wedge \mb{u}_k</m> as a linear combination of the <m>k</m>-products
+            <me>
+                \left\{ \mb{v}_{i_1} \wedge \cdots \wedge \mb{v}_{i_k} :1 \leq i_1 \lt i_2 \lt \cdots \lt i_k \leq n\right\}.
+            </me>
+            The proof of linear independence relies on the construction of the exterior algebra from tensor products which we will leave to an abstract algebra course.</p>
+            </proof>
+        </proposition>
+
+        <p>For an <m>n</m>-dimensional vector space we write 
+        <me>
+            \bigwedge^* V = \oplus_{k = 0}^n \bigwedge^k V
+        </me>
+        and note that this vector space has both addition and exterior multiplication - in mathematics we call such spaces algebras.</p>
+
+        <corollary>
+            <statement>
+                <p>If <m>V</m> is an <m>n</m>-dimensional vector space and <m>0 \leq k \leq n</m> then 
+                    <md>
+                        <mrow> \dim \bigwedge^k V \amp = \binom{n}{k}, </mrow>
+                        <mrow> \dim \bigwedge^* V \amp = 2^n. </mrow>
+                    </md></p>
+            </statement>
+        </corollary>
+
+        <p>Thus <m>\bigwedge^* V</m> is not only an algebra it is finite dimensional. Now let us examine a key result that makes these algebras so useful.</p>
+
+        <proposition xml:id="prop-wedgelinearind">
+            <statement>
+                <p>Let <m>\mb{v}_1, \ldots, \mb{v}_k</m> be vectors in <m>V</m>. Then they are linearly independent if and only if 
+                    <me>
+                        \mb{v}_1 \wedge \cdots \wedge \mb{v}_k \ne 0
+                    </me>
+                    in <m>\bigwedge^* V</m>.</p>
+            </statement>
+            <proof> <p>If <m>\mb{v}_1, \ldots, \mb{v}_k</m> are linearly independent, then they can be extended to a basis of <m>V</m>. But then Proposition~\ref{prop:wedgebasis} asserts that <m>\mb{v}_1 \wedge \cdots \wedge \mb{v}_k</m> is a vector in a basis for <m>\bigwedge^k V</m> and thus is non-zero. If they are linearly dependent, then we may assume that, after reordering, <m>\mb{v}_k</m> can be written as a linear combination 
+            <me>
+                \mb{v}_k = a_1 \mb{v}_1 + \cdots + a_{k - 1} \mb{v}_{k - 1}.
+            </me> 
+            But then using bilinearity we have
+            <md>
+                <mrow> \mb{v}_1 \wedge \cdots \wedge \mb{v}_k \amp = \mb{v}_1 \wedge \cdots \wedge \mb{v}_{k - 1} \wedge (a_1 \mb{v}_1 + \cdots + a_{k - 1} \mb{v}_{k - 1} ), </mrow>
+                <mrow> \amp = a_1 \mb{v}_1 \wedge \cdots \wedge \mb{v}_{k - 1} \wedge  \mb{v}_1 + \cdots + a_{k - 1}\mb{v}_1 \wedge \cdots \wedge \mb{v}_{k - 1} \wedge  . \mb{v}_{k - 1}. </mrow>
+            </md>
+            But every summand in the last expression has a wedge product of two <m>\mb{v}_i</m>'s, so using anti-commutativity, we get that each of these is <m>\mb{0}</m> and we are done.</p>
+            </proof>
+        </proposition>
+
+        <p>Let us observe an application of exterior products and this proposition right now. To do this, we need to define differential forms.</p>
+
+        <definition xml:id="def-differential-form">         
+            <notation>             
+                <usage><m>\Omega^k \mathbb{R}^m </m></usage>             
+                <description>Tangent space </description>         
+            </notation>         
+            <statement>
+                <p>Let <m>U</m> be an open subset of <m>\mathbb{R}^m</m>. A <term>differential <m>1</m>-form</term> <m>\eta</m> on <m>U</m> is a smooth assignment which takes <m>p</m> to a tangent covector <m>\eta (p) \in T^*_p \mathbb{R}^m = \text{Hom} (T_p \mathbb{R}^m , \mathbb{R})</m>. A <term>differential <m>k</m>-form</term> is a linear combination of <m>k</m>-exterior products of <m>1</m>-forms.</p>
+            </statement>
+        </definition>
+
+        <p>Equivalently, we may consider a differential <m>k</m>-form to be an assignment from <m>p</m> to the dual of the <m>k</m>-th exterior space <m>\bigwedge^k V</m>, i.e. a vector in <m>\text{Hom} (\bigwedge^k T_p \mathbb{R}^m , \mathbb{R})</m>. Differential <m>1</m>-forms are dual to vector fields in that if we have a vector field <m>\mb{Y}</m> on <m>U</m> and a differential one form <m>\eta</m> on <m>U</m> then <m>\eta (\mb{Y})</m> is a scalar function on <m>U</m>. The most common way to create a differential <m>1</m>-form is to take the derivative of a scalar function!</p>
+
+        <definition xml:id="def-exterior-derivative">
+            <notation>
+                <usage><m>\tder{}{f} </m></usage>             
+                <description>Exterior derivative of scalar function </description>         
+            </notation>         
+            <statement>
+                <p>If <m>U</m> is an open subset of <m>\mathbb{R}^m</m> and <m>p \in U</m>, write the standard dual basis of <m>T_p^* \mathbb{R}^m</m> as 
+                <me>
+                    \tder{}{x_1}, \ldots, \tder{}{x_m}.
+                </me>
+                I.e. these are the dual vectors to the standard tangent vectors <m>\partial_1 , \ldots, \partial_m</m> in that 
+                <me>
+                    \tder{}{x_i} (\partial_j) \amp = \begin{cases} 1 \amp \text{ if } i = j, \\ 0 \amp \text{ otherwise} \end{cases}
+                </me>
+                The (exterior) derivative of a scalar function is then defined as the differential <m>1</m>-form
+                <me>
+                    \tder{}{f} = \frac{\partial f}{\partial x_1} \tder{}{x_1} + \cdots + \frac{\partial f}{\partial x_n} \tder{}{x_n} .
+                </me></p>
+            </statement>
+        </definition>
+
+        <p>The student should note that this is really nothing new (yet), just a different way of expressing the usual derivative of an ordinary scalar function. For example, if we take 
+        <me>
+            f(x,y) = x^2 \ln y
+        </me>
+        then the original definition of the derivative of <m>f(x,y)</m> at <m>(x,y)</m> is a linear transformation from <m>T_{(x,y)} \mathbb{R}^2</m> to <m>T_{x^2 \ln y} \mathbb{R}</m>. Using the standard basis of vector fields, we identify these tangent spaces with <m>\mathbb{R}^2</m> and <m>\mathbb{R}</m> and write this derivative as the <m>1 \times 2</m> matrix
+        <me>
+            \tder{}{f} = \left[ \begin{matrix} 2x \ln y \amp \frac{x^2}{y} \end{matrix} \right].
+        </me>
+        As a differential <m>1</m>-form, this is written
+        <me>
+            \tder{}{f} = 2x \ln y \,\tder{}{x} +   \frac{x^2}{y}\, \tder{}{y}.
+        </me>
+        We will see differential forms in much more detail later on as they form the heart of multivariable calculus. For now, let us use them to re-express Lagrange multipliers.</p>
+
+        <proposition xml:id="prop-lagrangian-one-constaint">
+            <title>Lagrange multipliers with one constraint - exterior product version</title>
+            <statement>
+                <p>Suppose <m>V</m> is an open set in <m>\mathbb{R}^n</m>, <m>g : V \to \mathbb{R}</m> and <m>f: V \to \mathbb{R}</m> two differentiable scalar functions. If <m>X</m> is the level set of <m>g</m> then a smooth point <m>q \in X</m> is a critical point of <m>f|_X</m> if and only if the differential <m>2</m>-form <m>\tder{}{f} \wedge \tder{}{g}</m> vanishes at <m>q</m>.</p>
+            </statement>
+        </proposition>
+
+        <p>The major advantage of this over the previous version is that <em> there are no multipliers!</em> Thus we have automatically eliminated one variable that needs to be solved in the previous version. Let's take another look at <xref ref="ex-lagrange1"/> but using this technique. </p>
+
+        <example>
+            <title>Lagrange multiplier using differential forms</title>
+            <statement>
+                <p>Recall that in <xref ref="ex-lagrange1"/> we wanted to find critical points of <m>f(x,y,z) = x^2 - y^2 + z</m> on the hyperboloid
+                <me>
+                    g(x,y, z) = x^2 + y^2 - 4 z^2 = 1.
+                </me>
+                We compute derivatives but now write them as differential <m>1</m>-forms to see 
+                <md>
+                    <mrow> \tder{}{f} \amp =  2x \,\tder{}{x} -2y \,\tder{}{y} + \tder{}{z}, </mrow>
+                    <mrow> \tder{}{g} \amp =  2x\,\tder{}{x} + 2y\,\tder{}{y} - 8z\,\tder{}{z}. </mrow>
+                </md>
+                Now we compute the exterior product
+                <md>
+                    <mrow> \tder{}{f} \wedge \tder{}{g} \amp = ( 2x \,\tder{}{x} -2y \,\tder{}{y} + \tder{}{z}) \wedge (2x\,\tder{}{x} + 2y\,\tder{}{y} - 8z\,\tder{}{z}) , </mrow>
+                    <mrow> \amp = 4xy \, \tder{}{x} \wedge \tder{}{y} - 2x ( 1 + 8z )\, \tder{}{x} \wedge \tder{}{z} + 2y (8z - 1)\, \tder{}{y}\wedge \tder{}{z}. </mrow>
+                </md>
+                For this <m>2</m>-form to be zero, each of the coefficient functions must be zero. The coefficient <m>4xy</m> is zero if and only if either <m>x = 0</m> or <m>y = 0</m>. Again, the constraint <m>g(x,y,z) = 1</m> implies not both can be zero. Consider both cases:
+                <ol>
+                    <li> Suppose <m>x = 0</m> and <m>y \ne 0</m>. Since <m>x = 0</m>, the <m>\tder{}{x} \wedge \tder{}{y}</m> coefficient is zero. Since <m>y \ne 0</m> the <m>\tder{}{y} \wedge \tder{}{z}</m> coefficient being zero implies <m>8z - 1 = 0</m> so that <m>z = 1/8</m>.</li>
+                    <li> Suppose <m>y = 0</m> and <m>x \ne 0</m>. Since <m>y = 0</m>, the <m>\tder{}{y} \wedge \tder{}{z}</m> coefficient is zero. Since <m>x \ne 0</m> the <m>\tder{}{x} \wedge \tder{}{z}</m> coefficient being zero implies <m>1 + 8z= 0</m> so that <m>z = -1/8</m>. </li>
+                </ol>
+                Putting these into the constraint then produces the critical points as before.</p>
+            </statement>
+        </example>
+
+        <p>The procedure for several constraints also follows from <xref ref="prop-wedgelinearind"/> as well.</p>
+
+        <proposition xml:id="prop-lagrangian-several-constaints">
+            <title>Lagrange multipliers with several constraints - exterior products version</title>
+            <statement>
+                <p>Suppose <m>V</m> is an open set in <m>\mathbb{R}^n</m>, <m>\mb{G} : V \to \mathbb{R}^k</m> a differentiable vector valued function 
+                <me>
+                    \mb{G} (x_1, \ldots, x_n) = (g_1(x_1, \ldots, x_n), \ldots, g_k(x_1, \ldots, x_n))
+                </me>
+                with <m>\tder{}{\mb{G}}</m> of full rank and <m>f: V \to \mathbb{R}</m> a differentiable scalar function. If <m>X</m> is the level set of <m>\mb{G}</m> then a smooth point <m>q \in X</m> is a critical point of <m>f|_X</m> if and only if <m>\tder{}{f} \wedge  \tder{}{g_1}\wedge \cdots \wedge  \tder{}{g_k}</m> is zero at <m>q</m>.</p>
+            </statement>
+        </proposition>
+
+    </subsection>
+
+    <subsection xml:id="subsec-exterior-algebra-geometry">
+        <title>Geometry of exterior algebras</title>
+        <p>The exterior algebra is miraculous in its ability to compute geometric quantities naturally. We will start with the following result.</p>
+
+        <proposition xml:id="prop-wedgevolume1">
+            <statement>
+                <p>Let <m>\mb{c}_1, \ldots, \mb{c}_n \in K^n</m> be column vectors and suppose they form the matrix <me>A = \left[ \begin{matrix} | \amp | \amp  \amp | \\ \mb{c}_1 \amp \mb{c}_2 \amp \cdots \amp \mb{c}_n \\ | \amp | \amp   \amp | \end{matrix} \right]</me>
+                    Then 
+                    <me>
+                    \mb{c}_1 \wedge \cdots \wedge \mb{c}_n = \det (A) \mb{e}_1 \wedge \cdots \wedge \mb{e}_n
+                    </me>
+                    where <m>\mb{e}_1, \ldots, \mb{e}_n</m> is the standard basis.</p>
+            </statement>
+            <proof> <p>Exercise.</p>
+            </proof>
+        </proposition>
+
+        <p>We recall that the absolute value of the determinant expresses the volume of the parallelepiped spanned by the columns, so we can see that the exterior product `knows' about their volume. In fact, the exterior product knows about many other volumes as well if we start with an inner product. In particular, if <m>V</m> has an inner product, we can extend it to define an inner product on <m>\bigwedge^* V</m>. This can be done by taking an orthonormal basis <m>\mathcal{B} = \{\mb{v}_1, \ldots, \mb{v}_n\}</m> of <m>V</m> and making all of their products an orthonormal basis of <m>\bigwedge^* V</m> so that 
+        <me>
+            \{ \mb{v}_{i_1} \wedge \cdots \wedge \mb{v}_{i_k} : 1 \leq  i_1 \lt \cdots \lt i_k \leq n, 0 \leq k \leq n \}
+        </me>
+        forms an orthonormal basis. To see that this makes sense, we define our inner product more intrinsically as follows.</p>
+
+        <definition xml:id="def-exterior-inner-product">         
+            <notation>             
+                <usage><m>\left(\bigwedge^* V, \langle , \rangle \right)</m></usage>             
+                <description>Exterior algebra inner product </description>         
+            </notation>         
+            <statement>
+                <p>Suppose <m>(V, \langle , \rangle)</m> is an inner product space. The inner product on two pure <m>k</m>-th wedge products is then given by the formula
+                    <me>
+                    \langle \mb{v}_1 \wedge \cdots \wedge \mb{v}_k , \mb{w}_1 \wedge \cdots \wedge \mb{w}_k \rangle = \det \left( \langle \mb{v}_i , \mb{w}_j \rangle \right).
+                    </me>
+                    This inner product can be extended to <m>\bigwedge^k V</m> linearly.</p>
+            </statement>
+        </definition>
+
+        <p>The fact that this definition makes sense and can be extended to all of <m>\bigwedge^k V</m> follows from row and column linearity of the determinant as well as the alternating property. From this, we obtain the following amazing result.</p>
+
+        <proposition xml:id="prop-parallelepipedvolume">
+            <statement>
+                <p>Let <m>\mb{c}_1, \ldots, \mb{c}_r \in \mathbb{R}^n</m> be column vectors and <m>\mathcal{P}</m> the <m>r</m>-dimensional parallelepiped spanned by them. Then
+                    <me>
+                    \text{Vol} (\mathcal{P}) = \| \mb{c}_1 \wedge \cdots \wedge \mb{c}_r \|.
+                    </me>
+                    Here <m>\text{Vol}</m> is the <m>r</m>-dimensional volume.</p>
+            </statement>
+            <proof> <p>We check this by considering the subspace <m>V</m> of <m>\mathbb{R}^n</m> spanned by <m>\mb{c}_1, \ldots, \mb{c}_r</m>. If these vectors are linearly dependent, then clearly the <m>r</m>-dimensional parallelepiped has <m>r</m>-dimensional volume <m>0</m> (since it is contained in a space of smaller dimension). But Proposition~\ref{prop:wedgelinearind} then also says that <m>\mb{c}_1 \wedge \cdots \wedge \mb{c}_r = \mb{0}</m> implying the result in this case. So suppose that they are linearly independent and let <m>\mathcal{B} = \{\mb{v}_1, \ldots, \mb{v}_r\}</m> be an orthonormal basis for <m>V</m> (recall this can be found through the Gram-Schmidt process). We may write <m>\mb{c}_i</m> as a vector in <m>\mathbb{R}^r</m> using the basis <m>\mathcal{B}</m> via the coordinate map
+            <me>
+                \tilde{\mb{c}}_i =  \coord{\mb{c}_i}{\mathcal{B}}
+            </me>
+            and in doing so, we have that 
+            <men xml:id="eq-dotproducts">
+                \mb{c}_i \cdot \mb{c}_j = \tilde{\mb{c}}_i \cdot \tilde{\mb{c}}_j.
+            </men> 
+            Another way of saying this is that the coordinate chart <m>[]_\mathcal{B} : \mathbb{R}^r \to \mathbb{R}^n</m> preserves distance and thus preserves volume. Taking <m>\tilde{\mathcal{P}}</m> to be the parallelepiped spanned by <m>\tilde{\mb{c}}_1, \ldots , \tilde{\mb{c}}_r</m> in <m>\mathbb{R}^r</m>, we then have that
+            <me>
+                \textnormal{Vol}(\mathcal{P}) = \textnormal{Vol}(\tilde{\mathcal{P}}) = | \det A |
+            </me> 
+            where
+            <me>A = \left[ \begin{matrix} | \amp | \amp  \amp | \\ \tilde{\mb{c}}_1 \amp \tilde{\mb{c}}_2 \amp \cdots \amp \tilde{\mb{c}}_r \\ | \amp | \amp   \amp | \end{matrix} \right].</me>
+            But applying Proposition~\ref{prop:wedgevolume1} to <m>V</m> and using the fact that <m>\mathcal{B}</m> is an orthonormal basis gives 
+            <md>
+                <mrow> \| \mb{c}_1 \wedge \cdots \wedge \mb{c}_r \| \amp = \| (\det A) \mb{v}_1 \wedge \cdots \wedge \mb{v}_r \|, </mrow>
+                <mrow> \amp = | \det A | \sqrt{ \det \left( \langle \mb{v}_i , \mb{v}_j \rangle \right)},   </mrow>
+                <mrow>  \amp = |\det A | \sqrt{ \det ( I ) }, </mrow>
+                <mrow>  \amp = |\det A|, </mrow>
+                <mrow>  \amp = \textnormal{Vol} (\mathcal{P}). </mrow>
+            </md></p>
+            </proof>
+        </proposition>
+        
+        <p>Let's run this result through an example to see how quickly it solves some problems.</p>
+
+        <example>
+            <title>Chain rule computation II</title>
+            <statement>
+                <p>Consider the column vectors
+                <me>
+                     \mb{u} = \threevec{1}{-2}{3}, \mb{v} = \threevec{1}{0}{-1}
+                </me>
+                and let <m>\mathcal{P}</m> be the parallelogram spanned by them. Then, expanding in terms of the standard basis we have 
+                <md>
+                    <mrow> \mb{u} \wedge \mb{v} \amp = \left( \mb{e}_1 - 2 \mb{e}_2 + 3 \mb{e}_3 \right) \wedge \left( \mb{e}_1 - \mb{e}_3 \right), </mrow>
+                    <mrow>  \amp = - \mb{e}_1 \wedge \mb{e}_3 - 2 \mb{e}_2 \wedge \mb{e}_1 + 2 \mb{e}_2 \wedge \mb{e}_3 +3 \mb{e}_3 \wedge \mb{e}_1, </mrow>
+                    <mrow> \amp = -4 \mb{e}_1 \wedge \mb{e}_3 + 2 \mb{e}_1 \wedge \mb{e}_2 + 2 \mb{e}_2 \wedge \mb{e}_3. </mrow>
+                </md>
+                Since <m>\mb{e}_i \wedge \mb{e}_j</m> is an orthonormal basis for <m>\wedge^2 \mathbb{R}^n</m> and remembering that <m>2</m>-dimensional volume is just area, we have 
+                <me>
+                    \textnormal{Area} (\mathcal{P}) = \|\mb{u} \wedge \mb{v} \| = \sqrt{ 16 + 4 + 4} = 2 \sqrt{6}.
+                </me>
+                One should take a moment to appreciate this newfound technique. It is one thing to be able to find volumes of parallelograms in the plane with simple determinants, it is another to be able to find areas of parallelograms (and volumes of parallelepipeds) in high dimensional spaces <m>\mathbb{R}^n</m> with simple arithmetic!</p>
+            </statement>
+        </example>
+
+        <p>Happily for some, and sadly for others, exterior products can be used to give even more geometric information about a vector space. The existence of the inner product on <m>\bigwedge^* V</m> along with a choice of orientation induces a new duality as well. Let us define these concepts now.</p>
+
+        <definition xml:id="def-orientation">         
+            <notation>             
+                <usage><m>\vol_n</m></usage>             
+                <description>Orientation </description>         
+            </notation>         
+            <statement>
+                <p>An <term>orientation</term> on an <m>n</m>-dimensional real inner product space <m>V</m> is a choice of unit vector <m>\vol</m> for <m>\bigwedge^n V</m>. If <m>V</m> comes with such a choice, we call <m>V</m> an <term>oriented</term> vector space. We say that 
+                    <me>
+                    \vol_n = \mb{e}_1 \wedge \cdots \wedge \mb{e}_n
+                    </me>
+                    is the <term>standard orientation</term> of <m>\mathbb{R}^n</m>.</p>
+            </statement>
+        </definition>
+
+        <p>Recall that the dimension of <m>\bigwedge^n V</m> is <m>1</m>-dimensional, so there are exactly two possible unit vectors corresponding to two orientations of <m>V</m>. Let's consider orientations of vector spaces in low dimensions.</p>
+
+        <example>
+            <title>Orientations in one dimension</title>
+            <statement>
+                <p>For the <m>1</m>-dimensional vector space <m>\mathbb{R}</m>, we have that <m>\mathbb{R} = \bigwedge^1 \mathbb{R}</m> so that an orientation is either <m>\mb{e}_1</m> or <m>- \mb{e}_1</m>. I.e. we are orienting to the right or to the left (in the standard picture of the number line).</p>
+            </statement>
+        </example>
+
+        <example>
+            <title>Orientations in two dimension</title>
+            <statement>
+                <p>Considering <m>\mathbb{R}^2</m>, we have two orientations <m>\mb{e}_1 \wedge \mb{e}_2</m> or <m>- \mb{e}_1 \wedge \mb{e}_2 = \mb{e}_2 \wedge \mb{e}_1</m>. In the plane, we can consider <m>\mb{u} \wedge \mb{v}</m> as specifying a rotational direction `from <m>\mb{u}</m> to <m>\mb{v}</m>'. So the orientation <m>\mb{e}_1 \wedge \mb{e}_2</m> can be thought of as counter-clockwise orientation (as the act of moving <m>\mb{e}_1</m> to <m>\mb{e}_2</m> is a counter-clockwise rotation) while <m>\mb{e}_2 \wedge \mb{e}_1</m> as clockwise orientation.</p>
+            </statement>
+        </example>
+
+        <example>
+            <title>Orientations in three dimension</title>
+            <statement>
+                <p>As a last low dimensional example, consider <m>\mathbb{R}^3</m>. We still have two orientations but can write them as wedge products of the standard basis in different ways : 
+                <me>
+                    \vol_r = \mb{e}_1 \wedge \mb{e}_2 \wedge \mb{e}_3 = \mb{e}_2 \wedge \mb{e}_3 \wedge \mb{e}_1 = \mb{e}_3 \wedge \mb{e}_1 \wedge \mb{e}_2,
+                </me>
+                and
+                <me>
+                    \vol_l = \mb{e}_3 \wedge \mb{e}_2 \wedge \mb{e}_1 = \mb{e}_2 \wedge \mb{e}_1 \wedge \mb{e}_3 = \mb{e}_1 \wedge \mb{e}_3 \wedge \mb{e}_2.
+                </me>
+                As always, these two orientations are negatives of each other so that <m>\vol_l = - \vol_r</m> in <m>\bigwedge^3 \mathbb{R}^3</m>. Why call them orientations, you ask? Well, if you point your  index finger <m>\mb{i}</m> parallel to your hand, middle finger <m>\mb{m}</m> perpendicular to your hand and thumb <m>\mb{t}</m> straight upward to match the directions of three basis vectors, you'll find that <m>\mb{i} \wedge \mb{m} \wedge \mb{t}</m> equals <m>\vol_r</m> if you used your right hand and <m>\vol_l</m> if you used your left (unless you have severely dislocated your middle finger!). In other words, choosing the right hand rule is tantamount to choosing an orientation of <m>\mathbb{R}^3</m>.</p>
+            </statement>
+        </example>
+
+        <p>We will see that orientations are vital ingredients in integration of differential forms. For now though, we use them to define a duality called the Hodge star operator.</p>
+
+        <definition xml:id="def-hodge-star">         
+            <notation>             
+                <usage><m>\star \eta</m></usage>             
+                <description>Hodge star </description>         
+            </notation>         
+            <statement>
+                <p>Let <m>V</m> be an <m>n</m>-dimensional oriented inner product space with orientation <m>\vol</m> and <m>\eta \in \bigwedge^k V</m>. The Hodge star of <m>\eta</m> is the unique element <m>\star \eta \in \bigwedge^{n - k} V</m> for which
+                <men xml:id="eq-stardef">
+                    \alpha \wedge (\star \eta ) = \langle \alpha , \eta \rangle \vol
+                </men>
+                for all <m>\alpha \in \bigwedge^k V</m>.</p>
+            </statement>
+        </definition>
+
+        <p>Let us check to see that <m>\star</m> is well defined and understand its properties.</p>
+
+        <proposition xml:id="prop-hodge-star-operator">
+            <statement>
+                <p>The Hodge star operator <m>\star : \bigwedge^k V \to \bigwedge^{n - k} V</m> is a well defined linear isomorphism.</p>
+            </statement>
+            <proof> <p>Let <m>\tau</m> be in <m>\bigwedge^{n - k} V</m> and define the dual vector 
+                <me>
+                    \ell_\tau : \bigwedge^k V \to \mathbb{R}
+                </me>
+                by <m>\ell_\tau (\alpha) = \langle \alpha \wedge \tau , \vol \rangle</m>.  It is an exercise to see that <m>\ell_-</m> then defines a linear transformation 
+                <men xml:id="eq-hodgeexercise1">
+                    \ell_- : \bigwedge^{n - k} V \to \left( \bigwedge^k V  \right)^*
+                </men>
+                from the <m>(n - k)</m>-th exterior product to the dual vector space of the <m>k</m>-th exterior product. Here <m>\ell_-</m> sends <m>\tau</m> to <m>\ell_\tau</m>.</p>
+                
+                <p>In fact, this map is an isomorphism. To see this we note that if <m>\tau</m> is non-zero then <m>\ell_\tau</m> must also be nonzero. Indeed, if <m>\tau</m> is non-zero, then written in terms of an orthonormal basis 
+                <me>
+                    \tau = \sum a_{i_1 \cdots i_{n - k}} \mb{v}_{i_1} \wedge \cdots \wedge \mb{v}_{i_{n - k}},
+                </me> 
+                there must be at least  one non-zero coefficient, say <m>a_{i_1 \cdots i_{n - k}}</m>. But taking <m>j_1 , \ldots , j_k</m> to be the numbers in <m>\{1, \ldots, n\}</m> not equal to any <m>\{i_1, \ldots, i_{n - k} \}</m>, we can compute
+                <me>
+                    \left( \mb{v}_{j_1} \wedge \cdots \wedge \mb{v}_{j_k} \right) \wedge \tau = \pm a_{i_1 \cdots i_{n - k}} \vol 
+                </me>
+                and so 
+                <me>
+                    \ell_\tau \left( \mb{v}_{j_1} \wedge \cdots \wedge \mb{v}_{j_k} \right) \ne 0.
+                </me>
+                But this means that <m>\ker (\ell_-) = \{ \mb{0} \}</m> so that <m>\ell_-</m> is one-to-one. Proposition~\ref{prop:wedgebasis} gives us that the dimension of the codomain and domain of <m>\ell_-</m> are the same so that Corollary~\ref{cor:equaldim} implies <m>\ell_-</m> is a linear isomorphism. In particular, there is an inverse linear transformation
+                <me>
+                    (\ell_-)^{-1} :  \left( \bigwedge^k V  \right)^* \to \bigwedge^{n - k} V.
+                </me></p>
+                
+                <p>To complete the proof, one takes <m>\iota_\eta</m> to be the dual vector given by pairing with <m>\eta</m>, i.e. <m>\iota_\eta (\alpha ) = \langle \alpha , \eta \rangle</m>. Then one simply checks to see that 
+                <men xml:id="eq-hodgeexercise2">
+                    \star \eta = (\ell_-)^{-1} (\iota_\eta). 
+                </men></p>
+            </proof>
+        </proposition>
+
+        <p>This last proof was fairly abstract, but in practice, the Hodge star can be written concretely. Before looking at a couple of examples, let's give a general formula which determines it up to sign.</p>
+
+        <proposition xml:id="prop-Hodgeformula">
+            <statement>
+                <p>Equip <m>\mathbb{R}^n</m> with the dot product and the standard orientation. If <m>I = \{i_1, \ldots , i_k \}</m> and <m>J = \{j_1, \ldots, j_{n - k} \}</m> are two disjoint sets whose union is <m>\{1, \ldots, n\}</m> then 
+                <me>
+                     \star \left( \mb{e}_{i_1} \wedge \cdots \wedge \mb{e}_{i_k} \right) = \pm \mb{e}_{j_1} \wedge \cdots \wedge \mb{e}_{j_{n - k}}.
+                </me>
+                In particular, <m>\star</m> preserves inner products so that 
+                <men xml:id="eq-Hodgeisometry">
+                    \langle \star \tau_1 , \star \tau_2 \rangle = \langle \tau_1, \tau_2 \rangle .
+                </men></p>
+            </statement>
+            <proof> <p>Exercise.</p>
+            </proof>
+        </proposition>
+
+        <p>The sign can be determined by counting the <m>\#</m> of times one must pass an <m>I</m> index over a <m>J</m> index to reorder <m>\{i_1, \cdots , i_k, j_1, \ldots, j_{n - k}\}</m> into <m>\{1, \ldots, n\}</m>. The sign is then <m>(-1)^\#</m>.</p>
+
+        <p>Let's see what this looks like in dimensions two and three.</p>
+
+        <example>
+            <title>Hodge star in dimension two</title>
+            <statement>
+                <p>In <m>\mathbb{R}^2</m> with the standard orientation <m>\vol_2 = \mb{e}_1 \wedge \mb{e}_2</m> we have the basis 
+                    <me>
+                    \{1, \mb{e}_1, \mb{e}_2, \mb{e}_1 \wedge \mb{e}_2\}
+                    </me>
+                    of <m>\bigwedge^* \mathbb{R}^2</m>. Then one can see that 
+                    <md>
+                        <mrow> \star 1 \amp = \mb{e}_1 \wedge \mb{e}_2, </mrow>
+                        <mrow> \star \mb{e}_1 \amp = \mb{e}_2, </mrow>
+                        <mrow> \star \mb{e}_2 \amp = - \mb{e}_1, </mrow>
+                        <mrow> \star ( \mb{e}_1 \wedge \mb{e}_2) \amp = 1, </mrow>
+                    </md>
+                    Notice in particular that restricting to <m>\bigwedge^1 \mathbb{R}^2</m>, we have <m>\star : \mathbb{R}^2 \to \mathbb{R}^2</m> is the isomorphism of counter-clockwise rotation by <m>\pi / 2</m>.</p>
+            </statement>
+        </example>
+
+        <example>
+            <title>Hodge star in dimension three</title>
+            <statement>
+                <p>In <m>\mathbb{R}^3</m> with the standard orientation <m>\vol_3 = \mb{e}_1 \wedge \mb{e}_2 \wedge \mb{e}_3</m> we have the basis 
+                    <me>
+                    \{1, \mb{e}_1, \mb{e}_2, \mb{e}_3, \mb{e}_1 \wedge \mb{e}_2, \mb{e}_2 \wedge \mb{e}_3, \mb{e}_1 \wedge \mb{e}_3, \mb{e}_1 \wedge \mb{e}_2 \wedge \mb{e}_3\}
+                    </me>
+                    of <m>\bigwedge^* \mathbb{R}^3</m>. The Hodge star operator from <m>\bigwedge^0 \mathbb{R}^3</m> to <m>\bigwedge^3 \mathbb{R}^3</m> just interchanges <m>1</m> with <m>\vol_3</m> (more generally, it interchanges <m>1</m> with <m>\vol_n</m> for <m>\mathbb{R}^n</m>). The interesting cases here are the isomorphisms
+                    <me>
+                     \bigwedge^1 \mathbb{R}^3 \stackrel{\star}{\longleftrightarrow} \bigwedge^2 \mathbb{R}^3.
+                    </me>
+                    One can compute
+                    <md>
+                        <mrow> \star \mb{e}_1 \amp = \mb{e}_2 \wedge \mb{e}_3, </mrow>
+                        <mrow> \star \mb{e}_2 \amp = - \mb{e}_1 \wedge \mb{e}_3, </mrow>
+                        <mrow> \star \mb{e}_3 \amp = \mb{e}_1 \wedge \mb{e}_2, </mrow>
+                        <mrow> \star ( \mb{e}_1 \wedge \mb{e}_2) \amp = \mb{e}_3, </mrow>
+                        <mrow> \star ( \mb{e}_2 \wedge \mb{e}_3) \amp = \mb{e}_1, </mrow>
+                        <mrow> \star ( \mb{e}_1 \wedge \mb{e}_3) \amp = -\mb{e}_2. </mrow>
+                    </md>
+                    In the <m>3</m>-dimensional case, we have that <m>\star \star \eta = \eta</m> (in contrast to the <m>2</m>-dimensional case where we saw that it <m>\star \star \eta = - \eta</m> for vectors in <m>\bigwedge^1 \mathbb{R}^2</m>).</p>
+            </statement>
+        </example>
+    
+    </subsection>
+
+    <subsection xml:id="subsec-cross-product">
+        <title>The cross product</title>
+        <p>Now, in many ways, \textbf{3 is special!} One of these ways is that 
+        <me>
+            3 - (1 + 1) = 1 !!
+        </me>
+        Note that <m>3</m> is the only number with this property. In other words,
+        <me>
+            n - (1 + 1) = 1
+        </me>
+        implies <m>n = 3</m>. Do we all agree ... ? Yes ? Good!</p>
+            
+        <p>Because of this, we can do something in <m>\bigwedge^* V</m> when <m>V</m> is <m>3</m>-dimensional that we cannot do for an oriented inner product space of a different dimension. We can define the \textbf{cross product} on vectors <m>\mb{u}, \mb{v} \in V</m> as:
+        <me>
+            \mb{u} \times \mb{v} := \star \left( \mb{u} \wedge \mb{v} \right).
+        </me>
+        Indeed, suppose <m>V</m> is <m>n</m>-dimensional. Because <m>\mb{u}, \mb{v}</m> belong to <m>V = \bigwedge^1 V</m>, their wedge product <m>\mb{u} \wedge \mb{v}</m> is in <m>\bigwedge^{1 + 1} V</m>. This means their Hodge star is in <m>\bigwedge^{n - (1 + 1)} V</m>. If we want this to be a vector in <m>V = \bigwedge^1 V</m> then we must have that <m>n - (1 + 1) = 1</m>... so <m>n</m> must be <m>3</m>. I am explaining this because in every one of the millions of multivariable calculus courses I have taught, a bright student has asked me whether there is a cross product in other dimensions, to which I answer: <sq>there is something, but not a cross product</sq>.</p>
+
+        <p>Now, while I firmly believe that in <m>100</m> years, every college student will learn wedge products, the Hodge star operator, and higher dimensional volumes rendering cross products a strange relic of the past, we do not yet live in this idyllic future. So it is important you know how to compute cross products in order to converse with your less enlightened future colleagues. Let's derive the formula:
+        <md>
+            <mrow> \threevec{a_1}{a_2}{a_3} \times \threevec{b_1}{b_2}{b_3} \amp = \star \left(  \left(a_1 \mb{e}_1 + a_2 \mb{e}_2 + a_3 \mb{e}_3 \right) \wedge \left(b_1 \mb{e}_1 + b_2 \mb{e}_2 + b_3 \mb{e}_3 \right) \right), </mrow>
+            <mrow> \amp = \star \left(  a_1 b_2 \mb{e}_1 \wedge \mb{e}_2 + a_1 b_3 \mb{e}_1 \wedge \mb{e}_3 + a_2 b_1 \mb{e}_2 \wedge \mb{e}_1 + \cdots  \right. </mrow>
+            <mrow> \amp \left. \cdots + a_2 b_3 \mb{e}_2 \wedge \mb{e}_3 + a_3 b_1 \mb{e}_3 \wedge \mb{e}_1 + a_3 b_2 \mb{e}_3 \wedge \mb{e}_2 \right) ,  </mrow>
+            <mrow> \amp = \star \left(  (a_1 b_2 - a_2 b_1) \mb{e}_1 \wedge \mb{e}_2 + (a_1 b_3 - a_3 b_1 ) \mb{e}_1 \wedge \mb{e}_3 + \cdots \right. , </mrow>
+            <mrow> \amp \left. \cdots + (a_2 b_3 - a_3 b_2 ) \mb{e}_2 \wedge \mb{e}_3 \right), </mrow>
+            <mrow> \amp =    (a_1 b_2 - a_2 b_1) \star \left(\mb{e}_1 \wedge \mb{e}_2 \right) + (a_1 b_3 - a_3 b_1 ) \star \left( \mb{e}_1 \wedge \mb{e}_3 \right)+ \cdots  , </mrow>
+            <mrow> \amp  \cdots + (a_2 b_3 - a_3 b_2 ) \star \left(\mb{e}_2 \wedge \mb{e}_3 \right),  </mrow>
+            <mrow> \amp =  (a_1 b_2 - a_2 b_1) \mb{e}_3 + (a_1 b_3 - a_3 b_1 ) \left( -\mb{e}_2 \right) + (a_2 b_3 - a_3 b_2 ) \mb{e}_1,  </mrow>
+            <mrow>  \amp = \threevec{a_2 b_3 - a_3 b_2}{a_3 b_1 - a_1 b_3}{a_1 b_2 - a_2 b_1}. </mrow>
+        </md>
+        While every multivariable calculus student sees this formula at some point, the most common way they learn to use it is to take the determinant of the following strange looking matrix
+        <me>
+            \left[ \begin{matrix} a_1 \amp a_2 \amp a_3 \end{matrix} \right] \times \left[ \begin{matrix} b_1 \amp b_2 \amp b_3 \end{matrix} \right] = \det \left[ \begin{matrix} \mb{e}_1 \amp \mb{e}_2 \amp \mb{e}_3 \\ a_1 \amp a_2 \amp a_3 \\ b_1 \amp b_2 \amp b_3 \end{matrix} \right].
+        </me>
+        Although the first row entries are vectors, the formula for determinant still makes some sense and can be seen to match up with the derived formula. The properties of the cross product are also quite universally taught, but again are much easier to verify in our general setting.</p>
+
+        <proposition xml:id="prop-cross-product-properties">
+            <statement>
+                <p>Suppose <m>\mb{u}</m> and <m>\mb{v}</m> are <m>3</m>-dimensional vectors. Then 
+                <ol>
+                    <li> <m>\mb{u} \times \mb{v} = - \mb{v} \times \mb{u}</m>,  </li>
+                    <li> <m>\mb{u} \times \mb{v}</m> is orthogonal to both <m>\mb{u}</m> and <m>\mb{v}</m>. </li>
+                    <li> <m>\| \mb{u} \times \mb{v}\|</m> is the area of the parallelogram spanned by <m>\mb{u}</m> and <m>\mb{v}</m>. </li>
+                    <li> if <m>\mb{u}</m> and <m>\mb{v}</m> span a plane, the vectors <m>\mb{u}, \mb{v}, \mb{u} \times \mb{v}</m> are oriented with respect to the right hand rule. </li>
+                </ol> </p>
+            </statement>
+            <proof> <p>Property (1) follows from linearity of <m>\star</m> since 
+                <me>
+                \mb{u} \times \mb{v} = \star \left( \mb{u} \wedge \mb{v} \right) = \star \left( - \mb{v} \wedge \mb{u} \right) = - \star  \left( \mb{v} \wedge \mb{u} \right) = - \mb{v} \times \mb{u}.
+                </me>
+                For (2), we recall that in <m>\mathbb{R}^3</m>, <m>\star^2</m> is the identity. Then, using the defining property of the Hodge star operator,
+                <md>
+                    <mrow> \mb{u} \cdot \left( \mb{u} \times \mb{v} \right) \vol_3 \amp = \mb{u} \wedge \left( \star \left( \mb{u} \times \mb{v} \right) \right) , </mrow>
+                    <mrow> \amp = \mb{u} \wedge \left( \star \star \left( \mb{u} \wedge \mb{v} \right) \right) , </mrow>
+                    <mrow> \amp = \mb{u} \wedge  \mb{u} \wedge \mb{v}  , </mrow>
+                    <mrow> \amp = \mb{0}. </mrow>
+                </md>
+                This implies 
+                <me>
+                \mb{u} \cdot \left( \mb{u} \times \mb{v} \right) = 0
+                </me>
+                and a similar argument (or using (1)) gives 
+                <me>
+                \mb{v} \cdot \left( \mb{u} \times \mb{v} \right) = 0.
+                </me>
+                For (3), take <m>\mathcal{P}</m> to be the parallelogram spanned by <m>\mb{u}</m> and <m>\mb{v}</m>. Then we just apply <xref ref="prop-parallelepipedvolume"/> along with equation <xref ref="eq-Hodgeisometry"/> of <xref ref="prop-Hodgeformula"/> to get
+                <md>
+                    <mrow> \textnormal{Area} (\mathcal{P}) \amp = \| \mb{u} \wedge \mb{v} \|, </mrow>
+                    <mrow> \amp = \sqrt{ \left(\mb{u} \wedge \mb{v} \right) \cdot  \left(\mb{u} \wedge \mb{v} \right)} ,</mrow>
+                    <mrow> \amp =  \sqrt{ \star \left(\mb{u} \wedge \mb{v} \right) \cdot  \star \left(\mb{u} \wedge \mb{v} \right)} , </mrow>
+                    <mrow> \amp =  \| \mb{u} \times \mb{v} \|. </mrow>
+                </md>
+                Finally, for (4) we must explain what is meant if it is not clear. A basis <m>\mathcal{B} = \{\mb{v}_1, \ldots, \mb{v}_n \}</m> in an oriented vector space is <term> positively oriented </term> if there is a positive real number <m>\lambda </m> for which
+                <me>
+                \mb{v}_1\wedge  \cdots \wedge \mb{v}_n =  \lambda \vol .
+                </me>
+                This is what is meant by saying <m>\mb{u}, \mb{v}, \mb{u} \times \mb{v}</m> are oriented with respect to the right hand rule - that they are positively oriented with respect to the standard orientation <m>\vol_3</m>. Seeing this is simple though. Using our defining property of Hodge star we have,
+                <md>
+                    <mrow> \mb{u} \wedge \mb{v} \wedge ( \mb{u} \times \mb{v} ) \amp = ( \mb{u} \wedge \mb{v}) \wedge (\star ( \mb{u} \wedge \mb{v}) ), </mrow>
+                    <mrow> \amp = ( \mb{u} \wedge \mb{v}) \cdot ( \mb{u} \wedge \mb{v}) \vol_3,</mrow>
+                    <mrow> \amp = \|  \mb{u} \wedge \mb{v} \|^2 \vol_3. </mrow>
+                </md>
+                Because <m>\mb{u}</m> and <m>\mb{v}</m> span a plane, they are linearly independent so that <xref ref="prop-wedgelinearind"/> implies <m>\mb{u} \wedge \mb{v}</m> is non-zero giving our result.</p>
+            </proof>
+        </proposition>
+
+        <p>In the coming sections, we will briefly lay down exterior products, but they will make a major reappearance when we consider integration of forms and several fundamental theorems such as Stokes', Green's, and the divergence theorem.</p>
+
+    </subsection>
+
+    <exercises xml:id="exe-exterior">
+
+        
+        <exercise>
+            <introduction><p>Express the following wedge products as linear combinations of the basis <m>\{\mb{e}_{i_1} \wedge \cdots \wedge \mb{e}_{i_k}: 1 \leq i_1 \lt \cdots \lt i_k \leq n, 0 \leq k \leq n \}</m>.</p></introduction>
+        <task>
+            <statement>
+                <p> <me> \threevec{3}{2}{0} \wedge \threevec{0}{1}{2} </me> </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p> <me> \twovec{2}{1} \wedge \twovec{-1}{-1} </me> </p>
+            </statement>
+        </task>
+        </exercise>
+
+        <exercise>
+            <statement>
+                <p> While it is true that given a vector <m>\mb{v}</m> in <m>V</m>, we always have <m>\mb{v} \wedge \mb{v} = \mb{0}</m>, this is not true for any vector in <m>\wedge^* V</m>. Show that the wedge square of 
+                    <me>
+                    \mb{e}_1 \wedge \mb{e}_2 + \mb{e}_3 \wedge \mb{e}_4
+                    </me>
+                    is not zero in <m>\wedge^4 \mathbb{R}^4</m>. </p>
+            </statement>
+        </exercise>
+
+
+        <exercise>
+            <introduction><p> Compute the exterior derivatives of the following functions </p></introduction>
+        <task>
+            <statement>
+                <p> <m>f(x,y) = \cos (xy) - \ln (x^2 + 1)</m>, </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p><m>g(x_1, x_2 , \ldots, x_n) = x_1 + x_2 + \cdots + x_n</m>,</p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p> <m>h(x, y, z) = y^2</m>. </p>
+            </statement>
+        </task>
+        </exercise>
+
+        <exercise>
+            <statement>
+                <p> Use wedge products of differential <m>1</m>-forms to find critical points of 
+                    <me>
+                    f(x,y, z) = x + 2y + 3z
+                    </me>
+                    on the ellipsoid
+                    <me>
+                    4x^2 + y^2 + 9z^2 = 1.
+                    </me></p>
+            </statement>
+        </exercise>
+
+        <exercise>
+            <statement>
+                <p> Show that <m>\ell_-</m> is a linear transformation as claimed in equation <xref ref="eq-hodgeexercise1"/>. </p>
+            </statement>
+        </exercise>
+
+        <exercise>
+            <statement>
+                <p> Compute the Hodge star operators of the following vectors assuming the standard orientation of <m>\mathbb{R}^n</m>.</p>
+            </statement>
+        </exercise>
+
+        <exercise>
+            <introduction><p> Compute the exterior derivatives of the following functions </p></introduction>
+        <task>
+            <statement>
+                <p> <m>\threevec{3}{1}{1}</m> in <m>\mathbb{R}^3</m>, </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p><m>\mb{e}_1 \wedge \mb{e}_2 + \mb{e}_3 \wedge \mb{e}_4</m> in <m>\mathbb{R}^4</m>.</p>
+            </statement>
+        </task>
+        </exercise>
+        
+    </exercises>
+
+</section>

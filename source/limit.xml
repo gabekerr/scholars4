@@ -1,0 +1,151 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-limit">
+    <title>The limit</title>
+    <p>In this section, we will review limits of vector valued functions of many variables</p>
+    <me>
+        \mb{F} : \mathbb{R}^m \to \mathbb{R}^n.
+    </me>
+    <p>Of course, we can and should be more general than this. We should consider a vector <m>\mb{c}</m> of an inner product space <m>V</m> in an open set <m>U</m> and really work there. The reason for all of this additional notation is that sometimes our function <m>\mb{F}</m> may only be defined near a given point. Indeed, the limit and derivative are `local' features of a function meaning they do not care about what is going on far away from the point of focus. </p>
+
+    <p>To understand the definition of the limit, one must work through definitions and results in Appendix~\ref{sec:analysis}. As this is not in the main body of the notes, we will review a few of the important features and discuss examples in this section. First, Proposition~\ref{prop:coordinatelimit} reduces questions of a limit's existence to the scalar coordinate functions, so we will restrict our attention to scalar functions
+    <me>
+        f : \mathbb{R}^m \to \mathbb{R}.
+    </me>
+    As a large scale goal, we would like to know when
+    <me>
+        \lim_{\mb{x} \to \mb{c}} f(\mb{x} )
+    </me>
+    exists and how to calculate it for a given point <m>\mb{c}</m>. Now, if <m>f</m> is continuous, then we can simply put in <m>\mb{c}</m> and move along. However, just as in one variable calculus, the most interesting examples are when <m>f</m> is undefined at <m>\mb{c}</m>. In these cases, we have the usual one variable issues of what can go wrong, but with the massively more complicated context of being in higher dimensions. </p>
+
+    <example>
+        <title>Issue 1 - Divergence</title>
+        <statement>
+            <p> If we consider the function <me> f(x) = \frac{1}{x^2} </me> and the limit <m>\lim_{x \to 0} f(x)</m>, we all know that this limit does not exist ... or we've been informed that the limit is <m>\infty</m>. Either is fine, what is important is that the phenomenon is clear : as <m>x</m> tends to <m>0</m>, the value of the function will pass any finite bound. Similar situations occur in functions of many variables as well. For example, <me> f(x, y) = \frac{1}{x^2 + y^2} </me> also tends to infinity as <m>(x,y)</m> approaches <m>(0,0)</m>. In these situations, it will be acceptable to say that the limit does not exist (although it is fine if you wish to be nuanced and say it is <m>\infty</m>).</p>
+        </statement>
+    </example>
+
+    <example>
+        <title>Issue 2 - Oscillation</title>
+        <statement>
+            <p>Another strange thing that can happen with functions is that they jump around a good amount near the limiting point. For example, <me> f(x) = \sin \left( \frac{1}{x} \right) </me> oscillates more and more as you approach <m>0</m>. Here, there is no getting around the limit not existing and we write DNE with great confidence. Of course, similar oscillation can occur in higher dimensions, simply throw your favorite function into the one above. For example, <me> f(x,y,z) = \sin \left( \frac{1}{x^2 + y^2 + z^2} \right) </me> 
+            will lead to  <me> \text{ The limit } \lim_{(x,y,z) \to (0, 0, 0)} f(x,y,z) \text{ does not exist.} </me></p>
+        </statement>
+    </example>
+
+    <example>
+        <title>Issue 3 - Left limit not equal to right limit</title>
+        <statement>
+            <p>Here, the universe breaks. In fact, this is where, if we think about it enough, we start to appreciate how easy life was in one variable calculus. Let's recall that we can define functions like the <term>Heavyside function</term>
+            <men xml:id="eq-heavyside"> 
+                H (x) = \begin{cases} 0 \amp  x \leq 0, \\ 1 \amp x \gt 0. \end{cases}
+            </men>
+            Then our one sided limits are 
+            <me>
+                \lim_{x \to 0^-} H(x) = 0 \ne 1 = \lim_{x \to 0^+} H(x).
+            </me>
+            We conclude that the limit does not exist because it should indeed be the same value. </p>
+
+            <p>In higher dimensions, how do we phrase this? Indeed, in one dimension for any given point there is a left and a right approach and that is all. However, in higher dimensions there are an infinite number of approaches... and even more than you think! Let's look at an example to see this. Let <me> f(x,y) = \frac{xy}{x^2 + y^2} . </me> Then in fact <m>\lim_{(x,y) \to (0, 0)} f(x,y)</m> does not exist. We could check this by approaching the origin in various directions. For example, we could approach along the <m>x</m>-axis  <m>(t, 0)</m> and see <me> \lim_{t \to 0} f(t,0) = \frac{0}{t^2 + 0} = 0. </me> But then we could approach along the diagonal line <m>(t,t)</m> and see <me> \lim_{t \to 0} f(t, t) = \frac{t^2}{t^2 + t^2} = \frac{1}{2}. </me> Since these two limits are not equal, we can conclude that the limit does not exist. As a rule of thumb, if you consider a rational function <me> f(x_1, \ldots, x_n) = \frac{P(x_1, \ldots, x_n)}{Q(x_1, \ldots, x_n)} </me> where the degree of the homogeneous numerator equals that of the homogeneous denominator, you should expect to find this behavior. </p>
+        </statement>
+    </example>
+
+    <p>The last example is one that should be considered with great care. Unlike in <m>1</m> dimension, it is <it>not</it> the case that one can assert that a limit does exist if all straight line limits exist and are equal. </p>
+
+    <example>
+        <title>Non-existent limit with well defined limits along straight lines</title>
+        <statement>
+            <p>Consider the function <me> f(x,y) = \begin{cases} 0 \amp y \ne x^2 , \\ 1 \amp y = x^2. \end{cases} </me> One can easily check that <m>\lim_{t \to 0} f(at, bt) = 0</m> for any real numbers <m>a</m> and <m>b</m>. However,  <m>\lim_{(x,y) \to (0, 0)} f(x,y)</m> does not exist. Indeed, this shows that straight line approaches are not enough, one must also consider parabolic approaches, and of course, an infinite set of other approaches! </p>
+        </statement>
+    </example>
+
+    <p>This last example may leave the student a bit concerned about how in the world they will prove that certain limits exist. Such a concern is indeed warranted as there are fewer tools in many variables (for example, L'Hopital's rule does not exist in many variables). However, there is a higher dimensional Squeeze Theorem that comes in handy which is proven in the appendix.</p>
+
+    <theorem xml:id="thm-squeeze">
+        <title>Squeeze Theorem</title>
+        <statement>
+            <p>Suppose <m>U</m> is an open neighborhood of <m>\mb{c}</m> in an inner product space <m>V</m> and <m>g : U \to \mathbb{R} </m> is a scalar valued function. If <m>f : U \to \mathbb{R}</m> and <m>h: U\to \mathbb{R}</m> are functions for which <me> f(\mb{x}) \leq  g(\mb{x} ) \leq h(\mb{x}), </me> and <me> \lim_{\mb{x} \to \mb{c}} f(\mb{x}) = L = \lim_{\mb{x} \to \mb{c}} h(\mb{x}) </me> Then <me> \lim_{\mb{x} \to \mb{c}} g(\mb{x}) = L. </me> </p>
+        </statement>
+    </theorem>
+
+    <example>
+        <title>Non-existent limit with well defined limits along straight lines</title>
+        <statement>
+            <p> The function <me> f(x,y) = \frac{x^3 + y^3}{x^2 + y^2} </me> is continuous everywhere except at the origin where it is undefined. We can nonetheless consider the limit of <m>f(x,y)</m> as one approaches <m>(0, 0)</m>. To see this limit exists, we first observe that <m>f(x,y)</m> satisfies the inequalities <me> -2 \sqrt{x^2 + y^2} \leq f(x,y) \leq 2 \sqrt{x^2 + y^2 }. </me> To see this, just use polar coordinates <m>(x,y) = (r \cos \theta , r \sin \theta)</m> and observe that <me> f(x,y) = r \left( \cos^3 \theta + \sin^3 \theta \right). </me> Now, the function <m>\sqrt{x^2 + y^2}</m> is the composition of continuous functions, so it is continuous and thus the left and right hand bound have limit <m>0</m> as <m>(x,y) \to (0, 0)</m>. But then the Squeeze Theorem gives that <me> \lim_{(x,y) \to (0, 0)} f(x,y) = 0. </me> </p>
+        </statement>
+    </example>
+
+    <p>When considering examples of pathological behavior for limits in two dimensions, it is often useful to use polar coordinates. In other words, to consider functions <m> f(r, \theta)</m> and contemplate 
+        <me> \lim_{r \to 0} f(r, \theta) </me>
+    For example, it would be simple to observe that <me> f(r, \theta) = \cos (2\theta ) </me> does not have a limit at the origin, but does have limits along any lines. Converting this to Cartesian coordinates, use the double angle formula to get 
+    <me> f(r, \theta) =2 \cos^2 \theta  - 1 = 2 \frac{x^2}{x^2 + y^2} - 1 = \frac{x^2 - y^2}{x^2 + y^2} </me>
+    This can be illustrated using Sage.</p>
+
+    <sage>
+        <input>
+            x,y = var('x y')
+            W = plot3d(((x)^2 - (y)^2)/((x)^2 + (y)^2), (x, -1, 1), (y, -1, 1),
+                color='purple', opacity=0.8)
+            show(W, figsize=8)
+        </input>
+        <output>
+        </output>
+    </sage>
+
+
+    <exercises xml:id="exe-limit">
+
+        <exercise>
+            <statement>
+                <p>Show that a polynomial <m>f(z) = a_n z^n + a_{n - 1} z^{n - 1} + \cdots + a_1 z + a_0</m> viewed as a complex function from <m>\mathbb{C}</m> to itself is continuous.</p>
+            </statement>
+        </exercise>
+
+        <exercise>
+            <introduction><p>Find the limits of the following functions if they exist. If they do not exist, explain why.</p></introduction>
+        <task>
+            <statement>
+                <p> <m>f(x, y) = \frac{x^2y - y^2x}{x^2 + y^2}</m> as <m>(x,y) \to (0,0)</m>. </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p> <m>g(x,y,z) = \frac{xy + yz + xz}{x^2 + y^2 + z^2}</m>  as <m>(x,y,z) \to (0,0,0)</m>. </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p> <m>k(x,y) = \frac{x^2 + 2y^2}{\sqrt{x^2 + 2y^2 +1} - 1}</m>  as <m>(x,y) \to (0,0)</m>.  </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p> <m>h(\mb{x}) = \frac{Q(\mb{x} )}{\|\mb{x}\|^2}</m> as <m>\mb{x} \to \mb{0}</m> where <m>Q</m> is a non-zero quadratic form on a finite dimensional inner product space. </p>
+            </statement>
+        </task>
+        </exercise>
+
+        <exercise>
+            <introduction><p>Let <m>\mathcal{B} = \{\mb{v}_1 , \ldots, \mb{v}_n\}</m> be a basis for the real inner product space <m>V</m>. </p></introduction>
+        <task>
+            <statement>
+                <p> Let <m>A</m> be the <m>n \times n</m> matrix with <m>(i,j)</m>-entry  <m>\langle \mb{v}_i , \mb{v}_j \rangle</m>. Show that the quadratic form
+                    <me> Q (\mb{x}) = \mb{x}^T A \mb{x} </me>is positive definite (recall this means that <m>Q(\mb{x} ) \geq 0</m> with equality if and only if <m>\mb{x} = \mb{0}</m>.) </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p>  Use the Spectral Theorem to show that there are positive real constants <m>C</m> and <m>D</m> for which
+                    <me> C \| \mb{x}\|^2 \leq Q ( \mb{x} ) \leq D \| \mb{x} \|^2. </me> </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p> Using the definition of limit, prove that the linear transformations <m>\coord{}{\mathcal{B}} : V \to \mathbb{R}^n</m> and <m>[]_{\mathcal{B}} : \mathbb{R}^n \to V</m> are continuous functions. </p>
+            </statement>
+        </task>
+        </exercise>
+        
+    </exercises>
+
+</section>

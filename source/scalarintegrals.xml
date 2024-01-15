@@ -1,0 +1,378 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-scalarintegrals">
+    <title>Scalar integrals</title>
+    <introduction>
+    <p>One may want to compute the length of a curve, the surface area of a surface in <m>\mathbb{R}^3</m>, or the mass of a curve or surface with a mass density function <m>\rho</m>. The appropriate type of integral for these types of problems is the scalar integral. To define it, we first define a modified orientation form on a smooth subspace. 
+        If <m>(X, \orient^X)</m> is a smooth <m>m</m>-dimensional subspace of <m>\mathbb{R}^n</m>, then by Gram-Schmidt at each point <m>p</m> of <m>X</m>, the tangent space <m>T_p X</m> has an orthonormal basis (using the dot product in <m>\mathbb{R}^n</m>) <m>\left\{ \delta_1, \ldots, \delta_m \right\}</m>. This can be expanded to an orthonormal basis <m>\left\{ \delta_1, \ldots, \delta_n \right\}</m> of <m>T_p \mathbb{R}^n</m> and write <m>\delta^*_1, \ldots, \delta^*_n</m> for the dual cotangent vectors. Since <m>\orient^X</m> is an orientatation <m>m</m>-form on <m>X</m>, its expansion at <m>p</m> can be written
+        <me>
+        \orient^X_p = \sum_{i_1 \lt \cdots \lt i_m} a_{i_1, \ldots, i_m} \delta^*_{i_1} \wedge \cdots \wedge \delta^*_{i_m}.
+        </me>
+        In fact, the only summand in this expansion that matters to <m>\orient^X_p</m> being an orientation is the one where <m>i_1, \ldots, i_m</m> equals <m>1, \ldots, m</m> (because all others have a form that pulls back to zero for any parameterization of <m>X</m>). We thus may replace <m>\orient^X_p</m> with 
+        <me>
+        \vol^X_p = \frac{a_{1, \ldots, m}}{|a_{1, \ldots, m}|}  \delta^*_{i_1} \wedge \cdots \wedge \delta^*_{i_m}
+        </me>
+        to obtain a wedge product in <m>\bigwedge^m T^*_p \mathbb{R}^n</m>. This replacement may be done smoothly along all of <m>X</m> (not just at <m>p</m>) to yield a new orientation form <m>\vol^X</m> which gives an equivalent orientation, but also has the geometric property that <m>\| \vol^X_p\| = 1</m> at every point <m>p</m> in <m>X</m>. We call <m>\vol^X</m> the <term>volume orientation</term> (or <term>volume form</term>) on <m>X</m>. We use this particular <m>m</m>-form to define the main player in our current section.</p>
+
+    <definition xml:id="def-scalar-integral">         
+        <notation>             
+            <usage><m>\int_X f \vol^X</m></usage>             
+            <description>Scalar integral </description>         
+        </notation>         
+        <statement>
+            <p>Let <m>(X, \vol^X)</m> be smooth oriented <m>m</m>-dimensional subspace of <m>\mathbb{R}^n</m> and <m>f : X \to \mathbb{R}</m> a scalar function on <m>X</m>. The <term>scalar integral</term> of <m>f</m> on <m>X</m> is the integral
+                <me>
+                    \int_X f \vol^X
+                </me></p>
+        </statement>
+    </definition>
+
+    <p>The following proposition can be taken as a definition, or proven to agree with other notions of volume (of curved subspaces in <m>\mathbb{R}^n</m>) with some work.</p>
+
+    <proposition>
+        <statement>
+            <p>Let <m>(X, \orient^X)</m> be smooth oriented <m>m</m>-dimensional subspace of <m>\mathbb{R}^n</m>. The volume of <m>X</m> is the scalar integral of <m>1</m> given by
+                <me>
+                    \int_X \vol^X
+                </me></p>
+        </statement>
+    </proposition>
+
+    <p>To compute a scalar integral, one generally needs a parameterization <m>\mb{G} : D \to X</m>. When we have this data, there is a formula which, depending on the parameterization, may be quite simple or impossibly difficult to write down.</p>
+
+    <proposition xml:id="prop-scalar">
+        <statement>
+            <p>Let <m>(X, \vol^X)</m> be smooth oriented <m>m</m>-dimensional subspace of <m>\mathbb{R}^n</m>, <m>D</m> an domain in <m>\mathbb{R}^m</m>,  <m>\mb{G} : D \to X</m> an orientation preserving parameterization given by 
+                <me>
+                \mb{G}  (u_1, \ldots, u_m) = \left( x_1 (u_1, \ldots, u_m), \ldots, x_n (u_1, \ldots, u_m) \right)
+                </me>
+                and <m>f : X \to \mathbb{R}</m> a scalar function on <m>X</m>. Let 
+                <me>
+                    \xi_i = \tder{}{\mb{G}} \left({\partial_{u_i}} \right)
+                </me>
+                be the tangent vector field along <m>X</m>. Then the scalar integral
+                <me>
+                    \int_X f \vol^X
+                </me>
+                equals
+                <men xml:id="eq-scalar">
+                     \idotsint_D f\left( x_1 (u_1, \ldots, u_m), \ldots, x_n (u_1, \ldots, u_m) \right) \, \|\xi_1 \wedge \cdots \wedge \xi_m \| \, \tder{}{u_1} \cdots \tder{}{u_m}.
+                </men></p>
+        </statement>
+        <proof> <p>To see this proposition holds, simply note that <m>\left\{ \xi_1, \ldots, \xi_m \right\}</m> is a basis for the tangent space at <m>X</m> (at any given point). This follows from the definition of parameterizations. Taking <m>\xi_i^*</m> to be the dual cotangent vector, it is an exercise to show that  
+        <me>
+            \mb{G}^* \xi_i^* = \tder{}{u_i}.
+        </me>
+        Now, since both <m>\delta_1, \ldots, \delta_m</m> and <m>\xi_1, \ldots, \xi_m</m> are oriented bases for <m>T_p X</m> with the former an orthonormal basis, and since <m>\bigwedge^m T_p X</m> is <m>1</m>-dimensional, we have that 
+        <me>
+            \xi_1 \wedge \cdots \wedge \xi_m = \|\xi_1 \wedge \cdots \wedge \xi_m \| \, \delta_1 \wedge \cdots \wedge \delta_m .
+        </me>
+        The dual statement to this is that 
+        <me>
+            \|\xi_1 \wedge \cdots \wedge \xi_m \| \,  \xi^*_1 \wedge \cdots \wedge \xi^*_m =  \, \delta^*_1 \wedge \cdots \wedge \delta^*_m = \vol^X.
+        </me>
+        Thus we obtain the formula for the pullback of <m>\vol^X</m> relative to <m>\mb{G}</m>
+        <md>
+            <mrow> \mb{G}^* \vol^X \amp = \mb{G}^*  \,  \left( \delta^*_1 \wedge \cdots \wedge \delta^*_m \right), </mrow>
+            <mrow> \amp = \|\xi_1 \wedge \cdots \wedge \xi_m \| \, \mb{G}^* \left(   \xi^*_1 \wedge \cdots \wedge \xi^*_m \right), </mrow>
+            <mrow> \amp = \|\xi_1 \wedge \cdots \wedge \xi_m \| \,  \mb{G}^* \xi^*_1 \wedge \cdots \wedge \mb{G}^* \xi^*_m , </mrow>
+            <mrow> \amp = \|\xi_1 \wedge \cdots \wedge \xi_m \| \, \tder{}{u_1} \wedge \cdots \wedge \tder{}{u_m}. </mrow>
+        </md>
+        Putting this into the formula for the integral of an <m>m</m>-form on <m>X</m> gives the result.</p>
+        </proof>
+    </proposition>
+
+    <p>As a final point, we note the following relatively easy result.</p>
+
+    <proposition>
+        <statement>
+            <p>The scalar integral is independent of the orientation of <m>X</m>.</p>
+        </statement>
+    </proposition>
+
+    <p>One may wonder at first why this is true since we know that switching orientations should result in changing the sign of the integral of a given differential <m>m</m>-form. However, the scalar integral has the added ingredient that the <m>m</m>-form being integrated is tied to the orientation, which results in an additional sign change that cancels out the one associated to the change of orientation. Of course, this makes sense intuitively as well: the surface area of a sphere should not depend on whether we orient one way or the other. A consequence of this is that one may define scalar integrals on smooth subspaces that do not have an orientation.</p>
+
+    <p>There are several different notations for the scalar integral. More important than notation, there are techniques for computing these integrals which don't rely on the orientation (which may seem mysterious given that our definition has the a multiple of the orientation form as \textit{the} form being integrated!). We will work through examples to illustrate these points.</p>
+    </introduction>
+
+    <subsection xml:id="subsec-scalar-line-integrals">
+        <title>Scalar line integrals</title>
+        <p>Given a curve <m>\mathcal{C}</m> in <m>\mathbb{R}^n</m>, parameterized by <m>\mb{r}: [a, b] \to \mathbb{R}^n</m>, and a scalar function <m>f</m> on it, the most common notation for a scalar integral is
+        <md>
+            <mrow> \int_{\mathcal{C}} f ( \mb{r} ) \, \tder{}{s} \amp = \int_{\mathcal{C}} f \vol^X, </mrow>
+            <mrow> \amp = \int_a^b f ( \mb{r} (t) ) \| \mb{r}^\prime (t) \| \, \tder{}{t} </mrow>
+        </md>
+        Such an integral on a curve is called a <term>scalar line integral</term>. This formula follows immediately from equation <xref ref="eq-scalar"/>. Students may question why the letter <m>s</m> is used in the <m>\tder{}{s}</m> notation. This is because <m>s</m> is often used as an arc-length parameter for the curve.</p>
+
+        <p>Now, let me be honest with the reader here. Scalar integrals are just awful to compute. It takes great care to actually write down curves and integrands with an exact solution. Of course, a computer can do a very good job of approximating them though. Nevertheless, it is always good to go through a few well crafted examples to make sure we have a feel for the process.</p>
+
+    <example>
+        <title>Scalar line integral I</title>
+        <statement>
+            <p>Let <m>\mathcal{C}</m> be the circle in <m>\mathbb{R}^2</m> centered at the origin and of radius <m>R</m>. This can be given by a parameterization <m>\mb{r} : [0, 2\pi ] \to \mathcal{C}</m> via
+                <me>
+                \mb{r} (t) = \left( R \cos t , R \sin t \right).
+                </me>
+                The most reasonable scalar integral to try here first is of the function <m>1</m> which gives the circumference. For this, we need the tangent vector of <m>\mb{r}</m> and its norm so we calculate:
+                <md>
+                    <mrow> \mb{r}^\prime (t) \amp = \left[ \begin{matrix} - R \sin t  \amp R \cos t \end{matrix} \right], </mrow>
+                    <mrow> \| \mb{r}^\prime (t)\| \amp = \sqrt{ R^2 \sin^2 t + R^2 \cos^2 t} = R. </mrow>
+                </md>
+                This leads to the very simple integral
+                <md>
+                    <mrow> \text{Length} (\mathcal{C} ) \amp = \int_{\mathcal{C}} \tder{}{s},  </mrow>
+                    <mrow> \amp = \int_0^{2\pi} \|\mb{r}^\prime (t) \| \, \tder{}{t}, </mrow>
+                    <mrow> \amp = R \int_0^{2\pi} \tder{}{t}, </mrow>
+                    <mrow> \amp = 2 \pi R. </mrow>
+                </md>
+                In this case, because the norm of the tangent vector for our parameterization is constant, many other scalar integrals are accessible. For example, if 
+                <me>
+                \rho (x, y) = x^2 + 2 y^2
+                </me>
+                were a mass density function on <m>\mathcal{C}</m> and we wanted to compute total mass, we use our prior computations and find
+                <md>
+                    <mrow> \text{Mass} (\mathcal{C} ) \amp = \int_{\mathcal{C}} \rho (\mb{r}) \tder{}{s},  </mrow>
+                    <mrow> \amp = \int_0^{2\pi} (R^2 \cos^2 t + 2R^2 \sin^2 t) \|\mb{r}^\prime (t) \| \, \tder{}{t}, </mrow>
+                    <mrow>  \amp = R^3 \int_0^{2\pi} 1 + \sin^2 t \tder{}{t}, </mrow>
+                    <mrow> \amp = R^3 \int_0^{2\pi} 1 + \frac{1 - \cos 2 t}{2}  \tder{}{t}, </mrow>
+                    <mrow> \amp = 3 \pi R^3. </mrow>
+                </md></p>
+        </statement>
+    </example>
+
+    <p>The ease at which we can compute scalar line integrals on the circle follows from the fact that there is a constant speed parameterization that we all know. While it is the case that every smooth curve has such a parameterization, finding it can be a difficult task. Let us observe an example when such a parameterization is not immediately available.</p>
+
+    <example>
+        <title>Scalar line integral II</title>
+        <statement>
+            <p>Suppose we want to compute the length of the twisted cubic curve <m>\mathcal{C}</m>
+                <me>
+                \mb{r} (t) = \left( t, t^2, t^3 \right)
+                </me>
+                for <m>0 \leq t \leq 1</m>.
+                We proceed by computing the tangent vector and its norm.
+                <md>
+                    <mrow> \mb{r}^\prime (t) \amp = \left[ \begin{matrix} 1 \amp 2t \amp 3 t^2 \end{matrix} \right], </mrow>
+                    <mrow> \| \mb{r}^\prime (t) \| \amp = \sqrt{ 1 + 4t^2 + 9 t^4}. </mrow>
+                </md>
+                This yields the integral
+                <md>
+                    <mrow> \text{Length} (\mathcal{C} ) \amp = \int_{\mathcal{C}} \tder{}{s}, </mrow>
+                    <mrow> \amp = \int_0^{1} \|\mb{r}^\prime (t) \| \, \tder{}{t}, </mrow>
+                    <mrow>  \amp =  \int_0^{1} \sqrt{ 1 + 4t^2 + 9 t^4} \,\tder{}{t}.</mrow>
+                </md>
+            Such an integral will require even the most advanced second semester calculus student a good amount of time to work on. On the other hand, a curve <m>\tilde{\mathcal{C}}</m> that looks very similar given by 
+                <me>
+                \tilde{\mb{r}} (t) = \left( t, \frac{\sqrt{2}}{2}t^2, \frac{1}{3} t^3 \right)
+                </me>
+            can be worked with easily. We find
+                <md>
+                    <mrow> \tilde{\mb{r}}^\prime (t) \amp = \left[ \begin{matrix} 1 \amp \sqrt{2}t \amp t^2 \end{matrix} \right], </mrow>
+                    <mrow> \| \tilde{\mb{r}}^\prime (t) \| \amp = \sqrt{ 1 + 2t^2 +  t^4} = 1 + t^2. </mrow>
+                </md>
+                This yields the integral
+                <md>
+                    <mrow> \text{Length} (\tilde{\mathcal{C}} ) \amp = \int_{\tilde{\mathcal{C}}} \tder{}{s}, </mrow>
+                    <mrow> \amp = \int_0^{1} \|\tilde{\mb{r}}^\prime (t) \| \, \tder{}{t}, </mrow>
+                    <mrow> \amp =  \int_0^{1} 1 + t^2 \,\tder{}{t}, </mrow>
+                    <mrow> \amp = \frac{4}{3}. </mrow>
+                </md>
+            In this later case, finding the scalar integral of say 
+            <me>
+            \rho (x,y, z) = \frac{\sqrt{2} y + z}{x} 
+            </me>
+            can be accomplished with ease
+            <md>
+                <mrow> \int_{\tilde{\mathcal{C}}} \rho (\mb{r}) \tder{}{s} \amp = \int_0^{1} \frac{t^2 + t^3 / 3}{t} \|\tilde{\mb{r}}^\prime (t) \| \, \tder{}{t}, </mrow>
+                <mrow> \amp =  \int_0^{1} \left( t + \frac{t^2}{3} \right) (1 + t^2) \, \tder{}{t},  </mrow>
+                <mrow> \amp = \int_0^1 t + t^3 + \frac{t^2}{3} + \frac{t^4}{3} \, \tder{}{t}, </mrow>
+                <mrow> \amp = \frac{1}{2} + \frac{1}{4} + \frac{1}{9} + \frac{1}{15} = \frac{167}{180}. </mrow>
+            </md></p>
+        </statement>
+    </example>
+
+    <p>The lesson of the last two examples is that computing scalar line integrals can be very easy, if the parameterization has nice speed <m>\| \mb{r}^\prime (t) \|</m>. Otherwise, it can be an impossible task.</p>
+
+    </subsection>
+
+    <subsection xml:id="subsec-scalar-surface-integrals">
+        <title>Scalar surface integrals</title>
+        <p>Another widely taught class of scalar integrals are scalar surface integrals. If <m>\mathcal{S}</m> is a surface in, say <m>\mathbb{R}^3</m>, we should think of <m>\vol^\mathcal{S}</m> as providing an infinitesimal measure of surface area. If <m>f</m> is a scalar function on <m>\mathcal{S}</m>, the <term>scalar surface integral</term> is written as
+            <me>
+                \iint_{\mathcal{S}} f \, \tder{}{S} := \int_{\mathcal{S}} f \vol^{\mathcal{S}}
+            </me>
+            The first thing to note is that we can compute the pullback <m>\mb{G}^* \vol^\mathcal{S}</m> once we have a parameterization (although it is not always so pretty!). Indeed, suppose <m>\mathcal{S}</m> is parameterized by a function
+            <me>
+                \mb{G} (u, v) = \left( x(u, v), y(u, v), z (u, v) \right).
+            </me>
+            Then the vector fields from <xref ref="prop-scalar"/> are 
+            <md>
+                <mrow> \xi_u \amp = \left[ \begin{matrix} \frac{\partial x}{\partial u} \amp \frac{\partial y}{\partial u} \amp \frac{\partial z}{\partial u}\end{matrix} \right], </mrow>
+                <mrow> \xi_v \amp = \left[ \begin{matrix} \frac{\partial x}{\partial v} \amp \frac{\partial y}{\partial v} \amp \frac{\partial z}{\partial v}\end{matrix} \right]. </mrow>
+            </md>
+            One often finds these written as 
+            <md>
+                <mrow> \frac{\partial \mb{G}}{\partial u} \amp = \xi_u, </mrow>
+                <mrow> \frac{\partial \mb{G}}{\partial v} \amp = \xi_v, </mrow>
+            </md>
+            and we will use this notation as well. Then by equation <xref ref="eq-scalar"/> we have 
+            <me>
+            \mb{G}^* \vol^{\mathcal{S}} = \left\| \frac{\partial \mb{G}}{\partial u} \wedge \frac{\partial \mb{G}}{\partial v} \right\| \, \tder{}{u} \wedge \tder{}{v}.
+            </me>
+            As the example we are considering occurs in dimension three, we have a few other tricks up our sleeve. In particular, we have the  cross product and, by our results from <xref ref="sec-exterior"/>, we know that for a <m>3</m>-dimensional inner product space <m>\|\mb{u} \wedge \mb{v}\| = \|\mb{u} \times \mb{v} \|</m>. This gives the alternative (much more common) expression
+            <men xml:id="eq-surfacevolumepullback">
+                \mb{G}^* \vol^{\mathcal{S}} = \left\| \frac{\partial \mb{G}}{\partial u} \times \frac{\partial \mb{G}}{\partial v} \right\| \, \tder{}{u} \wedge \tder{}{v}.
+            </men>
+            In turn, if <m>\mb{G} : D \to \mathcal{S}</m> is a smooth parameterization, we obtain the computational formula for scalar surface integrals (in <m>\mathbb{R}^3</m>)
+            <me>
+                \iint_{\mathcal{S}} f \, \tder{}{S} = \iint_D f  \left( x(u, v), y(u, v), z (u, v) \right) \left\| \frac{\partial \mb{G}}{\partial u} \times \frac{\partial \mb{G}}{\partial v} \right\| \, \tder{}{u}\tder{}{v}
+            </me>
+            Let us now make a couple of computations.</p>
+
+    <example>
+        <title>Scalar surface integral I</title>
+        <statement>
+            <p>As is our habit, we start by deriving a classical formula. Let <m>\mathcal{S}</m> be the sphere centered at the origin of radius <m>R</m>. Remember that this is the set of points in <m>\mathbb{R}^3</m> satisfying the equation
+                <me>
+                x^2 + y^2 + z^2 = R^2
+                </me>
+                and describes the surface boundary of the <m>3</m>-dimensional ball of radius <m>R</m>. We may parameterize this using spherical coordinates and fixing <m>\rho = R</m>. This gives 
+                <men xml:id="eq-spherespherical">
+                    \mb{G} (\varphi , \theta ) = \left( R \sin \varphi \cos \theta , R \sin \varphi \sin \theta , R \cos \varphi \right)
+                </men>
+                where <m>\mb{G} : [0, \pi] \times [0, 2\pi] \to \mathcal{S}</m>.
+                Calculating the tangent fields
+                <md>
+                    <mrow> \frac{\partial \mb{G}}{\partial \varphi} \amp = \left[ \begin{matrix} R \cos \varphi \cos \theta \amp R \cos \varphi \sin \theta \amp - R \sin \varphi \end{matrix} \right] , </mrow>
+                    <mrow> \frac{\partial \mb{G}}{\partial v} \amp = \left[ \begin{matrix} -R \sin \varphi \sin \theta \amp R \sin \varphi \cos \theta \amp 0 \end{matrix} \right]. </mrow>
+                </md>
+                From <xref ref="ex-spheresurfacearea"/> we have
+                <men xml:id="eq-spheresurfacearea">
+                    \left\| \frac{\partial \mb{G}}{\partial \varphi} \times \frac{\partial \mb{G}}{\partial \theta} \right\| \amp = R^2 \sin \varphi.
+                </men>
+                Using this we obtain
+                <md>
+                    <mrow> \text{Surface Area} (\mathcal{S}) \amp = \iint_\mathcal{S} \, \tder{}{S}, </mrow>
+                    <mrow> \amp = \iint_{[0, \pi] \times [0, 2\pi]} \left\| \frac{\partial \mb{G}}{\partial \varphi} \times \frac{\partial \mb{G}}{\partial \theta} \right\| \, \tder{}{\varphi} \tder{}{\theta},  </mrow>
+                    <mrow> \amp = \int_0^{2\pi} \int_0^\pi R^2 \sin \varphi \, \tder{}{\varphi} \tder{}{\theta}, </mrow>
+                    <mrow> \amp = \int_0^{2\pi} 2 R^2  \, \tder{}{\theta}, \\ \amp = 4 \pi R^2.  </mrow>
+                </md>
+                Of course, this is yet another confirmation that the formulas we learn in elementary school do indeed hold! However, now we can also compute other quantities on the sphere fairly easily using our computations here. For example, if <m>\kappa (x,y,z) = x^2 + y^2 </m> denotes the density of a substance on the sphere of radius <m>R</m> we can find the total amount of this substance on the sphere by computing the scalar integral
+                <md>
+                    <mrow> \iint_{\mathcal{S}} \kappa \, \tder{}{S} \amp = \int_0^{2\pi} \int_0^\pi \left( R^2 \sin^2 \varphi \cos^2 \theta + R^2 \sin^2 \varphi \sin^2 \theta \right)R^2 \sin \varphi \, \tder{}{\varphi} \tder{}{\theta}, </mrow>
+                    <mrow> \amp = R^4 \int_0^{2\pi} \int_0^\pi \sin^3 \varphi  \, \tder{}{\varphi} \tder{}{\theta},</mrow>
+                    <mrow> \amp = 2 \pi R^4 \int_0^\pi \sin \varphi - \sin \varphi \cos^2 \varphi \, \tder{}{\varphi}, </mrow>
+                    <mrow>  \amp = 2 \pi R^4 \left( -\cos \varphi + \frac{\cos^3 \varphi}{3} \right)_0^\pi, </mrow>
+                    <mrow>  \amp = \frac{8 \pi R^4}{3}. </mrow>
+                </md></p>
+        </statement>
+    </example>
+    <p>In general, it can be a difficult task to parameterize any <m>m</m>-dimensional subspace of <m>\mathbb{R}^n</m>, even when this subspace is a curve or a surface. However, there are cases where an easy parameterization is part of the description of the surface <m>\mathcal{S}</m>, namely when it is the graph <m>z = g (x,y)</m> of some differentiable function <m>g: D \to \mathbb{R}</m>. In this case, we can use the parameterization <m>\mb{G} : D \to \mathbb{R}^3</m> given by
+        <me>
+            \mb{G} (u, v) = \left( u, v, g (u, v) \right).
+        </me>
+        Computing the tangent fields on <m>\mathcal{S}</m> associated to <m>\mb{G}</m> gives
+        <md>
+            <mrow>  \frac{\partial \mb{G}}{\partial u} \amp = \left[ \begin{matrix} 1 \amp 0 \amp \frac{\partial g}{\partial u} \end{matrix} \right], </mrow>
+            <mrow> \frac{\partial \mb{G}}{\partial v} \amp =  \left[ \begin{matrix} 0 \amp 1 \amp \frac{\partial g}{\partial v} \end{matrix} \right].</mrow>
+        </md>
+        From <xref ref="ex-graphsurfacearea"/> we have
+            <men xml:id="eq-graphsurfacearea">
+                \left\| \frac{\partial \mb{G}}{\partial u} \times \frac{\partial \mb{G}}{\partial v} \right\| = \sqrt{1 + \left(\frac{\partial g}{\partial u}\right)^2 + \left( \frac{\partial g}{\partial v} \right)^2}.
+            </men>
+        Thus, for such surfaces, we obtain a formula for the scalar integral of <m>f</m> 
+            <men xml:id="eq-surfaceintegralgraph">
+                \iint_\mathcal{S} f \, \tder{}{S} = \iint_D f(u, v, g(u,v)) \sqrt{1 + \left(\frac{\partial g}{\partial u}\right)^2 + \left( \frac{\partial g}{\partial v} \right)^2} \tder{}{u} \tder{}{v}.
+            </men>
+        If a student protests at this point with the comment <sq>This formula looks awful</sq>, my response will be: <sq>correct, but who told you life wasn't awful!</sq></p>
+
+    <example>
+        <title>Scalar surface integral II</title>
+        <statement>
+            <p>Suppose <m>\mathcal{S}</m> is the graph of 
+                <me>g(x,y) = e^y \cos x </me>
+                over the domain <m>[-\pi / 4, \pi/4] \times [0, 1]</m> and we wish to integrate the scalar function
+                <me>
+                f(x,y,z) = \frac{2 z e^{y}}{\cos x}. 
+                </me>
+                We compute the surface area form first by finding
+                <md>
+                    <mrow> \left\| \frac{\partial \mb{G}}{\partial u} \times \frac{\partial \mb{G}}{\partial v} \right\| \amp = \sqrt{1 + \left(\frac{\partial g}{\partial u}\right)^2 + \left( \frac{\partial g}{\partial v} \right)^2} </mrow>
+                    <mrow> \amp =  \sqrt{1 + \left(-e^v \sin u \right)^2 + \left( e^v \cos u \right)^2} </mrow>
+                    <mrow> \amp = \sqrt{1 + e^{2v}}. </mrow>
+                </md>
+                Using this, we compute our surface integral following formula <xref ref="eq-surfaceintegralgraph"/>
+                <md>
+                    <mrow> \iint_\mathcal{S} f \, \tder{}{S} \amp = \iint_D f(u, v, g(u,v)) \sqrt{1 + \left(\frac{\partial g}{\partial u}\right)^2 + \left( \frac{\partial g}{\partial v} \right)^2} \tder{}{u} \tder{}{v}, </mrow>
+                    <mrow> \amp = \iint_{[-\pi / 4, \pi/4] \times [0, 1]} \frac{2 ( e^v \cos u )e^v}{\cos u} \sqrt{1 + e^{2v}} \, \tder{}{u} \tder{}{v}, </mrow>
+                    <mrow> \amp = \int_0^1 \int_{-\pi / 4}^{\pi / 4} 2 e^{2v} \sqrt{1 + e^{2v}} \, \tder{}{u} \tder{}{v}, </mrow>
+                    <mrow> \amp = \frac{\pi}{2} \int_0^1 2 e^{2v} \sqrt{1 + e^{2v}} \,  \tder{}{v}, </mrow>
+                    <mrow> \amp = \frac{\pi}{3} \left. \left( 1 + e^{2v} \right)^{3 /2}\right|_0^1, </mrow>
+                    <mrow> \amp = \frac{\pi}{3} \left( \left( 1 + e^{2} \right)^{3 /2} -  2^{3 /2} \right). </mrow>
+                </md></p>
+        </statement>
+    </example>
+
+    </subsection>
+
+    <exercises xml:id="exe-scalarintegrals">
+
+        <exercise>
+            <statement>
+                <p> Let <m>\mb{r} (t) = ( R \cos t , R \sin t, t )</m> with <m>a \leq t \leq b</m> be a helix arc. Compute the length of the curve traced by <m>\mb{r}</m>.  </p>
+            </statement>
+        </exercise>
+
+
+        <exercise>
+            <statement>
+                <p> Let <m>\mathcal{C}</m> be the graph <m>y = g(x)</m> a differentiable function over <m>[a,b]</m> and 
+                    <me>
+                    f(x,y) = \frac{1}{\sqrt{1 + g^\prime (x)^2}}.
+                    </me>
+                    What is the scalar integral
+                    <me>
+                    \int_{\mathcal{C}} f (\mb{r} ) \tder{}{s} \, \, ?
+                    </me> </p>
+            </statement>
+        </exercise>
+
+        <exercise>
+            <statement>
+                <p> Let <m>\mathcal{S}</m> be the cone of height <m>h</m> and top radius <m>R</m>
+                    <me>
+                    x^2 + y^2 = \frac{R^2}{h^2} z^2 , \hspace{.3in} 0 \leq z \leq h.
+                    </me>
+                    Find the surface area of <m>\mathcal{S}</m> by computing a scalar surface integral. </p>
+            </statement>
+        </exercise>
+
+        <exercise>
+            <statement>
+                <p> Let <m>\mathcal{S}</m> be the hemisphere 
+                    <me>
+                    x^2 + y^2 + z^2 = 4, \hspace{.3in} y \geq 0.
+                    </me>
+                    Compute the surface scalar integral
+                    <me>
+                    \iint_\mathcal{S} y \, \tder{}{S}.
+                    </me> </p>
+            </statement>
+        </exercise>
+
+        <exercise xml:id="ex-spheresurfacearea">
+            <statement>
+                <p>Show that formula <xref ref="eq-spheresurfacearea"/> holds.</p>
+            </statement>
+        </exercise>
+
+        <exercise xml:id="ex-graphsurfacearea">
+            <statement>
+                <p>Show that formula <xref ref="eq-graphsurfacearea"/> holds.</p>
+            </statement>
+        </exercise>
+
+    </exercises>
+
+
+</section>

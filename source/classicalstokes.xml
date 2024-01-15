@@ -1,0 +1,296 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-classicalstokes">
+    <title>Stokes' Theorem in dimension <m>3</m> - Classical Stokes' and Divergence Theorems</title>
+
+    <p>While Green's Theorems concern two dimensional regions in the plane, applying Stokes' Theorem to smooth subspaces of <m>\mathbb{R}^3</m> yields three possible cases, depending on the dimension of <m>X</m>. The case of <m>\dim X = 1</m> is taken care of for all <m>\mathbb{R}^n</m> by the Fundamental Theorem of Line Integrals. However, when <m>\dim X = 2</m> we have the Classical Stokes' Theorem and when <m>\dim X = 3</m> we obtain the Divergence Theorem (also known as Gauss' Theorem). Of course, as is the case in <m>\mathbb{R}^2</m>, these are all just shadows of Stokes' Theorem, but as they appear slightly different, we will state, prove and work through a few applications in each case.</p>
+
+    <theorem xml:id="thm-classical-stokes">
+        <title>Classical Stokes' Theorem</title>
+        <statement>
+            <p>Let <m>\mathcal{S}</m> be a smooth compact oriented surface with boundary in <m>\mathbb{R}^3</m> and <m>\mb{F}</m> a vector field on <m>\mathcal{S}</m>. Then
+                <me>
+                    \iint_{\mathcal{S}} \text{curl} \left( \mb{F} \right) \cdot \tder{}{\mb{S}} = \oint_{\partial \mathcal{S}} \mb{F} \cdot \tder{}{\mb{r}}.
+                </me></p>
+        </statement>
+        <proof> <p>Recall that, in three dimensions, applying the Hodge star twice gives the identity.
+            Using this along with <xref ref="prop-curlformula"/>, Stokes' <xref ref="thm-stokes"/> and the definition of vector integrals (both flux and line) to obtain
+            <md>
+                <mrow> \iint_{\mathcal{S}} \text{curl} \left( \mb{F} \right) \cdot \tder{}{\mb{S}} \amp = \int_{\mathcal{S}} \star \left( \left[ \star \left( \tder{}{\mb{F}^\vee} \right) \right]^\vee \right)^\vee </mrow>
+                <mrow> \amp = \int_{\mathcal{S}} \star  \star \left( \tder{}{\mb{F}^\vee} \right) , </mrow>
+                <mrow> \amp =  \int_{\mathcal{S}}  \tder{}{\mb{F}^\vee}, </mrow>
+                <mrow> \amp = \oint_{\partial \mathcal{S}}  {\mb{F}^\vee}, </mrow>
+                <mrow> \amp = \oint_{\partial \mathcal{S}} \mb{F} \cdot \tder{}{\mb{r}}. </mrow>
+            </md></p>
+        </proof>
+    </theorem>
+
+    <p>The idea here again is that the curl of <m>\mb{F}</m> records its infinitesimal rotations and integrating it over a surface will yield the total circulation of <m>\mb{F}</m> along its boundary. </p>
+
+    <example>
+        <title>Applying the Classical Stokes' Theorem</title>
+        <statement>
+            <p>Let 
+                <me>
+                \mb{F} = xz\, \partial_x - yz\, \partial_y -  \partial_z
+                </me>
+                and suppose <m>S</m> is an oriented surface with compatibly oriented boundary <m>\mathcal{C}</m>, the unit circle in the <m>x,y</m> plane oriented counter-clockwise.
+                Suppose we wish to compute the vector surface integral
+                <me>
+                \iint_{S} \mb{F} \cdot \tder{}{\mb{S}}.
+                </me>
+                Certainly, before the Classical Stokes' Theorem, we would have no hope at all since the surface <m>S</m> is not even specified, just its boundary. But with the theorem, we can check to see that there is another vector field
+                <me>
+                \mb{A} = - y \, \partial_x + xyz \, \partial_z
+                </me>
+                which satisfies
+                <me>
+                \text{curl} ( \mb{A} ) = \mb{F}.
+                </me>
+                Thus, we may apply our theorem (for <m>\mb{A}</m>) to see that
+                <md>
+                    <mrow> \iint_{\mathcal{S}}  \mb{F} \cdot \tder{}{\mb{S}} \amp = \iint_{\mathcal{S}} \text{curl} \left( \mb{A} \right) \cdot \tder{}{\mb{S}}, </mrow>
+                    <mrow> \amp = \oint_{\mathcal{C}} \mb{A} \cdot \tder{}{\mb{r}}.</mrow>
+                </md>
+                We have all of the tools necessary now to make the computation. Taking the parameterization 
+                <me> 
+                \mb{r} (t) = (\cos t, \sin t, 0)
+                </me>
+                for <m>0 \leq t \leq 2\pi</m>  with tangent vector 
+                <me>
+                \mb{r}^\prime (t) = \left[ \begin{matrix} -\sin t \amp \cos t \amp 0 \end{matrix} \right]
+                </me>
+                we obtain the result
+                <md>
+                    <mrow> \oint_{\mathcal{C}} \mb{A} \cdot \tder{}{\mb{r}} \amp = \int_0^{2\pi} \mb{A} (\mb{r} (t)) \cdot \mb{r}^\prime (t) \, \tder{}{t}, </mrow>
+                    <mrow> \amp =   \int_0^{2\pi}  \left[ \begin{matrix} - \sin t \amp 0 \amp 0 \end{matrix} \right] \cdot  \left[ \begin{matrix} -\sin t \amp \cos t \amp 0 \end{matrix} \right] \, \tder{}{t},</mrow>
+                    <mrow> \amp =  \int_0^{2\pi} \sin^2 t \, \tder{}{t}, </mrow>
+                    <mrow> \amp = \pi.</mrow>
+                </md></p>
+        </statement>
+    </example>
+
+    <p>In this example, there was a step which certainly may have seemed mysterious. Namely, at some point we produced a vector field <m>\mb{A}</m> whose curl was the field that we were trying to integrate. In principle, this type of step has been made many times by calculus students when they find anti-derivatives to compute definite integrals. Of course, finding the `anti-curl' may be a bit daunting (just like finding a vector potential or stream function may be daunting), but luckily there are some results that tell us when we should try. First we make an official definition for this anti-derivative.</p>
+
+    <definition xml:id="def-vector-potential">         
+        <notation>             
+            <usage><m>\text{curl} (\mb{A} ) = \mb{F}</m></usage>             
+            <description>Vector potential </description>         
+        </notation>         
+        <statement>
+            <p>Let <m>U</m> be an open subset of <m>\mathbb{R}^3</m> and  <m>\mb{F}</m> a vector field defined on <m>U</m>. We say that <m>\mb{A}</m> is a <term>vector potential</term> for <m>\mb{F}</m> if 
+                <me>
+                \text{curl} (\mb{A} ) = \mb{F}.
+                </me></p>
+        </statement>
+    </definition>
+
+    <p>Now, a student should not get the wrong idea. Just as scalar potentials for vector fields do not always exist, vector potentials do <em>not</em> always exist either. But as in the case of scalar potentials, there is a quick test which, if it fails, tells us a vector potential does not exist.</p>
+
+    <proposition xml:id="prop-solenoidaltest">
+        <statement>
+            <p>If <m>\mb{F}</m> has a vector potential then it is solenoidal.</p>
+        </statement>
+        <proof> <p>Exercise.</p>
+        </proof>
+    </proposition>
+
+    <p>Recall <m>\mb{F}</m> is solenoidal if <m>\text{div} (\mb{F} ) = 0</m>. So before trying to come up with a vector potential, one should quickly check this condition.</p>
+
+    <example>
+        <title>Computing a vector potential</title>
+        <statement>
+            <p>If you were asked by someone to find a vector potential for  
+                <me>
+                \mb{F} = x \, \partial_x + y \, \partial_y + z \, \partial_z
+                </me>
+                and you started writing the curl of <m>\mb{A} =  P \, \partial_x + Q \, \partial_y + R \, \partial_z </m> and taking anti-derivatives, you would end up quite frustrated. The first step here is to observe that <m>\text{div} (\mb{F} ) = 3 \ne 0</m> so that no such potential exists, after which you should suspect the questioner of incompetence or cruelty.
+                On the other hand, had they slightly changed their field to 
+                <me>
+                \tilde{\mb{F}} = x \, \partial_x + y \, \partial_y -2 z \, \partial_z
+                </me>
+                you could easily check to see that <m>\text{div} (\tilde{\mb{F}} ) = 0</m> and there is hope. Again, taking <m>\mb{A} = P \, \partial_x + Q \, \partial_y + R \, \partial_z </m>, to verify <m>\text{curl} (\mb{A} ) = \mb{F}</m> you would need to solve the partial differential equations
+                <md>
+                    <mrow> \frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z}  \amp = x, </mrow>
+                    <mrow> \frac{\partial P}{\partial z} - \frac{\partial R}{\partial x}  \amp = y, </mrow>
+                    <mrow> \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \amp = - 2z. </mrow>
+                </md>
+                To solve this, simplify the system by assuming <m>Q = 0</m> and solve the first equation with <m>R = xy</m>. Then the remaining equations are
+                <md>
+                    <mrow> \frac{\partial P}{\partial z}   \amp = 2y, </mrow>
+                    <mrow>  - \frac{\partial P}{\partial y} \amp = - 2z,</mrow>
+                </md>
+                for which one easily sees <m>P = 2yz</m> is a solution. Thus
+                <me>
+                \mb{A} = 2 yz \, \partial_x + xy \, \partial_z
+                </me>
+                is a vector potential for <m>\mb{F}</m>.</p>
+        </statement>
+    </example>
+
+    <p>It may have bothered a student to make the assumption <m>Q = 0</m> in this example. After all, how do we know we're not assuming too much here and making the system impossible to solve? The reason that one does not need to worry here is that, unlike scalar potentials, there are many vector potentials (when they exist) for a given field. Indeed, if <m>\mb{A}</m> is a vector potential for <m>\mb{F}</m>, then so is <m>\mb{A} + \nabla f</m> for any smooth function <m>f</m>. So making the restriction <m>Q = 0</m> can be seen as subtracting off the gradient of some function.</p>
+
+    <p>Having a vector potential ensures very special properties whose proofs are analogous to those for scalar potentials and conservative fields.</p>
+
+    <proposition>
+        <statement>
+            <p>If <m>\mb{F}</m> has a vector potential, then the vector surface integral of <m>\mb{F}</m> over a compact oriented surface <m>S</m> with boundary depends only on <m>\mb{F}</m> as a field on the boundary <m>\partial S</m>.</p>
+        </statement>
+        <proof> <p></p>
+        </proof>
+    </proposition>
+
+    <p>This proposition can be thought of as saying that <m>\mb{F}</m> is `surface independent' just like conservative vector fields are path independent. </p>
+
+    <proposition xml:id="prop-surfaceindependent">
+        <statement>
+            <p>If <m>\mb{F}</m> has a vector potential and <m>S</m> is a closed oriented surface, then
+                <me>
+                \oiint_{S} \mb{F} \cdot \tder{}{\mb{S}} = 0.
+                </me></p>
+        </statement>
+    </proposition>
+
+    <p>This proposition however shows us that our solenoidal test may not always be enough.</p>
+
+    <example xml:id="ex-pointmass">
+        <title>Solenoidal vector field with no vector potential</title>
+        <statement>
+            <p>Consider the gravitational vector field, but rescaled to remove the sign, masses and gravitational constant 
+                <me>
+               \mb{F} = \frac{1}{\left( x^2 + y^2 + z^2 \right)^{3/2}} \left[ \begin{matrix} x \amp  y \amp  z \end{matrix} \right].
+                </me>
+                Taking divergence gives
+                <md>
+                    <mrow> \text{div} (\mb{F} ) \amp = \frac{\partial}{\partial x}  \frac{x}{\left( x^2 + y^2 + z^2 \right)^{3/2}} +  \frac{\partial}{\partial y}  \frac{y}{\left( x^2 + y^2 + z^2 \right)^{3/2}} +  \frac{\partial}{\partial z}  \frac{z}{\left( x^2 + y^2 + z^2 \right)^{3/2}}, </mrow>
+                    <mrow> \amp = \frac{x^2 + y^2 + z^2 - 3x^2}{\left( x^2 + y^2 + z^2 \right)^{5/2}} + \frac{x^2 + y^2 + z^2 - 3y^2}{\left( x^2 + y^2 + z^2 \right)^{5/2}} +\frac{x^2 + y^2 + z^2 - 3z^2}{\left( x^2 + y^2 + z^2 \right)^{5/2}},  </mrow>
+                    <mrow> \amp = 0. </mrow>
+                </md>
+                Thus <m>\mb{F}</m> is solenoidal. However, in <xref ref="exercise-gravitysurface"/> you will have made a computation showing, for the unit sphere <m>S</m> with outward normal,
+                <me>
+                \oiint_{S} \mb{F} \cdot \tder{}{\mb{S}} = 4 \pi.
+                </me>
+                Of course, <m>4 \pi</m> is not zero so, even though <m>\mb{F}</m> is solenoidal, it is does <em>not</em> have a vector potential. </p>
+        </statement>
+    </example>
+
+    <p>A student who has been paying some attention may immediately conjecture that perhaps our solenoidal test will guarantee the existence of a vector potential if the domain of the vector field is simply connected. However, such a student would only have been paying \textit{some} attention ... because looking at the last example, we see that <m>\mb{F}</m> is defined on a simply connected region! In fact, there is a condition that one can make on the domain of <m>\mb{F}</m> that will in fact work. We state it here, but will not prove it.</p>
+
+    <proposition xml:id="prop-vectorpotential">
+        <statement>
+            <p>Suppose <m>U</m> is an open subset of <m>\mathbb{R}^3</m> for which, given any closed surface <m>S</m> in <m>U</m>, there is a  compact region <m>R</m> in <m>U</m> for which <m>S = \partial R</m>. Then the following are equivalent:
+            <ol>
+                <li> <m>\mb{F}</m> is solenoidal, </li>
+                <li> <m>\mb{F}</m> is surface independent, </li>
+                <li> <m>\mb{F}</m> has a vector potential.</li>
+            </ol></p>
+        </statement>
+    </proposition>
+
+    <p>We return to applications of Stokes' Theorem in <m>\mathbb{R}^3</m> and state our final corollary.</p>
+
+    <theorem xml:id="thm-divergence">
+        <title>Divergence Theorem</title>
+        <statement>
+            <p>Let <m>\mathcal{R}</m> be a compact three dimensional subspace of <m>\mathbb{R}^3</m> with smooth compatibly oriented boundary and <m>\mb{F}</m> a differentiable vector field on <m>\mathcal{R}</m>. Then
+                <me>
+                \iiint_{\mathcal{R}} \text{div} \left( \mb{F} \right) \, \tder{}{x}\, \tder{}{y}\, \tder{}{z}  = \oiint_{\partial \mathcal{R}} \mb{F} \cdot \tder{}{\mb{S}}.
+                </me></p>
+        </statement>
+        <proof> <p>Here, we need only use <xref ref="prop-divergenceformula"/>, Stokes' <xref ref="thm-stokes"/> and the definition of vector surface integrals to obtain
+            <md>
+                <mrow> \iiint_{\mathcal{R}} \text{div} \left( \mb{F} \right) \, \tder{}{x}\, \tder{}{y}\, \tder{}{z} \amp = \int_{\mathcal{R}}  \tder{}{\left(\star \mb{F}^\vee \right)} </mrow>
+                <mrow> \amp =\int_{\partial \mathcal{R}} \star \mb{F}^\vee </mrow>
+                <mrow> \amp = \oiint_{\partial \mathcal{R}} \mb{F} \cdot \tder{}{\mb{S}}. </mrow>
+            </md></p>
+        </proof>
+    </theorem>
+
+    <p>Let us see an example applying this theorem.</p>
+
+    <example>
+        <title>Applying the Divergence Theorem</title>
+        <statement>
+            <p>Let <m>S</m> be the sphere of radius <m>2</m> centered at the origin and oriented with outward normal,
+                <me>
+                \mb{F} = 2xy e^z \, \partial_x + (y - y^2 e^z) \partial_y + (z + x^2 e^y)\partial_z
+                </me>
+                and suppose we wanted to compute the vector surface integral
+                <me>
+                \oiint_{S} \mb{F} \cdot \tder{}{\mb{S}}.
+                </me>
+                Parameterizing the sphere and computing would end in tragedy, or at least frustration. However, calculating
+                <me>
+                \text{div} (\mb{F} ) = 2
+                </me>
+                and applying the Divergence Theorem to the ball <m>B</m> of radius <m>2</m> centered at the origin gives
+                <md>
+                    <mrow> \oiint_{S} \mb{F} \cdot \tder{}{\mb{S}} \amp = \iiint_{B} \text{div} (\mb{F} ) \, \tder{}{x} \, \tder{}{y} \, \tder{}{z}, </mrow>
+                    <mrow> \amp =  2 \iiint_{B}  \, \tder{}{x} \, \tder{}{y} \, \tder{}{z}, </mrow>
+                    <mrow> \amp = 2 \,\text{Vol} (B), </mrow>
+                    <mrow> \amp = 2 \left( \frac{4\pi2^3}{3} \right), </mrow>
+                    <mrow> \amp = \frac{64 \pi}{3}. </mrow>
+                </md></p>
+        </statement>
+    </example>
+
+    <exercises xml:id="exe-classicalstokes">
+
+        <exercise>
+            <statement>
+                <p> Prove <xref ref="prop-solenoidaltest"/>. </p>
+            </statement>
+        </exercise>
+
+        <exercise>
+            <introduction><p>For the following vector fields, decide whether there is a vector potential or not. If there is, give an example of one.</p></introduction>
+        <task>
+            <statement>
+                <p> <m>\mb{F} = (2 xz + x)\, \partial_x - y \, \partial_y - z^2 \, \partial_z</m>. </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p> <m>\tilde{\mb{F}} = yx \, \partial_x + z y \, \partial_z</m>. </p>
+            </statement>
+        </task>
+        </exercise>
+
+        <exercise>
+            <statement>
+                <p> Let <m>S</m> be an oriented surface with compatibly oriented boundary <m>C</m> given by
+                    <me>
+                    x^2 + y^2 = 1, \hspace{.2in} z = 1
+                    </me>
+                    oriented counter-clockwise when projected to the <m>x,y</m>-plane.
+                    Determine which, if any, of the vector fields in the last problem for which you can compute the vector surface integral over <m>S</m>. </p>
+            </statement>
+        </exercise>
+
+        <exercise>
+            <statement>
+                <p> Let <m>S</m> be an ellipsoid in <m>\mathbb{R}^3</m> which encloses the origin and is oriented with outward normal and 
+                    <me>
+                   \mb{F} = \frac{1}{\left( x^2 + y^2 + z^2 \right)^{3/2}} \left[ \begin{matrix} x \amp  y \amp  z \end{matrix} \right].
+                    </me>
+                    Using the result from <xref ref="ex-pointmass"/> and the Divergence Theorem, evaluate the surface integral
+                    <me>
+                    \oiint_{S} \mb{F} \cdot \tder{}{\mb{S}}.
+                    </me> </p>
+            </statement>
+        </exercise>
+
+        <exercise>
+            <statement>
+                <p> Let <m>S_0</m> and <m>S_1</m> be the spheres of radii <m>1</m> and <m>2</m> centered at <m>p = (0, 0, 0)</m> and take <m>q</m> to be the point <m>(1, 1, 1)</m>. 
+                    Either give an example of a differentiable solenoidal vector field <m>\mb{F}</m> defined off of <m>p</m> and <m>q</m> for which
+                    <me>
+                    \oiint_{S_0} \mb{F} \cdot \tder{}{\mb{S}} = 1, \hspace{.2in} \oiint_{S_0} \mb{F} \cdot \tder{}{\mb{S}} = -1
+                    </me>
+                    or explain why such a field does not exist. </p>
+            </statement>
+        </exercise>
+        
+    </exercises>
+
+</section>

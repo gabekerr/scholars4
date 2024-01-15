@@ -1,0 +1,431 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-derivatives">
+    <title>Derivatives</title>
+    <introduction>
+    <p>Having discussed all of the different types of integrals of interest to us, we return for a moment to derivatives.</p>
+    </introduction>
+
+    <subsection xml:id="subsec-exterior-derivative">
+        <title>Exterior derivative</title>
+
+        <p>The exterior derivative is not only a derivative of functions, but of forms themselves. For the remainder of the course, we will assume all forms have coefficient functions that have continuous second partial derivatives.</p>
+
+        <definition xml:id="def-exterior-derivative-forms">         
+            <notation>             
+                <usage><m>\tder{}{\eta}</m></usage>             
+                <description>Exterior derivative </description>         
+            </notation>         
+            <statement>
+                <p>Let 
+                    <me>
+                    \eta = \sum_{1 \leq i_1 \lt \cdots \lt i_m \leq n} f_{i_1, \ldots ,i_m } \, \tder{}{x_{i_1}} \wedge \cdots \wedge \tder{}{x_{i_m}}
+                    </me>
+                    be a differential <m>m</m>-form in <m>\mathbb{R}^n</m>. The <term>exterior derivative</term> of <m>\eta</m> is the <m>(m + 1)</m>-form 
+                    <me>
+                    \tder{}{\eta} = \sum_{1 \leq i_1 \lt \cdots \lt i_m \leq n} \tder{}{f_{i_1, \ldots ,i_m }} \wedge  \tder{}{x_{i_1}} \wedge \cdots \wedge \tder{}{x_{i_m}}
+                    </me></p>
+            </statement>
+        </definition>
+
+        <p>Let us compute a few examples.</p>
+
+        <example>
+            <title>Exterior derivative of a scalar function</title>
+            <statement>
+                <p>For a differentiable function <m>f</m> on an open set <m>U</m>, which is a <m>0</m>-form by definition, of <m>\mathbb{R}^n</m>, we recall 
+                <me>
+                    \tder{}{f} = \frac{\partial f}{\partial x_1} \tder{}{x_1} + \cdots + \frac{\partial f{\partial x_n} \tder{}{x_n} .
+                </me>
+                So, for example if <m>f(x,y) = x \cos (xy)</m> then 
+                <me>
+                    \tder{}{f} = \left( \cos (xy) - xy \sin (xy) \right) \tder{}{x} - x^2 \sin (xy) \, \tder{}{y}.
+                </me>
+                This is just one way of expressing the derivative of a scalar function.</p>
+            </statement>
+        </example>
+        
+        <example>
+            <title>Exterior derivative of a <m>1</m>-form</title>
+                <statement>
+                    <p>Now suppose we have a one form in <m>\mathbb{R}^3</m> like
+                    <me>
+                        \eta = x \tder{}{x} + y \tder{}{y} + z \tder{}{z}.
+                    </me>
+                    Then 
+                    <md>
+                        <mrow> \tder{}{\eta} \amp = \tder{}{} \left( x \tder{}{x} - z \tder{}{y} + y \tder{}{z} \right), </mrow>
+                        <mrow> \amp = \tder{}{} \left( x \tder{}{x} \right) -  \tder{}{} \left(z \tder{}{y} \right) + \tder{}{} \left( y \tder{}{z} \right), </mrow>
+                        <mrow> \amp = \tder{}{x} \wedge \tder{}{x} - \tder{}{z} \wedge \tder{}{y} + \tder{}{y} \wedge \tder{}{z}, </mrow>
+                        <mrow> \amp = 2  \, \tder{}{y} \wedge \tder{}{z}. </mrow>
+                    </md></p>
+            </statement>
+        </example>
+
+        <example>
+            <title>Exterior derivative of a <m>2</m>-form</title>
+            <statement>
+                <p>For the <m>2</m>-form 
+                    <me>
+                        \xi \amp = xz \, \tder{}{x} \wedge \tder{}{y} - xy \, \tder{}{y} \wedge \tder{}{z}
+                    </me> 
+                    one calculates
+                    <md>
+                        <mrow> \tder{}{\xi} \amp = \tder{}{} \left( xz \, \tder{}{x} \wedge \tder{}{y} - xy \, \tder{}{y} \wedge \tder{}{z} \right), </mrow>
+                        <mrow> \amp =  \tder{}{(xz)}  \wedge \tder{}{x} \wedge \tder{}{y} - \tder{}{xy} \wedge \tder{}{y} \wedge \tder{}{z}, </mrow>
+                        <mrow> \amp = \left( x \tder{}{z} + z \tder{}{x} \right)  \wedge \tder{}{x} \wedge \tder{}{y} - \left( x \tder{}{y} + y \tder{}{x} \right) \wedge \tder{}{y} \wedge \tder{}{z}, </mrow>
+                        <mrow> \amp = x \, \tder{}{z}   \wedge \tder{}{x} \wedge \tder{}{y} -  y\, \tder{}{x}  \wedge \tder{}{y} \wedge \tder{}{z}, </mrow>
+                        <mrow> \amp = (x -  y)\, \tder{}{x}  \wedge \tder{}{y} \wedge \tder{}{z}. </mrow>
+                    </md></p>
+            </statement>
+        </example>
+
+        <example>
+            <title>Exterior derivative of a top form</title>
+                <statement>
+                    <p>Note that for a top form, we always have that its exterior derivative is zero. For example, if <m>\eta = xy \tder{}{x} \wedge \tder{}{y}</m> in <m>\mathbb{R}^2</m>, then 
+                    <me>
+                        \tder{}{\eta} = \left( x \tder{}{y} + y \tder{}{x} \right) \wedge \tder{}{x} \wedge \tder{}{y} = 0. 
+                    </me></p>
+            </statement>
+        </example>
+
+        <p>There are a few important properties about the exterior derivative that make it easier to work with.</p>
+
+        <proposition xml:id="prop-extder-properties">
+            <statement>
+                <p>The exterior derivative satisfies the following properties.</p>
+                <dl>
+                    <li> <b>Naturality</b> If <m>\mb{G} : U \to V</m> is a differentiable map from an open set <m>U \subset \mathbb{R}^m</m> to <m>V \subset \mathbb{R}^n</m> and <m>\eta</m> is a differential <m>k</m>-form on <m>U</m> then
+                        <me>
+                            \mb{G}^* \tder{}{\eta} = \tder{}{\mb{G}^* \eta}.
+                        </me></li>
+                    <li> <b>Linearity</b> If <m>a</m> and <m>b</m> are real numbers, <m>\eta_1</m> and <m>\eta_2</m> are <m>m</m>-forms then
+                        <me>
+                        \tder{}{(a \eta_1 + b \eta_2)} = a \tder{}{\eta_1} + b \tder{}{\eta_2},
+                        </me></li>
+                    <li> <b>Leibniz Rule</b> For an <m>m</m>-form <m>\eta</m> and <m>n</m>-form <m>\xi</m> 
+                        <me>
+                        \tder{}{\left( \eta \wedge \xi \right)} =  \tder{}{\eta} \wedge \xi + (-1)^m \eta \wedge \tder{}{\xi},
+                        </me></li>
+                    <li> <b>Square Zero</b> For any <m>m</m>-form <m>\eta</m>, <m>\tder{}{} \left( \tder{}{\eta} \right) = 0</m>.</li>
+                </dl>
+            </statement>
+            <proof> <p>We leave the first two properties as exercises. For the last property, we first check this for a scalar function <m>f</m> (i.e. a <m>0</m>-form).
+                <md>
+                    <mrow>\tder{}{} \left( \tder{}{f} \right) \amp = \tder{}{}  \left( \frac{\partial f}{\partial x_1} \tder{}{x_1} + \cdots + \frac{\partial f}{\partial x_n} \tder{}{x_n} \right), </mrow>
+                    <mrow> \amp = \tder{}{}  \left( \frac{\partial f}{\partial x_1} \tder{}{x_1} + \cdots + \frac{\partial f}{\partial x_n} \tder{}{x_n} \right), </mrow>
+                    <mrow> \amp = \sum_{j = 1}^n \tder{}{} \left( \frac{\partial f}{\partial x_j} \tder{}{x_j} \right), </mrow>
+                    <mrow> \amp = \sum_{i = 1}^n \sum_{j = 1}^n \frac{\partial^2 f}{\partial x_i \partial x_j} \, \tder{}{x_i} \wedge \tder{}{x_j}. </mrow>
+                </md>
+                Now, for all summands in the last expression with <m>i = j</m>, we have <m>\tder{}{x_i} \wedge \tder{}{x_j} = 0</m>, so these vanish. The remaining summands come in pairs and we obtain
+                <md>
+                    <mrow> \tder{}{} \left( \tder{}{f} \right) \amp = \sum_{1 \leq i \lt j \leq n} \left( \frac{\partial^2 f}{\partial x_i \partial x_j} \, \tder{}{x_i} \wedge \tder{}{x_j} + \frac{\partial^2 f}{\partial x_j \partial x_i} \, \tder{}{x_j} \wedge \tder{}{x_i} \right), </mrow>
+                    <mrow> \amp = 0 . </mrow>
+                </md>
+                Here we used our blanket assumption that <m>f</m> has continuous second partial derivatives and then applied Clairaut's Theorem.
+                
+                For <m>m</m>-forms with <m>m \gt 0</m>, we may use linearity and relabel the indices  of the variables (if needed) and verify the property for
+                <me>
+                \eta = f \, \tder{}{x_1} \wedge \cdots \tder{}{x_m}.
+                </me>
+                Then, using the Leibniz rule for forms, we obtain
+                <md>
+                    <mrow> \tder{}{} \left( \tder{}{\eta} \right) \amp = \tder{}{} \left( \tder{}{f} \wedge \tder{}{x_1} \wedge \cdots \tder{}{x_m}\right) , </mrow>
+                    <mrow> \amp = \left( \tder{}{} \tder{}{f} \right) \wedge \tder{}{x_1} \wedge \cdots \tder{}{x_m} - \tder{}{f} \wedge \tder{}{} \left( \tder{}{x_1} \wedge \cdots \tder{}{x_m} \right),  </mrow>
+                    <mrow> \amp = 0. </mrow>
+                </md></p>
+            </proof>
+        </proposition>
+
+        <p>These properties have led mathematicians and physicists to consider the vector space of all differential forms on some <m>m</m>-dimensional open subset <m>U</m> of <m>\mathbb{R}^m</m> (and more generally, a smooth <m>m</m>-dimensional subspace <m>X</m>). They write <m>\Omega^k (U)</m> for the vector space of differential <m>k</m>-forms and 
+            <me>
+            \Omega^* (U) = \bigoplus_{k = 0}^m \Omega^k (U)
+            </me>
+            for the vector space of all differential forms on <m>U</m>.
+            Then the exterior derivative leads to a sequence of linear maps
+            <me>
+                \Omega^0 (U) \stackrel{\tder{}{}}{\longrightarrow} \Omega^1 (U) \stackrel{\tder{}{}}{\longrightarrow} \cdots  \stackrel{\tder{}{}}{\longrightarrow} \Omega^{m - 1} (U)  \stackrel{\tder{}{}}{\longrightarrow} \Omega^{m } (U)
+            </me>
+            where the composition of any two of these is identically zero. Note that <m>\Omega^* (U)</m> also has a product given by wedging forms together. Taken altogether, <m>(\Omega^* (U), \tder{}{}, \wedge )</m> is called the de Rham complex and has occupied a great deal of attention for the past <m>90</m> years. While a difficult object to understand at first, it unifies many previously independent theorems into one cohesive framework and thereby amplifies potential applications.</p>
+
+    </subsection>
+
+    <subsection xml:id="subsec-gradient">
+        <title>Gradient</title>
+        <p>We have already seen the definition that the gradient of a function <m>f</m> on an open set <m>U</m> in Euclidean space <m>\mathbb{R}^n</m> is the vector field
+            <me>
+                \nabla f  = \frac{\partial f}{\partial x_1} \partial_{x_1} + \cdots + \frac{\partial f}{\partial x_n} \partial_{x_n}.
+            </me>
+            While it is of no great surprise, we must record the following simple proposition.</p>
+
+        <proposition xml:id="prop-gradientformula">
+        <statement>
+            <p>For a scalar function <m>f</m> on an open subspace of Euclidean space, 
+            <men xml:id="eq-gradientdef">
+                \left( \nabla f \right)^\vee = \tder{}{f} .
+            </men>
+            In words, the dual of the gradient is the exterior derivative of <m>f</m>.</p>
+        </statement>
+        </proposition>
+
+        <p>In fact, in more advanced settings where one must use a varying inner product because the space being dealt with is not flat, equation <xref ref="eq-gradientdef"/> gives an alternative definition of the gradient.</p>
+
+        <p>As we have already studied the main properties of the gradient, we leave this as a reminder that such a derivative exists which takes a scalar field to a vector field so can be considered as a map
+        <me>
+            \text{Scalars} (U) \stackrel{\nabla}{\longrightarrow} \text{Vect} (U)
+        </me>
+        where <m>\text{Scalars} (U)</m> is the vector space of scalar functions on <m>U</m> and <m>\text{Vect} (U)</m> is the vector space of vector fields.</p>
+    </subsection>
+
+    <subsection xml:id="subsec-curl">
+        <title>Curl</title>
+        <p>The next derivative we consider is rather unique and only occurs in dimension <m>3</m> (although there is something called <m>2</m>-dimensional curl which we will discuss later in this section). </p>
+        <definition xml:id="def-curl">         
+            <notation>             
+                <usage><m>\text{curl} ( \mb{F} )</m></usage>             
+                <description>Curl </description>         
+            </notation>         
+            <statement>
+                <p>For a differentiable vector field 
+                <me>
+                    \mb{F} = \left[ \begin{matrix} P \amp Q \amp R \end{matrix} \right]
+                </me>
+                defined on an open subset <m>U</m> of <m>\mathbb{R}^3</m>, the <term>curl</term> of <m>\mb{F}</m> is the vector field 
+                <me>
+                    \text{curl} ( \mb{F} ) = \left[ \begin{matrix} \left( \frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z} \right) \amp \left(\frac{\partial P}{\partial z} - \frac{\partial R}{\partial x} \right)  \amp \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}  \right) \end{matrix} \right].
+                </me></p>
+            </statement>
+        </definition>
+
+        <p>This rather cryptic definition has an alternative notation that is more suggestive of the formula
+        <me>
+            \text{curl} (\mb{F} )  = \nabla \times \mb{F}.
+        </me>
+        Let us compute an example to see how this helps.</p>
+
+        <example>
+            <title>Curl computation</title>
+            <statement>
+                <p>Let <me>
+                    \mb{F} = \left[ \begin{matrix} yz - z \amp xz \amp xy + y \end{matrix} \right].
+                    </me>
+                    We use the suggestive formula to compute its curl
+                    <md>
+                        <mrow> \text{curl} (\mb{F} ) \amp = \nabla \times \mb{F}, </mrow>
+                        <mrow> \amp = 
+                         \det \left[ \begin{matrix} \mb{e}_1 \amp \mb{e}_2 \amp \mb{e}_3 \\ \partial_x \amp \partial_y \amp \partial_z \\ yz -z \amp xz \amp xy + y \end{matrix} \right], </mrow>
+                        <mrow> \amp = \left[ \begin{matrix} ((x + 1) - x ) \amp ((y - 1) - y) \amp (z - z) \end{matrix} \right], </mrow>
+                        <mrow> \amp = \left[ \begin{matrix} 1 \amp -1 \amp 0 \end{matrix} \right]. </mrow>
+                    </md></p>
+            </statement>
+        </example>
+
+        <p>The geometric interpretation of curl is that it measures the infinitesimal rotation of the vector field <m>\mb{F}</m>. In particular, the vector <m>\text{curl} (\mb{F} )_p</m> at <m>p \in U</m> gives the axis of rotation that the field is rotating about and its magnitude expresses the strength of the rotation.</p>
+
+        <p>Note that curl takes vector fields to vector fields, so we can think of it as a linear map
+        <me>
+            \text{Vect} (U) \stackrel{\text{curl}}{\longrightarrow} \text{Vect} (U)
+        </me>
+        In fact, we can connect this new derivative with the exterior derivative as follows.</p>
+
+        <proposition xml:id="prop-curlformula">
+            <statement>
+                <p>For a differentiable vector field <m>\mb{F}</m>
+                    defined on an open subset <m>U</m> of <m>\mathbb{R}^3</m> endowed with the dot product and standard orientation,
+                    <me>
+                    \text{curl} (\mb{F} ) = \left[ \star \left( \tder{}{\mb{F}^\vee} \right) \right]^\vee.
+                    </me></p>
+            </statement>
+        </proposition>
+
+        <p>In other words, the curl of <m>\mb{F}</m> is the dual vector field of the Hodge star of the exterior derivative of the dual <m>1</m>-form of <m>\mb{F}</m>! </p>
+
+        </subsection>
+
+        <subsection xml:id="subsec-2dcurl">
+            <title>Two dimensional curl</title>
+            <p>There is a version of curl for <m>2</m> dimensions.</p>
+
+            <definition xml:id="def-2dcurl">         
+                <notation>             
+                    <usage><m>\text{curl}^{2d} (\mb{F} ) </m></usage>             
+                    <description>Two dimensional curl </description>         
+                </notation>         
+                <statement>
+                    <p>Let <m>\mb{F} = P \partial_x + Q \partial_y</m> be a differentiable vector field on a region in <m>\mathbb{R}^2</m>. The two dimensional curl of <m>\mb{F}</m> is the scalar function
+                    <me>
+                        \text{curl}^{2d} (\mb{F} ) = \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} .
+                    </me></p>
+                </statement>
+            </definition>
+
+            <p>Note that two dimensional curl takes vector fields to scalar functions, so we can think of it as a linear map
+            <me>
+                \text{Vect} (U) \stackrel{\text{curl}^{2d}}{\longrightarrow} \text{Scalars} (U)
+            </me>
+            The two dimensional curl is a version of the curl in the sense that if we think of <m>\mb{F}</m> as a vector field <m>\tilde{\mb{F}}</m> on <m>U \times \mathbb{R} \subset \mathbb{R}^3</m> then 
+            <me>
+                \text{curl} (\tilde{\mb{F}}) = \left[ \begin{matrix} 0 \amp 0 \amp  \text{curl}^{2d} (\mb{F} ) \end{matrix} \right]. 
+            </me>
+            Again, this derivative can be related to the exterior derivative.</p>
+
+            <proposition xml:id="prop-2dcurlformula">
+                <statement>
+                    <p>Let <m>\mb{F}</m> be a differentiable vector field defined on an open set <m>U</m> in the Euclidean plane <m>\mathbb{R}^2</m> equipped with the dot product and the standard orientation. Then
+                        <me>
+                        \text{curl}^{2d} (\mb{F} ) = \star \tder{}{} \left( \mb{F}^\vee \right)
+                        </me></p>
+                </statement>
+            </proposition>
+
+            <p>The interpretation of two dimensional curl is that it gives a scalar measure of the infinitesimal counter-clockwise rotation of the field at a point.</p>
+
+        </subsection>
+
+        <subsection xml:id="subsec-divergence">
+            <title>Divergence</title>
+            <p>The last derivative we consider takes a vector field and produces a scalar function on a domain <m>U</m> in <m>\mathbb{R}^n</m>. </p>
+
+            <definition xml:id="def-divergence">         
+                <notation>             
+                    <usage><m>\text{div} (\mb{F} )</m></usage>             
+                    <description>Divergence </description>         
+                </notation>         
+                <statement>
+                    <p>Let 
+                        <me>
+                        \mb{F} = f_1 \partial_1 + \cdots + f_n \partial_n
+                        </me>
+                        be a differentiable vector field defined on an open set <m>U</m> in Euclidean space <m>\mathbb{R}^n</m>. The <term>divergence</term> of <m>\mb{F}</m> is the function
+                        <me>
+                        \text{div} (\mb{F} ) = \frac{\partial f_1}{\partial x_1} + \cdots + \frac{\partial f_n}{\partial x_n}. 
+                        </me></p>
+                </statement>
+            </definition>
+
+            <p>While the formula for the divergence is much easier to remember, there is still an alternative suggestive notation 
+            <me>
+                \text{div} (\mb{F} ) = \nabla \cdot \mb{F}.
+            </me>
+            Let's compute an example.</p>
+
+            <example>
+                <title>Divergence computation</title>
+                <statement>
+                    <p>Suppose <m>\mb{F} = x \partial_x + yx \partial_y</m> in <m>\mathbb{R}^2</m>. Then 
+                    <me>
+                        \text{div} (\mb{F} )  =  \frac{\partial}{\partial x} ( x) +  \frac{\partial}{\partial y} (yx) = 1 + x. 
+                    </me></p>
+                </statement>
+            </example>
+
+            <p>The divergence of a vector field is a measure of how much the vector field spreads or collapses at a given point. This viewpoint will become especially clear after the Divergence Theorem.</p>
+
+            <p>Note that divergence takes vector fields to scalar functions, so we can think of it as a linear map
+            <me>
+                \text{Vect} (U) \stackrel{\text{div}}{\longrightarrow} \text{Scalars} (U)
+            </me>
+            Relating this derivative to forms can be done as follows.</p>
+
+            <proposition xml:id="prop-divergenceformula">
+                <statement>
+                    <p>Let <m>\mb{F}</m> be a differentiable vector field defined on an open set <m>U</m> in Euclidean space <m>\mathbb{R}^n</m> equipped with the dot product and the standard orientation. Then
+                    <me>
+                        \text{div} (\mb{F} ) = \star \tder{}{} \left(\star \mb{F}^\vee \right)
+                    </me></p>
+                </statement>
+            </proposition>
+
+            <p>Again we see that our <sq>new</sq> derivative is but a shadow of the exterior derivative (along with the linear algebra of dualizing and Hodge stars).</p>
+
+        </subsection>
+
+        <exercises xml:id="exe-derivatives">
+
+            <exercise>
+                <introduction><p>Compute the exterior derivative of the following forms.</p></introduction>
+            <task>
+                <statement>
+                    <p> <me>
+                        \eta = xyz \, \tder{}{x} \wedge \tder{}{z}.
+                        </me> </p>
+                </statement>
+            </task>
+            <task>
+                <statement>
+                    <p> <me>
+                        \xi = -\frac{y}{x^2 + y^2} \, \tder{}{x} + \frac{x}{x^2 + y^2} \, \tder{}{y}.
+                        </me> </p>
+                </statement>
+            </task>
+            </exercise>
+    
+            <exercise>
+                <introduction><p>Compute the curl of the following vector fields.</p></introduction>
+            <task>
+                <statement>
+                    <p> The linear field 
+                        <me>
+                        \mb{F} = \left[ \begin{matrix} (y + z) \amp x \amp y \end{matrix} \right]
+                        </me> </p>
+                </statement>
+            </task>
+            <task>
+                <statement>
+                    <p> The gravitational force field <me> \mb{F} = \frac{G M m}{\left( x^2 + y^2 + z^2 \right)^{3/2}} \left[ \begin{matrix} -x \amp - y \amp - z \end{matrix} \right] </me> </p>
+                </statement>
+            </task>
+            </exercise>
+
+            <exercise>
+                <introduction><p> Compute the divergence of the following vector fields.</p></introduction>
+            <task>
+                <statement>
+                    <p>The field
+                        <me>
+                        \mb{F} =  xy \partial_x +  (x + y ) \partial_y .
+                        </me> </p>
+                </statement>
+            </task>
+            <task>
+                <statement>
+                    <p> The gravitational force field <me> \mb{F} = \frac{G M m}{\left( x^2 + y^2 + z^2 \right)^{3/2}} \left[ \begin{matrix} -x \amp - y \amp - z \end{matrix} \right] </me>  </p>
+                </statement>
+            </task>
+            </exercise>
+    
+            <exercise>
+                <statement>
+                    <p> Verify the Liebniz rule of exterior derivatives when <m>\eta</m> and <m>\xi</m> are differential <m>1</m>-forms in <m>\mathbb{R}^3</m>. </p>
+                </statement>
+            </exercise>
+
+            <exercise>
+                <statement>
+                    <p> Verify <xref ref="prop-curlformula"/>. </p>
+                </statement>
+            </exercise>
+
+            <exercise>
+                <statement>
+                    <p> Verify <xref ref="prop-divergenceformula"/>.</p>
+                </statement>
+            </exercise>
+    
+            <exercise xml:id="exercise-compzero">
+                <statement>
+                    <p>Let <m>U</m> be an open subset of <m>3</m>-dimensional Euclidean space.
+                    Using only the square zero property, <xref ref="prop-gradientformula"/>, <xref ref="prop-curlformula"/>, and <xref ref="prop-divergenceformula"/> show that for any twice differentiable function <m>f</m> and vector field <m>\mb{F}</m> defined on <m>U</m> we have
+                    <me>
+                        \text{curl} \left( \nabla f \right) = \mb{0}
+                        \hspace{.2in} \text{and} \hspace{.2in}
+                        \text{div} \left( \text{curl} (\mb{F} ) \right) = 0.
+                    </me></p>
+                </statement>
+            </exercise>
+    
+            
+            
+        </exercises>
+</section>

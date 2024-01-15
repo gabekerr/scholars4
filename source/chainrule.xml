@@ -1,0 +1,431 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-chainrule">
+    <title>The chain rule and tangent spaces</title>
+    <introduction>
+    <p>One of the most important ways one can manipulate a function is by composing it with another function. Indeed, one example of this is changing coordinates from one system to another and we will examine such coordinate systems as we progress. To see how derivatives are effected by this change, we first state some basic lemmas.</p>
+
+    <lemma xml:id="lem-slopebound">
+        <statement>
+            <p>If <m>\mb{H}</m> is differentiable at <m>\mb{c}</m> then there is a neighborhood <m>U</m> of <m>\mb{c}</m> and a constant <m>C</m> such that
+            <me>
+                \frac{\| \mb{H} (\mb{x} ) - \mb{H} (\mb{c}) \|}{\| \mb{x} - \mb{c} \|} \lt C
+            </me>
+            for all <m>\mb{x}</m> in <m>U</m>.</p>
+        </statement>
+        <proof><p>This follows from the definition of the derivative, the triangle inequality and continuity of linear transformations.</p></proof>
+    </lemma>
+
+    
+    <definition xml:id="def-vanishing-higher-order">         
+        <notation>             
+            <usage><m>T_{\mb{a}} V</m></usage>             
+            <description>Tangent space </description>         
+        </notation>         
+        <statement>
+            <p>Let <m>U</m> be an open neighborhood of <m>\mb{c}</m> in an inner product space <m>V</m> and <m>W</m> some other inner product space. We say that a function <m>E : U \to W</m> <term>vanishes higher than first order </term> at <m>\mb{c}</m> if 
+                <me>
+                \lim_{\mb{x} \to \mb{c}} \frac{E (\mb{x} )}{\| \mb{x} - \mb{c}\|} = \mb{0}.
+                </me>
+            </p>
+        </statement>
+    </definition>
+
+    <lemma xml:id="lem-vanishing">
+        <statement>
+            <p>Suppose <m>U_1</m> and <m>U_2</m> are neighborhoods of <m>\mb{c}_1</m> and <m>\mb{c}_2</m> in inner product spaces <m>V_1</m> and <m>V_2</m> and <m>\mb{H} : U_1 \to U_2</m> is differentiable at <m>\mb{c}_1</m> with <m>\mb{H} (\mb{c}_1) = \mb{c}_2</m>. If <m>E : U_2 \to K</m> vanishes higher than first order at <m>\mb{c}_2</m> then <m>E \circ \mb{H}</m> vanishes higher than first order at <m>\mb{c}_2</m>.</p>
+        </statement>
+        <proof>
+            <p>By definition, for any <m>\tilde{\varepsilon} > 0</m> there is a <m>\delta</m> so that if <m>\| \mb{y} - \mb{c}_2\| \lt \delta</m> then <m>\|E (\mb{y} )\| \lt \tilde{\varepsilon} \| \mb{y} - \mb{c}_2\|</m>.
+            Using the continuity of <m>\mb{H}</m> and <xref ref="lem-slopebound"/> we have that there is a <m>C</m> and, in a neighborhood of <m>\mb{c}_1</m> (which maps to an appropriate neighborhood of <m>\mb{c}_2</m>),
+            <me>
+                0 \leq \frac{\|E ( \mb{H} (\mb{x} ))\|}{\| \mb{x} - \mb{c}_1\|} \lt \tilde{\varepsilon} \| \mb{H} ( \mb{x} ) - \mb{H} ( \mb{c}_1) \|{\|\mb{x} - \mb{c}_1\|}  \lt \tilde{\varepsilon} C.
+            </me>
+            Taking <m>\delta</m> for <m>\varepsilon / C </m> gives the result.</p>
+        </proof>
+    </lemma>
+    <p> With these preliminary lemmas in hand, we state the following amazing result.</p>
+
+    <theorem xml:id="thm-chainrule">
+        <title>Chain Rule</title>
+        <statement>
+            <p>Let <m>V_1, V_2</m> and <m>V_3</m> be finite dimensional real inner product spaces and <m>U_1, U_2</m> open sets in <m>V_1</m> and <m>V_2</m> respectively. Suppose 
+                <me>
+                \mb{G} : U_1 \to U_2 \hspace{.3in} \mb{F} : U_2 \to V_3
+                </me> 
+                are functions for which
+                <ol>
+                    <li> <m>\mb{G} (\mb{a} ) = \mb{b}</m>, </li>
+                    <li> <m>\mb{G}</m> is differentiable at <m>\mb{a}</m>, </li>
+                    <li> <m>\mb{F}</m> is differentiable at <m>\mb{b}</m>. </li>
+                </ol>
+                Then <m>\mb{F} \circ \mb{G}</m> is differentiable at <m>\mb{a}</m> and 
+                <me>
+                \tder{\mb{a}}{(\mb{F} \circ \mb{G})} = \tder{\mb{b}}{\mb{F}} \circ \tder{\mb{a}}{\mb{G}}.
+                </me> </p>
+        </statement>
+        <proof> <p>We will use <xref ref="lem-vanishing"/> and the definition of the vanishing of higher than first order errors.  However, the proof is fairly basic up to this result as we now observe. The error terms <m>E_F (\mb{y})</m> and <m>E_G (\mb{x})</m> vanish higher than first order at <m>\mb{b}</m> and <m>\mb{a}</m> by the definition of the derivative. These are the terms in the equations
+        <md>
+            <mrow> \mb{F} (\mb{y}) \amp = \mb{F} ( \mb{b} ) + \tder{\mb{b}}{\mb{F}} (\mb{y} - \mb{b} ) + E_F (\mb{y}), </mrow>
+            <mrow> \mb{G} (x) \amp = \mb{G} ( \mb{a} ) + \tder{\mb{a}}{\mb{G}} (\mb{x} - \mb{a} ) + E_G (\mb{x}). </mrow>
+        </md>
+        Putting these together gives
+        <md>
+            <mrow> \mb{F} \circ \mb{G} (\mb{x} ) \amp = \mb{F} (\mb{G} (\mb{x} )),  </mrow>
+            <mrow> \amp = \mb{F} \left( \mb{b} \right) + \tder{\mb{b}}{\mb{F}} (\mb{G} (\mb{x} ) - \mb{b} ) + E_F (\mb{G} (\mb{x} )), </mrow>
+            <mrow> \amp = \mb{F} \left( \mb{G} (\mb{a} ) \right)  + \tder{\mb{b}}{\mb{F}} (\tder{\mb{a}}{\mb{G}} (\mb{x} - \mb{a} ) + E_G (\mb{x})) + E_F (\mb{G} (\mb{x} )), </mrow>
+            <mrow> \amp = \mb{F} \left( \mb{G} (\mb{a} ) \right)  + ( \tder{\mb{b}}{\mb{F}} \circ \tder{\mb{a}}{\mb{G}} ) (\mb{x} - \mb{a} ) + \tder{\mb{b}}{\mb{F}} (E_G (\mb{x})) + E_F (\mb{G} (\mb{x} )). </mrow>
+        </md>
+        Now, the function
+        <me>
+             \tder{\mb{b}}{\mb{F}} (E_G (\mb{x})) 
+        </me>
+        vanishes to higher order since <m>\tder{\mb{b}}{\mb{F}}</m> is a linear transformation so that 
+        <me>
+            \lim_{\mb{x} \to \mb{a}} \frac{\tder{\mb{b}}{\mb{F}}(E_G (\mb{x}))}{\| \mb{x} - \mb{a} \|} = \lim_{\mb{x} \to \mb{a}}\tder{\mb{b}}{\mb{F}} \left( \frac{E_G (\mb{x})}{\| \mb{x} - \mb{a} \|} \right) = \tder{\mb{b}}{\mb{F}} \lim_{\mb{x} \to \mb{a}} \frac{E_G (\mb{x})}{\| \mb{x} - \mb{a} \|} = \mb{0}.
+        </me>
+        By <xref ref="lem-vanishing"/>, the function <m>E_F (\mb{G} (\mb{x} ))</m> also vanishes higher than first order. By the definition of the derivative, this gives the result. </p>
+        </proof>
+    </theorem>
+
+    <p>A student that has never understood the chain rule in <m>1</m>-variable should now see it for what it is : the derivative of a composition is the composition of the derivatives. Of course, to understand this, one must be careful to evaluate these derivative at the correct points (in particular, one must evaluate the derivative of <m>\mb{F}</m> at the image point <m>\mb{G} (\mb{a})</m>.) We now will progress in two ways, an abstract and a computational (with a geometric understanding at the end to tie these together).</p>
+    </introduction>
+
+    <subsection xml:id="subsec-computational">
+        <title>Computational considerations</title>
+        <p>While our presentation of the chain rule is by far the better way of understanding it, it is rarely given in these terms as most students are not required to understand linear algebra before taking multivariable calculus. Instead, most students learn a few of the basic versions of the chain rule.</p>
+
+        <p>Let us take the case when <m>\mb{G}</m> is a path <m>\mb{G} (t) = ( x(t), y(t))</m> and <m>\mb{F} = f(x,y)</m> is a scalar valued function. Then the derivatives can be computed as Jacobian matrices which are
+        <me> 
+            \tder{}{\mb{G}} = \twovec{\frac{d x}{d t}}{\frac{dy}{dt}},
+        </me>
+        and
+        <me>
+            \tder{}{\mb{F}} = \left[ \begin{matrix}  \frac{\partial f}{\partial x} \amp \frac{\partial f}{\partial y} \end{matrix} \right].
+        </me>
+        Composing these and applying the chain rule gives
+        <me>
+            \frac{d f}{d t} = \frac{\partial f}{\partial x} \frac{d x}{d t} + \frac{\partial f}{\partial y} \frac{d y}{d t}.
+        </me></p>
+
+        <example>
+            <title>Chain rule computation I</title>
+            <statement>
+                <p>Suppose we parameterize the unit circle as usual with <m>(\cos t, \sin t)</m> and let <m>z = f(x,y) = x^2 - y^2</m>. One may ask how <m>z</m> is changing relative to the parameter <m>t</m>. This of course is given by the derivative
+                    <md>
+                        <mrow> \frac{dz}{dt}  \amp = \frac{\partial z}{\partial x} \frac{d x}{d t} + \frac{\partial z}{\partial y} \frac{d y}{d t}, </mrow>
+                        <mrow> \amp =  \left( 2x \right) (- \sin t) + \left( - 2y \right) \left( \cos t \right) ,  </mrow>
+                        <mrow> \amp =  \left( 2\cos t \right) (- \sin t) + \left( - 2\sin t \right) \left( \cos t \right), </mrow>
+                        <mrow> \amp = - 4 \cos t \sin t, </mrow>
+                        <mrow> \amp =  - 2 \sin (2t). </mrow>
+                    </md>
+                Note that here we used <m>z</m> instead of <m>f</m>. This is common practice when we view a given variable (like <m>z</m>) as a dependent parameter.</p>
+            </statement>
+        </example>
+
+        <p>The chain rule is often used if one is changing coordinates. In other words, if <m>\mb{G} (u, v) = (x ( u, v), y(u, v))</m> gives another coordinate system on a region in the plane and <m>f(x,y)</m> is a scalar function, we may want to compute the change of <m>f</m> relative to the variables <m>u</m> and <m>v</m> instead of <m>x</m> and <m>y</m>. For this, we simply write out the Jacobian matrix of <m>\mb{G}</m> which is 
+        <me>
+             \tder{}{\mb{G}} = \left[ \begin{matrix} \frac{\partial x}{\partial u} \amp \frac{\partial x}{\partial v} \\ \frac{\partial y}{\partial u} \amp \frac{\partial y}{\partial v} \end{matrix} \right]
+        </me>
+        and compose with the Jacobian 
+        <me>
+            \tder{}{f} = \left[ \begin{matrix}  \frac{\partial f}{\partial x} \amp \frac{\partial f}{\partial y} \end{matrix} \right].
+        </me>
+        of <m>f</m>. This gives two formulas (one for each matrix entry of the derivative of the composition
+        <md>
+            <mrow> \frac{\partial f}{\partial u} \amp = \frac{\partial f}{\partial x}   \frac{\partial x}{\partial u} +  \frac{\partial f}{\partial y}\frac{\partial y}{\partial u}, </mrow>
+            <mrow> \frac{\partial f}{\partial v} \amp = \frac{\partial f}{\partial x}   \frac{\partial x}{\partial v} +  \frac{\partial f}{\partial y}\frac{\partial y}{\partial v} .</mrow>
+        </md>
+        </p>
+
+        <example>
+            <title>Chain rule computation II</title>
+            <statement>
+                <p> One often wants to consider a function <m>f(x,y)</m> on the plane as a function of the polar coordinates <m>f(r, \theta)</m>. This in fact is a composition. Indeed, when we write <m>f(r, \theta)</m> what we mean is the composition <m>f \circ \mb{G}</m> where <m>\mb{G} (r , \theta) = (r \cos \theta, r \sin \theta)</m> changes from cartesian to polar coordinates. I.e.
+                <me>
+                    f(r, \theta ) : = f(r \cos \theta , r \sin \theta) = f(x (r, \theta), y ( r, \theta)) f(r \cos \theta , r \sin \theta) = f \circ \mb{G}.
+                </me>
+                In <xref ref="exercise-polarjacobian"/>, you computed the Jacobian matrix of <m>\mb{G} (r , \theta) = (r \cos \theta, r \sin \theta)</m> and should have found that
+                <me>
+                    \tder{}{\mb{G}} = \left[ \begin{matrix} \cos \theta \amp - r \sin \theta \\ \sin \theta \amp r \cos \theta \end{matrix} \right]. 
+                </me>
+                Using chain rule, this then gives us that
+                <md>
+                    <mrow> \frac{\partial f}{\partial r} \amp = \frac{\partial f}{\partial x} \cos \theta +  \frac{\partial f}{\partial y}\sin \theta , </mrow>
+                    <mrow> \frac{\partial f}{\partial \theta} \amp = - \frac{\partial f}{\partial x} r \sin  \theta +  \frac{\partial f}{\partial y}r \cos \theta . </mrow>
+                </md> </p>
+            </statement>
+        </example>
+    </subsection>
+
+
+    <subsection xml:id="subsec-tangent-spaces">
+        <title>Tangent spaces</title>
+
+        <p>To define the tangent space of a vector space at a point, we first consider the following result concerning directional derivatives.</p>
+
+        <corollary xml:id="cor-directional">
+            <statement>
+                <p> If <m>U</m> is an open neighborhood of <m>\mb{a}</m> in <m>V</m> and <m>f : U \to \mathbb{R}</m> is differentiable at <m>\mb{a}</m> then for any vector <m>\mb{v}</m> in <m>V</m>,
+                <me> 
+                    D_{\mb{v}} f (\mb{a} ) = \tder{\mb{a}}{f} (\mb{v} ).
+                </me>
+                In particular, for <m>\mb{v}_1, \mb{v}_2</m> 
+                <me>
+                     D_{\mb{v}_1 + \mb{v}_2} f ( \mb{a} ) = D_{\mb{v}_1} f (\mb{a}) + D_{\mb{v}_2} f (\mb{a} ). 
+                </me></p>
+            </statement>
+            <proof>
+                <p>Let us reconsider the definition of the directional derivative
+                <me>
+                    D_\mb{v} f ( \mb{a}) = \left. \frac{d}{dt} f (\mb{a} + t\mb{v} )\right|_{t = 0}.
+                </me>
+                The right hand side is really the usual derivative at <m>0</m> of the composition <m>f \circ \ell_{\mb{v}}</m> where <m>\ell_{\mb{v}} = \mb{a} + t \mb{v}</m> is the function from <m>\mathbb{R}</m> to <m>V</m> parameterizing a line through <m>\mb{a}</m> of constant velocity <m>\mb{v}</m>. Using the chain rule then gives
+                <md>
+                    <mrow> D_\mb{v} f ( \mb{a}) \amp = \left. \frac{d}{dt} f (\mb{a} + t\mb{v} )\right|_{t = 0}, </mrow>
+                    <mrow> \amp = \tder{0}{\left( f \circ \ell_{v} \right)} (1), </mrow>
+                    <mrow>  \amp = \tder{\mb{a}}{f} \circ \tder{0}{\ell_v} (1), </mrow>
+                    <mrow>  \amp = \tder{\mb{a}}{f} (\mb{v} ). </mrow>
+                </md>
+                But <m>\tder{\mb{a}}{f}</m> is a linear transformation so the second statement follows.</p>
+            </proof>
+        </corollary>
+
+        <p>Now we proceed to define the tangent space of a point <m>\mb{a}</m> in a real inner product space <m>V</m>. If it helps, you may think of <m>V</m> as <m>\mathbb{R}^n</m> or even as <m>\mathbb{R}^2</m> to build intuition. Recall that <m>C^1 (U)</m> is the vector space of all differentiable (real scalar valued) functions on a set <m>U</m>.</p>
+
+        <definition xml:id="def-tangentspace">         
+            <notation>             
+                <usage><m>T_{\mb{a}} V</m></usage>             
+                <description>Tangent space </description>         
+            </notation>         
+            <statement>
+                <p>A <term>tangent vector</term> <m>\partial</m> to <m>\mb{a} \in V</m> is a directional derivative operator 
+                    <me>
+                    \partial : C^1 (U) \to \mathbb{R}
+                    </me>
+                    which is defined by <m>\partial f = D_\mb{v} f ( \mb{a})</m> for some vector <m>\mb{v}</m> in <m>V</m>. Here <m>U</m> is any open set containing <m>\mb{a}</m>. 
+                    The vector space of these operators is denoted <m>T_{\mb{a}} V</m> and called the <term>tangent space</term> of <m>V</m> at <m>\mb{a}</m>.
+                </p>
+            </statement>
+        </definition>
+
+        <p>When <m>V = \mathbb{R}^m</m>, we take <m>\partial_1, \partial_2, \ldots, \partial_m</m> for the tangent vectors <m>D_{\mb{e}_1}, \ldots, D_{\mb{e}_m}</m>. This forms a basis for <m>T_{\mb{a}} \mathbb{R}^m</m> as <xref ref="prop-tangentisomorphism"/> implies. </p>
+
+        <p>This definition may look rather strange to a student seeing it for the first time, after all, why not just say that <m>\partial</m> is <m>\mb{v}</m> and make the tangent space <m>V</m>? Indeed, we have the following simple result.</p>
+
+        <proposition xml:id="prop-tangentisomorphism">
+            <statement>
+                <p>For any <m>\mb{a}</m> in an inner product space <m>V</m>, there is a linear isomorphism 
+                <me>
+                     T : V \to T_{\mb{a}} V.
+                </me></p>
+            </statement>
+            <proof> <p>Define <m>T</m> by taking <m>T (\mb{v})</m> to <m>D_{\mb{v}}</m>. By <xref ref="cor-directional"/> this is a linear transformation and by the definition of <m>T_{\mb{a}} V</m> it is an isomorphism.</p>
+            </proof>
+        </proposition>
+
+        <p>While <m>V</m> and <m>T_{\mb{a}} V</m> are linearly isomorphic, there are many reasons to make <m>T_{\mb{a}} V</m> its own vector space. Perhaps the most important one is that it replaces the ambient space with a new (linearly isomorphic) space `centered' at <m>\mb{a}</m>. This gives every tangent vector its own identity and its own space in which to perform arithmetic and operations, thereby divining the spatial structure at <m>\mb{a}</m> from some other point. Indeed, there is a bit more to the sophisticated definition in that it should be independent of which open set <m>U</m> we choose around <m>\mb{a}</m>. Point being, tangent vectors of <m>\mb{a}</m> only care about what is happening very close to the point <m>\mb{a}</m>.</p>
+
+        <p>Alternative viewpoints to the tangent space help in understanding it. One way is to see it as the space of differentiable paths through <m>\mb{a}</m> where two paths are identified if their tangent vectors are the same. The isomorphism can then be given by taking a path <m>\gamma</m> to <m>\partial</m> where <m>\partial f = d_0 (f \circ \gamma ) (1)</m>. </p>
+
+        <p>Let us now recast a few definitions.</p>
+
+        <definition xml:id="def-vector-field">         
+            <notation>             
+                <usage><m>\mb{F}</m></usage>             
+                <description>Vector field</description>         
+            </notation>         
+            <statement>
+                <p>A vector field is a function <m>\mb{F}</m> which takes a point <m>\mb{a}</m> and defines a vector <m>\mb{F} (\mb{a})</m> in <m>T_{\mb{a}} V</m>. </p>
+            </statement>
+        </definition>
+
+        <definition xml:id="def-derivative2">         
+            <notation>             
+                <usage><m>T_{\mb{a}} V</m></usage>             
+                <description>Derivative as linear transformation of tangent space </description>         
+            </notation>         
+            <statement>
+                <p>If <m>\mb{F} : U \to V_2</m> is differentiable at <m>\mb{a}</m> in <m>V_1</m> with <m>\mb{F} (\mb{a} ) = \mb{b}</m>, the derivative of <m>\mb{F}</m> at <m>\mb{a}</m> is the linear transformation 
+                <me>
+                    \tder{a}{\mb{F}} : T_\mb{a} V_1 \to T_{\mb{b}} V_2
+                </me>
+                which is defined as 
+                <me>
+                    \left[ \tder{a}{\mb{F}}  ( \partial  )  \right] (f) = \partial \left( f \circ \mb{F} \right).
+                </me></p>
+            </statement>
+        </definition>
+
+        <p>These new definitions can replace our previous ones, or can live (slightly uncomfortably) along side them. However, in the latter case we will find our old viewpoints to be less conceptually workable as we advance our understanding.</p>
+
+    </subsection>
+
+    <subsection xml:id="subsec-subspaces">
+        <title>Level sets and their tangent spaces</title>
+        <p>When working with a set of variables, one often has additional constraints that come into play. For example, one might have some function <m>f (E, m , v)</m> on three variables, <m>E, m, v</m> where <m>E</m> is the kinetic energy of a particle, <m>m</m> is its mass and <m>v</m> its velocity. As we all learn in middle school physics, these three variables satisfy an equation
+        <me>
+            E = \frac{1}{2} m v^2 .
+        </me>
+        So our function is really only interesting on the points <m>(E, m, v) \in \mathbb{R}^3</m> satisfying this equation (or constraint). As it turns out, this constraint defines a surface in three dimensional space and we may wish to find its two dimensional tangent space at a given point. To do this, we consider the function 
+        <me>
+            g (E, m, v) = E - \frac{1}{2} m v^2 .
+        </me>
+        Recall that the zero level set <m>X</m> (or level surface in this case) of <m>g</m> is the subspace satisfying <m>g (E, m, v) = 0</m>. If the point <m>p = (E_0, m_0, v_0)</m> lies on <m>X</m>, we wish to find the tangent vectors in <m>T_p \mathbb{R}^3</m> which are tangent to <m>X</m>. To do this, we consider any given differentiable path <m>\gamma: (-1, 1) \to X</m> which passes through <m>p</m> at <m>0</m>. The tangent (or velocity) vector to such paths at <m>0</m> should give all of the tangent vectors to <m>X</m>. But if we apply the chain rule to this argument, then we can see that all such tangent vectors satisfy the condition
+        <men xml:id="eq-constraintTangent">
+             \tder{p}{g} (\mb{v} ) = 0.
+        </men>
+        For our running example, we can compute for <m>\mb{v} = \tangthree{a}{b}{c}</m> the equation yields
+        <me>
+            0 = \tder{p}{g} (\mb{v} ) = \left[ \begin{matrix} 1 \amp - \frac{1}{2}v_0^2 \amp - m_0 v_0 \end{matrix} \right] \tangthree{a}{b}{c} = a  - \frac{1}{2}v_0^2 b - m_0 v_0 c .
+        </me>
+        which is an equation for a plane in the three dimensional <m>T_p \mathbb{R}^3</m>. </p>
+
+        <p>In fact, it is a result of the Implicit Function Theorem that, if <m>\tder{p}{g}</m> is not zero, then this equation defines the tangent space to <m>X</m> at <m>p</m>. Let us take this as an unproven theorem.</p>
+
+        <theorem xml:id="thm-tangentspace">
+            <title>Implicit Function Theorem</title>
+            <statement>
+                <p>Let <m>U</m> be an open set in <m>\mathbb{R}^m</m>, <m>\mathbb{G} : U \to \mathbb{R}^n</m> and <m>X</m> the level set of all points <m>p</m> with <m>\mb{G} (p) = q</m> for some fixed <m>q</m>. If <m>\mb{G}</m> is differentiable at <m>p</m> and <m>\rk (\tder{p}{\mb{G}} ) = n</m> then the tangent space to <m>X</m> at <m>p</m> as a subspace of <m>T_p \mathbb{R}^m</m> is 
+                    <me> T_p X = \left\{ \partial \in T_p \mathbb{R}^m : \tder{p}{\mb{G}} (\partial ) = 0 \right\} . </me></p>
+            </statement>
+        </theorem>
+
+        <p>This theorem may appear too abstract, so let us do a computation to show its simplicity.</p>
+
+        <example>
+            <title>Tangent space of a quadric</title>
+            <statement>
+                <p>Consider the quadric <m>X</m> defined by the equation
+                    <me>
+                    x^2 + y^2 - z^2 = 1
+                    </me> 
+                    and take a point <m>p = (1, 1, 1)</m> on <m>X</m>. The subspace <m>X</m> is a surface in three dimensions, but it is not the graph of a single function (meaning it is not the set of points satisfying <m>z = f(x,y)</m> for some function <m>f(x,y)</m>), so our previous method for finding the tangent plane to <m>X</m> cannot be used. Nevertheless, we can see that the constraint can be written as 
+                    <me>
+                    g(x,y, z) = 1
+                    </me>
+                    where <m>g(x,y, z) = x^2 + y^2 - z^2</m>. The derivative of <m>g</m> is the matrix
+                    <me>
+                    \tder{}{g} = \left[ \begin{matrix} 2x \amp 2y \amp -2z \end{matrix} \right]
+                    </me>
+                    and at our point <m>p</m> this gives
+                    <me>
+                    \tder{p}{g} = \left[ \begin{matrix} 2 \amp 2 \amp -2 \end{matrix} \right].
+                    </me>
+                    So the defining equation for the tangent space <m>T_p X</m> is simply 
+                    <me> 2 a + 2 b - 2c = 0</me>
+                    or 
+                    <me>
+                    a + b - c = 0
+                    </me>
+                    where the vector <m>\tangthree{a}{b}{c}</m> represents <m>a \partial_1 + b \partial_2 + c \partial_3</m>. Note that if we want to view this plane as a plane in <m>\mathbb{R}^3</m> and not simply <m>T_p \mathbb{R}^3</m>, we have to translate the origin to <m>p</m> so that <m>a = (x - 1)</m>, <m>b = (y - 1)</m> and <m>c = (z - 1)</m>. This then gives the tangent plane to <m>X</m> at <m>p</m> as a subspace of <m>\mathbb{R}^3</m> as 
+                    <me>
+                    (x - 1) + (y - 1) - (z - 1) = 0
+                    </me>
+                    or 
+                    <me>
+                    x + y - z = 1.
+                    </me></p>
+            </statement>
+        </example>
+
+    </subsection>
+
+    <exercises xml:id="exe-chainrule">
+
+
+        <exercise>
+            <introduction><p> Verify the chain rule for the following pairs of functions. </p></introduction>
+        <task>
+            <statement>
+                <p> Let <m>\mb{F} : \mathbb{R}^2 \to \mathbb{R}</m> and <m>\mb{G} : \mathbb{R} \to \mathbb{R}^2</m> be the functions
+                <md>
+                    <mrow> \mb{G} (t) \amp = (t, t^2),  </mrow>
+                    <mrow> \mb{F} (x, y) \amp = xy - x^2. </mrow>
+                </md> </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p>Let <m>\mb{F} : \mathbb{R}^2 \to \mathbb{R}</m> and <m>\mb{G} : \mathbb{R}^2 \to \mathbb{R}^2</m> be the functions
+                    <md>
+                        <mrow> \mb{G} (t) \amp = (x^2 - y^2, 2xy),   </mrow>
+                        <mrow> \mb{F} (x, y) \amp = x + y. </mrow>
+                    </md> 
+                </p>
+            </statement>
+        </task>
+        </exercise>
+
+        <exercise>
+            <statement>
+                <p> The Inverse Function Theorem for many variables says that if <me>\mb{F} : \mathbb{R}^n \to \mathbb{R}^n</me> is differentiable at <m>\mb{a}</m> and <m>\tder{\mb{a}}{\mb{F}}</m> is an invertible linear transformation, then there is a neighborhood <m>U</m> of <m>\mb{a}</m> such that <m>V = \mb{F} (U)</m> is a neighborhood of  <m>\mb{b} = \mb{F} (\mb{a})</m>, and a function <m>\mb{F}^{-1} : V \to U</m> which is inverse to the function <m>\mb{F}</m>. Prove that if this is the case, then
+                    <me>
+                     \tder{\mb{b}}{\left(\mb{F}^{-1} \right)} = \left( \tder{a}{\mb{F}} \right)^{-1}
+                    </me> </p>
+            </statement>
+        </exercise>
+
+        <exercise>
+            <introduction><p>Many vector fields in common use come from coordinate systems. For example, the polar coordinates <m>\mb{G} (r , \theta) = (r \cos \theta, r \sin \theta)</m> give us vector fields <m>\partial_r, \partial_\theta</m> on <m>\mathbb{R}^2</m> which are simply the images of <m>\partial_1</m> and <m>\partial_2</m> after applying the derivative <m>\tder{}{\mb{G}}</m> to them (i.e. <m>\partial_r = \tder{}{\mb{G}} (\partial_1)</m> and <m>\partial_\theta = \tder{}{\mb{G}} (\partial_2)</m>).</p></introduction>
+        <task>
+            <statement>
+                <p> Express these vector fields in Cartesian coordinates.  </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p> Express the normalized vector fields <m>\mb{e}_r = \partial_r / \|\partial_r \|</m> and <m>\mb{e}_\theta = \partial_\theta / \|\partial_\theta \|</m>.  </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p> Show that <m>\mb{e}_r , \mb{e}_\theta</m> are in fact an orthonormal basis for every tangent space in <m>\mathbb{R}^2</m> except the origin (such a pair is called an orthonormal frame).</p>
+            </statement>
+        </task>
+        <conclusion>
+        </conclusion>
+        </exercise>
+
+        
+
+        <exercise>
+            <statement>
+                <p> Using the chain rule, explain why equation <xref ref="eq-constraintTangent"/> holds. </p>
+            </statement>
+        </exercise>
+
+        <exercise>
+            <introduction><p>Find the tangent space of the level surface as a subspace of <m>T_p \mathbb{R}^3</m> and then as a subspace of <m>\mathbb{R}^3</m> for the following functions.</p></introduction>
+        <task>
+            <statement>
+                <p> <m>X</m> the level surface <m>xyz - xy = 3</m> at <m>(3,1,2)</m>. </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p> <m>Y</m> the level surface <m>\cos (x) = \sin (yz) + 1</m> at <m>(0, \pi, 1)</m>. </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p>  <m>S^2</m> the unit sphere <m>x^2 + y^2 + z^2 = 1</m> at <m>(\sqrt{3}/{3}, \sqrt{3}/{3}, - \sqrt{3}/{3})</m>.</p>
+            </statement>
+        </task>
+        <conclusion>
+        </conclusion>
+        </exercise>
+
+        <exercise>
+            <statement>
+                <p> Find the tangent plane of the torus in <m>\mathbb{R}^4</m> which is given by the pair of constraints
+                    <md>
+                        <mrow> u^2 + v^2 \amp = 1, </mrow>
+                        <mrow> x^2 + y^2 \amp = 1. </mrow>
+                    </md>
+                Here the coordinates of <m>\mathbb{R}^4</m> are <m>(u, v, x, y)</m>.</p>
+            </statement>
+        </exercise>
+        
+    </exercises>
+</section>

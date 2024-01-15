@@ -1,0 +1,188 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-compactRnintegration">
+    <title>Integration over compact domains in <m>\mathbb{R}^n</m></title>
+    <p>In this section, we extend the techniques established for integrating in <m>\mathbb{R}^2</m> to <m>n</m>-dimensional space. We start by extending <xref ref="def-boundedbygraphs"/> to higher dimensions.</p>
+
+    <definition xml:id="def-bounded-by-graphs-inRn">         
+        <notation>             
+            <usage><m>D</m></usage>             
+            <description>Domain bounded by continuous graphs in <m>\mathbb{R}^n</m> </description>         
+        </notation>         
+        <statement>
+            <p>A compact domain <m>D</m> in <m>\mathbb{R}^n</m> is <term>bounded by continuous graphs of <m>x_i</m></term> if there is a compact domain <m>E</m> in <m>\mathbb{R}^{n - 1}</m> and continuous functions <m>g_1, g_2 : E \to \mathbb{R}</m> for which
+                <me>
+                    D = \left\{ (x_1, \ldots, x_n) : \mb{x} = (x_1, \dots, x_{i - 1}, x_{i + 1}, \ldots , x_n) \in E , g_1 (\mb{x}) \leq x_i \leq g_2 (\mb{x}) \right\}.
+                </me></p>
+        </statement>
+    </definition>
+
+    <p>Again we may use this to compute multiple integrals.</p>
+
+    <theorem xml:id="thm-iterated-Rn">
+        <statement>
+            <p>If <m>D</m> is a domain bounded by continuous graphs of <m>x_i</m> so that 
+                <me>
+                    D = \left\{ (x_1, \ldots, x_n) : \mb{x} = (x_1, \dots, x_{i - 1}, x_{i + 1}, \ldots , x_n) \in E , g_1 (\mb{x}) \leq x_i \leq g_2 (\mb{x}) \right\}.
+                </me>
+                and <m>f(x_1, \ldots, x_n)</m> is a continuous function on <m>D</m> then 
+                <me>
+                \idotsint_D f(x_1, \ldots, x_n) \, \tder{}{V} = \idotsint_E \left( \int_{g_1(\mb{x})}^{g_2(\mb{x})} f(x_1, \ldots, x_n) \, \tder{}{x_i} \right) \, \tder{}{V}.
+                </me></p>
+        </statement>
+    </theorem>
+
+    <p>Notice that in this theorem, we are obtaining a recursive procedure for computing a multiple integral. We start with a multiple integral over an <m>n</m>-dimensional domain <m>D</m> and produce a multiple over an <m>(n - 1)</m>-dimensional domain. Repeating this procedure will, in principle, allow one to compute the original multiple integral (assuming we do not hit a truly difficult integral!). Let us consider a few examples and then make some philosophical and practical comments!</p>
+
+    <example xml:id="ex-ballvol">
+        <title></title>
+        <statement>
+            <p>Let's verify that the volume of a three dimensional ball <m>B</m> of radius <m>R</m> is indeed what we think it is. Here
+                <me>
+                B = \{ (x,y, z) : x^2 + y^2 + z^2 \leq R^2 \}
+                </me>
+                can be rewritten as
+                <me>
+                B = \left\{ (x,y, z) : (x,y) \in D, - \sqrt{R^2 - x^2 - y^2} \leq z \leq \sqrt{R^2 - x^2 - y^2} \right\}
+                </me>
+                where <m>D</m> is the disc of radius <m>R</m>. Applying our theorem then gives
+                <md>
+                    <mrow> \text{Vol} (B) \amp = \iiint_B \, \tder{}{V}, </mrow>
+                    <mrow> \amp = \iint_D \, \left( \int_{- \sqrt{R^2 - x^2 - y^2} }^{\sqrt{R^2 - x^2 - y^2}} \, \tder{}{z} \right) \, \tder{}{A}, </mrow>
+                    <mrow> \amp = \iint_D 2 \sqrt{R^2 - x^2 - y^2} \,\tder{}{A}. </mrow>
+                </md>
+                We have now reduced a triple integral to a double integral and can continue using methods from last section and a <m>u</m>-substitution <m>y = \sqrt{R^2 - x^2} \cos u</m>. To save some space, we write 
+                <me>
+                I = \iint_D 2 \sqrt{R^2 - x^2 - y^2} \,\tder{}{A}
+                </me>
+                and see
+                <md>
+                    <mrow> I \amp = 2 \int_{-R}^R \int_{-\sqrt{R^2 - x^2}}^{\sqrt{R^2 - x^2}} \sqrt{R^2 - x^2 - y^2} \,\tder{}{y} \, \tder{}{x}, </mrow>
+                    <mrow>  \amp = 2  \int_{-R}^R \int_{\pi}^{0} \sqrt{R^2 - x^2 - (\sqrt{R^2 - x^2}\cos u)^2} \, \left(-\sqrt{R^2 - x^2}\sin u \right)\,\tder{}{u} \, \tder{}{x}, </mrow>
+                    <mrow> \amp = 2  \int_{-R}^R \int_{0}^{\pi}  (R^2 - x^2) \sqrt{1 - \cos^2 u} \, \sin u \,\tder{}{u} \, \tder{}{x},</mrow>
+                    <mrow> \amp = 2  \int_{-R}^R \int_{0}^{\pi}  (R^2 - x^2) \sin^2 u \,\tder{}{u} \, \tder{}{x}, </mrow>
+                    <mrow> \amp = \int_{-R}^R \int_{0}^{\pi}  (R^2 - x^2) (1 - \cos 2 u )\,\tder{}{u} \, \tder{}{x}, </mrow>
+                    <mrow> \amp = \int_{-R}^R  \pi  (R^2 - x^2)\, \tder{}{x}, </mrow>
+                    <mrow> \amp = \pi \left. \left(  R^2 x - \frac{x^3}{3} \right) \right|_{-R}^R,  </mrow>
+                    <mrow> \amp = \frac{4 \pi R^3}{3}. </mrow>
+                </md></p>
+        </statement>
+    </example>
+
+    <p>Before computing another example, we mention one of the chief applications.</p>
+
+    <definition xml:id="def-centroid">         
+        <notation>             
+            <usage><m>\bar{x}_i</m></usage>             
+            <description>center of mass </description>         
+        </notation>         
+        <statement>
+            <p>Let <m>D</m> be a compact domain in <m>\mathbb{R}^n</m> and <m>\rho : D \to \mathbb{R}</m> a non-negative density function. The <term>center of mass</term> of <m>D</m> with respect to <m>\rho</m> is the point 
+                <me>
+                \mu = (\bar{x}_1, \ldots , \bar{x}_n)
+                </me>
+                where
+                <me>
+                    \bar{x}_i = \frac{\idotsint_D x_i \rho (x_1, \ldots, x_n) \, \tder{}{V}}{\idotsint_D \rho (x_1, \ldots, x_n) \, \tder{}{V}}.
+                </me>
+                If <m>\rho</m> is a constant function we call <m>\mu</m> the <term>centroid</term> of the domain <m>D</m>.</p>
+        </statement>
+    </definition>
+
+    <p>This physical concept also has a very important statistical and probabilistic interpretation. This occurs when <m>\rho</m> is a probability density function. Here we do not need to assume that <m>D</m> is compact. The idea of such a function is that it measures the likelihood of an event occurring in a certain set. The rules for a function to qualify as a probability density function are simple and we'll write them as a definition.</p>
+
+    <definition xml:id="def-probdensity">         
+        <notation>             
+            <usage><m>\rho</m></usage>             
+            <description>probability density</description>         
+        </notation>         
+        <statement>
+            <p>Given a region <m>D</m> in <m>\mathbb{R}^n</m>, a function <m>\rho : D \to \mathbb{R}</m> is a <term>probability density</term> if 
+                <ol>
+                    <li> <m>\rho</m> takes only non-negative values, </li>
+                    <li> <m>\rho</m> is integrable on <m>D</m> and 
+                    <me>
+                    \idotsint_D \rho (x_1, \ldots, x_n) \, \tder{}{V} = 1.
+                    </me></li>
+                </ol></p>
+        </statement>
+    </definition>
+
+    <p>For example, if <m>D</m> is a disc in <m>\mathbb{R}^2</m> and we are throwing darts at this disc, there may be a distribution <m>\rho</m> which tells us the probability that the dart will hit in a certain domain. I.e. if <m>\Omega</m> is some subset of <m>D</m>, we determine
+        <me>
+        \text{Pr}[\text{dart} \in \Omega] = \iint_\Omega \rho (x,y) \, \tder{}{A}.
+        </me>
+    From this perspective, the notion of the center of mass becomes the <term>expected value</term> <m>E_\rho</m> of the associated probability.</p>
+
+    <example>
+        <title>Computing a centroid</title>
+        <statement>
+            <p>Let us find the centroid of the upper half unit ball <m>B</m> given by inequalities
+                <me>
+                 x^2 + y^2 + z^2 \leq 1, \hspace{.3in} 0 \leq z.
+                </me>
+                First note that the coordinates <m>\bar{x}</m> and <m>\bar{y}</m> are both <m>0</m>. This can be seen by observing that <m>R</m> is symmetric about the <m>y,z</m> and <m>x,z</m> planes (and the integrand in the coordinates are odd with respect to <m>x</m> and <m>y</m> respectively). To find <m>\bar{z}</m> we use that the volume of <m>B</m> is <m>\frac{2\pi}{3}</m>, take <m>D</m> to be the unit disc, and compute the integral
+                <md>
+                    <mrow> \iiint_B z \, \tder{}{V} \amp = \iint_D \left( \int_{0}^{\sqrt{1 - x^2 - y^2}} z \, \tder{}{z} \right)  \, \tder{}{A}, </mrow>
+                    <mrow> \amp = \iint_D \frac{1 - x^2 - y^2}{2}  \, \tder{}{A}, </mrow>
+                    <mrow> \amp = \frac{1}{2} \int_{-1}^1 \int_{-\sqrt{1 - x^2}}^{\sqrt{1 - x^2}} 1 - x^2 - y^2 \, \tder{}{y} \tder{}{x}, </mrow>
+                    <mrow> \amp =  \frac{1}{2} \int_{-1}^1 \left. \left( y - y x^2 - \frac{y^3}{3} \right) \right|_{y = -\sqrt{1 - x^2}}^{\sqrt{1 - x^2}} \,  \tder{}{x}, </mrow>
+                    <mrow> \amp = \int_{-1}^1  \sqrt{1 - x^2} \left( 1 - x^2 - \frac{1 - x^2}{3} \right)  \,  \tder{}{x}, </mrow>
+                    <mrow> \amp = \frac{2}{3} \int_{-1}^1 \left( 1 - x^2 \right)^{\frac{3}{2}} \, \tder{}{x}.</mrow>
+                </md>
+                Performing a substitution <m>x = \cos u</m> and using the double angle formula (twice) gives
+                <md>
+                    <mrow> \frac{2}{3} \int_{-1}^1 \left( 1 - x^2 \right)^{\frac{3}{2}} \, \tder{}{x} \amp = \frac{2}{3} \int_{\pi}^0 \left( 1 - \cos^2 u \right)^{\frac{3}{2}} (- \sin u) \, \tder{}{u}, </mrow>
+                    <mrow> \amp = \frac{2}{3} \int_{0}^\pi \sin^4 u \, \tder{}{u},</mrow>
+                    <mrow> \amp = \frac{2}{3} \int_0^\pi \frac{3}{8} - \frac{\cos 2u}{2} + \frac{\cos 4u}{8} \, \tder{}{u}, </mrow>
+                    <mrow> \amp = \frac{\pi}{4}. </mrow>
+                </md>
+                Thus
+                <me>
+                    \bar{z} = \frac{\iiint_B z \, \tder{}{V}}{\iiint_B  \, \tder{}{V}} = \frac{\frac{\pi}{4}}{\frac{2\pi}{3}} = \frac{3}{8}
+                </me>
+                and the centroid is
+                <me>
+                    \mu = \left( 0 , 0 , \frac{3}{8} \right).
+                </me></p>
+        </statement>
+    </example>
+
+    <exercises xml:id="exe-compactRnintegration">
+
+        <exercise>
+            <statement>
+                <p>Using multiple integrals, show that the volume of a cylinder of height <m>h</m> and radius <m>R</m> is <m>\pi R^2 h</m> (you may use the fact that the area of a disc of radius <m>R</m> is <m>\pi R^2</m>).</p>
+            </statement>
+        </exercise>
+
+        <exercise>
+            <statement>
+                <p>Suppose <m>D</m> is the domain in the positive octant (the subspace of <m>\mathbb{R}^3</m> where all coordinates are non-negative) and whose points are distance at most <m>R</m> from the origin. Compute 
+                    <me>
+                    \iiint_D xyz \, \tder{}{V}.
+                    </me></p>
+            </statement>
+        </exercise>
+
+        <exercise>
+            <statement>
+                <p>The polydisc <m>P</m> in <m>\mathbb{R}^4</m> is the product of two discs <m>D_1 \times D_2</m>. Suppose <m>D_1</m> has radius <m>R_1</m> and <m>D_2</m> has radius <m>R_2</m>, compute the <m>4</m>-dimensional volume of <m>P</m> in terms of <m>R_1</m> and <m>R_2</m>. </p>
+            </statement>
+            <hint> If time is money, it pays to be clever here.</hint>
+        </exercise>
+
+        <exercise>
+            <statement>
+                <p>Let <m>\Delta</m> be the <m>3</m>-simplex which is given by the inequalities
+                    <me>
+                    0 \leq x, \hspace{.2in} 0 \leq y, \hspace{.2in} 0 \leq z, \hspace{.2in} x + y + z \leq 1.
+                    </me>
+                    Find the centroid of <m>\Delta</m>. </p>
+            </statement>
+            <hint>Note that by symmetry, all three coordinates of the centroid must be equal.</hint>
+        </exercise>
+        
+    </exercises>
+
+</section>

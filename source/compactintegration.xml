@@ -1,0 +1,233 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-compactintegration">
+    <title>Integration over compact domains in <m>\mathbb{R}^2</m></title>
+    <p>In this section, we will integrate a function <m>f</m> over a nice domain <m>D</m> in <m>\mathbb{R}^n</m>. We will start by giving the general definition and then discuss a variety of specific cases and techniques.</p>
+
+    <p>Let <m>D</m> be a closed and bounded domain in <m>\mathbb{R}^n</m>. Then, since it is bounded, it is contained in a cube <m>\mathcal{C} = [a_1, b_1] \times \cdots \times [a_n , b_n]</m>. Now suppose <m>f: D \to \mathbb{R}</m> is a continuous function on <m>D</m>. At the moment, it does not make sense to integrate <m>f(x_1, \ldots, x_n)</m> over the domain <m>D</m>, because we have only defined such integrals over cubes and <m>f</m> is not defined for points not in <m>D</m>. To make sense of such a concept then, we extend our function <m>f</m> to all of <m>\mathcal{C}</m> by taking
+        <me>
+            \tilde{f} (x_1, \ldots, x_n) = \begin{cases}
+            f(x_1, \ldots, x_n) \amp \text{ if } (x_1, \ldots, x_n) \text{ is in } D, \\ 0 \amp \text{ otherwise.}
+            \end{cases}
+        </me></p>
+
+    <p>Then we obtain the definition.</p>
+
+    <definition xml:id="def-">         
+        <notation>             
+            <usage><m>\idotsint_\mathcal{D} f(x_1, \ldots, x_n) \, \tder{}{V}</m></usage>             
+            <description>Integral over domain <m>D</m> </description>         
+        </notation>         
+        <statement>
+            <p>The (multiple) integral of <m>f(x_1, \ldots, x_n)</m> over <m>\mathcal{D}</m> is given by 
+                <me>
+                    \idotsint_\mathcal{D} f(x_1, \ldots, x_n) \, \tder{}{V}  = \idotsint_{\mathcal{C}} \tilde{f} (x_1, \ldots, x_n) \, \tder{}{V}.
+                </me></p>
+        </statement>
+    </definition>
+
+    <p>One concern a student may have is whether <m>\tilde{f}</m> is integrable.</p>
+
+    <proposition xml:id="prop-continuous-integrable">
+        <statement>
+            <p>If <m>D</m> is a compact domain in <m>\mathbb{R}^n</m> and <m>f</m> is continuous on <m>D</m>, then the multiple integral 
+                <me>
+                \idotsint_\mathcal{D} f(x_1, \ldots, x_n) \, \tder{}{V}
+                </me>
+                exists. </p>
+        </statement>
+    </proposition>
+
+    <p>We will leave the proof of this result to an analysis course and continue by developing computational techniques. First, we make the following note which can be considered a definition or a proposition (depending on the domain and perspective).</p>
+
+    <definition xml:id="def-volume">         
+        <notation>             
+            <usage><m>\text{Vol} (D)</m></usage>             
+            <description>Volume of <m>D</m> </description>         
+        </notation>         
+        <statement>
+            <p> The <m>n</m>-dimensional volume of a compact domain <m>D</m> is 
+                <me>
+                    \idotsint_D \, \tder{}{V}.
+                </me></p>
+        </statement>
+    </definition>
+
+    <p>This works fine as a definition for many domains, but one may wish to verify that indeed this agrees with the formulas of area and volume of familiar regions and solid bodies for which we are familiar. We will indeed do this as we develop more techniques.</p>
+
+    <p>In order to compute the integral over <m>D</m>, we will need a nice way of describing the domain itself. Putting aside the integrand for the moment, we focus on domains in the plane <m>\mathbb{R}^2</m> of a particular type.</p>
+
+    <definition xml:id="def-boundedbygraphs">         
+        <notation>             
+            <usage><m>D</m></usage>             
+            <description>Bounded by continuous graphs of <m>x</m> </description>         
+        </notation>         
+        <statement>
+            <p>A compact domain <m>D</m> in <m>\mathbb{R}^2</m> is <term>bounded by continuous graphs of <m>x</m></term> if there is an interval <m>[a,b]</m> and continuous functions <m>g_1, g_2 : [a,b] \to \mathbb{R}</m> for which
+                <me>
+                    D = \left\{ (x,y) : a \leq x \leq b , g_1 (x) \leq y \leq g_2 (x) \right\}.
+                </me>
+                The domain <m>D</m> is \textbf{bounded by continuous graphs of <m>y</m>} if there is an interval <m>[c,d]</m> and continuous functions <m>h_1, h_2 : [c,d] \to \mathbb{R}</m> for which
+                <me>
+                    D = \left\{ (x,y) : c \leq y \leq d , h_1 (y) \leq y \leq h_2 (y) \right\}.
+                </me></p>
+        </statement>
+    </definition>
+
+    <p>In some texts <m>D</m> is a called a <term>Type I</term> or <term>Type II</term> domain in <m>\mathbb{R}^2</m>. There are sets which are bounded by continuous functions with respect to either variable, both variables or neither variable. Let us take a look at examples of these possibilities.</p>
+
+    <example>
+        <title>Describing a domain bounded by continuous graphs I</title>
+        <statement>
+            <p>Consider the domain <m>D</m> bounded by the ellipse 
+                <me>
+                x^2 + \frac{y^2}{4} = 1.
+                </me>
+                In this case, <m>D</m> is of both types. Indeed, we can write <m>D</m> as satisfying the inequalities
+                <me>
+                -1 \leq x \leq 1 \hspace{.5in} -2\sqrt{1 - x^2} \leq y \leq 2 \sqrt{1 - x^2}.
+                </me>
+                On the other hand, we can bound this by continuous graphs of <m>y</m> by taking the bounds
+                <me>
+                -2 \leq y \leq 2 \hspace{.5in} - \sqrt{ 1 - \frac{y^2}{4}} \leq x \leq \sqrt{1 - \frac{y^2}{4}}.
+                </me></p>
+        </statement>
+    </example>
+
+    <example>
+        <title>Describing a domain bounded by continuous graphs II</title>
+        <statement>
+            <p>Consider the domain <m>D</m> which consists of all points in the square <m>[-1,1] \times [-1,1]</m> except those with <m>y</m> coordinate greater than <m>x^2</m>. This can be described as a domain bounded by continuous graphs of <m>x</m> by taking
+                <me>
+                -1 \leq x \leq 1  \hspace{.5in} -1 \leq y \leq x^2.
+                </me>
+                However, there is no way to write this domain as being bounded by two graphs in <m>y</m>. This is because there are two connected intervals in the intersection of horizontal lines <m>y = c</m> and <m>D</m> when <m>c</m> is between <m>0</m> and <m>1</m>.
+                
+                Moreover, if we reflect <m>D</m> over the <m>x = y</m> line, it becomes impossible to describe it as being bounded by graphs in <m>x</m>. </p>
+        </statement>
+    </example>
+
+    <example>
+        <title>Describing a domain bounded by continuous graphs III</title>
+        <statement>
+            <p>Consider all the points in the square <m>[-2, 2] \times [-2, 2]</m> which do not lie in the open unit disc <m>x^2 + y^2 \lt 1</m>. This domain is of neither type since the <m>x</m> and <m>y</m> axes intersect the domain in multiple intervals.</p>
+        </statement>
+    </example>
+
+    <p>The reason to introduce such domains is that they are very well suited to applying Fubini's Theorem.</p>
+
+    <theorem xml:id="thm-Fubinibounded">
+        <title>Fubini for domains bounded by continuous graphs</title>
+        <statement>
+            <p>If <m>D</m> is a domain bounded by continuous graphs of <m>x</m> through the inequalities
+                <me>
+                 a \leq x \leq b  \hspace{.5in} g_1(x)  \leq y \leq g_2(x)
+                </me>
+                and <m>f(x,y)</m> is a continuous function on <m>D</m> then 
+                <me>
+                \iint_D f(x,y) \, \tder{}{A} = \int_a^b \int_{g_1(x)}^{g_2(x)} f(x,y) \, \tder{}{y} \, \tder{}{x}.
+                </me>
+                If <m>D</m> is a domain bounded by continuous graphs of <m>y</m> through the inequalities
+                <me>
+                c \leq y \leq d  \hspace{.5in} h_1(y)  \leq x \leq h_2(x)
+                </me>
+                and <m>f(x,y)</m> is a continuous function on <m>D</m> then 
+                <me>
+                \iint_D f(x,y) \, \tder{}{A} = \int_{c}^d \int_{h_1(y)}^{h_2(y)} f(x,y) \, \tder{}{x}\, \tder{}{y}.
+                </me></p>
+        </statement>
+    </theorem>
+
+    <p>This theorem follows directly from the definition of integrals over compact domains, the description of the domain <m>D</m>, and Fubini's Theorem. Notice that, once the domain is described as one type, we lose the ability to switch the order of integration. It is thus paramount that we pay close attention to which variable we integrate first when applying this theorem. We now work through a few examples.</p>
+
+    <example xml:id="ex-areaofdisc">
+        <title>Fubini for bounded domains I</title>
+        <statement>
+            <p>We start with an example that we will reexamine with other techniques later on. Let us find the area of the disc <m>D</m> of radius <m>R</m>. Of course, we all know from elementary school (or <m>1</m>-variable calculus) that this is <m>\pi R^2</m>, but now we can compute it with a multiple integral. For this, we describe the disc using the inequalities
+                <me>
+                -R \leq y \leq R \hspace{.5in} - \sqrt{R^2 - y^2} \leq x \leq \sqrt{R^2 - y^2}.
+                </me>
+                Then we are expressing <m>D</m> as a region bounded by graphs of <m>y</m> with bounding functions are <m>h_1 (y) = - \sqrt{R^2 - y^2}</m> and <m>h_2 (y) = \sqrt{R^2 - y^2}</m>. To find the area we apply our theorem, a trigonometric <m>u</m>-substitution, and compute
+                <md>
+                    <mrow> \text{Area} (D) \amp = \iint_D \, \tder{}{A}, </mrow>
+                    <mrow> \amp = \int_{-R}^R \int_{- \sqrt{R^2 - y^2}}^{\sqrt{R^2 - y^2}}  \, \tder{}{x} \, \tder{}{y}, </mrow>
+                    <mrow> \amp =  \int_{-R}^R \left. x \right|_{x = - \sqrt{R^2 - y^2}}^{\sqrt{R^2 - y^2}}   \, \tder{}{y}, </mrow>
+                    <mrow> \amp = \int_{-R}^R 2 \sqrt{R^2 - y^2} \, \tder{}{y}, </mrow>
+                    <mrow> \amp = \int_{\pi}^{0} 2\sqrt{R^2 - R^2 \cos^2 u}\, (- R \sin u )\, \tder{}{u}, </mrow>
+                    <mrow> \amp =  \int_{0}^{\pi} 2 R^2 \sin^2 u \, \tder{}{u}, </mrow>
+                    <mrow> \amp =  \int_{0}^{\pi} R^2 \left( 1 - \cos (2u) \right) \, \tder{}{u}, </mrow>
+                    <mrow> \amp =R^2 \left. u - \frac{R^2 \sin (2u)}{2} \right|_{u = 0}^\pi, </mrow>
+                    <mrow> \amp = \pi R^2.  </mrow>
+                </md></p>
+        </statement>
+    </example>
+
+    <p>Notice in this last example we had a choice since the disc is both Type I and II. </p>
+
+    <example>
+        <title>Fubini for bounded domains II</title>
+        <statement>
+            <p>Suppose <m>D</m> is the domain between the <m>x</m>-axis and the parabola <m>y = 1 - x^2</m>. We compute the double integral
+                <me>
+                \iint_D 2x^2y \, \tder{}{A}.
+                </me>
+                To do this, we check to see that <m>D</m> can be described as 
+                <me>
+                -1 \leq x \leq 1 \hspace{.5in} 0 \leq y \leq 1 - x^2.
+                </me>
+                To see this, it is helpful to find the points of intersections of the curve <m>y = 1 - x^2</m> and the <m>x</m>-axis. Then
+                <md>
+                    <mrow>\iint_D xy \, \tder{}{A} \amp = \int_{-1}^1 \int_0^{1 - x^2} 2x^2y \, \tder{}{y} \, \tder{}{x},</mrow>
+                    <mrow> \amp = \int_{-1}^1  \left. x^2 y^2 \right|_{y = 0}^{1 - x^2} \,  \, \tder{}{x}, </mrow>
+                    <mrow> \amp = \int_{-1}^1 x^2 ( 1 - x^2) \, \tder{}{x}, </mrow>
+                    <mrow> \amp = \left. \frac{x^3}{3} -   \frac{x^5}{5} \right|_{-1}^1, </mrow>
+                    <mrow> \amp =  \frac{2}{3} - \frac{2}{5} = \frac{4}{15}. </mrow>
+                </md></p>
+        </statement>
+    </example>
+
+    <exercises xml:id="exe-compactintegration">
+
+        <exercise>
+            <statement>
+                <p> Give an example of two functions <m>g_1(x)</m> and <m>g_2(x)</m> so that the domain of points between them is not a domain bounded by two continuous graphs of <m>y</m>. </p>
+            </statement>
+        </exercise>
+
+        <exercise>
+            <statement>
+                <p> Let <m>D</m> be the domain between the <m>y</m>-axis, the line <m>x = \pi</m>, the curve <m>y = \sin x</m> and the <m>x</m>-axis. Compute the double integral
+                    <me>
+                    \iint_D x \, \tder{}{A}.
+                    </me> </p>
+            </statement>
+        </exercise>
+
+        <exercise>
+            <statement>
+                <p> Let <m>D</m> be the region specified by 
+                    <me>
+                     |x| \leq 1 \hspace{.5in} |y| \leq 1.
+                    </me>
+                    Find the volume of the region above the <m>x,y</m>-plane and below the graph of the linear function <m>f(x,y) = 1 + x + y</m>.</p>
+            </statement>
+        </exercise>
+
+        <exercise>
+            <statement>
+                <p>Let <m>A</m> be the annulus of points between the disc of radius <m>1</m> and radius <m>2</m>. Calculate
+                    <me>
+                    \iint_A x^2 + y^2 \, \tder{}{A}.
+                    </me> </p>
+            </statement>
+        </exercise>
+
+        <exercise>
+            <statement>
+                <p>Let <m>\Delta</m> be the <m>3</m>-dimensional simplex which has vertices at the origin, <m>(a,0,0)</m>, <m>(0,b, 0)</m>, and <m>(0, 0, c)</m> for <m>a,b</m> and <m>c</m> positive. Find the volume of <m>\Delta</m> using a double integral. </p>
+            </statement>
+        </exercise>
+        
+    </exercises>
+
+</section>

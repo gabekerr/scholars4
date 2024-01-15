@@ -1,0 +1,385 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-gradient">
+    <title>The gradient</title>
+    <introduction>
+        <p>There is a vast untold conspiracy to misinform all students of multivariable calculus that the gradient is the same thing as the derivative. We state here that the key difference is that the derivative at <m>p</m> is a dual vector of the tangent space <m>T_p V</m> while the gradient is a vector in the tangent space <m>T_p V</m>. To see how to define and connect these concepts, we need to briefly discuss charts and metrics.
+        </p>
+    </introduction>
+
+    <subsection xml:id="subsec-metric-geometry">
+        <title>Metric geometry</title>
+        <p>It happens to be the case that often we wish to give each tangent space <m>T_p V</m> its own inner product <m>\langle , \rangle_p</m>. The case we will work in most frequently will be when <m>V = \mathbb{R}^m</m> is Euclidean space (sometimes called flat space). Here we have the standard basis of partial derivatives
+        <me>
+            \partial_1, \ldots, \partial_m
+        </me>
+        which we take to be orthonormal. This means that if we write our tangent vectors as row (or column) vectors, the inner product is just the dot product. This is by far and away the most common situation and is the only situation in which many multivariable calculus texts consider.</p>
+
+        <p>Nonetheless, there are several instances in which we will want to allow the pairing <m>\langle , \rangle_p</m> to depend on <m>p</m> and we will motivate this now, returning to it later when we discuss line and surface integrals. One of the main objects of study in multivariable calculus is a subspace <m>X</m> of <m>\mathbb{R}^n</m> defined by several constraints. Central to working with such a subspace is being able to define a parameterization <m>\mb{G} : U \to X</m> where <m>U</m> is an open subset of <m>\mathbb{R}^m</m>. The advantage of parameterizations is that they give us concrete coordinates which we can identify with points on our subspace <m>X</m>. However, the geometry of <m>X</m> will not generally be reflected in these coordinates without adding some bells and whistles. </p>
+
+        <p>As we saw in the prior section, if <m>q</m> is a point of <m>X</m>, the tangent space <m>T_q X</m> can be parameterized by taking the derivative of the parameterization 
+        <me>
+            \tder{p}{\mb{G}} : T_p \mathbb{R}^m \to T_q X  
+        </me>
+        where <m>\mb{G} (p) = q</m>. Plainly, we observe that the derivative of a parameterization is a <sq>tangent space parameterization</sq>. This is very helpful because then we can write out tangent vectors of <m>X</m> in terms of those in <m>T_p \mathbb{R}^m</m> (which comes with the standard basis <m>\partial_1, \ldots, \partial_m</m>). However, one realizes quickly that for many nonlinear subspaces <m>X</m>, there is no parametrization <m>\mb{G}</m> (even near <m>q</m>) for which <m>\tder{p}{\mb{G}}</m> preserves lengths and angles. I.e., in general
+        <me>
+            \tder{p}{\mb{G}} (\partial ) \cdot  \tder{p}{\mb{G}} (\tilde{\partial} )  \ne  \partial  \cdot \tilde{\partial}.
+        </me>
+        The non-existence of such a parameterization can be seen by something called <term>curvature</term>, but we will leave this subject to future study. For now, we mention only that the map <m>\mb{G}</m> will preserve distance if and only if the above inequality is an equality (this will be justified when we consider line integrals later).</p>
+
+        <example>
+            <title>Circle parametrization</title>
+            <statement>
+                <p>Consider the circle <m>C</m> of radius <m>2</m> centered at the origin and take the usual parameterization
+                <me>
+                    g ( t) = (2 \cos t , 2 \sin t)
+                </me>
+                where <m>0 \leq t \leq 2 \pi</m>. If we take the derivative, we get 
+                <me>
+                    \tder{p}{g} (\partial_t) = -2\sin (p) \partial_x + 2 \cos (p) \partial_y.
+                </me>
+                Now, the norm <m>\|\partial_t \|</m>  is <m>1</m> (here we identify a tangent vector with the vector for which it is the directional derivative) while the norm of <m>\tder{p}{g}</m> can be calculated to be <m>2</m>. This is because the parametrization is scaling the length of the interval <m>[0, 2\pi]</m> by <m>2</m>. </p>
+            </statement>
+        </example>
+
+        <example>
+            <title>Metrics of graphs</title>
+            <statement>
+                <p>One class of examples of parameterized surfaces comes from considering graphs of functions. For example, if <m>f(x,y)</m> is a differentiable function on the plane <m>\mathbb{R}^2</m> then we can take its graph
+                    <me>
+                    X = \{ (x, y, z) : z = f(x,y) \}.
+                    </me>
+                    Such a subspace is, in a sense, already parameterized as we can define <m>\mb{G} : \mathbb{R}^2 \to \mathbb{R}^3</m> via
+                    <me>
+                     \mb{G} (x, y) = (x, y, f(x,y)).
+                    </me>
+                    Taking the derivative gives
+                    <me>
+                        \tder{}{\mb{G}} = \left[ \begin{matrix} 1 \amp 0 \\ 0 \amp 1 \\ \frac{\partial f}{\partial x} \amp \frac{\partial f}{ \partial y} \end{matrix} \right].
+                    </me>
+                    Thus if we look at the tangent vectors 
+                    <md>
+                        <mrow> \tder{}{\mb{G}} ( \partial_x ) \amp = \partial_x + \frac{\partial f}{\partial x} \partial_z </mrow>
+                        <mrow> \tder{}{\mb{G}} ( \partial_y)  \amp = \partial_y + \frac{\partial f}{\partial y} \partial_z </mrow>
+                    </md>
+                    we see that their dot product is 
+                    <me>
+                        \tder{}{\mb{G}} ( \partial_x ) \cdot \tder{}{\mb{G}} ( \partial_y)  = \frac{\partial f}{\partial x} \frac{\partial f}{\partial y} . 
+                    </me>
+                    This is generally non-zero, even though <m>\partial_x \cdot \partial_y = 0</m>. This is again because the image tangent vectors fail to be orthogonal.</p>
+            </statement>
+        </example>
+
+        <p>With these examples in mind, it may seem to be a hopeless task to recover the geometry of <m>X</m> using the coordinates given by a parameterization. However, there is a way to do this, we just need to introduce a new inner product <m>\langle , \rangle_p</m> for every tangent space <m>T_p U</m> of our domain <m>\mb{G} : U \to X</m>. We define this inner product as follows.</p>
+
+        <definition xml:id="def-induced-inner-product">         
+            <notation>             
+                <usage><m>\langle , \rangle_p</m></usage>             
+                <description>Induced inner product </description>         
+            </notation>         
+            <statement>
+                <p>Let <m>U</m> be an open subset of <m>\mathbb{R}^m</m> and <m>\mb{G} : U \to X</m> a parameterization so that for any <m>q</m> in <m>X</m> with <m>\mb{G} (p) = q</m> the tangent space <m>T_q X</m> is given by <m>\tder{p}{G} (T_p \mathbb{R}^m)</m>. The <term>inner product <m>\langle , \rangle_p</m> on <m>U</m> induced by <m>\mb{G}</m></term> is defined by
+                <me>
+                    \langle \partial , \tilde{\partial} \rangle_p := \tder{p}{G} (\partial) \cdot \tder{p}{G} (\tilde{\partial}).
+                </me></p>
+            </statement>
+        </definition>
+
+        <p>It is not hard to verify that <m>\langle, \rangle_p</m> is bilinear, symmetric, and positive definite, so we can indeed say that <m>T_p \mathbb{R}^m</m> has been promoted to an inner product space. Since the derivative <m>\tder{p}{\mb{G}}</m> will vary as we vary <m>p</m>, the pairing <m>\langle , \rangle_p</m> will vary too. But in any case, this pairing can be written as a matrix of functions on <m>U</m>. Indeed, we have the following proposition whose proof is left as an exercise.</p>
+
+        <proposition xml:id="prop-metricmatrix">
+            <statement>
+                <p>Let <m>U</m> be an open subset of <m>\mathbb{R}^m</m> and <m>\mb{G} : U \to X</m> a parameterization. Then, if <m>p</m> is in <m>U</m> and <m>\mb{u}, \mb{v}</m> are column vectors representing tangent vectors in <m>T_p \mathbb{R}^m</m>, the  inner product induced by <m>\mb{G}</m> at <m>p</m> is
+                    <me>
+                     \langle \mb{u}, \mb{v} \rangle_p = \mb{u}^T  \left( \tder{p}{\mb{G}}^T  \tder{p}{\mb{G}} \right) \mb{v}.
+                    </me></p>
+            </statement>
+        </proposition>
+
+        <p>Note that the matrix we obtain <m>\tder{p}{\mb{G}}^T  \tder{p}{\mb{G}}</m> is in fact symmetric as one would expect from the symmetric property of an inner product. </p>
+
+        <example>
+            <title>Metric for spherical coordinates</title>
+            <statement>
+                <p>The world is not flat, but spherical coordinates gives us a flat domain on which to chart the world. Indeed, fixing the variable <m>\rho = 1</m> we may parameterize the unit sphere <m>X</m>, which consists of all <m>(x,y,z)</m> satisfying the constraint equation <m>x^2 + y^2 + z^2 = 1</m>, using
+                <me>
+                    \mb{G} (\theta, \varphi) = ( \sin \varphi \cos \theta , \sin \varphi \sin \theta , \cos \varphi ). 
+                </me> 
+                This is a function from a rectangle <m>R</m> in the plane to the sphere (and is a parametrization on the interior of <m>R</m>)
+                <me>
+                    \mb{G} : [0 , 2\pi ] \times [0, \pi] \to X.
+                </me>
+                The horizontal lines in the rectangle go to latitudes and the vertical lines to longitudes. We compute the Jacobian matrix of <m>\mb{G}</m> to be
+                <me>
+                    \tder{p}{\mb{G}} = \left[ \begin{matrix} -\sin \varphi \sin \theta \amp \cos \varphi \cos \theta \\ \sin \varphi \cos \theta \amp \cos \varphi \sin \theta \\ 0 \amp - \sin \varphi \end{matrix} \right] 
+                </me>
+                which, by <xref ref="prop-metricmatrix"/>, gives us our tangent space inner products (represented as matrices) via
+                <md>
+                    <mrow> \tder{p}{\mb{G}}^T  \tder{p}{\mb{G}} \amp = \left[ \begin{matrix} -\sin \varphi \sin \theta \amp  \sin \varphi \cos \theta \amp  0 \\ \cos \varphi \cos \theta \amp \cos \varphi \sin \theta \amp - \sin \varphi \end{matrix} \right] \left[ \begin{matrix} -\sin \varphi \sin \theta \amp \cos \varphi \cos \theta  \\ \sin \varphi \cos \theta \amp \cos \varphi \sin \theta \\ 0 \amp - \sin \varphi \end{matrix} \right],</mrow>
+                    <mrow> \amp = \left[ \begin{matrix} \sin^2 \varphi \amp 0 \\ 0 \amp \sin^2 \varphi \end{matrix} \right],</mrow>
+                    <mrow> \amp = \sin \varphi^2  \left[ \begin{matrix} 1 \amp 0 \\ 0 \amp 1 \end{matrix} \right].</mrow>
+                </md>
+                Note that the inner product at <m>(\theta , \varphi)</m> is just a multiple of the dot product by <m>\sin^2 \varphi</m>. This is a special situation to be in! Indeed, this tells us that, while the parametrization does not preserve lengths (it scales them by <m>\sin \varphi</m>), it does in fact preserve angles. One can see this intuitively by noticing that latitude and longitude lines are still perpendicular where they meet. Such a parameterization is called \textbf{conformal} and there are many interesting examples of these maps.</p>
+                    
+                <p>One other point which we can observe through geometric intuition about this parameterization is that the surface area of the sphere (relative to the coordinates) certainly changes. We all learn at some point, for example, that Greenland is not larger than South America, even though it may appear so on some maps. The point is that on our map coordinates, we should scale area by <m>\sin^2 \varphi</m> and so, near the poles where <m>\varphi = 0</m> and <m>\pi</m>, we must scale down area quite a bit.</p>
+            </statement>
+        </example>
+
+        <p>Having motivated the need for a varying inner product on a domain <m>U</m> in <m>\mathbb{R}^m</m>, let us give the formal definition so we may use it as notation.</p>
+
+        <definition xml:id="def-Riemannian-metric">         
+            <notation>             
+                <usage><m>\langle , \rangle_-</m></usage>             
+                <description>Riemannian metric </description>         
+            </notation>         
+            <statement>
+                <p>A domain <m>U</m> in <m>\mathbb{R}^m</m> is said to have a <term>Riemannian metric</term> (or simply <term>metric</term>) <m>\langle , \rangle_-</m> if there is a differentiable assignment of points <m>p</m> in <m>U</m> to inner products <m>\langle , \rangle_p</m> on their tangent space. </p>
+            </statement>
+        </definition>
+
+        <p>We will leave details of <sq>differentiable assignment</sq> to later courses, just noting that this means the inner products, when written as matrices, should have entries that are differentiable functions of the coordinates in <m>U</m>.</p>
+    </subsection>
+
+    <subsection xml:id="subsec-steepest-ascent">
+        <title>Steepest ascent</title>
+        <p>We now arrive at our our featured definition.</p>
+        <definition xml:id="def-gradient">         
+            <notation>             
+                <usage><m>\nabla f</m></usage>             
+                <description>Gradient </description>         
+            </notation>         
+            <statement>
+                <p>Let <m>U</m> be a domain in <m>V</m> with metric with varying inner product <m>\langle , \rangle_-</m>, and <m>f : U \to \mathbb{R}</m> a differentiable scalar function. The gradient of <m>f</m> at <m>p</m> is the tangent vector 
+                    <me>
+                        \nabla_p f \in T_p V
+                    </me>
+                    for which 
+                    <me>
+                    \tder{p}{f} ( \partial ) = \langle \nabla_p f  ,  \partial \rangle_p \partial_1. 
+                    </me>
+                    The gradient <m>\nabla f</m> of <m>f</m> is the vector field with tangent vector <m>\nabla_p f</m> at <m>p</m>. </p>
+            </statement>
+        </definition>
+
+        <p>Let us make this definition concrete in the case of <m>V = \mathbb{R}^m</m> with the dot product.</p>
+
+        <proposition xml:id="prop-flatgradient">
+            <statement>
+                <p>If <m>U</m> is an open subset of Euclidean space <m>\mathbb{R}^m</m> and <m>f: U \to \mathbb{R}</m> is a differentiable function on <m>U</m> then 
+                    <me>
+                        \nabla f = \frac{\partial f}{\partial x_1} \partial_1 +  \cdots  +  \frac{\partial f}{\partial x_m} \partial_m .
+                    </me>
+                    Alternatively, using the basis <m>\partial_1, \ldots, \partial_m</m>, one commonly writes this as the row vector
+                    <me>
+                        \nabla f = \langle \frac{\partial f}{\partial x_1} , \ldots , \frac{\partial f}{\partial x_m} \rangle.
+                    </me></p>
+            </statement>
+            <proof> <p>Exercise.</p>
+            </proof>
+        </proposition>
+
+        <p>The gradient is among the most important vector fields that one may consider. Before seeing why this is the case, let us compute a few examples.</p>
+
+        <example>
+            <title>Gradient computation I</title>
+            <statement>
+                <p>Consider <m>f (x,y) = x^2 - xy + y</m> and observe that <xref ref="prop-flatgradient"/> tells us that 
+                    <me>
+                    \nabla f = \langle 2x - y , 1 - x \rangle.
+                    </me></p>
+            </statement>
+        </example>
+
+        <example>
+            <title>Gradient computation II</title>
+            <statement>
+                <p>Take <m>g (x, y ,z) = e^{xyz} + \cos x - \sin z</m> and compute
+                    <me>
+                    \nabla f = \langle yz e^{xyz} - \sin x , xz e^{xyz}, xy e^{xyz} - \cos z \rangle. 
+                    </me></p>
+            </statement>
+        </example>
+
+        <p>The observant student may be shaking their head a bit at this point and asking how this is different from the derivative <m>\tder{}{f}</m>. After all, these computations look identical! The answer to this question is that the derivative of a scalar function is a cotangent vector field and the gradient is a tangent vector field. So while the computations look (and are) nearly identical, the gradient is a <em>different</em> kind of mathematical entity than the derivative.</p>
+
+        <p>Perhaps most importantly, the gradient we have computed in these examples is for flat Euclidean space where the inner products are simply dot products, and in general, one needs a slightly more sophisticated definition when the coordinates are not flat coordinates. In this case, <xref ref="prop-flatgradient"/> does not apply and we must use more care. However, in either case, the gradient exhibits a very important property. To explain this, we first need a notion of steepest ascent. </p>
+
+        <definition xml:id="def-steepest-ascent">         
+            <notation>             
+                <usage><m>\nabla f</m></usage>             
+                <description>Steepest ascent </description>         
+            </notation>         
+            <statement>
+                <p>Suppose <m>U</m> is a domain in <m>V</m> with metric and <m>f: U \to \mathbb{R}</m> is a differentiable scalar function at <m>p \in U</m>. The <term> direction of steepest ascent</term> of <m>f</m> at <m>p</m> is the unit tangent vector <m>\partial \in T_p V</m> for which <m>\partial f</m> is maximized. I.e. for any other unit tangent vector <m>\tilde{\partial} \ne \partial</m>, <m>\partial f \gt \tilde{\partial} f</m>.  Similarly,  the <term> direction of steepest descent</term> of <m>f</m> at <m>p</m> is the unit tangent vector <m>\partial \in T_p V</m> for which <m>\partial f</m> is minimized.</p>
+            </statement>
+        </definition>
+
+        <p>To understand this definition, recall that tangent vectors are just directional derivatives. So the value <m>\partial f</m> is the same as the directional derivative <m>D_\mb{v} f (p)</m> and we think of <m>\partial</m> as the arrow <m>\mb{v}</m> starting at <m>p</m>. If you think of a topographical map, you can consider a vector starting at a point on the map to give the steepest ascent if, were you actual at that location and started moving in that direction, you would have the steepest climb ahead of you.</p>
+
+        <proposition>
+            <statement>
+                <p>Suppose <m>U</m> is a domain in <m>V</m> with metric and <m>f: U \to \mathbb{R}</m> is a differentiable scalar function. If <m>\nabla_p f</m> is not zero, then its normalization is the direction of steepest ascent of <m>f</m> at <m>p</m>. The negative of its normalization is the direction of steepest descent.</p>
+            </statement>
+            <proof> <p>Let <m>\partial</m> be any unit tangent vector. By <xref ref="cor-directional"/> we have 
+            <me> 
+                \partial f (p) = \tder{p}{f} (\partial ). 
+            </me>
+            By the definition of the gradient this also gives
+            <me> 
+                \partial f (p) = \langle \nabla_p f , \partial \rangle_p . 
+            </me>
+            Finally, as we are in a real inner product space (and the assumption that <m>\partial</m> is a unit vector) we have 
+            <me> 
+                \partial f (p) = \langle \nabla_p f , \partial \rangle_p = \|\nabla_p f\| \cos \theta 
+            </me>
+            where <m>\theta</m> is the angle between <m>\nabla_p f</m> and <m>\partial</m>. Now <m>\cos \theta</m> is maximized when <m>\theta = 0</m> and minimized when <m>\theta = \pi</m>. These values correspond to when <m>\partial</m> is in the direction of <m>\nabla_p f</m> and in the opposite direction respectively.</p>
+            </proof>
+        </proposition>
+
+        <p>A slightly weaker statement, but perhaps as important, is the following result.</p>
+
+        <proposition xml:id="prop-increasingGradient">
+            <statement>
+                <p>Suppose <m>U</m> is a domain in <m>V</m> with metric and <m>f: U \to \mathbb{R}</m> is a differentiable scalar function. If <m>\nabla_p f</m> is non-zero, there is a positive <m>\varepsilon</m> and a differentiable path <m>\gamma : (-\varepsilon , \varepsilon) \to U</m> with <m>\gamma (0) = p</m> such that <m>f \circ \gamma</m> is strictly increasing.</p>
+            </statement>
+            <proof> <p>Let us identify <m>\nabla_p f</m> with the vector <m>\mb{v}</m> for which <m>\nabla_p f = D_\mb{v}</m>. Define <m>\gamma</m> to be the straight line parameterized through <m>p</m> as
+            <me>
+                \gamma (t) = p + t \nabla_p f
+            </me>
+            Then the chain rule gives
+            <md>
+                <mrow> \tder{t}{f \circ \gamma} (\partial_t) \amp = (\tder{\gamma(t)}{f} \circ \tder{t}{\gamma} ) (\partial_t), </mrow>
+                <mrow> \amp = \tder{\gamma(t)}{f} \left( \nabla_p f \right) ,</mrow>
+                <mrow> \amp = \langle \nabla_{\gamma (t)} f , \nabla_p f \rangle_{\gamma (t)} \partial_1.</mrow>
+            </md>
+            At <m>t = 0</m>, we have <m>\gamma (t) = p</m> so that the derivative is <m>\|\nabla_p f \|^2</m> which is positive. But since <m>\gamma (t)</m>, <m>\langle , \rangle_-</m> and <m>\nabla f</m> are continuous, this means that <m>\tder{t}{f \circ \gamma}</m> is positive for all <m>t</m> in a small neighborhood around <m>0</m>. Taking <m>\varepsilon</m> to be a small value for which this is true, we have that <m>f \circ \gamma</m> is a differentiable function with positive derivative and thus is strictly increasing.</p>
+            </proof>
+        </proposition>
+
+        <p>A more refined version of <xref ref="prop-increasingGradient"/> is to perform what is known as gradient flow. For this, we mean to solve the ordinary differential equation 
+        <men xml:id="eq-gradientflow">
+            \dot{\mb{x}} (t) = \nabla_{\mb{x} (t)} f
+        </men>
+        which is called the <term>gradient flow equation</term>. Finding a solution to this equation would give a path for which, at every point on the path, the direction you are travelling is increasing the function <m>f</m> maximally. If you imagine <m>f</m> as giving the height of a mountain on a topographical map, the solution would give a path of steepest ascent.</p>
+    </subsection>
+
+    <exercises xml:id="exe-gradient">
+
+        <exercise>
+            <introduction><p>Let <m>U</m> be the closed half-disc 
+                <me>
+                U = \{ (x, y) : x^2 + y^2 \leq 1 , y \geq 0 \}
+                </me>
+                and consider the function <m>\mb{G}: U \to \mathbb{R}^2</m> given by 
+                <me>
+                \mb{G} (x, y) = (x^2 - y^2 , 2xy).
+                </me></p></introduction>
+        <task>
+            <statement>
+                <p> Find the matrix representing the inner product <m>\langle , \rangle_{(x,y)}</m> on <m>U</m> induced by <m>\mb{G}</m>? </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p> Is <m>\mb{G}</m> a conformal map? Explain your response. </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p> Does <m>\mb{G}</m> preserve distance? </p>
+            </statement>
+        </task>
+        </exercise>
+
+        <exercise>
+            <statement>
+                <p> Let <m>f(x,y)</m> be a differentiable function and <m>\mb{G} (x,y) = (x, y, f(x,y))</m> the induced parameterization of its graph. Show that <m>\mb{G}</m> preserves distance if and only if <m>f(x,y)</m> is a constant function. </p>
+            </statement>
+        </exercise>
+
+        <exercise>
+            <introduction><p>For a connected smooth curve <m>\mathcal{C}</m> with endpoints <m>P</m> and <m>Q</m> in <m>\mathbb{R}^m</m>, there is always an interval <m>[0, L]</m> unique path 
+                <me>
+                 \gamma : [0, L] \to \mathcal{C}
+                </me>
+                for which <m>\gamma (0) = P</m>, <m>\gamma (L) = Q</m> and <m>\gamma^\prime (s)</m> is a unit vector for any <m>s</m> in <m>[0, L]</m>. Such a path is called the \textbf{arc length parameterization} of <m>\mathcal{C}</m>. This exercise asks you to show that such a path exists. </p></introduction>
+        <task>
+            <statement>
+                <p>  Let <m>\psi : [a, b] \to \mathcal{C}</m> be any differentiable parameterization of <m>\mathcal{C}</m> with nonzero velocity vectors. Consider the scalar function
+                    <me>
+                        s(t) = \int_{a}^t \| \psi^\prime (u) \| \, \diff{u}.
+                    </me>
+                    Show that <m>s(t)</m> is an increasing function by finding its derivative <m>s^\prime (t)</m>. </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p> Suppose the range of <m>s(t)</m> is <m>[0, L]</m>. Since <m>s(t)</m> is increasing, it passes the horizontal line test and there is an inverse function <m>t : [0, L] \to [a, b]</m> with independent variable <m>s</m>. Using the <m>1</m>-variable inverse function theorem and chain rule, compute the derivative
+                    <me>
+                    \frac{d}{ds} \psi ( t(s)).
+                    </me> </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p> Show that <m>\psi (t (s))</m> is an arc-length parameterization of <m>\mathcal{C}</m>.</p>
+            </statement>
+        </task>
+        <conclusion>
+        </conclusion>
+        </exercise>
+
+        <exercise>
+            <statement>
+                <p> Verify <xref ref="prop-metricmatrix"/> </p>
+            </statement>
+        </exercise>
+
+        <exercise>
+            <introduction><p>Write the gradients of the following functions for a flat metric.</p></introduction>
+        <task>
+            <statement>
+                <p> <m>f(x,y) = \ln (x^2 + y^2)</m>, </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p> <m>g(x,y, z) = xy + xz + yz</m>, </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p> <m>h(x,y) = e^x \cos (\pi xy)</m>. </p>
+            </statement>
+        </task>
+        </exercise>
+
+        <exercise>
+            <statement>
+                <p> For each of the functions in the previous exercise, give the direction vector for which the function, starting at <m>(-1,2)</m>, is has steepest descent.  </p>
+            </statement>
+        </exercise>
+
+        <exercise>
+            <introduction><p>Complete the following steps:</p></introduction>
+        <task>
+            <statement>
+                <p> Write down an example of a non-zero quadratic form <m>Q(x,y)</m>. </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p> Solve your ordinary differential equation. </p>
+            </statement>
+        </task>
+        </exercise>
+
+        <exercise>
+            <statement>
+                <p> Verify <xref ref="prop-flatgradient"/>. </p>
+            </statement>
+        </exercise>
+        
+    </exercises>
+
+</section>

@@ -1,22 +1,124 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 
 <pretext xml:lang="en-US" xmlns:xi="http://www.w3.org/2001/XInclude">
-  <!-- we first include a file which contains the docinfo element: -->
-  <xi:include href="./docinfo.ptx" />
 
-  <book xml:id="my-great-book">
-    <title>My Great Book</title>
-    <subtitle>An example to get you started</subtitle>
+  <docinfo>
+    <macros>
+      \newcommand{\R}{\mathbb R}
+      \newcommand{\C}{\mathbb C}
+      \newcommand{\diff}{\text{d}}
+      \newcommand{\mb}[1]{\mathbf{#1}}
+      \newcommand{\coord}[2]{[#1]^{#2}}
+      \newcommand{\chart}[2]{[#1]_{#2}}
+      \newcommand{\twovec}[2]{\left[ \begin{matrix} #1 \\ #2 \end{matrix} \right]}
+      \newcommand{\threevec}[3]{\left[ \begin{matrix} #1 \\ #2 \\ #3 \end{matrix} \right]}
+      \newcommand{\tangtwo}[2]{\left[ \begin{matrix} #1 \amp #2 \end{matrix} \right]}
+      \newcommand{\tangthree}[3]{\left[ \begin{matrix} #1 \amp #2 \amp #3 \end{matrix} \right]}
+      \newcommand{\im}{{\text{im}}}
+      \newcommand{\cob}[3]{[#1]^{#3}_{#2}}
+      \newcommand{\rk}{\text{rank}}
+      \newcommand{\nullity}{\text{nullity}}
+      \newcommand{\tder}[2]{d_{#1} {#2}}
+      \newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
+      \newcommand{\ball}[2]{\text{B}_{#1} ( #2 )}
+      \newcommand{\cball}[2]{\overline{\text{B}}_{#1} ( #2 )}
+      \newcommand{\hball}[1]{\overline{\text{HB}}_{#1}}
+      \newcommand{\vol}{\,\text{vol}}
+      \newcommand{\orient}{\,\text{or}}
+      \newcommand{\pball}[2]{\text{B}^*_{#1} ( #2 )}
+    </macros>
+    <latex-image-preamble>
+      \usepackage{tikz, tikz-cd, amscd}
+      \usetikzlibrary{arrows}
+    </latex-image-preamble>
+  </docinfo>
 
-    <!-- Include frontmatter -->
-    <xi:include href="./frontmatter.ptx" />
+  <book xml:id="ms-calculus-3">
+    <title>Mathematical Scholars Calculus 4</title>
+    <!-- <subtitle>Linear algebra with a view towards applications</subtitle> -->
 
-    <!-- Include chapters -->
-    <xi:include href="./ch-chapter-title.ptx" />
+    <frontmatter xml:id="frontmatter">
+      <titlepage>
+        <author>
+          <personname>Gabriel Kerr</personname>
+          <department>Department of Mathematics</department>
+          <institution>Kansas State University</institution>
+        </author>
+        <date>
+          <today />
+        </date>
+      </titlepage>
 
+      <colophon>
 
-    <!-- Include backmatter -->
-    <xi:include href="./backmatter.ptx" />
+        <website>
+          <url>https://math.ksu.edu/~gdkerr/</url>
+        </website>
+
+        <copyright>
+          <year>2020<ndash />2024</year>
+          <holder>Gabriel Kerr</holder>
+          <shortlicense> 
+            This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit <url href="http://creativecommons.org/licenses/by-sa/4.0/" visual="creativecommons.org/licenses/by-sa/4.0"> CreativeCommons.org</url>
+          </shortlicense>
+        </copyright>
+      </colophon>
+    </frontmatter>
+
+    <chapter xml:id="ch-differential-calculus">
+      <title>Differential Calculus in Several Variables</title>
+      <xi:include href="limit.xml" />
+      <xi:include href="derivative.xml" />
+      <xi:include href="chainrule.xml" />
+      <xi:include href="gradient.xml" />
+      <xi:include href="critical.xml" />
+      <xi:include href="optimization1.xml" />
+      <xi:include href="optimization2.xml" />
+    </chapter>
+
+    <chapter xml:id="ch-differential-forms">
+      <title>Differential Forms</title>
+      <xi:include href="exterior.xml" />
+    </chapter>
+
+    <chapter xml:id="ch-integral-calculus">
+      <title>Integral Calculus in Several Variables</title>
+      <xi:include href="cubeintegration.xml" />
+      <xi:include href="compactintegration.xml" />
+      <xi:include href="compactRnintegration.xml" />
+      <xi:include href="cov.xml" />
+    </chapter>
+
+    <chapter xml:id="ch-integral-of-forms">
+      <title>Integrals of Forms</title>
+      <xi:include href="formintegration.xml" /> 
+      <xi:include href="scalarintegrals.xml" /> 
+      <xi:include href="vectorintegrals.xml" /> 
+    </chapter>
+
+    <chapter xml:id="ch-stokes-theorem">
+      <title>Stokes' Theorem</title>
+      <xi:include href="derivatives.xml" /> 
+      <xi:include href="stokes.xml" /> 
+      <xi:include href="ftli.xml" /> 
+      <xi:include href="greens.xml" /> 
+      <xi:include href="classicalstokes.xml" /> 
+      <xi:include href="applications.xml" /> 
+    </chapter>
+
+    #<chapter xml:id="ch-partial-differential-equations">
+      #<title>Partial Differential Equations</title>
+    #</chapter>
+
+    <backmatter xml:id="backmatter">
+      <title>Backmatter</title>
+
+      <colophon>
+        <p> This book was authored in <pretext />. </p>
+      </colophon>
+
+    </backmatter>
 
   </book>
 </pretext>
+

@@ -1,0 +1,329 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-integrating-forms">
+    <title>Integrating forms</title>
+    <introduction>
+    <p>In this section, we consider changing both the integrand and the domain of integration to obtain an expression
+    <me>
+        \int_{D} \eta
+    </me>
+    where <m>D</m> is a <m>k</m>-dimensional oriented domain in <m>\mathbb{R}^m</m> and <m>\eta</m> is a differential <m>k</m>-form. To make sense of this, we proceed in steps. </p>
+    </introduction>
+
+    <subsection xml:id="subsec-integrating-top-forms">
+        <title>Integrating top forms</title>
+        <p>Let <m>D</m> be a domain in <m>\mathbb{R}^m</m> which is the closure of an open set <m>U</m> and has a smooth boundary (perhaps with some corners).</p>
+
+        <definition xml:id="def-orientation-form">
+            <notation>
+                <usage><m>\vol</m></usage>             
+                <description>Orientation form </description>         
+            </notation>         
+            <statement>
+                <p>An <term>orientation form</term> on <m>D</m> is a nowhere vanishing differential <m>m</m>-form <m>\vol</m> for which <m>\vol_p</m> is a unit vector in <m>\wedge^m T^*_p \mathbb{R}^m</m> for each <m>p \in D</m>. We say that <m>D</m> is <term>oriented</term> if it is equipped with an orientation form. If <m>\eta</m> is any <m>m</m>-form on <m>D</m> then we say it is <term>compatible with orientation</term> if <m>\eta = f (x) \vol</m> for a strictly positive scalar function <m>f(x)</m>.</p>
+
+                <p>The <term>standard orientation</term> is the form 
+                <me>
+                    \vol^{st} =   \tder{}{x_1} \wedge \cdots \wedge \tder{}{x_m}
+                </me></p>
+            </statement>
+        </definition>
+
+        <p>The idea of an oriented domain in <m>\mathbb{R}^m</m> is that we ignore the coordinates for a moment and imagine equipping the domain with its own orientation. The following result can be found in a topology course. To state it, we remind the student that a domain <m>D</m> is <term>connected</term> if, given any two open sets <m>U</m> and <m>V</m> for which <m>D</m> is contained in <m>U \cup V</m>, we must have that <m>D</m> is contained in <m>U</m> or <m>D</m> is contained in <m>V</m>.</p>
+
+        <proposition xml:id="prop-orientation-open">
+            <statement>
+                <p>If <m>D</m> is open and connected and <m>\vol</m> is an orientation form on <m>D</m> then <m>\vol = \pm \vol^{st}</m>.</p>
+            </statement>
+        </proposition>
+
+        <p>Let's digest this with <m>m = 1</m> and replace <m>\mathbb{R}^1</m> with <m>V</m>. We could imagine an interval <m>I</m> in <m>V</m> and hope to find the integral
+        <me>
+             \int_I f
+        </me>
+        for some function <m>f</m> on <m>I</m>. If <m>F</m> is its anti-derivative, one could use the Fundamental Theorem of Calculus to get
+        <me>
+            \int_I f = F(b) - F(a)
+        </me>
+        But of course this means we have <m>I = [a, b]</m> and in a sense, have oriented <m>I</m>. If we chose an opposite orientation, then we may obtain the opposite answer
+        <me>
+            \int_I f = F(a) - F(b).
+        </me>
+        Indeed, we now can make a general definition.</p>
+        <definition xml:id="def-pullback">         
+            <notation>             
+                <usage><m>\int_D \eta </m></usage>             
+                <description>Integration of <m>m</m>-form </description>         
+            </notation>         
+            <statement>
+                <p>Suppose <m>(D, \vol)</m> is an oriented domain in <m>\mathbb{R}^m</m> and <m>\eta</m> a differential <m>m</m>-form on <m>D</m>. Then there is a scalar function <m>f(x)</m> on <m>D</m> for which
+                <me>
+                    \eta = f(x) \vol.
+                </me>
+                Let 
+                <me>
+                    \int_D \eta = \idotsint_D f(x_1, \ldots, x_n) \tder{}{V}.
+                </me></p>
+            </statement>
+        </definition>
+
+        <p>If we omit the orientation, we assume that <m>D \subseteq \mathbb{R}^m</m> has the standard orientation.</p>
+
+        <p>Now, why do we consider this definition when it seems to just be a repeat of the prior definitions with a lot more vocabulary? The answer is manifold (pun), but one precise answer comes from considering how to transform differential forms. </p>
+
+        <definition xml:id="def-integration-top-form">         
+            <notation>             
+                <usage><m>\mb{G}^* \eta </m></usage>             
+                <description>Pullback of <m>m</m>-form </description> 
+            </notation>         
+            <statement>
+                <p>Let <m>D</m> be a domain in <m>\mathbb{R}^m</m> with coordinates <m>(u_1, \ldots, u_m)</m> and <m>E</m> a domain in <m>\mathbb{R}^n</m> with coordinates <m>(x_1, \ldots, x_n)</m>. If <m>\mb{G} : D \to E</m> is a differential function given by 
+                    <me>
+                    \mb{G} (u_1, \ldots, u_m) = (x_1 (u_1, \ldots, u_m), \ldots, x_n(u_1, \ldots, u_m))
+                    </me>
+                    and 
+                    <me>
+                    \eta = \sum_{i_1 \lt \cdots \lt i_k} f_{i_1, \ldots, i_k} (x_1, \ldots, x_n)\, \tder{}{x_{i_1}} \wedge \cdots \wedge \tder{}{x_{i_k}}
+                    </me>
+                    is a differential <m>k</m>-form on <m>E</m> then the <term>pullback</term> of <m>\eta</m> to <m>D</m> via <m>\mb{G}</m> is the differential <m>k</m>-form <m>\mb{G}^* \eta</m> on <m>E</m> given by 
+                    <me>
+                    \mb{G}^* \eta = \sum_{i_1 \lt \cdots \lt i_k} (f_{i_1, \ldots, i_k}\circ \mb{G}) (u_1, \ldots, u_m) \,\mb{G}^* \tder{}{x_{i_1}} \wedge \cdots \mb{G}^* \tder{}{x_{i_k}}.
+                    </me>
+                    Here <m>\mb{G}^* \tder{}{x_i}</m> is just the exterior derivative <m>\tder{}{x_i(u_1, \ldots, u_m)}</m>.</p>
+            </statement>
+        </definition>
+
+        <example>
+            <title>Integrating a form</title>
+            <statement>
+                <p>Suppose 
+                    <me>
+                    \mb{G} (u,v) = (x(u,v) , y(u,v)) = (u^2 - v^2, 2uv)
+                    </me>
+                    is defined taking <m>D = \mathbb{R}^2</m> to <m>E = \mathbb{R}^2</m>. Consider the <m>1</m>-form
+                    <me>
+                    \eta = x \tder{}{x} + y \tder{}{y}
+                    </me>
+                    and the two form
+                    <me>
+                    \vol^{st} = \tder{}{x} \wedge \tder{}{y}.
+                    </me>
+                    We compute the pullbacks <m>\mb{G}^* \eta</m> and <m>\mb{G}^* \vol^{st}</m>. To do so, we first compute 
+                    <md>
+                        <mrow> \mb{G}^* \tder{}{x} = \tder{}{x(u,v)} \amp = 2 u \, \tder{}{u} - 2 v \, \tder{}{v}, </mrow> 
+                        <mrow> \mb{G}^* \tder{}{y} = \tder{}{y(u,v)} \amp = 2 v\, \tder{}{u} + 2 u\, \tder{}{v}. </mrow>
+                    </md>
+                    Then
+                    <md>
+                        <mrow> \mb{G}^* \eta /amp = x(u,v)  \mb{G}^* \tder{}{x} + y (u,v)  \mb{G}^* \tder{}{y}, </mrow>
+                        <mrow> /amp = (u^2 - v^2) ( 2 u \,\tder{}{u} - 2 v \,\tder{}{v}) + 2uv (2 v\, \tder{}{u} + 2 u \,\tder{}{v}), </mrow>
+                        <mrow> /amp = 2 u (u^2 + v^2)\, \tder{}{u} + 2v ( u^2 + v^2 ) \,\tder{}{v}. </mrow>
+                    </md>
+                    and 
+                    <md>
+                        <mrow> \mb{G}^* \vol^{st} /amp = \mb{G}^* \tder{}{x} \wedge \mb{G}^* \tder{}{y},  </mrow>
+                        <mrow> /amp = (2 u\, \tder{}{u} - 2 v\, \tder{}{v}) \wedge (2 v\, \tder{}{u} + 2 u\, \tder{}{v}), </mrow>
+                        <mrow> /amp = 4 (u^2 + v^2) \, \tder{}{u} \wedge \tder{}{v}. </mrow>
+                    </md></p>
+            </statement>
+        </example>
+
+        <definition xml:id="def-orientation-preserving">         
+            <notation>             
+                <usage><m>\mb{G}^* \vol_E</m></usage>             
+                <description>orientation preserving change of variables </description>         
+            </notation>         
+            <statement>
+                <p>If <m>(D, \vol_D)</m> and <m>(E, \vol_E)</m> are oriented domains, and <m>\mb{G} : D \to E</m> is a change of variables, we say that <m>\mb{G}</m> <term>preserves orientation</term> if <m>\mb{G}^* \vol_E</m> is compatible with the orientation of <m>D</m>.</p>
+            </statement>
+        </definition>
+
+        <p>With this in mind, we can write the differential form version of change of variables.</p>
+
+        <theorem xml:id="thm-covdiff">
+            <title>Chain Rule</title>
+            <statement>
+                <p>Suppose <m>D</m> and <m>E</m> are oriented domains in <m>\mathbb{R}^m</m>. Let <m>\mb{G} : D \to E</m> be a change of variables which preserves orientation and <m>\eta</m> an <m>m</m>-form on <m>E</m>. Then
+                    <me>
+                        \int_D \mb{G}^* \eta = \int_E \eta.
+                    </me></p>
+            </statement>
+            <proof>Exercise.</proof>
+        </theorem>
+
+        <p>While it is certainly true that there is some mathematics buried within the notation of differential forms, orientations and pullbacks, the above form shows the drastic simplifying power of using forms to express complicated formulas. This, of course, is just the beginning of their utility.</p>
+    </subsection>
+
+    <subsection xml:id="subsec-integrating-k-forms">
+        <title>Integrating <m>k</m>-forms on oriented subspaces.</title>
+        <p>Recall from <xref ref="def-smooth"/> that a smooth <m>m</m>-dimensional subspace <m>X</m> of <m>\mathbb{R}^n</m> is any subspace with a parameterization <m>\mb{G} : U \to X</m> near every point <m>p</m> of <m>X</m>. We will need to add orientations to such subspaces as a part of their package.</p>
+
+        <definition xml:id="def-orientation-subspace">         
+            <notation>             
+                <usage><m>(X, \orient^X)</m></usage>             
+                <description>oriented smooth subspace </description>         
+            </notation>         
+            <statement>
+                <p>Suppose <m>X</m> is a smooth <m>m</m>-dimensional subspace of <m>\mathbb{R}^n</m>. An <term>orientation</term> on <m>X</m> is a differential <m>m</m>-form <m>\orient^X</m> defined on a neighborhood of <m>X</m> such that, for any local parameterization <m>\mb{G}:U \to X</m> the pullback <m>\mb{G}^* \orient^X</m> is nowhere zero on <m>U</m>. Two orientations are equivalent if their pullbacks are compatible for any local parameterization. We say <m>(X, \orient^X)</m> is an <term>oriented</term> smooth <m>m</m>-dimensional subspace of <m>\mathbb{R}^n</m>. </p>
+            </statement>
+        </definition>
+
+        <p>Some orientations are very familiar. To see this, we first need to use inner products to take vector fields to <m>1</m>-forms. Suppose <m>X</m> is a vector field in <m>\mathbb{R}^n</m>. Define the dual differential <m>1</m>-form <m>X^\vee</m> to be the field of cotangent vectors <m>X^\vee_p</m> which are defined by 
+        <men xml:id="eq-dualform">
+            X^\vee_p (Y) = X \cdot Y
+        </men>
+        for any tangent vector <m>Y \in T_p \mathbb{R}^n</m>.</p>
+
+        <example>
+            <title>Oriented curve</title>
+            <statement>
+                <p>If <m>\mathcal{C}</m> is a connected curve, then an orientation on <m>\mathcal{C}</m> is equivalent to a continuous choice of unit tangent vector of each point of <m>\mathcal{C}</m>. One can think of this as a vector field <m>X</m> along <m>\mathcal{C}</m>. To obtain an orientation as given in <xref ref="def-orientation-subspace"/>, define the orientation form as the dual <m>1</m>-form <m>X^\vee</m>.</p>
+            </statement>
+        </example>
+
+        <example xml:id="ex-normalorientation">
+            <title>Oriented surface</title>
+            <statement>
+                <p>If <m>\mathcal{S}</m> is a surface in <m>\mathbb{R}^3</m>, then one often defines an orientation on <m>\mathcal{S}</m> as a continuous choice of unit normal vector <m>\mb{N}_p</m> as <m>p</m> varies in <m>\mathcal{S}</m>. To get from this to <xref ref="def-orientation-subspace"/>, take the Hodge star operator of the dual <m>1</m>-form <m>\star (\mb{N}^\vee)</m>. </p>
+            </statement>
+        </example>
+
+        <p>As it turns out, once the dimension of the space exceeds <m>1</m>, there are examples of subspaces that are not orientable. The M\"obius strip is one such example in dimension <m>2</m>. One reason for orienting a smooth subspace is that for such spaces we can integrate forms.</p>
+
+        <definition xml:id="def-intofform">         
+            <notation>             
+                <usage><m>\int_X \eta </m></usage>             
+                <description>integration of form on oriented subspace </description>         
+            </notation>         
+            <statement>
+                <p>Let <m>(X, \orient^X)</m> be a smooth oriented <m>m</m>-dimensional subspace of <m>\mathbb{R}^n</m> compatibly parameterized by <m>\mb{G} : D \to X</m>. If <m>\eta</m> is an <m>m</m>-form on a neighborhood of <m>X</m> then define
+                    <me>
+                        \int_X \eta = \int_D \mb{G}^* \eta.
+                    </me> </p>
+            </statement>
+        </definition>
+
+        <p>This definition makes sense because of the version of the chain rule.</p>
+
+        <lemma xml:id="lem-chain-rule">
+            <title>Chain rule</title>
+            <statement>
+                <p>Let <m>D_1, D_2</m> and <m>D_3</m> be domains in Euclidean spaces. Suppose <m>\mb{G}_1 : D_1 \to D_2</m> and <m>\mb{G}_2 : D_2 \to D_3</m> are differentiable functions and <m>\eta</m> is a differentiable <m>k</m>-form on <m>D_3</m>, then
+                    <me>
+                    (G_2 \circ G_1)^* \eta = G_2^* (G_1^* \eta ).
+                    </me></p>
+            </statement>
+            <proof> <p>Exercise.</p>
+            </proof>
+        </lemma>
+
+        <p>This lemma ensures our definition makes sense because, if <m>\tilde{\mb{G}} : \tilde{D} \to X</m> is another parameterization then we may compose with the inverse of <m>\mb{G}</m> to get a change of variables <m>\mb{F} := \tilde{\mb{G}} \circ \mb{G}^{-1} : \tilde{D} \to D</m> and, applying a change of variables we see
+        <me>
+            \int_{\tilde{D}} \tilde{\mb{G}}^* \eta = \int_{\tilde{D}} \tilde{\mb{G}}^* \left( (\mb{G}^{-1})^*  \left( \mb{G}^* \eta \right) \right) =  \int_{\tilde{D}} \left(\tilde{\mb{G}} \circ \mb{G}^{-1} \right)^* \left( \mb{G}^* \eta \right) = \int_D \mb{G}^* \eta. 
+        </me>
+        Thus the quantity obtained is independent of the parameterization.</p>
+
+        <p>To extend <xref ref="def-intofform"/> to any smooth oriented <m>m</m>-dimensional subspace (not just ones with a single parameterization), one must consider a finite cover <m>V_1, \ldots, V_r</m> of <m>X</m> by open sets and with compatibly oriented  parameterizations <m>\mb{G}_i : U_i \to X</m>. Then we define what is known as a <term>partition of unity</term> <m>\{\rho_1, \ldots, \rho_r\}</m> subordinate to the cover which is a collection of non-negative scalar functions <m>\rho_i</m> on <m>X</m>. Each <m>\rho_i</m> is only non-zero on <m>V_i</m> and their sum <m>\sum \rho_i = 1</m> is the constant function <m>1</m>. With such a partition of unity in hand, we can define the integration of an <m>m</m>-form on <m>X</m> to be 
+        <me>
+            \int_X \eta = \sum_{i = 1}^r \int_{U_i} \mb{G}_i^* (\rho_i \eta).
+        </me>
+        We will revisit partitions of unity with a bit more detail when we prove the Generalized Stokes' Theorem.</p>
+    
+    </subsection>
+
+    <exercises xml:id="exe-formintegration">
+
+        <exercise>
+            <statement>
+                <p> Write down four distinct orientations for the domain 
+                    <me> D = \{ (x,y) : x \ne 0 \}.</me> </p>
+            </statement>
+        </exercise>
+
+        <exercise>
+            <introduction><p>Using the change of coordinates <m>\mb{G} (r, \theta) = (r \cos \theta, r \sin \theta)</m>, find the pullback forms :</p></introduction>
+        <task>
+            <statement>
+                <p> <m>\mb{G}^* [(x^2 + y^2 )\tder{}{x} - y \tder{}{y} ]</m>, </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p> <m>\mb{G}^* \frac{\tder{}{x} \wedge \tder{}{y}}{\sqrt{x^2 + y^2}}</m> </p>
+            </statement>
+        </task>
+        </exercise>
+
+        <exercise>
+            <statement>
+                <p> Prove the differential form version of the change of variables <xref ref="thm-covdiff"/>. </p>
+            </statement>
+        </exercise>
+
+        <exercise>
+            <statement>
+                <p> Prove the claim in <xref ref="ex-normalorientation"/> that <m>\star (\mb{N}^\vee)</m> defines an orientation on a surface <m>\mathcal{S}</m> in <m>\mathbb{R}^3</m> if <m>\mb{N}</m> is a continuously normal vector field to <m>\mathcal{S}</m>. </p>
+            </statement>
+        </exercise>
+
+        <exercise>
+            <statement>
+                <p> Prove the differential form version of the chain rule for <m>1</m>-forms <m>\eta</m>.</p>
+            </statement>
+        </exercise>
+
+        <exercise>
+            <introduction><p>Let <m>\mathcal{C}</m> be the ellipse given by 
+                <me> x^2 + \frac{y^2}{4} = 1</me>
+                oriented counterclockwise.</p></introduction>
+        <task>
+            <statement>
+                <p> Give a compatibly oriented and non-compatibly oriented parameterization of <m>\mathcal{C}</m>. </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p> For the one form <m>\eta = y \, \tder{}{x}</m>, compute
+                    <me>
+                    \int_\mathcal{C} \eta.
+                    </me>  </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p> For the one form <m>\tau = 4 x \, \tder{}{x} + y \tder{}{y}</m>, compute
+                    <me>
+                    \int_\mathcal{C} \tau.
+                    </me> </p>
+            </statement>
+        </task>
+        </exercise>
+
+        <exercise>
+            <statement>
+                <p>Let <m>\mathcal{C}</m> be a straight line curve in <m>\mathbb{R}^5</m>  from the origin to <m>(1, 2, 3, 4, 5)</m>. Compute
+                    <me>
+                    \int_{\mathcal{C}} x_1 \tder{}{x_1} + \frac{x_2}{4} \tder{}{x_2} + \frac{x_3}{9} \tder{}{x_3} + \frac{x_4}{16} \tder{}{x_4} + \frac{x_5}{25} \tder{}{x_5}.
+                    </me></p>
+            </statement>
+        </exercise>
+
+        <exercise>
+            <introduction><p>Let <m>\mathcal{S}</m> be the unit sphere in <m>\mathbb{R}^3</m> oriented with outward normal.</p></introduction>
+        <task>
+            <statement>
+                <p> Give an example of a <m>2</m>-form in <m>\mathbb{R}^3</m> that induces an orientation on <m>\mathcal{S}</m>. </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p> Compute the surface integral
+                    <me>
+                    \int_\mathcal{S} x \, \tder{}{y} \wedge \tder{}{z} - y \, \tder{}{x} \wedge \tder{}{z} + z \, \tder{}{x} \wedge \tder{}{y}.
+                    </me> </p>
+            </statement>
+        </task>
+        </exercise>
+    </exercises>
+
+</section>

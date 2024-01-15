@@ -1,0 +1,326 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-critical">
+    <title>Critical points</title>
+    <introduction> 
+    <p>Looking over the propositions in the last section you may notice that the condition `assume the gradient does not vanish' appears multiple times. So what happens if this fails? Well, that's where things get interesting...</p>
+
+    <definition xml:id="def-critical-point">         
+        <notation>             
+            <usage><m>q</m></usage>             
+            <description>Critical point </description>         
+        </notation>         
+        <statement>
+            <p>Suppose <m>U</m> is a domain with metric in <m>\mathbb{R}^m</m> and <m>f: U \to \mathbb{R}</m> is scalar function. We call <m>p \in U</m> a \textbf{critical point} of <m>f</m> if either <m>f</m> is not differentiable at <m>p</m> or if 
+                <me>
+                \nabla_p f = \mb{0}.
+                </me>
+                The value <m>f(p)</m> is called a <m>\textbf{critical value}</m> of <m>f</m>. </p>
+        </statement>
+    </definition>
+
+    <p>One can be more general than this and say that <m>p</m> is a critical point of a vector valued <m>\mb{F} : U \to \mathbb{R}^n</m> if <m>\tder{p}{\mb{F}}</m> is not of full rank, but we will stay with scalar functions for the time being.</p>
+
+    <example>
+        <title>Computing critical points</title>
+        <statement>
+            <p>Let <m>f(x,y) = y \cos (x)</m> and compute the gradient to find
+                <me>
+                \nabla f = \langle - y \sin x , \cos x \rangle .
+                </me>
+                The critical points are points <m>(x,y)</m> where <m>\nabla f = \langle 0, 0 \rangle</m> so that both equations
+                <md>
+                    <mrow>-y \sin x \amp = 0,</mrow>
+                    <mrow>\cos x \amp = 0</mrow>
+                </md>
+                are satisfied. The latter equation is satisfied only when <m>x = \frac{\pi}{2} + \pi k</m> for some integer <m>k</m>. For such <m>x</m>, <m>\sin x = \pm 1</m> so the only way the first equation is satisfied for these values of <m>x</m> is if <m>y = 0</m>. Thus the critical points of the function <m>f</m> is the set 
+                <me>
+                \left\{ \left( \frac{\pi}{2} + k , 0 \right) : k \text{ is an integer} \right\}.
+                </me>
+                Since the <m>y</m> coordinate of any critical point is <m>0</m>, the only critical value is <m>0</m>.</p>
+        </statement>
+    </example>
+    </introduction>
+
+    <subsection xml:id="subsec-local-extrema">
+        <title>Local extrema</title>
+        <p>The derivative of a function gives local information about that function. Let us make a definition of one such piece of information of a scalar function.</p>
+
+        <definition xml:id="def-local-extrema">         
+            <notation>             
+                <usage><m>p</m></usage>             
+                <description>Local minimum and maximum </description>         
+            </notation>         
+            <statement>
+                <p>Suppose <m>X</m> is a subset of <m>\mathbb{R}^m</m>, <m>p</m> a point of <m>X</m> and <m>f : X \to \mathbb{R}</m> is a scalar function on <m>X</m>. We say that <m>f</m> achieves a <term>local minimum</term> (respectively <term>local maximum</term>) at <m>p</m> if there is a neighborhood <m>U</m> of <m>p</m> in <m>X</m> such that <m>f(p) \leq f(\tilde{p})</m> (respectively <m>f(p) \geq f(\tilde{p})</m>) for all <m>\tilde{p}</m> of <m>U</m>.  </p>
+            </statement>
+        </definition>
+
+        <p>Local minima and maxima are extremely important notions in applications as they often describe points where systems are stable or optimized. Finding them can sometimes be a challenge, but one very helpful tool we can use is the following proposition.</p>
+
+        <proposition xml:id="prop-localextremecritical">
+            <statement>
+                <p>Suppose <m>U</m> is a domain with metric in <m>\mathbb{R}^m</m> and <m>f: U \to \mathbb{R}</m> is scalar function. If <m>f</m> achieves a local minimum or maximum at <m>p</m>, then <m>p</m> is a critical point of <m>f</m>.</p>
+            </statement>
+            <proof> <p>If <m>f</m> is not differentiable at <m>p</m>, then <m>p</m> is a critical point and we need not argue further. Otherwise, suppose <m>f</m> is differentiable at <m>p</m> and it is a local minimum (the argument for maximum is similar). If <m>p</m> is not a critical point then <m>\nabla_p f \ne \mb{0}</m> and, by <xref ref="prop-increasingGradient"/>, there is a path <m>\gamma : (-\varepsilon , \varepsilon) \to U</m> for which <m>\gamma (0) = p</m> and <m>f \circ \gamma</m> is strictly increasing. But then for any <m>t</m> with <m>-\varepsilon \lt t \lt 0</m> we have <m>f ( \gamma (t)) \lt f (p)</m>. This contradicts the assumption that <m>p</m> is a local minimum for <m>f</m>.</p>
+            </proof>
+        </proposition>
+
+        <p>Let us be clear about how we use <xref ref="prop-localextremecritical"/>. If we want to find a local extreme point, we can look for critical points. However, it is not the case a given critical point will always be a local extreme point. Let us illustrate this with our three prototype scalar functions on <m>\mathbb{R}^2</m>.</p>
+
+        <example>
+            <title>Chain rule computation II</title>
+            <statement>
+                <p>Let 
+                <me>
+                Q_{++} (x, y) = x^2 + y^2.
+                </me>
+                It is clear that <m>Q_0 (x,y)</m> is differentiable and 
+                <me>
+                    \nabla Q_{++} = \langle 2x , 2y \rangle.                    
+                </me>
+                We also see that the only critical point of <m>Q_0</m> is the origin <m>(0, 0)</m>. Thus the only local extreme point for <m>Q_0</m> is the origin, and as <m>Q_0</m> is always positive otherwise we have that <m>Q_0</m> achieves a local (and global) minimum at the origin.</p> 
+                    
+                <p>A similar argument shows that 
+                <me>
+                    Q_{--} (x, y) = -x^2 - y^2
+                </me>
+                has exactly one local (and global) maximum at the origin.</p>
+                    
+                <p>Now consider the last prototype
+                <me>
+                    Q_{+-} (x, y) = x^2 - y^2
+                </me>
+                and observe
+                <me>
+                    \nabla Q_{+-} = \langle 2x , -2y \rangle.
+                </me>
+                So here again <m>(0, 0)</m> is the only critical point. However, we see that along the <m>x</m>-axis away from the origin, <m>Q_{+-}</m> is positive and along the <m>y</m>-axis away from the origin, <m>Q_{+-}</m> is negative. So there is no chance that <m>Q_{+-}</m> will have a local minimum or maximum at the origin. Critical points of this type have their own name as we now define.</p>
+            </statement>
+        </example>
+
+        <definition xml:id="def-saddle-point">         
+            <notation>             
+                <usage><m>q</m></usage>             
+                <description>Saddle point </description>         
+            </notation>         
+            <statement>
+                <p>Suppose <m>U</m> is a domain with metric in <m>\mathbb{R}^m</m> and <m>f: U \to \mathbb{R}</m> is scalar function. If <m>p</m> is a critical point that is neither a local minimum nor a local maximum, then <m>p</m> is called a <term>saddle point</term> of <m>f</m>.</p>
+            </statement>
+        </definition>
+
+        <p>In general, saddle points can be quite complicated. Perhaps surprisingly though we can fully describe the local behavior of a function near a differentiable critical point so long as we have something called non-degeneracy. To get to this notion, we first define the Hessian.</p>
+
+        <definition xml:id="def-hessian">         
+            <notation>             
+                <usage><m>\text{Hess}_p (f)</m></usage>             
+                <description>The Hessian </description>         
+            </notation>         
+            <statement>
+                <p>Suppose <m>U</m> is a domain with metric in <m>\mathbb{R}^m</m> and <m>f: U \to \mathbb{R}</m> is scalar function with continuous second partial derivatives. The <term>Hessian</term> of <m>f</m> is the matrix valued function
+                    \begin{align*}
+                        \textnormal{Hess} (f) \amp = \left[ \begin{matrix} \frac{\partial^2 f}{\partial x_1^2} \amp \frac{\partial^2 f}{\partial x_1 \partial x_2} \amp \cdots \amp \frac{\partial^2 f}{\partial x_1 \partial x_m} \\ \frac{\partial^2 f}{\partial x_2 \partial x_1} \amp \frac{\partial^2 f}{\partial x_2^2} \amp \cdots \amp \frac{\partial^2 f}{\partial x_2 \partial x_m} \\ \vdots \amp \vdots \amp \amp \vdots \\ \frac{\partial^2 f}{\partial x_m \partial x_1} \amp \frac{\partial^2 f}{\partial x_m \partial x_2} \amp \cdots \amp \frac{\partial^2 f}{\partial x_m^2} \end{matrix} \right]
+                        \end{align*}
+                    Write <m>\text{Hess}_p (f)</m> for the Hessian of <m>f</m> evaluated at <m>p</m>. We say a critical point <m>p</m> of <m>f</m> is <term>non-degenerate</term> if <m>\text{Hess}_p (f)</m> has non-zero determinant.</p>
+            </statement>
+        </definition>
+
+    </subsection>
+
+    <subsection xml:id="sec-second-derivative-test">
+        <title>Second derivative test</title>
+        <p>Note that by Clairaut's Theorem, the Hessian of <m>f</m> is a symmetric <m>m \times m</m> matrix and thus can be linked to a quadratic form. In fact, the Hessian can be thought of as a second derivative for scalar functions. The next lemma shows how useful this can be.</p>
+
+        <lemma xml:id="prop-criticalpoint">
+            <statement>
+                <p>Suppose <m>U</m> is a domain with metric in <m>\mathbb{R}^m</m>, <m>f: U \to \mathbb{R}</m> is scalar function with continuous second partial derivatives and let <m>\gamma : (-\varepsilon, \varepsilon) \to U</m> be a differentiable path. Assume <m>\gamma(0) = p</m> is a critical point of <m>f</m>. Then 
+                <me>
+                    \left. \frac{d^2}{dt^2} (f \circ \gamma)\right|_{t = 0} = \gamma^\prime (0)^T \textnormal{Hess}_{\gamma (0)} (f) \gamma^\prime (0).
+                </me> </p>
+            </statement>
+            <proof>
+                <p>This is an exercise in using the chain rule (twice). The first use shows 
+                <me>
+                    \frac{d}{dt} (f \circ \gamma) = \tder{\gamma (t)}{f} \cdot  \gamma^\prime (t). 
+                </me>
+                Here we have a matrix product of the Jacobian matrix <m>\tder{\gamma(t)}{f}</m> with the tangent vector <m>\gamma^\prime (t)</m>. Taking the derivative again with respect to <m>t</m> forces us to use the product rule
+                <md>
+                    <mrow>\frac{d^2}{dt^2} (f \circ \gamma) \amp = \frac{d}{dt} \left( \tder{\gamma (t)}{f} \cdot \gamma^\prime (t) \right), </mrow>
+                    <mrow> \amp =\left( \frac{d}{dt}  \tder{\gamma (t)}{f} \right) \gamma^\prime (t) +  \tder{\gamma (t)}{f} \left(  \frac{d}{dt} \gamma^\prime (t) \right). </mrow>
+                </md>
+                Now, examining the second summand and evaluating at <m>t = 0</m> will give 
+                <me>
+                 \tder{\gamma (0)}{f} \left( \left. \frac{d}{dt} \gamma^\prime (t) \right|_{t = 0} \right) = \tder{p}{f} \left( \left. \frac{d}{dt} \gamma^\prime (t) \right|_{t = 0} \right) = 0
+                </me>
+                because <m>p</m> is a critical point of <m>f</m>. So we focus on the first summand and, in particular, the derivative
+                <me>
+                    \frac{d}{dt}  \tder{\gamma (t)}{f}.
+                </me>
+                The function <m>\tder{\gamma (t)}{f}</m> can be written as the row vector
+                <me>
+                     \left[ \begin{matrix} \left( \frac{\partial f}{\partial x_1} \circ \gamma \right) (t) \amp \cdots \amp  \left( \frac{\partial f}{\partial x_m} \circ \gamma \right) (t) \end{matrix} \right]. 
+                </me>
+                Letting <m>\gamma (t) = (\gamma_1 (t) , \ldots , \gamma_m (t))</m> and using the chain rule on the <m>j</m>-th entry above gives 
+                <me>
+                    \frac{d}{dt}\left( \frac{\partial f}{\partial x_j} \circ \gamma \right) (t) =  \frac{\partial^2 f}{\partial x_1 \partial x_j}  \gamma^\prime_1 (t) + \frac{\partial^2 f}{\partial x_2 \partial x_j}  \gamma^\prime_2(t) + \cdots + \frac{\partial^2 f}{\partial x_m \partial x_j}  \gamma^\prime_m (t).
+                </me>
+                But this is simply the <m>j</m>-th entry of the matrix product 
+                <me>
+                    \gamma^\prime (t)^T \cdot \textnormal{Hess}_{\gamma (t)}(f).
+                </me>
+                Thus we obtain the formula 
+                <me>
+                    \frac{d}{dt}  \tder{\gamma (t)}{f} = \gamma^\prime (t)^T \cdot \textnormal{Hess}_{\gamma (t)} (f)
+                </me>
+                and conclude that, at <m>t = 0</m>
+                <me>
+                    \left. \frac{d^2}{dt^2} (f \circ \gamma)\right|_0 = \gamma^\prime (0)^T \textnormal{Hess}_{\gamma (0)}(f) \gamma^\prime (0).
+                </me>
+            </p>
+            </proof>
+        </lemma>
+        <p>The following corollary follows from this lemma.</p>
+
+        <theorem xml:id="thm-saddle">
+            <statement>
+                <p>Suppose <m>U</m> is a domain with metric in <m>\mathbb{R}^m</m> and <m>f: U \to \mathbb{R}</m> is scalar function with continuous second partial derivatives and <m>p</m> is a non-degenerate critical point of <m>f</m>. By Sylvester's Theorem, there are <m>m_-</m> negative eigenvalues of <m>\textnormal{Hess}_p</m> and <m>m_+</m> positive eigenvalues of <m>\textnormal{Hess}_p</m>. Suppose 
+                <md>
+                    <mrow> \Gamma_- : \mathbb{R}^{m_-} \amp \to \mathbb{R}^m, </mrow>
+                    <mrow> \Gamma_+ : \mathbb{R}^{m_+} \amp \to \mathbb{R}^m, </mrow>
+                </md>
+                are differentiable one-to-one maps sending <m>\mb{0}</m> to <m>p</m> and <m>T_\mb{0} \mathbb{R}^{m_-}</m> and <m>T_\mb{0} \mathbb{R}^{m_+}</m> to the negative and positive eigenspaces of <m>\textnormal{Hess}_p</m> respectively. Then <m>f \circ \Gamma_-</m> has a local maximum at <m>\mb{0}</m> and <m>f \circ \Gamma_+</m> has a local minimum at <m>\mb{0}</m>. </p>
+            </statement>
+            <proof>
+                <p>We sketch the proof for <m>f \circ \Gamma_-</m>, but skip a basic estimate. Using the continuity of the second derivatives and the largest negative eigenvalue, we have that there exists a global <m>\varepsilon</m> such that any vector <m>\mb{v}</m> in <m>\mathbb{R}^{m_-}</m> with <m>\| \mb{v} \| \lt \varepsilon</m> the function <m>f \circ \Gamma_-</m> is concave on the line from <m>- \mb{v}</m> to <m>\mb{v}</m>. Indeed, taking the path <m>\gamma : (-\varepsilon , \varepsilon ) \to \mathbb{R}^{m}</m> defined by <m>\gamma (t) = \Gamma_- (t \mb{v})</m>, we have that 
+                <me>
+                    \left. \frac{d}{dt} (f \circ \gamma ) (t) \right|_{t = 0} = \nabla_p f \cdot \gamma^\prime (0) = 0
+                </me>
+                because <m>p</m> is critical and
+                <me>
+                    \left. \frac{d^2}{dt^2} (f \circ \gamma ) (t) \right|_{t = 0}  = \gamma^\prime (0)^T \textnormal{Hess}_{\gamma (0)} (f) \gamma^\prime (0) = \mb{v}^T \textnormal{Hess}_{p} (f) \mb{v} \lt 0
+                </me>
+                because <m>\mb{v}</m> is in the negative eigenspace of <m>\textnormal{Hess}_p (f)</m>. Using the one variable second derivative test, as well as the continuity of <m>f</m> and its second derivatives, we can obtain a global <m>\varepsilon</m> for which <m>f(\Gamma_- (t\mb{v})) \lt f(p)</m> implying <m>p</m> is (strict) local maximum. An analogous argument holds for the positive eigenspaces and the minimum.</p>
+            </proof>
+        </theorem>
+
+        <p>An important, but much less refined, corollary of this is the following result.</p>
+
+        <corollary xml:id="cor-secondderivativetest">
+            <title>Second Derivative Test</title>
+            <statement>
+                <p>Suppose <m>U</m> is a domain in <m>\mathbb{R}^m</m>, <m>f: U \to \mathbb{R}</m> is scalar function with continuous second partial derivatives and <m>p</m> is a non-degenerate critical point of <m>f</m>. Then 
+                <ol>
+                    <li>  <m>f</m> achieves a local minimum at <m>p</m> if and only if <m>\textnormal{Hess}_p (f)</m> is positive definite, </li>
+                    <li> <m>f</m> achieves a local maximum at <m>p</m> if and only if <m>\textnormal{Hess}_p (f)</m> is negative definite,</li>
+                    <li> <m>f</m> has a saddle point at <m>p</m> if <m>\textnormal{Hess}_p (f)</m> has both positive and negative eigenvalues.</li>
+                </ol></p>
+            </statement>
+        </corollary>
+    </subsection>
+
+    <subsection xml:id="subsec-Morse">
+        <title>The Morse Lemma</title>
+        <p>In fact, much more can be said about the local behavior of functions near critical points. We will mention a few of these things, but omit proofs as many of them occur much later in an undergraduate (or graduate) mathematics education. Perhaps first among such statements is second order approximations.</p>
+
+        <theorem xml:id="thm-secondorder">
+            <statement>
+                <p>Suppose <m>U</m> is a domain in <m>\mathbb{R}^m</m> and <m>f: U \to \mathbb{R}</m> has continuous second partial derivatives at <m>\mb{a}</m>.  Let 
+                    <me>
+                    Q(\mb{x}) = f(\mb{a}) + \tder{\mb{a}}{f} \cdot (\mb{x} - \mb{a}) + \frac{1}{2} (\mb{x} - \mb{a})^T \textnormal{Hess}_\mb{a} (f) (\mb{x} - \mb{a})
+                    </me>
+                    and call <m>Q</m> the <term>second order approximation</term> of <m>f</m>. If 
+                    <me>
+                    E (\mb{x}) = f(\mb{x}) - Q (\mb{x})
+                    </me>
+                    is the error function, then 
+                    <me>
+                     \lim_{\mb{x} \to \mb{a}} \frac{E (\mb{x})}{\|\mb{x} - \mb{a}\|^2} = 0.
+                    </me></p>
+            </statement>
+        </theorem>
+
+        <p>This theorem justifies the notion that <m>\textnormal{Hess}(f)</m> plays the role of a second derivative. Indeed, it is the second order term in a multivariable Taylor series expansion of our function <m>f</m> around <m>\mb{a}</m>. The function <m>Q(\mb{x})</m> is really the sum of our linear approximation and a quadratic form with associated matrix <m>\textnormal{Hess}(f)</m>. This is the analog to first approximating by a tangent line, and then by a parabola. The parabola of course gives much more information than the line, especially when it comes to understanding critical behavior.</p>
+
+        <p>To drive home how precise this can be, we end this section with a relatively recent lemma (proven in 1929 by Marston Morse). </p>
+
+        <theorem xml:id="thm-morse">
+            <title>Morse Lemma</title>
+            <statement>
+                <p>Suppose <m>U</m> is a domain in <m>\mathbb{R}^m</m> and <m>f: U \to \mathbb{R}</m> has continuous second partial derivatives. Let <m>p</m> be a non-degenerate critical point of <m>f</m> such that <m>\textnormal{Hess}_p (f)</m> has <m>r</m> positive eigenvalues and <m>s</m> negative eigenvalues.  Then there is an open ball <m>B</m> centered at the origin in <m>\mathbb{R}^m</m> and a one-to-one differentiable function <m>\Phi : B \to U</m> with <m>\Phi (\mb{0}) = p</m> for which
+                    <me>
+                    (f \circ \Phi) (x_1, \ldots, x_r, y_1, \ldots, y_s) = f(p) + x_1^2 + \cdots + x_r^2 - y_1^2 - \cdots - y_s^2. 
+                    </me></p>
+            </statement>
+        </theorem>
+
+        <p>The function <m>\Phi</m> should be thought of as giving a new coordinate system to a neighborhood around <m>p</m>. Then this theorem asserts that there is a coordinate system for which the quadratic approximation is not an approximation, but actually an equality. Of course, don't be fooled into thinking that this means functions equal their quadratic approximations in general! The change of coordinates <m>\Phi</m> can be quite impossible to write down explicitly, so there is a lot of complexity buried in it. But the picture of the local behavior at a <em>non-degenerate</em> critical point is laid bare by this theorem. For degenerate critical points however, there is still a great deal of active research!</p>
+
+    </subsection>
+
+    <exercises xml:id="exe-critical">
+
+        <exercise>
+            <introduction><p>Find all critical points for the following functions</p></introduction>
+        <task>
+            <statement>
+                <p> <m>f(x,y) = 2xy + y^2 - x^2</m> </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p> <m>g(x,y) = \sin x + y^2 x - 2y x</m> </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p>  <m>h(x,y, z) = xy + yz + xz</m> </p>
+            </statement>
+        </task>
+        </exercise>
+
+        <exercise>
+            <introduction><p>Answer the following questions for each of the functions in the previous exercise,</p></introduction>
+        <task>
+            <statement>
+                <p> What is the Hessian of the function at each critical point? </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p>Which critical points are non-degenerate?</p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p>  Identify which critical points are local minima, local maxima or saddle points.</p>
+            </statement>
+        </task>
+        <conclusion>
+        </conclusion>
+        </exercise>
+
+        <exercise xml:id="exercise-2dsecondderivativetest">
+            <statement>
+                <p>The usual <sq>Second Derivative Test</sq> offered up in a multivariable calculus textbook will look very confusing compared to our treatment. Firstly, the only functions considered will be of two variables <m>f(x,y)</m>. Then there will be a definition of the <term>discriminant</term> <m>D</m> of <m>f</m> at a critical point <m>p</m>
+                    <me>
+                        D = \partial_x^2 f \partial_y^2 f - (\partial_x \partial_y f )^2.
+                    </me>
+                    Finally, the test will read:
+                    <theorem>
+                        <title>Second Derivative Test</title>
+                        <statement>
+                            <p>Suppose <m>f(x,y)</m> is defined in a neighborhood of <m>p</m> with continuous second partial derivatives. If <m>p</m> is a critical point and <m>D \ne 0</m> at <m>p</m> then 
+                            <ol>
+                                <li> <m>D \gt 0</m> and <m>\partial^2_x f (p) \gt 0</m> if and only if <m>f</m> achieves a local minimum at <m>p</m>, </li>
+                                <li> <m>D \gt 0</m> and <m>\partial^2_x f (p) \lt 0</m> if and only if <m>f</m> achieves a local maximum at <m>p</m>, </li>
+                                <li> if <m>D \lt 0</m> then <m>f</m> has a saddle point at <m>p</m>. </li>
+                            </ol></p>
+                        </statement>
+                    </theorem>
+                Give an explanation of why this test is identical to <xref ref="cor-secondderivativetest"/> for the case of <m>m = 2</m>. 
+                </p>
+            </statement>
+        </exercise>
+        
+    </exercises>
+</section>

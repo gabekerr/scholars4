@@ -1,0 +1,352 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-cubeintegration">
+    <title>Integrating over cubes in <m>\mathbb{R}^n</m></title>
+    <p>Having explored derivatives, we now consider integrals in many dimensions. As in the case of derivatives, the domain on which we are defined (and integrating) can make a big difference in how easy or difficult it is to compute. We will give the general definition and then discuss rectangles in detail. </p>
+
+    
+    <definition xml:id="def-cube">         
+        <notation>             
+            <usage><m>\mathcal{C}</m></usage>             
+            <description><m>n</m>-dimensional cube </description>         
+        </notation>         
+        <statement>
+            <p>A <term>cube</term> <m>\mathcal{C}</m>, or <m>n</m>-cube, in <m>\mathbb{R}^n</m> is a product of intervals 
+                <me>
+                [a_1 , b_1] \times [a_2, b_2] \times \cdots \times [a_n , b_n].
+                </me>
+                Alternatively, it can be described by the set of points <m>(x_1, \ldots, x_n)</m> which satisfy the inequalities
+                <me>
+                a_1 \leq x_1 \leq b_1, \hspace{.3in} a_2 \leq x_2 \leq b_2, \hspace{.1in} \cdots \hspace{.1in} a_n \leq x_n \leq b_n.
+                </me></p>
+        </statement>
+    </definition>
+
+    <p>We now follow the procedure given in <m>1</m>-dimension to define the multiple integral
+    <me>
+        \idotsint_\mathcal{C} f(x_1, \ldots, x_n) \, \tder{}{\textnormal{V}}
+    </me>
+    of a scalar function <m>f(x_1, \ldots, x_n)</m> on the <m>n</m>-cube 
+    <me>
+        \mathcal{C} = [a_1 , b_1] \times [a_2, b_2] \times \cdots \times [a_n , b_n].
+    </me> 
+    Of course, as it has been some time since students may have seen this definition, let us make sure we all remember that the definite (Riemann) integral of a function of one variable is \textit{not} the anti-derivative of said function. It is rather a limit of Riemann sums. Sadly, mimicking this definition in many dimensions introduces many indices, but outside of this messiness, the idea remains the same.</p>
+
+    <p>So proceeding as in <m>1</m> dimension where we break our interval into several sub-intervals, we first break a cube into many sub-cubes by defining a partition <m>P</m> on <m>\mathcal{C}</m>. This can be done by simply breaking each interval <m>[a_i , b_i]</m> into <m>n_i</m> sub-intervals by considering a sequence
+    <me>
+         a_i = c_{i,0} \lt c_{i, 1} \lt \cdots \lt c_{i, n_i} = b_i
+    </me>
+    Then to any multi-index <m>(j_1, \ldots , j_n)</m> with <m>0 \leq j_i \leq n_i</m> we have a sub-cube
+    <me>
+        \mathcal{C}_{(j_1, \ldots , j_n)} = [c_{1, j_1 - 1}, c_{1, j_1}] \times [c_{2, j_2 - 1}, c_{2, j_2}] \times \cdots \times [c_{n, j_n - 1}, c_{n, j_n}]
+    </me>
+    and these sub-cubes have union equal to our original <m>\mathcal{C}</m>.</p>
+        
+    <p>Note that the volume of one of these cubes is just the product of the lengths of the sub-intervals
+    <md>
+        <mrow> \Delta V_{(j_1, \ldots , j_n)} /amp := \text{Volume} (\mathcal{C}_{(j_1, \ldots , j_n)} ), </mrow>
+        <mrow> /amp = ( c_{1, j_1} - c_{1, j_1 - 1}) ( c_{2, j_2} - c_{2, j_2 - 1}) \cdots (c_{n, j_n} - c_{n, j_n - 1}), </mrow>
+        <mrow> /amp = \Delta x_{1, j_1} \cdots \Delta x_{n, j_n}. </mrow>
+    </md>
+    We can picture this for a rectangle by simply drawing horizontal and vertical lines to divide the rectangle into smaller rectangles. For a <m>3</m>-dimensional cube, the student should picture a cheese brick that is sliced along the three axes to make small cheese cubes. Each <m>\mathcal{C}_{(j_1, j_2, j_3)}</m> would then be one of these cubes (in the original large block). Now, just as in the one dimensional case, we need to choose sample points in our partitioned cubes. For a given cube corresponding to the multi-index <m>(j_1, \ldots, j_n)</m>, denote this choice
+    <me>
+        x^*_{(j_1, \ldots, j_n)} \in \mathcal{C}_{(j_1, \ldots, j_n)}.
+    </me>
+    We write all of this information, the partition <m>P</m>, the choice of sample points, as a single letter <m>\mathcal{P}</m> and build the <term>Riemann sum</term>
+    <me>
+        RS_{\mathcal{P}} = \sum_{(j_1, \ldots, j_n)} f \left( x^*_{(j_1, \ldots, j_n)} \right) \Delta V_{(j_1, \ldots , j_n)}.
+    </me>
+    This sum will approximate the signed volume of the region under the graph of <m>f(x_1, \ldots, x_n)</m>. As in the <m>1</m>-variable case, we wish to define the integral as the actual volume which is a limit of such approximations as the partition becomes finer. The proper way to define this notion of finer partition is to define the <term>norm of the partition</term> <m>\|P \| = \max \{c_j - c_{j - 1} : 1 \leq j \leq n_i,  1 \leq i \leq n\}</m>. Then we end up with the following definition of the multiple integral.</p>
+
+
+    <definition xml:id="def-multipleintegral">         
+        <notation>             
+            <usage><m> \idotsint_\mathcal{C} f(x_1, \ldots, x_n) \,  \tder{}{\textnormal{V}}</m></usage>             
+            <description>multiple integral </description>         
+        </notation>
+        <statement>
+            <p>The <term>multiple integral</term> of a function <m>f</m> on the cube <m>\mathcal{C}</m> is the limit
+            <me>
+                \idotsint_\mathcal{C} f(x_1, \ldots, x_n) \,  \tder{}{\textnormal{V}} = \lim_{\|\mathcal{P}\| \to 0} RS_{\mathcal{P}}
+            </me>
+            if it exists. If the limit exists, we say that <m>f</m> is <term>integrable</term> on <m>\mathcal{C}</m>.</p>
+        </statement>
+    </definition>
+
+    <p>Some words should be said on the meaning of the limit in this definition. What is meant here is that if we claim that <m>I</m> is the integral, then for any <m>\varepsilon \gt 0</m> there exists a <m>\delta</m> for which <m>\| \mathcal{P} \| \lt \delta</m> implies <m>| RS_\mathcal{P} - I | \lt \varepsilon</m>. We also note that in two dimensions, this is called the \textbf{double integral} and in three dimensions is called the \textbf{triple integral}. In these cases, it is more common to write
+    <me>
+        \idotsint_{\mathcal{C}} f(x,y) \tder{}{V} = \iint_\mathcal{C} f(x, y) \tder{}{A} 
+    </me>
+    and 
+    <me>
+        \idotsint_{\mathcal{C}} f(x,y,z) \tder{}{V} = \iiint_\mathcal{C} f(x, y,z) \tder{}{V}.
+    </me></p>
+
+    <p>Now, these definitions are all well and good, but to understand these integrals, we need to establish some properties and computational techniques. We will begin with such a technique by understanding how to <sq>integrate out</sq> certain variables. Again let <m>f(x_1, \ldots, x_n)</m> be a function on the cube <m>\mathcal{C}</m>.  For any variable <m>x_i</m> with <m>1 \leq i \leq n</m> we may define the cube <m>\mathcal{C} (i)</m> in <m>\mathbb{R}^{n - 1}</m> by  omitting the <m>i</m>-th variable (or equivalently projecting to the all coordinates except <m>x_i</m>). I.e. take 
+    <me>
+        \mathcal{C} (i) = [a_1 , b_1] \times \cdots \times [a_{i - 1}, b_{i - 1}] \times [a_{i + 1}, b_{i + 1}] \times \cdots \times [a_n , b_n].
+    </me>
+    We take <m>\mathcal{C} (i_1, \ldots, i_k)</m> to be the cube in all dimensions except the <m>i_j</m>-th dimensions. In the case of <m>\mathcal{C} (1, \ldots, n)</m> we obtain a single point which we consider to be the zero dimensional cube. Then we make the definition:</p>
+
+    <definition xml:id="def-integrating-variables">         
+        <notation>             
+            <usage><m> \int_{a_i}^{b_i} f(t_1, \ldots, t_{i - 1}, x_i, t_{i + 1}, \ldots,  t_n) \, \tder{}{x_i} </m></usage>             
+            <description>Integral of <m>f(x_1, \ldots, x_n)</m> with respect to the <m>i</m>-th variable</description>         
+        </notation>         
+        <statement>
+            <p>Let <m>f(x_1, \ldots, x_n)</m> be defined on the <m>n</m>-cube <m>\mathcal{C} = [a_1, b_1] \times \cdots \times [a_n , b_n]</m>. The <term>integral of <m>f(x_1, \ldots, x_n)</m> with respect to the <m>i</m>-th variable</term> is the function 
+            <me>
+                F (t_1, \ldots, t_{i -1}, t_{i + 1} , \ldots , t_n) := \int_{a_i}^{b_i} f(t_1, \ldots, t_{i - 1}, x_i, t_{i + 1}, \ldots,  t_n) \, \tder{}{x_i} 
+            </me>
+            on the <m>(n - 1)</m>-cube <m>\mathcal{C} (i)</m>. We say that <m>f(x_1, \ldots, x_n)</m> is integrable with respect to <m>x_i</m> if the integral of <m>f(x_1, \ldots, x_n)</m> with respect to the <m>i</m>-th variable exists.</p>
+        </statement>
+    </definition>
+
+    <p>This is simply a <m>1</m>-variable definition and, for many basic functions, is easily computable. </p>
+
+    <example xml:id="ex-integral1">
+        <title>Integrating with respect to a variable in two dimensions</title>
+        <statement>
+            <p>Let 
+                <me>
+                    f(x,y) = x - y
+                </me>
+                be defined on the rectangle <m>[-1, 1] \times [0, 3]</m>. We may integrate <m>f(x,y)</m> with respect to <m>x</m> and obtain
+                <md>
+                    <mrow> F (y) /amp = \int_{-1}^1 x - y \, \tder{}{x}, </mrow>
+                    <mrow> /amp = \left. \frac{x^2}{2} - y x \right|_{x = -1}^1 , </mrow>
+                    <mrow>  /amp = -2 y. </mrow>
+                </md>
+                The attentive student will observe that in the second to last line of the equation, we write <m>x = -1</m> instead of just <m>-1</m> in the subscript. While not completely necessary, it is good form and will help you avoid mixing up coordinates as you compute more complicated integrals.</p>
+        </statement>
+    </example>
+
+    <p>When integrating out one of the variables in a function, one treats the remaining variables as constants. This is similar to the way we compute partial derivatives. Let us go through another example where this is illustrated.</p>
+
+    <example>
+        <title>Integrating with respect to a variable in three dimensions</title>
+        <statement>
+            <p>Let 
+                <me>
+                f(x,y, z) =  x e^{xy} - \sin (yz).
+                </me>
+                be defined on the box <m>[0, 1] \times [0, 2] \times [1, 2]</m>. We integrate <m>f(x,y, z)</m> this time with respect to <m>y</m> and obtain
+                <md>
+                    <mrow> F (x, z) /amp = \int_{0}^2 x e^{xy} - \sin (yz) \, \tder{}{y}, </mrow>
+                    <mrow> /amp = \left. e^{xy} + \frac{\cos (yz)}{z} \right|_{y = 0}^2 , </mrow>
+                    <mrow> /amp = e^{2x} + \frac{\cos (2z)}{z} - 1 - \frac{1}{z}. </mrow>
+                </md></p>
+        </statement>
+    </example>
+
+    <p>Now, what one can do once, one (usually) can do again and again. </p>
+
+    <definition xml:id="def-iterated-integral">         
+        <notation>             
+            <usage><m>\int_{a_{i_n}}^{b_{i_n}}  \left( \cdots \left( \int_{a_{i_1}}^{b_{i_1}} f(x_1, \ldots, x_n) \, \tder{}{x_{i_1}} \right) \cdots  \right) \tder{}{x_{i_1}}.</m></usage>             
+            <description>Iterated integral</description>         
+        </notation>         
+        <statement>
+            <p>An <term>iterated integral</term> of <m>f(x_1, \ldots, x_n)</m> on 
+                <me>
+                \mathcal{C} = [a_1 , b_1] \times [a_2, b_2] \times \cdots \times [a_n , b_n]
+                </me>
+                is the value of 
+                <me>
+                    \int_{a_{i_n}}^{b_{i_n}}  \left( \cdots \left( \int_{a_{i_1}}^{b_{i_1}} f(x_1, \ldots, x_n) \, \tder{}{x_{i_1}} \right) \cdots  \right) \tder{}{x_{i_1}}.
+                </me>
+                for some ordered sequence of variables <m>x_{i_1}, x_{i_2}, \ldots, x_{i_n}</m>. We say that <m>f(x_1, \ldots, x_n)</m> has \textbf{all iterated integrals} the iterated integral exists for every ordered sequence of variables.</p>
+        </statement>
+    </definition>
+
+    <p>The key thing to remember about iterated integrals is that they are computational in nature. We can see this by completing an iterated integral from <xref ref="ex-integral1"/>.</p>
+
+    <example>
+        <title>Iterated integral computation I</title>
+        <statement>
+            <p>There we had 
+                <me>
+                f(x,y) = x - y
+                </me>
+                on the rectangle <m>[-1, 1] \times [0, 3]</m>. Then using our previous computation, we compute the iterated integral
+            <md>
+                <mrow> \int_0^1 \int_{-1}^1 x - y \, \tder{}{x} \tder{}{y} /amp = \int_0^1 \left( \int_{-1}^1 x - y \, \tder{}{x} \right) \tder{}{y},  </mrow>
+                <mrow>  /amp = \int_0^1  -2 y \, \tder{}{y}, </mrow>
+                <mrow> /amp = \left. -y^2 \right|_0^1, </mrow>
+                <mrow>  /amp = -1. </mrow>
+            </md>
+            Note that we can also compute the other iterated integral
+            <md>
+                <mrow> \int_{-1}^1 \int_0^1  x - y \, \tder{}{y} \tder{}{x} /amp = \int_{-1}^1 \left(  \int_0^1  x - y \, \tder{}{y} \right) \tder{}{x},  </mrow>
+                <mrow>  /amp = \int_{-1}^1  \left. xy - \frac{y^2}{2} \right|_0^1 \, \tder{}{x},  </mrow>
+                <mrow>  /amp = \int_{-1}^1   x - \frac{1}{2} \, \tder{}{x},  </mrow>
+                <mrow>  /amp = \left. \frac{x^2}{2} - \frac{x}{2} \right|_{-1}^1, </mrow>
+                <mrow> /amp = -1. </mrow>
+            </md>
+            We clearly see, perhaps surprisingly, that these two different computations yield the same result. More on this in a moment.</p>
+        </statement>
+    </example>
+
+    <p>There are instances when one can make quick work of an iterated integral computation. One case of this is if the integrand (which is the function to be integrated) is a product of functions of the variables. In particular, if <m>g_1, \ldots, g_n</m> are integrable functions and 
+        <me>
+        f(x_1, \ldots, x_n) = g_1 (x_1) g_2 (x_2) \cdots g_n (x_n)
+        </me>
+        then
+        <me>
+        \int_{a_{i_n}}^{b_{i_n}}  \left( \cdots \left( \int_{a_{i_1}}^{b_{i_1}} f(x_1, \ldots, x_n) \, \tder{}{x_{i_1}} \right) \cdots  \right) \tder{}{x_{i_1}} = \left( \int_{a_1}^{b_1} g_1 (x ) \, \tder{}{x} \right) \cdots \left( \int_{a_n}^{b_n} g_n (x ) \, \tder{}{x} \right).
+        </me>
+        This holds regardless of the order of integration that we choose.</p>
+
+        <example>
+            <title>Iterated integral computation II</title>
+            <statement>
+                <p>Let 
+                    <me> f(x,y, z) = e^{x + y + z}</me>
+                    and observe that
+                    <md>
+                        <mrow> \int_0^1 \int_0^2 \int_0^3 f(x,y, z) \, \tder{}{x} \tder{}{y} \tder{}{z} /amp =  \int_0^1 \int_0^2 \int_0^3 e^{x + y + z} \, \tder{}{x} \tder{}{y} \tder{}{z}, </mrow>
+                        <mrow> /amp = \int_0^1 \int_0^2 \int_0^3 e^x e^y e^z \, \tder{}{x} \tder{}{y} \tder{}{z}, </mrow>
+                        <mrow> /amp = \left( \int_0^1 e^{x} \, \tder{}{x} \right) \left( \int_0^2 e^{y} \, \tder{}{y} \right)\left( \int_0^3 e^{z} \, \tder{}{z} \right), </mrow>
+                        <mrow> /amp = (e - 1 ) (e^2 - 1) (e^3 - 1). </mrow>
+                    </md></p>
+            </statement>
+        </example>
+
+        <p>The reason we say <sq>an</sq> iterated instead of <sq>the</sq> iterated integral is that, for several strange functions, the order in which one iterates matters. Let's see a simple an example of this.</p>
+
+        <example>
+            <title>Non-commuting order of integration</title>
+            <statement>
+                <p>Let us define subsets <m>A</m> and <m>B</m> of the rectangle <m>[-1,1] \times [0,1]</m>. The subset <m>A</m> consists of points <m>(x,y)</m> where <m>x \geq 0</m> and <m>y</m> is irrational and the subset <m>B</m> of points <m>(x,y)</m> where <m>x \lt 0</m> and <m>y</m> is rational. Define the function
+                    <me>
+                    f(x,y) = \begin{cases} 1 /amp \textnormal{ if } (x,y) \textnormal{ is in } A \cup B, \\ 0 /amp \textnormal{ otherwise.}
+                    \end{cases}
+                    </me>
+                    Then the integrating <m>f(x,y)</m> with respect to <m>x</m> gives the constant function <m>1</m> so that the iterated integral
+                    <md>
+                        <mrow> \int_0^1 \int_{-1}^1 f(x,y) \, \tder{}{x} \tder{}{y} /amp = \int_0^1 \tder{}{y}, </mrow>
+                        <mrow> /amp = 1. </mrow>
+                    </md>
+                    On the other hand, there is not a single value of <m>x</m> for which <m>f(x,y)</m> is integrable with respect to <m>y</m>. It is also the case that <m>f(x,y)</m> is not integrable on <m>\mathcal{C}</m> (i.e. the double integral of <m>f(x,y)</m> does not exist). </p>
+                    
+                    <p>In fact, this example is more of a symptom of the fact that we are using the Riemann integral rather than the Lebesgue integral (which will be developed in your next real analysis course) - but there are several examples in both cases showing that iterated integrals often depend on the choice of ordering. </p>
+            </statement>
+        </example>
+
+        <p>Happily, there are many cases where such an order does not matter and, moreover, where the iterated integral actually equals the multiple integral. This is the content of the next theorem, whose importance cannot be overestimated.</p>
+
+        <theorem xml:id="thm-fubini">
+            <title>Fubini</title>
+            <statement>
+                <p>Suppose <m>f(x_1, \ldots, x_n)</m> is a bounded function on 
+                    <me>
+                        \mathcal{C} = [a_1 , b_1] \times [a_2, b_2] \times \cdots \times [a_n , b_n]
+                        </me>
+                    which has all iterated integrals. Then for any ordering of variables <m>x_{i_1}, x_{i_2}, \ldots, x_{i_n}</m> we have
+                    \begin{align*}
+                           \int_\mathcal{C} f(x_1, \ldots, x_n) \, \tder{}{\textnormal{V}} /amp =  \int_{a_{i_n}}^{b_{i_n}}  \left( \cdots \left( \int_{a_{i_1}}^{b_{i_1}} f(x_1, \ldots, x_n) \, \tder{}{x_{i_1}} \right) \cdots  \right) \tder{}{x_{i_n}}.
+                    \end{align*}</p>
+            </statement>
+        </theorem>
+
+        <p>The proof of this theorem will be deferred to a real analysis course, where it is better stated in terms of Lesbegue integrals (although the results for Riemann integrals can be found in <sq>Calculus on manifolds</sq> by Spivak). In fact, the condition that <m>f(x_1, \ldots, x_n)</m> be bounded with all iterated integrals can be changed to <m>f(x_1, \ldots, x_n)</m> being integrable on <m>\mathcal{C}</m>. However, this latter condition may not be something that is as easily known or checked without more tools. One thing that does follow from this is the following corollary.</p>
+
+        <corollary>
+            <statement>
+                Continuous functions on <m>\mathbb{R}^n</m> are integrable.
+            </statement>
+        </corollary>
+
+        <p>Let us now compute one more example.</p>
+
+        <example>
+            <title>Integral in two dimensions</title>
+            <statement>
+                <p>It is well known that computing the integral of a one variable function gives the (signed) area under the graph of the function. Similarly, the (signed) volume under the graph of a two variable function <m>f(x,y)</m> is computed by a double integral. With this in mind, we consider finding the volume above the square <m>[0,1] \times [0,1]</m> and below the paraboloid <m>z = x^2 + y^2</m>. To do this, we take the paraboloid as the graph of 
+                    <me>
+                    f(x,y) = x^2 + y^2.
+                    </me>
+                    So the desired volume is 
+                    <me>
+                    \text{Volume} = \iint_{\mathcal{C}} f(x,y) \, \tder{}{A}.
+                    </me>
+                    Noting that <m>f(x,y)</m> is continuous, using Fubini's Theorem, we can make this computation with iterated integrals
+                    <md>
+                        <mrow> \text{Volume} /amp = \iint_{\mathcal{C}} f(x,y) \, \tder{}{A},  </mrow>
+                        <mrow> /amp = \int_0^1 \int_0^1 x^2 + y^2 \, \tder{}{x} \tder{}{y},  </mrow>
+                        <mrow> /amp = \int_0^1 \left. \frac{x^3}{3} + x y^2 \right|_{x = 0}^{1} \tder{}{y}, </mrow>
+                        <mrow> /amp = \int_0^1 \frac{1}{3} + y^2 \, \tder{}{y}, </mrow>
+                        <mrow> /amp = \left. \frac{y}{3} + \frac{y^3}{3} \right|_0^1, </mrow>
+                        <mrow> /amp = \frac{2}{3}. </mrow>
+                    </md></p>
+            </statement>
+        </example>
+
+        <exercises xml:id="exe-cubeintegration">
+
+            <exercise>
+                <statement>
+                    <p> Suppose <m>f(x_1, \ldots, x_n) \leq g (x_1, \ldots, x_n)</m> are two integrable functions on <m>\mathcal{C}</m>. Show that 
+                        <me>
+                        \idotsint_\mathcal{C} f(x_1, \ldots, x_n) \, \tder{}{V} \leq \idotsint_\mathcal{C} g(x_1, \ldots, x_n) \, \tder{}{V}.
+                        </me> </p>
+                </statement>
+            </exercise>
+
+            <exercise>
+                <statement>
+                    <p> Define the function <m>f(x,y)</m> to be <m>\frac{1}{\sqrt{x^2 + y^2}}</m> away from the origin and <m>0</m> at the origin. In fact, <m>f(x,y)</m> is integrable on the square <m>[-1, 1] \times [-1, 1]</m>. Is it integrable with respect to <m>x</m> or <m>y</m>? Explain your answer. </p>
+                </statement>
+            </exercise>
+
+            <exercise>
+                <statement>
+                    <p> Let 
+                        <me> f(x,y,z) = xy -  \frac{z}{x}</me>
+                        and <m>\mathcal{C} = [-3, 2] \times [1, 4] \times [0, 2]</m>. Calculate the integral of <m>f(x,y,z)</m> with respect to the variables <m>x, y</m> and <m>z</m> as functions of <m>(y,z)</m>, <m>(x, z)</m> and <m>(x,y)</m> respectively. </p>
+                </statement>
+            </exercise>
+    
+            <exercise>
+                <introduction><p>Compute the following multiple integrals.</p></introduction>
+            <task>
+                <statement>
+                    <p> <me>
+                        \iint_{[2, 3] \times[-1, 0]} x e^{xy} \, \tder{}{A}
+                        </me> </p>
+                </statement>
+            </task>
+            <task>
+                <statement>
+                    <p> <me>
+                        \iint_{[-1, 1] \times[0, 2]} \frac{x^2}{1 + y^2} \, \tder{}{A}
+                        </me> </p>
+                </statement>
+            </task>
+            <task>
+                <statement>
+                    <p> <me> 
+                        \iiint_{\mathcal{C}} x^3 \cos (y^2 + z^2 ) - 3y e^{x^2 + z^2} + \sin (z) \ln (1 + x^2 + y^2) \, \tder{}{A}
+                        </me>
+                        where <m>\mathcal{C} = [-1, 1] \times[-2, 2] \times [-3 , 3]</m>. </p>
+                </statement>
+            </task>
+            </exercise>
+
+    
+            <exercise>
+                <statement>
+                    <p> Let <m>f(x,y,z)</m> be a continuous function on the unit ball 
+                        <me>
+                        B = \{ (x, y, z) : x^2 + y^2 + z^2 \leq 1\}.
+                        </me>
+                        If we take <m>\tilde{f} (x,y,z)</m> to be the function on the cube 
+                        <me>
+                        \mathcal{C} = [-1, 1] \times [-1, 1] \times [-1, 1]
+                        </me>
+                        which is <m>f(x,y,z)</m> on <m>B</m> and <m>0</m> off of <m>B</m>, show that <m>\tilde{f} (x,y,z)</m> is integrable on <m>\mathcal{C}</m>.  </p>
+                </statement>
+            </exercise>
+    
+        </exercises>
+</section>

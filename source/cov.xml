@@ -1,0 +1,295 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-cov">
+    <title>Change of Variables</title>
+    <introduction>
+    <p>When a student looks over the integrals of the past two sections, they will notice a truly disturbing trend - these computations are taking more and more of the page - they are becoming quite complicated at a computational level, even though the abstract ideas are not. This trend does not bode well for more difficult integrals that we may experience, but as it turns out, there is a stunning theorem that, in many important situations, comes to our rescue.</p>
+
+    <theorem xml:id="thm-change-of-variables">
+        <title>Change of Variables</title>
+        <statement>
+            <p>Let <m>D</m> be a compact domain in <m>\mathbb{R}^n</m> with coordinates <m>\mb{u} = (u_1, \ldots, u_n)</m>, <m>E</m> a compact domain in <m>\mathbb{R}^n</m> with coordinates <m>\mb{x} = (x_1 , \ldots, x_n)</m> and 
+                <me>
+                \mb{G} : D \to E
+                </me>
+                a differentiable one-to-one correspondence with invertible derivative at every point of the interior of <m>D</m>. Suppose <m>f(\mb{x})</m> is an integrable function on <m>E</m> then
+                <men xml:id="eq-cov">
+                    \idotsint_E f(\mb{x}) \, \tder{}{V} = \idotsint_D \left( f \circ \mb{G} \right) (\mb{u}) \, \left| \det \left(\tder{}{\mb{G}} \right) \right| \, \tder{}{V}.
+                </men></p>
+        </statement>
+        <proof>
+            <p>Our first observation which does require a bit of work is that one can work with curved partitions in Riemann sums rather than the straight ones given in <xref ref="def-multipleintegral"/>. In particular, if we take <m>P</m> an ordinary partition on <m>D</m> with cubes <m>\mathcal{C}_{(j_1, \ldots, j_n)}</m> then, because <m>\mb{G}</m> is a continuous one-to-one correspondence, we will obtain a curved partition <m>\mb{G} (P)</m> on <m>E</m> consisting of `curved cubes' <m>\mb{G} (\mathcal{C}_{(j_1, \ldots, j_n)})</m>. Of course, choosing sample points <m>\{u_{(j_1, \ldots, j_n)}^*\}</m> in <m>P</m> gives a choice of sample points <m>\{\mb{G} (u_{(j_1, \ldots, j_n)}^* )\}</m> in the curved cubes of <m>E</m>. This assignment of partition with sample points <m>\mathcal{P} = (P , \{u_{(j_1, \ldots, j_n)}^*\})</m> in <m>D</m> to curved partitions with sample points <m>\mb{G} (\mathcal{P}) = (\mb{G} (P), \{\mb{G} (u_{(j_1, \ldots, j_n)}^*)\})</m> is in a sense continuous. More precisely, if one defines the diameter of a region as the maximal distance between two points, then an alternative definition of the norm of a partition is the maximal diameter of any cube in the partition. The advantage of this version of norm is that it can be extended to curved partitions and we can then use the compactness of <m>D</m> and the continuity of <m>\mb{G}</m> to show that, as <m>\| \mathcal{P} \|</m> tends to zero, so does <m>\| \mb{G} (\mathcal{P}) \|</m>. 
+
+                With this in mind, the first observation is that, if <m>f(\mb{x})</m> is integrable, then rather than using our cubical partitions on <m>E</m>, we may used curved partitions coming from <m>\mb{G}</m> in the definition of the definite integral. For this, we take the Riemann sums
+                <me>
+                RS_{\mb{G}(\mathcal{P})} \left( f \circ \mb{G} \right) = \sum_{(j_1, \ldots, j_n)} f \left( \mb{G} (u^*_{(j_1, \ldots, j_n)}) \right) \text{Vol} \left( \mb{G} (\mathcal{C}_{(j_1, \ldots , j_n)}) \right)
+                </me>
+                and obtain the modified, but equivalent, definition
+                <men xml:id="eq-curvedpart">
+                \idotsint_\mathcal{E} f(x_1, \ldots, x_n) \,  \tder{}{\text{V}} = \lim_{\|\mathcal{P}\| \to 0} RS_{\mb{G} (\mathcal{P})}\left( f \circ \mb{G} \right)
+                </men>
+                
+                One notes that in the new Riemann sums, the nice formula for <m>\Delta V_{(j_1, \ldots, j_n)}</m> is gone and we have this fairly large question mark hovering over
+                <me>
+                 \text{Vol} \left( \mb{G} (\mathcal{C}_{(j_1, \ldots , j_n)}) \right).
+                </me>
+                This is precisely where our definition of the derivative and linear algebra come in to play. Using the definition of the derivative and compactness of <m>D</m>, with some work one can show that, for every <m>\varepsilon</m>, there exist <m>\delta</m> so that if the norm <m>\| P \| \lt \delta</m> then  there exist parallelepipeds <m>Q^{small}_{(j_1, \ldots, j_n)}</m> and <m>Q^{big}_{(j_1, \ldots, j_n)}</m> for every <m>n</m>-cube indexed by <m>(j_1, \ldots, j_n)</m> in <m>P</m> satisfying
+                <ol>
+                    <li> The parallelepipeds are <m>\varepsilon</m>-close to the partitioned cube with respect to volume. Precisely, we mean that
+                    <me>
+                    (1 - \varepsilon) \Delta V_{(j_1, \ldots, j_n)} \lt \text{Vol} (Q^{small}_{(j_1, \ldots, j_n)}) 
+                    </me>
+                    and
+                    <me>
+                    \text{Vol} (Q^{big}_{(j_1, \ldots, j_n)})  \lt (1 + \varepsilon) \Delta V_{(j_1, \ldots, j_n)} 
+                    </me>
+                    where we recall <m>\Delta V_{(j_1, \ldots, j_n)} = \text{Vol} (\mathcal{C}_{(j_1, \ldots, j_n)})</m>. </li>
+                    <li> If <m>L</m> is the linear approximation of <m>\mb{G}</m> at <m>u^*_{(j_1, \ldots, j_n)}</m> then 
+                    <me>
+                    L\left( Q^{small}_{(j_1, \ldots, j_n)}\right) \subseteq  \mb{G} \left(\mathcal{C}_{(j_1, \ldots , j_n)}\right) \subseteq L\left(Q^{big}_{(j_1, \ldots, j_n)}\right)
+                    </me></li>
+                </ol>
+                While showing such <m>\varepsilon, \delta, Q^{big}, Q^{small}</m> exist may require some work, the student should keep in mind that the idea behind this work is that the derivative <m>\tder{}{G}</m> does a good job approximating <m>\mb{G}</m> near a point. So close to a point, <m>\mb{G}</m> looks like the linear approximation and, if we had equality, we could take any <m>\delta</m> and let <m>Q^{big}</m> and <m>Q^{small}</m> both equal the cube <m>\mathcal{C}_{(j_1, \ldots, j_n)}</m>.</p>
+
+                <p>Now, letting <m>p = u^*_{(j_1, \ldots, j_n)}</m> to save space, using the fact that the absolute value of the determinant gives the change in volume and the definition of the linear approximations, we see that
+                    <md>
+                        <mrow> \text{Vol} \left(L\left( Q^{small}_{(j_1, \ldots, j_n)}\right) \right) \amp = |\det \tder{p}{\mb{G}}|  \text{Vol} \left( Q^{small}_{(j_1, \ldots, j_n)} \right), </mrow>
+                        <mrow> \text{Vol} \left(L\left( Q^{big}_{(j_1, \ldots, j_n)}\right) \right) \amp = |\det \tder{p}{\mb{G}}|  \text{Vol} \left( Q^{big}_{(j_1, \ldots, j_n)} \right). </mrow>
+                    </md>
+                    Using property (2) we then have
+                    <me>
+                         |\det \tder{p}{\mb{G}}|  \text{Vol} \left( Q^{small}_{(j_1, \ldots, j_n)} \right) \leq \text{Vol} \left(  \mb{G} \left(\mathcal{C}_{(j_1, \ldots , j_n)}\right) \right) \leq  |\det \tder{p}{\mb{G}}|  \text{Vol} \left( Q^{big}_{(j_1, \ldots, j_n)} \right).
+                    </me>
+                    Applying property (1) then gives
+                    <me>
+                        (1 - \varepsilon) |\det \tder{p}{\mb{G}}|  \Delta V_{(j_1, \ldots, j_n)}\lt \text{Vol} \left(  \mb{G} \left(\mathcal{C}_{(j_1, \ldots , j_n)}\right) \right)\lt (1 + \varepsilon) |\det \tder{p}{\mb{G}}| \Delta V_{(j_1, \ldots, j_n)}.
+                    </me>
+                    Thus, for all partitions <m>\mathcal{P}</m> with <m>\|\mathcal{P} \| \lt \delta</m> we have both the left and right inequality. Neglecting the <m>(1 \pm \varepsilon)</m> factors for a moment and summing the terms over all <m>(j_1, \ldots, j_n)</m>, while multiplying by <m>f( \mb{G} (u^*_{(j_1, \ldots, j_n)}))</m> as we go gives
+                    <me>
+                        RS_{\mathcal{P}} \left( (f \circ \mb{G}) |\det \tder{}{\mb{G}}| \right) = \sum_{(j_1, \ldots, j_n)} f \left( \mb{G} (u^*_{(j_1, \ldots, j_n)} \right) |\det \tder{p}{\mb{G}}|  \Delta V_{(j_1, \ldots, j_n)},
+                    </me>
+                    for the left and right hand sides while the middle is the Riemann sum of the curved partition
+                    <me>
+                       RS_{\mb{G} (\mathcal{P})} \left( f \circ \mb{G} \right) = \sum_{(j_1, \ldots, j_n)} f \left( \mb{G} (u^*_{(j_1, \ldots, j_n)} \right) \text{Vol} \left(  \mb{G} \left(\mathcal{C}_{(j_1, \ldots , j_n)}\right) \right).
+                    </me>
+                    Putting the <m>( 1 \pm \varepsilon)</m> terms in then gives us that
+                    <men xml:id="eq-rsineq">
+                        (1 - \varepsilon) RS_{\mathcal{P}} \left( (f \circ \mb{G}) |\det \tder{}{\mb{G}}| \right) \leq RS_{\mb{G} (\mathcal{P})} \left( f \circ \mb{G} \right) \leq (1 + \varepsilon) RS_{\mathcal{P}} \left( (f \circ \mb{G}) |\det \tder{}{\mb{G}}| \right) .
+                    </men>
+                    The limit of the Riemann sum on either side (neglecting <m>(1 \pm \varepsilon)</m> factor) is
+                    <me>
+                    \lim_{\|\mathcal{P}\| \to 0} RS_{\mathcal{P}} \left( (f \circ \mb{G}) |\det \tder{}{\mb{G}}| \right) = \idotsint_D \left( f \circ \mb{G} \right) (\mb{u}) \, \left| \det \left(\tder{}{\mb{G}} \right) \right| \, \tder{}{V}
+                    </me>
+                    And as was discussed in the first part of the sketch, equation <xref ref="eq-curvedpart"/> gives the limit as <m>\| \mathcal{P} \| \to 0</m> of the middle term as
+                    <me>
+                    \idotsint_\mathcal{E} f(x_1, \ldots, x_n) \,  \tder{}{\text{V}}.
+                    </me>
+                    As inequalilty <xref ref="eq-rsineq"/> holds for all Riemann sums with norm less than <m>\delta</m>, we may let <m>\varepsilon</m> tend to zero giving us the desired equality in equation <xref ref="eq-cov"/>.</p>
+        </proof>
+    </theorem>
+
+    <p>Before explaining the ideas behind this theorem, we make some comments regarding notation. First, instead of using the total derivative of <m>\mb{G}</m>, the absolute value of the determinant of the Jacobian matrix is sometimes written <m>| \text{Jac}( \mb{G} )|</m> rather than <m>|\det \tder{}{\mb{G}}|</m>. In fact, often the function <m>\mb{G}</m> is written in terms of the coordinate function as
+        <me>
+         \mb{G} (u_1, \ldots, u_n) = \left( x_1 (u_1, \ldots, u_n) , \ldots, x_n(u_1, \ldots, u_n) \right).
+        </me>
+        With this notation, you may also write
+        <me>
+         \left| \frac{\partial (x_1 , \ldots, x_n)}{\partial (u_1 , \ldots, u_n)} \right|
+        </me>
+        for <m>|\det \tder{}{\mb{G}}|</m> (or <m>| \text{Jac}( \mb{G} )| </m>).
+        Then the equation in the theorem reads
+        <me> 
+        \idotsint_E f(x_1, \ldots, x_n) \, \tder{}{x_1} \ldots \tder{}{x_n}
+        </me>
+        equals
+        <me>
+        \idotsint_D f (x_1 (u_1, \ldots, u_n), \ldots, x_n( u_1, \ldots, u_n)) \,  \left| \frac{\partial (x_1 , \ldots, x_n)}{\partial (u_1 , \ldots, u_n)} \right| \, \tder{}{u_1} \ldots \tder{}{u_n}
+        </me>
+        While slightly longer, this expression can be helpful in keeping track of which variables to use in which integral. Another way of thinking about this that we will return to later is by considering that the integral on the domain <m>E</m> is <sq>pulled back</sq> to an integral on <m>D</m> via <m>\mb{G}</m>. </p>
+
+    <p>In these notes we only sketched the proof of the change of variables theorem, leaving the full proof for a real analysis course to come. The important conceptual ingredients we called upon are two key pieces of knowledge gained in this course. One being that the absolute value of the determinant of a linear transformation from an inner product space to itself measures the change in volume, and the other that the derivative of a function gives a good linear approximation to the function. </p>
+
+    <p>Now that we have this result, we can move forward and use it. The applications are vast...</p>
+    </introduction>
+
+    <subsection xml:id="subsec-polar-integration">
+        <title>Integration using polar coordinates</title>
+        <p>One important change of variables that we have seen early on was the function
+            <me>
+            \mb{G} (r, \theta ) = \left( r \cos \theta , r \sin \theta \right).
+            </me>
+            We have computed the derivative of this change of variables many times and found
+            <me>
+            \tder{}{\mb{G}} = \left[ \begin{matrix} \cos \theta \amp - r \sin \theta \\ \sin \theta \amp r \cos \theta \end{matrix} \right].
+            </me>
+            It is easy enough to take determinants here to see
+            <me>
+            \det \tder{}{\mb{G}} = r .
+            </me>
+            Thus a factor of <m>r</m> appears in the integral when integrating with respect to polar coordinates. Indeed, when changing variables to polar coordinates, students are told to remember that
+            <me>
+            \tder{}{x} \tder{}{y} = \tder{}{A} = r \, \tder{}{r} \tder{}{\theta}.
+            </me>
+            Let's revisit some prior problems with our new tool.</p>
+
+            <example>
+                <title>Polar integrals</title>
+                <statement>
+                    <p>In <xref ref="ex-areaofdisc"/>, we computed the area of a disc <m>D</m> of radius <m>R</m>. It was a rather tedious computation due to the trigonometric change of variable that was needed. Let's try it again in polar coordinates. Here we need to use <m>\mb{G}</m> only on the rectangle
+                        <me>
+                        \mb{G} : [0, R] \times [0, 2\pi] \to D
+                        </me>
+                        Then our change of variables formula reads
+                        <md>
+                            <mrow> \text{Area} (D) \amp = \iint_D \, \tder{}{A}, </mrow>
+                            <mrow> \amp = \iint_{ [0, R] \times [0, 2\pi]} \, r \tder{}{A},</mrow>
+                            <mrow> \amp = \int_0^{2\pi}\int_0^R  \, r \, \tder{}{r}\tder{}{\theta}, </mrow>
+                            <mrow> \amp = \frac{R^2}{2} \int_0^{2\pi} \, \tder{}{\theta}, </mrow>
+                            <mrow> \amp = \pi R^2. </mrow>
+                        </md>
+                        Hopefully a student can see the improvement!
+                        Now what about finding the volume of a ball of radius <m>R</m> as in <xref ref="ex-ballvol"/>? Well, there we made the computation
+                        <md>
+                            <mrow> \text{Vol} (B) \amp = \iiint_B \, \tder{}{V}, </mrow>
+                            <mrow> \amp = \iint_D \, \left( \int_{- \sqrt{R^2 - x^2 - y^2} }^{\sqrt{R^2 - x^2 - y^2}} \, \tder{}{z} \right) \, \tder{}{A}, </mrow>
+                            <mrow> \amp = \iint_D 2 \sqrt{R^2 - x^2 - y^2} \,\tder{}{A}. </mrow>
+                        </md>
+                    and continued with a nasty looking double integration. But if we use change of variables (on the same domain as above) we can simply continue with
+                    <md>
+                        <mrow> \iint_D 2 \sqrt{R^2 - x^2 - y^2} \,\tder{}{A} \amp = \iint_{ [0, R] \times [0, 2\pi]} 2 \sqrt{R^2 - (r\cos \theta)^2 - (r \sin \theta)^2} \, r \tder{}{A},  </mrow>
+                        <mrow> \amp = \int_0^{2\pi}\int_0^R  \, 2r \sqrt{R^2 - r^2} \, \tder{}{r}\tder{}{\theta},</mrow>
+                        <mrow> \amp = \int_0^{2\pi} \left. -\frac{2}{3}\left(R^2 - r^2 \right)^{\frac{3}{2}} \right|_0^R \, \tder{}{\theta}, </mrow>
+                        <mrow>  \amp = \frac{2R^3}{3} \int_0^{2\pi} \, \tder{}{\theta},  </mrow>
+                        <mrow> \amp = \frac{4 \pi R^3}{3}. </mrow>
+                    </md>
+                    Again the computation is shorter and much less complicated. The unconvinced student should try finding the centroid of the upper half ball using polar coordinates as another convincing example.</p>
+                </statement>
+            </example>
+
+            <p>One aspect of changing variables that is of great importance and often neglected by the student eager to compute is that we must pay close attention to the function <m>\mb{G}</m> and its domain. We must be absolutely  sure that it is a one-to-one correspondence (at least away from the boundaries of <m>D</m> and <m>E</m>). One also needs to make certain that they are in fact simplifying the integral with their change of variables. It is quite easy to make things more difficult if the integrand or domain of integration does not have good properties. One basic thing to hope for is that the domain <m>D</m> of <m>\mb{G} : D \to E</m> is an <m>n</m>-cube (which are usually easier to integrate over). </p>
+
+            <p>For students still unconvinced about polar coordinates, I offer up an improper integral computation.</p>
+
+            <example>
+                <title>Normalization factor of standard normal distribution</title>
+                <statement>
+                    <p>We have mentioned the (univariate) normal distribution previously in these notes (in particular when discussing quadratic forms). Such a distribution with mean at the origin and standard deviation <m>1</m> is given by a probability density function on <m>\mathbb{R}</m> which has the form
+                        <me>
+                        \rho (x) =  C e^{-\frac{x^2}{2}}.
+                        </me>
+                        By <xref ref="def-probdensity"/>, for this to be a probability density function, we must have that 
+                        <me>
+                        C^{-1} = \int_{-\infty}^{\infty} e^{-\frac{x^2}{2}} \tder{}{x}.
+                        </me>
+                        However, it would take a cruel person to ask a first year calculus student to compute this integral because it is impossible to solve with one variable techniques (so far as I am aware). We can though use a change of variables and a little trickery! Just compute the square instead to see...
+                        <md>
+                            <mrow> C^{-2} \amp = \left( \int_{-\infty}^{\infty} e^{-\frac{x^2}{2}} \tder{}{x} \right)^2, </mrow>
+                            <mrow> \amp = \int_{-\infty}^{\infty} e^{-\frac{x^2}{2}} \tder{}{x} \int_{-\infty}^{\infty} e^{-\frac{x^2}{2}} \tder{}{x} ,  </mrow>
+                            <mrow>  \amp = \int_{-\infty}^{\infty} e^{-\frac{x^2}{2}} \tder{}{x} \int_{-\infty}^{\infty} e^{-\frac{y^2}{2}} \tder{}{y},  </mrow>
+                            <mrow> \amp = \int_{-\infty}^{\infty}\int_{-\infty}^{\infty} e^{-\frac{x^2}{2}}e^{-\frac{y^2}{2}} \tder{}{x} \,\tder{}{y},  </mrow>
+                            <mrow> \amp =  \iint_{\mathbb{R}^2} e^{-\frac{x^2 + y^2}{2}} \tder{}{x}\, \tder{}{y}, </mrow>
+                            <mrow> \amp = \iint_{[0, \infty] \times [0, 2\pi]} e^{-\frac{r^2}{2}} \, r \, \tder{}{r}\, \tder{}{\theta},  </mrow>
+                            <mrow>  \amp =  \int_{0}^{2 \pi} \int_{0}^{\infty}  r e^{-\frac{r^2}{2}} \, \tder{}{r}\, \tder{}{\theta}, </mrow>
+                            <mrow> \amp =  \int_{0}^{2 \pi} \left. - e^{- \frac{r^2}{2}} \right|_{0}^{\infty} \, \tder{}{\theta}, </mrow>
+                            <mrow> \amp = \int_0^{2\pi} \, \tder{}{\theta}, </mrow>
+                            <mrow> \amp = 2 \pi. </mrow>
+                        </md>
+                        So that 
+                        <me>
+                            C^{-1} = \sqrt{2 \pi}
+                        </me>
+                        and
+                        <me>
+                        \rho (x) = \frac{e^{-\frac{x^2}{2}}}{\sqrt{2\pi}}.
+                        </me></p>
+                </statement>
+            </example>
+
+    </subsection>
+
+    <exercises xml:id="exe-cov">
+
+        <exercise>
+            <statement>
+                <p>Compute the centroid of the region between the paraboloid <m>z = x^2 + y^2</m> and the plane <m>z = 4</m>. </p>
+            </statement>
+        </exercise>
+
+        <exercise>
+            <introduction><p>Let <m>E</m> be the triangle in the plane whose vertices are the points <m>(0, 0)</m>, <m>(0, -1)</m> and <m>(2, 1)</m>.</p></introduction>
+        <task>
+            <statement>
+                <p> Find a linear transformation <m>\mb{G} (u, v)</m> which maps the triangle <m>D</m> with vertices <m>(0, 0)</m>, <m>(1, 0)</m> and <m>(0, 1)</m> to <m>E</m>.  </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p> What is the determinant of the Jacobian of your transformation? </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p> Compute
+                    <me>
+                    \iint_E \left( \frac{2y - x}{2} \right)^7 \, \tder{}{x} \, \tder{}{y}.
+                    </me> </p>
+            </statement>
+        </task>
+        </exercise>
+
+        <exercise>
+            <statement>
+                <p> Let <m>R</m> be a cone in <m>\mathbb{R}^3</m> with base <m>D</m> in the <m>x,y</m> plane and apex point at <m>(0, 0, c)</m>. Show that the volume of <m>R</m> is the same as the volume of any other cone with base <m>D</m> and apex point <m>(a, b, c)</m>. </p>
+            </statement>
+        </exercise>
+
+
+        <exercise>
+            <introduction><p>Recall that spherical coordinates are given by the change of variables
+                <me>
+                \mb{G} (\rho , \varphi, \theta ) = (\rho \sin \varphi \cos \theta , \rho \sin \varphi \sin \theta , \rho \cos \varphi ).
+                </me></p></introduction>
+        <task>
+            <statement>
+                <p> Compute the determinant of the Jacobian of <m>\mb{G}</m>. </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p> What domain should be used if we would like <m>\mb{G}</m> to parameterize the ball of radius <m>R</m>? </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p> Use a change of variables to compute the volume of the ball of radius <m>R</m>. </p>
+            </statement>
+        </task>
+        </exercise>
+
+        <exercise>
+            <introduction><p>Consider the change of variables
+                <me>
+                \mb{G} (r_1, \theta_1, r_2, \theta_2) = (r_1 \cos \theta_1 , r_1 \sin \theta_1 , r_2 \cos \theta_2, r_2 \sin \theta_2).
+                </me></p></introduction>
+        <task>
+            <statement>
+                <p> Compute the determinant of the Jacobian of <m>\mb{G}</m>. </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p> What domain should be used if we would like <m>\mb{G}</m> to parameterize the <m>4</m>-dimensional ball of radius <m>R</m> centered at the origin? </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p> Compute the volume of the <m>4</m>-dimensional ball of radius <m>R</m>. </p>
+            </statement>
+        </task>
+        </exercise>
+
+        
+    </exercises>
+
+
+</section>

@@ -1,0 +1,537 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-vectorintegrals">
+    <title>Vector integrals</title>
+    <introduction>
+    <p>Integrating differential <m>m</m>-forms on an oriented smooth <m>m</m>-dimensional subspace is extremely natural. On the other hand, integrating vector fields is very unnatural. The reason for this is that, while one can always pullback a differential form, vector fields require extra structure to be pulled back. This structure is a (possibly varying) inner product and, when we have it, we will be able to perform a vector integral in one of two different contexts. We will consider these integrals over subspaces in <m>\mathbb{R}^n</m>, so we will always use the ambient dot product for this inner product. In both types of integrals, we must accomplish the task of converting a vector field <m>\mb{F}</m> along a smooth oriented <m>m</m>-dimensional subspace <m>X</m>, into an <m>m</m>-form. </p>
+
+    <p>We recall from equation <xref ref="eq-dualform"/> that, given a vector field <m>\mb{F}</m> in <m>\mathbb{R}^n</m>, there is a dual <m>1</m>-form <m>\mb{F}^\vee</m> which, for a tangent vector <m>\partial</m> at <m>p</m> is defined as 
+    <me>
+        \mb{F}^\vee_p (\partial ) = \mb{F} \cdot \partial.
+    </me>
+    Once we have such a one form, we can describe vector integration in a couple of ways.</p>
+    </introduction>
+
+    <subsection xml:id="subsec-vector-line-integrals">
+        <title>Vector line integrals</title>
+        <p>One of the two types of vector integrals can be made by simply integration our dual form on a curve.</p>
+        <definition xml:id="def-vectorlineintegral">         
+            <notation>             
+                <usage><m>T_{\mb{a}} V</m></usage>             
+                <description>Tangent space </description>         
+            </notation>         
+            <statement>
+                <p>Given a smooth oriented curve <m>(\mathcal{C}, \vol^{\mathcal{C}})</m> in <m>\mathbb{R}^n</m> and a vector field <m>\mb{F}</m> defined at every point in <m>\mathcal{C}</m>, the <term>vector line integral</term> of <m>\mb{F}</m> along <m>\mathcal{C}</m> is the integral
+                    <me>
+                        \int_{\mathcal{C}} \mb{F} (\mb{r} ) \cdot \tder{}{\mb{r}} := \int_{\mathcal{C}} \mb{F}^\vee .
+                    </me></p>
+            </statement>
+        </definition>
+
+        <p>As most introductory courses to multivariable calculus don't introduce differential forms, the formulas for vector line integrals appear slightly different. Let us give the more common formulas, which will also explain what <m>\mb{r}</m> is in the above notation.</p>
+
+        <proposition xml:id="prop-lin-int-formula">
+            <statement>
+                <p>Let <m>(\mathcal{C}, \vol^{\mathcal{C}})</m> be a smooth connected oriented curve in <m>\mathbb{R}^n</m>,
+                    <me>
+                    \mb{r} : [a, b] \to \mathbb{R}^n
+                    </me>
+                    a compatibly oriented parameterization, and <m>\mb{F}</m> a vector field  defined at every point in <m>\mathcal{C}</m>. Then
+                    <me>
+                        \int_{\mathcal{C}} \mb{F} (\mb{r} ) \cdot \tder{}{\mb{r}} = \int_a^b \mb{F} ( \mb{r} (t) ) \cdot \mb{r}^\prime (t) \, \tder{}{t}.
+                    </me></p>
+            </statement>
+            <proof> <p>To show this proposition holds, we need only write out the pullback <m>\mb{r}^* \mb{F}^\vee</m>. To do this, write the vector field <m>\mb{F}</m> in terms of the standard basis of tangent vectors
+            <me>
+                \mb{F} = P_1 \partial_1 + \cdots + P_n \partial_n.
+            </me>
+            It is common practice in these formulas to suppress the independent variables which make this vector field a varying field of vectors. However, for clarity, we rewrite this equation as 
+            <me>
+                \mb{F} (x_1, \ldots, x_n) = P_1 (x_1, \ldots, x_n) \partial_1 + \cdots + P_n (x_1, \ldots, x_n) \partial_n.
+            </me>
+            to emphasize the dependence on the point <m>(x_1, \ldots, x_n)</m>. Then it is an exercise to show that our dual <m>1</m>-form is  
+            <me>
+                \mb{F}^\vee (x_1, \ldots, x_n)= P_1 (x_1, \ldots, x_n)\, \tder{}{x_1} + \cdots + P_n (x_1, \ldots, x_n) \, \tder{}{x_n}.
+            </me>
+            Now, if 
+            <me>
+                \mb{r} (t) = ( x_1 (t), \ldots, x_n(t) ),
+            </me>
+            is our parameterization, then we have 
+            <me>
+                \mb{r}^\prime (t) = x_1^\prime (t) \partial_1 + \cdots + x_n^\prime (t) \partial_n.
+            </me>
+            On the other hand, we can compute the pullback to see that
+            <md>
+                <mrow> (\mb{r}^* \mb{F}^\vee) (t) \amp = P_1 (x_1 (t), \ldots, x_n(t)) \,\tder{}{x_1 (t)} + \cdots +  P_n (x_1 (t), \ldots, x_n(t))\, \tder{}{x_n (t)},  </mrow>
+                <mrow> \amp = P_1 (x_1 (t), \ldots, x_n(t)) x_1^\prime (t)\,  \tder{}{t} + \cdots +  P_n (x_1 (t), \ldots, x_n(t)) x_n^\prime (t) \, \tder{}{t}, </mrow>
+                <mrow> \amp = \left[ P_1 (x_1 (t), \ldots, x_n(t)) x_1^\prime (t)   + \cdots +  P_n (x_1 (t), \ldots, x_n(t)) x_n^\prime (t) \right] \, \tder{}{t}, </mrow>
+                <mrow> \amp = \mb{F} (\mb{r} (t)) \cdot \mb{r}^\prime (t) \, \tder{}{t}. </mrow>
+            </md>
+            Putting this expression into the definition gives the formula.</p>
+            </proof>
+        </proposition>
+
+        <p>Finally, one can also consider the vector integral of <m>\mb{F}</m> along <m>\mathcal{C}</m> as follows. Let <m>\mb{T}</m> be the <term>unit tangent vector field</term> along <m>\mathcal{C}</m> so that <m>\vol^\mathcal{C} (\mb{T}) = 1</m>. Note this defines <m>\mb{T}</m> uniquely and is often used as a way to orient <m>\mathcal{C}</m> (instead of using differential forms). </p>
+
+        <proposition xml:id="prop-vectorscalar">
+            <statement>
+                <p>Let <m>(\mathcal{C}, \vol^{\mathcal{C}})</m> be a smooth connected oriented curve in <m>\mathbb{R}^n</m> 
+                    and <m>\mb{F}</m> a vector field  defined at every point in <m>\mathcal{C}</m>. Then
+                    <me>
+                        \int_{\mathcal{C}} \mb{F} (\mb{r} ) \cdot \tder{}{\mb{r}} = \int_\mathcal{C} \mb{F} \cdot \mb{T} \, \tder{}{s}.
+                    </me></p>
+            </statement>
+            <proof> <p>Exercise.</p>
+            </proof>
+        </proposition>
+
+        <p>Unlike scalar integrals, most vector line integrals of easily expressible fields can be integrated. </p>
+
+        <example>
+            <title>Vector line integral</title>
+            <statement>
+                <p>Let <m>\mathcal{C}</m> be the oriented curve compatibly parameterized by 
+                    <me>
+                        \mb{r} (t) = \left( e^t , t , \sin (t) \right),
+                    </me>
+                    from <m>0 \leq t \leq \pi</m>, and 
+                    <me>
+                        \mb{F} = \left[ \begin{matrix} \cos^2 y + z^2 \amp e^y - x \amp y \end{matrix} \right].
+                    </me>
+                    Then, computing 
+                    <md>
+                        <mrow> \int_{\mathcal{C}} \mb{F} \cdot \tder{}{\mb{r}} \amp = \int_0^\pi \mb{F} (\mb{r} (t)) \cdot \mb{r}^\prime (t) \, \tder{}{t} , </mrow>
+                        <mrow> \amp = \int_0^\pi  \left[ \begin{matrix} \cos^2 t + \sin^2 t \amp e^t - e^t \amp t  \end{matrix} \right] \cdot \left[ \begin{matrix} e^t \amp 1 \amp \cos t  \end{matrix} \right] \, \tder{}{t} ,</mrow>
+                        <mrow> \amp = \int_0^\pi e^t + t \cos t \, \tder{}{t} ,  </mrow>
+                        <mrow> \amp = \left. \left( e^t + t \sin t + \cos t \right) \right|_0^\pi, </mrow>
+                        <mrow> \amp = (e^\pi - 1 ) - (1 + 1) = e^\pi - 3. </mrow>
+                    </md></p>
+            </statement>
+        </example>
+
+        <p>One major interpretation of a vector line integral is when the field <m>\mb{F}</m> is a force field like a gravitational field or electromagnetic field. A particle moves along the curve <m>\mathcal{C}</m> traced by the path <m>\mb{r} (t)</m>. Then the <term>work</term> done by <m>\mb{F}</m> on the particle is precisely
+        <me>
+            \text{Work} = \int_{\mathcal{C}} \mb{F} \cdot \tder{}{\mb{r}}. 
+        </me>
+        This has the same units as energy in physics, so it can be thought of as the amount of energy that a force exerts on a particle moving along a given curve.</p>
+
+        <example>
+            <title>Work as a vector line integral</title>
+            <statement>
+                <p>There are a few examples of how one computes physical force fields like a gravitational field. In some cases, we are content to obtain an approximate constant field (for instance, if we are near the surface of the earth. Then our vector field may be something like,
+                    <me>
+                        \mb{F} = \left[ \begin{matrix}  0 \amp 0 \amp - g \end{matrix} \right]. 
+                    </me>
+                    Then if <m>\mathcal{C}</m> is the oriented circular arc from <m>(1, 0, 0)</m> to <m>(0, 0, 1)</m>, we can compute the work done by gravity by taking the parameterization
+                    <me>
+                     \mb{r} (t) = (\cos t , 0, \sin t)
+                    </me>
+                    from <m>0</m> to <m>\pi /2 </m>. 
+                    Then computing gives
+                    <md>
+                        <mrow> \text{Work} \amp = \int_{\mathcal{C}} \mb{F} \cdot \tder{}{\mb{r}}, </mrow>
+                        <mrow> \amp = \int_0^{\frac{\pi}{2}} \mb{F} (\mb{r} (t)) \cdot \mb{r}^\prime (t) \, \tder{}{t} ,  </mrow>
+                        <mrow> \amp = \int_0^{\frac{\pi}{2}}  \left[ \begin{matrix} 0 \amp 0 \amp -g \end{matrix} \right] \cdot \left[ \begin{matrix} - \sin t \amp 0 \amp \cos t  \end{matrix} \right] \, \tder{}{t} , </mrow>
+                        <mrow>  \amp = \int_0^{\frac{\pi}{2}} g \sin t \, \tder{}{t}, </mrow>
+                        <mrow>  \amp = - g. </mrow>
+                    </md>
+                    Alternatively, one may be considering the gravitational field created by a body of mass <m>M</m> at the origin on another body of mass <m>m</m>. According to Newton's Law of Gravitation, this field is given by 
+                    <me>
+                        \mb{F} = \frac{G M m}{\left( x^2 + y^2 + z^2 \right)^{3/2}} \left[ \begin{matrix} -x \amp - y \amp - z \end{matrix} \right].
+                    </me>
+                    Here <m>G</m> is a number called the gravitational constant.</p>
+                
+                <p>Now, one may wish to compute the amount of energy that it would take to escape the gravitational pull of the mass <m>M</m> starting at a point <m>p</m> distance <m>R</m> units away. We can clearly see that <m>\mb{F}</m> is symmetric about the origin, so we may as well consider a straight line curve <m>\mathcal{C}</m> parameterized by
+                    <me>
+                        \mb{r} (t) = ( R + t, 0, 0)
+                    </me>
+                    for <m>0 \leq t</m>. Computing the work done (against gravity) then gives
+                    <md>
+                        <mrow> \text{Work} \amp = \int_{\mathcal{C}} \mb{F} \cdot \tder{}{\mb{r}},  </mrow>
+                        <mrow> \amp = \int_0^{\frac{\pi}{2}} \mb{F} (\mb{r} (t)) \cdot \mb{r}^\prime (t) \, \tder{}{t} , </mrow>
+                        <mrow>\amp = \int_0^{\infty}  \frac{G M m}{\left( (R + t)^2  \right)^{3/2}} \left[ \begin{matrix} -(R + t) \amp 0 \amp 0 \end{matrix} \right] \cdot \left[ \begin{matrix} 1 \amp 0 \amp 0 \end{matrix} \right] \, \tder{}{t} , </mrow>
+                        <mrow>  \amp = \int_0^{\infty} - \frac{G M m}{(R + t)^2} \, \tder{}{t}, </mrow>
+                        <mrow> \amp = \left.  \frac{G M m}{R + t} \right|_0^\infty ,</mrow>
+                        <mrow> \amp = - \frac{G M m}{R}.</mrow>
+                    </md>
+                    As was mentioned above, work is a form of energy. Another form is kinetic energy which is of the form <m>\frac{1}{2} m v^2</m> where <m>v</m> is the speed of a particle. If one is planning to escape the gravity of a planet with a single burst, one then must have that the initial velocity satisfies the inequality 
+                    <me>
+                    \frac{1}{2} m v^2 \geq \frac{G M m}{R}
+                    </me>
+                    or 
+                    <me>
+                    v \geq \sqrt{ \frac{ 2 G M }{R} }. 
+                    </me>
+                    The quantity on the right is called the escape velocity (notice it is independent of <m>m</m>). </p>
+            </statement>
+        </example>
+
+        <p>Another interpretation of the vector line integral is as the <term>flow along a curve</term>. This is most commonly used when <m>\mathcal{C}</m> is a closed curve which we now define.</p>
+
+        <definition xml:id="def-closed-smooth-subspace">         
+            <notation>             
+                <usage><m>X</m></usage>             
+                <description>Closed smooth subspace </description>         
+            </notation>         
+            <statement>
+                <p>A <term>closed</term> smooth <m>m</m>-dimensional subspace <m>X</m> is a space with empty boundary <m>\partial X = \emptyset</m>. In particular, a closed curve <m>\mathcal{C}</m> is a union of loops. If <m>X</m> is closed and oriented, and <m>\eta</m> is an <m>m</m>-form, one may see the integral of <m>\eta</m> written
+                <me>
+                    \oint_X \eta := \int_X \eta.
+                </me></p>
+            </statement>
+        </definition>
+
+        <p>Now, if <m>\mb{v}</m> is a velocity vector field of a fluid (for example), and the closed oriented curve <m>\mathcal{C}</m> is traced by the path <m>\mb{r} (t)</m>, then the flow of <m>\mb{v}</m> along the curve <m>\mathcal{C}</m> is called the <term>circulation</term> of <m>\mb{v}</m> along <m>\mathcal{C}</m> and is the vector line integral
+        <me>
+            \text{Circulation} = \oint_{\mathcal{C}} \mb{v} \cdot \tder{}{\mb{r}}.
+        </me>
+        It is fine to think of circulation of a force field as well as fluid velocity field (the term applies to both instances).</p>
+
+        <example xml:id="ex-twopilineint">
+            <title>Line integral independent of the loop</title>
+            <statement>
+                <p>Let <m>\mathcal{C}</m> be the circle of radius <m>R</m> centered at the origin in the plane and oriented counter-clockwise. Let 
+                <me>
+                    \mb{E} = \left[ \begin{matrix} - \frac{y}{x^2 + y^2} \amp \frac{x}{x^2 + y^2} \end{matrix}\right]    
+                </me>
+                be an electric field. To find the circulation of <m>\mb{E}</m> around <m>\mathcal{C}</m>, we first parameterize <m>\mathcal{C}</m> by <m>\mb{r} (t) = (R \cos t, R \sin t)</m> for <m>0 \leq t \leq 2 \pi</m> and then compute
+                <md>
+                    <mrow>\oint_{\mathcal{C}} \mb{E} \cdot \tder{}{\mb{r}} \amp = \int_0^{2\pi} \left[ \begin{matrix}  - \frac{R \sin t}{R^2 \cos^2 t + R^2 \sin^2 t} \amp \frac{R \cos t}{R^2 \cos^2 t + R^2 \sin^2 t}\end{matrix} \right] \cdot \left[ \begin{matrix}  - R \sin t \amp R \cos t \end{matrix} \right] \, \tder{}{t}, </mrow>
+                    <mrow> \amp = \int_0^{2\pi} \tder{}{t} ,</mrow>
+                    <mrow> \amp = 2 \pi .</mrow>
+                </md>
+                Note that this integral is completely independent of <m>R</m> ... a mystery that will be solved in the coming sections!</p>
+            </statement>
+        </example>
+
+    </subsection>
+
+    <subsection xml:id="subsec-flux-integrals">
+        <title>Flux integrals</title>
+        <p>Recall that, in the early part of this section we mentioned that there were two ways of integrating a vector field <m>\mb{F}</m>. The first, given above, is simply to take the dual differential <m>1</m>-form <m>\mb{F}^\vee</m> and integrate it. This means that the domain you are integrating over is <m>1</m>-dimensional, i.e. a curve. However, with differential forms (or exterior products in general), we had a lovely operation called the Hodge star operator which takes a <m>k</m>-form <m>\eta</m> in <m>\mathbb{R}^n</m> and turns it into an <m>(n - k)</m>-form <m>\star \eta</m> in <m>\mathbb{R}^n</m>. This leads to the next way to integrate a vector field.</p>
+
+        <definition xml:id="def-fluxvectorint">         
+            <notation>             
+                <usage><m>\int_X \mb{F} \cdot \tder{}{\mb{n}}</m></usage>             
+                <description>Flux vector integral </description>         
+            </notation>         
+            <statement>
+                <p>Let <m>(X, \vol^X)</m> be a smooth oriented <m>(n - 1)</m>-dimensional subspace of <m>\mathbb{R}^n</m> and <m>\mb{F}</m> a vector field defined along <m>X</m>. The <term>flux vector integral</term> of <m>\mb{F}</m> on <m>X</m> is defined as
+                    <me>
+                        \int_X \mb{F} \cdot \tder{}{\mb{n}} := \int_X \star \mb{F}^\vee .
+                    </me></p>
+            </statement>
+        </definition>
+
+        <p>The notation <m>\tder{}{\mb{s}}</m> or <m>\tder{}{\mb{S}}</m> is common for vector surface integrals in <m>\mathbb{R}^3</m> instead of <m>\tder{}{\mb{n}}</m>. For curves, one often sees <m>\tder{}{\hat{\mb{n}}}</m> as well, but there does not seem to be a universally adopted notation for flux integrals outside of these cases (so try to be open to investigating what type of integral you are presented with!). Let us start with the case of <m>n = 2</m> to see how we should interpret this integral.</p>
+
+        <p>In <m>\mathbb{R}^2</m> with the standard orientation and dot product, we know that 
+        <md>
+            <mrow> \star \tder{}{x} \amp = \tder{}{y}, </mrow>
+            <mrow> \star \tder{}{y} \amp = - \tder{}{x}. </mrow>
+        </md>
+        So if we have a vector field
+        <me>
+            \mb{F} (x,y) = P (x,y) \, \partial_{x} + Q (x,y) \, \partial_{y}
+        </me>
+        then
+        <men xml:id="eq-stardual">
+           \star \mb{F}^\vee (x,y) \amp = \star \left( P (x,y) \, \tder{}{x} + Q (x,y) \, \tder{}{y} \right), \\ \amp = - Q (x,y) \, \tder{}{x} + P(x,y)\, \tder{}{y}.
+        </men>
+        This implies that the flux integral of <m>\mb{F}</m> along a curve <m>\mathcal{C}</m> in the plane is
+        <men xml:id="eq-fluxline">
+            \int_{\mathcal{C}} \mb{F} \cdot \tder{}{\mb{n}} = \int_\mathcal{C} - Q (x,y) \, \tder{}{x} + P(x,y)\, \tder{}{y}.
+        </men>
+        However, this may not get us closer to seeing the meaning of this integral. We can see this by considering the normal unit vector along the curve <m>\mathcal{C}</m>. Recall that the orientation of <m>\mathcal{C}</m> can be understood as the dual to the unit tangent vector <m>\mb{T}</m>. Taking negative of the Hodge star of <m>\mb{T}</m> is denoted
+        <me>
+            \hat{\mb{n}} = - \star \mb{T}.
+        </me>
+        Note that if <m>\mb{T} = a \partial_x + b \partial_y</m> at a point, then <m>\hat{n} = b \partial x - a \partial_y</m>.</p>
+
+        <p>This vector field along <m>\mathcal{C}</m> is only available to us when <m>n = 2</m>, but in this case, we see that <m>\hat{\mb{n}}</m> is just <m>\mb{T}</m> rotated clockwise by <m>\pi / 2</m>. It is thus orthogonal to the curve <m>\mathcal{C}</m> at every point and a unit vector. </p>
+
+        <proposition xml:id="prop-fluxline">
+            <statement>
+                <p>Let <m>(\mathcal{C}, \vol^{\mathcal{C}})</m> be a smooth connected oriented curve in <m>\mathbb{R}^2</m>, <m>\mb{r} : [a, b] \to \mathbb{R}^2</m> a compatibly oriented parameterization
+                <me>
+                    \mb{r} (t) = (x (t), y(t)),
+                </me>
+                and <m>\mb{F} = P \partial_x + Q \partial_y</m> a vector field  defined at every point of <m>\mathcal{C}</m>. Then
+                <md>
+                    <mrow> \int_{\mathcal{C}} \mb{F} \cdot \tder{}{\mb{n}} \amp = \int_{\mathcal{C}} \mb{F}\cdot \hat{\mb{n}} \, \tder{}{s}, </mrow>
+                    <mrow> \amp = \int_a^b - Q(x(t), y(t)) \, x^\prime (t) + P (x (t), y(t) ) \, y^\prime (t) \, \tder{}{t}. </mrow>
+                </md></p>
+            </statement>
+            <proof> <p>The second equation follows from equation <xref ref="eq-fluxline"/>. On the other hand, equation <xref ref="eq-stardual"/> gives the form for the Hodge star of the dual of <m>\mb{F}</m>.  One can check here that <m>\star \mb{F}^\vee = \left( \star \mb{F} \right)^\vee</m> and
+            <me>
+                \star \mb{F} \amp =   -Q  \, \partial_{x} + P  \, \partial_{y}.
+            </me>
+            Thus, using <xref ref="prop-vectorscalar"/> to relate the vector line integral to the scalar line integral gives
+            <md>
+                <mrow> \int_X \mb{F} \cdot \tder{}{\mb{n}} \amp = \int_X \star \mb{F}^\vee , </mrow>
+                <mrow> \amp = \int_X \left( \star \mb{F} \right)^\vee, </mrow>
+                <mrow> \amp = \int_X \left( \star \mb{F} \right) \cdot \mb{T} \, \tder{}{s}. </mrow>
+            </md>
+            Now, if <m>\mb{T} =  a \partial_x + b \partial_y</m> at a point, then <m>\hat{n} = b \partial x - a \partial_y</m> so that
+            <md>
+                <mrow> \left(\star \mb{F} \right) \cdot \mb{T} \amp = \left( -Q  \, \partial_{x} + P  \, \partial_{y} \right) \cdot \left( a \partial_x + b \partial_y \right), </mrow>
+                <mrow> \amp = - aQ + bP , </mrow>
+                <mrow> \amp = \left( P \partial_x + Q \partial_y \right) \cdot \left( b \partial_x - a \partial_y \right),</mrow>
+                <mrow> \amp = \mb{F} \cdot \hat{\mb{n}}.</mrow>
+            </md>
+            Putting this into the above equation gives the first line.</p>
+            </proof>
+        </proposition>
+
+        <p>A student paying close attention may wonder what logic is behind the fact that <m>\hat{\mb{n}}</m> is the negative of the star of <m>\mb{T}</m> instead of just the star. In fact, the last set of equations can be written more clearly using the fact that the Hodge star preserves dot products to see
+        <md>
+            <mrow> \left(\star \mb{F} \right) \cdot \mb{T} \amp = \left[\star  \left(\star \mb{F} \right) \cdot \star \mb{T} \right],  </mrow>
+            <mrow> \amp = \left(\star \star \mb{F} \right) \cdot \star \mb{T}. </mrow>
+        </md>
+        Now, recall that in the special case where <m>n = 2</m> we found that <m>\star \star : \mathbb{R}^2 \to \mathbb{R}^2</m> is just multiplying by <m>-1</m>. Thus
+        <me>
+            \left(\star \mb{F} \right) \cdot \mb{T} = \mb{F} \cdot \left( - \star \mb{T} \right)
+        </me>
+        which explains the need for the sign.</p>
+
+        <p>The first equation in <xref ref="prop-fluxline"/> gives us a way to interpret this integral. At every point on <m>\mathcal{C}</m>, the vector <m>\hat{\mb{n}}</m> points perpendicular and to the right of the oriented curve. If one considers <m>\mb{F}</m> as a velocity field of a fluid, then <m>\mb{F} \cdot \hat{\mb{n}} = \| \mb{F} \| \cos \theta</m> is the component of the velocity that is `flowing through' the curve at the point. Integrating this over the entire curve gives the amount of fluid passing through the curve per unit time (or the total velocity of fluid through the curve, or the flux).</p>
+
+        <example>
+            <title>Flux integral computation</title>
+            <statement>
+                <p>Let <m>\mathcal{C}</m> be the boundary of the square <m>[0, 1] \times [0, 1]</m> oriented counter-clockwise. Now <m>\mathcal{C}</m> is not a smooth curve due to the corners. However, we can break it into its four smooth sides, perform any needed integrals, and add up the results. Consider the vector field
+                    <me>
+                    \mb{F} = \left[ \begin{matrix} P \amp Q \end{matrix} \right] = \left[ \begin{matrix} x \amp y \end{matrix} \right] = x \partial_x + y \partial_y
+                    </me>
+                    and suppose we wish to compute the flux integral
+                    <me>
+                    \int_{\mathcal{C}} \mb{F} \cdot \tder{}{\mb{n}}.
+                    </me>
+                    As we mentioned, we can break this integral up into the sum
+                    <me>
+                    \int_{\mathcal{C}_1} \mb{F} \cdot \tder{}{\mb{n}}+ \int_{\mathcal{C}_2} \mb{F} \cdot \tder{}{\mb{n}} + \int_{\mathcal{C}_3} \mb{F} \cdot \tder{}{\mb{n}} + \int_{\mathcal{C}_4} \mb{F} \cdot \tder{}{\mb{n}}
+                    </me>
+                    where <m>\mathcal{C}_1</m> is the edge along the <m>x</m>-axis and the remaining edges are ordered counter-clockwise. It is wise in these situations to employ a bit of thought before mindlessly computing. First, consider the scalar functions
+                    <me>
+                    \mb{F} \cdot \hat{\mb{n}}
+                    </me>
+                    along each of the four sides. Note that <m>\hat{\mb{n}}</m> points perpendicularly outward from the square (it is to the right going counter clockwise around). So along the bottom edge of <m>\mathcal{C}_1</m> we have <m>\hat{\mb{n}} = - \partial_y</m>. But along the bottom edge, we have <m>y = 0</m> so that <m>\mb{F} = x \partial_x </m>. So  <m>\mb{F} \cdot \hat{\mb{n}} = 0</m> along <m>\mathcal{C}_1</m> and the first integral is identically zero. A similar argument gives us that the last integral along <m>\mathcal{C}_4</m> is also zero. This leaves us with the integrals along <m>\mathcal{C}_2</m> and <m>\mathcal{C}_3</m>.</p>
+
+                <p>Along <m>\mathcal{C}_2</m> we will simply parameterize with <m>\mb{r}_2 (t) = ( 1, t)</m> for <m>0 \leq t \leq 1</m> and use our formula to see
+                    <md>
+                        <mrow> \int_{\mathcal{C}_2} \mb{F} \cdot \tder{}{\mb{n}} \amp = \int_a^b - Q(x(t), y(t)) \, x^\prime (t) + P (x (t), y(t) ) \, y^\prime (t) \, \tder{}{t}, </mrow>
+                        <mrow> \amp = \int_0^1  \, \tder{}{t}, </mrow>
+                        <mrow> \amp = 1. </mrow>
+                    </md>
+                    Likewise, for <m>\mathcal{C}_3</m> we parameterize with <m>\mb{r}_3 (t) = ( 1 - t, 1)</m> for <m>0 \leq t \leq 1</m> and use our formula to see
+                    <md>
+                        <mrow> \int_{\mathcal{C}_3} \mb{F} \cdot \tder{}{\mb{n}} \amp = \int_a^b - Q(x(t), y(t)) \, x^\prime (t) + P (x (t), y(t) ) \, y^\prime (t) \, \tder{}{t}, </mrow>
+                        <mrow> \amp = \int_0^1  \, \tder{}{t},</mrow>
+                        <mrow> \amp = 1. </mrow>
+                    </md>
+                    Thus the flux of <m>\mb{F}</m> through <m>\mathcal{C}</m> is just
+                    <me>
+                        \int_{\mathcal{C}} \mb{F} \cdot \tder{}{\mb{n}} = 2.
+                    </me></p>
+            </statement>
+        </example>
+
+        <p>Having worked through the case of <m>n = 2</m>, we now tackle the popular case of <m>n = 3</m>. As this case is usually presented in isolation (i.e. not from the context of differential forms), it comes with its own notation and vocabulary which we now state.</p>
+
+        <definition xml:id="def-vector-surface-integral">         
+            <notation>             
+                <usage><m>\iint_{\mathcal{S}} \mb{F} \cdot \tder{}{\mb{S}}</m></usage>             
+                <description>Vector surface integral </description>         
+            </notation>         
+            <statement>
+                <p>Let <m>(\mathcal{S}, \vol^\mathcal{S})</m> be an oriented surface in <m>\mathbb{R}^3</m> and <m>\mb{F}</m> a vector field defined along <m>\mathcal{S}</m>. 
+                    The <term>vector surface integral</term> of <m>\mb{F}</m> on <m>\mathcal{S}</m> is 
+                    <me>
+                        \iint_{\mathcal{S}} \mb{F} \cdot \tder{}{\mb{S}} = \int_{\mathcal{S}} \mb{F} \cdot \tder{}{\mb{n}}.
+                    </me>
+                    If <m>\mathcal{S}</m> is a closed surface, this is often written 
+                    <me>
+                        \oiint_{\mathcal{S}} \mb{F} \cdot \tder{}{\mb{S}}.
+                    </me></p>
+            </statement>
+        </definition>
+
+        <p>There are again two important tasks to accomplish in this case. First, we would like to understand what this integral means and second, we would like to know how to compute it (at least in some cases). For the first task, we may generalize what was done for curves to the arbitrary <m>n</m>-dimensional case. Let us work through this procedure for <m>X</m> an <m>(n - 1)</m>-dimensional smooth subspace of <m>\mathbb{R}^n</m> and then apply it to <m>n = 3</m>. On <m>X</m> we have the unit volume form <m>\vol^X</m> which is an <m>(n - 1)</m>-form. Likewise, we have the <m>(n - 1)</m>-form <m>\star \mb{F}^\vee</m>. We may connect these two forms by finding the <term>unit normal vector field</term> <m>\mb{N}</m> along <m>X</m> for which
+            <men xml:id="eq-star1">
+            \star \mb{N}^\vee =  \vol^X .
+            </men>
+            Then we claim that, for any smooth parameterization <m>\mb{G} : U \to X</m> of <m>X</m>, we claim that
+            <me>
+            \mb{G}^* \left( \star \mb{F}^\vee \right) = \mb{G}^* \left( \mb{F} \cdot \mb{N} \, \vol^X \right).
+            </me>
+            To see this, note that <m>\mb{N}</m> is a unit normal vector to <m>X</m> and, at any point <m>p</m> in <m>X</m>, we may find an oriented orthonormal basis <m>\{\xi_1, \ldots, \xi_{n - 1} \}</m> of <m>T_p X</m>. The dual cotangent vectors then are <m>\{\xi_1^\vee, \ldots, \xi_{n - 1}^\vee \}</m> and <m>\vol^X = \xi_1^\vee \wedge \cdots \wedge \xi_{n - 1}^\vee</m>. Now that we have a basis, we can write <m>\mb{F}</m> at <m>p</m> as the linear combination
+            <me>
+                \mb{F} = a_1 \xi_1 + \cdots + a_{n - 1} \xi_{n - 1} + b \mb{N}.
+            </me>
+            Its dual is then
+            <me>
+                \mb{F}^\vee = a_1 \xi_1^\vee + \cdots + a_{n - 1} \xi_{n - 1}^\vee + b \mb{N}^\vee.
+            </me>
+            Now we note that 
+            <men xml:id="eq-normaldualstozero">
+                \mb{G}^* \mb{N}^\vee = \mb{0}
+            </men>
+            as a cotangent vector. On the other hand, by Proposition~\label{prop:Hodgeformula} the Hodge star <m> \star \xi_i^\vee</m> is a wedge product containing the factor <m>\mb{N}^\vee</m>. But then the pullback <m>\mb{G}^* \star \xi_i^\vee = \mb{0}</m> for every <m>1 \leq i \leq n - 1</m> and, using linearity, we are left with 
+            <md>
+                <mrow> \mb{G}^* \star \mb{F}^\vee \amp = b \mb{G}^* \star \mb{N}^\vee , </mrow>
+                <mrow> \amp = b \mb{G}^* \vol^X, \\ \amp = \mb{G}^* \left( \mb{F} \cdot \mb{N} \, \vol^X \right) </mrow>
+            </md>
+            verifying the claim. Now, integrating an <m>m</m>-form on an <m>m</m>-dimensional subspace only depends on the pullbacks of that form over local parameterizations. So the integral of <m>\star \mb{F}^\vee</m> is the same as the integral of <m>\mb{F} \cdot \mb{N} \, \vol^X</m> and we obtain the following proposition.</p>
+
+        <proposition xml:id="prop-fluxintegrals">
+            <statement>
+                <p>The vector flux integral of <m>\mb{F}</m> along <m>X</m> can be computed as the scalar integral
+                    <me>
+                    \int_X \mb{F} \cdot \tder{}{\mb{n}} = \int_X \left( \mb{F} \cdot \mb{N} \right) \, \vol^X.
+                    </me></p>
+            </statement>
+        </proposition>
+
+        <p>Note that in the case of curves in <m>\mathbb{R}^2</m>, <m>\mb{N} = \hat{\mb{n}}</m>. For surfaces, <m>\mb{N}</m> is the unit normal vector field to the surface. This leads to the simple interpretation that the infinitesimal quantity <m>\star \mb{F}^\vee</m> along <m>\mathcal{S}</m> at a point represents the amount of <m>\mb{F}</m> flowing through the surface <m>\mathcal{S}</m> in the direction of <m>\mb{N}</m> per unit time (for a velocity field). The full integral then expresses the total amount of flow through <m>\mathcal{S}</m> in the direction of <m>\mb{N}</m> per unit time (also called the flux of <m>\mb{F}</m> through <m>\mathcal{S}</m>).</p>
+
+        <p>For surfaces, this can easily be calculated for a given parameterization <m>\mb{G} : D \to X</m> by normalizing the cross-product
+        <me>
+            \frac{\partial \mb{G}}{\partial u} \times \frac{\partial \mb{G}}{\partial v}.
+        </me>
+        In other words, we have an explicit formula in this case which is
+        <me>
+            \mb{N} = \frac{\frac{\partial \mb{G}}{\partial u} \times \frac{\partial \mb{G}}{\partial v}}{\left\| \frac{\partial \mb{G}}{\partial u} \times \frac{\partial \mb{G}}{\partial v} \right\|}
+        </me>
+        On the other hand, equation <xref ref="eq-surfacevolumepullback"/> gives us that
+        <me>
+            \mb{G}^* \vol^{\mathcal{S}} = \left\| \frac{\partial \mb{G}}{\partial u} \times \frac{\partial \mb{G}}{\partial v} \right\| \, \tder{}{u} \wedge \tder{}{v}. 
+        </me>
+        Putting these together with <xref ref="prop-fluxintegrals"/> gives an explicit formula for vector surface integrals.</p>
+
+        <proposition>
+            <statement>
+                <p>Suppose <m>(\mathcal{S}, \vol^{\mathcal{S}})</m> is an oriented surface in <m>\mathbb{R}^3</m> and <m>\mb{F}</m> is a vector field along <m>\mathcal{S}</m>. Let <m>\mb{G} : D \to \mathcal{S}</m> be a compatibly oriented parameterization of <m>\mathcal{S}</m> with
+                    <me>
+                    \mb{G} (u, v) = (x(u, v), y(u,v)).
+                    </me>
+                    Then
+                    <me>
+                        \iint_{\mathcal{S}} \mb{F} \cdot \tder{}{\mb{S}}  = \iint_{D} \mb{F} \cdot \left( \frac{\partial \mb{G}}{\partial u} \times \frac{\partial \mb{G}}{\partial v} \right) \, \tder{}{u} \, \tder{}{v}.
+                    </me></p>
+            </statement>
+        </proposition>
+
+        <p>Now, it would be foolish of me to assert that computing such an integral is not a daunting task ... it can be. However, there are occasions when it is not as bad as it looks. One class of cases would be when we have that <m>\mathcal{S}</m> is the graph <m>z = g (x, y)</m>. You may have computed in the previous section's exercises that, in this case, we have
+            <me>
+                \frac{\partial \mb{G}}{\partial u} \times \frac{\partial \mb{G}}{\partial v}  = \left[ \begin{matrix} - \frac{\partial g}{\partial u} \amp - \frac{\partial g}{\partial v} \amp 1 \end{matrix} \right].
+            </me>
+            Of course, such an explicit form can then be used in our computations.</p>
+
+        <example>
+        <title>Vector surface integrals</title>
+        <statement>
+            <p>Let <m>\mathcal{S}</m> be the graph <m>z = x^2  - y^2</m> over the rectangle <m>[-1, 1] \times [-2, 2]</m> oriented so that its projection to the <m>(x,y)</m> plane is counter-clockwise. Taking the vector field
+                <me>
+                \mb{F} = \left[ \begin{matrix} y \amp x \amp z \end{matrix} \right]
+                </me>
+                we can then compute the vector surface integral
+                <md>
+                    <mrow> \iint_{\mathcal{S}} \mb{F} \cdot \tder{}{\mb{S}} \amp = \iint_{D} \mb{F} \cdot \left( \frac{\partial \mb{G}}{\partial u} \times \frac{\partial \mb{G}}{\partial v} \right) \, \tder{}{u} \, \tder{}{v} , </mrow>
+                    <mrow> \amp = \int_{-2}^2 \int_{-1}^1 \left[ \begin{matrix} v \amp u \amp u^2 - v^2 \end{matrix} \right] \cdot \left[ \begin{matrix} - 2 u \amp -2v \amp 1 \end{matrix} \right] \, \tder{}{u} \tder{}{v}, </mrow>
+                    <mrow> \amp = \int_{-2}^2 \int_{-1}^1 u^2 - 4uv - v^2 \, \tder{}{u} \tder{}{v},</mrow>
+                    <mrow> \amp = \int_{-2}^2 \left. \left( \frac{u^3}{3} - {2u^2v} - u v^2 \right) \right|_{u = -1}^1 \, \tder{}{v},</mrow>
+                    <mrow> \amp = \int_{-2}^2  \frac{2}{3}- 2 v^2 \, \tder{}{v},</mrow>
+                    <mrow> \amp = \left. \left(  \frac{2v}{3}- \frac{2v^3}{3} \right) \right|_{v = -2}^2 , </mrow>
+                    <mrow> \amp = -8. </mrow>
+                </md></p>
+        </statement>
+        </example>
+
+    </subsection>
+
+    <exercises xml:id="exe-vectorintegrals">
+
+        <exercise>
+            <introduction><p>Let <m>\mathcal{C}</m> be the triangle with vertices <m>(0,0), (1,0)</m> and <m>(0,1)</m> oriented counter-clockwise and <m>\mb{F}</m> the vector field <m>x y \partial_x </m>. </p></introduction>
+        <task>
+            <statement>
+                <p> Compute the vector line integral
+                    <me>
+                    \oint_\mathcal{C} \mb{F} \cdot \tder{}{\mb{r}}.
+                    </me> </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p> Compute the flux line integral
+                    <me>
+                    \oint_\mathcal{C} \mb{F} \cdot \tder{}{\mb{n}}.
+                    </me> </p>
+            </statement>
+        </task>
+        </exercise>
+
+
+        <exercise>
+            <statement>
+                <p> Let <m>\mathcal{C}</m> be the ellipse given by <me> \frac{x^2}{4} + \frac{y^2}{9} = 1</me> oriented counter-clockwise
+                    and <m>\mb{F}</m> the vector field <m>(y + 1) \partial_x + x \partial_y</m>. Compute the vector line integral
+                    <me>
+                    \oint_\mathcal{C} \mb{F} \cdot \tder{}{\mb{r}}.
+                    </me> </p>
+            </statement>
+        </exercise>
+
+
+        <exercise>
+            <statement>
+                <p> A fundamental principle in physics is conservation of energy. One case of this is that if <m>\mb{F} = -g \partial_z</m> is a constant gravitational force, then the work done by <m>\mb{F}</m> on a particle starting at height <m>a</m> and ending at height <m>b</m> does not depend on the path that was taken from <m>a</m> to <m>b</m>. Explain why the principle holds in this case. </p>
+            </statement>
+        </exercise>
+
+
+        <exercise>
+            <statement>
+                <p> Explain why equation <xref ref="eq-normaldualstozero"/> is true. </p>
+            </statement>
+        </exercise>
+
+
+        <exercise>
+            <statement>
+                <p>  Suppose <m>\mathcal{S}</m> is an oriented surface in <m>\mathbb{R}^3</m> and <m>\mb{F}</m> is a vector field which is tangent to <m>\mathcal{S}</m>. In other words, at any point <m>p</m> of <m>\mathcal{S}</m>, the tangent field vector <m>\mb{F}_p</m> is in <m>T_p \mathcal{S}</m>. What is 
+                    <me>
+                    \iint_{\mathcal{S}} \mb{F} \cdot \tder{}{\mb{S}} \, \, ?
+                    </me>
+                    Explain your response. </p>
+            </statement>
+        </exercise>
+
+        <exercise>
+            <statement>
+                <p> Let <m>\mathcal{S}</m> be the graph <m>z = xy + x</m> over the rectangle <m>[0, 1] \times [0, 2]</m> oriented so that its projection to the <m>(x,y)</m> plane is counter-clockwise. Let <m>\mb{F}</m> be the vector field <m>y \partial_x - z \partial_z</m>. Compute the vector surface integral
+                    <me>
+                        \iint_{\mathcal{S}} \mb{F} \cdot \tder{}{\mb{S}}
+                    </me> </p>
+            </statement>
+        </exercise>
+
+        <exercise xml:id="exercise-gravitysurface">
+            <statement>
+                <p>Let <m>\mathcal{S}</m> be the sphere 
+                    <me>
+                    x^2 + y^2 + z^2 = R^2
+                    </me>
+                    of radius <m>R</m> centered at the origin oriented outwardly and <me>
+                    \mb{F} = - \frac{GMm}{(x^2 + y^2 + z^2)^{3/2}} \left( x \partial_x + y \partial_y + z \partial_z \right).
+                    </me> 
+                    be the gravitational vector field between two point masses. Without parameterizing or using spherical coordinates, compute the vector surface integral
+                        <me>
+                            \oiint_{\mathcal{S}} \mb{F} \cdot \tder{}{\mb{S}}.
+                        </me></p>
+            </statement>
+        </exercise>
+
+    </exercises>
+</section>

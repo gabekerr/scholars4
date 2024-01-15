@@ -1,0 +1,315 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-greens">
+    <title>Stokes' Theorem in dimension <m>2</m> - Green's Theorems</title>
+    <p>The next application of Stokes' Theorem involves <m>2</m>-dimensional regions in <m>\mathbb{R}^2</m>.Before stating this, we recall that if 
+        <me>
+        \mb{F} = P \partial_x + Q \partial_y
+        </me>
+        is a vector field defined on a region in <m>\mathbb{R}^2</m> then the <m>2</m>-dimensional curl of <m>\mb{F}</m> is given by
+        <me>
+        \text{curl}^{2d} (\mb{F} ) = \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} 
+        </me>
+        Let us give the quick proof of the theorem.</p>
+
+    <theorem xml:id="cor-greens-circulation">
+        <title>Green's Theorem - Circulation Form</title>
+        <statement>
+            <p>Let <m>D</m> be a compact domain with boundary in <m>\mathbb{R}^2</m> oriented with the standard orientation and <m>\mb{F} = P \partial_x + Q \partial_y</m> a differentiable vector field on <m>D</m>. Then
+                <me>
+                    \iint_D \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \, \tder{}{x}\, \tder{}{y} = \oint_{\partial D} \mb{F} \cdot \tder{}{\mb{r}}.
+                </me></p>
+        </statement>
+        <proof> <p>Using Stokes' <xref ref="thm-stokes"/>, <xref ref="prop-2dcurlformula"/> and the definition of vector line integrals, we obtain
+            <md>
+                <mrow> \iint_D \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \, \tder{}{x}\, \tder{}{y}  \amp = \iint_D \text{curl}^{2d} (\mb{F} ) \, \tder{}{x} \,\tder{}{y}, </mrow>
+                <mrow> \amp =  \int_D \tder{}{} \left( \mb{F}^\vee \right), </mrow>
+                <mrow> \amp = \int_{\partial D} \mb{F}^\vee , </mrow>
+                <mrow> \amp = \oint_{\partial D} \mb{F} \cdot \tder{}{\mb{r}}. </mrow>
+            </md></p>
+        </proof>
+    </theorem>
+
+    <p>Let us show how helpful this theorem can be.</p>
+
+    <example>
+        <title>Applying Green's Circulation Theorem</title>
+        <statement>
+            <p>Suppose <m>\mathcal{C}</m> is a circle of radius <m>3</m> centered at <m>(1,1)</m> oriented counter-clockwise and consider the vector field 
+                <me>
+                \mb{F} = \left[ \begin{matrix} ( \ln (x^2 + 1) - y ) \amp ( x + e^{y^2} ) \end{matrix} \right].
+                </me>
+                If we want to find the vector line integral
+                <me>
+                \oint_{\mathcal{C}} \mb{F} \cdot \tder{}{\mb{r}}
+                </me>
+                by a direct computation, we may find ourselves confronted with an extremely complicated formula. However, if we realize that <m>\mathcal{C}</m> is the boundary of the disc <m>D</m> of radius <m>3</m>, we may apply Green's Theorem and see
+                <md>
+                    <mrow> \oint_{\mathcal{C}} \mb{F} \cdot \tder{}{\mb{r}} \amp = \iint_D \frac{\partial }{\partial x} \left( x + e^{y^2}  \right) - \frac{\partial }{\partial y}\left( \ln (x^2 + 1) - y \right) \, \tder{}{x}\, \tder{}{y} ,</mrow>
+                    <mrow> \amp = \iint_D 2 \, \tder{}{x}\, \tder{}{y} ,</mrow>
+                    <mrow> \amp = 2 \, \text{Area} (D),</mrow>
+                    <mrow> \amp = 2 (\pi 3^2 ), </mrow>
+                    <mrow> \amp = 18 \pi.  </mrow>
+                </md></p>
+        </statement>
+    </example>
+
+    <p>One should think of Green's Theorem as asserting that the integral of all infinitesimal rotations of a field within a domain equals the total circulation of said field.  As the student will recall, there is more than one way to integrate a vector field over a curve in <m>\mathbb{R}^2</m> which brings us to the other form of Green's Theorem.</p>
+
+    <theorem xml:id="cor-greens-flux">
+        <title>Green's Theorem - Flux Form</title>
+        <statement>
+            <p>Let <m>D</m> be a compact domain with boundary in <m>\mathbb{R}^2</m> oriented with the standard orientation and <m>\mb{F} = P \partial_x + Q \partial_y</m> a differentiable vector field on <m>D</m>. Then
+                <me>
+                    \iint_D \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} \, \tder{}{x}\, \tder{}{y} = \oint_{\partial D} \mb{F} \cdot \tder{}{\mb{n}}.
+                </me></p>
+        </statement>
+        <proof> <p>This follows from the <xref ref="def-fluxvectorint"/> of the flux vector integral, <xref ref="prop-divergenceformula"/>, and Stokes' <xref ref="thm-stokes"/>. We observe
+            <md>
+                <mrow> \oint_{\partial D} \mb{F} \cdot \tder{}{\mb{n}} \amp = \oint_{\partial D} \star \mb{F}^\vee , </mrow>
+                <mrow> \amp = \int_D \tder{}{} ( \star \mb{F}^\vee), </mrow>
+                <mrow> \amp = \iint_D \star \left( \tder{}{} ( \star \mb{F}^\vee) \right) \, \tder{}{x} \, \tder{}{y}, </mrow>
+                <mrow> \amp = \iint_D  \text{div} ( \mb{F} )  \, \tder{}{x} \, \tder{}{y}, </mrow>
+                <mrow> \amp = \iint_D \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} \, \tder{}{x}\, \tder{}{y}. </mrow>
+            </md></p>
+        </proof>
+    </theorem>
+
+    <p>Let's take a look at an example using this theorem.</p>
+
+    <example>
+        <title>Applying Green's Flux Theorem</title>
+        <statement>
+            <p>Let 
+                <me>
+                \mb{F} = (\sin (y) + x) \partial_x + (y - x^2) \partial_y
+                </me>
+                and
+                <me>
+                D = \left\{ (x,y) : |x| + |y| \leq 1 \right\}
+                </me>
+                Suppose you are asked to calculate the flux of <m>\mb{F}</m> across the boundary <m>\partial D</m>. Noting that <m>D</m> is a square, this would involve four ugly flux vector line integrals. However, recognizing that <m>\text{div} (\mb{F} ) = 2</m> and that <m>D</m> is a square with side length <m>\sqrt{2}</m>, we can apply Green's Theorem to obtain
+                <md>
+                    <mrow> \oint_{\partial D} \mb{F} \cdot \tder{}{\mb{n}} \amp = \iint_D 2 \, \tder{}{x} \, \tder{}{y}, </mrow>
+                    <mrow> \amp = 2 \text{Area} (D), </mrow>
+                    <mrow> \amp = 4. </mrow>
+                </md></p>
+        </statement>
+    </example>
+
+    <p>Now, just as some vector fields satisfy the cross-partials test, other vector fields have divergence zero.</p>
+
+    <definition xml:id="def-solenoidal">         
+        <notation>             
+            <usage><m>{div} (\mb{F}) = 0</m></usage>             
+            <description>Solenoidal vector field </description>         
+        </notation>         
+        <statement>
+            <p>A vector field <m>\mb{F}</m> on an open set <m>U</m> in <m>\mathbb{R}^n</m> is called <term>solenoidal</term> (also <term>incompressible</term> or <term>divergence-free</term>) if <m>\text{div} (\mb{F}) = 0</m>. </p>
+        </statement>
+    </definition>
+
+    <p>In fact, of the three terms above, incompressible does the best job at describing such a field. This is because one can imagine <m>\mb{F}</m> as the velocity field of an incompressible fluid. And then Green's Theorem is saying that the amount of fluid entering a region (per unit time) must equal the amount leaving a region (the difference being the flux over the boundary of the region).</p>
+
+    <p>Just as satisfying the cross-partials test for <m>\mb{F}</m> can be viewed as <m>\tder{}{\mb{F}^\vee} = 0</m>, or saying <m>\mb{F}^\vee</m> is closed, we can also view being solenoidal as satisfying the equation
+        <me>
+        \tder{}{( \star \mb{F}^\vee)} = 0
+        </me>
+        so that <m>\star \mb{F}^\vee</m> is closed. </p>
+
+    <p>An insightful student may wonder whether we can find potentials for solenoidal fields as we did for fields satisfying the cross-partials test (on simply connected domains). However, that student will quickly run into a basic question : if <m>\mb{F}</m> is defined on an <m>n</m>-dimensional domain then <m> \star \mb{F}^\vee</m> is an <m>(n - 1)</m>-form and so a potential would have to be an <m>(n - 2)</m>-form. So if we wanted the potential to be a scalar function we would need <m>n = 2</m>! Indeed, then <m>\star \mb{F}^\vee</m> is a <m>1</m>-form and a potential would again just be a function (we will discuss non-scalar potentials next section).</p>
+
+    <definition xml:id="def-stream">         
+        <notation>             
+            <usage><m>H</m></usage>             
+            <description>Stream function </description>         
+        </notation>         
+        <statement>
+            <p>Suppose <m>\mb{F}</m> is a solenoidal vector field on <m>U \subset \mathbb{R}^2</m>. A <term>stream function</term> <m>H</m> for <m>\mb{F}</m> is a scalar function for which
+            <me>
+                \mb{F} = \frac{\partial H}{\partial y} \partial_x - \frac{\partial H}{\partial x} \partial_y .
+            </me> </p>
+        </statement>
+    </definition>
+
+    <p>Alternatively, the stream function satisfies the equation
+    <me>
+        \tder{}{H} = \star \mb{F}^\vee .
+    </me>
+    As we will see in the next example, stream functions do a good job of describing the integral curves of the flow of a two dimensional vector field. These curves are both the images of solutions to the differential equation of the vector field and level curves of the stream function.</p>
+
+    <p>As a side remark, stream functions do have a more general incarnation in higher (even) dimensions as Hamiltonians. The point is that a solenoidal vector field <m>\mb{F}</m> in <m>\mathbb{R}^2</m> is precisely one whose flow (i.e. whose solution to the ODE <m>\mb{x}^\prime = \mb{F} (\mb{x})</m>) preserves area. Such fields with a potential in general are called Hamiltonian fields and are intensively studied in modern mathematics and physics. One reason for this is that these types of fields describe the evolution of a system of particles in classical mechanics.</p>
+
+    <example>
+        <title>Computing a stream function</title>
+        <statement>
+            <p>The rotational vector field 
+                <me>
+                \mb{F} = \left[ \begin{matrix} -y \amp  x \end{matrix} \right]
+                </me>
+                is called so because its time <m>t</m> flow is just counter-clockwise rotation of <m>t</m> radians. Indeed, we know that such a rotation is given by the transformation
+                <me>
+                    \psi_t (x, y) = \left( \cos (t) x - \sin (t) y, \sin (t) x + \cos (t) y \right).
+                </me>
+                So we can check that 
+                <me>
+                \frac{d}{dt} \left. \psi_t (x,y) \right|_{t = 0}  =  (-y, x) = \mb{F} (\psi_0 (x,y)).
+                </me>
+                The map <m>\psi_t</m> is called the time <m>t</m> flow of <m>\mb{F}</m>. One can easily check that 
+                <me>
+                \text{div} (\mb{F} ) = 0
+                </me>
+                so that <m>\mb{F}</m> is solenoidal. Note, however, that it does <em>not</em> pass the cross-partials test, so it is not conservative. One can check to see that
+                <me>
+                    H (x,y) = - \frac{1}{2} \left(x^2 + y^2 \right)
+                </me>
+                is a stream function for <m>\mb{F}</m>. We note that this function has the property that any flow line of <m>\mb{F}</m> (i.e. a solution to the ODE <m>\mb{x}^\prime = \mb{F} (\mb{x})</m>) is a level curve of <m>H</m>. In other words, the field <m>\mb{F}</m> is tangent to the level curves of <m>H</m>. In fact, this is a general feature of stream functions.</p>
+        </statement>
+    </example>
+
+    <p>We can use our knowledge of conservative vector fields to give a criterion on when stream functions exist.</p>
+
+    <proposition xml:id="prop-stream-exist">
+        <statement>
+            <p>If <m>\mb{F}</m> is a solenoidal vector field defined on a simply connected open set <m>U</m> in <m>\mathbb{R}^2</m> then there exists a stream function <m>H</m> for <m>\mb{F}</m>. </p>
+        </statement>
+        <proof> <p>Suppose <m>\mb{F} = P \partial_x + Q \partial_y</m> and let <m>\tilde{\mb{F}} = -Q \partial_x + P \partial_y</m>. Since <m>\mb{F}</m> is solenoidal, we have 
+            <me>
+            \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} = 0
+            </me>
+            so that 
+            <me>
+            \frac{\partial (- Q)}{\partial y} = \frac{\partial P}{\partial x} .
+            </me>
+            But this implies <m>\tilde{\mb{F}}</m> satisfies the cross-partials test on the simply connected domain <m>U</m>.  <xref ref="prop-potentialexistence"/> gives that <m>\tilde{\mb{F}}</m> is conservative so there is a potential function <m>H</m> such that 
+            <md>
+                <mrow> -Q \partial_x + P \partial_y \amp = \tilde{\mb{F}}, </mrow>
+                <mrow> \amp = \nabla H,</mrow>
+                <mrow> \amp = \frac{\partial H}{\partial x} \partial_x +  \frac{\partial H}{\partial y} \partial_y. </mrow>
+            </md>
+            Thus
+            <me>
+            \mb{F} = P \partial_x + Q \partial_y =  \frac{\partial H}{\partial y} \partial_x -  \frac{\partial H}{\partial x} \partial_y.
+            </me>
+            so that <m>H</m> is a stream function for <m>\mb{F}</m>.</p>
+        </proof>
+    </proposition>
+
+
+    <exercises xml:id="exe-greens">
+
+        <exercise>
+            <introduction><p>Consider the region
+                <me>
+                 D = \left\{ (x,y) : \frac{x^2}{4} + \frac{y^2}{9} \leq 1 \right\}
+                </me>
+                of points bounded by an ellipse <m>C = \partial D</m> which is oriented compatibly. Take the vector field 
+                <me>
+                \mb{F} = (x + y) \partial_x + y^2 \partial_y.
+                </me></p></introduction>
+        <task>
+            <statement>
+                <p> Without parametrizing the ellipse <m>C</m>, compute the vector line integral
+                    <me>
+                    \oint_E \mb{F} \cdot \tder{}{\mb{r}}.
+                    </me>
+                    State any theorems that you use to obtain your result. </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p> Without parametrizing the ellipse <m>C</m>, compute the flux line integral
+                    <me>
+                    \oint_E \mb{F} \cdot \tder{}{\mb{n}}.
+                    </me>
+                    State any theorems that you use to obtain your result. </p>
+            </statement>
+        </task>
+        </exercise>
+
+        <exercise>
+            <introduction><p>For a point <m>(x,y)</m> in <m>\mathbb{R}^2</m>, let <m>D_R (x,y)</m> denote the closed disc of radius <m>R</m> centered at <m>(x,y)</m> and <m>D^\circ_R (x,y)</m> the open disc. Consider the region 
+                <me>
+                D = D_4 (0,0) - \left( D^\circ_1 (2, 0) \cup D^\circ_1 (-2 , 0)  \right)
+                </me>
+                in the plane (this is the set of points in the large disc with the two smaller discs removed). The boundary of <m>D</m> consists of three circles, <m>\mathcal{C}_1</m> the boundary of the radius <m>4</m> disc and <m>\mathcal{C}_2, \mathcal{C}_3</m> the boundaries of the radius <m>1</m> discs centered at <m>(-2, 0)</m> and <m>(2,0)</m> respectively. Orient these circles counter-clockwise.</p></introduction>
+        <task>
+            <statement>
+                <p> If <m>\mb{F}</m> satisfies the cross-partials test on <m>D</m> and
+                    <me>\oint_{\mathcal{C}_1}\mb{F} \cdot \tder{}{\mb{r}} = 4, \hspace{.3in} \oint_{\mathcal{C}_2}\mb{F} \cdot \tder{}{\mb{r}} = 1 </me>
+                    then find
+                    <me>
+                    \oint_{\mathcal{C}_3} \mb{F} \cdot \tder{}{\mb{r}}.
+                    </me> </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p> If <m>\text{div} (\tilde{\mb{F}} ) = 3</m> on <m>D</m> and
+                    <me>\oint_{\mathcal{C}_1}\tilde{\mb{F}} \cdot \tder{}{\mb{n}} = 4, \hspace{.3in} \oint_{\mathcal{C}_2}\tilde{\mb{F}} \cdot \tder{}{\mb{n}} = 1 </me>
+                    then find
+                    <me>
+                    \oint_{\mathcal{C}_3} \tilde{\mb{F}} \cdot \tder{}{\mb{n}}.
+                    </me> </p>
+            </statement>
+        </task>
+        </exercise>
+
+        <exercise xml:id="exercise-holomorphic">
+            <introduction><p>Suppose <m>U</m> is a simply connected open set in <m>\mathbb{R}^2</m> and <m>\mb{F}</m> is a smooth vector field that is both solenoidal and conservative. Let <m>u (x,y)</m> be a potential for <m>\mb{F}</m> and <m>- v (x,y)</m> a stream function for <m>\mb{F}</m>. </p></introduction>
+        <task>
+            <statement>
+                <p> Show that <m>u</m> and <m>v</m> satisfy the Cauchy-Riemann equations
+                    <md>
+                        <mrow> \frac{\partial u}{\partial x} \amp = \frac{\partial v}{\partial y}, </mrow>
+                        <mrow> \frac{\partial u}{\partial y} \amp = - \frac{\partial v}{\partial x}. </mrow>
+                    </md> </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p> Show that both functions <m>u</m> and <m>v</m> are harmonic which means they satisfy Laplace's equation
+                    <me>
+                    \Delta f = \frac{\partial^2 f}{\partial x^2} + \frac{\partial^2 f}{\partial y^2}  = 0 .
+                    </me> </p>
+            </statement>
+        </task>
+        </exercise>
+
+        <exercise>
+            <introduction><p>Consider the field 
+                <me>
+                \mb{F} = \left[ \begin{matrix} e^x \cos y \amp e^x \sin y \end{matrix} \right]
+                </me></p></introduction>
+        <task>
+            <statement>
+                <p> Show that <m>\mb{F}</m> is both solenoidal and conservative. </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p> Find a potential function <m>u (x,y)</m> and a stream function <m>v(x,y)</m> for <m>\mb{F}</m>. </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p> Writing the complex number <m>z</m> as <m>x + iy</m>, identify the function <me>
+                    f(z) = u(x, y) + i v (x, y)
+                </me>
+                from <m>\mathbb{C}</m> to <m>\mathbb{C}</m>. </p>
+            </statement>
+        </task>
+        <conclusion>
+        </conclusion>
+        </exercise>
+
+        <exercise>
+            <statement>
+                <p>Give an example of an open set <m>U</m> of <m>\mathbb{R}^2</m> and a solenoidal vector field <m>\mb{F}</m> defined on <m>U</m> that does not have a stream function. Explain your response. </p>
+            </statement>
+        </exercise>
+        
+    </exercises>
+
+
+</section>

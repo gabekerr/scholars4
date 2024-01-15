@@ -1,0 +1,379 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-applications">
+    <title>Selected Applications</title>
+    <introduction>
+    <p>There are already so many applications of the material covered so far in these notes that it would take a library (or a medium sized cloud account) to cover them all. Instead, I have chosen a few which I believe every aspiring mathematician should encounter.</p>
+    </introduction>
+    <subsection xml:id="subsec-maxwells-equations">
+        <title>Maxwell's equations</title>
+
+        <p>Maxwell's equations unified two previously distinct forces of nature, electricity and magnetism. Let's describe the players involved in the classical set of equations. The constant <m>c</m> denotes the speed of light and
+            <ol>
+                <li> <m>\mb{E} = E_x \partial_x + E_y \partial_y + E_z \partial_z</m> is the electric force field, </li>
+                <li> <m>\mb{B} = B_x \partial_x + B_y \partial_y + B_z \partial_z</m> is the magnetic force field, </li>
+                <li> <m>\rho</m> is the scalar charge density, </li>
+                <li> <m>\mb{J} = J_x \partial_x +  J_y \partial_y + J_z \partial_z</m> is a current density field.</li>
+            </ol>
+            One can consider <m>\mb{J}</m> as a weighted velocity field and indeed it is defined as the product of the velocity field of the particles and the charge density <m>\rho</m>. Then the Maxwell's (differential) equations in Gaussian units are 
+            <table>
+                    <title> Differential Maxwell's Equations</title>
+                    <tabular halign="center">
+                      <row header="yes" bottom="minor" >
+                        <cell>Equation </cell>
+                        <cell>Name</cell>
+                      </row>
+                      <row>
+                        <cell><m>\text{div} (\mb{E} ) = 4 \pi \rho </m></cell>
+                        <cell><m>\text{(Gauss's law)}</m> </cell>
+                      </row>
+                      <row>
+                        <cell><m>\text{div} (\mb{B} ) = 0</m></cell>
+                        <cell><m>\text{(Gauss's law for magnetism)}</m></cell>
+                      </row>
+                      <row>
+                        <cell><m>\text{curl} (\mb{E} ) = -\frac{1}{c} \frac{\partial \mb{B}}{\partial t}</m></cell>
+                        <cell><m>\text{(Maxwell-Faraday equation)}</m></cell>
+                      </row>
+                      <row>
+                        <cell><m>\text{curl} (\mb{B} ) = \frac{1}{c} \left( 4 \pi \mb{J} +  \frac{\partial \mb{E}}{\partial t} \right)</m></cell>
+                        <cell><m>\text{(Amp\`ere's circuital law)}</m></cell>
+                        <cell><m>3</m></cell>
+                    </row>
+                    </tabular>
+            </table>
+            One major application is the following.</p>
+
+            <example>
+                <title>Generating electric current</title>
+                <statement>
+                    <p>A magnet moving through an enclosed circular wire <m>\mathcal{C}</m> in three dimensional space will induce a changing magnetic field. Indeed, we can see that moving a magnet from below and through <m>\mathcal{C}</m> will result in a time varying positive flux (depending on the direction). Letting <m>S</m> be the disc with boundary <m>\mathcal{C}</m> and using the Maxwell-Faraday equation and the classical Stokes' Theorem we see
+                        <md>
+                            <mrow> \frac{d}{dt} \text{Magnetic Flux through } S \amp =  \frac{d}{dt} \iint_S \mb{B} \cdot \tder{}{\mb{S}}, </mrow>
+                            <mrow> \amp =  - c \left( \iint_S - \frac{1}{c}  \frac{\partial \mb{B}}{\partial t} \cdot \tder{}{\mb{S}} \right), </mrow>
+                            <mrow> \amp =   - c \left(\iint_S \text{curl} (\mb{E} ) \cdot \tder{}{\mb{S}} \right), </mrow>
+                            <mrow> \amp =  - c \left(\oint_\mathcal{C} \mb{E} \cdot \tder{}{\mb{r}} \right) ,</mrow>
+                            <mrow> \amp = -c (\text{Electric work along }\mathcal{C}).</mrow>
+                        </md>
+                        This means that the act of moving a magnet through the interior wire will create a current along the wire. This fact is what many generators of electricity are based on.</p>
+                </statement>
+            </example>
+
+            <p>Now, let us make a very intriguing and strange sounding assumption:
+            <me>
+                \text{Assumption:  There are no <term> magnetic monopoles</term>.}
+            </me>
+            If you have ever played with a pair of magnets, you will notice that, when held up to each other, they either connect and hold together or repel and re-orient themselves. That's because magnets seem to always come as a dipole. The mathematical way of saying this is that the total flux of the magnetic field through any oriented surface is zero (i.e. there is just as much of the magnetic field coming in as going out). Alternatively, we may say that <m>\mb{B}</m> is <em>surface independent</em> as in <xref ref="prop-surfaceindependent"/>. We saw in <xref ref="prop-vectorpotential"/> that this property is equivalent to the existence of a vector potential <m>\mb{A}</m> called the <term>magnetic potential</term> where
+            <me>
+                \text{curl} ( \mb{A} )  = \mb{B}.
+            </me>
+            In fact, there is nothing in Maxwell's equations that assures us of this, but no human has ever confirmed anything to contradict it!</p>
+
+            <p>Note that with such a magnetic potential, we have that 
+            <me>
+                \text{curl} \left(\frac{\partial \mb{A}}{\partial t} \right) = \frac{\partial }{\partial t}\text{curl} \left( \mb{A} \right) = \frac{\partial \mb{B}}{\partial t} = - c \, \,  \text{curl} (\mb{E} ).
+            </me>
+            So we have that
+            <me>
+                \text{curl} \left( \mb{E} + \frac{1}{c} \frac{\partial \mb{A}}{\partial t} \right) = \mb{0}
+            </me>
+            or that 
+            <me>
+                -\mb{E} - \frac{1}{c} \frac{\partial \mb{A}}{\partial t}
+            </me>
+            satisfies the cross-partials test. Thus, assuming the region that the field is defined on is simply connected, we have that this vector field is conservative and there is a potential <m>\varphi</m> satisfying
+            <me>
+                \nabla \varphi = -\mb{E} - \frac{1}{c} \frac{\partial \mb{A}}{\partial t}.
+            </me>
+            This scalar potential <m>\varphi</m> is called the <term>electric potential</term>. </p>
+
+            <p>In fact, while classical mechanics places the emphasis on force fields and views it as the sole determining factor of the physics of a particle, quantum mechanics shows that the magnetic potential <m>\mb{A}</m> and electric potential <m>\varphi</m> will effect a particle even when <m>\mb{E} = \mb{0} = \mb{B}</m> (see the Aharonov-Bohm effect). These effects have been confirmed by experiments. Such real world phenomena gives more reasons  to obtain a deeper understanding of differential forms and higher dimensional integrals!</p>
+
+            <p>Perhaps unsurprisingly, we may repackage the entire subject in a far more efficient way using differential forms.</p>
+
+            <definition xml:id="def-faraday">         
+                <notation>             
+                    <usage><m>F</m></usage>             
+                    <description>Faraday tensor</description>         
+                </notation>         
+                <statement>
+                    <p>The Faraday tensor is the differential <m>2</m>-form
+                        <md>
+                            <mrow> F \amp = c \, {E_x}  \tder{}{x} \wedge \tder{}{t} + c \, {E_y} \tder{}{y} \wedge \tder{}{t} + c \, {E_z} \tder{}{z} \wedge \tder{}{t} + \cdots, </mrow>
+                            <mrow> \amp \cdots +   {B_x}\tder{}{y} \wedge \tder{}{z}  + {B_y}\tder{}{z} \wedge \tder{}{x} + {B_z}\tder{}{x} \wedge \tder{}{y}.</mrow>
+                        </md>
+                        The <m>4</m>-current density is the differential <m>1</m>-form
+                        <me>
+                            J = -J_x \tder{}{x}  - J_y \tder{}{y} - J_z \tder{}{z} + \rho \, \tder{}{t} 
+                        </me>
+                        and the four potential is
+                        <me>
+                            A  = A_x \tder{}{x}  + A_y \tder{}{y} + A_z \tder{}{z} - c \, \varphi \,  \tder{}{t} 
+                        </me></p>
+                </statement>
+            </definition>
+
+            <p>Then, as an exercise, the student can verify the following updated statement.</p>
+
+            <proposition xml:id="prop-maxdiff">
+                <statement>
+                    <p>Maxwell's equations are equivalent to 
+                        <men xml:id="eq-max1">
+                            \tder{}{F} = 0,
+                        </men>
+                        <men xml:id="eq-max2">
+                            \star \, \tder{}{} \star F =  J.
+                        </men>
+                        Furthermore, the four potential shows that <m>F</m> is an exact two form with 
+                        <men xml:id="eq-pot1">
+                            \tder{}{A} \amp = F.
+                        </men></p>
+                </statement>
+            </proposition>
+
+            <p>Equation <xref ref="eq-max2"/> in Maxwell's equations must be performed with the correct Hodge star. Indeed, recall that the Hodge star depends on a (possibly varying) metric on the background space. In space-time, this metric is the Lorentz metric and, in fact, not quite a metric in our sense since it is not positive definite. However, one can still do everything in the same way with the Hodge star using this metric and the equation <xref ref="eq-max2"/> follows formally.</p>
+
+            <p>We note that the vacuum case of these equations is when <m>J = 0</m>. In such a case, Maxwell's equations are the same as saying that <m>F</m> is a harmonic <m>2</m>-form. This involves generalizing the Laplace-Beltrami operator <m>\Delta</m> to one on differential forms and then Maxwell's four equations can be written as exactly one equation
+            <me>
+                \Delta F = 0.
+            </me></p>
+
+        </subsection>
+
+        <subsection xml:id="subsec-contour-integrals">
+            <title>Contour integrals</title>
+            <p>Let us now abandon the four dimensional universe and return to the comfort of two dimensions. Recall that in <xref ref="exercise-holomorphic"/> that there were some very special properties of vector fields that were both solenoidal and conservative on a domain <m>U \subseteq \mathbb{R}^2</m>. Let us take such a vector field 
+            <me>
+                \mb{F} = P \, \partial_x + Q \, \partial_y
+            </me>
+            and convert it into a complex function <m>f: U \to \mathbb{C}</m> so that for <m>(x,y) \in U</m> we write <m>z = x + iy</m> and define
+            <me>
+                f (z) = f (x + iy ) = P (x, y) - i Q (x,y).
+            </me></p>
+
+            <definition xml:id="def-holomorphic">         
+                <notation>             
+                    <usage><m>f(z)</m></usage>             
+                    <description>Holomorphic function</description>         
+                </notation>         
+                <statement>
+                    <p>The function <m>f(z)</m> is called holomorphic at <m>z</m> if it arises from <m>\mb{F}</m> where <m>\mb{F}</m> is solenoidal and satisfies the cross-partials test.</p>
+                </statement>
+            </definition>
+
+            <p>Notice that we have not really done anything here, just rewritten the vector field as a complex valued function. Now we think of <m>U</m> as a subset of <m>\mathbb{C}</m> and consider a path in <m>U</m> paramaterized by <m>\gamma : [a, b] \to U</m> and defined as
+            <me>
+                \gamma (t) = x(t) + i \, y (t).
+            </me>
+            The interesting new feature of working in the complex numbers is that we now have the operation of multiplication. So we can make sense of the following notion.</p>
+
+            <definition xml:id="def-contour-integral">         
+                <notation>             
+                    <usage><m> \int_\gamma f(z) \, \tder{}{z} </m></usage>             
+                    <description>Contour integral </description>         
+                </notation>         
+                <statement>
+                    <p>The <term>contour integral</term> of <m>f(z)</m> over <m>\gamma</m> is the complex valued integral
+                    <me>
+                        \int_\gamma f(z) \, \tder{}{z} = \int_a^b f( \gamma (t)) \gamma^\prime (t) \, \tder{}{t}.
+                    </me></p>
+                </statement>
+            </definition>
+
+            <p>Note that the integral on the right is the basic one variable vector valued integral of the function <m>f( \gamma (t)) \gamma^\prime (t)</m> from <m>[a, b]</m> to <m>\mathbb{C}</m> and does not involve anything fancy. However, let us unpack this integral by multiplying everything out to see
+            <md>
+                <mrow> \int_\gamma f(z) \, \tder{}{z} \amp = \int_a^b f( \gamma (t)) \gamma^\prime (t) \, \tder{}{t}, </mrow>
+                <mrow> \amp = \int_a^b \left(P( \gamma (t)) - i Q (\gamma (t)) \right) \left(x^\prime (t) + i y^\prime (t) \right) \, \tder{}{t}, </mrow>
+                <mrow> \amp = \int_a^b \left[ P( \gamma (t))\, x^\prime (t) + Q (\gamma (t) )\, y^\prime (t) \right] + i \left[ P( \gamma (t))\, y^\prime (t) - Q (\gamma (t) )\, x^\prime (t) \right] \, \tder{}{t}, </mrow>
+                <mrow> \amp = \int_\gamma \mb{F} \cdot \tder{}{\mb{r}} + i \int_{\gamma} \mb{F} \cdot \tder{}{\mb{n}}. </mrow>
+            </md>
+            Somehow, just by writing our vector field as a complex valued function and using complex multiplication, we were able to simultaneously express the vector and vector flux integrals of a given field as the real and imaginary parts of a single integral! </p>
+
+            <p>This is all well and good, but we actually have not used the assumption that <m>\mb{F}</m> was solenoidal and passed the cross-partials test. When this happens, we have the following very nice corollary of our Green's Theorems.</p>
+
+            <corollary xml:id="cor-contourint">
+                <statement>
+                    <p>The contour integral of a holomorphic function <m>f(z)</m> depends only on the path <m>\gamma</m> up to deformation so long as the endpoints are fixed. If <m>\gamma</m> is a closed curve and bounds a region where <m>f(z)</m> is holomorphic, then its contour integral is zero.</p>
+                </statement>
+            </corollary>
+
+            <p>What the first statement means is that two different paths which bound the image of a disc must have the same contour integral. Let us look at an example and then apply this important fact.</p>
+
+            <example>
+                <title>Computing a residue</title>
+                <statement>
+                    <p>Let <m>\lambda</m> be a complex number and consider the function
+                        <me>
+                        f(z) = \frac{1}{(z - \lambda)^n}.
+                        </me>
+                        Consider a loop around <m>\lambda</m> given by 
+                        <me>
+                        \gamma (t) = \lambda + e^{i t}
+                        </me>
+                        for <m>0 \leq t \leq 2\pi</m>. Then from our work on differential equations, we have 
+                        <me>
+                        \gamma^\prime (t) = i e^{i t}
+                        </me>
+                        so that 
+                    <md>
+                        <mrow> \int_{\gamma} f(z) \, \tder{}{z} \amp = \int_0^{2\pi} i e^{(1 - n) i t} \, \tder{}{t}, </mrow>
+                        <mrow> \amp = \begin{cases} {2\pi i} \amp \text{ if } n = 1, \\ 0 \amp \text{ otherwise.} \end{cases} </mrow>
+                    </md>
+                    Note that this result includes both positive and negative integer values of <m>n</m>.</p>
+                </statement>
+            </example>
+
+            <p>To make an even more interesting (and useful) example, we must adopt a few results from complex analysis. Most importantly, the existence of a Taylor's Theorem. To state it, we note that the complex derivative of a function <m>g(z)</m> is given by
+            <me>
+                g^\prime (z) = \frac{d}{dz} g(z) = \frac{\partial}{\partial x} g(z) + i \frac{\partial}{\partial y} g(z).
+            </me>
+            This  definition agrees with our expectations of the derivative in that <m>\frac{d}{dz} z^n = n z^{n - 1}</m>, <m>(fg)^\prime = f^\prime g + f g^\prime</m>, and so forth.</p>
+
+            <theorem xml:id="thm-holomorphic">
+                <title>Holomorphic functions are analytic</title>
+                <statement>
+                    <p>Suppose <m>g(z)</m> is holomorphic in a disc around <m>\lambda</m>. Then there is a positive constant <m>r</m> for which, if <m>|z - \lambda | \lt r</m>, 
+                        <md>
+                            <mrow> g(z) \amp = g(\lambda) + g^\prime (\lambda ) (z - \lambda ) + \frac{g^{\prime \prime} (\lambda)}{2} (z - \lambda)^2 + \cdots </mrow>
+                            <mrow> \amp = \sum_{n = 0}^\infty \frac{g^{(n)} (\lambda ) }{n!} (z - \lambda )^n. </mrow>
+                        </md></p>
+                </statement>
+            </theorem>
+
+            <p>By far the most surprising part of this last statement is that <m>r</m>, called the radius of convergence, is strictly positive (which is not always true for smooth real functions).  The convergence of this series relies on the usual notion of limit in <m>\mathbb{C} = \mathbb{R}^2</m>. We use this in the next example.</p>
+
+            <example>
+                <title>Contour integral of rational functions</title>
+                <statement>
+                    <p>Here let's consider the example where <m>f(z)</m> is a complex rational function
+                        <me>
+                            f(z) = \frac{p(z)}{q(z)}.
+                        </me>
+                        Here <m>p(z)</m> and <m>q(z)</m> are polynomials in the complex variable <m>z</m>. Now, we refer to <xref ref="exercise-holomorphicrat"/> where it is shown that <m>f(z)</m> is holomorphic.
+                        If you look back in your notes to the first section, you'll see the Fundamental Theorem of Algebra which states that a non-constant polynomial always has a root. In particular, if <m>\lambda</m> is a root of <m>q(z)</m>, we can divide by a large enough power to see
+                        <me>
+                        q(z) = (z - \lambda)^m g(z)
+                        </me>
+                        where <m>g(z)</m> is a polynomial and <m>g(\lambda ) \ne 0</m>. But then 
+                        <me>
+                        f(z) = \frac{1}{(z - \lambda)^m} \frac{p(z)}{g(z)}
+                        </me>
+                        and <m>h (z) = \frac{p(z)}{g(z)}</m> is holomorphic at <m>\lambda</m>. This means there is a Taylor series for <m>h(z)</m> at <m>\lambda</m> so that
+                        <md>
+                            <mrow> f(z) \amp = \frac{1}{(z - \lambda)^m}\sum_{n = 0}^\infty \frac{h^{(n)} (\lambda ) }{n!} (z - \lambda )^n, </mrow>
+                            <mrow> \amp = \sum_{n = 0}^\infty \frac{h^{(n)} (\lambda ) }{n!} (z - \lambda )^{n - m}. </mrow>
+                        </md>
+                        Thus, if <m>\gamma</m> is a small loop around <m>\lambda</m> we can use linearity and our previous example to compute the contour integral
+                        <mdn>
+                            <mrow number="no"> \int_\gamma f(z) \, \tder{}{z} \amp =  \int_\gamma \sum_{n = 0}^\infty \frac{h^{(n)} (\lambda ) }{n!} (z - \lambda )^{n - m} \, \tder{}{z},</mrow>
+                            <mrow number="no">  \amp = \sum_{n = 0}^\infty \frac{h^{(n)} (\lambda ) }{n!} \int_\gamma (z - \lambda )^{n - m} \, \tder{}{z}, </mrow>
+                            <mrow xml:id="eq-residue"> \amp =  \frac{2 \pi h^{(m - 1)} (\lambda ) i }{(m - 1)!} </mrow>
+                        </mdn></p>
+                </statement>
+            </example>
+
+            <p>Now let us apply these computational results to make some brand new computation. </p>
+
+            <example>
+                <title>Applying contour integrals</title>
+                <statement>
+                    <p>Suppose we want to compute the integral 
+                        <me>
+                        \int_{-\infty}^{\infty} \frac{1}{(x^2 + 4)^2} \, \tder{}{x}.
+                        </me>
+                        Note that in this case, the denominator can be factored in the complex numbers as 
+                        <me>
+                        (z^2 + 4)^2 = (z + 2i)^2 (z - 2i)^2.
+                        </me>
+                        Now take <m>R \gt 2</m> and consider the <m>\gamma_R</m> going from <m>-R</m> to <m>R</m> along the <m>x</m>-axis and then along the semi-circle <m>\mathcal{C}</m> paramaterized by <m>\alpha (t) = R e^{it}</m> for <m>0 \leq t \leq \pi</m>. 
+                        The contour integral of <m>f(z) = (z^2 + 4)^{-2}</m> along <m>\gamma_R</m> breaks up as
+                        <me>
+                            \int_{\gamma_R} \frac{1}{(z^2 + 4)^2} \, \tder{}{z} = \int_{-R}^{R} \frac{1}{(x^2 + 4)^2} \, \tder{}{x} + \int_\alpha \frac{1}{(z^2 + 4)^2} \, \tder{}{z}.
+                        </me>
+                        Examining the second contour integral for large <m>R</m> gives
+                        <me>
+                            \int_\alpha \frac{1}{(z^2 + 4)^2} \, \tder{}{z} = \int_0^\pi \frac{i R e^{i t}}{(R^2 e^{2 i t} + 4)^2} \, \tder{}{t} \approx \frac{i}{R^3} \int_0^\pi e^{-3 i t} \,  \tder{}{t} \to 0.
+                        </me>
+                        In other words, as <m>R</m> tends to infinity, the <m>\alpha</m> contour integral tends to zero. However, the region between <m>\gamma_3</m> and <m>\gamma_R</m> for <m>R</m> large is one on which <m>f(z)</m> is always holomorphic. This means their contour integrals are equal by <xref ref="cor-contourint"/>. Furthermore, the same applies if, instead of taking <m>\gamma_3</m>, we took <m>\gamma</m> to be a small loop around <m>2 i</m>. Thus,
+                        <md>
+                            <mrow> \int_{\gamma}  \frac{1}{(z^2 + 4)^2} \, \tder{}{z} \amp = \int_{\gamma_R} \frac{1}{(z^2 + 4)^2} \, \tder{}{z}, </mrow>
+                            <mrow> \amp = \lim_{R \to \infty} \int_{\gamma_R} \frac{1}{(z^2 + 4)^2} \, \tder{}{z},  </mrow>
+                            <mrow> \amp = \int_{-\infty}^{\infty} \frac{1}{(x^2 + 4)^2} \, \tder{}{x}. </mrow>
+                        </md>
+                        So all we need is to apply equation <xref ref="eq-residue"/> to our function <m>\frac{1}{(z^2 + 4)^2}</m>. For this, we have
+                        <me>
+                        \frac{1}{(z^2 + 4)^2} = \frac{1}{(z - 2i)^2} \frac{1}{(z + 2i)^2} 
+                        </me>
+                        so that <m>h(z) = \frac{1}{(z + 2i)^2}</m> and <m>(m - 1) = 1</m>. Then
+                        <me>
+                        h^\prime (z) = \frac{-2}{(z + 2i)^3} 
+                        </me>
+                        and 
+                        <me>
+                        h^\prime (2i) = \frac{-2}{(4i)^3} = -\frac{i}{32}.
+                        </me>
+                        Applying equation <xref ref="eq-residue"/> gives
+                        <md>
+                            <mrow> \int_{-\infty}^{\infty} \frac{1}{(x^2 + 4)^2} \, \tder{}{x} \amp = \int_\gamma  \frac{1}{(z^2 + 4)^2} \, \tder{}{z}, </mrow>
+                            <mrow> \amp = \frac{2 \pi h^{(m - 1)} (2i ) i }{(m - 1)!}, </mrow>
+                            <mrow> \amp = \frac{2 \pi (-i) i }{32}, </mrow>
+                            <mrow> \amp = \frac{\pi}{16}. </mrow>
+                        </md></p>
+                </statement>
+            </example>
+
+            <p>This last computation should leave you somewhat shocked. If you take a look at your notes from a second semester of calculus, you will most likely see that actually integrating this type of rational function is not included in the section on partial fractions, even if it is one of the forms you might expect. That is because, in most of the examples, one reduces to cases where the denominator is a quadratic polynomial or a power of a linear polynomial, but in my experience, never the power of a quadratic! Nevertheless, the above technique will give you concrete numbers for such indefinite integrals (and many many more) with ease. If you enjoyed this, or are interested in exploring this subject further, take a course on complex analysis where an abundance of mathematical beauty awaits.</p>
+
+            </subsection>
+
+            <exercises xml:id="exe-applications">
+
+                <exercise>
+                    <statement>
+                        <p> Verify equations <xref ref="eq-max1"/> and <xref ref="eq-pot1"/> in <xref ref="prop-maxdiff"/>. </p>
+                    </statement>
+                </exercise>
+        
+                <exercise xml:id="exercise-holomorphicarithmetic">
+                    <introduction><p>Show the following results</p></introduction>
+                <task>
+                    <statement>
+                        <p> Verify that a constant vector field is solenoidal and satisfies the cross-partials test. </p>
+                    </statement>
+                </task>
+                <task>
+                    <statement>
+                        <p> Verify that <m>\mb{F} = x \partial_x - y \partial_y</m> is solenoidal and satisfies the cross-partials test. </p>
+                    </statement>
+                </task>
+                <task>
+                    <statement>
+                        <p> If <m>\mb{F}_1 = P_1 \partial_x + Q_1 \partial_y</m> and <m>\mb{F}_2 = P_2 \partial_x + Q_2 \partial_y</m> are both solenoidal and satisfy the cross partial tests, then so does <m>\mb{G} = (P_1 P_2 - Q_1 Q_2) \partial_x + (P_1 Q_2 + P_2 Q_1) \partial_y</m>. </p>
+                    </statement>
+                </task>
+                <task>
+                    <statement>
+                        <p> If <m>\mb{F} = P \partial_x + Q \partial_y</m> is solenoidal and satisfy the cross partial tests, then so does <me>\mb{F}_{inv} = \frac{1}{P^2 + Q^2} \left( P \partial_x - Q \partial_y \right). </me> </p>
+                    </statement>
+                </task>
+                </exercise>
+        
+                <exercise xml:id="exercise-holomorphicrat">
+                    <statement>
+                        <p>Use <xref ref="exercise-holomorphicarithmetic"/> to show that every complex rational function <m>f(z) = p(z) / q(z)</m> is holomorphic.</p>
+                    </statement>
+                </exercise>
+        
+                <exercise>
+                    <statement>
+                        <p>Use a contour integral to calculate
+                        <me>
+                            \int_{-\infty}^{\infty} \frac{1}{ (x^2 + 1)^3} \, \tder{}{x}.
+                        </me></p>
+                    </statement>
+                </exercise>
+                
+            </exercises>
+
+
+</section>

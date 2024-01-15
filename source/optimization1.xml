@@ -1,0 +1,361 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-optimization1">
+    <title>Optimization without constraints</title>
+    <introduction>
+    <p>The methods of the last section allow us to find local minima and maxima, but often we are interested in finding a global maximum and minimum. As it turns out, the methods used to find such extreme points depends heavily on the type of domain you are working with. 
+    </p>
+    </introduction>
+
+    <subsection xml:id="subsec-global-extrema">
+        <title>Global extrema</title>
+        <p>The first question one should ask before looking for such points (and values) is whether such extrema exist at all. Happily, there is a multivariable generalization of the one variable Extreme Value Theorem. We prove this theorem up to some standard analytical results which are cited.</p>
+
+        <theorem xml:id="thm-extremevaluetheorem">
+            <title>Extreme Value Theorem</title>
+            <statement>
+                <p> Suppose <m>D</m> is a closed and bounded domain in <m>\mathbb{R}^m</m> and <m>f : D \to \mathbb{R}</m> is a continuous scalar function. Then there exists points <m>p</m> and <m>q</m> in <m>D</m> such that for all <m>\mb{x} \in D</m>,
+                <me>
+                    f(p ) \leq f(\mb{x}) \leq f (q).
+                </me></p>
+            </statement>
+            <proof>
+                <p>The key result we need is that closed and bounded domains satisfy the property of being <term>compact</term> (this fact is the Heine-Borel Theorem). Compactness of a set can be defined in a few ways, but we will use the following characterization: any sequence of points <m>\{p_i\}_{i \in \mathbb{N}}</m> in <m>D</m> will have a convergent subsequence <m>\{p_{i_j}\}_{j \in \mathbb{N}}</m>. Now if <m>L_{max}</m> and <m>L_{min}</m> are the least upper and greatest lower bounds of <m>f(D)</m> (allowing <m>\pm \infty</m> as well). Then we can find a sequence <m>\{p_i\}_{i \in \mathbb{N}}</m> and <m>\{q_i \}_{i \in \mathbb{N}}</m> for which 
+                <md>
+                    <mrow> \lim_{i \to \infty} f ( p_i ) \amp = L_{min}, </mrow>
+                    <mrow> \lim_{i \to \infty} f ( q_i ) \amp = L_{max}. </mrow>
+                </md>
+                Since <m>D</m> is compact we can also choose subsequences <m>\{p_{i_j}\}_{j \in \mathbb{N}}</m> and <m>\{q_{i_j} \}_{j \in \mathbb{N}}</m> which converge to points <m>p</m> and <m>q</m>. I.e.
+                <md>
+                    <mrow> \lim_{j \to \infty} p_{i_j}  \amp = p, </mrow>
+                    <mrow> \lim_{j \to \infty} q_{i_j} \amp = q. </mrow>
+                </md>
+                Now, subsequences of convergent sequences converge to the same limit, so we still have the limits
+                <md>
+                    <mrow> \lim_{j \to \infty} f(p_{i_j})  \amp = L_{min}, </mrow>
+                    <mrow> \lim_{j \to \infty}f(q_{i_j}) \amp = L_{max}. </mrow>
+                </md>
+                But since <m>f</m> is continuous, we then obtain,
+                <md>
+                    <mrow> f(p) = f \left( \lim_{j \to \infty} p_{i_j} \right)  \amp = \lim_{j \to \infty} f(p_{i_j})   = L_{min}, </mrow>
+                    <mrow> f(q) = f \left( \lim_{j \to \infty} q_{i_j} \right)  \amp = \lim_{j \to \infty} f(q_{i_j})   = L_{max}. </mrow>
+                </md>
+                This completes the proof.</p>
+            </proof>
+        </theorem>
+
+        <p>For now, let us mention how this theorem fails if we do not satisfy the hypothesis.</p>
+
+        <example>
+            <title>Failure to obtain a global extreme value</title>
+            <statement>
+                <p>Recall that a closed domain in <m>\mathbb{R}^m</m> is a subset for which, given any point <m>q</m> <em>not</em> in <m>D</m>, there exists a ball around <m>q</m> which does not intersect <m>D</m> (alternatively, the complement of <m>D</m> is open). For example, closed balls are open and so is all of <m>\mathbb{R}^m</m>. However, a bounded domain is a domain that can be put inside a large enough ball, implying that while <m>\mathbb{R}^m</m> is closed, it is not bounded. But of course the continuous function 
+                <me>
+                    f(x_1, \ldots, x_m) = x_1
+                </me>
+                has no maximum or minimum value. So the condition that <m>D</m> be bounded is vital for the Extreme Value Theorem.
+                    
+                On the other hand, if we take the closed ball <m>B = \{ (x,y,z) : x^2 + y^2 + z^2 \leq 1\}</m> and puncture the center to get <m>D = B - \{(0, 0, 0)\}</m>, we have a bounded but no longer closed set. The function
+                <me>
+                    f(x,y,z) = \frac{1}{x^2 + y^2 + z^2} 
+                </me>
+                has no maximum value on this set, but is continuous. So again, the closed condition is vital to guarantee that a global minimum and maximum exist.</p>
+            </statement>
+        </example>
+
+        <p>While it is important to understand that there may not exist a global maximum or minimum for functions on certain domains, often they may exist and we can use our prior results to find good candidates for them. Suppose <m>U</m> is an open domain in <m>\mathbb{R}^m</m> and <m>f: U \to \mathbb{R}</m> is a function. To find <em>possible</em> extreme values, we follow the instructions:</p>
+
+        <p><ol>
+            <li> Find critical points of <m>f (x_1, \ldots, x_m)</m>,</li>
+            <li> Identify local minima and maxima,</li>
+            <li> Evaluate <m>f</m> at all of these points,</li>
+            <li> Examine boundary or asymptotic behavior of <m>f</m> to see if it exceeds the candidate extremes. </li>
+        </ol></p>
+
+        <p>Note that if we only find saddle points at step (3), we can conclude that no global extremes for <m>f</m> exist on <m>U</m> because a global extreme must also be a local extreme. The last item in our instruction set may prove to be fairly difficult, depending on the domain and function <m>f</m>. However, we illustrate this simple technique in a few examples.</p>
+
+        <example>
+            <title>Optimization I</title>
+            <statement>
+                <p>Let 
+                    <me>
+                    f (x,y) = x^2 + y^2 - 2x - 2y + 2.
+                    </me>
+                    For our first step, we set <m>\nabla f</m> to zero and find all solutions. In this case we have
+                    <me>
+                        \tangtwo{2x -2}{2 y - 2} = \tangtwo{0}{0}.
+                    </me>
+                    The only solution to this equation is the point <m>(1,1)</m>. For the second step, we find the Hessian to be 
+                    <me>
+                    \text{Hess} f = \left[ \begin{matrix} 2 \amp 0 \\ 0 \amp 2 \end{matrix} \right]
+                    </me>
+                    which is certainly positive definite. Thus <m>(1,1)</m> is a local minimum with value <m>f(1,1) = 0</m>. Now, we can observe that there is no global max of <m>f(x,y)</m> (for certainly it would also be a local maximum as well). Furthermore, as <m>(x,y)</m> becomes large, one can see that <m>f</m> also increases, so <m>(1,1)</m> is a global min as well.</p>
+
+                    <p>Of course, in this case we could re-express our function as 
+                    <me>
+                        f(x,y) = (x - 1)^2 + ( y - 1)^2
+                    </me>
+                    and come to the same conclusion more quickly, but at least we verify here that our instruction set works.</p>
+            </statement>
+        </example>
+
+        <example>
+            <title>Optimization II</title>
+            <statement>
+                <p>Let 
+                    <me>
+                    f (x,y) = x^2 y^3 - 2x - 3y.
+                    </me>
+                    Again, our first step is to set <m>\nabla f</m> to zero and find all solutions. In this case we have
+                    <me>
+                        \tangtwo{2x y^3 -2}{3y^2 x^2 - 3}  = \tangtwo{0}{0}.
+                    </me>
+                    Solving the equation for the first coordinate gives that <m>x = y^{-3}</m> which expresses <m>x</m> in terms of <m>y</m>. We use this in the second equation to see that 
+                    <me>
+                    1 = y^2 x^2 = y^2 (y^{-3})^2 = y^{-4}.
+                    </me>
+                    The only real solutions for <m>y</m> are then <m>y = \pm 1</m> which means that <m>(1,1)</m> and <m>(-1, -1)</m> are the only critical points of <m>f(x,y)</m>. 
+                    
+                    For the second step, we find the Hessian to be 
+                    <me>
+                    \text{Hess} f = \left[ \begin{matrix} 2 y^3 \amp 6 x y^2 \\ 6x y^2 \amp 6x^2 y \end{matrix} \right]
+                    </me>
+                    Evaluating at the critical point <m>(-1, -1)</m> gives 
+                    <me>
+                    \text{Hess}_{(-1, -1 )} f = \left[ \begin{matrix} -2 \amp -6  \\ -6 \amp -6 \end{matrix} \right]
+                    </me>
+                    The determinant of this matrix is negative which implies that <m>(-1, -1)</m> is a saddle point (see <xref ref="exercise-2dsecondderivativetest"/> ).</p>
+
+                    <p>Evaluating at the critical point <m>(1, 1)</m> gives 
+                        <me>
+                        \text{Hess}_{(-1, -1 )} f = \left[ \begin{matrix} 2 \amp 6  \\ 6 \amp 6 \end{matrix} \right]
+                        </me>
+                        The determinant of this matrix is again negative which implies that <m>(1, 1)</m> is also saddle point. So in this example, there is no global maximum or global minimum for our function.</p>
+            </statement>
+        </example>
+
+        <p>While it is useful in some circumstances to optimize functions of two or three variables, many important applications involve optimizing with many variables.</p>
+
+    </subsection>
+
+    <subsection xml:id="subsec-least-squares">
+        <title>Least Squares</title>
+        <p>Suppose we several data points <m>S \subset \mathbb{R}^m</m> and associated values <m>y</m> which depend on <m>\mb{X}</m> in <m>S</m>. In other words, to each <m>\mb{X}_i</m> we have an observed value <m>y_i</m>. In such a situation, one may wish to define an affine function
+        <me>
+            f_{\mb{a}, b} (x_1, \ldots, x_m) = a_1 x_1 + \cdots + a_m x_m + b
+        </me>
+        which best the <m>y</m> value of as a function of the <sq>data space</sq>. Here <m>\mb{a}</m> is the vector of coefficients and <m>b</m> is the constant value.</p>
+
+        <p>Now, given a data point <m>\mb{X}_i</m> with value <m>y_i</m> we may also apply <m>f_{\mb{a}, b}</m> to obtain <m>f_{\mb{a}, b} (\mb{X}_i) = \hat{y}_i</m>. Thus <m>y_i</m> is the observed value  while <m>\hat{y}_i</m> is the value predicted by the function. The difference
+        <me>
+             y_i - \hat{y}_i
+        </me>
+        is called the <m>i</m>-th residual. Of course, if all of these residuals are zero, then our function perfectly predicts observations. In general, this is a fantasy and will not happen. So the best we can do is try and minimize the absolute value of these residuals. This can be accomplished by minimizing the sum of their squares which is the function
+        <me>
+            W(a_1, \ldots, a_m, b) = \sum_{\mb{X}_i \in S} \left( \hat{y}_i  - y_i \right)^2 = \sum_{\mb{X}_i \in S} \left( f_{\mb{a}, b} (\mb{X}_i )  - y_i \right)^2.
+        </me>
+        Now, let us assume that there are <m>N</m> data points. We can consider the row column vector <m>\mb{y} \in \mathbb{R}^N</m> whose <m>i</m>-th coordinate is the <m>i</m>-th observed value <m>y_i</m>. I.e.
+        <me>
+            \mb{y} = \left[ \begin{matrix} y_1 \amp \ldots \amp y_N \end{matrix} \right].
+        </me>
+        We write <m>\mb{b} \in \mathbb{R}^N</m> for the vector with <m>b</m> in every coordinate.  Write <m>\mathcal{X}</m> for the <m>m \times N</m> matrix with <m>i</m>-th column equal to <m>\mb{X}_i</m>. Explicitly, we take
+        <me>
+            \mathcal{X} = \left[ \begin{matrix} | \amp | \amp \cdots \amp | \\ \, \mb{X}_1  \amp \, \,\mb{X}_2  \amp \cdots \amp \, \,\mb{X}_N  \\ | \amp | \amp \cdots \amp | \end{matrix} \right].
+        </me>
+        Then, taking <m>\mb{a}</m> to be the row vector 
+        <me>
+            \mb{a} = \left[ \begin{matrix}a_1 \amp \ldots \amp a_m \end{matrix} \right].
+        </me>
+        in <m>\mathbb{R}^m</m>, we may rewrite our function <m>W</m> as follows
+        <md>
+            <mrow>  W(a_1, \ldots, a_m, b) \amp = \| \mb{a} \,\mathcal{X}  + \mb{b} - \mb{y} \|^2,</mrow>
+            <mrow>  \amp = \left( \mb{a} \,\mathcal{X}  + \mb{b} - \mb{y} \right) \cdot \left(  \mb{a}\, \mathcal{X} + \mb{b} - \mb{y} \right).</mrow>
+        </md>
+        We are interested in this formulation because it allows us to apply our optimization strategy on the defining constants <m>a_i</m> and <m>b</m> of <m>f</m>. First, using the product rule on the dot product, we take the partial with respect to <m>b</m> to see that 
+        <md>
+            <mrow>  \frac{\partial W}{\partial b} \amp  = 2 \left[ \begin{matrix} 1 \amp 1\amp \cdots \amp 1 \end{matrix} \right]  \cdot \left( \mb{a}\, \mathcal{X}  + \mb{b} - \mb{y} \right),</mrow>
+            <mrow> \amp =  2 \left( N \mb{a}\, \mb{\mu}  + N b - N y_{av} \right).</mrow>
+        </md>
+        Here <m>\mb{\mu}</m> is the average of <m>\mb{X}_i</m> and <m>\bar{y}</m> is the average of the observed values <m>y_i</m>. Setting this equal to zero and dividing by <m>2N</m> gives 
+        <me>
+            b = \bar{y} - \mb{a} \, \mb{\mu} .
+        </me>
+        With this value of <m>b</m>, we may rewrite <m>W</m> as 
+        <me>
+            W(a_1, \ldots, a_m, b) = \| \mb{a}\, \mathcal{S}  - \tilde{\mb{y}}  \|^2,
+        </me>
+        where <m>\mathcal{S}</m> replaces each column <m>\mb{X}_i</m> with the column <m>\mb{X}_i - \mb{\mu}</m> and <m>\tilde{\mb{y}}</m> likewise shifts each observed value by subtracting the average.</p>
+
+        <p>Using this, we can more easily compute the <m>a_i</m> partial derivative
+        <md>
+            <mrow>  \frac{\partial W}{\partial a_i} \amp  = 2 \left( \mb{e}_i \,\mathcal{S}  \right) \cdot \left( \mb{a}\, \mathcal{S}  - \tilde{\mb{y}}  \right),</mrow>
+            <mrow>  \amp = 2 \mb{e}_i  \left[ \left(\mathcal{S} \mathcal{S}^T \right) \mb{a}^T  - \mathcal{S}^T \tilde{\mb{y}}  \right] .</mrow>
+        </md>
+        Since we must have this equal to zero for each <m>1 \leq i \leq m</m> we obtain the single matrix equation
+        <men xml:id="eq-leastsquares1">
+           \left( \mathcal{S} \mathcal{S}^T \right) \mb{a}^T  = \mathcal{S}^T \tilde{\mb{y}}.
+        </men>
+        Now, if we divide both sides by <m>N</m>, and recall the definition of the covariance matrix <m>\mathbf{\Sigma}</m>, we see that this equation is 
+        <men xml:id="eq-leastsquares2">
+            \mathbf{\Sigma} \, \mb{a}^T = \text{Cov} (  \mathbf{X}, y).
+        </men>
+        Here we take <m>\text{Cov} (  \mathbf{X}, y)</m> to be the right hand side of equation <xref ref="eq-leastsquares1"/> divided by <m>N</m>. This is the vector of covariances of the coordinates of <m>\mathbf{X}</m> and the observed value <m>y</m> (although this is a bit non-standard as it is mixing a vector random variable with a scalar random variable. In general, one will create a larger covariance matrix to encode this vector). </p>
+            
+        <p>Now, as was pointed out during the discussion on the covariance matrix, most data sets will have a positive definite (not just semi-definite) covariance matrix, so that <m>\mathbf{\Sigma}</m> is invertible. This means that equation <xref ref="eq-leastsquares1"/> has a unique solution
+        <men xml:id="eq-leastsquares3">
+            \mb{a}^T = \mathbf{\Sigma}^{-1} \,\textnormal{Cov} (  \mathbf{X}, y).
+        </men></p>
+
+        <example>
+            <title>Best fit line</title>
+            <statement>
+                <p>The most common application of the above procedure (by far) is to use least squares to find the best fit line (the case of <m>m =1</m>). In this case, the covariance matrix is simply the variance of the data points <m>S = \left\{ x_1, \ldots, x_N \right\}</m> in <m>\mathbb{R}</m> and <m>\text{Cov} (\mathbf{X}, y)</m> is the usual covariance between two random variables <m>x</m> and <m>y</m>. Of course, here, we are looking for the affine function
+                <me>
+                    f_{a, b} (x) = a x + b
+                </me>
+                which is more commonly written in slope intercept form
+                <me>
+                    f(x ) = m x + b.
+                </me>
+                Then, letting <m>\bar{x}</m> and <m>\bar{y}</m> be the means of our data set and observed values respectively, our formulas for <m>\mb{a}</m> and <m>b</m> reduce to 
+                <mdn xml:id="eq-leastsquares4">
+                    <mrow> m \amp =  \frac{ (x_1 - \bar{x} ) (y_1 - \bar{y}) + \cdots + (x_N - \bar{x} ) (y_N - \bar{y})}{(x_1 - \bar{x} )^2 + \cdots + (x_N - \bar{x} )^2}, </mrow>
+                    <mrow> b \amp = \bar{y} - m \bar{x}. </mrow>
+                </mdn></p>
+            </statement>
+        </example>
+    
+    </subsection>
+
+    <subsection xml:id="subsec-gradient-descent">
+        <title>Gradient descent</title>
+        <p>A neural network can be tasked with learning a particular function <m>h_{\theta} : U \to \mathbb{R}</m> which is defined using parameters <m>\theta = (\theta_1, \ldots, \theta_r)</m>. The goal is to find the function that best predicts an outcome of observed values <m>y</m> for a data point <m>\mb{X}</m> in <m>U \subset \mathbb{R}^m</m>. Thus the program aims to find the parameters <m>\theta</m> which define the best possible function <m>h_\theta</m>. A key ingredient in accomplishing this is the \textbf{cost function}
+        <me>
+            J (\theta ) := \frac{1}{2m} \sum_{j = 1}^m \left( h_\theta (\mb{X}_j ) - y_j \right)^2.
+        </me>
+        Here there are <m>m</m> data points <m>\mb{X}_1, \ldots, \mb{X}_m</m> with values <m>y_1, \ldots y_m</m>. This is a version of a least squares approximation (but now <m>h_\theta</m> is not necessarily linear). Now, taking partials of <m>J</m> with respect to <m>\theta</m> gives
+        <me>
+            \frac{\partial J}{\partial \theta_i} =   \frac{1}{m} \sum_{j = 1}^m \frac{\partial h_{\theta}}{\partial \theta_i} (\mb{X}_j)  \left( h_\theta (\mb{X}_j ) - y_j \right).
+        </me>
+        Note that the term <m> h_\theta (\mb{X}_j ) - y_j</m> is just the negative of the <m>j</m>-th residual in the model. Now, for many types of functions <m>h_\theta</m>, the <m>i</m>-th partial can be computed and expressed easily in terms of the data points <m>\mb{X}</m> and parameters <m>\theta</m>. In such a case, one can explicitly compute the negative gradient field 
+        <me>
+            - \nabla J
+        </me>
+        at a point <m>\theta</m>.</p>
+
+        <p>Now, the point of the neural network is to minimize cost, so moving in the <m>\theta</m> parameter space by a multiple of <m>- \nabla J</m> should give a more accurate version of <m>h_\theta</m>. In other words, our neural network can adjust its old parameters <m>\theta_{old}</m> to 
+        <me>
+            \theta_{new} =  \theta_{old} - \alpha \nabla J. 
+        </me>
+        The scaling factor <m>\alpha</m> is called the <term>learning rate</term> and can be chosen too large (in which case <m>J</m> overshoots a minimum) or too small (in which case <m>J</m> approaches a minimum very slowly). </p>
+
+    </subsection>
+
+    <exercises xml:id="exe-optimization1">
+
+        <exercise>
+            <statement>
+                <p> Give an example of a differentiable function on the punctured closed unit disc
+                    <me>
+                        D^* = \{ (x, y) : x^2 + y^2 \leq 1, (x, y) \ne (0, 0) \}
+                    </me>
+                    in <m>\mathbb{R}^2</m> which has a bounded range but no global maximum or minimum value. </p>
+            </statement>
+        </exercise>
+
+        
+
+
+        <exercise>
+            <introduction><p>Let 
+                <me> f(x,y) = e^{x^3 - 3x + y^2} </me></p></introduction>
+        <task>
+            <statement>
+                <p> Find all critical points of <m>f(x,y)</m>, </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p> Find candidates for minima and maxima, </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p> Find a global minimum and global maximum if it exists. Explain your response. </p>
+            </statement>
+        </task>
+        </exercise>
+
+        <exercise>
+            <introduction><p>Let 
+                <me> f(x,y) = xy - 2x^2 - 2y^2 - 1 </me></p></introduction>
+        <task>
+            <statement>
+                <p> Find all critical points of <m>f(x,y)</m>, </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p> Find candidates for minima and maxima, </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p> Find a global minimum and global maximum if it exists. Explain your response. </p>
+            </statement>
+        </task>
+        </exercise>
+
+        <exercise>
+            <introduction><p>Suppose one has the  (extremely small) data set <m>S</m> with vectors
+                <md>
+                    <mrow> \mb{X}_1 \amp =  \twovec{1}{2},  </mrow>
+                    <mrow> \mb{X}_2 \amp =  \twovec{1}{-1},</mrow>
+                    <mrow>  \mb{X}_3 \amp =  \twovec{1}{1}, </mrow>
+                    <mrow> \mb{X}_4 \amp =\twovec{-1}{2},</mrow>
+                    <mrow> \mb{X}_5 \amp =  \twovec{3}{1}. </mrow>
+                </md>
+                An experiment is run on this data set producing the values
+                
+                <md>
+                    <mrow> y_1 \amp =  -1,  </mrow>
+                    <mrow> y_2 \amp = 3, </mrow>
+                    <mrow> y_3 \amp = 1,  </mrow>
+                    <mrow> y_4 \amp = 0, </mrow>
+                    <mrow> y_5 \amp = 2. </mrow>
+                </md>
+                </p>
+            </introduction>
+        <task>
+            <statement>
+                <p> The mean of <m>S</m> is <m>\mu = \twovec{1}{1}</m>. Find the mean of <m>y</m> and compute <m>\textnormal{Cov} ( \mb{X}, y)</m>.  </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p>  Find the covariance matrix <m>\mathbf{\Sigma}</m> of <m>S</m>, </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p> Find the values <m>a_1, a_2</m> and <m>b</m> which give the affine function 
+                    <me> f (x_1, x_2) = a_1 x_1 + a_2 x_2 + b 
+                    </me>
+                    that best fits the data. </p>
+            </statement>
+        </task>
+        </exercise>
+
+        <exercise>
+            <statement>
+                <p> Suppose <m>h_\theta (x,y)</m> has the form
+                    <me>
+                    h_\theta (x,y) = e^{\theta_1 x + \theta_2}.
+                    </me>
+                    In this case, write the gradient of the cost function <m>J_\theta</m> for <m>m</m> sample points.  </p>
+            </statement>
+        </exercise>
+        
+    </exercises>
+
+</section>

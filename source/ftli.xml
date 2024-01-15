@@ -1,0 +1,291 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-ftli">
+    <title>Stokes' Theorem on curves - The Fundamental Theorem of Line Integrals</title>
+    <p>Our first application of Stokes' Theorem is for vector line integrals. First, we define a special type of vector field.</p>
+    <definition xml:id="def-conservative">         
+        <notation>             
+            <usage><m>\mb{F} = \nabla V</m></usage>             
+            <description>Conservative vector field </description>         
+        </notation>         
+        <statement>
+            <p>A vector field <m>\mb{F}</m> is called <term>conservative</term> if there exists a function <m>V</m> on the space, called a <term>potential</term> for <m>\mb{F}</m>, for which
+                <me>
+                \mb{F} = \nabla V.
+                </me></p>
+        </statement>
+    </definition>
+
+    <p>The question of whether a vector field is conservative or not may seem difficult to answer, but there is a basic test that can be made which, in some cases, is enough.</p>
+
+    <proposition xml:id="prop-crosspartial">
+        <title>Cross-partials test</title>
+        <statement>
+            <p>If <m>\mb{F} = F_1 \partial_1 + \cdots + F_n \partial_n</m> is a conservative vector field on an open subset <m>U</m> of Euclidean space <m>\mathbb{R}^n</m> then 
+                <me>
+                \frac{\partial F_i}{\partial x_j} = \frac{\partial F_j}{\partial x_i}
+                </me>
+                for all <m>1 \leq i, j \leq n</m>.</p>
+        </statement>
+        <proof> <p>Exercise.</p>
+        </proof>
+    </proposition>
+
+    <p>The converse of this proposition is not always true, as we will see in a moment. However, if we add some conditions on the domain <m>U</m>, then the converse does hold.</p>
+
+    <example>
+        <title>Conservative vector field I</title>
+        <statement>
+            <p>A vector field  like 
+                <me>
+                \mb{F} =  \left[ \begin{matrix} e^x \amp \cos y \end{matrix} \right] 
+                </me>
+                whose coordinate functions are functions only of the given coordinate is always conservative. This is because we may integrate each function individually and add them to produce a potential
+                <me>
+                V (x,y) = e^x + \sin y.
+                </me></p>
+        </statement>
+    </example>
+
+    <example>
+        <title>Conservative vector field II</title>
+        <statement>
+            <p>On the other hand, it may not be immediately clear that the vector field
+                <me>
+                    \mb{F} =  \left[ \begin{matrix} 2xy - 1 \amp  x^2  \end{matrix} \right] 
+                </me>
+                is conservative. Here, we check to see that <m>\partial_y (2x y - 1) = \partial_x (x^2)</m>. This suggests that there may be a potential (whereas if the equality did not hold, we would know for certain that the field was not conservative). Integrating the first field with respect to <m>x</m> works straightaway and produces
+                <me>
+                V (x,y) = x^2 y - x
+                </me>
+                as a potential.</p>
+        </statement>
+    </example>
+
+    <p>To prove the main theorem, we require a bit of vocabulary.</p>
+
+    <definition xml:id="def-closed-and-exact-forms">         
+        <notation>             
+            <usage><m>\tder{}{\xi} = \eta</m></usage>             
+            <description>Closed and exact forms </description>         
+        </notation>         
+        <statement>
+            <p>A differential <m>k</m>-form <m>\eta</m> is called <term>closed</term> if <m>\tder{}{\eta} = 0</m> and <term>exact</term> if there is a <m>(k - 1)</m>-form <m>\xi</m> for which <m>\tder{}{\xi} = \eta</m>. </p>
+        </statement>
+    </definition>
+
+    <p>The definition of gradient is <m>\nabla f = (\tder{}{f})^\vee</m>. So another way of saying that a vector field is conservative is to say that it is the dual of an exact <m>1</m>-form. Let us now state the main theorem.</p>
+
+    <theorem xml:id="thm-ftli">
+        <title>Fundamental Theorem of Line Integrals</title>
+        <statement>
+            <p>Suppose <m>\mathcal{C}</m> is a piecewise linear curve in <m>\mathbb{R}^n</m> oriented from <m>\mb{a}</m> to <m>\mb{b}</m> and <m>\mb{F}</m> is a conservative vector field defined on a neighborhood of <m>\mathcal{C}</m> with potential <m>V</m>. Then
+                <me>
+                    \int_{\mathcal{C}} \mb{F} \cdot \tder{}{\mb{r}} = V (\mb{b}) - V (\mb{a} ).
+                </me></p>
+        </statement>
+        <proof> <p>Now, we recall that <m>\nabla V = (\tder{}{V})^\vee</m> and <m>\tder{}{V}</m> is an exact form. Also, dualizing twice does nothing, and so using the definition of vector line integral in <xref ref="def-vectorlineintegral"/> along with Stokes' <xref ref="thm-stokes"/> we obtain
+            <md>
+                <mrow> \int_{\mathcal{C}} \mb{F} \cdot \tder{}{\mb{r}} \amp = \int_{\mathcal{C}} \mb{F}^\vee,  </mrow>
+                <mrow> \amp = \int_{\mathcal{C}} ( \nabla V)^\vee, \\ \amp = \int_{\mathcal{C}} ( (\tder{}{V})^\vee)^\vee, </mrow>
+                <mrow> \amp =  \int_{\mathcal{C}} \tder{}{V}, \\ \amp = \int_{\partial \mathcal{C}} V, </mrow>
+                <mrow> \amp = \int_{\{(\mb{b}, +)\} \cup \{(\mb{a}, -)\}} V, </mrow>
+                <mrow> \amp = V (\mb{b} ) - V( \mb{a} ). </mrow> 
+            </md></p>
+        </proof>
+    </theorem>
+
+    <p>An immediate corollary occurs here.</p>
+
+    <corollary>
+        <statement>
+            <p>If <m>\mb{F}</m> is a conservative vector field and <m>\mathcal{C}</m> is a closed oriented curve then
+            <me>
+                \oint_{\mathcal{C}} \mb{F} \cdot \tder{}{\mb{r}} = 0.
+            </me></p>
+        </statement>
+    </corollary>
+
+    <p>This follows from <xref ref="cor-closedstokes"/> and a similar argument as in the proof. It also gives us a very interesting counter-example to the converse of the cross-partials test.</p>
+
+    <example xml:id="ex-crosspartialfail">
+        <title>A non-conservative vector field</title>
+        <statement>
+            <p>Consider the vector field
+                <me>
+                \mb{F} = -\frac{y}{x^2 + y^2} \partial_x + \frac{x}{x^2 + y^2} \partial_y 
+                </me>
+                which is defined and infinitely differentiable in <m>\mathbb{R}^2</m> away from the origin. We can check that 
+                <me>
+                \frac{\partial}{\partial y} \left( -\frac{y}{x^2 + y^2} \right) = \frac{y^2 - x^2 }{(x^2 + y^2)^2} = \frac{\partial}{\partial x} \left( \frac{x}{x^2 + y^2} \right).
+                </me>
+                Thus <m>\mb{F}</m> satisfies the cross-partials test. On the other hand, If <m>\mathcal{C}</m> is the (closed) unit circle, oriented counterclockwise, then we computed in <xref ref="ex-twopilineint"/> that
+                <me>
+                \oint_{\mathcal{C}} \mb{F} \cdot \tder{}{\mb{r}} = 2 \pi.
+                </me>
+                Thus <m>\mb{F}</m> cannot be conservative even though it satisfies the cross-partials test!</p>
+        </statement>
+    </example>
+
+    <p>The last example should cause a bit of concern, because often we hope for an easy test to determine whether a given field has a potential. However, there is more to the story here. </p>
+
+    <proposition xml:id="prop-pathindependence">
+        <title>Path Independence</title>
+        <statement>
+            <p>Let <m>\mb{F}</m> be a vector field defined on an open set <m>U</m> of <m>\mathbb{R}^n</m>. Then <m>\mb{F}</m> is conservative if and only if the vector line integral 
+                <me>
+                \int_{\mathcal{C}} \mb{F} \cdot \tder{}{\mb{r}}
+                </me>
+                on a smooth connected oriented curve in <m>U</m> depends only on its initial and terminal points.</p>
+        </statement>
+        <proof> <p>If one assumes <m>\mb{F}</m> is conservative, then the fundamental theorem of line integrals immediately shows it is path independent. On the other hand, if it is path independent, for each connected component <m>W</m> of <m>U</m>, we choose a point <m>\mb{a} \in W</m> and define the function
+            <men xml:id="eq-potential">
+            V (\mb{x} ) = \int_{P (\mb{x} )} \mb{F} \cdot \tder{}{\mb{r}}
+            </men>
+            where <m>P ( \mb{x})</m> is any path from <m>\mb{a}</m> to <m>\mb{x}</m>. Showing <m>V</m> is indeed a potential for <m>\mb{F}</m> is left as an exercise.</p>
+        </proof>
+    </proposition>
+    <p>What is meant here is that if <m>\tilde{\mathcal{C}}</m> is any other connected curve in <m>U</m> with the same initial and terminal points, then 
+    <me>
+        \int_{\tilde{\mathcal{C}}} \mb{F} \cdot \tder{}{\mb{r}} = \int_{\mathcal{C}} \mb{F} \cdot \tder{}{\mb{r}}.
+    </me>
+    This property of <m>\mb{F}</m> is called <term>path independence</term>. </p>
+
+    <p>The last proposition should be thought of as a way to characterize conservative vector fields. It certainly is not something that can be verified through trial and error because you would need to calculate a vector line integral for every path between points (of which there are infinitely many). However, we can use this result to a great purpose, but we need a definition first. We call a closed curve <m>\mathcal{C}</m> a <term>simple</term> closed curve if there is a 1-1 continuous map from the circle to <m>\mathcal{C}</m>.</p>
+
+    <definition xml:id="def-simply-connected">         
+        <notation>             
+            <usage><m>E</m></usage>             
+            <description>Simply connected domain</description>         
+        </notation>         
+        <statement>
+            <p>A domain <m>E</m> in <m>\mathbb{R}^n</m> is called <term>simply connected</term> if, given any piecewise smooth simple closed curve <m>\mathcal{C}</m> in <m>E</m>, there is a smooth map from the unit disc <m>D</m> to <m>E</m> whose boundary is <m>\mathcal{C}</m>. </p>
+        </statement>
+    </definition>
+
+    <p>One should think of lassos or rubber bands when considering whether a region is simply connected. Imagine the domain <m>E</m> has a lasso thrown in it and the person wants to tighten the lasso to a point. Can they do it while keeping it in <m>E</m>? If the answer is always yes, then <m>E</m> is simply connected, otherwise, it is not. The upshot of this definition is that many domains are in fact simply connected, and when they are, we have the following very helpful result!</p>
+
+    <p>Before proving the next proposition, we make a note that the cross-partials condition on <m>\mb{F}</m> is precisely the condition that
+    <me>
+        \tder{}{\mb{F}^\vee} = \sum_{1 \leq i \lt j \leq n} \left( \frac{\partial F_j}{\partial x_i} - \frac{\partial F_i}{\partial x_j} \right) \, \tder{}{x_i} \wedge \tder{}{x_j} = 0.
+    </me>
+    Or, using our new vocabulary, that the dual <m>\mb{F}^\vee</m> is a closed <m>2</m>-form.</p>
+
+    <proposition xml:id="prop-potentialexistence">
+        <statement>
+            <p>Suppose <m>\mb{F}</m> is a vector field defined on a simply connected open set <m>U</m> of <m>\mathbb{R}^n</m>. Then <m>\mb{F}</m> is conservative if and only if it satisfies the cross-partials test.</p>
+        </statement>
+        <proof> <p>By <xref ref="prop-crosspartial"/> and <xref ref="prop-pathindependence"/> we need only show that if <m>\mb{F}</m> satisfies the cross-partials test then it is path independent. Suppose <m>C_1</m> and <m>C_2</m> are two smooth paths from <m>\mb{a}</m> to <m>\mb{b}</m> in <m>U</m>. If they intersect, we may break them up into shorter paths where they do not (or replace one of them over small intervals by a new set of paths). So let us assume they only intersect at the endpoints. Then, reversing the orientation of <m>C_2</m> we may glue these two paths together to obtain a simple oriented closed curve <m>\mathcal{C} = C_1^+ \cup C_2^{-}</m> (here the sign in the exponent indicates a change in orientation). Since <m>U</m> is simply connected, there is a smooth map  <m>\mb{G} : D \to U</m> which sends the boundary <m>S^1</m> of <m>D</m> to <m>\mathcal{C}</m>. But then, using the fact that <m>\mb{F}^\vee</m> is closed since it passes the cross-partials test and Stokes' <xref ref="thm-stokes"/> we obtain
+            <md>
+                <mrow> \int_{C_1} \mb{F} \cdot \tder{}{\mb{r}} - \int_{C_2} \mb{F} \cdot \tder{}{\mb{r}} \amp = \int_{\mathcal{C}} \mb{F} \cdot \tder{}{\mb{r}}, </mrow>
+                <mrow> \amp = \int_{\mathcal{C}} \mb{F}^\vee , </mrow>
+                <mrow> \amp = \int_{S^1} \mb{G}^* \mb{F}^\vee ,</mrow>
+                <mrow> \amp = \int_{\partial D} \mb{G}^* \mb{F}^\vee , </mrow>
+                <mrow> \amp = \int_{D} \tder{}{\left(\mb{G}^* \mb{F}^\vee \right)} , </mrow>
+                <mrow> \amp =  \int_{D} \mb{G}^*\left( \tder{}{ \mb{F}^\vee} \right), </mrow>
+                <mrow> \amp = 0. </mrow>
+            </md>
+            Thus 
+            <me>
+            \int_{C_1} \mb{F} \cdot \tder{}{\mb{r}} = \int_{C_2} \mb{F} \cdot \tder{}{\mb{r}} 
+            </me>
+            and <m>\mb{F}</m> is path independent.</p>
+        </proof>
+    </proposition>
+
+    <p>Taking another look at <xref ref="ex-crosspartialfail"/> we can identify the culprit behind why <m>\mb{F}</m> is not conservative. Namely, <m>\mb{F}</m> is defined on the punctured plane, which is not simply connected. However, changing the domain of <m>\mb{F}</m> so that it is all points in the plane except the positive <m>x</m>-axis would in fact make <m>\mb{F}</m> conservative!</p>
+
+    <exercises xml:id="exe-ftli">
+
+
+        <exercise>
+            <introduction><p>Determine if the following vector fields on <m>\mathbb{R}^3</m> are conservative. If they are, find a potential function.</p></introduction>
+        <task>
+            <statement>
+                <p> <m>\mb{F} = x \partial_x + z \partial_y + y \partial_z</m>, </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p> <m>\mb{F} = 2xyz \partial_x + xy^2 z \partial_y + xyz^2 \partial_z</m>, </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p> <m>\mb{F} = (y + z) \partial_x + (x + z) \partial_y + (x + y) \partial_z</m>. </p>
+            </statement>
+        </task>
+        </exercise>
+
+        <exercise>
+            <introduction><p>Which of the following domains are simply connected.</p></introduction>
+        <task>
+            <statement>
+                <p> The set of points in <m>\mathbb{R}^2</m> except the unit disc. </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p> The set of points on the sphere <m>x^2 + y^2 + z^2 = 1</m> in <m>\mathbb{R}^3</m>. </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p> The set of points in <m>\mathbb{R}^3</m> but not on the <m>x,y</m> or <m>z</m> axes. </p>
+            </statement>
+        </task>
+        </exercise>
+
+        <exercise>
+            <introduction><p>Give complete responses to the following questions:</p></introduction>
+        <task>
+            <statement>
+                <p> Show the gravitational vector field 
+                    <me>
+                     \mb{F} = \frac{G M m}{\left( x^2 + y^2 + z^2 \right)^{3/2}} \left[ \begin{matrix} -x \amp - y \amp - z \end{matrix} \right] </me>
+                     satisfies the cross-partials test.  </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p> Is the domain of definition of <m>\mb{F}</m> simply connected? Explain your response. </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p> Find a potential function for <m>\mb{F}</m> if it exists. </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p> Compute the work done by gravity along any path starting at the point <m>(3, 2, 1)</m> and ending at the point <m>(2, 1, 0)</m>.  </p>
+            </statement>
+        </task>
+        </exercise>
+
+        <exercise>
+            <statement>
+                <p> Prove <xref ref="prop-crosspartial"/>. </p>
+            </statement>
+        </exercise>
+
+
+        <exercise>
+            <statement>
+                <p> Show that the function <m>V</m> in equation <xref ref="eq-potential"/> is a potential for <m>\mb{F}</m>. </p>
+            </statement>
+        </exercise>
+
+        <exercise>
+            <statement>
+                <p> By exhibiting a potential, show that even though the vector field 
+                    <me>
+                    \mb{F} = -\frac{y}{x^2 + y^2} \partial_x + \frac{x}{x^2 + y^2} \partial_y 
+                    </me>
+                    on <m>\mathbb{R}^2 - \{(0,0)\}</m> is not conservative, it is indeed conservative as a vector field on <m>\mathbb{R}^2 - \{(x, 0) : x \geq 0\}</m>.  </p>
+            </statement>
+        </exercise>
+        
+    </exercises>
+
+</section>

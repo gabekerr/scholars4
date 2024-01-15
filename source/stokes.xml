@@ -1,0 +1,275 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-stokes">
+    <title>Stokes' Theorem</title>
+
+    <p>We now present one of the most beautiful theorems ever construed by humans. To state it, we first need to talk a little about smooth subspaces with boundary. The positive half-ball of radius <m>R</m> in <m>\mathbb{R}^m</m> is the subspace
+    <me>
+        H_R = \left\{ (x_1, \ldots, x_{m - 1}, x_m) : x_1^2 + \cdots + x_m^2 \lt R^2 , x_m \geq 0 \right\}.
+    </me>
+    We write <m>\partial H_R</m> for the boundary of <m>H_R</m> consisting of points <m>(x_1, \ldots, x_{m - 1}, 0)</m>. We write <m>B_R</m> for the usual open ball of radius <m>R</m> in <m>\mathbb{R}^m</m>.</p>
+
+    <definition xml:id="def-subspace-with-boundary">         
+        <notation>             
+            <usage><m>\partial X</m></usage>             
+            <description>Smooth subspace with boundary </description>         
+        </notation>         
+        <statement>
+            <p>A subset <m>X</m> of <m>\mathbb{R}^n</m> is a smooth <m>m</m>-dimensional subspace with boundary if every point <m>p</m> in <m>X</m> there is either a smooth parameterization <m>\mb{G} : B_R \to X</m> or <m>\mb{G} : H_R \to X</m> with <m>\mb{G} (\mb{0}) = p</m>. The boundary <m>\partial X</m> of <m>X</m> is the subspace of points in the images <m>\mb{G} (\partial H_R)</m> over all parameterizations from <m>H_R</m> to <m>X</m>. </p>
+        </statement>
+    </definition>
+
+    <p>Usually, there are a few other conditions for a smooth subspace with boundary, but we will not need these extra conditions for our purposes.  However, let us clarify in this case what is meant by `parameterization'. Here, we mean that <m>\mb{G}</m> is a 1-1 correspondence between either <m>H_R</m> or <m>B_R</m> and the intersection <m>U \cap X</m> where <m>U</m> is an open ball around <m>p</m>. If <m>p</m> is not a boundary point, then we can take the radius of <m>U</m> small enough that <m>\mb{G}: B_R \to X</m> is the parameterization, whereas when <m>p</m> is on the boundary, we must use <m>H_R</m> as the domain of <m>\mb{G}</m>.</p>
+
+    <p>We will also need the notion of a compatible orientation.</p>
+
+    <definition xml:id="def-oriented-boundary">         
+        <notation>             
+            <usage><m>\vol^{\partial X}</m></usage>             
+            <description>Compatibly oriented boundary </description>         
+        </notation>         
+        <statement>
+            <p>Let <m>(X, \vol^X)</m> be a smooth oriented <m>m</m>-dimensional space with boundary. Then <m>\partial X</m> has an orientation <m>\vol^{\partial X}</m> for which, if <m>\bf{n}</m> is the outward unit normal of <m>\partial X</m> along <m>\partial X</m> and <m>\nu = \bf{n}^\vee</m> is its dual, then 
+            <me>
+                \vol^X = \nu \wedge \vol^{\partial X} .
+            </me>
+            We say that <m>\partial X</m> has the boundary orientation. </p>
+        </statement>
+    </definition>
+
+    <p>Let us look at a few example to see how this works.</p>
+
+    <example>
+        <title>One dimensional subspace with boundary</title>
+        <statement>
+            <p>The most elementary example is an interval <m>[a,b]</m> in <m>\mathbb{R}</m>. The boundary, of course, is <m>\{a,b\}</m>. Let us take the standard orientation <m>\tder{}{x}</m> on <m>[a,b]</m>. We see that the outward pointing normal vector at <m>a</m> is <m>- \partial_x</m> and at <m>b</m> is <m>\partial_x</m>. The dual cotangent vectors are <m>- \tder{}{x}</m> and <m>\tder{}{x}</m> respectively, which means that the orientation of the boundary <m>\{a, b\}</m> is <m>-1</m> at <m>a</m> and <m>+1</m> at <m>b</m>. Notice that this is indeed an orientation of a <m>0</m>-dimensional subspace because the top forms are scalar functions. </p>
+        </statement>
+    </example>
+
+    <p>A more common example discussed is the following.</p>
+
+    <example>
+        <title>Two dimensional subspace with boundary I</title>
+        <statement>
+            <p>Let <m>D</m> be the closure of an open set <m>U</m> in <m>\mathbb{R}^2</m> and orient <m>D</m> with the standard orientation <m>\tder{}{x} \wedge \tder{}{y}</m>. Suppose <m>p</m> is on the boundary <m>\partial D</m>, <m>\nu</m> is the dual of the normal vector <m>\mb{n}</m> pointing outward, and <m>\mb{T}</m> is the unit tangent vector of <m>\partial D</m> positively pairs with the orientation <m>\vol^{\partial D}</m>. Since 
+                <me>
+                \vol^D = \vol^{st} = \tder{}{x} \wedge \tder{}{y}
+                </me>
+                we must have that <m>\mb{T}</m> is a <m>\pi / 2</m> counter-clockwise rotation of <m>\mb{n}</m> to ensure that <m>\vol^D = \nu \wedge \vol^{\partial D}</m>. </p>
+
+            <p>One way to remember this is to say that the orientation of the boundary is always made so that the interior is to the left of the direction of travel.</p>
+        </statement>
+    </example>
+
+    <example>
+        <title>Two dimensional subspace with boundary II</title>
+        <statement>
+            <p>For an oriented surface <m>\mathcal{S}</m> in <m>\mathbb{R}^3</m> we take <m>\mathbf{N}</m> as the normal vector to the surface inducing the orientation (so that <m>\vol^{\mathcal{S}} = \star \mathbf{N}_{\mathcal{S}}^\vee</m>). Along the boundary <m>\partial \mathcal{S}</m> there is an outward pointing normal vector field <m>\mb{n}</m> which is tangent to <m>\mathcal{S}</m> and orthogonal to <m>\mb{N}</m>. If <m>\mb{T}</m> is the oriented unit tangent field along the boundary, then <m>\{\mb{n}, \mb{T}, \mb{N}\}</m> forms the orthonormal basis (also known as a frame) of the tangent space <m>T_p \mathbb{R}^3</m> for each <m>p \in \partial \mathcal{S}</m>. The way to remember this is to imagine moving along the boundary of <m>\mathcal{S}</m> in such a way that the orientation <m>\mb{N}</m> is up and the surface <m>\mathcal{S}</m> is to your left.</p>
+        </statement>
+    </example>
+
+    <example>
+        <title>Three dimensional subspace with boundary</title>
+        <statement>
+            <p>A last example to understand is that of a region <m>R \subset \mathbb{R}^3</m> which is the closure of an open set and <m>R</m> inherits the standard orientation <m>\vol^{st} = \tder{}{x} \wedge \tder{}{y} \wedge \tder{}{z}</m>. In this case, if <m>\mb{n}</m> is the outward pointing unit normal vector to <m>\partial R</m> then it must also compatibly orient <m>\partial R</m> (i.e. <m>\mb{n} = \mb{N}</m>). This is because, by the definition of the Hodge star operator in equation <xref ref="eq-stardef"/>, we have
+            <me>
+                \mb{n}^\vee \wedge ( \star \mb{n}^\vee ) = \|\mb{n}^\vee\|^2 \vol^{st} = \vol^{st}.
+            </me></p>
+        </statement>
+    </example>
+
+    <p>Now that we know how to compatibly orient smooth boundaries, we need only one additional technical condition before we may state the main theorem. We have discussed compactness before, but not quite defined it completely, nor will we now. Instead, we give a version of compactness that works for us. We say that a smooth <m>m</m>-dimensional subspace <m>X</m> (with or without boundary) is compact, if there are a finite number of parameterizations <m>\mb{G}^h_i : H_{R_i} \to X</m> with <m>1 \leq i \leq r</m> and <m>\mb{G}^b_j : B \to X</m> with <m>1 \leq j \leq s</m> which cover <m>X</m>. This means that the union of the images equal <m>X</m> as in the equality
+    <men xml:id="eq-cover">
+        X = \left( \bigcup_{i = 1}^r \mb{G}^h_i (H_{R_i} ) \right) \cup \left( \bigcup_{i = 1}^r \mb{G}^b_i (B_{R_i} ) \right).
+    </men></p>
+
+    <theorem xml:id="thm-stokes">
+        <title>Stokes' Theorem</title>
+        <statement>
+            <p>Let <m>(X, \vol^X)</m> be a smooth compact oriented <m>m</m>-dimensional subspace of <m>\mathbb{R}^n</m> and <m>\eta</m> a differentiable <m>(m - 1)</m>-form on <m>D</m>. Then
+                <men xml:id="eq-stokes">
+                    \int_X \tder{}{\eta} = \int_{\partial X} \eta .
+                </men></p>
+        </statement>
+        <proof>
+            <p>First we will require the existence of a partition of unity subordinate to the cover of <m>X</m>. For our purposes, we cover of <m>X</m> by a finite number of parameterizations as in equation <xref ref="eq-cover"/>. Writing <m>U_i = \mb{G}^h_i (H_{R_i})</m> and <m>V_j = \mb{G}^b_j (B_{R_j})</m>, a partition of unity subordinate to this cover is a set of smooth maps 
+                <me>
+                \rho_i : U_i \to \mathbb{R}_{\geq 0} , \hspace{.3in} \tilde{\rho}_j : V_j \to \mathbb{R}_{\geq 0}
+                </me>
+                for which there is some <m>\varepsilon</m> where
+                <ol>
+                    <li> <m>\rho_i (\mb{G}^h_i (\mb{x}) ) = 0</m> for all <m>\|\mb{x} \| \geq R_i - \varepsilon</m> and all <m>1 \leq i \leq r</m>, </li>
+                    <li> <m>\tilde{\rho}_j (\mb{G}^b_j (\mb{x}) ) = 0</m> for all <m>\|\mb{x} \| \geq R_j - \varepsilon</m> and all <m>1 \leq j \leq s</m>,  </li>
+                    <li> The sum satisfies the equality
+                        <me>
+                         \left( \sum_{i = 1}^r \rho_i \right) + \left( \sum_{j = 1}^s \tilde{\rho}_j \right) = 1
+                        </me></li>
+                </ol>
+                The existence of such a partition of unity can be found in any analysis book and is obtained by defining, for each <m>U_i</m> and <m>V_j</m>, a smooth bump function which is nonzero on the complement of the union of all open sets except the given <m>U_i</m> (or <m>V_j</m>) and zero off of of it. Then adding these functions together and dividing each one by the resulting sum produces a collection <m>\rho_i</m> and <m>\tilde{\rho}_j</m>. We leave the details for the references and proceed with the proof.</p>
+
+                <p>Now, we may extend each <m>\rho_i</m> and <m>\tilde{\rho}_j</m> to smooth functions on all of <m>X</m> by taking them to be zero off of <m>U_j</m> and <m>V_j</m> respectively. Doing so, and using property (3) along with linearity of the exterior derivative, gives us an equality of forms
+                    <mdn>
+                        <mrow xml:id="eq-stokes0"> \tder{}{\eta} \amp = \tder{}{} \left(  \left( \sum_{i = 1}^r \rho_i \right) + \left( \sum_{j = 1}^s \tilde{\rho}_j \right) \right) \eta, </mrow>
+                        <mrow number="no"> \amp =  \left( \sum_{i = 1}^r \tder{}{( \rho_i \eta )} \right) + \left( \sum_{j = 1}^s \tder{}{(\tilde{\rho}_j \eta )} \right). </mrow>
+                    </mdn>
+                    Since integration of forms is also linear, we may prove equation <xref ref="eq-stokes"/> for the forms <m>\rho_i \eta</m> and <m>\tilde{\rho}_j \eta</m> and the theorem will follow.</p>
+                    
+                    <p>The advantage of <m>\rho_i \eta</m> (and <m>\tilde{\rho}_j \eta</m>) over <m>\eta</m> itself, is that when we pull these back along <m>\mb{G}_i^h</m> (and <m>\mb{G}_j^b</m>) respectively and write them in coordinates as
+                    <me>
+                        \left( \mb{G}_i^h\right)^* (\rho_i \eta )  = \sum_{k = 1}^m f_{k} (\mb{x} ) \tder{}{x_1} \wedge \cdots \wedge \tder{}{x_{k -1}} \wedge \tder{}{x_{k + 1}} \wedge \cdots \wedge \tder{}{x_m}
+                    </me>
+                    we have that <m>f_k (\mb{x}) = 0</m> for <m>\mb{x} = (x_1, \ldots, x_m)</m>  with <m>x_m \lt 0</m> and <m>\|\mb{x} \| \gt R_i - \varepsilon</m>. Clearly, this then also holds for the exterior derivative 
+                    <me>
+                        \tder{}{\left( \mb{G}_i^h\right)^* (\rho_i \eta )} = \left( \frac{\partial f_1}{\partial x_1} - \frac{\partial f_2}{\partial x_2} + \cdots + (-1)^{m + 1} \frac{\partial f_m}{\partial x_m} \right) \, \tder{}{x_1} \wedge \cdots \wedge \tder{}{x_m}.
+                    </me>
+                    Now, consider the cube
+                    <me>
+                    \mathcal{C} = [-R_i, R_i]^{m - 1} \times [0, R_i ]
+                    </me>
+                    in <m>\mathbb{R}^m</m>. Then since <m>f_k</m> is zero outside <m>\mathcal{C}</m> for every <m>k</m>, we have that the form <m>\tder{}{\left( \mb{G}_i^h\right)^* (\rho_i \eta )}</m> and its exterior derivative is as well. Thus if we integrate we obtain
+                    <mdn>
+                        <mrow number="no"> \int_X \tder{}{(\rho_i \eta)} \amp = \int_{H_{R_i}} \left( \mb{G}_i^h\right)^* (\tder{}{(\rho_i \eta)} ), </mrow>
+                        <mrow xml:id="eq-stokes1"> \amp = \int_{H_{R_i}} \tder{}{}\left( \mb{G}_i^h\right)^* ((\rho_i \eta)), </mrow>
+                        <mrow number="no"> \amp = \int_\mathcal{C}  \sum_{k = 1}^m (-1)^{k + 1} \frac{\partial f_k}{\partial x_k}  \, \tder{}{x_1} \wedge \cdots \wedge \tder{}{x_m}, </mrow>
+                        <mrow number="no"> \amp = \sum_{k = 1}^m (-1)^{k + 1}  \idotsint_\mathcal{C}  \frac{\partial f_k}{\partial x_k}  \, \tder{}{x_1}  \cdots \tder{}{x_m}.</mrow>
+                    </mdn>
+                    Now, since every <m>f_k</m> has continuous second derivatives, each of the partials are continuous and so integrable. Thus, letting 
+                    <me>
+                    D = [-R_i, R_i]^{m - 2} \times [0, R_i ] \subset \mathbb{R}^{m - 1}.
+                    </me>
+                    we may apply Fubini's Theorem and integrate the <m>k</m>-th variable first in the <m>k</m>-th summand for <m>k \lt m</m> to obtain
+                    <men xml:id="eq-stokes2">
+                        \idotsint_\mathcal{C}  \frac{\partial f_k}{\partial x_k}  \, \tder{}{x_1}  \cdots \tder{}{x_m}  = \idotsint_{D} \left. f_k (x_1, \ldots, x_m) \right|_{x_k = - R_i}^{R_i} \, \tder{}{x_1}  \cdots \tder{}{x_{m - 1}} = 0.
+                    </men>
+                    This follows from the fact that <m>f_k</m> is zero outside of the ball of radius <m>R_i - \varepsilon</m>. Thus, the <m>m</m>-th summand is all that remains. Take <m>E = [-R_i , R_i]^{m - 1}</m>, and orient it with <m>\orient = (-1)^{m -1} \vol_{m -1}^{st}</m> (where the subscript denotes the dimension) so that <m> \vol^{st}_m = - \tder{}{x_m} \wedge \orient</m>. Note that this means that <m>E</m> is compatibly oriented as the <m>x_m = 0</m> part of the boundary of <m>\mathcal{C}</m>. Then, letting
+                    <me> I =  \idotsint_\mathcal{C}  \frac{\partial f_m}{\partial x_m}  \, \tder{}{x_1}  \cdots \tder{}{x_m} </me> we obtain
+                    <mdn>
+                        <mrow number="no">  I \amp = \nonumber \idotsint_{E} \left. f_m (x_1, \ldots, x_m) \right|_{x_m = 0}^{R_i} \, \tder{}{x_1}  \cdots \tder{}{x_{m - 1}} , </mrow>
+                        <mrow  xml:id="eq-stokes3"> \amp = \idotsint_{E}  f_m (x_1, \ldots, x_{m - 1}, 0)  \, \tder{}{x_1}  \cdots \tder{}{x_{m - 1}} ,</mrow>
+                        <mrow number="no"> \amp = (-1)^{m -1} \int_E \left( \mb{G}_i^h\right)^* (\rho_i \eta ) ,</mrow>
+                        <mrow number="no"> \amp = (-1)^{m -1} \int_{\partial X} \rho_i \eta .</mrow>
+                    </mdn>
+                    Putting equations <xref ref="eq-stokes2"/> and <xref ref="eq-stokes3"/> together with equation <xref ref="eq-stokes1"/> gives
+                    <me>
+                        \int_X \tder{}{(\rho_i \eta)}  = \int_{\partial X} \rho_i \eta
+                    </me>
+                    for every <m>1 \leq i \leq r</m>. On the other hand, equation <xref ref="eq-stokes2"/> holds for every <m>k</m> (including <m>k = m</m>) when <m>\rho_i</m> is replaced by <m>\tilde{\rho}_j</m> since <m>\tilde{\rho}_j</m>  (or an extension of it) vanishes on the boundary of <m>\mathcal{C}</m>. This implies
+                    <me>
+                        \int_X \tder{}{(\tilde{\rho}_j \eta)} = 0
+                    </me>
+                    for all <m>1 \leq j \leq s</m>. As was mentioned earlier, combining these results with linearity of integration and equation <xref ref="eq-stokes0"/> gives the theorem.</p>
+        </proof>
+    </theorem>
+
+    <p>The elegant equation <xref ref="eq-stokes"/> can be summarized verbally as the idea that the integral of a derivative of a form on an <m>m</m>-dimensional space equals the integral of the form on the boundary. The proof of Stokes' Theorem is provided up to some technical results which will be outsourced.</p>
+
+    <table xml:id="fig-stokes">
+        <title> Application of Stokes' Theorem for <m>X \subset \mathbb{R}^n</m></title>
+        <tabular halign="center">
+          <row header="yes" bottom="minor" >
+            <cell>Theorem </cell>
+            <cell><m>\dim X</m></cell>
+            <cell><m>n</m></cell>
+          </row>
+          <row>
+            <cell>Fundamental Theorem of Calculus</cell>
+            <cell> <m>1</m> </cell>
+            <cell> <m>1</m> </cell>
+          </row>
+          <row>
+            <cell>Fundamental Theorem of Line Integrals</cell>
+            <cell><m>1</m></cell>
+            <cell>any</cell>
+          </row>
+          <row>
+            <cell>Green's</cell>
+            <cell><m>2</m></cell>
+            <cell><m>2</m></cell>
+          </row>
+          <row>
+            <cell>Classical Stokes'</cell>
+            <cell><m>2</m></cell>
+            <cell><m>3</m></cell>
+          </row>
+          <row>
+            <cell>Divergence</cell>
+            <cell><m>3</m></cell>
+            <cell><m>3</m></cell>
+          </row>
+        </tabular>
+      </table>
+
+    <p>Stokes' Theorem has several consequences and instances, some major cases listed in <xref ref="fig-stokes"/>. One basic corollary is that when <m>X</m> is a closed smooth oriented subspace then certain integrals vanish.</p>
+
+    <corollary xml:id="cor-closedstokes">
+        <statement>
+            <p>Let <m>X</m> be a smooth oriented <m>m</m>-dimensional closed subspace of <m>\mathbb{R}^n</m> and <m>\eta</m> a differential <m>(m - 1)</m>-form. Then
+                <me>
+                \oint_X \tder{}{\eta} = 0.
+                </me></p>
+        </statement>
+        <proof> <p>This can be seen by removing a small ball <m>B</m> in <m>X</m> so that <m>X = B \cup (X - B)</m>. The boundary of both <m>B</m> and <m>X - B</m> are the same space <m>Y</m>, with opposite orientations. So 
+            <md>
+                <mrow> \int_X \tder{}{\eta} \amp = \int_{B \cup (X - B)} \tder{}{\eta},</mrow>
+                <mrow> \amp =  \int_{B} \tder{}{\eta} +  \int_{X - B} \tder{}{\eta},</mrow>
+                <mrow> \amp =  \int_{Y} \eta - \int_Y \eta </mrow>
+                <mrow> \amp = 0. </mrow>
+            </md></p>
+        </proof>
+    </corollary>
+
+    <exercises xml:id="exe-stokes">
+
+        <exercise>
+            <statement>
+                <p> Let <m>A</m> be the annulus in <m>\mathbb{R}^2</m> given by the inequalities
+                    <me>
+                    1 \leq x^2 + y^2 \leq 9
+                    </me>
+                    and oriented with <m>- \vol^{st}</m>. Describe the boundary <m>\partial A</m> and its compatible orientation. </p>
+            </statement>
+        </exercise>
+
+        <exercise>
+            <statement>
+                <p> Suppose <m>R</m> is the region in <m>\mathbb{R}^3</m> described by the inequalities 
+                    <me>
+                    x^2 + y^2 \leq 4, \hspace{.3in} -2 \leq z \leq 1
+                    </me>
+                    and oriented with <m>\vol^{st}</m>. Describe the boundary <m>\partial R</m> and its compatible orientation. </p>
+            </statement>
+        </exercise>
+
+        <exercise>
+            <statement>
+                <p> Let <m>S</m> be the oriented surface in <m>\mathbb{R}^3</m> defined by 
+                    <me>
+                    x^2 + y^2 = (z - 1)^2 , \hspace{.2in} 0 \leq z \leq 1
+                    </me>
+                    oriented away from the <m>z</m>-axis. Calculate
+                    <me>
+                    \int_S e^z \, \tder{}{x} \wedge \tder{}{y} + (y e^z - xz) \tder{}{x} \wedge \tder{}{z} . 
+                    </me></p>
+            </statement>
+        </exercise>
+
+        <exercise>
+            <statement>
+                <p> For any positive real number <m>R</m> let
+                    <me>
+                    S^{n - 1} (R) = \{ (x_1, \ldots, x_n) \in \mathbb{R}^{n -  1} : x_1^2 + \cdots + x_n^2 = R^2 \}
+                    </me>
+                    be the <m>(n - 1)</m>-dimensional sphere of radius <m>R</m>. Let 
+                    <me>
+                    \eta = \sum_{i = 1}^n (-1)^{i - 1} \frac{x_i \, \tder{}{x_1} \wedge \cdots \wedge \tder{}{x_{i - 1}} \wedge \tder{}{x_{i + 1}} \wedge \cdots \wedge \tder{}{x_n}}{(x_1^2 + \cdots + x_n^2)^{\frac{n}{2}}}
+                    </me>
+                    and show that, for any <m>R_1</m> and <m>R_2</m>
+                    <me>
+                    \int_{S^{n - 1} (R_1)} \eta = \int_{S^{n - 1} (R_2)} \eta.
+                    </me> </p>
+            </statement>
+        </exercise>
+        
+    </exercises>
+
+</section>

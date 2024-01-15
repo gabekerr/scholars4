@@ -1,0 +1,386 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-optimization2">
+    <title>Optimization with constraints</title>
+    <introduction>
+    <p>In the last section, we found that there are many examples where it is not possible to find a global minimum or maximum. However, for closed and bounded domains <m>D \subset \mathbb{R}^m</m> and continuous functions <m>f : D \to \mathbb{R}</m>, we were given comfort by the Extreme Value Theorem. Many closed and bounded domains can be expressed using basic inequalities. For example, in one dimension, we have the interval <m>[a, b]</m> can be written
+    <me>
+        [a,b] = \left\{ x \in \mathbb{R} : a \leq x \leq b \right\}.
+    </me>
+    In <m>2</m> dimensions, we could consider the unit disc
+    <me>
+        D = \left\{ (x, y) \in \mathbb{R}^2 : x^2 + y^2 \leq 1 \right\}
+    </me>
+        or a triangle
+    <me>
+        T = \left\{ (x, y) \in \mathbb{R}^2 : 0 \leq x , 0 \leq y , x + y \leq 1 \right\}.
+    </me></p>
+
+    <p>In three dimensions, one could consider balls, ellipsoids, solid tori, polytopes and countless other solid bodies. In higher dimensions, we can consider even more shapes. Of course, the closed ball of radius <m>R</m> centered at <m>\mb{c} = (c_1, \ldots, c_m )</m> is a major basic example
+    <me>
+       \cball{R}{\mb{c}}  = \left\{ (x_1, \ldots, x_m) : (x_1 - c_1)^2 + \cdots + (x_m - c_m)^2 \leq R^2 \right\}.
+    </me>
+    While there are closed and bounded domains that are not so easily expressed through finitely many inequalities, the category of such domains is quite expansive and useful to work with. Often, such domains can be broken into two parts, their interior <m>\textnormal{Int} (D)</m> and their boundary <m>\partial D</m>. The interior <m>\textnormal{Int} (D)</m> is the largest open set contained in <m>D</m> and <m>\partial D</m> consists of all points in <m>D</m>, but not in its interior. When optimizing on such a closed set, we must also split our work up into a two step procedure.
+    <ol>
+        <li> Optimize on the interior <m>\textnormal{Int} (D)</m> using critical points and Hessian, </li>
+        <li> Optimize on the boundary <m>\partial D</m>. </li>
+    </ol>
+    After this, we may compare the values of our function. Depending on the domain, the boundary can be quite complicated in general, but we start with the case when they are described by a single constraint equation.</p>
+    </introduction>
+
+    <subsection xml:id="subsec-single-constraint">
+        <title>Single constraint</title>
+        <p>We start with an example to see a new wrinkle in our problem.</p>
+        <example xml:id="example-boundary1">
+            <title>Optimization on a circle I</title>
+            <statement>
+                <p>Consider the closed unit disc
+                    <me>
+                    D = \left\{ (x, y) : x^2 + y^2 \leq 1 \right\}
+                    </me>
+                    which has interior the open unit disc and boundary the circle. By the Extreme Value Theorem, any continuous function has a maximum and minimum value on <m>D</m>. Take the linear scalar function
+                    <me>
+                    f(x,y) = x + y. 
+                    </me>
+                    If we compute the derivative of <m>f</m> we get
+                    <me>
+                    \tder{}{f} = \left[ \begin{matrix} 1 \amp 1 \end{matrix} \right].
+                    </me>
+                    So there are no solutions to <m>\nabla f = \mb{0}</m> and no extrema on <m>\textnormal{Int} (D)</m>. This means that the extreme values \textit{must} be on the boundary of <m>D</m> which is the unit circle <m>S^1</m>.</p>
+                    
+                    <p>So now we must maximize <m>f(x,y)</m> while on the curve given by the constraint
+                    <me>
+                    g(x,y) = x^2 + y^2 = 1.
+                    </me>
+                    In our case, we are lucky in that we have a parameterization of the boundary in hand 
+                    <me>
+                    \mb{r} (t) = ( \cos t , \sin t ) , \hspace{.5in} 0 \leq t \leq 2 \pi.
+                    </me>
+                    Composing with <m>f</m> we obtain
+                    <me>
+                    (f \circ \mb{r} ) (t) = \cos t + \sin t
+                    </me>
+                    and taking derivatives we have
+                    <me>
+                    (f \circ \mb{r} )^\prime (t) = -\sin t + \cos t.
+                    </me>
+                    So the critical points of <m>f \circ \mb{r}</m> are exactly when <m>\cos t = \sin t</m> (just setting the derivative to zero as in one variable calculus). This occurs for <m>t = \frac{\pi}{4}</m> or <m>\frac{5\pi}{4}</m> and the values of <m>f \circ \mb{r}</m> at these two points are <m>\sqrt{2}</m> and <m>- \sqrt{2}</m> respectively.</p>
+                    
+                    <p>Thus when we restrict <m>f</m> to the boundary, we have maximum value <m>\sqrt{2}</m> and minimum value <m>-\sqrt{2}</m>. As the extremes of <m>f</m> on <m>D</m> occur on the boundary, these must be the extreme values of <m>f</m> on <m>D</m>.</p>
+            </statement>
+        </example>
+
+        <p>There are two important facts to learn from our last example. First, because we had extreme points on the constrained space <m>g(x,y) = 1</m>, the maximum and minimum were <em>not</em> critical points of <m>f(x,y)</m> as a function of <m>\mathbb{R}^2</m>. Indeed, <m>f(x,y)</m> had no such critical points. Second, our method to optimize <m>f(x,y)</m> on the boundary relied on the fact that we could parameterize the boundary. This second point presents a real problem in more general situations where such a parameterization may be extremely complicated or difficult to write down. This is precisely where Lagrange multipliers comes to the rescue!</p>
+
+        <p>To state the result, we need the notion of a critical point on a constrained space. This involves a couple of definitions and a major theorem in between.</p>
+
+        <definition xml:id="def-smooth">         
+            <notation>             
+                <usage><m>X</m></usage>             
+                <description>Smooth parameterization </description>         
+            </notation>         
+            <statement>
+                <p>We say that a subspace <m>X</m> of <m>\mathbb{R}^n</m> is <term>smooth at <m>p</m></term> if the there is an open set <m>U</m> of <m>\mathbb{R}^m</m> and a smooth parameterization <m>\mb{r}: U \to X</m> with image equal to a ball in <m>\mathbb{R}^n</m> intersected with <m>X</m>. We say that <m>X</m> is smooth if it is closed and smooth at every point <m>p</m> in <m>X</m>.</p>
+            </statement>
+        </definition>
+
+        <p>The idea of this definition is to describe spaces that locally look like <m>\mathbb{R}^m</m>. For example, the constrained space <m>xy = 1</m> consists of two curves each of which look like <m>\mathbb{R}^1</m> (just with a little bend). However, <m>xy = 0</m> consists of both the <m>x</m> and <m>y</m>-axis which cross at the origin, so at the origin we would say that this constrained space is not smooth.</p>
+
+        <p>Let us now state a major pillar of differential calculus.</p>
+
+        <theorem xml:id="thm-implicit-function-theorem">
+            <title>Implicit Function Theorem</title>
+            <statement>
+                <p>Suppose <m>V</m> is an open subset of <m>\mathbb{R}^n</m> and <m>\mb{G} : V \to \mathbb{R}^k</m> is a differentiable function for which <m>\tder{q}{\mb{G}}</m> has rank <m>k</m>. Then the level set <m>X = \left\{ p : \mb{G} (p) = \mb{G} (q)\right\}</m> is smooth at <m>q</m>.</p>
+            </statement>
+        </theorem>
+
+        <p>After spending a moment with this theorem, one understands it to mean that if a level set (or constrained set) is defined implicitly by <m>\mb{G}</m> in such a way that the derivative of <m>\mb{G}</m> is full rank, then that set admits a nice parameterization. Our example of <m>g(x,y) = xy</m> can be checked by seeing that <m>\tder{(0,0)}{g} = \mb{0}</m> so that the Implicit Function Theorem does not apply.</p>
+
+        <p>Returning to optimization on a constrained space, we need the following definition.</p>
+
+        <definition xml:id="def-critical-point-on-subspace">         
+            <notation>             
+                <usage><m>q</m></usage>             
+                <description>Critical point on subspace</description>         
+            </notation>         
+            <statement>
+                <p>Suppose <m>X</m> is a subspace of <m>\mathbb{R}^n</m> contained in an open set <m>V</m> and <m>f: V \to \mathbb{R}</m> is a scalar function. We say that a point <m>q</m> of <m>X</m> is a \textbf{critical point of <m>f|_X</m> restricted to <m>X</m>} if either:
+                <ol>
+                    <li> <m>X</m> is not smooth at <m>q</m>, </li>
+                    <li> <m>X</m> is smooth at <m>q</m> and, given any parameterization <m>\mb{r} : U \to X</m> of <m>X</m> near <m>q</m> with <m>\mb{r} (p) = q</m>, <m>p</m> is a critical point of the composition <m>f \circ \mb{r}</m>. </li>
+                </ol> </p>
+            </statement>
+        </definition>
+
+        <p>Note that part (2) of the definition does not depend on the parameterization <m>\mb{r}</m> that is chosen for <m>X</m> at <m>q</m> (verify this with an application of the chain rule). The main point of this definition is the following result.</p>
+
+        <proposition xml:id="prop-constrained-critical">
+            <statement>
+                <p>Suppose <m>X</m> is a subspace of <m>\mathbb{R}^n</m> contained in an open set <m>V</m> and <m>f: V \to \mathbb{R}</m> is a scalar function. If <m>q</m> is a local maximum or minimum of <m>f</m> restricted to <m>X</m> then it is a critical point of <m>f|_X</m> restricted to <m>X</m>.</p>
+            </statement>
+            <proof> <p>This follows from assembling the previous definitions. For example, if <m>q</m> is a local maximum and is not a smooth point of <m>X</m>, then it is already a critical point of <m>f|_X</m>. So we may assume it is a smooth point. As a local maximum, there is a neighborhood <m>W</m> of <m>q</m> for which <m>f(q)</m> is maximal in  <m>W_1 \cap X</m> (this is the meaning of <sq>local maximum of <m>f</m> on <m>X</m></sq>). Being a smooth point, there is another neighborhood <m>W_2</m> of <m>q</m> for which <m>W_2 \cap X</m> admits a smooth parameterization <m>\mb{r} : U \to W_2 \cap X</m>. We may shrink both these sets by taking intersection and take <m>W_1 = W_2 = W_1 \cap W_2</m>. Then the values of <m>f</m> on <m>X \cap W</m> are exactly the values of <m>f \circ \mb{r}</m> on <m>U</m>. But as <m>q</m> is a maximum of <m>f</m> on <m>X \cap W</m>, <m>f \circ \mb{r}</m> achieves its maximum on <m>p</m> (where <m>\mb{r} (p) = q</m>). But <xref ref="prop-criticalpoint"/> then ensures that <m>p</m> is a critical point of <m>f \circ \mb{r}</m> so that <m>q</m> is a critical point of <m>f|_X</m> restricted to <m>X</m>. </p>
+            </proof>
+        </proposition>
+
+        <example>
+            <title>Optimization on a circle II</title>
+            <statement>
+                <p>In <xref ref="example-boundary1"/> we saw that <m>f</m> had no critical points on <m>\mathbb{R}^2</m>. However, if we write <m>S^1</m> for the unit circle, we can see that it is a smooth subspace. We also were able to globally parameterize it with <m>(\cos t, \sin t)</m> and observe that <m>(\sqrt{2}/2, \sqrt{2}/2)</m> and <m>(-\sqrt{2}/2, - \sqrt{2}/2)</m> are both critical points of <m>f|_{S^1}</m>. Our next proposition gives us tools to discover this without parameterizing the constrained space.</p>
+            </statement>
+        </example>
+
+
+        <proposition xml:id="prop-lagrange-multipliers">
+            <title>Lagrange multipliers with one constraint</title>
+            <statement>
+                <p>Suppose <m>V</m> is an open set in <m>\mathbb{R}^n</m>, <m>g : V \to \mathbb{R}</m> and <m>f: V \to \mathbb{R}</m> two differentiable scalar functions. If <m>X</m> is the level set of <m>g</m> then a smooth point <m>q \in X</m> is a critical point of <m>f|_X</m> if and only if there is a real number <m>\lambda</m> such that
+                <men xml:id="eq-LagrangeMultiplier">
+                    \tder{q}{f} = \lambda \, \tder{q}{g}. 
+                </men></p>
+            </statement>
+            <proof> <p>To prove this, we recall <xref ref="thm-tangentspace"/>. Since <m>X</m> is smooth at <m>q</m>, there exists a parameterization <m>\mb{r} :U \to X</m> and <xref ref="thm-tangentspace"/> implies that either <m>\tder{q}{g} = 0</m> or the image of <m>\tder{p}{\mb{r}}</m> is precisely the kernel of <m>\tder{q}{g}</m>. Now, <m>p</m> is a critical point of <m>f \circ \mb{r}</m> if and only if <m>\tder{p}{f} \circ \tder{q}{\mb{r}} = 0</m>. This last equation holds if and only the kernel of <m>\tder{p}{f}</m> is contained in the kernel of <m>\tder{q}{g}</m>. Our result then follows from the following linear algebra lemma.</p>
+            </proof>
+        </proposition>
+
+        <p>If one finds such a <m>\lambda</m> solving equation <xref ref="eq-LagrangeMultiplier"/> we call it a <term>Lagrange multiplier</term>. This proposition is formulated in many other ways in the literature. First, one usually formulates in terms of gradients (which is equivalent to using the derivatives) and writes Lagrange's equation as
+        <me>
+            \nabla_p f = \lambda \nabla_p g.
+        </me>
+        Also, one may approach this subject by considering the optimization problem of the Lagrangian function
+        <me>
+            \mathcal{L} (x_1, \ldots, x_n, \lambda ) = f(x_1, \ldots, x_n) - \lambda g (x_1 , \ldots, x_n).
+        </me>
+        We leave it as an exercise to prove that this approach also yields our proposition. Let us prove the proposition and then work through some examples.</p>
+
+
+        <lemma>
+            <statement>
+                <p>If <m>V</m> is a vector space over <m>K</m> and <m>\nu_1 , \nu_2</m> are dual vectors, then <m>\ker \nu_1 \subseteq \ker \nu_2</m> if and only if there exists <m>\lambda</m> in <m>K</m> with <m>\nu_2 = \lambda \nu_1</m>.</p>
+            </statement>
+            <proof>
+                <p>If <m>\nu_1 = 0</m> then <m>\ker \nu_1 = V</m> and <m>\nu_2</m> must be zero as well. So assume <m>\nu_1 \ne 0</m>. Then there is a vector <m>\mb{v}</m> not in <m>\ker \nu_1</m>. Let 
+                <me>
+                    \lambda =\frac{ \nu_2 (\mb{v})}{\nu_1  (\mb{v})}.
+                </me>
+                If <m>\mb{u}</m> is any vector in <m>V</m> then we note that 
+                <me>
+                    \mb{u} - \frac{ \nu_1 (\mb{u})}{\nu_1  (\mb{v})} \mb{v}
+                </me>
+                is in the kernel of <m>\nu_1</m> and thus also in the kernel of <m>\nu_2</m>. But we can also write this vector as 
+                <me>
+                    \mb{u} - \frac{ \nu_1 (\mb{u})}{\nu_1  (\mb{v})} \mb{v} = \mb{u} - \lambda \frac{ \nu_1 (\mb{u})}{\nu_2  (\mb{v})} \mb{v}
+                </me>
+                and taking <m>\nu_2</m> gives 
+                <md>
+                    <mrow> \mb{0} \amp = \nu_2 (\mb{u} ) - \nu_2 \left( \lambda \frac{ \nu_1 (\mb{u})}{\nu_2  (\mb{v})} \mb{v} \right), </mrow>
+                    <mrow> \amp = \nu_2 (\mb{u} ) -   \lambda \frac{ \nu_1 (\mb{u})}{\nu_2  (\mb{v})}\nu_2 ( \mb{v} ), </mrow>
+                    <mrow> \amp = \nu_2 (\mb{u} ) -   \lambda \nu_1 (\mb{u}), </mrow>
+                </md>
+                As this is true for any vector <m>\mb{u}</m> of <m>V</m>, we have that <m>\nu_2 = \lambda \nu_1</m> as dual vectors.</p>
+            </proof>
+        </lemma>
+
+        <p>Having proven that Lagrange multipliers supply us with critical points of <m>f|_X</m>, let us consider a few example applications starting with another look at <xref ref="example-boundary1"/>.</p>
+
+        <example>
+            <title>Optimization on a circle III</title>
+            <statement>
+                <p>Recall here we have the function <m>f(x, y) = x + y</m> on the unit disc. The constraint for the boundary of the unit disc is <m>g(x,y) = x^2 + y^2 = 1</m>. Computing derivatives gives 
+                <md>
+                    <mrow> \tder{}{f} \amp = \left[ \begin{matrix} 1 \amp 1 \end{matrix} \right], </mrow>
+                    <mrow> \tder{}{g} \amp = \left[ \begin{matrix} 2x \amp 2y \end{matrix} \right]. </mrow>
+                </md>
+                Writing Lagrange's equation produces a new variable <m>\lambda</m> and the two equations.
+                <md>
+                    <mrow> 1 \amp = 2 \lambda x, </mrow>
+                    <mrow> 1 \amp = 2 \lambda y.</mrow>
+                </md>
+                Dividing by <m>2 \lambda</m> gives <m>x = y</m> which, of course, describes a line in <m>\mathbb{R}^2</m>. However, we are only interested in solutions to Lagrange's equation for points on our constrained curve <m>g(x,y) = 1</m>. So putting the equation <m>x = y</m> in with the constraint gives 
+                <md>
+                    <mrow> 1 \amp =  x^2 + y^2 , </mrow>
+                    <mrow> \amp = 2 x^2. </mrow>
+                </md>
+                This implies <m>x = \pm \sqrt{2}/2 = y</m> recovering the two points we found in <xref ref="example-boundary1"/>.</p>
+            </statement>
+        </example>
+
+        <p>The moral of the Lagrange multiplier story is that we do <em>not</em> need to parameterize the level set in order to find critical points of a function restricted to this set. We can work implicitly instead to identify such points. Indeed, one should have noticed in the last example that there was no mention of <m>\sin</m> or <m>\cos</m>, just solutions to basic equations, and yet we still found our minimum and maximum points.</p>
+
+        <example xml:id="ex-lagrange1">
+            <title>Optimization on a hyperboloid</title>
+            <statement>
+                <p>Let <m>X</m> be the hyperboloid
+                    <me>
+                    x^2 + y^2 - 4 z^2 = 1.
+                    </me>
+                    Suppose <m>f(x,y,z) = x^2 - y^2 + z</m> and that we want to find critical points of <m>f(x,y,z)</m> on <m>X</m>. The constraint function is then
+                    <me>
+                    g(x,y,z) = x^2 + y^2 - 4z^2
+                    </me>
+                    and we compute derivatives to see 
+                    <md>
+                        <mrow> \tder{}{f} \amp = \left[ \begin{matrix} 2x \amp -2y \amp 1 \end{matrix} \right], </mrow>
+                        <mrow> \tder{}{g} \amp = \left[ \begin{matrix} 2x \amp 2y \amp - 8z \end{matrix} \right]. </mrow>
+                    </md>
+                    Writing Lagrange's equation produces a new variable <m>\lambda</m> and the three equations.
+                    <md>
+                        <mrow> 2x \amp = 2 \lambda x,  </mrow>
+                        <mrow> -2y \amp = 2 \lambda y, </mrow>
+                        <mrow> 1 \amp = -8\lambda z. </mrow>
+                    </md>
+                    We now must be somewhat careful proceeding. A common mistake is to forget special cases and thereby miss critical points. For example, one may overlook that the first equation does \textit{not} imply that <m>\lambda = 1</m>! Instead, we have two possible cases:
+                    <ol>
+                        <li> First we assume <m>x = 0</m> so that the first equation is satisfied. If <m>y</m> is also zero, then we have a problem because our constraint has that <m>-4z^2 = 1</m> which is not possible in the real numbers. So we may assume <m>y \ne 0</m> and <m>\lambda = - 1</m>. Putting this into the last equation gives that <m>z = 1/8</m> and our solution set consists of points <m>(0, y, 1/8)</m>. Returning to the constraint equation gives <m>y^2 = 33/32</m> or <m>y = \pm \sqrt{33/32}</m>. So we attain critical points
+                        <me>
+                            \left(0, \pm \sqrt{\frac{33}{32}} ,\frac{1}{8} \right)
+                        </me>
+                        of <m>f|_X</m>. </li>
+                        <li> Now for the case of <m>x \ne 0</m> we may divide the first equation by <m>2x</m> and conclude that <m>\lambda = 1</m>. The second equation then forces us to assume that <m>y = 0</m> and the third gives <m>z = - 1/8</m>. Using the constraint again gives the critical points
+                        <me>
+                            \left(\pm \sqrt{\frac{33}{32}}, 0 , -\frac{1}{8} \right)
+                        </me>
+                        of <m>f|_X</m>.</li>
+                    </ol>
+                    Now that we have found all of the critical points of <m>f|_X</m>, we can ask if any of them are maxima or minima. In fact, in this case none of them are as <m>f(x,y,z)</m> can be arbitrarily large or small on the hyperboloid (check this!). One way to see the local behavior of <m>f</m> on <m>X</m> is to take the Hessian 
+                    <me>
+                    \text{Hess}(f) = \left[ \begin{matrix} 2 \amp 0 \amp 0 \\ 0 \amp - 2 \amp 0 \\ 0 \amp 0 \amp 0 \end{matrix} \right] 
+                    </me>
+                    and restrict it to the tangent space of <m>X</m> at the corresponding critical point. Recall that <xref ref="thm-tangentspace"/> specifies the tangent space to <m>X</m> at <m>p</m> as the kernel of <m>\tder{p}{g}</m>. It is left as an exercise to then see that the Hessian restricted to each tangent space gives a non-degenerate quadratic form (even though <m>\textnormal{Hess}(f)</m> is degenerate on <m>T_p \mathbb{R}^3</m>) and is neither positive nor negative definite. Thus each of these critical points are saddle points.</p>
+            </statement>
+        </example>
+    
+    </subsection>
+
+    <subsection xml:id="subsec-many-constraints">
+        <title>Several constraints</title>
+        <p>We now give the generalization of this method to the case of several constraints.</p>
+
+        <proposition xml:id="prop-lagrange-multipliers2">
+            <title>Lagrange multipliers with several constraints</title>
+            <statement>
+                <p>Suppose <m>V</m> is an open set in <m>\mathbb{R}^n</m>, <m>\mb{G} : V \to \mathbb{R}^k</m> a differentiable vector valued function 
+                <me>
+                    \mb{G} (x_1, \ldots, x_n) = (g_1(x_1, \ldots, x_n), \ldots, g_k(x_1, \ldots, x_n))
+                </me>
+                with <m>\tder{}{\mb{G}}</m> of full rank and <m>f: V \to \mathbb{R}</m> a differentiable scalar function. If <m>X</m> is the level set of <m>\mb{G}</m> then a smooth point <m>q \in X</m> is a critical point of <m>f|_X</m> if and only if there are real numbers <m>\lambda_1, \ldots, \lambda_k</m> such that 
+                <men xml:id="eq-LagrangeMultiplier2">
+                    \tder{q}{f}  = \lambda_1 \, \tder{q}{g_1} + \cdots + \lambda_k \, \tder{q}{g_k}.
+                </men></p>
+            </statement>
+        </proposition>
+
+        <p>The proof of this generalization is nearly identical to the one for one constraint, however, you will need the following more general linear algebra lemma.</p>
+
+        <lemma xml:id="lem-kernelduals">
+            <statement>
+                <p>If <m>V</m> is a vector space over <m>K</m> and <m>\nu_0, \nu_1, \ldots, \nu_k</m> are dual vectors, then 
+                    <me>
+                    \ker \nu_1 \cap \ker \nu_2 \cap \cdots \cap \ker \nu_k \subseteq \ker \nu_0
+                    </me>
+                    if and only if there exists <m>\lambda_1, \ldots, \lambda_k</m> in <m>K</m> with 
+                    <me>
+                   \nu_0 = \lambda_1 \nu_1 + \cdots + \lambda_k \nu_k .
+                   </me></p>
+            </statement>
+        </lemma>
+
+        <p>We work through one example of this more general version.</p>
+
+        <example>
+            <title>Chain rule computation II</title>
+            <statement>
+                <p>Recall that we may define the torus as 
+                <me>
+                    T = \left\{ (u, v, x, y) \in \mathbb{R}^4 : u^2 + v^2 = 1, x^2 + y^2 = 1 \right\}.
+                </me>
+                In other words, if we take the vector valued function
+                <me>
+                    \mb{G} (u, v, x, y) = (g_1 (u, v, x, y), g_2 (u, v, x, y)) = ( u^2 + v^2 , x^2 + y^2)
+                </me>
+                then <m>T</m> is the level set <m>\mb{G} (u, v, x, y) = (1, 1)</m>. Now suppose we want to optimize
+                <me>
+                    f(u, v, x, y) = u^2 - 2v + x^2 + 2y
+                </me>
+                on <m>T</m>. We first note that <m>T</m> is both closed (since it is given as the level set of a continuous function) and bounded, so the Extreme Value Theorem assures us that <m>f</m> will achieve a maximum and minimum value. We apply our new technique by first computing derivatives
+                <md>
+                    <mrow> \tder{}{f} \amp = \left[ \begin{matrix} 2u \amp -2 \amp 2x \amp 2 \end{matrix} \right], </mrow>
+                    <mrow> tder{}{g_1} \amp = \left[ \begin{matrix} 2u \amp 2v \amp 0 \amp 0 \end{matrix} \right], </mrow>
+                    <mrow> \tder{}{g_2} \amp = \left[ \begin{matrix} 0 \amp 0 \amp 2x \amp 2y \end{matrix} \right].</mrow>
+                </md>
+                Now, Lagrange's equation in this setting says that we must be able to find <m>\lambda_1</m> and <m>\lambda_2</m> so that
+                <md>
+                    <mrow> \left[ \begin{matrix} 2u \amp -2 \amp 2x \amp 2 \end{matrix} \right] \amp = \lambda_1 \left[ \begin{matrix} 2u \amp 2v \amp 0 \amp 0 \end{matrix} \right] + \lambda_2 \left[ \begin{matrix} 0 \amp 0 \amp 2x \amp 2y \end{matrix} \right], </mrow>
+                    <mrow> \amp = \left[ \begin{matrix} 2 \lambda_1 u \amp 2 \lambda_1 v \amp 2\lambda_2 x \amp 2\lambda_2 y \end{matrix} \right]. </mrow>
+                </md>
+                Dividing by <m>2</m> gives the more pleasant equation
+                <me>
+                    \left[ \begin{matrix} u \amp -1 \amp x \amp 1 \end{matrix} \right]  = \left[ \begin{matrix}  \lambda_1 u \amp  \lambda_1 v \amp \lambda_2 x \amp \lambda_2 y \end{matrix} \right].
+                </me>
+                Now, if <m>u = 0</m> then the constraint <m>u^2 + v^2 = 1</m> implies <m>v = \pm 1</m> and <m>\lambda_1 = \mp 1</m>. On the other hand, if <m>u \ne 0</m> then <m>\lambda_1 = 1</m> and <m>v = -1</m>. But in this case we get that the constraint implies <m>u = 0</m> again, so the only values of <m>(u, v)</m> for which <m>\lambda_1</m> exist are <m>(0, 1), (0, -1)</m>. A similar argument shows that <m>\lambda_2</m> exists only if <m>(x,y)</m> is <m>(0, 1)</m> or <m>(0, -1)</m>. Thus the critical points of <m>f|_T</m> are 
+                <me>
+                    (0, 1, 0, 1), (0, -1, 0, 1), (0,1, 0, -1), (0, -1, 0, -1).
+                </me>
+                A quick computation shows that the values of <m>f</m> at these points is <m>0, 4, -4, 0</m> so that the maximum of <m>f</m> on the torus is <m>4</m> and the minimum is <m>-4</m>.</p>
+            </statement>
+        </example>
+
+    </subsection>
+
+    <exercises xml:id="exe-optimization2">
+
+
+        <exercise>
+            <introduction><p>Show that the following constrained spaces are smooth or identify points where they are not.</p></introduction>
+        <task>
+            <statement>
+                <p> <m>X = \left\{ (x,y,z) : x^2 + 9y^2 + z^2 = 1\right\}</m>, </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p> <m>X = \left\{ (x,y) : e^{xy} = 2 \right\}</m>, </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p> <m>X = \left\{ (u, v, x,y) : x^2 + y^2 = u,  u = v^2  \right\}</m> </p>
+            </statement>
+        </task>
+        </exercise>
+
+        <exercise>
+            <statement>
+                <p> If possible, optimize the function
+                    <me>
+                    f(x,y,z) = x - y + z
+                    </me>
+                    on 
+                    <me>
+                    X = \left\{ (x,y,z) : x^2 + 9 y^2 + z^2 = 1\right\}
+                    </me> </p>
+            </statement>
+        </exercise>
+
+        <exercise>
+            <statement>
+                <p> If possible, optimize the function
+                    <me>
+                    f(x,y,z) = u + x
+                    </me>
+                    on 
+                    <me>
+                    X = \left\{ (u, v, x,y) : x^2 + y^2 = u,  u = v^2  \right\}
+                    </me> </p>
+            </statement>
+        </exercise>
+
+        <exercise>
+            <statement>
+                <p> Prove <xref ref="lem-kernelduals"/>. </p>
+            </statement>
+        </exercise>
+        
+    </exercises>
+
+</section>
