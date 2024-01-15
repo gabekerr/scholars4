@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="corollary theorem-like"><h4 class="heading">
+<span class="type">Corollary</span><span class="space"> </span><span class="codenumber">1.3.7</span><span class="period">.</span>
+</h4>
+<div class="para logical">
+<div class="para">If <span class="process-math">\(U\)</span> is an open neighborhood of <span class="process-math">\(\mb{a}\)</span> in <span class="process-math">\(V\)</span> and <span class="process-math">\(f : U \to \mathbb{R}\)</span> is differentiable at <span class="process-math">\(\mb{a}\)</span> then for any vector <span class="process-math">\(\mb{v}\)</span> in <span class="process-math">\(V\text{,}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+D_{\mb{v}} f (\mb{a} ) = \tder{\mb{a}}{f} (\mb{v} ).
+\end{equation*}
+</div>
+<div class="para">In particular, for <span class="process-math">\(\mb{v}_1, \mb{v}_2\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+D_{\mb{v}_1 + \mb{v}_2} f ( \mb{a} ) = D_{\mb{v}_1} f (\mb{a}) + D_{\mb{v}_2} f (\mb{a} ). 
+\end{equation*}
+</div>
+</div></article><details class="hiddenproof born-hidden-knowl"><summary><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof"><div class="para logical">
+<div class="para">Let us reconsider the definition of the directional derivative</div>
+<div class="displaymath process-math">
+\begin{equation*}
+D_\mb{v} f ( \mb{a}) = \left. \frac{d}{dt} f (\mb{a} + t\mb{v} )\right|_{t = 0}.
+\end{equation*}
+</div>
+<div class="para">The right hand side is really the usual derivative at <span class="process-math">\(0\)</span> of the composition <span class="process-math">\(f \circ \ell_{\mb{v}}\)</span> where <span class="process-math">\(\ell_{\mb{v}} = \mb{a} + t \mb{v}\)</span> is the function from <span class="process-math">\(\mathbb{R}\)</span> to <span class="process-math">\(V\)</span> parameterizing a line through <span class="process-math">\(\mb{a}\)</span> of constant velocity <span class="process-math">\(\mb{v}\text{.}\)</span> Using the chain rule then gives</div>
+<div class="displaymath process-math">
+\begin{align*}
+D_\mb{v} f ( \mb{a}) \amp = \left. \frac{d}{dt} f (\mb{a} + t\mb{v} )\right|_{t = 0}, \\
+\amp = \tder{0}{\left( f \circ \ell_{v} \right)} (1), \\
+\amp = \tder{\mb{a}}{f} \circ \tder{0}{\ell_v} (1), \\
+\amp = \tder{\mb{a}}{f} (\mb{v} ). 
+\end{align*}
+</div>
+<div class="para">But <span class="process-math">\(\tder{\mb{a}}{f}\)</span> is a linear transformation so the second statement follows.</div>
+</div></article></details><span class="incontext"><a class="internal" href="sec-chainrule.html#cor-directional">in-context</a></span>
+</body>
+</html>

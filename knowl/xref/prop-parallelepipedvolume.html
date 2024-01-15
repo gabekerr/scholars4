@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="proposition theorem-like"><h4 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">2.1.12</span><span class="period">.</span>
+</h4>
+<div class="para logical">
+<div class="para">Let <span class="process-math">\(\mb{c}_1, \ldots, \mb{c}_r \in \mathbb{R}^n\)</span> be column vectors and <span class="process-math">\(\mathcal{P}\)</span> the <span class="process-math">\(r\)</span>-dimensional parallelepiped spanned by them. Then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\text{Vol} (\mathcal{P}) = \| \mb{c}_1 \wedge \cdots \wedge \mb{c}_r \|.
+\end{equation*}
+</div>
+<div class="para">Here <span class="process-math">\(\text{Vol}\)</span> is the <span class="process-math">\(r\)</span>-dimensional volume.</div>
+</div></article><details class="hiddenproof born-hidden-knowl"><summary><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof"><div class="para logical">
+<div class="para">We check this by considering the subspace <span class="process-math">\(V\)</span> of <span class="process-math">\(\mathbb{R}^n\)</span> spanned by <span class="process-math">\(\mb{c}_1, \ldots, \mb{c}_r\text{.}\)</span> If these vectors are linearly dependent, then clearly the <span class="process-math">\(r\)</span>-dimensional parallelepiped has <span class="process-math">\(r\)</span>-dimensional volume <span class="process-math">\(0\)</span> (since it is contained in a space of smaller dimension). But Proposition~\ref{prop:wedgelinearind} then also says that <span class="process-math">\(\mb{c}_1 \wedge \cdots \wedge \mb{c}_r = \mb{0}\)</span> implying the result in this case. So suppose that they are linearly independent and let <span class="process-math">\(\mathcal{B} = \{\mb{v}_1, \ldots, \mb{v}_r\}\)</span> be an orthonormal basis for <span class="process-math">\(V\)</span> (recall this can be found through the Gram-Schmidt process). We may write <span class="process-math">\(\mb{c}_i\)</span> as a vector in <span class="process-math">\(\mathbb{R}^r\)</span> using the basis <span class="process-math">\(\mathcal{B}\)</span> via the coordinate map</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\tilde{\mb{c}}_i =  \coord{\mb{c}_i}{\mathcal{B}}
+\end{equation*}
+</div>
+<div class="para">and in doing so, we have that</div>
+<div class="displaymath process-math">
+\begin{equation}
+\mb{c}_i \cdot \mb{c}_j = \tilde{\mb{c}}_i \cdot \tilde{\mb{c}}_j.\tag{2.1.1}
+\end{equation}
+</div>
+<div class="para">Another way of saying this is that the coordinate chart <span class="process-math">\([]_\mathcal{B} : \mathbb{R}^r \to \mathbb{R}^n\)</span> preserves distance and thus preserves volume. Taking <span class="process-math">\(\tilde{\mathcal{P}}\)</span> to be the parallelepiped spanned by <span class="process-math">\(\tilde{\mb{c}}_1, \ldots , \tilde{\mb{c}}_r\)</span> in <span class="process-math">\(\mathbb{R}^r\text{,}\)</span> we then have that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\textnormal{Vol}(\mathcal{P}) = \textnormal{Vol}(\tilde{\mathcal{P}}) = | \det A |
+\end{equation*}
+</div>
+<div class="para">where</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A = \left[ \begin{matrix} | \amp | \amp  \amp | \\ \tilde{\mb{c}}_1 \amp \tilde{\mb{c}}_2 \amp \cdots \amp \tilde{\mb{c}}_r \\ | \amp | \amp   \amp | \end{matrix} \right].
+\end{equation*}
+</div>
+<div class="para">But applying Proposition~\ref{prop:wedgevolume1} to <span class="process-math">\(V\)</span> and using the fact that <span class="process-math">\(\mathcal{B}\)</span> is an orthonormal basis gives</div>
+<div class="displaymath process-math">
+\begin{align*}
+\| \mb{c}_1 \wedge \cdots \wedge \mb{c}_r \| \amp = \| (\det A) \mb{v}_1 \wedge \cdots \wedge \mb{v}_r \|, \\
+\amp = | \det A | \sqrt{ \det \left( \langle \mb{v}_i , \mb{v}_j \rangle \right)},   \\
+\amp = |\det A | \sqrt{ \det ( I ) }, \\
+\amp = |\det A|, \\
+\amp = \textnormal{Vol} (\mathcal{P}). 
+\end{align*}
+</div>
+</div></article></details><span class="incontext"><a class="internal" href="sec-exterior.html#prop-parallelepipedvolume">in-context</a></span>
+</body>
+</html>

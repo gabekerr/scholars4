@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.2.9</span><span class="period">.</span><span class="space"> </span><span class="title">Fubini for bounded domains I.</span>
+</h3>
+<div class="para logical">
+<div class="para">We start with an example that we will reexamine with other techniques later on. Let us find the area of the disc <span class="process-math">\(D\)</span> of radius <span class="process-math">\(R\text{.}\)</span> Of course, we all know from elementary school (or <span class="process-math">\(1\)</span>-variable calculus) that this is <span class="process-math">\(\pi R^2\text{,}\)</span> but now we can compute it with a multiple integral. For this, we describe the disc using the inequalities</div>
+<div class="displaymath process-math">
+\begin{equation*}
+-R \leq y \leq R \hspace{.5in} - \sqrt{R^2 - y^2} \leq x \leq \sqrt{R^2 - y^2}.
+\end{equation*}
+</div>
+<div class="para">Then we are expressing <span class="process-math">\(D\)</span> as a region bounded by graphs of <span class="process-math">\(y\)</span> with bounding functions are <span class="process-math">\(h_1 (y) = - \sqrt{R^2 - y^2}\)</span> and <span class="process-math">\(h_2 (y) = \sqrt{R^2 - y^2}\text{.}\)</span> To find the area we apply our theorem, a trigonometric <span class="process-math">\(u\)</span>-substitution, and compute</div>
+<div class="displaymath process-math">
+\begin{align*}
+\text{Area} (D) \amp = \iint_D \, \tder{}{A}, \\
+\amp = \int_{-R}^R \int_{- \sqrt{R^2 - y^2}}^{\sqrt{R^2 - y^2}}  \, \tder{}{x} \, \tder{}{y}, \\
+\amp =  \int_{-R}^R \left. x \right|_{x = - \sqrt{R^2 - y^2}}^{\sqrt{R^2 - y^2}}   \, \tder{}{y}, \\
+\amp = \int_{-R}^R 2 \sqrt{R^2 - y^2} \, \tder{}{y}, \\
+\amp = \int_{\pi}^{0} 2\sqrt{R^2 - R^2 \cos^2 u}\, (- R \sin u )\, \tder{}{u}, \\
+\amp =  \int_{0}^{\pi} 2 R^2 \sin^2 u \, \tder{}{u}, \\
+\amp =  \int_{0}^{\pi} R^2 \left( 1 - \cos (2u) \right) \, \tder{}{u}, \\
+\amp =R^2 \left. u - \frac{R^2 \sin (2u)}{2} \right|_{u = 0}^\pi, \\
+\amp = \pi R^2.  
+\end{align*}
+</div>
+</div></article><span class="incontext"><a class="internal" href="sec-compactintegration.html#ex-areaofdisc">in-context</a></span>
+</body>
+</html>

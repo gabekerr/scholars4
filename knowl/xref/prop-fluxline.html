@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="proposition theorem-like"><h4 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">4.3.9</span><span class="period">.</span>
+</h4>
+<div class="para logical">
+<div class="para">Let <span class="process-math">\((\mathcal{C}, \vol^{\mathcal{C}})\)</span> be a smooth connected oriented curve in <span class="process-math">\(\mathbb{R}^2\text{,}\)</span> <span class="process-math">\(\mb{r} : [a, b] \to \mathbb{R}^2\)</span> a compatibly oriented parameterization</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{r} (t) = (x (t), y(t)),
+\end{equation*}
+</div>
+<div class="para">and <span class="process-math">\(\mb{F} = P \partial_x + Q \partial_y\)</span> a vector field  defined at every point of <span class="process-math">\(\mathcal{C}\text{.}\)</span> Then</div>
+<div class="displaymath process-math">
+\begin{align*}
+\int_{\mathcal{C}} \mb{F} \cdot \tder{}{\mb{n}} \amp = \int_{\mathcal{C}} \mb{F}\cdot \hat{\mb{n}} \, \tder{}{s}, \\
+\amp = \int_a^b - Q(x(t), y(t)) \, x^\prime (t) + P (x (t), y(t) ) \, y^\prime (t) \, \tder{}{t}. 
+\end{align*}
+</div>
+</div></article><details class="hiddenproof born-hidden-knowl"><summary><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof"><div class="para logical">
+<div class="para">The second equation follows from equation <a href="" class="xref" data-knowl="./knowl/xref/eq-fluxline.html" title="Equation 4.3.2">(4.3.2)</a>. On the other hand, equation <a href="" class="xref" data-knowl="./knowl/xref/eq-stardual.html" title="Equation 4.3.1">(4.3.1)</a> gives the form for the Hodge star of the dual of <span class="process-math">\(\mb{F}\text{.}\)</span>  One can check here that <span class="process-math">\(\star \mb{F}^\vee = \left( \star \mb{F} \right)^\vee\)</span> and</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-fluxline.html ./knowl/xref/eq-stardual.html ./knowl/xref/prop-vectorscalar.html">
+\begin{equation*}
+\star \mb{F} \amp =   -Q  \, \partial_{x} + P  \, \partial_{y}.
+\end{equation*}
+</div>
+<div class="para">Thus, using <a href="" class="xref" data-knowl="./knowl/xref/prop-vectorscalar.html" title="Proposition 4.3.3">Proposition 4.3.3</a> to relate the vector line integral to the scalar line integral gives</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-fluxline.html ./knowl/xref/eq-stardual.html ./knowl/xref/prop-vectorscalar.html">
+\begin{align*}
+\int_X \mb{F} \cdot \tder{}{\mb{n}} \amp = \int_X \star \mb{F}^\vee , \\
+\amp = \int_X \left( \star \mb{F} \right)^\vee, \\
+\amp = \int_X \left( \star \mb{F} \right) \cdot \mb{T} \, \tder{}{s}. 
+\end{align*}
+</div>
+<div class="para">Now, if <span class="process-math">\(\mb{T} =  a \partial_x + b \partial_y\)</span> at a point, then <span class="process-math">\(\hat{n} = b \partial x - a \partial_y\)</span> so that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-fluxline.html ./knowl/xref/eq-stardual.html ./knowl/xref/prop-vectorscalar.html">
+\begin{align*}
+\left(\star \mb{F} \right) \cdot \mb{T} \amp = \left( -Q  \, \partial_{x} + P  \, \partial_{y} \right) \cdot \left( a \partial_x + b \partial_y \right), \\
+\amp = - aQ + bP , \\
+\amp = \left( P \partial_x + Q \partial_y \right) \cdot \left( b \partial_x - a \partial_y \right),\\
+\amp = \mb{F} \cdot \hat{\mb{n}}.
+\end{align*}
+</div>
+<div class="para">Putting this into the above equation gives the first line.</div>
+</div></article></details><span class="incontext"><a class="internal" href="sec-vectorintegrals.html#prop-fluxline">in-context</a></span>
+</body>
+</html>

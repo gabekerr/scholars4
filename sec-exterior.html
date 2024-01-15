@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Exterior algebras</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Mathematical Scholars Calculus 4">
+<meta property="book:author" content="Gabriel Kerr">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "https://pretextbook.org/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.33/pretext_search.js"></script><link href="https://pretextbook.org/css/0.83/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.33</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.33/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.33/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.33/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+<link href="https://pretextbook.org/css/0.83/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
+<h1 class="heading"><a href="ms-calculus-3.html"><span class="title">Mathematical Scholars Calculus 4</span></a></h1>
+<p class="byline">Gabriel Kerr</p>
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="ch-differential-forms.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-differential-forms.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="ch-integral-calculus.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\diff}{\text{d}}
+\newcommand{\mb}[1]{\mathbf{#1}}
+\newcommand{\coord}[2]{[#1]^{#2}}
+\newcommand{\chart}[2]{[#1]_{#2}}
+\newcommand{\twovec}[2]{\left[ \begin{matrix} #1 \\ #2 \end{matrix} \right]}
+\newcommand{\threevec}[3]{\left[ \begin{matrix} #1 \\ #2 \\ #3 \end{matrix} \right]}
+\newcommand{\tangtwo}[2]{\left[ \begin{matrix} #1 \amp #2 \end{matrix} \right]}
+\newcommand{\tangthree}[3]{\left[ \begin{matrix} #1 \amp #2 \amp #3 \end{matrix} \right]}
+\newcommand{\im}{{\text{im}}}
+\newcommand{\cob}[3]{[#1]^{#3}_{#2}}
+\newcommand{\rk}{\text{rank}}
+\newcommand{\nullity}{\text{nullity}}
+\newcommand{\tder}[2]{d_{#1} {#2}}
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\ball}[2]{\text{B}_{#1} ( #2 )}
+\newcommand{\cball}[2]{\overline{\text{B}}_{#1} ( #2 )}
+\newcommand{\hball}[1]{\overline{\text{HB}}_{#1}}
+\newcommand{\vol}{\,\text{vol}}
+\newcommand{\orient}{\,\text{or}}
+\newcommand{\pball}[2]{\text{B}^*_{#1} ( #2 )}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural contains-active toc-item-list">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-differential-calculus.html" class="internal"><span class="codenumber">1</span> <span class="title">Differential Calculus in Several Variables</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-limit.html" class="internal"><span class="codenumber">1.1</span> <span class="title">The limit</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-limit.html#exe-limit" class="internal"><span class="codenumber">1.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-derivative.html" class="internal"><span class="codenumber">1.2</span> <span class="title">The derivative</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivative.html#subsec-directional-derivative" class="internal"><span class="codenumber">1.2.1</span> <span class="title">Directional and partial derivatives</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivative.html#subsec-derivatives-scalar" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Derivatives of scalar functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivative.html#subsec-linear-approximation-scalar" class="internal"><span class="codenumber">1.2.3</span> <span class="title">Linear approximation of scalar functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivative.html#subsec-Jacobian" class="internal"><span class="codenumber">1.2.4</span> <span class="title">The Jacobian matrix</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-derivative.html#exe-derivative" class="internal"><span class="codenumber">1.2.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-chainrule.html" class="internal"><span class="codenumber">1.3</span> <span class="title">The chain rule and tangent spaces</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-chainrule.html#subsec-computational" class="internal"><span class="codenumber">1.3.1</span> <span class="title">Computational considerations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-chainrule.html#subsec-tangent-spaces" class="internal"><span class="codenumber">1.3.2</span> <span class="title">Tangent spaces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-chainrule.html#subsec-subspaces" class="internal"><span class="codenumber">1.3.3</span> <span class="title">Level sets and their tangent spaces</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-chainrule.html#exe-chainrule" class="internal"><span class="codenumber">1.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-gradient.html" class="internal"><span class="codenumber">1.4</span> <span class="title">The gradient</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-gradient.html#subsec-metric-geometry" class="internal"><span class="codenumber">1.4.1</span> <span class="title">Metric geometry</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-gradient.html#subsec-steepest-ascent" class="internal"><span class="codenumber">1.4.2</span> <span class="title">Steepest ascent</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-gradient.html#exe-gradient" class="internal"><span class="codenumber">1.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-critical.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Critical points</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-critical.html#subsec-local-extrema" class="internal"><span class="codenumber">1.5.1</span> <span class="title">Local extrema</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-critical.html#sec-second-derivative-test" class="internal"><span class="codenumber">1.5.2</span> <span class="title">Second derivative test</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-critical.html#subsec-Morse" class="internal"><span class="codenumber">1.5.3</span> <span class="title">The Morse Lemma</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-critical.html#exe-critical" class="internal"><span class="codenumber">1.5.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-optimization1.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Optimization without constraints</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-optimization1.html#subsec-global-extrema" class="internal"><span class="codenumber">1.6.1</span> <span class="title">Global extrema</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-optimization1.html#subsec-least-squares" class="internal"><span class="codenumber">1.6.2</span> <span class="title">Least Squares</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-optimization1.html#subsec-gradient-descent" class="internal"><span class="codenumber">1.6.3</span> <span class="title">Gradient descent</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-optimization1.html#exe-optimization1" class="internal"><span class="codenumber">1.6.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-optimization2.html" class="internal"><span class="codenumber">1.7</span> <span class="title">Optimization with constraints</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-optimization2.html#subsec-single-constraint" class="internal"><span class="codenumber">1.7.1</span> <span class="title">Single constraint</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-optimization2.html#subsec-many-constraints" class="internal"><span class="codenumber">1.7.2</span> <span class="title">Several constraints</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-optimization2.html#exe-optimization2" class="internal"><span class="codenumber">1.7.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-differential-forms.html" class="internal"><span class="codenumber">2</span> <span class="title">Differential Forms</span></a></div>
+<ul class="structural toc-item-list contains-active"><li class="toc-item toc-section active">
+<div class="toc-title-box"><a href="sec-exterior.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Exterior algebras</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-exterior.html#subsec-exterior-product" class="internal"><span class="codenumber">2.1.1</span> <span class="title">The exterior product</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-exterior.html#subsec-exterior-algebra-geometry" class="internal"><span class="codenumber">2.1.2</span> <span class="title">Geometry of exterior algebras</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-exterior.html#subsec-cross-product" class="internal"><span class="codenumber">2.1.3</span> <span class="title">The cross product</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exterior.html#exe-exterior" class="internal"><span class="codenumber">2.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li></ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-integral-calculus.html" class="internal"><span class="codenumber">3</span> <span class="title">Integral Calculus in Several Variables</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-cubeintegration.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Integrating over cubes in <span class="process-math">\(\mathbb{R}^n\)</span></span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-cubeintegration.html#exe-cubeintegration" class="internal"><span class="codenumber">3.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-compactintegration.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Integration over compact domains in <span class="process-math">\(\mathbb{R}^2\)</span></span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-compactintegration.html#exe-compactintegration" class="internal"><span class="codenumber">3.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-compactRnintegration.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Integration over compact domains in <span class="process-math">\(\mathbb{R}^n\)</span></span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-compactRnintegration.html#exe-compactRnintegration" class="internal"><span class="codenumber">3.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-cov.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Change of Variables</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-cov.html#subsec-polar-integration" class="internal"><span class="codenumber">3.4.1</span> <span class="title">Integration using polar coordinates</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-cov.html#exe-cov" class="internal"><span class="codenumber">3.4.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-integral-of-forms.html" class="internal"><span class="codenumber">4</span> <span class="title">Integrals of Forms</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-integrating-forms.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Integrating forms</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-integrating-forms.html#subsec-integrating-top-forms" class="internal"><span class="codenumber">4.1.1</span> <span class="title">Integrating top forms</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-integrating-forms.html#subsec-integrating-k-forms" class="internal"><span class="codenumber">4.1.2</span> <span class="title">Integrating <span class="process-math">\(k\)</span>-forms on oriented subspaces.</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-integrating-forms.html#exe-formintegration" class="internal"><span class="codenumber">4.1.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-scalarintegrals.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Scalar integrals</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-scalarintegrals.html#subsec-scalar-line-integrals" class="internal"><span class="codenumber">4.2.1</span> <span class="title">Scalar line integrals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-scalarintegrals.html#subsec-scalar-surface-integrals" class="internal"><span class="codenumber">4.2.2</span> <span class="title">Scalar surface integrals</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-scalarintegrals.html#exe-scalarintegrals" class="internal"><span class="codenumber">4.2.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-vectorintegrals.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Vector integrals</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-vectorintegrals.html#subsec-vector-line-integrals" class="internal"><span class="codenumber">4.3.1</span> <span class="title">Vector line integrals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-vectorintegrals.html#subsec-flux-integrals" class="internal"><span class="codenumber">4.3.2</span> <span class="title">Flux integrals</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-vectorintegrals.html#exe-vectorintegrals" class="internal"><span class="codenumber">4.3.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-stokes-theorem.html" class="internal"><span class="codenumber">5</span> <span class="title">Stokes’ Theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-derivatives.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Derivatives</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivatives.html#subsec-exterior-derivative" class="internal"><span class="codenumber">5.1.1</span> <span class="title">Exterior derivative</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivatives.html#subsec-gradient" class="internal"><span class="codenumber">5.1.2</span> <span class="title">Gradient</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivatives.html#subsec-curl" class="internal"><span class="codenumber">5.1.3</span> <span class="title">Curl</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivatives.html#subsec-2dcurl" class="internal"><span class="codenumber">5.1.4</span> <span class="title">Two dimensional curl</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivatives.html#subsec-divergence" class="internal"><span class="codenumber">5.1.5</span> <span class="title">Divergence</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-derivatives.html#exe-derivatives" class="internal"><span class="codenumber">5.1.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-stokes.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Stokes’ Theorem</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-stokes.html#exe-stokes" class="internal"><span class="codenumber">5.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-ftli.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Stokes’ Theorem on curves - The Fundamental Theorem of Line Integrals</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-ftli.html#exe-ftli" class="internal"><span class="codenumber">5.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-greens.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Stokes’ Theorem in dimension <span class="process-math">\(2\)</span> - Green’s Theorems</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-greens.html#exe-greens" class="internal"><span class="codenumber">5.4</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-classicalstokes.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Stokes’ Theorem in dimension <span class="process-math">\(3\)</span> - Classical Stokes’ and Divergence Theorems</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-classicalstokes.html#exe-classicalstokes" class="internal"><span class="codenumber">5.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-applications.html" class="internal"><span class="codenumber">5.6</span> <span class="title">Selected Applications</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-applications.html#subsec-maxwells-equations" class="internal"><span class="codenumber">5.6.1</span> <span class="title">Maxwell’s equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-applications.html#subsec-contour-integrals" class="internal"><span class="codenumber">5.6.2</span> <span class="title">Contour integrals</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-applications.html#exe-applications" class="internal"><span class="codenumber">5.6.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-partial-differential-equations.html" class="internal"><span class="codenumber">6</span> <span class="title">Partial Differential Equations</span></a></div></li>
+<li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-exterior"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">2.1</span><span class="space"> </span><span class="title">Exterior algebras</span>
+</h2>
+<section class="introduction" id="sec-exterior-2"><div class="para" id="sec-exterior-2-1">This section had to come at some point, so I apologize now for presenting the inevitable content contained within! At the same time, exterior algebras could be considered a first introduction to a very intriguing subject and quite different from what you may have experienced in your mathematical education... so I retract my apology!!</div></section><section class="subsection" id="subsec-exterior-product"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">2.1.1</span><span class="space"> </span><span class="title">The exterior product</span>
+</h3>
+<div class="para" id="subsec-exterior-product-2">For the last time, we return to linear algebra and consider an <span class="process-math">\(n\)</span>-dimensional vector space <span class="process-math">\(V\)</span> over <span class="process-math">\(K\)</span> where <span class="process-math">\(K\)</span> is either <span class="process-math">\(\mathbb{R}\)</span> or <span class="process-math">\(\mathbb{C}\text{.}\)</span> We want to take our vector space <span class="process-math">\(V\)</span> and build several new ones <span class="process-math">\(\bigwedge^k V\text{.}\)</span> These new vector spaces consists of linear combinations of <dfn class="terminology">wedge products</dfn> (also known as <dfn class="terminology">exterior products</dfn>) of vectors in <span class="process-math">\(V\text{.}\)</span> We describe the rules of such a wedge product now.</div>
+<article class="definition definition-like" id="def-exterior-algebra"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.1.1</span><span class="period">.</span>
+</h4> <div class="para logical" id="def-exterior-algebra-2-1">
+<div class="para">Let <span class="process-math">\(V\)</span> be a vector space over <span class="process-math">\(K\text{.}\)</span> The wedge product of vectors <span class="process-math">\(\mb{u}\)</span> and <span class="process-math">\(\mb{v}\)</span> is a formal vector</div>
+<div class="displaymath process-math">
+\begin{equation*}
+u \wedge v
+\end{equation*}
+</div>
+<div class="para">subject to the properties:</div>
+<dl class="description-list">
+<dt id="def-exterior-algebra-2-1-6-1"></dt>
+<dd>Anti-symmetry: <span class="process-math">\(\mb{u} \wedge \mb{v} = - \mb{v} \wedge \mb{u}\text{,}\)</span>
+</dd>
+<dt id="def-exterior-algebra-2-1-6-2"></dt>
+<dd>Bilinear:  <span class="process-math">\(\mb{u} \wedge (a \mb{v} + b \mb{w} ) = a \mb{u} \wedge \mb{v} + b \mb{u} \wedge \mb{w}\text{.}\)</span>
+</dd>
+</dl>
+<div class="para">The vector space of linear combinations of exterior products of <span class="process-math">\(k\)</span> vectors is called the <dfn class="terminology"><span class="process-math">\(k\)</span>-th exterior product</dfn> of <span class="process-math">\(V\)</span> and denoted <span class="process-math">\(\bigwedge^k V\text{.}\)</span> By convention <span class="process-math">\(\bigwedge^0 V  = K\text{.}\)</span>
+</div>
+</div></article><div class="para" id="subsec-exterior-product-4">The above definition should be taken as an informal one and leaves the technical notions of tensor products to a later course. In particular, the exterior product has to satisfy a so-called universal property which distinguishes it from other algebraic structures enjoying the two defining properties. Nevertheless, let us take a casual look at products in general and arrive at a more precise description of <span class="process-math">\(\bigwedge^* V\)</span> using some propositions.</div>
+<div class="para logical" id="subsec-exterior-product-5">
+<div class="para">Consider linear functions from <span class="process-math">\(\mathbb{R}^2\)</span> to itself. Such functions form a vector space <span class="process-math">\(V\)</span> (the dual of <span class="process-math">\(\mathbb{R}^2\)</span>). We can write such functions as <span class="process-math">\(ax + by\text{.}\)</span> Of course, taking our usual product of functions makes new (non-linear) ones like</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(2x + 3y ) (x - y ) = 2x^2 - 2x y + 3 y x - 3 y^2 = 2 x^2 + xy - 3 y^2.
+\end{equation*}
+</div>
+<div class="para">Now what about exterior products? First, we note that if we take any vector <span class="process-math">\(\mb{v}\)</span> then by anti-symmetry, <span class="process-math">\(\mb{v} \wedge \mb{v} = - \mb{v} \wedge \mb{v}\)</span> which implies <span class="process-math">\(\mb{v} \wedge \mb{v} = 0\text{.}\)</span> I.e. taking an ‘exterior square’ of a vector in <span class="process-math">\(V\)</span> gives zero. This combined with bilinearity gives</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(2x + 3y ) \wedge (x - y ) = 2x \wedge x - 2x\wedge y + 3 y\wedge x - 3 y\wedge y = - 2x\wedge y - 3 x\wedge y = - 5 x \wedge y.
+\end{equation*}
+</div>
+<div class="para">This type of exercise can be enhanced to the following proposition.</div>
+</div>
+<article class="proposition theorem-like" id="prop-wedgebasis"><h4 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">2.1.2</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="prop-wedgebasis-1-1">
+<div class="para">If <span class="process-math">\(\mathcal{B} = \{ \mb{v}_1 , \ldots, \mb{v}_n \}\)</span> is a basis for the vector space <span class="process-math">\(V\)</span> then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\left\{ \mb{v}_{i_1} \wedge \cdots \wedge \mb{v}_{i_k} :1 \leq i_1 \lt i_2 \lt \cdots \lt i_k \leq n\right\}
+\end{equation*}
+</div>
+<div class="para">is a basis for the <span class="process-math">\(k\)</span>-the wedge product <span class="process-math">\(\bigwedge^k V\text{.}\)</span> Furthermore, if <span class="process-math">\(k \gt n\)</span> then <span class="process-math">\(\bigwedge^k V\)</span> is the zero vector space.</div>
+</div></article><details id="prop-wedgebasis-2" class="hiddenproof born-hidden-knowl"><summary><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof"><div class="para logical" id="prop-wedgebasis-2-1">
+<div class="para">We prove that this set spans <span class="process-math">\(\bigwedge^k V\)</span> and leave linear independence to a more advanced treatment. Proceed by induction on <span class="process-math">\(k\text{.}\)</span> Certainly when <span class="process-math">\(k = 1\)</span> we have the case of <span class="process-math">\(V\)</span> itself. Assume it to be true for <span class="process-math">\((k - 1)\text{,}\)</span> and consider the exterior product <span class="process-math">\(\mb{u}_1 \wedge \cdots \wedge \mb{u}_k\)</span> in <span class="process-math">\(\bigwedge^k V\text{.}\)</span> Then by the induction hypothesis, there are scalars <span class="process-math">\(a_{i_1, \ldots, i_{k - 1}}\)</span> with</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{u}_1 \wedge \cdots \wedge \mb{u}_{k - 1} = \sum_{i_1 \lt \cdots \lt i_{k - 1}} a_{i_1, \ldots, i_{k - 1}}\mb{v}_{i_1} \wedge \cdots \mb{v}_{i_{k - 1}}
+\end{equation*}
+</div>
+<div class="para">and since <span class="process-math">\(\mathcal{B}\)</span> is a basis we also have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{u}_k = \sum_{j = 1}^n b_j \mb{v}_j.
+\end{equation*}
+</div>
+<div class="para">Expanding their product and applying bilinearity then gives <span class="process-math">\(\mb{u}_1 \wedge \cdots \wedge \mb{u}_k\)</span> as a linear combination of the <span class="process-math">\(k\)</span>-products</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\left\{ \mb{v}_{i_1} \wedge \cdots \wedge \mb{v}_{i_k} :1 \leq i_1 \lt i_2 \lt \cdots \lt i_k \leq n\right\}.
+\end{equation*}
+</div>
+<div class="para">The proof of linear independence relies on the construction of the exterior algebra from tensor products which we will leave to an abstract algebra course.</div>
+</div></article></details><div class="para logical" id="subsec-exterior-product-7">
+<div class="para">For an <span class="process-math">\(n\)</span>-dimensional vector space we write</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\bigwedge^* V = \oplus_{k = 0}^n \bigwedge^k V
+\end{equation*}
+</div>
+<div class="para">and note that this vector space has both addition and exterior multiplication - in mathematics we call such spaces algebras.</div>
+</div>
+<article class="corollary theorem-like" id="subsec-exterior-product-8"><h4 class="heading">
+<span class="type">Corollary</span><span class="space"> </span><span class="codenumber">2.1.3</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="subsec-exterior-product-8-1-1">
+<div class="para">If <span class="process-math">\(V\)</span> is an <span class="process-math">\(n\)</span>-dimensional vector space and <span class="process-math">\(0 \leq k \leq n\)</span> then</div>
+<div class="displaymath process-math" id="subsec-exterior-product-8-1-1-4">
+\begin{align*}
+\dim \bigwedge^k V \amp = \binom{n}{k}, \\
+\dim \bigwedge^* V \amp = 2^n. 
+\end{align*}
+</div>
+</div></article><div class="para" id="subsec-exterior-product-9">Thus <span class="process-math">\(\bigwedge^* V\)</span> is not only an algebra it is finite dimensional. Now let us examine a key result that makes these algebras so useful.</div>
+<article class="proposition theorem-like" id="prop-wedgelinearind"><h4 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">2.1.4</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="prop-wedgelinearind-1-1">
+<div class="para">Let <span class="process-math">\(\mb{v}_1, \ldots, \mb{v}_k\)</span> be vectors in <span class="process-math">\(V\text{.}\)</span> Then they are linearly independent if and only if</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{v}_1 \wedge \cdots \wedge \mb{v}_k \ne 0
+\end{equation*}
+</div>
+<div class="para">in <span class="process-math">\(\bigwedge^* V\text{.}\)</span>
+</div>
+</div></article><details id="prop-wedgelinearind-2" class="hiddenproof born-hidden-knowl"><summary><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof"><div class="para logical" id="prop-wedgelinearind-2-1">
+<div class="para">If <span class="process-math">\(\mb{v}_1, \ldots, \mb{v}_k\)</span> are linearly independent, then they can be extended to a basis of <span class="process-math">\(V\text{.}\)</span> But then Proposition~\ref{prop:wedgebasis} asserts that <span class="process-math">\(\mb{v}_1 \wedge \cdots \wedge \mb{v}_k\)</span> is a vector in a basis for <span class="process-math">\(\bigwedge^k V\)</span> and thus is non-zero. If they are linearly dependent, then we may assume that, after reordering, <span class="process-math">\(\mb{v}_k\)</span> can be written as a linear combination</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{v}_k = a_1 \mb{v}_1 + \cdots + a_{k - 1} \mb{v}_{k - 1}.
+\end{equation*}
+</div>
+<div class="para">But then using bilinearity we have</div>
+<div class="displaymath process-math" id="prop-wedgelinearind-2-1-7">
+\begin{align*}
+\mb{v}_1 \wedge \cdots \wedge \mb{v}_k \amp = \mb{v}_1 \wedge \cdots \wedge \mb{v}_{k - 1} \wedge (a_1 \mb{v}_1 + \cdots + a_{k - 1} \mb{v}_{k - 1} ), \\
+\amp = a_1 \mb{v}_1 \wedge \cdots \wedge \mb{v}_{k - 1} \wedge  \mb{v}_1 + \cdots + a_{k - 1}\mb{v}_1 \wedge \cdots \wedge \mb{v}_{k - 1} \wedge  . \mb{v}_{k - 1}. 
+\end{align*}
+</div>
+<div class="para">But every summand in the last expression has a wedge product of two <span class="process-math">\(\mb{v}_i\)</span>’s, so using anti-commutativity, we get that each of these is <span class="process-math">\(\mb{0}\)</span> and we are done.</div>
+</div></article></details><div class="para" id="subsec-exterior-product-11">Let us observe an application of exterior products and this proposition right now. To do this, we need to define differential forms.</div>
+<article class="definition definition-like" id="def-differential-form"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.1.5</span><span class="period">.</span>
+</h4> <div class="para" id="def-differential-form-2-1">Let <span class="process-math">\(U\)</span> be an open subset of <span class="process-math">\(\mathbb{R}^m\text{.}\)</span> A <dfn class="terminology">differential <span class="process-math">\(1\)</span>-form</dfn> <span class="process-math">\(\eta\)</span> on <span class="process-math">\(U\)</span> is a smooth assignment which takes <span class="process-math">\(p\)</span> to a tangent covector <span class="process-math">\(\eta (p) \in T^*_p \mathbb{R}^m = \text{Hom} (T_p \mathbb{R}^m , \mathbb{R})\text{.}\)</span> A <dfn class="terminology">differential <span class="process-math">\(k\)</span>-form</dfn> is a linear combination of <span class="process-math">\(k\)</span>-exterior products of <span class="process-math">\(1\)</span>-forms.</div></article><div class="para" id="subsec-exterior-product-13">Equivalently, we may consider a differential <span class="process-math">\(k\)</span>-form to be an assignment from <span class="process-math">\(p\)</span> to the dual of the <span class="process-math">\(k\)</span>-th exterior space <span class="process-math">\(\bigwedge^k V\text{,}\)</span> i.e. a vector in <span class="process-math">\(\text{Hom} (\bigwedge^k T_p \mathbb{R}^m , \mathbb{R})\text{.}\)</span> Differential <span class="process-math">\(1\)</span>-forms are dual to vector fields in that if we have a vector field <span class="process-math">\(\mb{Y}\)</span> on <span class="process-math">\(U\)</span> and a differential one form <span class="process-math">\(\eta\)</span> on <span class="process-math">\(U\)</span> then <span class="process-math">\(\eta (\mb{Y})\)</span> is a scalar function on <span class="process-math">\(U\text{.}\)</span> The most common way to create a differential <span class="process-math">\(1\)</span>-form is to take the derivative of a scalar function!</div>
+<article class="definition definition-like" id="def-exterior-derivative"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.1.6</span><span class="period">.</span>
+</h4> <div class="para logical" id="def-exterior-derivative-2-1">
+<div class="para">If <span class="process-math">\(U\)</span> is an open subset of <span class="process-math">\(\mathbb{R}^m\)</span> and <span class="process-math">\(p \in U\text{,}\)</span> write the standard dual basis of <span class="process-math">\(T_p^* \mathbb{R}^m\)</span> as</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\tder{}{x_1}, \ldots, \tder{}{x_m}.
+\end{equation*}
+</div>
+<div class="para">I.e. these are the dual vectors to the standard tangent vectors <span class="process-math">\(\partial_1 , \ldots, \partial_m\)</span> in that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\tder{}{x_i} (\partial_j) \amp = \begin{cases} 1 \amp \text{ if } i = j, \\ 0 \amp \text{ otherwise} \end{cases}
+\end{equation*}
+</div>
+<div class="para">The (exterior) derivative of a scalar function is then defined as the differential <span class="process-math">\(1\)</span>-form</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\tder{}{f} = \frac{\partial f}{\partial x_1} \tder{}{x_1} + \cdots + \frac{\partial f}{\partial x_n} \tder{}{x_n} .
+\end{equation*}
+</div>
+</div></article><div class="para logical" id="subsec-exterior-product-15">
+<div class="para">The student should note that this is really nothing new (yet), just a different way of expressing the usual derivative of an ordinary scalar function. For example, if we take</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(x,y) = x^2 \ln y
+\end{equation*}
+</div>
+<div class="para">then the original definition of the derivative of <span class="process-math">\(f(x,y)\)</span> at <span class="process-math">\((x,y)\)</span> is a linear transformation from <span class="process-math">\(T_{(x,y)} \mathbb{R}^2\)</span> to <span class="process-math">\(T_{x^2 \ln y} \mathbb{R}\text{.}\)</span> Using the standard basis of vector fields, we identify these tangent spaces with <span class="process-math">\(\mathbb{R}^2\)</span> and <span class="process-math">\(\mathbb{R}\)</span> and write this derivative as the <span class="process-math">\(1 \times 2\)</span> matrix</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\tder{}{f} = \left[ \begin{matrix} 2x \ln y \amp \frac{x^2}{y} \end{matrix} \right].
+\end{equation*}
+</div>
+<div class="para">As a differential <span class="process-math">\(1\)</span>-form, this is written</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\tder{}{f} = 2x \ln y \,\tder{}{x} +   \frac{x^2}{y}\, \tder{}{y}.
+\end{equation*}
+</div>
+<div class="para">We will see differential forms in much more detail later on as they form the heart of multivariable calculus. For now, let us use them to re-express Lagrange multipliers.</div>
+</div>
+<article class="proposition theorem-like" id="prop-lagrangian-one-constaint"><h4 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">2.1.7</span><span class="period">.</span><span class="space"> </span><span class="title">Lagrange multipliers with one constraint - exterior product version.</span>
+</h4>
+<div class="para" id="prop-lagrangian-one-constaint-2-1">Suppose <span class="process-math">\(V\)</span> is an open set in <span class="process-math">\(\mathbb{R}^n\text{,}\)</span> <span class="process-math">\(g : V \to \mathbb{R}\)</span> and <span class="process-math">\(f: V \to \mathbb{R}\)</span> two differentiable scalar functions. If <span class="process-math">\(X\)</span> is the level set of <span class="process-math">\(g\)</span> then a smooth point <span class="process-math">\(q \in X\)</span> is a critical point of <span class="process-math">\(f|_X\)</span> if and only if the differential <span class="process-math">\(2\)</span>-form <span class="process-math">\(\tder{}{f} \wedge \tder{}{g}\)</span> vanishes at <span class="process-math">\(q\text{.}\)</span>
+</div></article><div class="para" id="subsec-exterior-product-17">The major advantage of this over the previous version is that <em class="emphasis">there are no multipliers!</em> Thus we have automatically eliminated one variable that needs to be solved in the previous version. Let’s take another look at <a href="" class="xref" data-knowl="./knowl/xref/ex-lagrange1.html" title="Example 1.7.10: Optimization on a hyperboloid">Example 1.7.10</a> but using this technique.</div>
+<details id="subsec-exterior-product-18" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.8</span><span class="period">.</span><span class="space"> </span><span class="title">Lagrange multiplier using differential forms.</span>
+</h4></summary><article class="example example-like"><div class="para logical" id="subsec-exterior-product-18-2-1">
+<div class="para">Recall that in <a href="" class="xref" data-knowl="./knowl/xref/ex-lagrange1.html" title="Example 1.7.10: Optimization on a hyperboloid">Example 1.7.10</a> we wanted to find critical points of <span class="process-math">\(f(x,y,z) = x^2 - y^2 + z\)</span> on the hyperboloid</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex-lagrange1.html">
+\begin{equation*}
+g(x,y, z) = x^2 + y^2 - 4 z^2 = 1.
+\end{equation*}
+</div>
+<div class="para">We compute derivatives but now write them as differential <span class="process-math">\(1\)</span>-forms to see</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex-lagrange1.html" id="subsec-exterior-product-18-2-1-5">
+\begin{align*}
+\tder{}{f} \amp =  2x \,\tder{}{x} -2y \,\tder{}{y} + \tder{}{z}, \\
+\tder{}{g} \amp =  2x\,\tder{}{x} + 2y\,\tder{}{y} - 8z\,\tder{}{z}. 
+\end{align*}
+</div>
+<div class="para">Now we compute the exterior product</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex-lagrange1.html" id="subsec-exterior-product-18-2-1-6">
+\begin{align*}
+\tder{}{f} \wedge \tder{}{g} \amp = ( 2x \,\tder{}{x} -2y \,\tder{}{y} + \tder{}{z}) \wedge (2x\,\tder{}{x} + 2y\,\tder{}{y} - 8z\,\tder{}{z}) , \\
+\amp = 4xy \, \tder{}{x} \wedge \tder{}{y} - 2x ( 1 + 8z )\, \tder{}{x} \wedge \tder{}{z} + 2y (8z - 1)\, \tder{}{y}\wedge \tder{}{z}. 
+\end{align*}
+</div>
+<div class="para">For this <span class="process-math">\(2\)</span>-form to be zero, each of the coefficient functions must be zero. The coefficient <span class="process-math">\(4xy\)</span> is zero if and only if either <span class="process-math">\(x = 0\)</span> or <span class="process-math">\(y = 0\text{.}\)</span> Again, the constraint <span class="process-math">\(g(x,y,z) = 1\)</span> implies not both can be zero. Consider both cases:</div>
+<ol class="decimal">
+<li id="subsec-exterior-product-18-2-1-12-1"><div class="para" id="p-derived-subsec-exterior-product-18-2-1-12-1">Suppose <span class="process-math">\(x = 0\)</span> and <span class="process-math">\(y \ne 0\text{.}\)</span> Since <span class="process-math">\(x = 0\text{,}\)</span> the <span class="process-math">\(\tder{}{x} \wedge \tder{}{y}\)</span> coefficient is zero. Since <span class="process-math">\(y \ne 0\)</span> the <span class="process-math">\(\tder{}{y} \wedge \tder{}{z}\)</span> coefficient being zero implies <span class="process-math">\(8z - 1 = 0\)</span> so that <span class="process-math">\(z = 1/8\text{.}\)</span>
+</div></li>
+<li id="subsec-exterior-product-18-2-1-12-2"><div class="para" id="p-derived-subsec-exterior-product-18-2-1-12-2">Suppose <span class="process-math">\(y = 0\)</span> and <span class="process-math">\(x \ne 0\text{.}\)</span> Since <span class="process-math">\(y = 0\text{,}\)</span> the <span class="process-math">\(\tder{}{y} \wedge \tder{}{z}\)</span> coefficient is zero. Since <span class="process-math">\(x \ne 0\)</span> the <span class="process-math">\(\tder{}{x} \wedge \tder{}{z}\)</span> coefficient being zero implies <span class="process-math">\(1 + 8z= 0\)</span> so that <span class="process-math">\(z = -1/8\text{.}\)</span>
+</div></li>
+</ol>
+<div class="para">Putting these into the constraint then produces the critical points as before.</div>
+</div></article></details><div class="para" id="subsec-exterior-product-19">The procedure for several constraints also follows from <a href="" class="xref" data-knowl="./knowl/xref/prop-wedgelinearind.html" title="Proposition 2.1.4">Proposition 2.1.4</a> as well.</div>
+<article class="proposition theorem-like" id="prop-lagrangian-several-constaints"><h4 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">2.1.9</span><span class="period">.</span><span class="space"> </span><span class="title">Lagrange multipliers with several constraints - exterior products version.</span>
+</h4>
+<div class="para logical" id="prop-lagrangian-several-constaints-2-1">
+<div class="para">Suppose <span class="process-math">\(V\)</span> is an open set in <span class="process-math">\(\mathbb{R}^n\text{,}\)</span> <span class="process-math">\(\mb{G} : V \to \mathbb{R}^k\)</span> a differentiable vector valued function</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{G} (x_1, \ldots, x_n) = (g_1(x_1, \ldots, x_n), \ldots, g_k(x_1, \ldots, x_n))
+\end{equation*}
+</div>
+<div class="para">with <span class="process-math">\(\tder{}{\mb{G}}\)</span> of full rank and <span class="process-math">\(f: V \to \mathbb{R}\)</span> a differentiable scalar function. If <span class="process-math">\(X\)</span> is the level set of <span class="process-math">\(\mb{G}\)</span> then a smooth point <span class="process-math">\(q \in X\)</span> is a critical point of <span class="process-math">\(f|_X\)</span> if and only if <span class="process-math">\(\tder{}{f} \wedge  \tder{}{g_1}\wedge \cdots \wedge  \tder{}{g_k}\)</span> is zero at <span class="process-math">\(q\text{.}\)</span>
+</div>
+</div></article></section><section class="subsection" id="subsec-exterior-algebra-geometry"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">2.1.2</span><span class="space"> </span><span class="title">Geometry of exterior algebras</span>
+</h3>
+<div class="para" id="subsec-exterior-algebra-geometry-2">The exterior algebra is miraculous in its ability to compute geometric quantities naturally. We will start with the following result.</div>
+<article class="proposition theorem-like" id="prop-wedgevolume1"><h4 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">2.1.10</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="prop-wedgevolume1-1-1">
+<div class="para">Let <span class="process-math">\(\mb{c}_1, \ldots, \mb{c}_n \in K^n\)</span> be column vectors and suppose they form the matrix</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A = \left[ \begin{matrix} | \amp | \amp  \amp | \\ \mb{c}_1 \amp \mb{c}_2 \amp \cdots \amp \mb{c}_n \\ | \amp | \amp   \amp | \end{matrix} \right]
+\end{equation*}
+</div>
+<div class="para">Then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{c}_1 \wedge \cdots \wedge \mb{c}_n = \det (A) \mb{e}_1 \wedge \cdots \wedge \mb{e}_n
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(\mb{e}_1, \ldots, \mb{e}_n\)</span> is the standard basis.</div>
+</div></article><details id="prop-wedgevolume1-2" class="hiddenproof born-hidden-knowl"><summary><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof"><div class="para" id="prop-wedgevolume1-2-1">Exercise.</div></article></details><div class="para logical" id="subsec-exterior-algebra-geometry-4">
+<div class="para">We recall that the absolute value of the determinant expresses the volume of the parallelepiped spanned by the columns, so we can see that the exterior product `knows’ about their volume. In fact, the exterior product knows about many other volumes as well if we start with an inner product. In particular, if <span class="process-math">\(V\)</span> has an inner product, we can extend it to define an inner product on <span class="process-math">\(\bigwedge^* V\text{.}\)</span> This can be done by taking an orthonormal basis <span class="process-math">\(\mathcal{B} = \{\mb{v}_1, \ldots, \mb{v}_n\}\)</span> of <span class="process-math">\(V\)</span> and making all of their products an orthonormal basis of <span class="process-math">\(\bigwedge^* V\)</span> so that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\{ \mb{v}_{i_1} \wedge \cdots \wedge \mb{v}_{i_k} : 1 \leq  i_1 \lt \cdots \lt i_k \leq n, 0 \leq k \leq n \}
+\end{equation*}
+</div>
+<div class="para">forms an orthonormal basis. To see that this makes sense, we define our inner product more intrinsically as follows.</div>
+</div>
+<article class="definition definition-like" id="def-exterior-inner-product"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.1.11</span><span class="period">.</span>
+</h4> <div class="para logical" id="def-exterior-inner-product-2-1">
+<div class="para">Suppose <span class="process-math">\((V, \langle , \rangle)\)</span> is an inner product space. The inner product on two pure <span class="process-math">\(k\)</span>-th wedge products is then given by the formula</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\langle \mb{v}_1 \wedge \cdots \wedge \mb{v}_k , \mb{w}_1 \wedge \cdots \wedge \mb{w}_k \rangle = \det \left( \langle \mb{v}_i , \mb{w}_j \rangle \right).
+\end{equation*}
+</div>
+<div class="para">This inner product can be extended to <span class="process-math">\(\bigwedge^k V\)</span> linearly.</div>
+</div></article><div class="para" id="subsec-exterior-algebra-geometry-6">The fact that this definition makes sense and can be extended to all of <span class="process-math">\(\bigwedge^k V\)</span> follows from row and column linearity of the determinant as well as the alternating property. From this, we obtain the following amazing result.</div>
+<article class="proposition theorem-like" id="prop-parallelepipedvolume"><h4 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">2.1.12</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="prop-parallelepipedvolume-1-1">
+<div class="para">Let <span class="process-math">\(\mb{c}_1, \ldots, \mb{c}_r \in \mathbb{R}^n\)</span> be column vectors and <span class="process-math">\(\mathcal{P}\)</span> the <span class="process-math">\(r\)</span>-dimensional parallelepiped spanned by them. Then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\text{Vol} (\mathcal{P}) = \| \mb{c}_1 \wedge \cdots \wedge \mb{c}_r \|.
+\end{equation*}
+</div>
+<div class="para">Here <span class="process-math">\(\text{Vol}\)</span> is the <span class="process-math">\(r\)</span>-dimensional volume.</div>
+</div></article><details id="prop-parallelepipedvolume-2" class="hiddenproof born-hidden-knowl"><summary><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof"><div class="para logical" id="prop-parallelepipedvolume-2-1">
+<div class="para">We check this by considering the subspace <span class="process-math">\(V\)</span> of <span class="process-math">\(\mathbb{R}^n\)</span> spanned by <span class="process-math">\(\mb{c}_1, \ldots, \mb{c}_r\text{.}\)</span> If these vectors are linearly dependent, then clearly the <span class="process-math">\(r\)</span>-dimensional parallelepiped has <span class="process-math">\(r\)</span>-dimensional volume <span class="process-math">\(0\)</span> (since it is contained in a space of smaller dimension). But Proposition~\ref{prop:wedgelinearind} then also says that <span class="process-math">\(\mb{c}_1 \wedge \cdots \wedge \mb{c}_r = \mb{0}\)</span> implying the result in this case. So suppose that they are linearly independent and let <span class="process-math">\(\mathcal{B} = \{\mb{v}_1, \ldots, \mb{v}_r\}\)</span> be an orthonormal basis for <span class="process-math">\(V\)</span> (recall this can be found through the Gram-Schmidt process). We may write <span class="process-math">\(\mb{c}_i\)</span> as a vector in <span class="process-math">\(\mathbb{R}^r\)</span> using the basis <span class="process-math">\(\mathcal{B}\)</span> via the coordinate map</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\tilde{\mb{c}}_i =  \coord{\mb{c}_i}{\mathcal{B}}
+\end{equation*}
+</div>
+<div class="para">and in doing so, we have that</div>
+<div class="displaymath process-math" id="eq-dotproducts">
+\begin{equation}
+\mb{c}_i \cdot \mb{c}_j = \tilde{\mb{c}}_i \cdot \tilde{\mb{c}}_j.\tag{2.1.1}
+\end{equation}
+</div>
+<div class="para">Another way of saying this is that the coordinate chart <span class="process-math">\([]_\mathcal{B} : \mathbb{R}^r \to \mathbb{R}^n\)</span> preserves distance and thus preserves volume. Taking <span class="process-math">\(\tilde{\mathcal{P}}\)</span> to be the parallelepiped spanned by <span class="process-math">\(\tilde{\mb{c}}_1, \ldots , \tilde{\mb{c}}_r\)</span> in <span class="process-math">\(\mathbb{R}^r\text{,}\)</span> we then have that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\textnormal{Vol}(\mathcal{P}) = \textnormal{Vol}(\tilde{\mathcal{P}}) = | \det A |
+\end{equation*}
+</div>
+<div class="para">where</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A = \left[ \begin{matrix} | \amp | \amp  \amp | \\ \tilde{\mb{c}}_1 \amp \tilde{\mb{c}}_2 \amp \cdots \amp \tilde{\mb{c}}_r \\ | \amp | \amp   \amp | \end{matrix} \right].
+\end{equation*}
+</div>
+<div class="para">But applying Proposition~\ref{prop:wedgevolume1} to <span class="process-math">\(V\)</span> and using the fact that <span class="process-math">\(\mathcal{B}\)</span> is an orthonormal basis gives</div>
+<div class="displaymath process-math" id="prop-parallelepipedvolume-2-1-23">
+\begin{align*}
+\| \mb{c}_1 \wedge \cdots \wedge \mb{c}_r \| \amp = \| (\det A) \mb{v}_1 \wedge \cdots \wedge \mb{v}_r \|, \\
+\amp = | \det A | \sqrt{ \det \left( \langle \mb{v}_i , \mb{v}_j \rangle \right)},   \\
+\amp = |\det A | \sqrt{ \det ( I ) }, \\
+\amp = |\det A|, \\
+\amp = \textnormal{Vol} (\mathcal{P}). 
+\end{align*}
+</div>
+</div></article></details><div class="para" id="subsec-exterior-algebra-geometry-8">Let’s run this result through an example to see how quickly it solves some problems.</div>
+<details id="subsec-exterior-algebra-geometry-9" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.13</span><span class="period">.</span><span class="space"> </span><span class="title">Chain rule computation II.</span>
+</h4></summary><article class="example example-like"><div class="para logical" id="subsec-exterior-algebra-geometry-9-2-1">
+<div class="para">Consider the column vectors</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{u} = \threevec{1}{-2}{3}, \mb{v} = \threevec{1}{0}{-1}
+\end{equation*}
+</div>
+<div class="para">and let <span class="process-math">\(\mathcal{P}\)</span> be the parallelogram spanned by them. Then, expanding in terms of the standard basis we have</div>
+<div class="displaymath process-math" id="subsec-exterior-algebra-geometry-9-2-1-3">
+\begin{align*}
+\mb{u} \wedge \mb{v} \amp = \left( \mb{e}_1 - 2 \mb{e}_2 + 3 \mb{e}_3 \right) \wedge \left( \mb{e}_1 - \mb{e}_3 \right), \\
+\amp = - \mb{e}_1 \wedge \mb{e}_3 - 2 \mb{e}_2 \wedge \mb{e}_1 + 2 \mb{e}_2 \wedge \mb{e}_3 +3 \mb{e}_3 \wedge \mb{e}_1, \\
+\amp = -4 \mb{e}_1 \wedge \mb{e}_3 + 2 \mb{e}_1 \wedge \mb{e}_2 + 2 \mb{e}_2 \wedge \mb{e}_3. 
+\end{align*}
+</div>
+<div class="para">Since <span class="process-math">\(\mb{e}_i \wedge \mb{e}_j\)</span> is an orthonormal basis for <span class="process-math">\(\wedge^2 \mathbb{R}^n\)</span> and remembering that <span class="process-math">\(2\)</span>-dimensional volume is just area, we have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\textnormal{Area} (\mathcal{P}) = \|\mb{u} \wedge \mb{v} \| = \sqrt{ 16 + 4 + 4} = 2 \sqrt{6}.
+\end{equation*}
+</div>
+<div class="para">One should take a moment to appreciate this newfound technique. It is one thing to be able to find volumes of parallelograms in the plane with simple determinants, it is another to be able to find areas of parallelograms (and volumes of parallelepipeds) in high dimensional spaces <span class="process-math">\(\mathbb{R}^n\)</span> with simple arithmetic!</div>
+</div></article></details><div class="para" id="subsec-exterior-algebra-geometry-10">Happily for some, and sadly for others, exterior products can be used to give even more geometric information about a vector space. The existence of the inner product on <span class="process-math">\(\bigwedge^* V\)</span> along with a choice of orientation induces a new duality as well. Let us define these concepts now.</div>
+<article class="definition definition-like" id="def-orientation"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.1.14</span><span class="period">.</span>
+</h4> <div class="para logical" id="def-orientation-2-1">
+<div class="para">An <dfn class="terminology">orientation</dfn> on an <span class="process-math">\(n\)</span>-dimensional real inner product space <span class="process-math">\(V\)</span> is a choice of unit vector <span class="process-math">\(\vol\)</span> for <span class="process-math">\(\bigwedge^n V\text{.}\)</span> If <span class="process-math">\(V\)</span> comes with such a choice, we call <span class="process-math">\(V\)</span> an <dfn class="terminology">oriented</dfn> vector space. We say that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\vol_n = \mb{e}_1 \wedge \cdots \wedge \mb{e}_n
+\end{equation*}
+</div>
+<div class="para">is the <dfn class="terminology">standard orientation</dfn> of <span class="process-math">\(\mathbb{R}^n\text{.}\)</span>
+</div>
+</div></article><div class="para" id="subsec-exterior-algebra-geometry-12">Recall that the dimension of <span class="process-math">\(\bigwedge^n V\)</span> is <span class="process-math">\(1\)</span>-dimensional, so there are exactly two possible unit vectors corresponding to two orientations of <span class="process-math">\(V\text{.}\)</span> Let’s consider orientations of vector spaces in low dimensions.</div>
+<details id="subsec-exterior-algebra-geometry-13" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.15</span><span class="period">.</span><span class="space"> </span><span class="title">Orientations in one dimension.</span>
+</h4></summary><article class="example example-like"><div class="para" id="subsec-exterior-algebra-geometry-13-2-1">For the <span class="process-math">\(1\)</span>-dimensional vector space <span class="process-math">\(\mathbb{R}\text{,}\)</span> we have that <span class="process-math">\(\mathbb{R} = \bigwedge^1 \mathbb{R}\)</span> so that an orientation is either <span class="process-math">\(\mb{e}_1\)</span> or <span class="process-math">\(- \mb{e}_1\text{.}\)</span> I.e. we are orienting to the right or to the left (in the standard picture of the number line).</div></article></details><details id="subsec-exterior-algebra-geometry-14" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.16</span><span class="period">.</span><span class="space"> </span><span class="title">Orientations in two dimension.</span>
+</h4></summary><article class="example example-like"><div class="para" id="subsec-exterior-algebra-geometry-14-2-1">Considering <span class="process-math">\(\mathbb{R}^2\text{,}\)</span> we have two orientations <span class="process-math">\(\mb{e}_1 \wedge \mb{e}_2\)</span> or <span class="process-math">\(- \mb{e}_1 \wedge \mb{e}_2 = \mb{e}_2 \wedge \mb{e}_1\text{.}\)</span> In the plane, we can consider <span class="process-math">\(\mb{u} \wedge \mb{v}\)</span> as specifying a rotational direction `from <span class="process-math">\(\mb{u}\)</span> to <span class="process-math">\(\mb{v}\)</span>’. So the orientation <span class="process-math">\(\mb{e}_1 \wedge \mb{e}_2\)</span> can be thought of as counter-clockwise orientation (as the act of moving <span class="process-math">\(\mb{e}_1\)</span> to <span class="process-math">\(\mb{e}_2\)</span> is a counter-clockwise rotation) while <span class="process-math">\(\mb{e}_2 \wedge \mb{e}_1\)</span> as clockwise orientation.</div></article></details><details id="subsec-exterior-algebra-geometry-15" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.17</span><span class="period">.</span><span class="space"> </span><span class="title">Orientations in three dimension.</span>
+</h4></summary><article class="example example-like"><div class="para logical" id="subsec-exterior-algebra-geometry-15-2-1">
+<div class="para">As a last low dimensional example, consider <span class="process-math">\(\mathbb{R}^3\text{.}\)</span> We still have two orientations but can write them as wedge products of the standard basis in different ways :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\vol_r = \mb{e}_1 \wedge \mb{e}_2 \wedge \mb{e}_3 = \mb{e}_2 \wedge \mb{e}_3 \wedge \mb{e}_1 = \mb{e}_3 \wedge \mb{e}_1 \wedge \mb{e}_2,
+\end{equation*}
+</div>
+<div class="para">and</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\vol_l = \mb{e}_3 \wedge \mb{e}_2 \wedge \mb{e}_1 = \mb{e}_2 \wedge \mb{e}_1 \wedge \mb{e}_3 = \mb{e}_1 \wedge \mb{e}_3 \wedge \mb{e}_2.
+\end{equation*}
+</div>
+<div class="para">As always, these two orientations are negatives of each other so that <span class="process-math">\(\vol_l = - \vol_r\)</span> in <span class="process-math">\(\bigwedge^3 \mathbb{R}^3\text{.}\)</span> Why call them orientations, you ask? Well, if you point your  index finger <span class="process-math">\(\mb{i}\)</span> parallel to your hand, middle finger <span class="process-math">\(\mb{m}\)</span> perpendicular to your hand and thumb <span class="process-math">\(\mb{t}\)</span> straight upward to match the directions of three basis vectors, you’ll find that <span class="process-math">\(\mb{i} \wedge \mb{m} \wedge \mb{t}\)</span> equals <span class="process-math">\(\vol_r\)</span> if you used your right hand and <span class="process-math">\(\vol_l\)</span> if you used your left (unless you have severely dislocated your middle finger!). In other words, choosing the right hand rule is tantamount to choosing an orientation of <span class="process-math">\(\mathbb{R}^3\text{.}\)</span>
+</div>
+</div></article></details><div class="para" id="subsec-exterior-algebra-geometry-16">We will see that orientations are vital ingredients in integration of differential forms. For now though, we use them to define a duality called the Hodge star operator.</div>
+<article class="definition definition-like" id="def-hodge-star"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.1.18</span><span class="period">.</span>
+</h4> <div class="para logical" id="def-hodge-star-2-1">
+<div class="para">Let <span class="process-math">\(V\)</span> be an <span class="process-math">\(n\)</span>-dimensional oriented inner product space with orientation <span class="process-math">\(\vol\)</span> and <span class="process-math">\(\eta \in \bigwedge^k V\text{.}\)</span> The Hodge star of <span class="process-math">\(\eta\)</span> is the unique element <span class="process-math">\(\star \eta \in \bigwedge^{n - k} V\)</span> for which</div>
+<div class="displaymath process-math" id="eq-stardef">
+\begin{equation}
+\alpha \wedge (\star \eta ) = \langle \alpha , \eta \rangle \vol\tag{2.1.2}
+\end{equation}
+</div>
+<div class="para">for all <span class="process-math">\(\alpha \in \bigwedge^k V\text{.}\)</span>
+</div>
+</div></article><div class="para" id="subsec-exterior-algebra-geometry-18">Let us check to see that <span class="process-math">\(\star\)</span> is well defined and understand its properties.</div>
+<article class="proposition theorem-like" id="prop-hodge-star-operator"><h4 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">2.1.19</span><span class="period">.</span>
+</h4>
+<div class="para" id="prop-hodge-star-operator-1-1">The Hodge star operator <span class="process-math">\(\star : \bigwedge^k V \to \bigwedge^{n - k} V\)</span> is a well defined linear isomorphism.</div></article><details id="prop-hodge-star-operator-2" class="hiddenproof born-hidden-knowl"><summary><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof"><div class="para logical" id="prop-hodge-star-operator-2-1">
+<div class="para">Let <span class="process-math">\(\tau\)</span> be in <span class="process-math">\(\bigwedge^{n - k} V\)</span> and define the dual vector</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\ell_\tau : \bigwedge^k V \to \mathbb{R}
+\end{equation*}
+</div>
+<div class="para">by <span class="process-math">\(\ell_\tau (\alpha) = \langle \alpha \wedge \tau , \vol \rangle\text{.}\)</span>  It is an exercise to see that <span class="process-math">\(\ell_-\)</span> then defines a linear transformation</div>
+<div class="displaymath process-math" id="eq-hodgeexercise1">
+\begin{equation}
+\ell_- : \bigwedge^{n - k} V \to \left( \bigwedge^k V  \right)^*\tag{2.1.3}
+\end{equation}
+</div>
+<div class="para">from the <span class="process-math">\((n - k)\)</span>-th exterior product to the dual vector space of the <span class="process-math">\(k\)</span>-th exterior product. Here <span class="process-math">\(\ell_-\)</span> sends <span class="process-math">\(\tau\)</span> to <span class="process-math">\(\ell_\tau\text{.}\)</span>
+</div>
+</div> <div class="para logical" id="prop-hodge-star-operator-2-2">
+<div class="para">In fact, this map is an isomorphism. To see this we note that if <span class="process-math">\(\tau\)</span> is non-zero then <span class="process-math">\(\ell_\tau\)</span> must also be nonzero. Indeed, if <span class="process-math">\(\tau\)</span> is non-zero, then written in terms of an orthonormal basis</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\tau = \sum a_{i_1 \cdots i_{n - k}} \mb{v}_{i_1} \wedge \cdots \wedge \mb{v}_{i_{n - k}},
+\end{equation*}
+</div>
+<div class="para">there must be at least  one non-zero coefficient, say <span class="process-math">\(a_{i_1 \cdots i_{n - k}}\text{.}\)</span> But taking <span class="process-math">\(j_1 , \ldots , j_k\)</span> to be the numbers in <span class="process-math">\(\{1, \ldots, n\}\)</span> not equal to any <span class="process-math">\(\{i_1, \ldots, i_{n - k} \}\text{,}\)</span> we can compute</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\left( \mb{v}_{j_1} \wedge \cdots \wedge \mb{v}_{j_k} \right) \wedge \tau = \pm a_{i_1 \cdots i_{n - k}} \vol 
+\end{equation*}
+</div>
+<div class="para">and so</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\ell_\tau \left( \mb{v}_{j_1} \wedge \cdots \wedge \mb{v}_{j_k} \right) \ne 0.
+\end{equation*}
+</div>
+<div class="para">But this means that <span class="process-math">\(\ker (\ell_-) = \{ \mb{0} \}\)</span> so that <span class="process-math">\(\ell_-\)</span> is one-to-one. Proposition~\ref{prop:wedgebasis} gives us that the dimension of the codomain and domain of <span class="process-math">\(\ell_-\)</span> are the same so that Corollary~\ref{cor:equaldim} implies <span class="process-math">\(\ell_-\)</span> is a linear isomorphism. In particular, there is an inverse linear transformation</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(\ell_-)^{-1} :  \left( \bigwedge^k V  \right)^* \to \bigwedge^{n - k} V.
+\end{equation*}
+</div>
+</div> <div class="para logical" id="prop-hodge-star-operator-2-3">
+<div class="para">To complete the proof, one takes <span class="process-math">\(\iota_\eta\)</span> to be the dual vector given by pairing with <span class="process-math">\(\eta\text{,}\)</span> i.e. <span class="process-math">\(\iota_\eta (\alpha ) = \langle \alpha , \eta \rangle\text{.}\)</span> Then one simply checks to see that</div>
+<div class="displaymath process-math" id="eq-hodgeexercise2">
+\begin{equation}
+\star \eta = (\ell_-)^{-1} (\iota_\eta). \tag{2.1.4}
+\end{equation}
+</div>
+</div></article></details><div class="para" id="subsec-exterior-algebra-geometry-20">This last proof was fairly abstract, but in practice, the Hodge star can be written concretely. Before looking at a couple of examples, let’s give a general formula which determines it up to sign.</div>
+<article class="proposition theorem-like" id="prop-Hodgeformula"><h4 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">2.1.20</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="prop-Hodgeformula-1-1">
+<div class="para">Equip <span class="process-math">\(\mathbb{R}^n\)</span> with the dot product and the standard orientation. If <span class="process-math">\(I = \{i_1, \ldots , i_k \}\)</span> and <span class="process-math">\(J = \{j_1, \ldots, j_{n - k} \}\)</span> are two disjoint sets whose union is <span class="process-math">\(\{1, \ldots, n\}\)</span> then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\star \left( \mb{e}_{i_1} \wedge \cdots \wedge \mb{e}_{i_k} \right) = \pm \mb{e}_{j_1} \wedge \cdots \wedge \mb{e}_{j_{n - k}}.
+\end{equation*}
+</div>
+<div class="para">In particular, <span class="process-math">\(\star\)</span> preserves inner products so that</div>
+<div class="displaymath process-math" id="eq-Hodgeisometry">
+\begin{equation}
+\langle \star \tau_1 , \star \tau_2 \rangle = \langle \tau_1, \tau_2 \rangle .\tag{2.1.5}
+\end{equation}
+</div>
+</div></article><details id="prop-Hodgeformula-2" class="hiddenproof born-hidden-knowl"><summary><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof"><div class="para" id="prop-Hodgeformula-2-1">Exercise.</div></article></details><div class="para" id="subsec-exterior-algebra-geometry-22">The sign can be determined by counting the <span class="process-math">\(\#\)</span> of times one must pass an <span class="process-math">\(I\)</span> index over a <span class="process-math">\(J\)</span> index to reorder <span class="process-math">\(\{i_1, \cdots , i_k, j_1, \ldots, j_{n - k}\}\)</span> into <span class="process-math">\(\{1, \ldots, n\}\text{.}\)</span> The sign is then <span class="process-math">\((-1)^\#\text{.}\)</span>
+</div>
+<div class="para" id="subsec-exterior-algebra-geometry-23">Let’s see what this looks like in dimensions two and three.</div>
+<details id="subsec-exterior-algebra-geometry-24" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.21</span><span class="period">.</span><span class="space"> </span><span class="title">Hodge star in dimension two.</span>
+</h4></summary><article class="example example-like"><div class="para logical" id="subsec-exterior-algebra-geometry-24-2-1">
+<div class="para">In <span class="process-math">\(\mathbb{R}^2\)</span> with the standard orientation <span class="process-math">\(\vol_2 = \mb{e}_1 \wedge \mb{e}_2\)</span> we have the basis</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\{1, \mb{e}_1, \mb{e}_2, \mb{e}_1 \wedge \mb{e}_2\}
+\end{equation*}
+</div>
+<div class="para">of <span class="process-math">\(\bigwedge^* \mathbb{R}^2\text{.}\)</span> Then one can see that</div>
+<div class="displaymath process-math" id="subsec-exterior-algebra-geometry-24-2-1-5">
+\begin{align*}
+\star 1 \amp = \mb{e}_1 \wedge \mb{e}_2, \\
+\star \mb{e}_1 \amp = \mb{e}_2, \\
+\star \mb{e}_2 \amp = - \mb{e}_1, \\
+\star ( \mb{e}_1 \wedge \mb{e}_2) \amp = 1, 
+\end{align*}
+</div>
+<div class="para">Notice in particular that restricting to <span class="process-math">\(\bigwedge^1 \mathbb{R}^2\text{,}\)</span> we have <span class="process-math">\(\star : \mathbb{R}^2 \to \mathbb{R}^2\)</span> is the isomorphism of counter-clockwise rotation by <span class="process-math">\(\pi / 2\text{.}\)</span>
+</div>
+</div></article></details><details id="subsec-exterior-algebra-geometry-25" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.22</span><span class="period">.</span><span class="space"> </span><span class="title">Hodge star in dimension three.</span>
+</h4></summary><article class="example example-like"><div class="para logical" id="subsec-exterior-algebra-geometry-25-2-1">
+<div class="para">In <span class="process-math">\(\mathbb{R}^3\)</span> with the standard orientation <span class="process-math">\(\vol_3 = \mb{e}_1 \wedge \mb{e}_2 \wedge \mb{e}_3\)</span> we have the basis</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\{1, \mb{e}_1, \mb{e}_2, \mb{e}_3, \mb{e}_1 \wedge \mb{e}_2, \mb{e}_2 \wedge \mb{e}_3, \mb{e}_1 \wedge \mb{e}_3, \mb{e}_1 \wedge \mb{e}_2 \wedge \mb{e}_3\}
+\end{equation*}
+</div>
+<div class="para">of <span class="process-math">\(\bigwedge^* \mathbb{R}^3\text{.}\)</span> The Hodge star operator from <span class="process-math">\(\bigwedge^0 \mathbb{R}^3\)</span> to <span class="process-math">\(\bigwedge^3 \mathbb{R}^3\)</span> just interchanges <span class="process-math">\(1\)</span> with <span class="process-math">\(\vol_3\)</span> (more generally, it interchanges <span class="process-math">\(1\)</span> with <span class="process-math">\(\vol_n\)</span> for <span class="process-math">\(\mathbb{R}^n\)</span>). The interesting cases here are the isomorphisms</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\bigwedge^1 \mathbb{R}^3 \stackrel{\star}{\longleftrightarrow} \bigwedge^2 \mathbb{R}^3.
+\end{equation*}
+</div>
+<div class="para">One can compute</div>
+<div class="displaymath process-math" id="subsec-exterior-algebra-geometry-25-2-1-13">
+\begin{align*}
+\star \mb{e}_1 \amp = \mb{e}_2 \wedge \mb{e}_3, \\
+\star \mb{e}_2 \amp = - \mb{e}_1 \wedge \mb{e}_3, \\
+\star \mb{e}_3 \amp = \mb{e}_1 \wedge \mb{e}_2, \\
+\star ( \mb{e}_1 \wedge \mb{e}_2) \amp = \mb{e}_3, \\
+\star ( \mb{e}_2 \wedge \mb{e}_3) \amp = \mb{e}_1, \\
+\star ( \mb{e}_1 \wedge \mb{e}_3) \amp = -\mb{e}_2. 
+\end{align*}
+</div>
+<div class="para">In the <span class="process-math">\(3\)</span>-dimensional case, we have that <span class="process-math">\(\star \star \eta = \eta\)</span> (in contrast to the <span class="process-math">\(2\)</span>-dimensional case where we saw that it <span class="process-math">\(\star \star \eta = - \eta\)</span> for vectors in <span class="process-math">\(\bigwedge^1 \mathbb{R}^2\)</span>).</div>
+</div></article></details></section><section class="subsection" id="subsec-cross-product"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">2.1.3</span><span class="space"> </span><span class="title">The cross product</span>
+</h3>
+<div class="para logical" id="subsec-cross-product-2">
+<div class="para">Now, in many ways, \textbf{3 is special!} One of these ways is that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+3 - (1 + 1) = 1 !!
+\end{equation*}
+</div>
+<div class="para">Note that <span class="process-math">\(3\)</span> is the only number with this property. In other words,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+n - (1 + 1) = 1
+\end{equation*}
+</div>
+<div class="para">implies <span class="process-math">\(n = 3\text{.}\)</span> Do we all agree ... ? Yes ? Good!</div>
+</div>
+<div class="para logical" id="subsec-cross-product-3">
+<div class="para">Because of this, we can do something in <span class="process-math">\(\bigwedge^* V\)</span> when <span class="process-math">\(V\)</span> is <span class="process-math">\(3\)</span>-dimensional that we cannot do for an oriented inner product space of a different dimension. We can define the \textbf{cross product} on vectors <span class="process-math">\(\mb{u}, \mb{v} \in V\)</span> as:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{u} \times \mb{v} := \star \left( \mb{u} \wedge \mb{v} \right).
+\end{equation*}
+</div>
+<div class="para">Indeed, suppose <span class="process-math">\(V\)</span> is <span class="process-math">\(n\)</span>-dimensional. Because <span class="process-math">\(\mb{u}, \mb{v}\)</span> belong to <span class="process-math">\(V = \bigwedge^1 V\text{,}\)</span> their wedge product <span class="process-math">\(\mb{u} \wedge \mb{v}\)</span> is in <span class="process-math">\(\bigwedge^{1 + 1} V\text{.}\)</span> This means their Hodge star is in <span class="process-math">\(\bigwedge^{n - (1 + 1)} V\text{.}\)</span> If we want this to be a vector in <span class="process-math">\(V = \bigwedge^1 V\)</span> then we must have that <span class="process-math">\(n - (1 + 1) = 1\text{...}\)</span> so <span class="process-math">\(n\)</span> must be <span class="process-math">\(3\text{.}\)</span> I am explaining this because in every one of the millions of multivariable calculus courses I have taught, a bright student has asked me whether there is a cross product in other dimensions, to which I answer: ‘there is something, but not a cross product’.</div>
+</div>
+<div class="para logical" id="subsec-cross-product-4">
+<div class="para">Now, while I firmly believe that in <span class="process-math">\(100\)</span> years, every college student will learn wedge products, the Hodge star operator, and higher dimensional volumes rendering cross products a strange relic of the past, we do not yet live in this idyllic future. So it is important you know how to compute cross products in order to converse with your less enlightened future colleagues. Let’s derive the formula:</div>
+<div class="displaymath process-math" id="subsec-cross-product-4-2">
+\begin{align*}
+\threevec{a_1}{a_2}{a_3} \times \threevec{b_1}{b_2}{b_3} \amp = \star \left(  \left(a_1 \mb{e}_1 + a_2 \mb{e}_2 + a_3 \mb{e}_3 \right) \wedge \left(b_1 \mb{e}_1 + b_2 \mb{e}_2 + b_3 \mb{e}_3 \right) \right), \\
+\amp = \star \left(  a_1 b_2 \mb{e}_1 \wedge \mb{e}_2 + a_1 b_3 \mb{e}_1 \wedge \mb{e}_3 + a_2 b_1 \mb{e}_2 \wedge \mb{e}_1 + \cdots  \right. \\
+\amp \left. \cdots + a_2 b_3 \mb{e}_2 \wedge \mb{e}_3 + a_3 b_1 \mb{e}_3 \wedge \mb{e}_1 + a_3 b_2 \mb{e}_3 \wedge \mb{e}_2 \right) ,  \\
+\amp = \star \left(  (a_1 b_2 - a_2 b_1) \mb{e}_1 \wedge \mb{e}_2 + (a_1 b_3 - a_3 b_1 ) \mb{e}_1 \wedge \mb{e}_3 + \cdots \right. , \\
+\amp \left. \cdots + (a_2 b_3 - a_3 b_2 ) \mb{e}_2 \wedge \mb{e}_3 \right), \\
+\amp =    (a_1 b_2 - a_2 b_1) \star \left(\mb{e}_1 \wedge \mb{e}_2 \right) + (a_1 b_3 - a_3 b_1 ) \star \left( \mb{e}_1 \wedge \mb{e}_3 \right)+ \cdots  , \\
+\amp  \cdots + (a_2 b_3 - a_3 b_2 ) \star \left(\mb{e}_2 \wedge \mb{e}_3 \right),  \\
+\amp =  (a_1 b_2 - a_2 b_1) \mb{e}_3 + (a_1 b_3 - a_3 b_1 ) \left( -\mb{e}_2 \right) + (a_2 b_3 - a_3 b_2 ) \mb{e}_1,  \\
+\amp = \threevec{a_2 b_3 - a_3 b_2}{a_3 b_1 - a_1 b_3}{a_1 b_2 - a_2 b_1}. 
+\end{align*}
+</div>
+<div class="para">While every multivariable calculus student sees this formula at some point, the most common way they learn to use it is to take the determinant of the following strange looking matrix</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\left[ \begin{matrix} a_1 \amp a_2 \amp a_3 \end{matrix} \right] \times \left[ \begin{matrix} b_1 \amp b_2 \amp b_3 \end{matrix} \right] = \det \left[ \begin{matrix} \mb{e}_1 \amp \mb{e}_2 \amp \mb{e}_3 \\ a_1 \amp a_2 \amp a_3 \\ b_1 \amp b_2 \amp b_3 \end{matrix} \right].
+\end{equation*}
+</div>
+<div class="para">Although the first row entries are vectors, the formula for determinant still makes some sense and can be seen to match up with the derived formula. The properties of the cross product are also quite universally taught, but again are much easier to verify in our general setting.</div>
+</div>
+<article class="proposition theorem-like" id="prop-cross-product-properties"><h4 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">2.1.23</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="prop-cross-product-properties-1-1">
+<div class="para">Suppose <span class="process-math">\(\mb{u}\)</span> and <span class="process-math">\(\mb{v}\)</span> are <span class="process-math">\(3\)</span>-dimensional vectors. Then</div>
+<ol class="decimal">
+<li id="prop-cross-product-properties-1-1-4-1"><div class="para" id="p-derived-prop-cross-product-properties-1-1-4-1"><span class="process-math">\(\mb{u} \times \mb{v} = - \mb{v} \times \mb{u}\text{,}\)</span></div></li>
+<li id="prop-cross-product-properties-1-1-4-2"><div class="para" id="p-derived-prop-cross-product-properties-1-1-4-2">
+<span class="process-math">\(\mb{u} \times \mb{v}\)</span> is orthogonal to both <span class="process-math">\(\mb{u}\)</span> and <span class="process-math">\(\mb{v}\text{.}\)</span>
+</div></li>
+<li id="prop-cross-product-properties-1-1-4-3"><div class="para" id="p-derived-prop-cross-product-properties-1-1-4-3">
+<span class="process-math">\(\| \mb{u} \times \mb{v}\|\)</span> is the area of the parallelogram spanned by <span class="process-math">\(\mb{u}\)</span> and <span class="process-math">\(\mb{v}\text{.}\)</span>
+</div></li>
+<li id="prop-cross-product-properties-1-1-4-4"><div class="para" id="p-derived-prop-cross-product-properties-1-1-4-4">if <span class="process-math">\(\mb{u}\)</span> and <span class="process-math">\(\mb{v}\)</span> span a plane, the vectors <span class="process-math">\(\mb{u}, \mb{v}, \mb{u} \times \mb{v}\)</span> are oriented with respect to the right hand rule.</div></li>
+</ol>
+</div></article><details id="prop-cross-product-properties-2" class="hiddenproof born-hidden-knowl"><summary><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof"><div class="para logical" id="prop-cross-product-properties-2-1">
+<div class="para">Property (1) follows from linearity of <span class="process-math">\(\star\)</span> since</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-parallelepipedvolume.html ./knowl/xref/eq-Hodgeisometry.html ./knowl/xref/prop-Hodgeformula.html ./knowl/xref/prop-wedgelinearind.html">
+\begin{equation*}
+\mb{u} \times \mb{v} = \star \left( \mb{u} \wedge \mb{v} \right) = \star \left( - \mb{v} \wedge \mb{u} \right) = - \star  \left( \mb{v} \wedge \mb{u} \right) = - \mb{v} \times \mb{u}.
+\end{equation*}
+</div>
+<div class="para">For (2), we recall that in <span class="process-math">\(\mathbb{R}^3\text{,}\)</span> <span class="process-math">\(\star^2\)</span> is the identity. Then, using the defining property of the Hodge star operator,</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-parallelepipedvolume.html ./knowl/xref/eq-Hodgeisometry.html ./knowl/xref/prop-Hodgeformula.html ./knowl/xref/prop-wedgelinearind.html" id="prop-cross-product-properties-2-1-5">
+\begin{align*}
+\mb{u} \cdot \left( \mb{u} \times \mb{v} \right) \vol_3 \amp = \mb{u} \wedge \left( \star \left( \mb{u} \times \mb{v} \right) \right) , \\
+\amp = \mb{u} \wedge \left( \star \star \left( \mb{u} \wedge \mb{v} \right) \right) , \\
+\amp = \mb{u} \wedge  \mb{u} \wedge \mb{v}  , \\
+\amp = \mb{0}. 
+\end{align*}
+</div>
+<div class="para">This implies</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-parallelepipedvolume.html ./knowl/xref/eq-Hodgeisometry.html ./knowl/xref/prop-Hodgeformula.html ./knowl/xref/prop-wedgelinearind.html">
+\begin{equation*}
+\mb{u} \cdot \left( \mb{u} \times \mb{v} \right) = 0
+\end{equation*}
+</div>
+<div class="para">and a similar argument (or using (1)) gives</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-parallelepipedvolume.html ./knowl/xref/eq-Hodgeisometry.html ./knowl/xref/prop-Hodgeformula.html ./knowl/xref/prop-wedgelinearind.html">
+\begin{equation*}
+\mb{v} \cdot \left( \mb{u} \times \mb{v} \right) = 0.
+\end{equation*}
+</div>
+<div class="para">For (3), take <span class="process-math">\(\mathcal{P}\)</span> to be the parallelogram spanned by <span class="process-math">\(\mb{u}\)</span> and <span class="process-math">\(\mb{v}\text{.}\)</span> Then we just apply <a href="" class="xref" data-knowl="./knowl/xref/prop-parallelepipedvolume.html" title="Proposition 2.1.12">Proposition 2.1.12</a> along with equation <a href="" class="xref" data-knowl="./knowl/xref/eq-Hodgeisometry.html" title="Equation 2.1.5">(2.1.5)</a> of <a href="" class="xref" data-knowl="./knowl/xref/prop-Hodgeformula.html" title="Proposition 2.1.20">Proposition 2.1.20</a> to get</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-parallelepipedvolume.html ./knowl/xref/eq-Hodgeisometry.html ./knowl/xref/prop-Hodgeformula.html ./knowl/xref/prop-wedgelinearind.html" id="prop-cross-product-properties-2-1-14">
+\begin{align*}
+\textnormal{Area} (\mathcal{P}) \amp = \| \mb{u} \wedge \mb{v} \|, \\
+\amp = \sqrt{ \left(\mb{u} \wedge \mb{v} \right) \cdot  \left(\mb{u} \wedge \mb{v} \right)} ,\\
+\amp =  \sqrt{ \star \left(\mb{u} \wedge \mb{v} \right) \cdot  \star \left(\mb{u} \wedge \mb{v} \right)} , \\
+\amp =  \| \mb{u} \times \mb{v} \|. 
+\end{align*}
+</div>
+<div class="para">Finally, for (4) we must explain what is meant if it is not clear. A basis <span class="process-math">\(\mathcal{B} = \{\mb{v}_1, \ldots, \mb{v}_n \}\)</span> in an oriented vector space is <dfn class="terminology">positively oriented</dfn> if there is a positive real number <span class="process-math">\(\lambda \)</span> for which</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-parallelepipedvolume.html ./knowl/xref/eq-Hodgeisometry.html ./knowl/xref/prop-Hodgeformula.html ./knowl/xref/prop-wedgelinearind.html">
+\begin{equation*}
+\mb{v}_1\wedge  \cdots \wedge \mb{v}_n =  \lambda \vol .
+\end{equation*}
+</div>
+<div class="para">This is what is meant by saying <span class="process-math">\(\mb{u}, \mb{v}, \mb{u} \times \mb{v}\)</span> are oriented with respect to the right hand rule - that they are positively oriented with respect to the standard orientation <span class="process-math">\(\vol_3\text{.}\)</span> Seeing this is simple though. Using our defining property of Hodge star we have,</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-parallelepipedvolume.html ./knowl/xref/eq-Hodgeisometry.html ./knowl/xref/prop-Hodgeformula.html ./knowl/xref/prop-wedgelinearind.html" id="prop-cross-product-properties-2-1-21">
+\begin{align*}
+\mb{u} \wedge \mb{v} \wedge ( \mb{u} \times \mb{v} ) \amp = ( \mb{u} \wedge \mb{v}) \wedge (\star ( \mb{u} \wedge \mb{v}) ), \\
+\amp = ( \mb{u} \wedge \mb{v}) \cdot ( \mb{u} \wedge \mb{v}) \vol_3,\\
+\amp = \|  \mb{u} \wedge \mb{v} \|^2 \vol_3. 
+\end{align*}
+</div>
+<div class="para">Because <span class="process-math">\(\mb{u}\)</span> and <span class="process-math">\(\mb{v}\)</span> span a plane, they are linearly independent so that <a href="" class="xref" data-knowl="./knowl/xref/prop-wedgelinearind.html" title="Proposition 2.1.4">Proposition 2.1.4</a> implies <span class="process-math">\(\mb{u} \wedge \mb{v}\)</span> is non-zero giving our result.</div>
+</div></article></details><div class="para" id="subsec-cross-product-6">In the coming sections, we will briefly lay down exterior products, but they will make a major reappearance when we consider integration of forms and several fundamental theorems such as Stokes’, Green’s, and the divergence theorem.</div></section><section class="exercises" id="exe-exterior"><h3 class="heading hide-type">
+<span class="type">Exercises</span><span class="space"> </span><span class="codenumber">2.1.4</span><span class="space"> </span><span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="exe-exterior-1"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<div class="introduction" id="exe-exterior-1-1"><div class="para" id="exe-exterior-1-1-1">Express the following wedge products as linear combinations of the basis <span class="process-math">\(\{\mb{e}_{i_1} \wedge \cdots \wedge \mb{e}_{i_k}: 1 \leq i_1 \lt \cdots \lt i_k \leq n, 0 \leq k \leq n \}\text{.}\)</span>
+</div></div>
+<article class="task exercise-like" id="exe-exterior-1-2"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="para logical" id="exe-exterior-1-2-1-1"><div class="displaymath process-math">
+\begin{equation*}
+\threevec{3}{2}{0} \wedge \threevec{0}{1}{2} 
+\end{equation*}
+</div></div></article><article class="task exercise-like" id="exe-exterior-1-3"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para logical" id="exe-exterior-1-3-1-1"><div class="displaymath process-math">
+\begin{equation*}
+\twovec{2}{1} \wedge \twovec{-1}{-1} 
+\end{equation*}
+</div></div></article></article><article class="exercise exercise-like" id="exe-exterior-2"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<div class="para logical" id="exe-exterior-2-1-1">
+<div class="para">While it is true that given a vector <span class="process-math">\(\mb{v}\)</span> in <span class="process-math">\(V\text{,}\)</span> we always have <span class="process-math">\(\mb{v} \wedge \mb{v} = \mb{0}\text{,}\)</span> this is not true for any vector in <span class="process-math">\(\wedge^* V\text{.}\)</span> Show that the wedge square of</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{e}_1 \wedge \mb{e}_2 + \mb{e}_3 \wedge \mb{e}_4
+\end{equation*}
+</div>
+<div class="para">is not zero in <span class="process-math">\(\wedge^4 \mathbb{R}^4\text{.}\)</span>
+</div>
+</div></article><article class="exercise exercise-like" id="exe-exterior-3"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
+<div class="introduction" id="exe-exterior-3-1"><div class="para" id="exe-exterior-3-1-1">Compute the exterior derivatives of the following functions</div></div>
+<article class="task exercise-like" id="exe-exterior-3-2"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="para" id="exe-exterior-3-2-1-1"><span class="process-math">\(f(x,y) = \cos (xy) - \ln (x^2 + 1)\text{,}\)</span></div></article><article class="task exercise-like" id="exe-exterior-3-3"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para" id="exe-exterior-3-3-1-1"><span class="process-math">\(g(x_1, x_2 , \ldots, x_n) = x_1 + x_2 + \cdots + x_n\text{,}\)</span></div></article><article class="task exercise-like" id="exe-exterior-3-4"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<div class="para" id="exe-exterior-3-4-1-1"><span class="process-math">\(h(x, y, z) = y^2\text{.}\)</span></div></article></article><article class="exercise exercise-like" id="exe-exterior-4"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
+<div class="para logical" id="exe-exterior-4-1-1">
+<div class="para">Use wedge products of differential <span class="process-math">\(1\)</span>-forms to find critical points of</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(x,y, z) = x + 2y + 3z
+\end{equation*}
+</div>
+<div class="para">on the ellipsoid</div>
+<div class="displaymath process-math">
+\begin{equation*}
+4x^2 + y^2 + 9z^2 = 1.
+\end{equation*}
+</div>
+</div></article><article class="exercise exercise-like" id="exe-exterior-5"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
+<div class="para" id="exe-exterior-5-1-1">Show that <span class="process-math">\(\ell_-\)</span> is a linear transformation as claimed in equation <a href="" class="xref" data-knowl="./knowl/xref/eq-hodgeexercise1.html" title="Equation 2.1.3">(2.1.3)</a>.</div></article><article class="exercise exercise-like" id="exe-exterior-6"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
+<div class="para" id="exe-exterior-6-1-1">Compute the Hodge star operators of the following vectors assuming the standard orientation of <span class="process-math">\(\mathbb{R}^n\text{.}\)</span>
+</div></article><article class="exercise exercise-like" id="exe-exterior-7"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
+<div class="introduction" id="exe-exterior-7-1"><div class="para" id="exe-exterior-7-1-1">Compute the exterior derivatives of the following functions</div></div>
+<article class="task exercise-like" id="exe-exterior-7-2"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="para" id="exe-exterior-7-2-1-1">
+<span class="process-math">\(\threevec{3}{1}{1}\)</span> in <span class="process-math">\(\mathbb{R}^3\text{,}\)</span>
+</div></article><article class="task exercise-like" id="exe-exterior-7-3"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para" id="exe-exterior-7-3-1-1">
+<span class="process-math">\(\mb{e}_1 \wedge \mb{e}_2 + \mb{e}_3 \wedge \mb{e}_4\)</span> in <span class="process-math">\(\mathbb{R}^4\text{.}\)</span>
+</div></article></article></section></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="ch-differential-forms.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="ch-integral-calculus.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>
+</body>
+</html>

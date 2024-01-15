@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.7.1</span><span class="period">.</span><span class="space"> </span><span class="title">Optimization on a circle I.</span>
+</h4>
+<div class="para logical">
+<div class="para">Consider the closed unit disc</div>
+<div class="displaymath process-math">
+\begin{equation*}
+D = \left\{ (x, y) : x^2 + y^2 \leq 1 \right\}
+\end{equation*}
+</div>
+<div class="para">which has interior the open unit disc and boundary the circle. By the Extreme Value Theorem, any continuous function has a maximum and minimum value on <span class="process-math">\(D\text{.}\)</span> Take the linear scalar function</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(x,y) = x + y. 
+\end{equation*}
+</div>
+<div class="para">If we compute the derivative of <span class="process-math">\(f\)</span> we get</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\tder{}{f} = \left[ \begin{matrix} 1 \amp 1 \end{matrix} \right].
+\end{equation*}
+</div>
+<div class="para">So there are no solutions to <span class="process-math">\(\nabla f = \mb{0}\)</span> and no extrema on <span class="process-math">\(\textnormal{Int} (D)\text{.}\)</span> This means that the extreme values \textit{must} be on the boundary of <span class="process-math">\(D\)</span> which is the unit circle <span class="process-math">\(S^1\text{.}\)</span>
+</div>
+</div> <div class="para logical">
+<div class="para">So now we must maximize <span class="process-math">\(f(x,y)\)</span> while on the curve given by the constraint</div>
+<div class="displaymath process-math">
+\begin{equation*}
+g(x,y) = x^2 + y^2 = 1.
+\end{equation*}
+</div>
+<div class="para">In our case, we are lucky in that we have a parameterization of the boundary in hand</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{r} (t) = ( \cos t , \sin t ) , \hspace{.5in} 0 \leq t \leq 2 \pi.
+\end{equation*}
+</div>
+<div class="para">Composing with <span class="process-math">\(f\)</span> we obtain</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(f \circ \mb{r} ) (t) = \cos t + \sin t
+\end{equation*}
+</div>
+<div class="para">and taking derivatives we have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(f \circ \mb{r} )^\prime (t) = -\sin t + \cos t.
+\end{equation*}
+</div>
+<div class="para">So the critical points of <span class="process-math">\(f \circ \mb{r}\)</span> are exactly when <span class="process-math">\(\cos t = \sin t\)</span> (just setting the derivative to zero as in one variable calculus). This occurs for <span class="process-math">\(t = \frac{\pi}{4}\)</span> or <span class="process-math">\(\frac{5\pi}{4}\)</span> and the values of <span class="process-math">\(f \circ \mb{r}\)</span> at these two points are <span class="process-math">\(\sqrt{2}\)</span> and <span class="process-math">\(- \sqrt{2}\)</span> respectively.</div>
+</div> <div class="para">Thus when we restrict <span class="process-math">\(f\)</span> to the boundary, we have maximum value <span class="process-math">\(\sqrt{2}\)</span> and minimum value <span class="process-math">\(-\sqrt{2}\text{.}\)</span> As the extremes of <span class="process-math">\(f\)</span> on <span class="process-math">\(D\)</span> occur on the boundary, these must be the extreme values of <span class="process-math">\(f\)</span> on <span class="process-math">\(D\text{.}\)</span>
+</div></article><span class="incontext"><a class="internal" href="sec-optimization2.html#example-boundary1">in-context</a></span>
+</body>
+</html>

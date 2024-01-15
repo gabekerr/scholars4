@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Critical points</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Mathematical Scholars Calculus 4">
+<meta property="book:author" content="Gabriel Kerr">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "https://pretextbook.org/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.33/pretext_search.js"></script><link href="https://pretextbook.org/css/0.83/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.33</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.33/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.33/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.33/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+<link href="https://pretextbook.org/css/0.83/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
+<h1 class="heading"><a href="ms-calculus-3.html"><span class="title">Mathematical Scholars Calculus 4</span></a></h1>
+<p class="byline">Gabriel Kerr</p>
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="sec-gradient.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-differential-calculus.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-optimization1.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\diff}{\text{d}}
+\newcommand{\mb}[1]{\mathbf{#1}}
+\newcommand{\coord}[2]{[#1]^{#2}}
+\newcommand{\chart}[2]{[#1]_{#2}}
+\newcommand{\twovec}[2]{\left[ \begin{matrix} #1 \\ #2 \end{matrix} \right]}
+\newcommand{\threevec}[3]{\left[ \begin{matrix} #1 \\ #2 \\ #3 \end{matrix} \right]}
+\newcommand{\tangtwo}[2]{\left[ \begin{matrix} #1 \amp #2 \end{matrix} \right]}
+\newcommand{\tangthree}[3]{\left[ \begin{matrix} #1 \amp #2 \amp #3 \end{matrix} \right]}
+\newcommand{\im}{{\text{im}}}
+\newcommand{\cob}[3]{[#1]^{#3}_{#2}}
+\newcommand{\rk}{\text{rank}}
+\newcommand{\nullity}{\text{nullity}}
+\newcommand{\tder}[2]{d_{#1} {#2}}
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\ball}[2]{\text{B}_{#1} ( #2 )}
+\newcommand{\cball}[2]{\overline{\text{B}}_{#1} ( #2 )}
+\newcommand{\hball}[1]{\overline{\text{HB}}_{#1}}
+\newcommand{\vol}{\,\text{vol}}
+\newcommand{\orient}{\,\text{or}}
+\newcommand{\pball}[2]{\text{B}^*_{#1} ( #2 )}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural contains-active toc-item-list">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-differential-calculus.html" class="internal"><span class="codenumber">1</span> <span class="title">Differential Calculus in Several Variables</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-limit.html" class="internal"><span class="codenumber">1.1</span> <span class="title">The limit</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-limit.html#exe-limit" class="internal"><span class="codenumber">1.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-derivative.html" class="internal"><span class="codenumber">1.2</span> <span class="title">The derivative</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivative.html#subsec-directional-derivative" class="internal"><span class="codenumber">1.2.1</span> <span class="title">Directional and partial derivatives</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivative.html#subsec-derivatives-scalar" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Derivatives of scalar functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivative.html#subsec-linear-approximation-scalar" class="internal"><span class="codenumber">1.2.3</span> <span class="title">Linear approximation of scalar functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivative.html#subsec-Jacobian" class="internal"><span class="codenumber">1.2.4</span> <span class="title">The Jacobian matrix</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-derivative.html#exe-derivative" class="internal"><span class="codenumber">1.2.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-chainrule.html" class="internal"><span class="codenumber">1.3</span> <span class="title">The chain rule and tangent spaces</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-chainrule.html#subsec-computational" class="internal"><span class="codenumber">1.3.1</span> <span class="title">Computational considerations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-chainrule.html#subsec-tangent-spaces" class="internal"><span class="codenumber">1.3.2</span> <span class="title">Tangent spaces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-chainrule.html#subsec-subspaces" class="internal"><span class="codenumber">1.3.3</span> <span class="title">Level sets and their tangent spaces</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-chainrule.html#exe-chainrule" class="internal"><span class="codenumber">1.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-gradient.html" class="internal"><span class="codenumber">1.4</span> <span class="title">The gradient</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-gradient.html#subsec-metric-geometry" class="internal"><span class="codenumber">1.4.1</span> <span class="title">Metric geometry</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-gradient.html#subsec-steepest-ascent" class="internal"><span class="codenumber">1.4.2</span> <span class="title">Steepest ascent</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-gradient.html#exe-gradient" class="internal"><span class="codenumber">1.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section active">
+<div class="toc-title-box"><a href="sec-critical.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Critical points</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-critical.html#subsec-local-extrema" class="internal"><span class="codenumber">1.5.1</span> <span class="title">Local extrema</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-critical.html#sec-second-derivative-test" class="internal"><span class="codenumber">1.5.2</span> <span class="title">Second derivative test</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-critical.html#subsec-Morse" class="internal"><span class="codenumber">1.5.3</span> <span class="title">The Morse Lemma</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-critical.html#exe-critical" class="internal"><span class="codenumber">1.5.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-optimization1.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Optimization without constraints</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-optimization1.html#subsec-global-extrema" class="internal"><span class="codenumber">1.6.1</span> <span class="title">Global extrema</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-optimization1.html#subsec-least-squares" class="internal"><span class="codenumber">1.6.2</span> <span class="title">Least Squares</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-optimization1.html#subsec-gradient-descent" class="internal"><span class="codenumber">1.6.3</span> <span class="title">Gradient descent</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-optimization1.html#exe-optimization1" class="internal"><span class="codenumber">1.6.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-optimization2.html" class="internal"><span class="codenumber">1.7</span> <span class="title">Optimization with constraints</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-optimization2.html#subsec-single-constraint" class="internal"><span class="codenumber">1.7.1</span> <span class="title">Single constraint</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-optimization2.html#subsec-many-constraints" class="internal"><span class="codenumber">1.7.2</span> <span class="title">Several constraints</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-optimization2.html#exe-optimization2" class="internal"><span class="codenumber">1.7.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-differential-forms.html" class="internal"><span class="codenumber">2</span> <span class="title">Differential Forms</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exterior.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Exterior algebras</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-exterior.html#subsec-exterior-product" class="internal"><span class="codenumber">2.1.1</span> <span class="title">The exterior product</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-exterior.html#subsec-exterior-algebra-geometry" class="internal"><span class="codenumber">2.1.2</span> <span class="title">Geometry of exterior algebras</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-exterior.html#subsec-cross-product" class="internal"><span class="codenumber">2.1.3</span> <span class="title">The cross product</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exterior.html#exe-exterior" class="internal"><span class="codenumber">2.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li></ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-integral-calculus.html" class="internal"><span class="codenumber">3</span> <span class="title">Integral Calculus in Several Variables</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-cubeintegration.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Integrating over cubes in <span class="process-math">\(\mathbb{R}^n\)</span></span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-cubeintegration.html#exe-cubeintegration" class="internal"><span class="codenumber">3.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-compactintegration.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Integration over compact domains in <span class="process-math">\(\mathbb{R}^2\)</span></span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-compactintegration.html#exe-compactintegration" class="internal"><span class="codenumber">3.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-compactRnintegration.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Integration over compact domains in <span class="process-math">\(\mathbb{R}^n\)</span></span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-compactRnintegration.html#exe-compactRnintegration" class="internal"><span class="codenumber">3.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-cov.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Change of Variables</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-cov.html#subsec-polar-integration" class="internal"><span class="codenumber">3.4.1</span> <span class="title">Integration using polar coordinates</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-cov.html#exe-cov" class="internal"><span class="codenumber">3.4.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-integral-of-forms.html" class="internal"><span class="codenumber">4</span> <span class="title">Integrals of Forms</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-integrating-forms.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Integrating forms</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-integrating-forms.html#subsec-integrating-top-forms" class="internal"><span class="codenumber">4.1.1</span> <span class="title">Integrating top forms</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-integrating-forms.html#subsec-integrating-k-forms" class="internal"><span class="codenumber">4.1.2</span> <span class="title">Integrating <span class="process-math">\(k\)</span>-forms on oriented subspaces.</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-integrating-forms.html#exe-formintegration" class="internal"><span class="codenumber">4.1.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-scalarintegrals.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Scalar integrals</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-scalarintegrals.html#subsec-scalar-line-integrals" class="internal"><span class="codenumber">4.2.1</span> <span class="title">Scalar line integrals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-scalarintegrals.html#subsec-scalar-surface-integrals" class="internal"><span class="codenumber">4.2.2</span> <span class="title">Scalar surface integrals</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-scalarintegrals.html#exe-scalarintegrals" class="internal"><span class="codenumber">4.2.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-vectorintegrals.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Vector integrals</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-vectorintegrals.html#subsec-vector-line-integrals" class="internal"><span class="codenumber">4.3.1</span> <span class="title">Vector line integrals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-vectorintegrals.html#subsec-flux-integrals" class="internal"><span class="codenumber">4.3.2</span> <span class="title">Flux integrals</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-vectorintegrals.html#exe-vectorintegrals" class="internal"><span class="codenumber">4.3.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-stokes-theorem.html" class="internal"><span class="codenumber">5</span> <span class="title">Stokes’ Theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-derivatives.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Derivatives</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivatives.html#subsec-exterior-derivative" class="internal"><span class="codenumber">5.1.1</span> <span class="title">Exterior derivative</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivatives.html#subsec-gradient" class="internal"><span class="codenumber">5.1.2</span> <span class="title">Gradient</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivatives.html#subsec-curl" class="internal"><span class="codenumber">5.1.3</span> <span class="title">Curl</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivatives.html#subsec-2dcurl" class="internal"><span class="codenumber">5.1.4</span> <span class="title">Two dimensional curl</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivatives.html#subsec-divergence" class="internal"><span class="codenumber">5.1.5</span> <span class="title">Divergence</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-derivatives.html#exe-derivatives" class="internal"><span class="codenumber">5.1.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-stokes.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Stokes’ Theorem</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-stokes.html#exe-stokes" class="internal"><span class="codenumber">5.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-ftli.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Stokes’ Theorem on curves - The Fundamental Theorem of Line Integrals</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-ftli.html#exe-ftli" class="internal"><span class="codenumber">5.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-greens.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Stokes’ Theorem in dimension <span class="process-math">\(2\)</span> - Green’s Theorems</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-greens.html#exe-greens" class="internal"><span class="codenumber">5.4</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-classicalstokes.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Stokes’ Theorem in dimension <span class="process-math">\(3\)</span> - Classical Stokes’ and Divergence Theorems</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-classicalstokes.html#exe-classicalstokes" class="internal"><span class="codenumber">5.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-applications.html" class="internal"><span class="codenumber">5.6</span> <span class="title">Selected Applications</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-applications.html#subsec-maxwells-equations" class="internal"><span class="codenumber">5.6.1</span> <span class="title">Maxwell’s equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-applications.html#subsec-contour-integrals" class="internal"><span class="codenumber">5.6.2</span> <span class="title">Contour integrals</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-applications.html#exe-applications" class="internal"><span class="codenumber">5.6.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-partial-differential-equations.html" class="internal"><span class="codenumber">6</span> <span class="title">Partial Differential Equations</span></a></div></li>
+<li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-critical"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">1.5</span><span class="space"> </span><span class="title">Critical points</span>
+</h2>
+<section class="introduction" id="sec-critical-2"><div class="para" id="sec-critical-2-1">Looking over the propositions in the last section you may notice that the condition `assume the gradient does not vanish’ appears multiple times. So what happens if this fails? Well, that’s where things get interesting...</div> <article class="definition definition-like" id="def-critical-point"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.5.1</span><span class="period">.</span>
+</h3> <div class="para logical" id="def-critical-point-2-1">
+<div class="para">Suppose <span class="process-math">\(U\)</span> is a domain with metric in <span class="process-math">\(\mathbb{R}^m\)</span> and <span class="process-math">\(f: U \to \mathbb{R}\)</span> is scalar function. We call <span class="process-math">\(p \in U\)</span> a \textbf{critical point} of <span class="process-math">\(f\)</span> if either <span class="process-math">\(f\)</span> is not differentiable at <span class="process-math">\(p\)</span> or if</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\nabla_p f = \mb{0}.
+\end{equation*}
+</div>
+<div class="para">The value <span class="process-math">\(f(p)\)</span> is called a <span class="process-math">\(\textbf{critical value}\)</span> of <span class="process-math">\(f\text{.}\)</span>
+</div>
+</div></article> <div class="para" id="sec-critical-2-3">One can be more general than this and say that <span class="process-math">\(p\)</span> is a critical point of a vector valued <span class="process-math">\(\mb{F} : U \to \mathbb{R}^n\)</span> if <span class="process-math">\(\tder{p}{\mb{F}}\)</span> is not of full rank, but we will stay with scalar functions for the time being.</div> <details id="sec-critical-2-4" class="example example-like born-hidden-knowl"><summary><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.5.2</span><span class="period">.</span><span class="space"> </span><span class="title">Computing critical points.</span>
+</h3></summary><article class="example example-like"><div class="para logical" id="sec-critical-2-4-2-1">
+<div class="para">Let <span class="process-math">\(f(x,y) = y \cos (x)\)</span> and compute the gradient to find</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\nabla f = \langle - y \sin x , \cos x \rangle .
+\end{equation*}
+</div>
+<div class="para">The critical points are points <span class="process-math">\((x,y)\)</span> where <span class="process-math">\(\nabla f = \langle 0, 0 \rangle\)</span> so that both equations</div>
+<div class="displaymath process-math" id="sec-critical-2-4-2-1-5">
+\begin{align*}
+-y \sin x \amp = 0,\\
+\cos x \amp = 0
+\end{align*}
+</div>
+<div class="para">are satisfied. The latter equation is satisfied only when <span class="process-math">\(x = \frac{\pi}{2} + \pi k\)</span> for some integer <span class="process-math">\(k\text{.}\)</span> For such <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(\sin x = \pm 1\)</span> so the only way the first equation is satisfied for these values of <span class="process-math">\(x\)</span> is if <span class="process-math">\(y = 0\text{.}\)</span> Thus the critical points of the function <span class="process-math">\(f\)</span> is the set</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\left\{ \left( \frac{\pi}{2} + k , 0 \right) : k \text{ is an integer} \right\}.
+\end{equation*}
+</div>
+<div class="para">Since the <span class="process-math">\(y\)</span> coordinate of any critical point is <span class="process-math">\(0\text{,}\)</span> the only critical value is <span class="process-math">\(0\text{.}\)</span>
+</div>
+</div></article></details></section><section class="subsection" id="subsec-local-extrema"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.5.1</span><span class="space"> </span><span class="title">Local extrema</span>
+</h3>
+<div class="para" id="subsec-local-extrema-2">The derivative of a function gives local information about that function. Let us make a definition of one such piece of information of a scalar function.</div>
+<article class="definition definition-like" id="def-local-extrema"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.5.3</span><span class="period">.</span>
+</h4> <div class="para" id="def-local-extrema-2-1">Suppose <span class="process-math">\(X\)</span> is a subset of <span class="process-math">\(\mathbb{R}^m\text{,}\)</span> <span class="process-math">\(p\)</span> a point of <span class="process-math">\(X\)</span> and <span class="process-math">\(f : X \to \mathbb{R}\)</span> is a scalar function on <span class="process-math">\(X\text{.}\)</span> We say that <span class="process-math">\(f\)</span> achieves a <dfn class="terminology">local minimum</dfn> (respectively <dfn class="terminology">local maximum</dfn>) at <span class="process-math">\(p\)</span> if there is a neighborhood <span class="process-math">\(U\)</span> of <span class="process-math">\(p\)</span> in <span class="process-math">\(X\)</span> such that <span class="process-math">\(f(p) \leq f(\tilde{p})\)</span> (respectively <span class="process-math">\(f(p) \geq f(\tilde{p})\)</span>) for all <span class="process-math">\(\tilde{p}\)</span> of <span class="process-math">\(U\text{.}\)</span>
+</div></article><div class="para" id="subsec-local-extrema-4">Local minima and maxima are extremely important notions in applications as they often describe points where systems are stable or optimized. Finding them can sometimes be a challenge, but one very helpful tool we can use is the following proposition.</div>
+<article class="proposition theorem-like" id="prop-localextremecritical"><h4 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">1.5.4</span><span class="period">.</span>
+</h4>
+<div class="para" id="prop-localextremecritical-1-1">Suppose <span class="process-math">\(U\)</span> is a domain with metric in <span class="process-math">\(\mathbb{R}^m\)</span> and <span class="process-math">\(f: U \to \mathbb{R}\)</span> is scalar function. If <span class="process-math">\(f\)</span> achieves a local minimum or maximum at <span class="process-math">\(p\text{,}\)</span> then <span class="process-math">\(p\)</span> is a critical point of <span class="process-math">\(f\text{.}\)</span>
+</div></article><details id="prop-localextremecritical-2" class="hiddenproof born-hidden-knowl"><summary><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof"><div class="para" id="prop-localextremecritical-2-1">If <span class="process-math">\(f\)</span> is not differentiable at <span class="process-math">\(p\text{,}\)</span> then <span class="process-math">\(p\)</span> is a critical point and we need not argue further. Otherwise, suppose <span class="process-math">\(f\)</span> is differentiable at <span class="process-math">\(p\)</span> and it is a local minimum (the argument for maximum is similar). If <span class="process-math">\(p\)</span> is not a critical point then <span class="process-math">\(\nabla_p f \ne \mb{0}\)</span> and, by <a href="" class="xref" data-knowl="./knowl/xref/prop-increasingGradient.html" title="Proposition 1.4.13">Proposition 1.4.13</a>, there is a path <span class="process-math">\(\gamma : (-\varepsilon , \varepsilon) \to U\)</span> for which <span class="process-math">\(\gamma (0) = p\)</span> and <span class="process-math">\(f \circ \gamma\)</span> is strictly increasing. But then for any <span class="process-math">\(t\)</span> with <span class="process-math">\(-\varepsilon \lt t \lt 0\)</span> we have <span class="process-math">\(f ( \gamma (t)) \lt f (p)\text{.}\)</span> This contradicts the assumption that <span class="process-math">\(p\)</span> is a local minimum for <span class="process-math">\(f\text{.}\)</span>
+</div></article></details><div class="para" id="subsec-local-extrema-6">Let us be clear about how we use <a href="" class="xref" data-knowl="./knowl/xref/prop-localextremecritical.html" title="Proposition 1.5.4">Proposition 1.5.4</a>. If we want to find a local extreme point, we can look for critical points. However, it is not the case a given critical point will always be a local extreme point. Let us illustrate this with our three prototype scalar functions on <span class="process-math">\(\mathbb{R}^2\text{.}\)</span>
+</div>
+<details id="subsec-local-extrema-7" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.5.5</span><span class="period">.</span><span class="space"> </span><span class="title">Chain rule computation II.</span>
+</h4></summary><article class="example example-like"><div class="para logical" id="subsec-local-extrema-7-2-1">
+<div class="para">Let</div>
+<div class="displaymath process-math">
+\begin{equation*}
+Q_{++} (x, y) = x^2 + y^2.
+\end{equation*}
+</div>
+<div class="para">It is clear that <span class="process-math">\(Q_0 (x,y)\)</span> is differentiable and</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\nabla Q_{++} = \langle 2x , 2y \rangle.                    
+\end{equation*}
+</div>
+<div class="para">We also see that the only critical point of <span class="process-math">\(Q_0\)</span> is the origin <span class="process-math">\((0, 0)\text{.}\)</span> Thus the only local extreme point for <span class="process-math">\(Q_0\)</span> is the origin, and as <span class="process-math">\(Q_0\)</span> is always positive otherwise we have that <span class="process-math">\(Q_0\)</span> achieves a local (and global) minimum at the origin.</div>
+</div> <div class="para logical" id="subsec-local-extrema-7-2-2">
+<div class="para">A similar argument shows that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+Q_{--} (x, y) = -x^2 - y^2
+\end{equation*}
+</div>
+<div class="para">has exactly one local (and global) maximum at the origin.</div>
+</div> <div class="para logical" id="subsec-local-extrema-7-2-3">
+<div class="para">Now consider the last prototype</div>
+<div class="displaymath process-math">
+\begin{equation*}
+Q_{+-} (x, y) = x^2 - y^2
+\end{equation*}
+</div>
+<div class="para">and observe</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\nabla Q_{+-} = \langle 2x , -2y \rangle.
+\end{equation*}
+</div>
+<div class="para">So here again <span class="process-math">\((0, 0)\)</span> is the only critical point. However, we see that along the <span class="process-math">\(x\)</span>-axis away from the origin, <span class="process-math">\(Q_{+-}\)</span> is positive and along the <span class="process-math">\(y\)</span>-axis away from the origin, <span class="process-math">\(Q_{+-}\)</span> is negative. So there is no chance that <span class="process-math">\(Q_{+-}\)</span> will have a local minimum or maximum at the origin. Critical points of this type have their own name as we now define.</div>
+</div></article></details><article class="definition definition-like" id="def-saddle-point"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.5.6</span><span class="period">.</span>
+</h4> <div class="para" id="def-saddle-point-2-1">Suppose <span class="process-math">\(U\)</span> is a domain with metric in <span class="process-math">\(\mathbb{R}^m\)</span> and <span class="process-math">\(f: U \to \mathbb{R}\)</span> is scalar function. If <span class="process-math">\(p\)</span> is a critical point that is neither a local minimum nor a local maximum, then <span class="process-math">\(p\)</span> is called a <dfn class="terminology">saddle point</dfn> of <span class="process-math">\(f\text{.}\)</span>
+</div></article><div class="para" id="subsec-local-extrema-9">In general, saddle points can be quite complicated. Perhaps surprisingly though we can fully describe the local behavior of a function near a differentiable critical point so long as we have something called non-degeneracy. To get to this notion, we first define the Hessian.</div>
+<article class="definition definition-like" id="def-hessian"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.5.7</span><span class="period">.</span>
+</h4> <div class="para" id="def-hessian-2-1">Suppose <span class="process-math">\(U\)</span> is a domain with metric in <span class="process-math">\(\mathbb{R}^m\)</span> and <span class="process-math">\(f: U \to \mathbb{R}\)</span> is scalar function with continuous second partial derivatives. The <dfn class="terminology">Hessian</dfn> of <span class="process-math">\(f\)</span> is the matrix valued function \begin{align*} \textnormal{Hess} (f) \amp = \left[ \begin{matrix} \frac{\partial^2 f}{\partial x_1^2} \amp \frac{\partial^2 f}{\partial x_1 \partial x_2} \amp \cdots \amp \frac{\partial^2 f}{\partial x_1 \partial x_m} \\ \frac{\partial^2 f}{\partial x_2 \partial x_1} \amp \frac{\partial^2 f}{\partial x_2^2} \amp \cdots \amp \frac{\partial^2 f}{\partial x_2 \partial x_m} \\ \vdots \amp \vdots \amp \amp \vdots \\ \frac{\partial^2 f}{\partial x_m \partial x_1} \amp \frac{\partial^2 f}{\partial x_m \partial x_2} \amp \cdots \amp \frac{\partial^2 f}{\partial x_m^2} \end{matrix} \right] \end{align*} Write <span class="process-math">\(\text{Hess}_p (f)\)</span> for the Hessian of <span class="process-math">\(f\)</span> evaluated at <span class="process-math">\(p\text{.}\)</span> We say a critical point <span class="process-math">\(p\)</span> of <span class="process-math">\(f\)</span> is <dfn class="terminology">non-degenerate</dfn> if <span class="process-math">\(\text{Hess}_p (f)\)</span> has non-zero determinant.</div></article></section><section class="subsection" id="sec-second-derivative-test"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.5.2</span><span class="space"> </span><span class="title">Second derivative test</span>
+</h3>
+<div class="para" id="sec-second-derivative-test-2">Note that by Clairaut’s Theorem, the Hessian of <span class="process-math">\(f\)</span> is a symmetric <span class="process-math">\(m \times m\)</span> matrix and thus can be linked to a quadratic form. In fact, the Hessian can be thought of as a second derivative for scalar functions. The next lemma shows how useful this can be.</div>
+<article class="lemma theorem-like" id="prop-criticalpoint"><h4 class="heading">
+<span class="type">Lemma</span><span class="space"> </span><span class="codenumber">1.5.8</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="prop-criticalpoint-1-1">
+<div class="para">Suppose <span class="process-math">\(U\)</span> is a domain with metric in <span class="process-math">\(\mathbb{R}^m\text{,}\)</span> <span class="process-math">\(f: U \to \mathbb{R}\)</span> is scalar function with continuous second partial derivatives and let <span class="process-math">\(\gamma : (-\varepsilon, \varepsilon) \to U\)</span> be a differentiable path. Assume <span class="process-math">\(\gamma(0) = p\)</span> is a critical point of <span class="process-math">\(f\text{.}\)</span> Then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\left. \frac{d^2}{dt^2} (f \circ \gamma)\right|_{t = 0} = \gamma^\prime (0)^T \textnormal{Hess}_{\gamma (0)} (f) \gamma^\prime (0).
+\end{equation*}
+</div>
+</div></article><details id="prop-criticalpoint-2" class="hiddenproof born-hidden-knowl"><summary><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof"><div class="para logical" id="prop-criticalpoint-2-1">
+<div class="para">This is an exercise in using the chain rule (twice). The first use shows</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{d}{dt} (f \circ \gamma) = \tder{\gamma (t)}{f} \cdot  \gamma^\prime (t). 
+\end{equation*}
+</div>
+<div class="para">Here we have a matrix product of the Jacobian matrix <span class="process-math">\(\tder{\gamma(t)}{f}\)</span> with the tangent vector <span class="process-math">\(\gamma^\prime (t)\text{.}\)</span> Taking the derivative again with respect to <span class="process-math">\(t\)</span> forces us to use the product rule</div>
+<div class="displaymath process-math" id="prop-criticalpoint-2-1-5">
+\begin{align*}
+\frac{d^2}{dt^2} (f \circ \gamma) \amp = \frac{d}{dt} \left( \tder{\gamma (t)}{f} \cdot \gamma^\prime (t) \right), \\
+\amp =\left( \frac{d}{dt}  \tder{\gamma (t)}{f} \right) \gamma^\prime (t) +  \tder{\gamma (t)}{f} \left(  \frac{d}{dt} \gamma^\prime (t) \right). 
+\end{align*}
+</div>
+<div class="para">Now, examining the second summand and evaluating at <span class="process-math">\(t = 0\)</span> will give</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\tder{\gamma (0)}{f} \left( \left. \frac{d}{dt} \gamma^\prime (t) \right|_{t = 0} \right) = \tder{p}{f} \left( \left. \frac{d}{dt} \gamma^\prime (t) \right|_{t = 0} \right) = 0
+\end{equation*}
+</div>
+<div class="para">because <span class="process-math">\(p\)</span> is a critical point of <span class="process-math">\(f\text{.}\)</span> So we focus on the first summand and, in particular, the derivative</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{d}{dt}  \tder{\gamma (t)}{f}.
+\end{equation*}
+</div>
+<div class="para">The function <span class="process-math">\(\tder{\gamma (t)}{f}\)</span> can be written as the row vector</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\left[ \begin{matrix} \left( \frac{\partial f}{\partial x_1} \circ \gamma \right) (t) \amp \cdots \amp  \left( \frac{\partial f}{\partial x_m} \circ \gamma \right) (t) \end{matrix} \right]. 
+\end{equation*}
+</div>
+<div class="para">Letting <span class="process-math">\(\gamma (t) = (\gamma_1 (t) , \ldots , \gamma_m (t))\)</span> and using the chain rule on the <span class="process-math">\(j\)</span>-th entry above gives</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{d}{dt}\left( \frac{\partial f}{\partial x_j} \circ \gamma \right) (t) =  \frac{\partial^2 f}{\partial x_1 \partial x_j}  \gamma^\prime_1 (t) + \frac{\partial^2 f}{\partial x_2 \partial x_j}  \gamma^\prime_2(t) + \cdots + \frac{\partial^2 f}{\partial x_m \partial x_j}  \gamma^\prime_m (t).
+\end{equation*}
+</div>
+<div class="para">But this is simply the <span class="process-math">\(j\)</span>-th entry of the matrix product</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\gamma^\prime (t)^T \cdot \textnormal{Hess}_{\gamma (t)}(f).
+\end{equation*}
+</div>
+<div class="para">Thus we obtain the formula</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{d}{dt}  \tder{\gamma (t)}{f} = \gamma^\prime (t)^T \cdot \textnormal{Hess}_{\gamma (t)} (f)
+\end{equation*}
+</div>
+<div class="para">and conclude that, at <span class="process-math">\(t = 0\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\left. \frac{d^2}{dt^2} (f \circ \gamma)\right|_0 = \gamma^\prime (0)^T \textnormal{Hess}_{\gamma (0)}(f) \gamma^\prime (0).
+\end{equation*}
+</div>
+</div></article></details><div class="para" id="sec-second-derivative-test-4">The following corollary follows from this lemma.</div>
+<article class="theorem theorem-like" id="thm-saddle"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">1.5.9</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="thm-saddle-1-1">
+<div class="para">Suppose <span class="process-math">\(U\)</span> is a domain with metric in <span class="process-math">\(\mathbb{R}^m\)</span> and <span class="process-math">\(f: U \to \mathbb{R}\)</span> is scalar function with continuous second partial derivatives and <span class="process-math">\(p\)</span> is a non-degenerate critical point of <span class="process-math">\(f\text{.}\)</span> By Sylvester’s Theorem, there are <span class="process-math">\(m_-\)</span> negative eigenvalues of <span class="process-math">\(\textnormal{Hess}_p\)</span> and <span class="process-math">\(m_+\)</span> positive eigenvalues of <span class="process-math">\(\textnormal{Hess}_p\text{.}\)</span> Suppose</div>
+<div class="displaymath process-math" id="thm-saddle-1-1-10">
+\begin{align*}
+\Gamma_- : \mathbb{R}^{m_-} \amp \to \mathbb{R}^m, \\
+\Gamma_+ : \mathbb{R}^{m_+} \amp \to \mathbb{R}^m, 
+\end{align*}
+</div>
+<div class="para">are differentiable one-to-one maps sending <span class="process-math">\(\mb{0}\)</span> to <span class="process-math">\(p\)</span> and <span class="process-math">\(T_\mb{0} \mathbb{R}^{m_-}\)</span> and <span class="process-math">\(T_\mb{0} \mathbb{R}^{m_+}\)</span> to the negative and positive eigenspaces of <span class="process-math">\(\textnormal{Hess}_p\)</span> respectively. Then <span class="process-math">\(f \circ \Gamma_-\)</span> has a local maximum at <span class="process-math">\(\mb{0}\)</span> and <span class="process-math">\(f \circ \Gamma_+\)</span> has a local minimum at <span class="process-math">\(\mb{0}\text{.}\)</span>
+</div>
+</div></article><details id="thm-saddle-2" class="hiddenproof born-hidden-knowl"><summary><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof"><div class="para logical" id="thm-saddle-2-1">
+<div class="para">We sketch the proof for <span class="process-math">\(f \circ \Gamma_-\text{,}\)</span> but skip a basic estimate. Using the continuity of the second derivatives and the largest negative eigenvalue, we have that there exists a global <span class="process-math">\(\varepsilon\)</span> such that any vector <span class="process-math">\(\mb{v}\)</span> in <span class="process-math">\(\mathbb{R}^{m_-}\)</span> with <span class="process-math">\(\| \mb{v} \| \lt \varepsilon\)</span> the function <span class="process-math">\(f \circ \Gamma_-\)</span> is concave on the line from <span class="process-math">\(- \mb{v}\)</span> to <span class="process-math">\(\mb{v}\text{.}\)</span> Indeed, taking the path <span class="process-math">\(\gamma : (-\varepsilon , \varepsilon ) \to \mathbb{R}^{m}\)</span> defined by <span class="process-math">\(\gamma (t) = \Gamma_- (t \mb{v})\text{,}\)</span> we have that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\left. \frac{d}{dt} (f \circ \gamma ) (t) \right|_{t = 0} = \nabla_p f \cdot \gamma^\prime (0) = 0
+\end{equation*}
+</div>
+<div class="para">because <span class="process-math">\(p\)</span> is critical and</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\left. \frac{d^2}{dt^2} (f \circ \gamma ) (t) \right|_{t = 0}  = \gamma^\prime (0)^T \textnormal{Hess}_{\gamma (0)} (f) \gamma^\prime (0) = \mb{v}^T \textnormal{Hess}_{p} (f) \mb{v} \lt 0
+\end{equation*}
+</div>
+<div class="para">because <span class="process-math">\(\mb{v}\)</span> is in the negative eigenspace of <span class="process-math">\(\textnormal{Hess}_p (f)\text{.}\)</span> Using the one variable second derivative test, as well as the continuity of <span class="process-math">\(f\)</span> and its second derivatives, we can obtain a global <span class="process-math">\(\varepsilon\)</span> for which <span class="process-math">\(f(\Gamma_- (t\mb{v})) \lt f(p)\)</span> implying <span class="process-math">\(p\)</span> is (strict) local maximum. An analogous argument holds for the positive eigenspaces and the minimum.</div>
+</div></article></details><div class="para" id="sec-second-derivative-test-6">An important, but much less refined, corollary of this is the following result.</div>
+<article class="corollary theorem-like" id="cor-secondderivativetest"><h4 class="heading">
+<span class="type">Corollary</span><span class="space"> </span><span class="codenumber">1.5.10</span><span class="period">.</span><span class="space"> </span><span class="title">Second Derivative Test.</span>
+</h4>
+<div class="para logical" id="cor-secondderivativetest-2-1">
+<div class="para">Suppose <span class="process-math">\(U\)</span> is a domain in <span class="process-math">\(\mathbb{R}^m\text{,}\)</span> <span class="process-math">\(f: U \to \mathbb{R}\)</span> is scalar function with continuous second partial derivatives and <span class="process-math">\(p\)</span> is a non-degenerate critical point of <span class="process-math">\(f\text{.}\)</span> Then</div>
+<ol class="decimal">
+<li id="cor-secondderivativetest-2-1-6-1"><div class="para" id="p-derived-cor-secondderivativetest-2-1-6-1">
+<span class="process-math">\(f\)</span> achieves a local minimum at <span class="process-math">\(p\)</span> if and only if <span class="process-math">\(\textnormal{Hess}_p (f)\)</span> is positive definite,</div></li>
+<li id="cor-secondderivativetest-2-1-6-2"><div class="para" id="p-derived-cor-secondderivativetest-2-1-6-2">
+<span class="process-math">\(f\)</span> achieves a local maximum at <span class="process-math">\(p\)</span> if and only if <span class="process-math">\(\textnormal{Hess}_p (f)\)</span> is negative definite,</div></li>
+<li id="cor-secondderivativetest-2-1-6-3"><div class="para" id="p-derived-cor-secondderivativetest-2-1-6-3">
+<span class="process-math">\(f\)</span> has a saddle point at <span class="process-math">\(p\)</span> if <span class="process-math">\(\textnormal{Hess}_p (f)\)</span> has both positive and negative eigenvalues.</div></li>
+</ol>
+</div></article></section><section class="subsection" id="subsec-Morse"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.5.3</span><span class="space"> </span><span class="title">The Morse Lemma</span>
+</h3>
+<div class="para" id="subsec-Morse-2">In fact, much more can be said about the local behavior of functions near critical points. We will mention a few of these things, but omit proofs as many of them occur much later in an undergraduate (or graduate) mathematics education. Perhaps first among such statements is second order approximations.</div>
+<article class="theorem theorem-like" id="thm-secondorder"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">1.5.11</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="thm-secondorder-1-1">
+<div class="para">Suppose <span class="process-math">\(U\)</span> is a domain in <span class="process-math">\(\mathbb{R}^m\)</span> and <span class="process-math">\(f: U \to \mathbb{R}\)</span> has continuous second partial derivatives at <span class="process-math">\(\mb{a}\text{.}\)</span>  Let</div>
+<div class="displaymath process-math">
+\begin{equation*}
+Q(\mb{x}) = f(\mb{a}) + \tder{\mb{a}}{f} \cdot (\mb{x} - \mb{a}) + \frac{1}{2} (\mb{x} - \mb{a})^T \textnormal{Hess}_\mb{a} (f) (\mb{x} - \mb{a})
+\end{equation*}
+</div>
+<div class="para">and call <span class="process-math">\(Q\)</span> the <dfn class="terminology">second order approximation</dfn> of <span class="process-math">\(f\text{.}\)</span> If</div>
+<div class="displaymath process-math">
+\begin{equation*}
+E (\mb{x}) = f(\mb{x}) - Q (\mb{x})
+\end{equation*}
+</div>
+<div class="para">is the error function, then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\lim_{\mb{x} \to \mb{a}} \frac{E (\mb{x})}{\|\mb{x} - \mb{a}\|^2} = 0.
+\end{equation*}
+</div>
+</div></article><div class="para" id="subsec-Morse-4">This theorem justifies the notion that <span class="process-math">\(\textnormal{Hess}(f)\)</span> plays the role of a second derivative. Indeed, it is the second order term in a multivariable Taylor series expansion of our function <span class="process-math">\(f\)</span> around <span class="process-math">\(\mb{a}\text{.}\)</span> The function <span class="process-math">\(Q(\mb{x})\)</span> is really the sum of our linear approximation and a quadratic form with associated matrix <span class="process-math">\(\textnormal{Hess}(f)\text{.}\)</span> This is the analog to first approximating by a tangent line, and then by a parabola. The parabola of course gives much more information than the line, especially when it comes to understanding critical behavior.</div>
+<div class="para" id="subsec-Morse-5">To drive home how precise this can be, we end this section with a relatively recent lemma (proven in 1929 by Marston Morse).</div>
+<article class="theorem theorem-like" id="thm-morse"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">1.5.12</span><span class="period">.</span><span class="space"> </span><span class="title">Morse Lemma.</span>
+</h4>
+<div class="para logical" id="thm-morse-2-1">
+<div class="para">Suppose <span class="process-math">\(U\)</span> is a domain in <span class="process-math">\(\mathbb{R}^m\)</span> and <span class="process-math">\(f: U \to \mathbb{R}\)</span> has continuous second partial derivatives. Let <span class="process-math">\(p\)</span> be a non-degenerate critical point of <span class="process-math">\(f\)</span> such that <span class="process-math">\(\textnormal{Hess}_p (f)\)</span> has <span class="process-math">\(r\)</span> positive eigenvalues and <span class="process-math">\(s\)</span> negative eigenvalues.  Then there is an open ball <span class="process-math">\(B\)</span> centered at the origin in <span class="process-math">\(\mathbb{R}^m\)</span> and a one-to-one differentiable function <span class="process-math">\(\Phi : B \to U\)</span> with <span class="process-math">\(\Phi (\mb{0}) = p\)</span> for which</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(f \circ \Phi) (x_1, \ldots, x_r, y_1, \ldots, y_s) = f(p) + x_1^2 + \cdots + x_r^2 - y_1^2 - \cdots - y_s^2. 
+\end{equation*}
+</div>
+</div></article><div class="para" id="subsec-Morse-7">The function <span class="process-math">\(\Phi\)</span> should be thought of as giving a new coordinate system to a neighborhood around <span class="process-math">\(p\text{.}\)</span> Then this theorem asserts that there is a coordinate system for which the quadratic approximation is not an approximation, but actually an equality. Of course, don’t be fooled into thinking that this means functions equal their quadratic approximations in general! The change of coordinates <span class="process-math">\(\Phi\)</span> can be quite impossible to write down explicitly, so there is a lot of complexity buried in it. But the picture of the local behavior at a <em class="emphasis">non-degenerate</em> critical point is laid bare by this theorem. For degenerate critical points however, there is still a great deal of active research!</div></section><section class="exercises" id="exe-critical"><h3 class="heading hide-type">
+<span class="type">Exercises</span><span class="space"> </span><span class="codenumber">1.5.4</span><span class="space"> </span><span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="exe-critical-1"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<div class="introduction" id="exe-critical-1-1"><div class="para" id="exe-critical-1-1-1">Find all critical points for the following functions</div></div>
+<article class="task exercise-like" id="exe-critical-1-2"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="para" id="exe-critical-1-2-1-1"><span class="process-math">\(f(x,y) = 2xy + y^2 - x^2\)</span></div></article><article class="task exercise-like" id="exe-critical-1-3"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para" id="exe-critical-1-3-1-1"><span class="process-math">\(g(x,y) = \sin x + y^2 x - 2y x\)</span></div></article><article class="task exercise-like" id="exe-critical-1-4"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<div class="para" id="exe-critical-1-4-1-1"><span class="process-math">\(h(x,y, z) = xy + yz + xz\)</span></div></article></article><article class="exercise exercise-like" id="exe-critical-2"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<div class="introduction" id="exe-critical-2-1"><div class="para" id="exe-critical-2-1-1">Answer the following questions for each of the functions in the previous exercise,</div></div>
+<article class="task exercise-like" id="exe-critical-2-2"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="para" id="exe-critical-2-2-1-1">What is the Hessian of the function at each critical point?</div></article><article class="task exercise-like" id="exe-critical-2-3"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para" id="exe-critical-2-3-1-1">Which critical points are non-degenerate?</div></article><article class="task exercise-like" id="exe-critical-2-4"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<div class="para" id="exe-critical-2-4-1-1">Identify which critical points are local minima, local maxima or saddle points.</div></article><div class="conclusion" id="exe-critical-2-5"></div></article><article class="exercise exercise-like" id="exercise-2dsecondderivativetest"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
+<div class="para logical" id="exercise-2dsecondderivativetest-1-1">
+<div class="para">The usual ‘Second Derivative Test’ offered up in a multivariable calculus textbook will look very confusing compared to our treatment. Firstly, the only functions considered will be of two variables <span class="process-math">\(f(x,y)\text{.}\)</span> Then there will be a definition of the <dfn class="terminology">discriminant</dfn> <span class="process-math">\(D\)</span> of <span class="process-math">\(f\)</span> at a critical point <span class="process-math">\(p\)</span>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cor-secondderivativetest.html">
+\begin{equation*}
+D = \partial_x^2 f \partial_y^2 f - (\partial_x \partial_y f )^2.
+\end{equation*}
+</div>
+<div class="para">Finally, the test will read: <article class="theorem theorem-like" id="exercise-2dsecondderivativetest-1-1-8"><h5 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">1.5.13</span><span class="period">.</span><span class="space"> </span><span class="title">Second Derivative Test.</span>
+</h5>
+<div class="para logical" id="exercise-2dsecondderivativetest-1-1-8-2-1">
+<div class="para">Suppose <span class="process-math">\(f(x,y)\)</span> is defined in a neighborhood of <span class="process-math">\(p\)</span> with continuous second partial derivatives. If <span class="process-math">\(p\)</span> is a critical point and <span class="process-math">\(D \ne 0\)</span> at <span class="process-math">\(p\)</span> then</div>
+<ol class="lower-alpha">
+<li id="exercise-2dsecondderivativetest-1-1-8-2-1-6-1"><div class="para" id="p-derived-exercise-2dsecondderivativetest-1-1-8-2-1-6-1">
+<span class="process-math">\(D \gt 0\)</span> and <span class="process-math">\(\partial^2_x f (p) \gt 0\)</span> if and only if <span class="process-math">\(f\)</span> achieves a local minimum at <span class="process-math">\(p\text{,}\)</span>
+</div></li>
+<li id="exercise-2dsecondderivativetest-1-1-8-2-1-6-2"><div class="para" id="p-derived-exercise-2dsecondderivativetest-1-1-8-2-1-6-2">
+<span class="process-math">\(D \gt 0\)</span> and <span class="process-math">\(\partial^2_x f (p) \lt 0\)</span> if and only if <span class="process-math">\(f\)</span> achieves a local maximum at <span class="process-math">\(p\text{,}\)</span>
+</div></li>
+<li id="exercise-2dsecondderivativetest-1-1-8-2-1-6-3"><div class="para" id="p-derived-exercise-2dsecondderivativetest-1-1-8-2-1-6-3">if <span class="process-math">\(D \lt 0\)</span> then <span class="process-math">\(f\)</span> has a saddle point at <span class="process-math">\(p\text{.}\)</span>
+</div></li>
+</ol>
+</div></article> Give an explanation of why this test is identical to <a href="" class="xref" data-knowl="./knowl/xref/cor-secondderivativetest.html" title="Corollary 1.5.10: Second Derivative Test">Corollary 1.5.10</a> for the case of <span class="process-math">\(m = 2\text{.}\)</span>
+</div>
+</div></article></section></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="sec-gradient.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-optimization1.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>
+</body>
+</html>

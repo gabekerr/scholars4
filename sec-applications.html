@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Selected Applications</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Mathematical Scholars Calculus 4">
+<meta property="book:author" content="Gabriel Kerr">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "https://pretextbook.org/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.33/pretext_search.js"></script><link href="https://pretextbook.org/css/0.83/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.33</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.33/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.33/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.33/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+<link href="https://pretextbook.org/css/0.83/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
+<h1 class="heading"><a href="ms-calculus-3.html"><span class="title">Mathematical Scholars Calculus 4</span></a></h1>
+<p class="byline">Gabriel Kerr</p>
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="sec-classicalstokes.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-stokes-theorem.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="ch-partial-differential-equations.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\diff}{\text{d}}
+\newcommand{\mb}[1]{\mathbf{#1}}
+\newcommand{\coord}[2]{[#1]^{#2}}
+\newcommand{\chart}[2]{[#1]_{#2}}
+\newcommand{\twovec}[2]{\left[ \begin{matrix} #1 \\ #2 \end{matrix} \right]}
+\newcommand{\threevec}[3]{\left[ \begin{matrix} #1 \\ #2 \\ #3 \end{matrix} \right]}
+\newcommand{\tangtwo}[2]{\left[ \begin{matrix} #1 \amp #2 \end{matrix} \right]}
+\newcommand{\tangthree}[3]{\left[ \begin{matrix} #1 \amp #2 \amp #3 \end{matrix} \right]}
+\newcommand{\im}{{\text{im}}}
+\newcommand{\cob}[3]{[#1]^{#3}_{#2}}
+\newcommand{\rk}{\text{rank}}
+\newcommand{\nullity}{\text{nullity}}
+\newcommand{\tder}[2]{d_{#1} {#2}}
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\ball}[2]{\text{B}_{#1} ( #2 )}
+\newcommand{\cball}[2]{\overline{\text{B}}_{#1} ( #2 )}
+\newcommand{\hball}[1]{\overline{\text{HB}}_{#1}}
+\newcommand{\vol}{\,\text{vol}}
+\newcommand{\orient}{\,\text{or}}
+\newcommand{\pball}[2]{\text{B}^*_{#1} ( #2 )}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural contains-active toc-item-list">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-differential-calculus.html" class="internal"><span class="codenumber">1</span> <span class="title">Differential Calculus in Several Variables</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-limit.html" class="internal"><span class="codenumber">1.1</span> <span class="title">The limit</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-limit.html#exe-limit" class="internal"><span class="codenumber">1.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-derivative.html" class="internal"><span class="codenumber">1.2</span> <span class="title">The derivative</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivative.html#subsec-directional-derivative" class="internal"><span class="codenumber">1.2.1</span> <span class="title">Directional and partial derivatives</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivative.html#subsec-derivatives-scalar" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Derivatives of scalar functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivative.html#subsec-linear-approximation-scalar" class="internal"><span class="codenumber">1.2.3</span> <span class="title">Linear approximation of scalar functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivative.html#subsec-Jacobian" class="internal"><span class="codenumber">1.2.4</span> <span class="title">The Jacobian matrix</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-derivative.html#exe-derivative" class="internal"><span class="codenumber">1.2.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-chainrule.html" class="internal"><span class="codenumber">1.3</span> <span class="title">The chain rule and tangent spaces</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-chainrule.html#subsec-computational" class="internal"><span class="codenumber">1.3.1</span> <span class="title">Computational considerations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-chainrule.html#subsec-tangent-spaces" class="internal"><span class="codenumber">1.3.2</span> <span class="title">Tangent spaces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-chainrule.html#subsec-subspaces" class="internal"><span class="codenumber">1.3.3</span> <span class="title">Level sets and their tangent spaces</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-chainrule.html#exe-chainrule" class="internal"><span class="codenumber">1.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-gradient.html" class="internal"><span class="codenumber">1.4</span> <span class="title">The gradient</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-gradient.html#subsec-metric-geometry" class="internal"><span class="codenumber">1.4.1</span> <span class="title">Metric geometry</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-gradient.html#subsec-steepest-ascent" class="internal"><span class="codenumber">1.4.2</span> <span class="title">Steepest ascent</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-gradient.html#exe-gradient" class="internal"><span class="codenumber">1.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-critical.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Critical points</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-critical.html#subsec-local-extrema" class="internal"><span class="codenumber">1.5.1</span> <span class="title">Local extrema</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-critical.html#sec-second-derivative-test" class="internal"><span class="codenumber">1.5.2</span> <span class="title">Second derivative test</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-critical.html#subsec-Morse" class="internal"><span class="codenumber">1.5.3</span> <span class="title">The Morse Lemma</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-critical.html#exe-critical" class="internal"><span class="codenumber">1.5.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-optimization1.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Optimization without constraints</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-optimization1.html#subsec-global-extrema" class="internal"><span class="codenumber">1.6.1</span> <span class="title">Global extrema</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-optimization1.html#subsec-least-squares" class="internal"><span class="codenumber">1.6.2</span> <span class="title">Least Squares</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-optimization1.html#subsec-gradient-descent" class="internal"><span class="codenumber">1.6.3</span> <span class="title">Gradient descent</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-optimization1.html#exe-optimization1" class="internal"><span class="codenumber">1.6.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-optimization2.html" class="internal"><span class="codenumber">1.7</span> <span class="title">Optimization with constraints</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-optimization2.html#subsec-single-constraint" class="internal"><span class="codenumber">1.7.1</span> <span class="title">Single constraint</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-optimization2.html#subsec-many-constraints" class="internal"><span class="codenumber">1.7.2</span> <span class="title">Several constraints</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-optimization2.html#exe-optimization2" class="internal"><span class="codenumber">1.7.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-differential-forms.html" class="internal"><span class="codenumber">2</span> <span class="title">Differential Forms</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exterior.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Exterior algebras</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-exterior.html#subsec-exterior-product" class="internal"><span class="codenumber">2.1.1</span> <span class="title">The exterior product</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-exterior.html#subsec-exterior-algebra-geometry" class="internal"><span class="codenumber">2.1.2</span> <span class="title">Geometry of exterior algebras</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-exterior.html#subsec-cross-product" class="internal"><span class="codenumber">2.1.3</span> <span class="title">The cross product</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exterior.html#exe-exterior" class="internal"><span class="codenumber">2.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li></ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-integral-calculus.html" class="internal"><span class="codenumber">3</span> <span class="title">Integral Calculus in Several Variables</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-cubeintegration.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Integrating over cubes in <span class="process-math">\(\mathbb{R}^n\)</span></span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-cubeintegration.html#exe-cubeintegration" class="internal"><span class="codenumber">3.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-compactintegration.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Integration over compact domains in <span class="process-math">\(\mathbb{R}^2\)</span></span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-compactintegration.html#exe-compactintegration" class="internal"><span class="codenumber">3.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-compactRnintegration.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Integration over compact domains in <span class="process-math">\(\mathbb{R}^n\)</span></span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-compactRnintegration.html#exe-compactRnintegration" class="internal"><span class="codenumber">3.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-cov.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Change of Variables</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-cov.html#subsec-polar-integration" class="internal"><span class="codenumber">3.4.1</span> <span class="title">Integration using polar coordinates</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-cov.html#exe-cov" class="internal"><span class="codenumber">3.4.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-integral-of-forms.html" class="internal"><span class="codenumber">4</span> <span class="title">Integrals of Forms</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-integrating-forms.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Integrating forms</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-integrating-forms.html#subsec-integrating-top-forms" class="internal"><span class="codenumber">4.1.1</span> <span class="title">Integrating top forms</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-integrating-forms.html#subsec-integrating-k-forms" class="internal"><span class="codenumber">4.1.2</span> <span class="title">Integrating <span class="process-math">\(k\)</span>-forms on oriented subspaces.</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-integrating-forms.html#exe-formintegration" class="internal"><span class="codenumber">4.1.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-scalarintegrals.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Scalar integrals</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-scalarintegrals.html#subsec-scalar-line-integrals" class="internal"><span class="codenumber">4.2.1</span> <span class="title">Scalar line integrals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-scalarintegrals.html#subsec-scalar-surface-integrals" class="internal"><span class="codenumber">4.2.2</span> <span class="title">Scalar surface integrals</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-scalarintegrals.html#exe-scalarintegrals" class="internal"><span class="codenumber">4.2.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-vectorintegrals.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Vector integrals</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-vectorintegrals.html#subsec-vector-line-integrals" class="internal"><span class="codenumber">4.3.1</span> <span class="title">Vector line integrals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-vectorintegrals.html#subsec-flux-integrals" class="internal"><span class="codenumber">4.3.2</span> <span class="title">Flux integrals</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-vectorintegrals.html#exe-vectorintegrals" class="internal"><span class="codenumber">4.3.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-stokes-theorem.html" class="internal"><span class="codenumber">5</span> <span class="title">Stokes’ Theorem</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-derivatives.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Derivatives</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivatives.html#subsec-exterior-derivative" class="internal"><span class="codenumber">5.1.1</span> <span class="title">Exterior derivative</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivatives.html#subsec-gradient" class="internal"><span class="codenumber">5.1.2</span> <span class="title">Gradient</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivatives.html#subsec-curl" class="internal"><span class="codenumber">5.1.3</span> <span class="title">Curl</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivatives.html#subsec-2dcurl" class="internal"><span class="codenumber">5.1.4</span> <span class="title">Two dimensional curl</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivatives.html#subsec-divergence" class="internal"><span class="codenumber">5.1.5</span> <span class="title">Divergence</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-derivatives.html#exe-derivatives" class="internal"><span class="codenumber">5.1.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-stokes.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Stokes’ Theorem</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-stokes.html#exe-stokes" class="internal"><span class="codenumber">5.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-ftli.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Stokes’ Theorem on curves - The Fundamental Theorem of Line Integrals</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-ftli.html#exe-ftli" class="internal"><span class="codenumber">5.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-greens.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Stokes’ Theorem in dimension <span class="process-math">\(2\)</span> - Green’s Theorems</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-greens.html#exe-greens" class="internal"><span class="codenumber">5.4</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-classicalstokes.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Stokes’ Theorem in dimension <span class="process-math">\(3\)</span> - Classical Stokes’ and Divergence Theorems</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-classicalstokes.html#exe-classicalstokes" class="internal"><span class="codenumber">5.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section active">
+<div class="toc-title-box"><a href="sec-applications.html" class="internal"><span class="codenumber">5.6</span> <span class="title">Selected Applications</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-applications.html#subsec-maxwells-equations" class="internal"><span class="codenumber">5.6.1</span> <span class="title">Maxwell’s equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-applications.html#subsec-contour-integrals" class="internal"><span class="codenumber">5.6.2</span> <span class="title">Contour integrals</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-applications.html#exe-applications" class="internal"><span class="codenumber">5.6.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-partial-differential-equations.html" class="internal"><span class="codenumber">6</span> <span class="title">Partial Differential Equations</span></a></div></li>
+<li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-applications"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">5.6</span><span class="space"> </span><span class="title">Selected Applications</span>
+</h2>
+<section class="introduction" id="sec-applications-2"><div class="para" id="sec-applications-2-1">There are already so many applications of the material covered so far in these notes that it would take a library (or a medium sized cloud account) to cover them all. Instead, I have chosen a few which I believe every aspiring mathematician should encounter.</div></section><section class="subsection" id="subsec-maxwells-equations"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">5.6.1</span><span class="space"> </span><span class="title">Maxwell’s equations</span>
+</h3>
+<div class="para logical" id="subsec-maxwells-equations-2">
+<div class="para">Maxwell’s equations unified two previously distinct forces of nature, electricity and magnetism. Let’s describe the players involved in the classical set of equations. The constant <span class="process-math">\(c\)</span> denotes the speed of light and</div>
+<ol class="decimal">
+<li id="subsec-maxwells-equations-2-2-1"><div class="para" id="p-derived-subsec-maxwells-equations-2-2-1">
+<span class="process-math">\(\mb{E} = E_x \partial_x + E_y \partial_y + E_z \partial_z\)</span> is the electric force field,</div></li>
+<li id="subsec-maxwells-equations-2-2-2"><div class="para" id="p-derived-subsec-maxwells-equations-2-2-2">
+<span class="process-math">\(\mb{B} = B_x \partial_x + B_y \partial_y + B_z \partial_z\)</span> is the magnetic force field,</div></li>
+<li id="subsec-maxwells-equations-2-2-3"><div class="para" id="p-derived-subsec-maxwells-equations-2-2-3">
+<span class="process-math">\(\rho\)</span> is the scalar charge density,</div></li>
+<li id="subsec-maxwells-equations-2-2-4"><div class="para" id="p-derived-subsec-maxwells-equations-2-2-4">
+<span class="process-math">\(\mb{J} = J_x \partial_x +  J_y \partial_y + J_z \partial_z\)</span> is a current density field.</div></li>
+</ol>
+<div class="para">One can consider <span class="process-math">\(\mb{J}\)</span> as a weighted velocity field and indeed it is defined as the product of the velocity field of the particles and the charge density <span class="process-math">\(\rho\text{.}\)</span> Then the Maxwell’s (differential) equations in Gaussian units are <figure class="table table-like" id="subsec-maxwells-equations-2-5"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">5.6.1<span class="period">.</span></span><span class="space"> </span>Differential Maxwell’s Equations</figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="c m b1 r0 l0 t0 lines">Equation</th>
+<th scope="col" class="c m b1 r0 l0 t0 lines">Name</th>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\text{div} (\mb{E} ) = 4 \pi \rho \)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\text{(Gauss's law)}\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\text{div} (\mb{B} ) = 0\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\text{(Gauss's law for magnetism)}\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\text{curl} (\mb{E} ) = -\frac{1}{c} \frac{\partial \mb{B}}{\partial t}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\text{(Maxwell-Faraday equation)}\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\text{curl} (\mb{B} ) = \frac{1}{c} \left( 4 \pi \mb{J} +  \frac{\partial \mb{E}}{\partial t} \right)\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\text{(Amp\`ere's circuital law)}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(3\)</span></td>
+</tr>
+</table></div></figure> One major application is the following.</div>
+</div>
+<details id="subsec-maxwells-equations-3" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.6.2</span><span class="period">.</span><span class="space"> </span><span class="title">Generating electric current.</span>
+</h4></summary><article class="example example-like"><div class="para logical" id="subsec-maxwells-equations-3-2-1">
+<div class="para">A magnet moving through an enclosed circular wire <span class="process-math">\(\mathcal{C}\)</span> in three dimensional space will induce a changing magnetic field. Indeed, we can see that moving a magnet from below and through <span class="process-math">\(\mathcal{C}\)</span> will result in a time varying positive flux (depending on the direction). Letting <span class="process-math">\(S\)</span> be the disc with boundary <span class="process-math">\(\mathcal{C}\)</span> and using the Maxwell-Faraday equation and the classical Stokes’ Theorem we see</div>
+<div class="displaymath process-math" id="subsec-maxwells-equations-3-2-1-5">
+\begin{align*}
+\frac{d}{dt} \text{Magnetic Flux through } S \amp =  \frac{d}{dt} \iint_S \mb{B} \cdot \tder{}{\mb{S}}, \\
+\amp =  - c \left( \iint_S - \frac{1}{c}  \frac{\partial \mb{B}}{\partial t} \cdot \tder{}{\mb{S}} \right), \\
+\amp =   - c \left(\iint_S \text{curl} (\mb{E} ) \cdot \tder{}{\mb{S}} \right), \\
+\amp =  - c \left(\oint_\mathcal{C} \mb{E} \cdot \tder{}{\mb{r}} \right) ,\\
+\amp = -c (\text{Electric work along }\mathcal{C}).
+\end{align*}
+</div>
+<div class="para">This means that the act of moving a magnet through the interior wire will create a current along the wire. This fact is what many generators of electricity are based on.</div>
+</div></article></details><div class="para logical" id="subsec-maxwells-equations-4">
+<div class="para">Now, let us make a very intriguing and strange sounding assumption:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-surfaceindependent.html ./knowl/xref/prop-vectorpotential.html">
+\begin{equation*}
+\text{Assumption:  There are no .}
+\end{equation*}
+</div>
+<div class="para">If you have ever played with a pair of magnets, you will notice that, when held up to each other, they either connect and hold together or repel and re-orient themselves. That’s because magnets seem to always come as a dipole. The mathematical way of saying this is that the total flux of the magnetic field through any oriented surface is zero (i.e. there is just as much of the magnetic field coming in as going out). Alternatively, we may say that <span class="process-math">\(\mb{B}\)</span> is <em class="emphasis">surface independent</em> as in <a href="" class="xref" data-knowl="./knowl/xref/prop-surfaceindependent.html" title="Proposition 5.5.7">Proposition 5.5.7</a>. We saw in <a href="" class="xref" data-knowl="./knowl/xref/prop-vectorpotential.html" title="Proposition 5.5.9">Proposition 5.5.9</a> that this property is equivalent to the existence of a vector potential <span class="process-math">\(\mb{A}\)</span> called the <dfn class="terminology">magnetic potential</dfn> where</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-surfaceindependent.html ./knowl/xref/prop-vectorpotential.html">
+\begin{equation*}
+\text{curl} ( \mb{A} )  = \mb{B}.
+\end{equation*}
+</div>
+<div class="para">In fact, there is nothing in Maxwell’s equations that assures us of this, but no human has ever confirmed anything to contradict it!</div>
+</div>
+<div class="para logical" id="subsec-maxwells-equations-5">
+<div class="para">Note that with such a magnetic potential, we have that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\text{curl} \left(\frac{\partial \mb{A}}{\partial t} \right) = \frac{\partial }{\partial t}\text{curl} \left( \mb{A} \right) = \frac{\partial \mb{B}}{\partial t} = - c \, \,  \text{curl} (\mb{E} ).
+\end{equation*}
+</div>
+<div class="para">So we have that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\text{curl} \left( \mb{E} + \frac{1}{c} \frac{\partial \mb{A}}{\partial t} \right) = \mb{0}
+\end{equation*}
+</div>
+<div class="para">or that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+-\mb{E} - \frac{1}{c} \frac{\partial \mb{A}}{\partial t}
+\end{equation*}
+</div>
+<div class="para">satisfies the cross-partials test. Thus, assuming the region that the field is defined on is simply connected, we have that this vector field is conservative and there is a potential <span class="process-math">\(\varphi\)</span> satisfying</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\nabla \varphi = -\mb{E} - \frac{1}{c} \frac{\partial \mb{A}}{\partial t}.
+\end{equation*}
+</div>
+<div class="para">This scalar potential <span class="process-math">\(\varphi\)</span> is called the <dfn class="terminology">electric potential</dfn>.</div>
+</div>
+<div class="para" id="subsec-maxwells-equations-6">In fact, while classical mechanics places the emphasis on force fields and views it as the sole determining factor of the physics of a particle, quantum mechanics shows that the magnetic potential <span class="process-math">\(\mb{A}\)</span> and electric potential <span class="process-math">\(\varphi\)</span> will effect a particle even when <span class="process-math">\(\mb{E} = \mb{0} = \mb{B}\)</span> (see the Aharonov-Bohm effect). These effects have been confirmed by experiments. Such real world phenomena gives more reasons  to obtain a deeper understanding of differential forms and higher dimensional integrals!</div>
+<div class="para" id="subsec-maxwells-equations-7">Perhaps unsurprisingly, we may repackage the entire subject in a far more efficient way using differential forms.</div>
+<article class="definition definition-like" id="def-faraday"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.6.3</span><span class="period">.</span>
+</h4> <div class="para logical" id="def-faraday-2-1">
+<div class="para">The Faraday tensor is the differential <span class="process-math">\(2\)</span>-form</div>
+<div class="displaymath process-math" id="def-faraday-2-1-2">
+\begin{align*}
+F \amp = c \, {E_x}  \tder{}{x} \wedge \tder{}{t} + c \, {E_y} \tder{}{y} \wedge \tder{}{t} + c \, {E_z} \tder{}{z} \wedge \tder{}{t} + \cdots, \\
+\amp \cdots +   {B_x}\tder{}{y} \wedge \tder{}{z}  + {B_y}\tder{}{z} \wedge \tder{}{x} + {B_z}\tder{}{x} \wedge \tder{}{y}.
+\end{align*}
+</div>
+<div class="para">The <span class="process-math">\(4\)</span>-current density is the differential <span class="process-math">\(1\)</span>-form</div>
+<div class="displaymath process-math">
+\begin{equation*}
+J = -J_x \tder{}{x}  - J_y \tder{}{y} - J_z \tder{}{z} + \rho \, \tder{}{t} 
+\end{equation*}
+</div>
+<div class="para">and the four potential is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A  = A_x \tder{}{x}  + A_y \tder{}{y} + A_z \tder{}{z} - c \, \varphi \,  \tder{}{t} 
+\end{equation*}
+</div>
+</div></article><div class="para" id="subsec-maxwells-equations-9">Then, as an exercise, the student can verify the following updated statement.</div>
+<article class="proposition theorem-like" id="prop-maxdiff"><h4 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">5.6.4</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="prop-maxdiff-1-1">
+<div class="para">Maxwell’s equations are equivalent to</div>
+<div class="displaymath process-math" id="eq-max1">
+\begin{equation}
+\tder{}{F} = 0,\tag{5.6.1}
+\end{equation}
+</div>
+<div class="displaymath process-math" id="eq-max2">
+\begin{equation}
+\star \, \tder{}{} \star F =  J.\tag{5.6.2}
+\end{equation}
+</div>
+<div class="para">Furthermore, the four potential shows that <span class="process-math">\(F\)</span> is an exact two form with</div>
+<div class="displaymath process-math" id="eq-pot1">
+\begin{equation}
+\tder{}{A} \amp = F.\tag{5.6.3}
+\end{equation}
+</div>
+</div></article><div class="para" id="subsec-maxwells-equations-11">Equation <a href="" class="xref" data-knowl="./knowl/xref/eq-max2.html" title="Equation 5.6.2">(5.6.2)</a> in Maxwell’s equations must be performed with the correct Hodge star. Indeed, recall that the Hodge star depends on a (possibly varying) metric on the background space. In space-time, this metric is the Lorentz metric and, in fact, not quite a metric in our sense since it is not positive definite. However, one can still do everything in the same way with the Hodge star using this metric and the equation <a href="" class="xref" data-knowl="./knowl/xref/eq-max2.html" title="Equation 5.6.2">(5.6.2)</a> follows formally.</div>
+<div class="para logical" id="subsec-maxwells-equations-12">
+<div class="para">We note that the vacuum case of these equations is when <span class="process-math">\(J = 0\text{.}\)</span> In such a case, Maxwell’s equations are the same as saying that <span class="process-math">\(F\)</span> is a harmonic <span class="process-math">\(2\)</span>-form. This involves generalizing the Laplace-Beltrami operator <span class="process-math">\(\Delta\)</span> to one on differential forms and then Maxwell’s four equations can be written as exactly one equation</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\Delta F = 0.
+\end{equation*}
+</div>
+</div></section><section class="subsection" id="subsec-contour-integrals"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">5.6.2</span><span class="space"> </span><span class="title">Contour integrals</span>
+</h3>
+<div class="para logical" id="subsec-contour-integrals-2">
+<div class="para">Let us now abandon the four dimensional universe and return to the comfort of two dimensions. Recall that in <a href="" class="xref" data-knowl="./knowl/xref/exercise-holomorphic.html" title="Exercise 5.4.3">Exercise 5.4.3</a> that there were some very special properties of vector fields that were both solenoidal and conservative on a domain <span class="process-math">\(U \subseteq \mathbb{R}^2\text{.}\)</span> Let us take such a vector field</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exercise-holomorphic.html">
+\begin{equation*}
+\mb{F} = P \, \partial_x + Q \, \partial_y
+\end{equation*}
+</div>
+<div class="para">and convert it into a complex function <span class="process-math">\(f: U \to \mathbb{C}\)</span> so that for <span class="process-math">\((x,y) \in U\)</span> we write <span class="process-math">\(z = x + iy\)</span> and define</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exercise-holomorphic.html">
+\begin{equation*}
+f (z) = f (x + iy ) = P (x, y) - i Q (x,y).
+\end{equation*}
+</div>
+</div>
+<article class="definition definition-like" id="def-holomorphic"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.6.5</span><span class="period">.</span>
+</h4> <div class="para" id="def-holomorphic-2-1">The function <span class="process-math">\(f(z)\)</span> is called holomorphic at <span class="process-math">\(z\)</span> if it arises from <span class="process-math">\(\mb{F}\)</span> where <span class="process-math">\(\mb{F}\)</span> is solenoidal and satisfies the cross-partials test.</div></article><div class="para logical" id="subsec-contour-integrals-4">
+<div class="para">Notice that we have not really done anything here, just rewritten the vector field as a complex valued function. Now we think of <span class="process-math">\(U\)</span> as a subset of <span class="process-math">\(\mathbb{C}\)</span> and consider a path in <span class="process-math">\(U\)</span> paramaterized by <span class="process-math">\(\gamma : [a, b] \to U\)</span> and defined as</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\gamma (t) = x(t) + i \, y (t).
+\end{equation*}
+</div>
+<div class="para">The interesting new feature of working in the complex numbers is that we now have the operation of multiplication. So we can make sense of the following notion.</div>
+</div>
+<article class="definition definition-like" id="def-contour-integral"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.6.6</span><span class="period">.</span>
+</h4> <div class="para logical" id="def-contour-integral-2-1">
+<div class="para">The <dfn class="terminology">contour integral</dfn> of <span class="process-math">\(f(z)\)</span> over <span class="process-math">\(\gamma\)</span> is the complex valued integral</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int_\gamma f(z) \, \tder{}{z} = \int_a^b f( \gamma (t)) \gamma^\prime (t) \, \tder{}{t}.
+\end{equation*}
+</div>
+</div></article><div class="para logical" id="subsec-contour-integrals-6">
+<div class="para">Note that the integral on the right is the basic one variable vector valued integral of the function <span class="process-math">\(f( \gamma (t)) \gamma^\prime (t)\)</span> from <span class="process-math">\([a, b]\)</span> to <span class="process-math">\(\mathbb{C}\)</span> and does not involve anything fancy. However, let us unpack this integral by multiplying everything out to see</div>
+<div class="displaymath process-math" id="subsec-contour-integrals-6-4">
+\begin{align*}
+\int_\gamma f(z) \, \tder{}{z} \amp = \int_a^b f( \gamma (t)) \gamma^\prime (t) \, \tder{}{t}, \\
+\amp = \int_a^b \left(P( \gamma (t)) - i Q (\gamma (t)) \right) \left(x^\prime (t) + i y^\prime (t) \right) \, \tder{}{t}, \\
+\amp = \int_a^b \left[ P( \gamma (t))\, x^\prime (t) + Q (\gamma (t) )\, y^\prime (t) \right] + i \left[ P( \gamma (t))\, y^\prime (t) - Q (\gamma (t) )\, x^\prime (t) \right] \, \tder{}{t}, \\
+\amp = \int_\gamma \mb{F} \cdot \tder{}{\mb{r}} + i \int_{\gamma} \mb{F} \cdot \tder{}{\mb{n}}. 
+\end{align*}
+</div>
+<div class="para">Somehow, just by writing our vector field as a complex valued function and using complex multiplication, we were able to simultaneously express the vector and vector flux integrals of a given field as the real and imaginary parts of a single integral!</div>
+</div>
+<div class="para" id="subsec-contour-integrals-7">This is all well and good, but we actually have not used the assumption that <span class="process-math">\(\mb{F}\)</span> was solenoidal and passed the cross-partials test. When this happens, we have the following very nice corollary of our Green’s Theorems.</div>
+<article class="corollary theorem-like" id="cor-contourint"><h4 class="heading">
+<span class="type">Corollary</span><span class="space"> </span><span class="codenumber">5.6.7</span><span class="period">.</span>
+</h4>
+<div class="para" id="cor-contourint-1-1">The contour integral of a holomorphic function <span class="process-math">\(f(z)\)</span> depends only on the path <span class="process-math">\(\gamma\)</span> up to deformation so long as the endpoints are fixed. If <span class="process-math">\(\gamma\)</span> is a closed curve and bounds a region where <span class="process-math">\(f(z)\)</span> is holomorphic, then its contour integral is zero.</div></article><div class="para" id="subsec-contour-integrals-9">What the first statement means is that two different paths which bound the image of a disc must have the same contour integral. Let us look at an example and then apply this important fact.</div>
+<details id="subsec-contour-integrals-10" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.6.8</span><span class="period">.</span><span class="space"> </span><span class="title">Computing a residue.</span>
+</h4></summary><article class="example example-like"><div class="para logical" id="subsec-contour-integrals-10-2-1">
+<div class="para">Let <span class="process-math">\(\lambda\)</span> be a complex number and consider the function</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(z) = \frac{1}{(z - \lambda)^n}.
+\end{equation*}
+</div>
+<div class="para">Consider a loop around <span class="process-math">\(\lambda\)</span> given by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\gamma (t) = \lambda + e^{i t}
+\end{equation*}
+</div>
+<div class="para">for <span class="process-math">\(0 \leq t \leq 2\pi\text{.}\)</span> Then from our work on differential equations, we have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\gamma^\prime (t) = i e^{i t}
+\end{equation*}
+</div>
+<div class="para">so that</div>
+<div class="displaymath process-math" id="subsec-contour-integrals-10-2-1-7">
+\begin{align*}
+\int_{\gamma} f(z) \, \tder{}{z} \amp = \int_0^{2\pi} i e^{(1 - n) i t} \, \tder{}{t}, \\
+\amp = \begin{cases} {2\pi i} \amp \text{ if } n = 1, \\ 0 \amp \text{ otherwise.} \end{cases} 
+\end{align*}
+</div>
+<div class="para">Note that this result includes both positive and negative integer values of <span class="process-math">\(n\text{.}\)</span>
+</div>
+</div></article></details><div class="para logical" id="subsec-contour-integrals-11">
+<div class="para">To make an even more interesting (and useful) example, we must adopt a few results from complex analysis. Most importantly, the existence of a Taylor’s Theorem. To state it, we note that the complex derivative of a function <span class="process-math">\(g(z)\)</span> is given by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+g^\prime (z) = \frac{d}{dz} g(z) = \frac{\partial}{\partial x} g(z) + i \frac{\partial}{\partial y} g(z).
+\end{equation*}
+</div>
+<div class="para">This  definition agrees with our expectations of the derivative in that <span class="process-math">\(\frac{d}{dz} z^n = n z^{n - 1}\text{,}\)</span> <span class="process-math">\((fg)^\prime = f^\prime g + f g^\prime\text{,}\)</span> and so forth.</div>
+</div>
+<article class="theorem theorem-like" id="thm-holomorphic"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.6.9</span><span class="period">.</span><span class="space"> </span><span class="title">Holomorphic functions are analytic.</span>
+</h4>
+<div class="para logical" id="thm-holomorphic-2-1">
+<div class="para">Suppose <span class="process-math">\(g(z)\)</span> is holomorphic in a disc around <span class="process-math">\(\lambda\text{.}\)</span> Then there is a positive constant <span class="process-math">\(r\)</span> for which, if <span class="process-math">\(|z - \lambda | \lt r\text{,}\)</span>
+</div>
+<div class="displaymath process-math" id="thm-holomorphic-2-1-5">
+\begin{align*}
+g(z) \amp = g(\lambda) + g^\prime (\lambda ) (z - \lambda ) + \frac{g^{\prime \prime} (\lambda)}{2} (z - \lambda)^2 + \cdots \\
+\amp = \sum_{n = 0}^\infty \frac{g^{(n)} (\lambda ) }{n!} (z - \lambda )^n. 
+\end{align*}
+</div>
+</div></article><div class="para" id="subsec-contour-integrals-13">By far the most surprising part of this last statement is that <span class="process-math">\(r\text{,}\)</span> called the radius of convergence, is strictly positive (which is not always true for smooth real functions).  The convergence of this series relies on the usual notion of limit in <span class="process-math">\(\mathbb{C} = \mathbb{R}^2\text{.}\)</span> We use this in the next example.</div>
+<details id="subsec-contour-integrals-14" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.6.10</span><span class="period">.</span><span class="space"> </span><span class="title">Contour integral of rational functions.</span>
+</h4></summary><article class="example example-like"><div class="para logical" id="subsec-contour-integrals-14-2-1">
+<div class="para">Here let’s consider the example where <span class="process-math">\(f(z)\)</span> is a complex rational function</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exercise-holomorphicrat.html">
+\begin{equation*}
+f(z) = \frac{p(z)}{q(z)}.
+\end{equation*}
+</div>
+<div class="para">Here <span class="process-math">\(p(z)\)</span> and <span class="process-math">\(q(z)\)</span> are polynomials in the complex variable <span class="process-math">\(z\text{.}\)</span> Now, we refer to <a href="" class="xref" data-knowl="./knowl/xref/exercise-holomorphicrat.html" title="Exercise 5.6.3.3">Exercise 5.6.3.3</a> where it is shown that <span class="process-math">\(f(z)\)</span> is holomorphic. If you look back in your notes to the first section, you’ll see the Fundamental Theorem of Algebra which states that a non-constant polynomial always has a root. In particular, if <span class="process-math">\(\lambda\)</span> is a root of <span class="process-math">\(q(z)\text{,}\)</span> we can divide by a large enough power to see</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exercise-holomorphicrat.html">
+\begin{equation*}
+q(z) = (z - \lambda)^m g(z)
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(g(z)\)</span> is a polynomial and <span class="process-math">\(g(\lambda ) \ne 0\text{.}\)</span> But then</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exercise-holomorphicrat.html">
+\begin{equation*}
+f(z) = \frac{1}{(z - \lambda)^m} \frac{p(z)}{g(z)}
+\end{equation*}
+</div>
+<div class="para">and <span class="process-math">\(h (z) = \frac{p(z)}{g(z)}\)</span> is holomorphic at <span class="process-math">\(\lambda\text{.}\)</span> This means there is a Taylor series for <span class="process-math">\(h(z)\)</span> at <span class="process-math">\(\lambda\)</span> so that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exercise-holomorphicrat.html" id="subsec-contour-integrals-14-2-1-18">
+\begin{align*}
+f(z) \amp = \frac{1}{(z - \lambda)^m}\sum_{n = 0}^\infty \frac{h^{(n)} (\lambda ) }{n!} (z - \lambda )^n, \\
+\amp = \sum_{n = 0}^\infty \frac{h^{(n)} (\lambda ) }{n!} (z - \lambda )^{n - m}. 
+\end{align*}
+</div>
+<div class="para">Thus, if <span class="process-math">\(\gamma\)</span> is a small loop around <span class="process-math">\(\lambda\)</span> we can use linearity and our previous example to compute the contour integral</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exercise-holomorphicrat.html" id="subsec-contour-integrals-14-2-1-21">
+\begin{align}
+\int_\gamma f(z) \, \tder{}{z} \amp =  \int_\gamma \sum_{n = 0}^\infty \frac{h^{(n)} (\lambda ) }{n!} (z - \lambda )^{n - m} \, \tder{}{z},\notag\\
+\amp = \sum_{n = 0}^\infty \frac{h^{(n)} (\lambda ) }{n!} \int_\gamma (z - \lambda )^{n - m} \, \tder{}{z}, \notag\\
+\amp =  \frac{2 \pi h^{(m - 1)} (\lambda ) i }{(m - 1)!} \tag{5.6.4}
+\end{align}
+</div>
+</div></article></details><div class="para" id="subsec-contour-integrals-15">Now let us apply these computational results to make some brand new computation.</div>
+<details id="subsec-contour-integrals-16" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.6.11</span><span class="period">.</span><span class="space"> </span><span class="title">Applying contour integrals.</span>
+</h4></summary><article class="example example-like"><div class="para logical" id="subsec-contour-integrals-16-2-1">
+<div class="para">Suppose we want to compute the integral</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cor-contourint.html ./knowl/xref/eq-residue.html ./knowl/xref/eq-residue.html">
+\begin{equation*}
+\int_{-\infty}^{\infty} \frac{1}{(x^2 + 4)^2} \, \tder{}{x}.
+\end{equation*}
+</div>
+<div class="para">Note that in this case, the denominator can be factored in the complex numbers as</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cor-contourint.html ./knowl/xref/eq-residue.html ./knowl/xref/eq-residue.html">
+\begin{equation*}
+(z^2 + 4)^2 = (z + 2i)^2 (z - 2i)^2.
+\end{equation*}
+</div>
+<div class="para">Now take <span class="process-math">\(R \gt 2\)</span> and consider the <span class="process-math">\(\gamma_R\)</span> going from <span class="process-math">\(-R\)</span> to <span class="process-math">\(R\)</span> along the <span class="process-math">\(x\)</span>-axis and then along the semi-circle <span class="process-math">\(\mathcal{C}\)</span> paramaterized by <span class="process-math">\(\alpha (t) = R e^{it}\)</span> for <span class="process-math">\(0 \leq t \leq \pi\text{.}\)</span> The contour integral of <span class="process-math">\(f(z) = (z^2 + 4)^{-2}\)</span> along <span class="process-math">\(\gamma_R\)</span> breaks up as</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cor-contourint.html ./knowl/xref/eq-residue.html ./knowl/xref/eq-residue.html">
+\begin{equation*}
+\int_{\gamma_R} \frac{1}{(z^2 + 4)^2} \, \tder{}{z} = \int_{-R}^{R} \frac{1}{(x^2 + 4)^2} \, \tder{}{x} + \int_\alpha \frac{1}{(z^2 + 4)^2} \, \tder{}{z}.
+\end{equation*}
+</div>
+<div class="para">Examining the second contour integral for large <span class="process-math">\(R\)</span> gives</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cor-contourint.html ./knowl/xref/eq-residue.html ./knowl/xref/eq-residue.html">
+\begin{equation*}
+\int_\alpha \frac{1}{(z^2 + 4)^2} \, \tder{}{z} = \int_0^\pi \frac{i R e^{i t}}{(R^2 e^{2 i t} + 4)^2} \, \tder{}{t} \approx \frac{i}{R^3} \int_0^\pi e^{-3 i t} \,  \tder{}{t} \to 0.
+\end{equation*}
+</div>
+<div class="para">In other words, as <span class="process-math">\(R\)</span> tends to infinity, the <span class="process-math">\(\alpha\)</span> contour integral tends to zero. However, the region between <span class="process-math">\(\gamma_3\)</span> and <span class="process-math">\(\gamma_R\)</span> for <span class="process-math">\(R\)</span> large is one on which <span class="process-math">\(f(z)\)</span> is always holomorphic. This means their contour integrals are equal by <a href="" class="xref" data-knowl="./knowl/xref/cor-contourint.html" title="Corollary 5.6.7">Corollary 5.6.7</a>. Furthermore, the same applies if, instead of taking <span class="process-math">\(\gamma_3\text{,}\)</span> we took <span class="process-math">\(\gamma\)</span> to be a small loop around <span class="process-math">\(2 i\text{.}\)</span> Thus,</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cor-contourint.html ./knowl/xref/eq-residue.html ./knowl/xref/eq-residue.html" id="subsec-contour-integrals-16-2-1-26">
+\begin{align*}
+\int_{\gamma}  \frac{1}{(z^2 + 4)^2} \, \tder{}{z} \amp = \int_{\gamma_R} \frac{1}{(z^2 + 4)^2} \, \tder{}{z}, \\
+\amp = \lim_{R \to \infty} \int_{\gamma_R} \frac{1}{(z^2 + 4)^2} \, \tder{}{z},  \\
+\amp = \int_{-\infty}^{\infty} \frac{1}{(x^2 + 4)^2} \, \tder{}{x}. 
+\end{align*}
+</div>
+<div class="para">So all we need is to apply equation <a href="" class="xref" data-knowl="./knowl/xref/eq-residue.html" title="Equation 5.6.4">(5.6.4)</a> to our function <span class="process-math">\(\frac{1}{(z^2 + 4)^2}\text{.}\)</span> For this, we have</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cor-contourint.html ./knowl/xref/eq-residue.html ./knowl/xref/eq-residue.html">
+\begin{equation*}
+\frac{1}{(z^2 + 4)^2} = \frac{1}{(z - 2i)^2} \frac{1}{(z + 2i)^2} 
+\end{equation*}
+</div>
+<div class="para">so that <span class="process-math">\(h(z) = \frac{1}{(z + 2i)^2}\)</span> and <span class="process-math">\((m - 1) = 1\text{.}\)</span> Then</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cor-contourint.html ./knowl/xref/eq-residue.html ./knowl/xref/eq-residue.html">
+\begin{equation*}
+h^\prime (z) = \frac{-2}{(z + 2i)^3} 
+\end{equation*}
+</div>
+<div class="para">and</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cor-contourint.html ./knowl/xref/eq-residue.html ./knowl/xref/eq-residue.html">
+\begin{equation*}
+h^\prime (2i) = \frac{-2}{(4i)^3} = -\frac{i}{32}.
+\end{equation*}
+</div>
+<div class="para">Applying equation <a href="" class="xref" data-knowl="./knowl/xref/eq-residue.html" title="Equation 5.6.4">(5.6.4)</a> gives</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cor-contourint.html ./knowl/xref/eq-residue.html ./knowl/xref/eq-residue.html" id="subsec-contour-integrals-16-2-1-35">
+\begin{align*}
+\int_{-\infty}^{\infty} \frac{1}{(x^2 + 4)^2} \, \tder{}{x} \amp = \int_\gamma  \frac{1}{(z^2 + 4)^2} \, \tder{}{z}, \\
+\amp = \frac{2 \pi h^{(m - 1)} (2i ) i }{(m - 1)!}, \\
+\amp = \frac{2 \pi (-i) i }{32}, \\
+\amp = \frac{\pi}{16}. 
+\end{align*}
+</div>
+</div></article></details><div class="para" id="subsec-contour-integrals-17">This last computation should leave you somewhat shocked. If you take a look at your notes from a second semester of calculus, you will most likely see that actually integrating this type of rational function is not included in the section on partial fractions, even if it is one of the forms you might expect. That is because, in most of the examples, one reduces to cases where the denominator is a quadratic polynomial or a power of a linear polynomial, but in my experience, never the power of a quadratic! Nevertheless, the above technique will give you concrete numbers for such indefinite integrals (and many many more) with ease. If you enjoyed this, or are interested in exploring this subject further, take a course on complex analysis where an abundance of mathematical beauty awaits.</div></section><section class="exercises" id="exe-applications"><h3 class="heading hide-type">
+<span class="type">Exercises</span><span class="space"> </span><span class="codenumber">5.6.3</span><span class="space"> </span><span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="exe-applications-1"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<div class="para" id="exe-applications-1-1-1">Verify equations <a href="" class="xref" data-knowl="./knowl/xref/eq-max1.html" title="Equation 5.6.1">(5.6.1)</a> and <a href="" class="xref" data-knowl="./knowl/xref/eq-pot1.html" title="Equation 5.6.3">(5.6.3)</a> in <a href="" class="xref" data-knowl="./knowl/xref/prop-maxdiff.html" title="Proposition 5.6.4">Proposition 5.6.4</a>.</div></article><article class="exercise exercise-like" id="exercise-holomorphicarithmetic"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<div class="introduction" id="exercise-holomorphicarithmetic-1"><div class="para" id="exercise-holomorphicarithmetic-1-1">Show the following results</div></div>
+<article class="task exercise-like" id="exercise-holomorphicarithmetic-2"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="para" id="exercise-holomorphicarithmetic-2-1-1">Verify that a constant vector field is solenoidal and satisfies the cross-partials test.</div></article><article class="task exercise-like" id="exercise-holomorphicarithmetic-3"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para" id="exercise-holomorphicarithmetic-3-1-1">Verify that <span class="process-math">\(\mb{F} = x \partial_x - y \partial_y\)</span> is solenoidal and satisfies the cross-partials test.</div></article><article class="task exercise-like" id="exercise-holomorphicarithmetic-4"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<div class="para" id="exercise-holomorphicarithmetic-4-1-1">If <span class="process-math">\(\mb{F}_1 = P_1 \partial_x + Q_1 \partial_y\)</span> and <span class="process-math">\(\mb{F}_2 = P_2 \partial_x + Q_2 \partial_y\)</span> are both solenoidal and satisfy the cross partial tests, then so does <span class="process-math">\(\mb{G} = (P_1 P_2 - Q_1 Q_2) \partial_x + (P_1 Q_2 + P_2 Q_1) \partial_y\text{.}\)</span>
+</div></article><article class="task exercise-like" id="exercise-holomorphicarithmetic-5"><h5 class="heading"><span class="codenumber">(d)</span></h5>
+<div class="para logical" id="exercise-holomorphicarithmetic-5-1-1">
+<div class="para">If <span class="process-math">\(\mb{F} = P \partial_x + Q \partial_y\)</span> is solenoidal and satisfy the cross partial tests, then so does</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{F}_{inv} = \frac{1}{P^2 + Q^2} \left( P \partial_x - Q \partial_y \right). 
+\end{equation*}
+</div>
+</div></article></article><article class="exercise exercise-like" id="exercise-holomorphicrat"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
+<div class="para" id="exercise-holomorphicrat-1-1">Use <a href="" class="xref" data-knowl="./knowl/xref/exercise-holomorphicarithmetic.html" title="Exercise 5.6.3.2">Exercise 5.6.3.2</a> to show that every complex rational function <span class="process-math">\(f(z) = p(z) / q(z)\)</span> is holomorphic.</div></article><article class="exercise exercise-like" id="exe-applications-4"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
+<div class="para logical" id="exe-applications-4-1-1">
+<div class="para">Use a contour integral to calculate</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int_{-\infty}^{\infty} \frac{1}{ (x^2 + 1)^3} \, \tder{}{x}.
+\end{equation*}
+</div>
+</div></article></section></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="sec-classicalstokes.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="ch-partial-differential-equations.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>
+</body>
+</html>

@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Optimization without constraints</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Mathematical Scholars Calculus 4">
+<meta property="book:author" content="Gabriel Kerr">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "https://pretextbook.org/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.33/pretext_search.js"></script><link href="https://pretextbook.org/css/0.83/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.33</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.33/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.33/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.33/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+<link href="https://pretextbook.org/css/0.83/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
+<h1 class="heading"><a href="ms-calculus-3.html"><span class="title">Mathematical Scholars Calculus 4</span></a></h1>
+<p class="byline">Gabriel Kerr</p>
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="sec-critical.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-differential-calculus.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-optimization2.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\diff}{\text{d}}
+\newcommand{\mb}[1]{\mathbf{#1}}
+\newcommand{\coord}[2]{[#1]^{#2}}
+\newcommand{\chart}[2]{[#1]_{#2}}
+\newcommand{\twovec}[2]{\left[ \begin{matrix} #1 \\ #2 \end{matrix} \right]}
+\newcommand{\threevec}[3]{\left[ \begin{matrix} #1 \\ #2 \\ #3 \end{matrix} \right]}
+\newcommand{\tangtwo}[2]{\left[ \begin{matrix} #1 \amp #2 \end{matrix} \right]}
+\newcommand{\tangthree}[3]{\left[ \begin{matrix} #1 \amp #2 \amp #3 \end{matrix} \right]}
+\newcommand{\im}{{\text{im}}}
+\newcommand{\cob}[3]{[#1]^{#3}_{#2}}
+\newcommand{\rk}{\text{rank}}
+\newcommand{\nullity}{\text{nullity}}
+\newcommand{\tder}[2]{d_{#1} {#2}}
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\ball}[2]{\text{B}_{#1} ( #2 )}
+\newcommand{\cball}[2]{\overline{\text{B}}_{#1} ( #2 )}
+\newcommand{\hball}[1]{\overline{\text{HB}}_{#1}}
+\newcommand{\vol}{\,\text{vol}}
+\newcommand{\orient}{\,\text{or}}
+\newcommand{\pball}[2]{\text{B}^*_{#1} ( #2 )}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural contains-active toc-item-list">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-differential-calculus.html" class="internal"><span class="codenumber">1</span> <span class="title">Differential Calculus in Several Variables</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-limit.html" class="internal"><span class="codenumber">1.1</span> <span class="title">The limit</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-limit.html#exe-limit" class="internal"><span class="codenumber">1.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-derivative.html" class="internal"><span class="codenumber">1.2</span> <span class="title">The derivative</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivative.html#subsec-directional-derivative" class="internal"><span class="codenumber">1.2.1</span> <span class="title">Directional and partial derivatives</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivative.html#subsec-derivatives-scalar" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Derivatives of scalar functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivative.html#subsec-linear-approximation-scalar" class="internal"><span class="codenumber">1.2.3</span> <span class="title">Linear approximation of scalar functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivative.html#subsec-Jacobian" class="internal"><span class="codenumber">1.2.4</span> <span class="title">The Jacobian matrix</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-derivative.html#exe-derivative" class="internal"><span class="codenumber">1.2.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-chainrule.html" class="internal"><span class="codenumber">1.3</span> <span class="title">The chain rule and tangent spaces</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-chainrule.html#subsec-computational" class="internal"><span class="codenumber">1.3.1</span> <span class="title">Computational considerations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-chainrule.html#subsec-tangent-spaces" class="internal"><span class="codenumber">1.3.2</span> <span class="title">Tangent spaces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-chainrule.html#subsec-subspaces" class="internal"><span class="codenumber">1.3.3</span> <span class="title">Level sets and their tangent spaces</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-chainrule.html#exe-chainrule" class="internal"><span class="codenumber">1.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-gradient.html" class="internal"><span class="codenumber">1.4</span> <span class="title">The gradient</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-gradient.html#subsec-metric-geometry" class="internal"><span class="codenumber">1.4.1</span> <span class="title">Metric geometry</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-gradient.html#subsec-steepest-ascent" class="internal"><span class="codenumber">1.4.2</span> <span class="title">Steepest ascent</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-gradient.html#exe-gradient" class="internal"><span class="codenumber">1.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-critical.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Critical points</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-critical.html#subsec-local-extrema" class="internal"><span class="codenumber">1.5.1</span> <span class="title">Local extrema</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-critical.html#sec-second-derivative-test" class="internal"><span class="codenumber">1.5.2</span> <span class="title">Second derivative test</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-critical.html#subsec-Morse" class="internal"><span class="codenumber">1.5.3</span> <span class="title">The Morse Lemma</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-critical.html#exe-critical" class="internal"><span class="codenumber">1.5.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section active">
+<div class="toc-title-box"><a href="sec-optimization1.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Optimization without constraints</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-optimization1.html#subsec-global-extrema" class="internal"><span class="codenumber">1.6.1</span> <span class="title">Global extrema</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-optimization1.html#subsec-least-squares" class="internal"><span class="codenumber">1.6.2</span> <span class="title">Least Squares</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-optimization1.html#subsec-gradient-descent" class="internal"><span class="codenumber">1.6.3</span> <span class="title">Gradient descent</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-optimization1.html#exe-optimization1" class="internal"><span class="codenumber">1.6.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-optimization2.html" class="internal"><span class="codenumber">1.7</span> <span class="title">Optimization with constraints</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-optimization2.html#subsec-single-constraint" class="internal"><span class="codenumber">1.7.1</span> <span class="title">Single constraint</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-optimization2.html#subsec-many-constraints" class="internal"><span class="codenumber">1.7.2</span> <span class="title">Several constraints</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-optimization2.html#exe-optimization2" class="internal"><span class="codenumber">1.7.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-differential-forms.html" class="internal"><span class="codenumber">2</span> <span class="title">Differential Forms</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exterior.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Exterior algebras</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-exterior.html#subsec-exterior-product" class="internal"><span class="codenumber">2.1.1</span> <span class="title">The exterior product</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-exterior.html#subsec-exterior-algebra-geometry" class="internal"><span class="codenumber">2.1.2</span> <span class="title">Geometry of exterior algebras</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-exterior.html#subsec-cross-product" class="internal"><span class="codenumber">2.1.3</span> <span class="title">The cross product</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exterior.html#exe-exterior" class="internal"><span class="codenumber">2.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li></ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-integral-calculus.html" class="internal"><span class="codenumber">3</span> <span class="title">Integral Calculus in Several Variables</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-cubeintegration.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Integrating over cubes in <span class="process-math">\(\mathbb{R}^n\)</span></span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-cubeintegration.html#exe-cubeintegration" class="internal"><span class="codenumber">3.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-compactintegration.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Integration over compact domains in <span class="process-math">\(\mathbb{R}^2\)</span></span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-compactintegration.html#exe-compactintegration" class="internal"><span class="codenumber">3.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-compactRnintegration.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Integration over compact domains in <span class="process-math">\(\mathbb{R}^n\)</span></span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-compactRnintegration.html#exe-compactRnintegration" class="internal"><span class="codenumber">3.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-cov.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Change of Variables</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-cov.html#subsec-polar-integration" class="internal"><span class="codenumber">3.4.1</span> <span class="title">Integration using polar coordinates</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-cov.html#exe-cov" class="internal"><span class="codenumber">3.4.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-integral-of-forms.html" class="internal"><span class="codenumber">4</span> <span class="title">Integrals of Forms</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-integrating-forms.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Integrating forms</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-integrating-forms.html#subsec-integrating-top-forms" class="internal"><span class="codenumber">4.1.1</span> <span class="title">Integrating top forms</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-integrating-forms.html#subsec-integrating-k-forms" class="internal"><span class="codenumber">4.1.2</span> <span class="title">Integrating <span class="process-math">\(k\)</span>-forms on oriented subspaces.</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-integrating-forms.html#exe-formintegration" class="internal"><span class="codenumber">4.1.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-scalarintegrals.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Scalar integrals</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-scalarintegrals.html#subsec-scalar-line-integrals" class="internal"><span class="codenumber">4.2.1</span> <span class="title">Scalar line integrals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-scalarintegrals.html#subsec-scalar-surface-integrals" class="internal"><span class="codenumber">4.2.2</span> <span class="title">Scalar surface integrals</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-scalarintegrals.html#exe-scalarintegrals" class="internal"><span class="codenumber">4.2.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-vectorintegrals.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Vector integrals</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-vectorintegrals.html#subsec-vector-line-integrals" class="internal"><span class="codenumber">4.3.1</span> <span class="title">Vector line integrals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-vectorintegrals.html#subsec-flux-integrals" class="internal"><span class="codenumber">4.3.2</span> <span class="title">Flux integrals</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-vectorintegrals.html#exe-vectorintegrals" class="internal"><span class="codenumber">4.3.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-stokes-theorem.html" class="internal"><span class="codenumber">5</span> <span class="title">Stokes’ Theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-derivatives.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Derivatives</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivatives.html#subsec-exterior-derivative" class="internal"><span class="codenumber">5.1.1</span> <span class="title">Exterior derivative</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivatives.html#subsec-gradient" class="internal"><span class="codenumber">5.1.2</span> <span class="title">Gradient</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivatives.html#subsec-curl" class="internal"><span class="codenumber">5.1.3</span> <span class="title">Curl</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivatives.html#subsec-2dcurl" class="internal"><span class="codenumber">5.1.4</span> <span class="title">Two dimensional curl</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivatives.html#subsec-divergence" class="internal"><span class="codenumber">5.1.5</span> <span class="title">Divergence</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-derivatives.html#exe-derivatives" class="internal"><span class="codenumber">5.1.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-stokes.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Stokes’ Theorem</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-stokes.html#exe-stokes" class="internal"><span class="codenumber">5.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-ftli.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Stokes’ Theorem on curves - The Fundamental Theorem of Line Integrals</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-ftli.html#exe-ftli" class="internal"><span class="codenumber">5.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-greens.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Stokes’ Theorem in dimension <span class="process-math">\(2\)</span> - Green’s Theorems</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-greens.html#exe-greens" class="internal"><span class="codenumber">5.4</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-classicalstokes.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Stokes’ Theorem in dimension <span class="process-math">\(3\)</span> - Classical Stokes’ and Divergence Theorems</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-classicalstokes.html#exe-classicalstokes" class="internal"><span class="codenumber">5.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-applications.html" class="internal"><span class="codenumber">5.6</span> <span class="title">Selected Applications</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-applications.html#subsec-maxwells-equations" class="internal"><span class="codenumber">5.6.1</span> <span class="title">Maxwell’s equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-applications.html#subsec-contour-integrals" class="internal"><span class="codenumber">5.6.2</span> <span class="title">Contour integrals</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-applications.html#exe-applications" class="internal"><span class="codenumber">5.6.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-partial-differential-equations.html" class="internal"><span class="codenumber">6</span> <span class="title">Partial Differential Equations</span></a></div></li>
+<li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-optimization1"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">1.6</span><span class="space"> </span><span class="title">Optimization without constraints</span>
+</h2>
+<section class="introduction" id="sec-optimization1-2"><div class="para" id="sec-optimization1-2-1">The methods of the last section allow us to find local minima and maxima, but often we are interested in finding a global maximum and minimum. As it turns out, the methods used to find such extreme points depends heavily on the type of domain you are working with.</div></section><section class="subsection" id="subsec-global-extrema"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.6.1</span><span class="space"> </span><span class="title">Global extrema</span>
+</h3>
+<div class="para" id="subsec-global-extrema-2">The first question one should ask before looking for such points (and values) is whether such extrema exist at all. Happily, there is a multivariable generalization of the one variable Extreme Value Theorem. We prove this theorem up to some standard analytical results which are cited.</div>
+<article class="theorem theorem-like" id="thm-extremevaluetheorem"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">1.6.1</span><span class="period">.</span><span class="space"> </span><span class="title">Extreme Value Theorem.</span>
+</h4>
+<div class="para logical" id="thm-extremevaluetheorem-2-1">
+<div class="para">Suppose <span class="process-math">\(D\)</span> is a closed and bounded domain in <span class="process-math">\(\mathbb{R}^m\)</span> and <span class="process-math">\(f : D \to \mathbb{R}\)</span> is a continuous scalar function. Then there exists points <span class="process-math">\(p\)</span> and <span class="process-math">\(q\)</span> in <span class="process-math">\(D\)</span> such that for all <span class="process-math">\(\mb{x} \in D\text{,}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(p ) \leq f(\mb{x}) \leq f (q).
+\end{equation*}
+</div>
+</div></article><details id="thm-extremevaluetheorem-3" class="hiddenproof born-hidden-knowl"><summary><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof"><div class="para logical" id="thm-extremevaluetheorem-3-1">
+<div class="para">The key result we need is that closed and bounded domains satisfy the property of being <dfn class="terminology">compact</dfn> (this fact is the Heine-Borel Theorem). Compactness of a set can be defined in a few ways, but we will use the following characterization: any sequence of points <span class="process-math">\(\{p_i\}_{i \in \mathbb{N}}\)</span> in <span class="process-math">\(D\)</span> will have a convergent subsequence <span class="process-math">\(\{p_{i_j}\}_{j \in \mathbb{N}}\text{.}\)</span> Now if <span class="process-math">\(L_{max}\)</span> and <span class="process-math">\(L_{min}\)</span> are the least upper and greatest lower bounds of <span class="process-math">\(f(D)\)</span> (allowing <span class="process-math">\(\pm \infty\)</span> as well). Then we can find a sequence <span class="process-math">\(\{p_i\}_{i \in \mathbb{N}}\)</span> and <span class="process-math">\(\{q_i \}_{i \in \mathbb{N}}\)</span> for which</div>
+<div class="displaymath process-math" id="thm-extremevaluetheorem-3-1-11">
+\begin{align*}
+\lim_{i \to \infty} f ( p_i ) \amp = L_{min}, \\
+\lim_{i \to \infty} f ( q_i ) \amp = L_{max}. 
+\end{align*}
+</div>
+<div class="para">Since <span class="process-math">\(D\)</span> is compact we can also choose subsequences <span class="process-math">\(\{p_{i_j}\}_{j \in \mathbb{N}}\)</span> and <span class="process-math">\(\{q_{i_j} \}_{j \in \mathbb{N}}\)</span> which converge to points <span class="process-math">\(p\)</span> and <span class="process-math">\(q\text{.}\)</span> I.e.</div>
+<div class="displaymath process-math" id="thm-extremevaluetheorem-3-1-17">
+\begin{align*}
+\lim_{j \to \infty} p_{i_j}  \amp = p, \\
+\lim_{j \to \infty} q_{i_j} \amp = q. 
+\end{align*}
+</div>
+<div class="para">Now, subsequences of convergent sequences converge to the same limit, so we still have the limits</div>
+<div class="displaymath process-math" id="thm-extremevaluetheorem-3-1-18">
+\begin{align*}
+\lim_{j \to \infty} f(p_{i_j})  \amp = L_{min}, \\
+\lim_{j \to \infty}f(q_{i_j}) \amp = L_{max}. 
+\end{align*}
+</div>
+<div class="para">But since <span class="process-math">\(f\)</span> is continuous, we then obtain,</div>
+<div class="displaymath process-math" id="thm-extremevaluetheorem-3-1-20">
+\begin{align*}
+f(p) = f \left( \lim_{j \to \infty} p_{i_j} \right)  \amp = \lim_{j \to \infty} f(p_{i_j})   = L_{min}, \\
+f(q) = f \left( \lim_{j \to \infty} q_{i_j} \right)  \amp = \lim_{j \to \infty} f(q_{i_j})   = L_{max}. 
+\end{align*}
+</div>
+<div class="para">This completes the proof.</div>
+</div></article></details><div class="para" id="subsec-global-extrema-4">For now, let us mention how this theorem fails if we do not satisfy the hypothesis.</div>
+<details id="subsec-global-extrema-5" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.6.2</span><span class="period">.</span><span class="space"> </span><span class="title">Failure to obtain a global extreme value.</span>
+</h4></summary><article class="example example-like"><div class="para logical" id="subsec-global-extrema-5-2-1">
+<div class="para">Recall that a closed domain in <span class="process-math">\(\mathbb{R}^m\)</span> is a subset for which, given any point <span class="process-math">\(q\)</span> <em class="emphasis">not</em> in <span class="process-math">\(D\text{,}\)</span> there exists a ball around <span class="process-math">\(q\)</span> which does not intersect <span class="process-math">\(D\)</span> (alternatively, the complement of <span class="process-math">\(D\)</span> is open). For example, closed balls are open and so is all of <span class="process-math">\(\mathbb{R}^m\text{.}\)</span> However, a bounded domain is a domain that can be put inside a large enough ball, implying that while <span class="process-math">\(\mathbb{R}^m\)</span> is closed, it is not bounded. But of course the continuous function</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(x_1, \ldots, x_m) = x_1
+\end{equation*}
+</div>
+<div class="para">has no maximum or minimum value. So the condition that <span class="process-math">\(D\)</span> be bounded is vital for the Extreme Value Theorem. On the other hand, if we take the closed ball <span class="process-math">\(B = \{ (x,y,z) : x^2 + y^2 + z^2 \leq 1\}\)</span> and puncture the center to get <span class="process-math">\(D = B - \{(0, 0, 0)\}\text{,}\)</span> we have a bounded but no longer closed set. The function</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(x,y,z) = \frac{1}{x^2 + y^2 + z^2} 
+\end{equation*}
+</div>
+<div class="para">has no maximum value on this set, but is continuous. So again, the closed condition is vital to guarantee that a global minimum and maximum exist.</div>
+</div></article></details><div class="para" id="subsec-global-extrema-6">While it is important to understand that there may not exist a global maximum or minimum for functions on certain domains, often they may exist and we can use our prior results to find good candidates for them. Suppose <span class="process-math">\(U\)</span> is an open domain in <span class="process-math">\(\mathbb{R}^m\)</span> and <span class="process-math">\(f: U \to \mathbb{R}\)</span> is a function. To find <em class="emphasis">possible</em> extreme values, we follow the instructions:</div>
+<div class="para logical" id="subsec-global-extrema-7"><ol class="decimal">
+<li id="subsec-global-extrema-7-1-1"><div class="para" id="p-derived-subsec-global-extrema-7-1-1">Find critical points of <span class="process-math">\(f (x_1, \ldots, x_m)\text{,}\)</span>
+</div></li>
+<li id="subsec-global-extrema-7-1-2"><div class="para" id="p-derived-subsec-global-extrema-7-1-2">Identify local minima and maxima,</div></li>
+<li id="subsec-global-extrema-7-1-3"><div class="para" id="p-derived-subsec-global-extrema-7-1-3">Evaluate <span class="process-math">\(f\)</span> at all of these points,</div></li>
+<li id="subsec-global-extrema-7-1-4"><div class="para" id="p-derived-subsec-global-extrema-7-1-4">Examine boundary or asymptotic behavior of <span class="process-math">\(f\)</span> to see if it exceeds the candidate extremes.</div></li>
+</ol></div>
+<div class="para" id="subsec-global-extrema-8">Note that if we only find saddle points at step (3), we can conclude that no global extremes for <span class="process-math">\(f\)</span> exist on <span class="process-math">\(U\)</span> because a global extreme must also be a local extreme. The last item in our instruction set may prove to be fairly difficult, depending on the domain and function <span class="process-math">\(f\text{.}\)</span> However, we illustrate this simple technique in a few examples.</div>
+<details id="subsec-global-extrema-9" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.6.3</span><span class="period">.</span><span class="space"> </span><span class="title">Optimization I.</span>
+</h4></summary><article class="example example-like"><div class="para logical" id="subsec-global-extrema-9-2-1">
+<div class="para">Let</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f (x,y) = x^2 + y^2 - 2x - 2y + 2.
+\end{equation*}
+</div>
+<div class="para">For our first step, we set <span class="process-math">\(\nabla f\)</span> to zero and find all solutions. In this case we have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\tangtwo{2x -2}{2 y - 2} = \tangtwo{0}{0}.
+\end{equation*}
+</div>
+<div class="para">The only solution to this equation is the point <span class="process-math">\((1,1)\text{.}\)</span> For the second step, we find the Hessian to be</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\text{Hess} f = \left[ \begin{matrix} 2 \amp 0 \\ 0 \amp 2 \end{matrix} \right]
+\end{equation*}
+</div>
+<div class="para">which is certainly positive definite. Thus <span class="process-math">\((1,1)\)</span> is a local minimum with value <span class="process-math">\(f(1,1) = 0\text{.}\)</span> Now, we can observe that there is no global max of <span class="process-math">\(f(x,y)\)</span> (for certainly it would also be a local maximum as well). Furthermore, as <span class="process-math">\((x,y)\)</span> becomes large, one can see that <span class="process-math">\(f\)</span> also increases, so <span class="process-math">\((1,1)\)</span> is a global min as well.</div>
+</div> <div class="para logical" id="subsec-global-extrema-9-2-2">
+<div class="para">Of course, in this case we could re-express our function as</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(x,y) = (x - 1)^2 + ( y - 1)^2
+\end{equation*}
+</div>
+<div class="para">and come to the same conclusion more quickly, but at least we verify here that our instruction set works.</div>
+</div></article></details><details id="subsec-global-extrema-10" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.6.4</span><span class="period">.</span><span class="space"> </span><span class="title">Optimization II.</span>
+</h4></summary><article class="example example-like"><div class="para logical" id="subsec-global-extrema-10-2-1">
+<div class="para">Let</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exercise-2dsecondderivativetest.html">
+\begin{equation*}
+f (x,y) = x^2 y^3 - 2x - 3y.
+\end{equation*}
+</div>
+<div class="para">Again, our first step is to set <span class="process-math">\(\nabla f\)</span> to zero and find all solutions. In this case we have</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exercise-2dsecondderivativetest.html">
+\begin{equation*}
+\tangtwo{2x y^3 -2}{3y^2 x^2 - 3}  = \tangtwo{0}{0}.
+\end{equation*}
+</div>
+<div class="para">Solving the equation for the first coordinate gives that <span class="process-math">\(x = y^{-3}\)</span> which expresses <span class="process-math">\(x\)</span> in terms of <span class="process-math">\(y\text{.}\)</span> We use this in the second equation to see that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exercise-2dsecondderivativetest.html">
+\begin{equation*}
+1 = y^2 x^2 = y^2 (y^{-3})^2 = y^{-4}.
+\end{equation*}
+</div>
+<div class="para">The only real solutions for <span class="process-math">\(y\)</span> are then <span class="process-math">\(y = \pm 1\)</span> which means that <span class="process-math">\((1,1)\)</span> and <span class="process-math">\((-1, -1)\)</span> are the only critical points of <span class="process-math">\(f(x,y)\text{.}\)</span> For the second step, we find the Hessian to be</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exercise-2dsecondderivativetest.html">
+\begin{equation*}
+\text{Hess} f = \left[ \begin{matrix} 2 y^3 \amp 6 x y^2 \\ 6x y^2 \amp 6x^2 y \end{matrix} \right]
+\end{equation*}
+</div>
+<div class="para">Evaluating at the critical point <span class="process-math">\((-1, -1)\)</span> gives</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exercise-2dsecondderivativetest.html">
+\begin{equation*}
+\text{Hess}_{(-1, -1 )} f = \left[ \begin{matrix} -2 \amp -6  \\ -6 \amp -6 \end{matrix} \right]
+\end{equation*}
+</div>
+<div class="para">The determinant of this matrix is negative which implies that <span class="process-math">\((-1, -1)\)</span> is a saddle point (see <a href="" class="xref" data-knowl="./knowl/xref/exercise-2dsecondderivativetest.html" title="Exercise 1.5.4.3">Exercise 1.5.4.3</a> ).</div>
+</div> <div class="para logical" id="subsec-global-extrema-10-2-2">
+<div class="para">Evaluating at the critical point <span class="process-math">\((1, 1)\)</span> gives</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\text{Hess}_{(-1, -1 )} f = \left[ \begin{matrix} 2 \amp 6  \\ 6 \amp 6 \end{matrix} \right]
+\end{equation*}
+</div>
+<div class="para">The determinant of this matrix is again negative which implies that <span class="process-math">\((1, 1)\)</span> is also saddle point. So in this example, there is no global maximum or global minimum for our function.</div>
+</div></article></details><div class="para" id="subsec-global-extrema-11">While it is useful in some circumstances to optimize functions of two or three variables, many important applications involve optimizing with many variables.</div></section><section class="subsection" id="subsec-least-squares"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.6.2</span><span class="space"> </span><span class="title">Least Squares</span>
+</h3>
+<div class="para logical" id="subsec-least-squares-2">
+<div class="para">Suppose we several data points <span class="process-math">\(S \subset \mathbb{R}^m\)</span> and associated values <span class="process-math">\(y\)</span> which depend on <span class="process-math">\(\mb{X}\)</span> in <span class="process-math">\(S\text{.}\)</span> In other words, to each <span class="process-math">\(\mb{X}_i\)</span> we have an observed value <span class="process-math">\(y_i\text{.}\)</span> In such a situation, one may wish to define an affine function</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f_{\mb{a}, b} (x_1, \ldots, x_m) = a_1 x_1 + \cdots + a_m x_m + b
+\end{equation*}
+</div>
+<div class="para">which best the <span class="process-math">\(y\)</span> value of as a function of the ‘data space’. Here <span class="process-math">\(\mb{a}\)</span> is the vector of coefficients and <span class="process-math">\(b\)</span> is the constant value.</div>
+</div>
+<div class="para logical" id="subsec-least-squares-3">
+<div class="para">Now, given a data point <span class="process-math">\(\mb{X}_i\)</span> with value <span class="process-math">\(y_i\)</span> we may also apply <span class="process-math">\(f_{\mb{a}, b}\)</span> to obtain <span class="process-math">\(f_{\mb{a}, b} (\mb{X}_i) = \hat{y}_i\text{.}\)</span> Thus <span class="process-math">\(y_i\)</span> is the observed value  while <span class="process-math">\(\hat{y}_i\)</span> is the value predicted by the function. The difference</div>
+<div class="displaymath process-math">
+\begin{equation*}
+y_i - \hat{y}_i
+\end{equation*}
+</div>
+<div class="para">is called the <span class="process-math">\(i\)</span>-th residual. Of course, if all of these residuals are zero, then our function perfectly predicts observations. In general, this is a fantasy and will not happen. So the best we can do is try and minimize the absolute value of these residuals. This can be accomplished by minimizing the sum of their squares which is the function</div>
+<div class="displaymath process-math">
+\begin{equation*}
+W(a_1, \ldots, a_m, b) = \sum_{\mb{X}_i \in S} \left( \hat{y}_i  - y_i \right)^2 = \sum_{\mb{X}_i \in S} \left( f_{\mb{a}, b} (\mb{X}_i )  - y_i \right)^2.
+\end{equation*}
+</div>
+<div class="para">Now, let us assume that there are <span class="process-math">\(N\)</span> data points. We can consider the row column vector <span class="process-math">\(\mb{y} \in \mathbb{R}^N\)</span> whose <span class="process-math">\(i\)</span>-th coordinate is the <span class="process-math">\(i\)</span>-th observed value <span class="process-math">\(y_i\text{.}\)</span> I.e.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{y} = \left[ \begin{matrix} y_1 \amp \ldots \amp y_N \end{matrix} \right].
+\end{equation*}
+</div>
+<div class="para">We write <span class="process-math">\(\mb{b} \in \mathbb{R}^N\)</span> for the vector with <span class="process-math">\(b\)</span> in every coordinate.  Write <span class="process-math">\(\mathcal{X}\)</span> for the <span class="process-math">\(m \times N\)</span> matrix with <span class="process-math">\(i\)</span>-th column equal to <span class="process-math">\(\mb{X}_i\text{.}\)</span> Explicitly, we take</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mathcal{X} = \left[ \begin{matrix} | \amp | \amp \cdots \amp | \\ \, \mb{X}_1  \amp \, \,\mb{X}_2  \amp \cdots \amp \, \,\mb{X}_N  \\ | \amp | \amp \cdots \amp | \end{matrix} \right].
+\end{equation*}
+</div>
+<div class="para">Then, taking <span class="process-math">\(\mb{a}\)</span> to be the row vector</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{a} = \left[ \begin{matrix}a_1 \amp \ldots \amp a_m \end{matrix} \right].
+\end{equation*}
+</div>
+<div class="para">in <span class="process-math">\(\mathbb{R}^m\text{,}\)</span> we may rewrite our function <span class="process-math">\(W\)</span> as follows</div>
+<div class="displaymath process-math" id="subsec-least-squares-3-27">
+\begin{align*}
+W(a_1, \ldots, a_m, b) \amp = \| \mb{a} \,\mathcal{X}  + \mb{b} - \mb{y} \|^2,\\
+\amp = \left( \mb{a} \,\mathcal{X}  + \mb{b} - \mb{y} \right) \cdot \left(  \mb{a}\, \mathcal{X} + \mb{b} - \mb{y} \right).
+\end{align*}
+</div>
+<div class="para">We are interested in this formulation because it allows us to apply our optimization strategy on the defining constants <span class="process-math">\(a_i\)</span> and <span class="process-math">\(b\)</span> of <span class="process-math">\(f\text{.}\)</span> First, using the product rule on the dot product, we take the partial with respect to <span class="process-math">\(b\)</span> to see that</div>
+<div class="displaymath process-math" id="subsec-least-squares-3-32">
+\begin{align*}
+\frac{\partial W}{\partial b} \amp  = 2 \left[ \begin{matrix} 1 \amp 1\amp \cdots \amp 1 \end{matrix} \right]  \cdot \left( \mb{a}\, \mathcal{X}  + \mb{b} - \mb{y} \right),\\
+\amp =  2 \left( N \mb{a}\, \mb{\mu}  + N b - N y_{av} \right).
+\end{align*}
+</div>
+<div class="para">Here <span class="process-math">\(\mb{\mu}\)</span> is the average of <span class="process-math">\(\mb{X}_i\)</span> and <span class="process-math">\(\bar{y}\)</span> is the average of the observed values <span class="process-math">\(y_i\text{.}\)</span> Setting this equal to zero and dividing by <span class="process-math">\(2N\)</span> gives</div>
+<div class="displaymath process-math">
+\begin{equation*}
+b = \bar{y} - \mb{a} \, \mb{\mu} .
+\end{equation*}
+</div>
+<div class="para">With this value of <span class="process-math">\(b\text{,}\)</span> we may rewrite <span class="process-math">\(W\)</span> as</div>
+<div class="displaymath process-math">
+\begin{equation*}
+W(a_1, \ldots, a_m, b) = \| \mb{a}\, \mathcal{S}  - \tilde{\mb{y}}  \|^2,
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(\mathcal{S}\)</span> replaces each column <span class="process-math">\(\mb{X}_i\)</span> with the column <span class="process-math">\(\mb{X}_i - \mb{\mu}\)</span> and <span class="process-math">\(\tilde{\mb{y}}\)</span> likewise shifts each observed value by subtracting the average.</div>
+</div>
+<div class="para logical" id="subsec-least-squares-4">
+<div class="para">Using this, we can more easily compute the <span class="process-math">\(a_i\)</span> partial derivative</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-leastsquares1.html" id="subsec-least-squares-4-2">
+\begin{align*}
+\frac{\partial W}{\partial a_i} \amp  = 2 \left( \mb{e}_i \,\mathcal{S}  \right) \cdot \left( \mb{a}\, \mathcal{S}  - \tilde{\mb{y}}  \right),\\
+\amp = 2 \mb{e}_i  \left[ \left(\mathcal{S} \mathcal{S}^T \right) \mb{a}^T  - \mathcal{S}^T \tilde{\mb{y}}  \right] .
+\end{align*}
+</div>
+<div class="para">Since we must have this equal to zero for each <span class="process-math">\(1 \leq i \leq m\)</span> we obtain the single matrix equation</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-leastsquares1.html" id="eq-leastsquares1">
+\begin{equation}
+\left( \mathcal{S} \mathcal{S}^T \right) \mb{a}^T  = \mathcal{S}^T \tilde{\mb{y}}.\tag{1.6.1}
+\end{equation}
+</div>
+<div class="para">Now, if we divide both sides by <span class="process-math">\(N\text{,}\)</span> and recall the definition of the covariance matrix <span class="process-math">\(\mathbf{\Sigma}\text{,}\)</span> we see that this equation is</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-leastsquares1.html" id="eq-leastsquares2">
+\begin{equation}
+\mathbf{\Sigma} \, \mb{a}^T = \text{Cov} (  \mathbf{X}, y).\tag{1.6.2}
+\end{equation}
+</div>
+<div class="para">Here we take <span class="process-math">\(\text{Cov} (  \mathbf{X}, y)\)</span> to be the right hand side of equation <a href="" class="xref" data-knowl="./knowl/xref/eq-leastsquares1.html" title="Equation 1.6.1">(1.6.1)</a> divided by <span class="process-math">\(N\text{.}\)</span> This is the vector of covariances of the coordinates of <span class="process-math">\(\mathbf{X}\)</span> and the observed value <span class="process-math">\(y\)</span> (although this is a bit non-standard as it is mixing a vector random variable with a scalar random variable. In general, one will create a larger covariance matrix to encode this vector).</div>
+</div>
+<div class="para logical" id="subsec-least-squares-5">
+<div class="para">Now, as was pointed out during the discussion on the covariance matrix, most data sets will have a positive definite (not just semi-definite) covariance matrix, so that <span class="process-math">\(\mathbf{\Sigma}\)</span> is invertible. This means that equation <a href="" class="xref" data-knowl="./knowl/xref/eq-leastsquares1.html" title="Equation 1.6.1">(1.6.1)</a> has a unique solution</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-leastsquares1.html" id="eq-leastsquares3">
+\begin{equation}
+\mb{a}^T = \mathbf{\Sigma}^{-1} \,\textnormal{Cov} (  \mathbf{X}, y).\tag{1.6.3}
+\end{equation}
+</div>
+</div>
+<details id="subsec-least-squares-6" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.6.5</span><span class="period">.</span><span class="space"> </span><span class="title">Best fit line.</span>
+</h4></summary><article class="example example-like"><div class="para logical" id="subsec-least-squares-6-2-1">
+<div class="para">The most common application of the above procedure (by far) is to use least squares to find the best fit line (the case of <span class="process-math">\(m =1\)</span>). In this case, the covariance matrix is simply the variance of the data points <span class="process-math">\(S = \left\{ x_1, \ldots, x_N \right\}\)</span> in <span class="process-math">\(\mathbb{R}\)</span> and <span class="process-math">\(\text{Cov} (\mathbf{X}, y)\)</span> is the usual covariance between two random variables <span class="process-math">\(x\)</span> and <span class="process-math">\(y\text{.}\)</span> Of course, here, we are looking for the affine function</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f_{a, b} (x) = a x + b
+\end{equation*}
+</div>
+<div class="para">which is more commonly written in slope intercept form</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(x ) = m x + b.
+\end{equation*}
+</div>
+<div class="para">Then, letting <span class="process-math">\(\bar{x}\)</span> and <span class="process-math">\(\bar{y}\)</span> be the means of our data set and observed values respectively, our formulas for <span class="process-math">\(\mb{a}\)</span> and <span class="process-math">\(b\)</span> reduce to</div>
+<div class="displaymath process-math" id="eq-leastsquares4">
+\begin{align}
+m \amp =  \frac{ (x_1 - \bar{x} ) (y_1 - \bar{y}) + \cdots + (x_N - \bar{x} ) (y_N - \bar{y})}{(x_1 - \bar{x} )^2 + \cdots + (x_N - \bar{x} )^2}, \tag{1.6.4}\\
+b \amp = \bar{y} - m \bar{x}. \tag{1.6.5}
+\end{align}
+</div>
+</div></article></details></section><section class="subsection" id="subsec-gradient-descent"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.6.3</span><span class="space"> </span><span class="title">Gradient descent</span>
+</h3>
+<div class="para logical" id="subsec-gradient-descent-2">
+<div class="para">A neural network can be tasked with learning a particular function <span class="process-math">\(h_{\theta} : U \to \mathbb{R}\)</span> which is defined using parameters <span class="process-math">\(\theta = (\theta_1, \ldots, \theta_r)\text{.}\)</span> The goal is to find the function that best predicts an outcome of observed values <span class="process-math">\(y\)</span> for a data point <span class="process-math">\(\mb{X}\)</span> in <span class="process-math">\(U \subset \mathbb{R}^m\text{.}\)</span> Thus the program aims to find the parameters <span class="process-math">\(\theta\)</span> which define the best possible function <span class="process-math">\(h_\theta\text{.}\)</span> A key ingredient in accomplishing this is the \textbf{cost function}</div>
+<div class="displaymath process-math">
+\begin{equation*}
+J (\theta ) := \frac{1}{2m} \sum_{j = 1}^m \left( h_\theta (\mb{X}_j ) - y_j \right)^2.
+\end{equation*}
+</div>
+<div class="para">Here there are <span class="process-math">\(m\)</span> data points <span class="process-math">\(\mb{X}_1, \ldots, \mb{X}_m\)</span> with values <span class="process-math">\(y_1, \ldots y_m\text{.}\)</span> This is a version of a least squares approximation (but now <span class="process-math">\(h_\theta\)</span> is not necessarily linear). Now, taking partials of <span class="process-math">\(J\)</span> with respect to <span class="process-math">\(\theta\)</span> gives</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{\partial J}{\partial \theta_i} =   \frac{1}{m} \sum_{j = 1}^m \frac{\partial h_{\theta}}{\partial \theta_i} (\mb{X}_j)  \left( h_\theta (\mb{X}_j ) - y_j \right).
+\end{equation*}
+</div>
+<div class="para">Note that the term <span class="process-math">\(h_\theta (\mb{X}_j ) - y_j\)</span> is just the negative of the <span class="process-math">\(j\)</span>-th residual in the model. Now, for many types of functions <span class="process-math">\(h_\theta\text{,}\)</span> the <span class="process-math">\(i\)</span>-th partial can be computed and expressed easily in terms of the data points <span class="process-math">\(\mb{X}\)</span> and parameters <span class="process-math">\(\theta\text{.}\)</span> In such a case, one can explicitly compute the negative gradient field</div>
+<div class="displaymath process-math">
+\begin{equation*}
+- \nabla J
+\end{equation*}
+</div>
+<div class="para">at a point <span class="process-math">\(\theta\text{.}\)</span>
+</div>
+</div>
+<div class="para logical" id="subsec-gradient-descent-3">
+<div class="para">Now, the point of the neural network is to minimize cost, so moving in the <span class="process-math">\(\theta\)</span> parameter space by a multiple of <span class="process-math">\(- \nabla J\)</span> should give a more accurate version of <span class="process-math">\(h_\theta\text{.}\)</span> In other words, our neural network can adjust its old parameters <span class="process-math">\(\theta_{old}\)</span> to</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\theta_{new} =  \theta_{old} - \alpha \nabla J. 
+\end{equation*}
+</div>
+<div class="para">The scaling factor <span class="process-math">\(\alpha\)</span> is called the <dfn class="terminology">learning rate</dfn> and can be chosen too large (in which case <span class="process-math">\(J\)</span> overshoots a minimum) or too small (in which case <span class="process-math">\(J\)</span> approaches a minimum very slowly).</div>
+</div></section><section class="exercises" id="exe-optimization1"><h3 class="heading hide-type">
+<span class="type">Exercises</span><span class="space"> </span><span class="codenumber">1.6.4</span><span class="space"> </span><span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="exe-optimization1-1"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<div class="para logical" id="exe-optimization1-1-1-1">
+<div class="para">Give an example of a differentiable function on the punctured closed unit disc</div>
+<div class="displaymath process-math">
+\begin{equation*}
+D^* = \{ (x, y) : x^2 + y^2 \leq 1, (x, y) \ne (0, 0) \}
+\end{equation*}
+</div>
+<div class="para">in <span class="process-math">\(\mathbb{R}^2\)</span> which has a bounded range but no global maximum or minimum value.</div>
+</div></article><article class="exercise exercise-like" id="exe-optimization1-2"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<div class="introduction" id="exe-optimization1-2-1"><div class="para logical" id="exe-optimization1-2-1-1">
+<div class="para">Let</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(x,y) = e^{x^3 - 3x + y^2} 
+\end{equation*}
+</div>
+</div></div>
+<article class="task exercise-like" id="exe-optimization1-2-2"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="para" id="exe-optimization1-2-2-1-1">Find all critical points of <span class="process-math">\(f(x,y)\text{,}\)</span>
+</div></article><article class="task exercise-like" id="exe-optimization1-2-3"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para" id="exe-optimization1-2-3-1-1">Find candidates for minima and maxima,</div></article><article class="task exercise-like" id="exe-optimization1-2-4"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<div class="para" id="exe-optimization1-2-4-1-1">Find a global minimum and global maximum if it exists. Explain your response.</div></article></article><article class="exercise exercise-like" id="exe-optimization1-3"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
+<div class="introduction" id="exe-optimization1-3-1"><div class="para logical" id="exe-optimization1-3-1-1">
+<div class="para">Let</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(x,y) = xy - 2x^2 - 2y^2 - 1 
+\end{equation*}
+</div>
+</div></div>
+<article class="task exercise-like" id="exe-optimization1-3-2"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="para" id="exe-optimization1-3-2-1-1">Find all critical points of <span class="process-math">\(f(x,y)\text{,}\)</span>
+</div></article><article class="task exercise-like" id="exe-optimization1-3-3"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para" id="exe-optimization1-3-3-1-1">Find candidates for minima and maxima,</div></article><article class="task exercise-like" id="exe-optimization1-3-4"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<div class="para" id="exe-optimization1-3-4-1-1">Find a global minimum and global maximum if it exists. Explain your response.</div></article></article><article class="exercise exercise-like" id="exe-optimization1-4"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
+<div class="introduction" id="exe-optimization1-4-1"><div class="para logical" id="exe-optimization1-4-1-1">
+<div class="para">Suppose one has the  (extremely small) data set <span class="process-math">\(S\)</span> with vectors</div>
+<div class="displaymath process-math" id="exe-optimization1-4-1-1-2">
+\begin{align*}
+\mb{X}_1 \amp =  \twovec{1}{2},  \\
+\mb{X}_2 \amp =  \twovec{1}{-1},\\
+\mb{X}_3 \amp =  \twovec{1}{1}, \\
+\mb{X}_4 \amp =\twovec{-1}{2},\\
+\mb{X}_5 \amp =  \twovec{3}{1}. 
+\end{align*}
+</div>
+<div class="para">An experiment is run on this data set producing the values</div>
+<div class="displaymath process-math" id="exe-optimization1-4-1-1-3">
+\begin{align*}
+y_1 \amp =  -1,  \\
+y_2 \amp = 3, \\
+y_3 \amp = 1,  \\
+y_4 \amp = 0, \\
+y_5 \amp = 2. 
+\end{align*}
+</div>
+</div></div>
+<article class="task exercise-like" id="exe-optimization1-4-2"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="para" id="exe-optimization1-4-2-1-1">The mean of <span class="process-math">\(S\)</span> is <span class="process-math">\(\mu = \twovec{1}{1}\text{.}\)</span> Find the mean of <span class="process-math">\(y\)</span> and compute <span class="process-math">\(\textnormal{Cov} ( \mb{X}, y)\text{.}\)</span>
+</div></article><article class="task exercise-like" id="exe-optimization1-4-3"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para" id="exe-optimization1-4-3-1-1">Find the covariance matrix <span class="process-math">\(\mathbf{\Sigma}\)</span> of <span class="process-math">\(S\text{,}\)</span>
+</div></article><article class="task exercise-like" id="exe-optimization1-4-4"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<div class="para logical" id="exe-optimization1-4-4-1-1">
+<div class="para">Find the values <span class="process-math">\(a_1, a_2\)</span> and <span class="process-math">\(b\)</span> which give the affine function</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f (x_1, x_2) = a_1 x_1 + a_2 x_2 + b 
+\end{equation*}
+</div>
+<div class="para">that best fits the data.</div>
+</div></article></article><article class="exercise exercise-like" id="exe-optimization1-5"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
+<div class="para logical" id="exe-optimization1-5-1-1">
+<div class="para">Suppose <span class="process-math">\(h_\theta (x,y)\)</span> has the form</div>
+<div class="displaymath process-math">
+\begin{equation*}
+h_\theta (x,y) = e^{\theta_1 x + \theta_2}.
+\end{equation*}
+</div>
+<div class="para">In this case, write the gradient of the cost function <span class="process-math">\(J_\theta\)</span> for <span class="process-math">\(m\)</span> sample points.</div>
+</div></article></section></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="sec-critical.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-optimization2.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="proposition theorem-like"><h3 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">4.2.3</span><span class="period">.</span>
+</h3>
+<div class="para logical">
+<div class="para">Let <span class="process-math">\((X, \vol^X)\)</span> be smooth oriented <span class="process-math">\(m\)</span>-dimensional subspace of <span class="process-math">\(\mathbb{R}^n\text{,}\)</span> <span class="process-math">\(D\)</span> an domain in <span class="process-math">\(\mathbb{R}^m\text{,}\)</span>  <span class="process-math">\(\mb{G} : D \to X\)</span> an orientation preserving parameterization given by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{G}  (u_1, \ldots, u_m) = \left( x_1 (u_1, \ldots, u_m), \ldots, x_n (u_1, \ldots, u_m) \right)
+\end{equation*}
+</div>
+<div class="para">and <span class="process-math">\(f : X \to \mathbb{R}\)</span> a scalar function on <span class="process-math">\(X\text{.}\)</span> Let</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\xi_i = \tder{}{\mb{G}} \left({\partial_{u_i}} \right)
+\end{equation*}
+</div>
+<div class="para">be the tangent vector field along <span class="process-math">\(X\text{.}\)</span> Then the scalar integral</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int_X f \vol^X
+\end{equation*}
+</div>
+<div class="para">equals</div>
+<div class="displaymath process-math">
+\begin{equation}
+\idotsint_D f\left( x_1 (u_1, \ldots, u_m), \ldots, x_n (u_1, \ldots, u_m) \right) \, \|\xi_1 \wedge \cdots \wedge \xi_m \| \, \tder{}{u_1} \cdots \tder{}{u_m}.\tag{4.2.1}
+\end{equation}
+</div>
+</div></article><details class="hiddenproof born-hidden-knowl"><summary><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></summary><article class="hiddenproof"><div class="para logical">
+<div class="para">To see this proposition holds, simply note that <span class="process-math">\(\left\{ \xi_1, \ldots, \xi_m \right\}\)</span> is a basis for the tangent space at <span class="process-math">\(X\)</span> (at any given point). This follows from the definition of parameterizations. Taking <span class="process-math">\(\xi_i^*\)</span> to be the dual cotangent vector, it is an exercise to show that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{G}^* \xi_i^* = \tder{}{u_i}.
+\end{equation*}
+</div>
+<div class="para">Now, since both <span class="process-math">\(\delta_1, \ldots, \delta_m\)</span> and <span class="process-math">\(\xi_1, \ldots, \xi_m\)</span> are oriented bases for <span class="process-math">\(T_p X\)</span> with the former an orthonormal basis, and since <span class="process-math">\(\bigwedge^m T_p X\)</span> is <span class="process-math">\(1\)</span>-dimensional, we have that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\xi_1 \wedge \cdots \wedge \xi_m = \|\xi_1 \wedge \cdots \wedge \xi_m \| \, \delta_1 \wedge \cdots \wedge \delta_m .
+\end{equation*}
+</div>
+<div class="para">The dual statement to this is that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\|\xi_1 \wedge \cdots \wedge \xi_m \| \,  \xi^*_1 \wedge \cdots \wedge \xi^*_m =  \, \delta^*_1 \wedge \cdots \wedge \delta^*_m = \vol^X.
+\end{equation*}
+</div>
+<div class="para">Thus we obtain the formula for the pullback of <span class="process-math">\(\vol^X\)</span> relative to <span class="process-math">\(\mb{G}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{align*}
+\mb{G}^* \vol^X \amp = \mb{G}^*  \,  \left( \delta^*_1 \wedge \cdots \wedge \delta^*_m \right), \\
+\amp = \|\xi_1 \wedge \cdots \wedge \xi_m \| \, \mb{G}^* \left(   \xi^*_1 \wedge \cdots \wedge \xi^*_m \right), \\
+\amp = \|\xi_1 \wedge \cdots \wedge \xi_m \| \,  \mb{G}^* \xi^*_1 \wedge \cdots \wedge \mb{G}^* \xi^*_m , \\
+\amp = \|\xi_1 \wedge \cdots \wedge \xi_m \| \, \tder{}{u_1} \wedge \cdots \wedge \tder{}{u_m}. 
+\end{align*}
+</div>
+<div class="para">Putting this into the formula for the integral of an <span class="process-math">\(m\)</span>-form on <span class="process-math">\(X\)</span> gives the result.</div>
+</div></article></details><span class="incontext"><a class="internal" href="sec-scalarintegrals.html#prop-scalar">in-context</a></span>
+</body>
+</html>

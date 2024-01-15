@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="proposition theorem-like"><h3 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">5.3.11</span><span class="period">.</span>
+</h3>
+<div class="para">Suppose <span class="process-math">\(\mb{F}\)</span> is a vector field defined on a simply connected open set <span class="process-math">\(U\)</span> of <span class="process-math">\(\mathbb{R}^n\text{.}\)</span> Then <span class="process-math">\(\mb{F}\)</span> is conservative if and only if it satisfies the cross-partials test.</div></article><details class="hiddenproof born-hidden-knowl"><summary><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></summary><article class="hiddenproof"><div class="para logical">
+<div class="para">By <a href="" class="xref" data-knowl="./knowl/xref/prop-crosspartial.html" title="Proposition 5.3.2: Cross-partials test">Proposition 5.3.2</a> and <a href="" class="xref" data-knowl="./knowl/xref/prop-pathindependence.html" title="Proposition 5.3.9: Path Independence">Proposition 5.3.9</a> we need only show that if <span class="process-math">\(\mb{F}\)</span> satisfies the cross-partials test then it is path independent. Suppose <span class="process-math">\(C_1\)</span> and <span class="process-math">\(C_2\)</span> are two smooth paths from <span class="process-math">\(\mb{a}\)</span> to <span class="process-math">\(\mb{b}\)</span> in <span class="process-math">\(U\text{.}\)</span> If they intersect, we may break them up into shorter paths where they do not (or replace one of them over small intervals by a new set of paths). So let us assume they only intersect at the endpoints. Then, reversing the orientation of <span class="process-math">\(C_2\)</span> we may glue these two paths together to obtain a simple oriented closed curve <span class="process-math">\(\mathcal{C} = C_1^+ \cup C_2^{-}\)</span> (here the sign in the exponent indicates a change in orientation). Since <span class="process-math">\(U\)</span> is simply connected, there is a smooth map  <span class="process-math">\(\mb{G} : D \to U\)</span> which sends the boundary <span class="process-math">\(S^1\)</span> of <span class="process-math">\(D\)</span> to <span class="process-math">\(\mathcal{C}\text{.}\)</span> But then, using the fact that <span class="process-math">\(\mb{F}^\vee\)</span> is closed since it passes the cross-partials test and Stokes’ <a href="" class="xref" data-knowl="./knowl/xref/thm-stokes.html" title="Theorem 5.2.7: Stokes’ Theorem">Theorem 5.2.7</a> we obtain</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-crosspartial.html ./knowl/xref/prop-pathindependence.html ./knowl/xref/thm-stokes.html">
+\begin{align*}
+\int_{C_1} \mb{F} \cdot \tder{}{\mb{r}} - \int_{C_2} \mb{F} \cdot \tder{}{\mb{r}} \amp = \int_{\mathcal{C}} \mb{F} \cdot \tder{}{\mb{r}}, \\
+\amp = \int_{\mathcal{C}} \mb{F}^\vee , \\
+\amp = \int_{S^1} \mb{G}^* \mb{F}^\vee ,\\
+\amp = \int_{\partial D} \mb{G}^* \mb{F}^\vee , \\
+\amp = \int_{D} \tder{}{\left(\mb{G}^* \mb{F}^\vee \right)} , \\
+\amp =  \int_{D} \mb{G}^*\left( \tder{}{ \mb{F}^\vee} \right), \\
+\amp = 0. 
+\end{align*}
+</div>
+<div class="para">Thus</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-crosspartial.html ./knowl/xref/prop-pathindependence.html ./knowl/xref/thm-stokes.html">
+\begin{equation*}
+\int_{C_1} \mb{F} \cdot \tder{}{\mb{r}} = \int_{C_2} \mb{F} \cdot \tder{}{\mb{r}} 
+\end{equation*}
+</div>
+<div class="para">and <span class="process-math">\(\mb{F}\)</span> is path independent.</div>
+</div></article></details><span class="incontext"><a class="internal" href="sec-ftli.html#prop-potentialexistence">in-context</a></span>
+</body>
+</html>

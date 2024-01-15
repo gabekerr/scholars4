@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>The derivative</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Mathematical Scholars Calculus 4">
+<meta property="book:author" content="Gabriel Kerr">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "https://pretextbook.org/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.33/pretext_search.js"></script><link href="https://pretextbook.org/css/0.83/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.33</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.33/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.33/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.33/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+<link href="https://pretextbook.org/css/0.83/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
+<h1 class="heading"><a href="ms-calculus-3.html"><span class="title">Mathematical Scholars Calculus 4</span></a></h1>
+<p class="byline">Gabriel Kerr</p>
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="sec-limit.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-differential-calculus.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-chainrule.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\diff}{\text{d}}
+\newcommand{\mb}[1]{\mathbf{#1}}
+\newcommand{\coord}[2]{[#1]^{#2}}
+\newcommand{\chart}[2]{[#1]_{#2}}
+\newcommand{\twovec}[2]{\left[ \begin{matrix} #1 \\ #2 \end{matrix} \right]}
+\newcommand{\threevec}[3]{\left[ \begin{matrix} #1 \\ #2 \\ #3 \end{matrix} \right]}
+\newcommand{\tangtwo}[2]{\left[ \begin{matrix} #1 \amp #2 \end{matrix} \right]}
+\newcommand{\tangthree}[3]{\left[ \begin{matrix} #1 \amp #2 \amp #3 \end{matrix} \right]}
+\newcommand{\im}{{\text{im}}}
+\newcommand{\cob}[3]{[#1]^{#3}_{#2}}
+\newcommand{\rk}{\text{rank}}
+\newcommand{\nullity}{\text{nullity}}
+\newcommand{\tder}[2]{d_{#1} {#2}}
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\ball}[2]{\text{B}_{#1} ( #2 )}
+\newcommand{\cball}[2]{\overline{\text{B}}_{#1} ( #2 )}
+\newcommand{\hball}[1]{\overline{\text{HB}}_{#1}}
+\newcommand{\vol}{\,\text{vol}}
+\newcommand{\orient}{\,\text{or}}
+\newcommand{\pball}[2]{\text{B}^*_{#1} ( #2 )}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural contains-active toc-item-list">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-differential-calculus.html" class="internal"><span class="codenumber">1</span> <span class="title">Differential Calculus in Several Variables</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-limit.html" class="internal"><span class="codenumber">1.1</span> <span class="title">The limit</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-limit.html#exe-limit" class="internal"><span class="codenumber">1.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section active">
+<div class="toc-title-box"><a href="sec-derivative.html" class="internal"><span class="codenumber">1.2</span> <span class="title">The derivative</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivative.html#subsec-directional-derivative" class="internal"><span class="codenumber">1.2.1</span> <span class="title">Directional and partial derivatives</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivative.html#subsec-derivatives-scalar" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Derivatives of scalar functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivative.html#subsec-linear-approximation-scalar" class="internal"><span class="codenumber">1.2.3</span> <span class="title">Linear approximation of scalar functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivative.html#subsec-Jacobian" class="internal"><span class="codenumber">1.2.4</span> <span class="title">The Jacobian matrix</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-derivative.html#exe-derivative" class="internal"><span class="codenumber">1.2.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-chainrule.html" class="internal"><span class="codenumber">1.3</span> <span class="title">The chain rule and tangent spaces</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-chainrule.html#subsec-computational" class="internal"><span class="codenumber">1.3.1</span> <span class="title">Computational considerations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-chainrule.html#subsec-tangent-spaces" class="internal"><span class="codenumber">1.3.2</span> <span class="title">Tangent spaces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-chainrule.html#subsec-subspaces" class="internal"><span class="codenumber">1.3.3</span> <span class="title">Level sets and their tangent spaces</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-chainrule.html#exe-chainrule" class="internal"><span class="codenumber">1.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-gradient.html" class="internal"><span class="codenumber">1.4</span> <span class="title">The gradient</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-gradient.html#subsec-metric-geometry" class="internal"><span class="codenumber">1.4.1</span> <span class="title">Metric geometry</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-gradient.html#subsec-steepest-ascent" class="internal"><span class="codenumber">1.4.2</span> <span class="title">Steepest ascent</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-gradient.html#exe-gradient" class="internal"><span class="codenumber">1.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-critical.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Critical points</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-critical.html#subsec-local-extrema" class="internal"><span class="codenumber">1.5.1</span> <span class="title">Local extrema</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-critical.html#sec-second-derivative-test" class="internal"><span class="codenumber">1.5.2</span> <span class="title">Second derivative test</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-critical.html#subsec-Morse" class="internal"><span class="codenumber">1.5.3</span> <span class="title">The Morse Lemma</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-critical.html#exe-critical" class="internal"><span class="codenumber">1.5.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-optimization1.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Optimization without constraints</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-optimization1.html#subsec-global-extrema" class="internal"><span class="codenumber">1.6.1</span> <span class="title">Global extrema</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-optimization1.html#subsec-least-squares" class="internal"><span class="codenumber">1.6.2</span> <span class="title">Least Squares</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-optimization1.html#subsec-gradient-descent" class="internal"><span class="codenumber">1.6.3</span> <span class="title">Gradient descent</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-optimization1.html#exe-optimization1" class="internal"><span class="codenumber">1.6.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-optimization2.html" class="internal"><span class="codenumber">1.7</span> <span class="title">Optimization with constraints</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-optimization2.html#subsec-single-constraint" class="internal"><span class="codenumber">1.7.1</span> <span class="title">Single constraint</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-optimization2.html#subsec-many-constraints" class="internal"><span class="codenumber">1.7.2</span> <span class="title">Several constraints</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-optimization2.html#exe-optimization2" class="internal"><span class="codenumber">1.7.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-differential-forms.html" class="internal"><span class="codenumber">2</span> <span class="title">Differential Forms</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exterior.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Exterior algebras</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-exterior.html#subsec-exterior-product" class="internal"><span class="codenumber">2.1.1</span> <span class="title">The exterior product</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-exterior.html#subsec-exterior-algebra-geometry" class="internal"><span class="codenumber">2.1.2</span> <span class="title">Geometry of exterior algebras</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-exterior.html#subsec-cross-product" class="internal"><span class="codenumber">2.1.3</span> <span class="title">The cross product</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exterior.html#exe-exterior" class="internal"><span class="codenumber">2.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li></ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-integral-calculus.html" class="internal"><span class="codenumber">3</span> <span class="title">Integral Calculus in Several Variables</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-cubeintegration.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Integrating over cubes in <span class="process-math">\(\mathbb{R}^n\)</span></span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-cubeintegration.html#exe-cubeintegration" class="internal"><span class="codenumber">3.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-compactintegration.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Integration over compact domains in <span class="process-math">\(\mathbb{R}^2\)</span></span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-compactintegration.html#exe-compactintegration" class="internal"><span class="codenumber">3.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-compactRnintegration.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Integration over compact domains in <span class="process-math">\(\mathbb{R}^n\)</span></span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-compactRnintegration.html#exe-compactRnintegration" class="internal"><span class="codenumber">3.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-cov.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Change of Variables</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-cov.html#subsec-polar-integration" class="internal"><span class="codenumber">3.4.1</span> <span class="title">Integration using polar coordinates</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-cov.html#exe-cov" class="internal"><span class="codenumber">3.4.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-integral-of-forms.html" class="internal"><span class="codenumber">4</span> <span class="title">Integrals of Forms</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-integrating-forms.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Integrating forms</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-integrating-forms.html#subsec-integrating-top-forms" class="internal"><span class="codenumber">4.1.1</span> <span class="title">Integrating top forms</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-integrating-forms.html#subsec-integrating-k-forms" class="internal"><span class="codenumber">4.1.2</span> <span class="title">Integrating <span class="process-math">\(k\)</span>-forms on oriented subspaces.</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-integrating-forms.html#exe-formintegration" class="internal"><span class="codenumber">4.1.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-scalarintegrals.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Scalar integrals</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-scalarintegrals.html#subsec-scalar-line-integrals" class="internal"><span class="codenumber">4.2.1</span> <span class="title">Scalar line integrals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-scalarintegrals.html#subsec-scalar-surface-integrals" class="internal"><span class="codenumber">4.2.2</span> <span class="title">Scalar surface integrals</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-scalarintegrals.html#exe-scalarintegrals" class="internal"><span class="codenumber">4.2.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-vectorintegrals.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Vector integrals</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-vectorintegrals.html#subsec-vector-line-integrals" class="internal"><span class="codenumber">4.3.1</span> <span class="title">Vector line integrals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-vectorintegrals.html#subsec-flux-integrals" class="internal"><span class="codenumber">4.3.2</span> <span class="title">Flux integrals</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-vectorintegrals.html#exe-vectorintegrals" class="internal"><span class="codenumber">4.3.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-stokes-theorem.html" class="internal"><span class="codenumber">5</span> <span class="title">Stokes’ Theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-derivatives.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Derivatives</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivatives.html#subsec-exterior-derivative" class="internal"><span class="codenumber">5.1.1</span> <span class="title">Exterior derivative</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivatives.html#subsec-gradient" class="internal"><span class="codenumber">5.1.2</span> <span class="title">Gradient</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivatives.html#subsec-curl" class="internal"><span class="codenumber">5.1.3</span> <span class="title">Curl</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivatives.html#subsec-2dcurl" class="internal"><span class="codenumber">5.1.4</span> <span class="title">Two dimensional curl</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivatives.html#subsec-divergence" class="internal"><span class="codenumber">5.1.5</span> <span class="title">Divergence</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-derivatives.html#exe-derivatives" class="internal"><span class="codenumber">5.1.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-stokes.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Stokes’ Theorem</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-stokes.html#exe-stokes" class="internal"><span class="codenumber">5.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-ftli.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Stokes’ Theorem on curves - The Fundamental Theorem of Line Integrals</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-ftli.html#exe-ftli" class="internal"><span class="codenumber">5.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-greens.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Stokes’ Theorem in dimension <span class="process-math">\(2\)</span> - Green’s Theorems</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-greens.html#exe-greens" class="internal"><span class="codenumber">5.4</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-classicalstokes.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Stokes’ Theorem in dimension <span class="process-math">\(3\)</span> - Classical Stokes’ and Divergence Theorems</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-classicalstokes.html#exe-classicalstokes" class="internal"><span class="codenumber">5.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-applications.html" class="internal"><span class="codenumber">5.6</span> <span class="title">Selected Applications</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-applications.html#subsec-maxwells-equations" class="internal"><span class="codenumber">5.6.1</span> <span class="title">Maxwell’s equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-applications.html#subsec-contour-integrals" class="internal"><span class="codenumber">5.6.2</span> <span class="title">Contour integrals</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-applications.html#exe-applications" class="internal"><span class="codenumber">5.6.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-partial-differential-equations.html" class="internal"><span class="codenumber">6</span> <span class="title">Partial Differential Equations</span></a></div></li>
+<li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-derivative"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">1.2</span><span class="space"> </span><span class="title">The derivative</span>
+</h2>
+<section class="introduction" id="sec-derivative-2"><div class="para logical" id="sec-derivative-2-1">
+<div class="para">In this section, we will define the derivative of a vector valued function of many variables</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{F} : U \to \mathbb{R}^n
+\end{equation*}
+</div>
+<div class="para">for an open set <span class="process-math">\(U \subseteq \mathbb{R}^m\text{.}\)</span> We do not delay and present the definition in the abstract setting of inner product spaces.</div>
+</div> <article class="definition definition-like" id="def-derivative"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.2.1</span><span class="period">.</span>
+</h3> <div class="para logical" id="def-derivative-2-1">
+<div class="para">Let <span class="process-math">\(V_1\)</span> and <span class="process-math">\(V_2\)</span> be inner product spaces and suppose <span class="process-math">\(\mb{F} : U \to V_2\)</span> is a function defined in a neighborhood <span class="process-math">\(\mb{F}\)</span> of <span class="process-math">\(\mb{a}\text{.}\)</span> The <dfn class="terminology">derivative</dfn> <span class="process-math">\(\tder{\mb{a}}{\mb{F}}\)</span> of <span class="process-math">\(\mb{F}\)</span> at <span class="process-math">\(\mb{a}\)</span> is a linear transformation from <span class="process-math">\(V_1\)</span> to <span class="process-math">\(V_2\)</span> for which</div>
+<div class="displaymath process-math" id="eq-derivative">
+\begin{equation}
+\lim_{\mb{x} \to \mb{a}} \frac{\| \mb{F} ( \mb{x} ) - \mb{F} (\mb{a} ) - \tder{\mb{a}}{\mb{F}} (\mb{x} - \mb{a}) \|}{\| \mb{x} - \mb{a} \|} = 0.\tag{1.2.1}
+\end{equation}
+</div>
+<div class="para">If <span class="process-math">\(\tder{\mb{a}}{\mb{F}}\)</span> exists we say that <span class="process-math">\(\mb{F}\)</span> is <dfn class="terminology">differentiable at <span class="process-math">\(\mb{a}\)</span></dfn>.</div>
+</div></article> <div class="para" id="sec-derivative-2-3">This definition certainly needs some unpacking, but it is indeed quite beautiful in its simplicity. Before getting into this, let us mention a few points. First, the derivative is sometimes called the `total derivative’ or ’differential’ of <span class="process-math">\(\mb{F}\text{,}\)</span> but the term derivative is used in the literature as well (see, for example, Spivak’s "Calculus on Manifolds"). There are also alternative notations for the derivative like <span class="process-math">\(D_\mb{a} \mb{F}\)</span> or <span class="process-math">\(D \mb{F} (\mb{a})\text{.}\)</span> As we will use these notations for directional derivatives later on, we will stick with the above for the derivative.</div> <div class="para logical" id="sec-derivative-2-4">
+<div class="para">Now, the main point to draw the student’s attention to on first exposure to the derivative is what it is!</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\text{ The derivative of }\mb{F}\text{ at  }\mb{a}\text{ is a linear transformation!}
+\end{equation*}
+</div>
+<div class="para">In fact, it is directly tied to the notion of a linear approximation. We can see this by considering the limit and noticing that for <span class="process-math">\(\mb{x}\)</span> close to <span class="process-math">\(\mb{a}\text{,}\)</span> we have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+E ( \mb{x}) := \mb{F} ( \mb{x} ) - \mb{F} (\mb{a} ) - \tder{\mb{a}}{\mb{F}} (\mb{x} - \mb{a}) \approx \mb{0}. 
+\end{equation*}
+</div>
+<div class="para">Here <span class="process-math">\(E ( \mb{x})\)</span> is the `error’ in the approximation. Subtracting then gives</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{F} ( \mb{x} ) \approx \mb{F} (\mb{a} ) + \tder{\mb{a}}{\mb{F}} (\mb{x} - \mb{a}) 
+\end{equation*}
+</div>
+<div class="para">where the approximation is up to first order (which means dividing by <span class="process-math">\(\|\mb{x} - \mb{a}\|\)</span> and taking limits gives equality). Indeed, the definition gives us the following fact.</div>
+</div> <article class="proposition theorem-like" id="prop-diffcont"><h3 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">1.2.2</span><span class="period">.</span>
+</h3>
+<div class="para" id="prop-diffcont-1-1">If <span class="process-math">\(\mb{F}\)</span> is differentiable at <span class="process-math">\(\mb{a}\text{,}\)</span> then it is continuous at <span class="process-math">\(\mb{a}\text{.}\)</span>
+</div></article><details id="prop-diffcont-2" class="hiddenproof born-hidden-knowl"><summary><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></summary><article class="hiddenproof"><div class="para logical" id="prop-diffcont-2-1">
+<div class="para">Suppose <span class="process-math">\(\varepsilon \gt 0\)</span> is given and <span class="process-math">\(\delta_1\)</span> gives us the limit in the definition of the derivative for <span class="process-math">\(\frac{\varepsilon}{2}\text{.}\)</span> Since linear transformations are continuous, we also have that there is some <span class="process-math">\(\delta_2\)</span> for which <span class="process-math">\(\|\mb{x} - \mb{a} \| \lt \delta_2\)</span> implies <span class="process-math">\(\tder{\mb{a}}{\mb{F}} (\mb{x} - \mb{a}) \lt \frac{\varepsilon}{2}\text{.}\)</span> Then letting <span class="process-math">\(\delta = \min \{ \delta_1, \delta_2, 1\}\)</span> we have that for any <span class="process-math">\(\| \mb{x} - \mb{a} \| \lt \delta\)</span> the triangle inequality gives</div>
+<div class="displaymath process-math" id="prop-diffcont-2-1-9">
+\begin{align*}
+\| \mb{F} ( \mb{x} ) - \mb{F} (\mb{a}) \| \amp =  \| \mb{F} ( \mb{x} ) - \mb{F} (\mb{a}) - \tder{\mb{a}}{\mb{F}} (\mb{x} - \mb{a}) + \tder{\mb{a}}{\mb{F}} (\mb{x} - \mb{a}) \|, \\
+\amp \leq \| \mb{F} ( \mb{x} ) - \mb{F} (\mb{a}) - \tder{\mb{a}}{\mb{F}} (\mb{x} - \mb{a}) \| +  \| \tder{\mb{a}}{\mb{F}} (\mb{x} - \mb{a}) \|,\\
+\amp \lt \frac{\varepsilon}{2}  \|\mb{x} - \mb{a} \| + \frac{\varepsilon}{2}, \\
+\amp \lt \varepsilon. 
+\end{align*}
+</div>
+<div class="para">Using our definition of limit, this gives us the result.</div>
+</div></article></details> <div class="para" id="sec-derivative-2-6">Now, while this definition is important abstractly and useful to prove the basic properties of the derivative, it is not immediately helpful for computations. To compute we will consider a less abstract setting for the moment, replacing <span class="process-math">\(V_1\)</span> with a Euclidean space <span class="process-math">\(\mathbb{R}^m\)</span> and <span class="process-math">\(V_2\)</span> with the real line <span class="process-math">\(\mathbb{R}\text{,}\)</span> i.e. we will consider scalar functions.</div></section><section class="subsection" id="subsec-directional-derivative"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.2.1</span><span class="space"> </span><span class="title">Directional and partial derivatives</span>
+</h3>
+<div class="para" id="subsec-directional-derivative-2">The existence of the derivative of a function (even a scalar one) can be a delicate issue, but there are large classes of functions where existence can be easily checked. To make such a check, we need partial derivatives which in fact are certain types of directional derivatives.</div>
+<article class="definition definition-like" id="def-directional-derivative"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.2.3</span><span class="period">.</span>
+</h4> <div class="para logical" id="def-directional-derivative-2-1">
+<div class="para">Let <span class="process-math">\(U\)</span> be an open subset of a real inner product space <span class="process-math">\(V\)</span> and <span class="process-math">\(f : U \to \mathbb{R}\)</span> be a scalar function. For a vector <span class="process-math">\(\mb{v}\)</span> of <span class="process-math">\(V\text{,}\)</span> the <dfn class="terminology">directional derivative</dfn> of <span class="process-math">\(f\)</span> at <span class="process-math">\(\mb{a}\)</span> along <span class="process-math">\(\mb{v}\)</span> is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+D_\mb{v} f ( \mb{a}) = \left. \frac{d}{dt} f (\mb{a} + t\mb{v} )\right|_{t = 0}. 
+\end{equation*}
+</div>
+<div class="para">if it exists. We write <span class="process-math">\(D_{\mb{v}} f\)</span> when regarding the directional derivative as a function of <span class="process-math">\(U\text{.}\)</span>
+</div>
+</div></article><div class="para" id="subsec-directional-derivative-4">We note that some texts only consider directional derivatives when <span class="process-math">\(\mb{v}\)</span> is a unit vector. The idea of a directional derivative is given in its name. It measures the rate of change of <span class="process-math">\(f\)</span> as one moves in the direction <span class="process-math">\(\mb{v}\)</span> at unit speed. Before computing, let us list a few properties.</div>
+<article class="proposition theorem-like" id="subsec-directional-derivative-5"><h4 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">1.2.4</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="subsec-directional-derivative-5-1-1">
+<div class="para">If <span class="process-math">\(f, g : U \to \mathbb{R}\)</span> are scalar functions on <span class="process-math">\(U \subset V\text{,}\)</span> <span class="process-math">\(\lambda\)</span> a real number, and <span class="process-math">\(\mb{v}\)</span> is a vector in <span class="process-math">\(V\text{,}\)</span> then</div>
+<ol class="decimal">
+<li id="subsec-directional-derivative-5-1-1-6-1"><div class="para" id="p-derived-subsec-directional-derivative-5-1-1-6-1"><span class="process-math">\(D_\mb{v} (f + \lambda g) = D_{\mb{v}} f + \lambda D_{\mb{v}}\text{,}\)</span></div></li>
+<li id="subsec-directional-derivative-5-1-1-6-2"><div class="para" id="p-derived-subsec-directional-derivative-5-1-1-6-2"><span class="process-math">\(D_{\mb{v}} (fg) = f D_{\mb{v}} g + (D_{\mb{v}} f )g\text{,}\)</span></div></li>
+<li id="subsec-directional-derivative-5-1-1-6-3"><div class="para" id="p-derived-subsec-directional-derivative-5-1-1-6-3"><span class="process-math">\(D_{\lambda \mb{v}} (f) =\lambda D_{\mb{v}} f \text{.}\)</span></div></li>
+</ol>
+</div></article><div class="para" id="subsec-directional-derivative-6">The proof of this proposition is straightforward and follows from the properties of the one variable derivative. To see that finding directional derivatives is a straightforward computation, let us check a basic example.</div>
+<details id="subsec-directional-derivative-7" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.2.5</span><span class="period">.</span><span class="space"> </span><span class="title">Directional derivative.</span>
+</h4></summary><article class="example example-like"><div class="para logical" id="subsec-directional-derivative-7-2-1">
+<div class="para">Let</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(x,y) = x \cos (y ) 
+\end{equation*}
+</div>
+<div class="para">and <span class="process-math">\(\mb{v} = \langle 2, 1\rangle\text{.}\)</span> Then</div>
+<div class="displaymath process-math" id="subsec-directional-derivative-7-2-1-3">
+\begin{align*}
+D_{\mb{v}} f (0, 0) \amp = \left. \frac{d}{dt} f (\langle 0, 0\rangle + t \langle 2, 1 \rangle )\right|_{t = 0}, \\
+\\
+\amp = \left. \frac{d}{dt} f ( 2t, t) \right|_{t = 0} ,\\
+\amp =  \left. \frac{d}{dt} 2t \cos t \right|_{t = 0} ,\\
+\amp =  \left. \frac{d}{dt} 2t \cos t \right|_{t = 0} ,\\
+\amp = \left. 2 \cos t  - 2t\sin t \right|_{t = 0}, \\
+\amp = 2. 
+\end{align*}
+</div>
+<div class="para">Had we not chosen to evaluate at <span class="process-math">\((0, 0)\text{,}\)</span> we can view the directional derivative as a function of <span class="process-math">\((x,y)\text{.}\)</span> Indeed,</div>
+<div class="displaymath process-math" id="subsec-directional-derivative-7-2-1-6">
+\begin{align*}
+D_{\mb{v}} f  \amp = \left. \frac{d}{dt} f (\langle x, y\rangle + t \langle 2, 1 \rangle )\right|_{t = 0}, \\
+\amp = \left. \frac{d}{dt} f ( x + 2t, y + t) \right|_{t = 0} , \\
+\amp =  \left. \frac{d}{dt} (x + 2t) \cos (y + t) \right|_{t = 0} , \\
+\amp = \left. 2 \cos (y + t)  - (x + 2t)\sin (y +  t) \right|_{t = 0}, \\
+\amp = 2 \cos y - x \sin y. 
+\end{align*}
+</div>
+<div class="para">Note that when taking the <span class="process-math">\(t\)</span> derivative, both <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> are viewed as constants.</div>
+</div></article></details><div class="para" id="subsec-directional-derivative-8">By far the most popular examples of directional derivatives are partial derivatives.</div>
+<article class="definition definition-like" id="def-partial-derivative"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.2.6</span><span class="period">.</span>
+</h4> <div class="para logical" id="def-partial-derivative-2-1">
+<div class="para">Let <span class="process-math">\(U\)</span> be an open subset of <span class="process-math">\(\mathbb{R}^m\)</span> and <span class="process-math">\(f : U \to \mathbb{R}\)</span> be the scalar function <span class="process-math">\(f(x_1, \ldots, x_m)\text{.}\)</span> For <span class="process-math">\(1 \leq i \leq m\text{,}\)</span> the <span class="process-math">\(i\)</span>-th partial derivative of <span class="process-math">\(f\)</span> at <span class="process-math">\((a_1, \ldots, a_n)\)</span> is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\left. \pd{f}{x_i} \right|_{(a_1, \ldots, a_n)} = D_{\mb{e}_i} f (a_1, \ldots, a_n).
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(\mb{e}_i\)</span> is the <span class="process-math">\(i\)</span>-th standard basis vector.</div>
+</div></article><div class="para logical" id="subsec-directional-derivative-10">
+<div class="para">When we have variables <span class="process-math">\((x,y)\)</span> or <span class="process-math">\((x,y,z)\text{,}\)</span> we use them instead of <span class="process-math">\(x_i\)</span> in our notation. Alternative notation for partial derivatives abound. For example, we can write</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f_{x} = \pd{f}{x} \hspace{.1in} \text{ or } \hspace{.1in} \pd{}{x} f = \pd{f}{x}\hspace{.1in} \text{ or } \hspace{.1in} \partial_x f = \pd{f}{x}.
+\end{equation*}
+</div>
+<div class="para">Also, in the case where the variable is <span class="process-math">\(x_i\text{,}\)</span> one sometimes sees the notation <span class="process-math">\(\partial_i f\)</span> for <span class="process-math">\(\pd{f}{x_i}\text{.}\)</span> Note the very important fact that a partial derivative of a scalar function is <em class="emphasis">not</em> the derivative of a function. Indeed, partial derivatives may exist and yet a function may not even be differentiable (as we will observe shortly). While partial derivatives are as easy to compute (even easier) as directional derivatives, it is useful to practice a few to become familiar with them.</div>
+</div>
+<details id="subsec-directional-derivative-11" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.2.7</span><span class="period">.</span><span class="space"> </span><span class="title">Partial derivative I.</span>
+</h4></summary><article class="example example-like"><div class="para logical" id="subsec-directional-derivative-11-2-1">
+<div class="para">Let us compute partial derivatives of</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(x,y) = x^2 + \cos (xy) .
+\end{equation*}
+</div>
+<div class="para">The key point to keep in mind as you take partial derivatives is to keep all variables constant <em class="emphasis">except</em> the one you are deriving. So</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\pd{f}{x} = 2x - y \sin (xy)
+\end{equation*}
+</div>
+<div class="para">and</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\pd{f}{y} = - x\sin (xy).
+\end{equation*}
+</div>
+<div class="para">Notice that one needs to apply the chain rule while treating the other variables as constants.</div>
+</div></article></details><details id="subsec-directional-derivative-12" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.2.8</span><span class="period">.</span><span class="space"> </span><span class="title">Partial Derivative II.</span>
+</h4></summary><article class="example example-like"><div class="para logical" id="subsec-directional-derivative-12-2-1">
+<div class="para">Let’s try partial derivatives of</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(x_1, x_2, x_3) = \ln (x_1 x_2 x_3 ) - 3 x_1 e^{x_2}.
+\end{equation*}
+</div>
+<div class="para">Here we compute</div>
+<div class="displaymath process-math" id="subsec-directional-derivative-12-2-1-2">
+\begin{align*}
+\pd{f}{x_1} \amp = \frac{1}{x_1} - 3 e^{x_2}, \\
+\pd{f}{x_2} \amp = \frac{1}{x_2} - 3x_1 e^{x_2}, \\
+\pd{f}{x_3} \amp = \frac{1}{x_3} . 
+\end{align*}
+</div>
+</div></article></details><div class="para" id="subsec-directional-derivative-13">We can also consider higher partial derivatives by repeating. These can be written by naturally extending the notation. For example, the second derivative <span class="process-math">\(f_{xy}\)</span> is obtained by taking the partial of <span class="process-math">\(f\)</span> with respect to <span class="process-math">\(x\)</span> and then taking the partial of that with respect to <span class="process-math">\(y\text{.}\)</span> This is also written <span class="process-math">\(\frac{\partial^2 f}{\partial x \partial y}\text{.}\)</span>
+</div>
+<details id="subsec-directional-derivative-14" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.2.9</span><span class="period">.</span><span class="space"> </span><span class="title">Partial Derivative III.</span>
+</h4></summary><article class="example example-like"><div class="para logical" id="subsec-directional-derivative-14-2-1">
+<div class="para">In the prior example of</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(x,y) = x^2 + \cos (xy) .
+\end{equation*}
+</div>
+<div class="para">we can compute the second partial derivatives</div>
+<div class="displaymath process-math" id="subsec-directional-derivative-14-2-1-2">
+\begin{align*}
+\frac{\partial^2 f}{\partial x^2} \amp = 2 - y^2 \cos (xy), \\
+\frac{\partial^2 f}{\partial x \partial y} \amp = - \sin (xy) - xy \cos (xy), \\
+\frac{\partial^2 f}{\partial y \partial x} \amp = - \sin (xy) - xy \cos (xy), \\
+\frac{\partial^2 f}{\partial y^2} \amp =  - x^2 \cos (xy).
+\end{align*}
+</div>
+</div></article></details><div class="para" id="subsec-directional-derivative-15">Notice that <span class="process-math">\(f_{xy} = f_{yx}\text{.}\)</span> This is a symptom of a more general fact as the following Theorem proves.</div>
+<article class="theorem theorem-like" id="thm-Clairaut"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">1.2.10</span><span class="period">.</span><span class="space"> </span><span class="title">Clairaut’s Theorem.</span>
+</h4>
+<div class="para logical" id="thm-Clairaut-2-1">
+<div class="para">If <span class="process-math">\(f (x_1, \ldots, x_n)\)</span> has continuous second partial derivatives in a neighborhood of <span class="process-math">\((a_1, \ldots, a_n)\)</span> then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\left. \frac{\partial^2 f}{\partial x_i \partial x_j}\right|_{(a_1, \ldots, a_n)} = \left. \frac{\partial^2 f}{\partial x_j \partial x_i}\right|_{(a_1, \ldots, a_n)} .
+\end{equation*}
+</div>
+</div></article><details id="thm-Clairaut-3" class="hiddenproof born-hidden-knowl"><summary><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof"><div class="para logical" id="thm-Clairaut-3-1">
+<div class="para">We prove this for <span class="process-math">\(f(x_1, x_2)\)</span> as the more general case follows the same outline with more notation. Note that,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\left. \frac{\partial^2 f}{\partial x_1 \partial x_2} \right|_{(a_1, a_2)} 
+\end{equation*}
+</div>
+<div class="para">equals</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\lim_{h, k \to 0} \frac{f(a_1 + h , a_2 + k) - f(a_1, a_2 + k) - f(a_1 + h, a_2) + f(a_1, a_2)}{hk} .
+\end{equation*}
+</div>
+<div class="para">Now, consider the function</div>
+<div class="displaymath process-math">
+\begin{equation*}
+F(t) = f(t, a_2 + k) - f( t, a_2)
+\end{equation*}
+</div>
+<div class="para">defined on <span class="process-math">\([0, h]\text{.}\)</span> This function is differentiable so we can apply the Mean Value Theorem and find <span class="process-math">\(a_1^*\)</span> between <span class="process-math">\(a_1\)</span> and <span class="process-math">\(a_1 + h\)</span> such that <span class="process-math">\(F^\prime (a_1^*) = \frac{F(h) - F(0)}{h}\text{.}\)</span> Noting that <span class="process-math">\(F^\prime (t) = \partial_{x_1} f (t, a_2 + k) - \partial_{x_1} f (t, a_2)\text{,}\)</span> writing this out we have that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(a_1 + h , a_2 + k) - f(a_1, a_2 + k) - f(a_1 + h, a_2) + f(a_1, a_2) 
+\end{equation*}
+</div>
+<div class="para">equals</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\left( f_{x_1} (a_1^*, a_2 + k) -  f_{x_1} (a_1^*, a_2) \right) h.
+\end{equation*}
+</div>
+<div class="para">Thus</div>
+<div class="displaymath process-math" id="thm-Clairaut-3-1-13">
+\begin{align*}
+\left. \frac{\partial^2 f}{\partial x_1 \partial x_2} \right|_{(a_1, a_2)} \amp = \lim_{h, k \to 0} \frac{f_{x_1} (a_1^*, a_2 + k) -  f_{x_1} (a_1^*, a_2)}{k}, \\
+\amp = \lim_{h \to 0}\left. \frac{\partial^2 f}{\partial x_2 \partial x_1} \right|_{(a_1^*, a_2)} \\
+\amp = \left. \frac{\partial^2 f}{\partial x_2 \partial x_1} \right|_{(a_1, a_2)} . 
+\end{align*}
+</div>
+<div class="para">The last equality here follows from the continuity of the second derivatives and the fact that <span class="process-math">\(a_1 \leq a_1^* \leq a_1 + h\text{.}\)</span>
+</div>
+</div></article></details><div class="para" id="subsec-directional-derivative-17">Clairaut’s Theorem is extremely useful in minimizing the number of higher partial derivatives one needs to take.</div></section><section class="subsection" id="subsec-derivatives-scalar"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.2.2</span><span class="space"> </span><span class="title">Derivatives of scalar functions</span>
+</h3>
+<div class="para" id="subsec-derivatives-scalar-2">Now that we have the computational tool of partial derivatives in hand, we can ask whether a scalar function is differentiable. In fact, this can often readily be checked using the following theorem.</div>
+<article class="theorem theorem-like" id="thm-differentiable"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">1.2.11</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="thm-differentiable-1-1">
+<div class="para">Suppose <span class="process-math">\(f : U \to \mathbb{R}\)</span>  is a scalar function on an open subset <span class="process-math">\(U\)</span> of <span class="process-math">\(\mathbb{R}^m\text{.}\)</span> If <span class="process-math">\(f\)</span> has continuous first partial derivatives then <span class="process-math">\(f\)</span> is differentiable. Furthermore, in this case</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\tder{}{f} \left( \threevec{b_1}{\vdots}{b_m} \right) = b_1 \pd{f}{x_1} + b_2 \pd{f}{x_2} + \cdots + b_n \pd{f}{x_n}.
+\end{equation*}
+</div>
+</div></article><details id="thm-differentiable-2" class="hiddenproof born-hidden-knowl"><summary><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof">We will assume <span class="process-math">\(U\)</span> is a neighborhood of <span class="process-math">\(\mb{a}\)</span> and <span class="process-math">\(\mb{x}\)</span> is in <span class="process-math">\(U\text{.}\)</span> Let <span class="process-math">\(\mb{x} - \mb{a} = b_1 \mb{e}_1 + \cdots + b_m \mb{e}_m\text{.}\)</span> Write<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-derivative.html" id="thm-differentiable-2-6">
+\begin{align*}
+\mb{v}_1 \amp = b_1 \mb{e}_1 + \cdots + b_m \mb{e}_m, \\
+\mb{v}_2 \amp = b_2 \mb{e}_2 + \cdots + b_m \mb{e}_m, \\
+\amp \vdots \\
+\mb{v}_m \amp = b_m \mb{e}_m. 
+\end{align*}
+</div>Then<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-derivative.html" id="thm-differentiable-2-7">
+\begin{align*}
+f(\mb{x} ) - f (\mb{a}) \amp = \left( f(\mb{a} + \mb{v}_1 ) - f (\mb{a} + \mb{v}_2) \right)  + \cdots + \left( f(\mb{a} + \mb{v}_m ) - f (\mb{a}) \right), \\
+\amp = \left( f(\mb{a} + \mb{v}_2 + b_1 \mb{e}_1 ) - f (\mb{a} + \mb{v}_2) \right)  + \cdots + \left( f(\mb{a} + b_m \mb{e}_m ) - f (\mb{a}) \right), 
+\end{align*}
+</div>The summands in this final expression are of the form<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-derivative.html">
+\begin{equation*}
+f(\mb{a} + \mb{v}_{k + 1} + b_k \mb{e}_k ) - f(\mb{a} + \mb{v}_{k + 1}). 
+\end{equation*}
+</div>Now, by the Mean Value Theorem, for each such <span class="process-math">\(k\)</span> there exists a <span class="process-math">\(t_k\)</span> between <span class="process-math">\(0\)</span> and <span class="process-math">\(b_k\)</span> with<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-derivative.html">
+\begin{equation*}
+\left. \pd{f}{x_k} \right|_{\mb{a} + t_k \mb{e}_{k}} =  \frac{f(\mb{a} + \mb{v}_{k + 1} + b_k \mb{e}_k ) - f(\mb{a} + \mb{v}_{k + 1})}{b_k}
+\end{equation*}
+</div>or<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-derivative.html">
+\begin{equation*}
+f(\mb{a} + \mb{v}_{k + 1} + b_k \mb{e}_k ) - f(\mb{a} + \mb{v}_{k + 1}) = b_k \left. \pd{f}{x_k} \right|_{\mb{a} + \mb{v}_{k + 1} + t_k \mb{e}_{k}}.
+\end{equation*}
+</div>Thus<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-derivative.html" id="thm-differentiable-2-15">
+\begin{align*}
+f(\mb{x} ) - f (\mb{a}) \amp = \left( f(\mb{a} + \mb{v}_2 + b_1 \mb{e}_1 ) - f (\mb{a} + \mb{v}_2) \right)  + \cdots + \left( f(\mb{a} + b_m \mb{e}_m ) - f (\mb{a}) \right), \\
+\amp = b_1  \left. \pd{f}{x_1} \right|_{\mb{a} + \mb{v}_{2} + t_1 \mb{e}_{1}} + \cdots + b_m  \left. \pd{f}{x_m} \right|_{\mb{a} + t_m \mb{e}_{m}} 
+\end{align*}
+</div>Write<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-derivative.html">
+\begin{equation*}
+L (\mb{x} - \mb{a} ) =  b_1  \left. \pd{f}{x_1} \right|_{\mb{a}} + \cdots + b_m  \left. \pd{f}{x_m} \right|_{\mb{a}}
+\end{equation*}
+</div>for the conjectured derivative of <span class="process-math">\(f\)</span> at <span class="process-math">\(\mb{a}\text{.}\)</span> Then the numerator<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-derivative.html">
+\begin{equation*}
+N (\mb{x} ) = f(\mb{x} ) - f (\mb{a}) - L (\mb{x} - \mb{a} )
+\end{equation*}
+</div>of equation <a href="" class="xref" data-knowl="./knowl/xref/eq-derivative.html" title="Equation 1.2.1">(1.2.1)</a> is<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-derivative.html" id="thm-differentiable-2-21">
+\begin{align*}
+N(\mb{x}) \amp =  b_1 \left(  \left. \pd{f}{x_1} \right|_{\mb{a} + \mb{v}_{2} + t_1 \mb{e}_{1}} - \left. \pd{f}{x_1} \right|_{\mb{a}} \right) + \cdots + b_m \left(  \left. \pd{f}{x_m} \right|_{\mb{a} + t_m \mb{e}_{m}} - \left. \pd{f}{x_m} \right|_{\mb{a}} \right), \\
+\amp = \left( \mb{x} - \mb{a} \right) \cdot  \threevec{\left. \pd{f}{x_1} \right|_{\mb{a} + \mb{v}_{2} + t_1 \mb{e}_{1}} - \left. \pd{f}{x_1} \right|_{\mb{a}} }{\vdots}{ \left. \pd{f}{x_m} \right|_{\mb{a} + t_m \mb{e}_{m}} - \left. \pd{f}{x_m} \right|_{\mb{a}} }. 
+\end{align*}
+</div>Now, as <span class="process-math">\(\mb{x}\)</span> tends to <span class="process-math">\(\mb{a}\text{,}\)</span> the <span class="process-math">\(t_k\)</span> values must tend towards zero (since <span class="process-math">\(b_k\)</span> are tending to zero) and so are <span class="process-math">\(\mb{v}_k\text{.}\)</span> By the continuity of the first partials, we then have<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-derivative.html">
+\begin{equation*}
+\lim_{\mb{x} \to \mb{a}} \threevec{\left. \pd{f}{x_1} \right|_{\mb{a} + \mb{v}_{2} + t_1 \mb{e}_{1}} - \left. \pd{f}{x_1} \right|_{\mb{a}} }{\vdots}{ \left. \pd{f}{x_m} \right|_{\mb{a} + t_m \mb{e}_{m}} - \left. \pd{f}{x_m} \right|_{\mb{a}} } = \mb{0}.
+\end{equation*}
+</div>and moreover<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-derivative.html">
+\begin{equation*}
+\lim_{\mb{x} \to \mb{a}} \left\|  \threevec{\left. \pd{f}{x_1} \right|_{\mb{a} + \mb{v}_{2} + t_1 \mb{e}_{1}} - \left. \pd{f}{x_1} \right|_{\mb{a}} }{\vdots}{ \left. \pd{f}{x_m} \right|_{\mb{a} + t_m \mb{e}_{m}} - \left. \pd{f}{x_m} \right|_{\mb{a}} } \right\| = 0
+\end{equation*}
+</div>But dividing <span class="process-math">\(\mb{x} - \mb{a}\)</span> by <span class="process-math">\(\| \mb{x} - \mb{a} \|\)</span> simply normalizes it. So taking <span class="process-math">\(\mb{u}\)</span> to be<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-derivative.html">
+\begin{equation*}
+\mb{u} = \frac{1}{\| \mb{v}_1\|} \mb{v}_1 = \frac{\mb{x} - \mb{a}}{\| \mb{x} - \mb{a}\|} 
+\end{equation*}
+</div>we have<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-derivative.html" id="thm-differentiable-2-33">
+\begin{align*}
+\frac{N(\mb{x})}{\| \mb{x} - \mb{a}\|} \amp =  \left( \frac{\mb{x} - \mb{a}}{\|\mb{x} - \mb{a} \|} \right) \cdot  \threevec{\left. \pd{f}{x_1} \right|_{\mb{a} + \mb{v}_{2} + t_1 \mb{e}_{1}} - \left. \pd{f}{x_1} \right|_{\mb{a}} }{\vdots}{ \left. \pd{f}{x_m} \right|_{\mb{a} + t_m \mb{e}_{m}} - \left. \pd{f}{x_m} \right|_{\mb{a}} }, \\
+\amp = \cos \theta_{\mb{x}} \|\mb{u} \| \left\| \threevec{\left. \pd{f}{x_1} \right|_{\mb{a} + \mb{v}_{2} + t_1 \mb{e}_{1}} - \left. \pd{f}{x_1} \right|_{\mb{a}} }{\vdots}{ \left. \pd{f}{x_m} \right|_{\mb{a} + t_m \mb{e}_{m}} - \left. \pd{f}{x_m} \right|_{\mb{a}} } \right\|, \\
+\amp = \cos \theta_{\mb{x}} \left\| \threevec{\left. \pd{f}{x_1} \right|_{\mb{a} + \mb{v}_{2} + t_1 \mb{e}_{1}} - \left. \pd{f}{x_1} \right|_{\mb{a}} }{\vdots}{ \left. \pd{f}{x_m} \right|_{\mb{a} + t_m \mb{e}_{m}} - \left. \pd{f}{x_m} \right|_{\mb{a}} } \right\|.
+\end{align*}
+</div>Thus, a quick application of the Squeeze Theorem gives<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-derivative.html">
+\begin{equation*}
+\lim_{\mb{x} \to \mb{a}} \frac{N(\mb{x})}{\| \mb{x} - \mb{a}\|} = 0
+\end{equation*}
+</div>which by definition implies <span class="process-math">\(\tder{\mb{a}}{f} = L\)</span> and proves the theorem.</article></details><div class="para" id="subsec-derivatives-scalar-4">It is hard to overstate how beneficial this theorem is for us. This is for two main reasons (and possibly several more). First, we can proceed confidently and easily with computing derivatives of scalar (and soon general) vector valued functions. Second, we have bridged the gap between an abstract definition that is useful for general results (e.g. chain rule and change of variable formulas) and a concrete method which gives us the ability to check whether a given function satisfies the conditions for said result. However, we issue a stern warning that the continuity assumption in this theorem must be satisfied in order for it to hold. As you will see in <a href="" class="xref" data-knowl="./knowl/xref/exercise-notdiff.html" title="Exercise 1.2.5.7">Exercise 1.2.5.7</a>, there are examples for which relaxing this assumption results in a non-differentiable function.</div>
+<div class="para" id="subsec-derivatives-scalar-5">As one final comment, we should remind the student that one of the themes of this course is to understand basis free mathematics. An astute student will see that the definition of the derivative did not make mention of a basis, even implicitly. It was for a function on an inner product space and involved limits and natural transformations (not on <span class="process-math">\(\mathbb{R}^m\)</span> and matrices). However, Theorem~\ref{thm:differentiable} required that we work in <span class="process-math">\(\mathbb{R}^m\)</span> and the reason was that it consulted partial derivatives which are defined relative to a given coordinate system! Now, one could just as easily have written this Theorem replacing continuous partial derivatives with directional derivatives along a basis of vectors, but this would certainly over complicate the statement. The point here is that to connect with computation, a basis is key and very useful - but we must keep in mind that in general it is a choice and will allow us to represent our structures numerically. In particular, in truth the derivative of a function is a linear transformation, not a matrix (although this is rarely pointed out in a first year multivariable calculus course!).</div></section><section class="subsection" id="subsec-linear-approximation-scalar"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.2.3</span><span class="space"> </span><span class="title">Linear approximation of scalar functions</span>
+</h3>
+<div class="para" id="subsec-linear-approximation-scalar-2">As we have just seen in <a href="" class="xref" data-knowl="./knowl/xref/thm-differentiable.html" title="Theorem 1.2.11">Theorem 1.2.11</a>, one can often check for differentiability of a scalar function by looking at the first partial derivatives. This leads us to the following unfortunate definition.</div>
+<article class="definition definition-like" id="def-linear-approximation"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.2.12</span><span class="period">.</span>
+</h4> <div class="para logical" id="def-linear-approximation-2-1">
+<div class="para">Given a function <span class="process-math">\(f: U \to \mathbb{R}\)</span> on a neighborhood <span class="process-math">\(U \subseteq \mathbb{R}^m\)</span> of a point <span class="process-math">\(\mb{a}\)</span> and differentiable at <span class="process-math">\(\mb{a}\text{,}\)</span> the <dfn class="terminology">linear approximation</dfn> of <span class="process-math">\(f\)</span> at <span class="process-math">\(\mb{a}\)</span> is the function</div>
+<div class="displaymath process-math" id="def-linear-approximation-2-1-8">
+\begin{align*}
+L (\mb{x} ) \amp = f (\mb{a} ) + \tder{\mb{a}}{f} ( \mb{x} - \mb{a} ), \\
+\amp = f(a_1, \ldots, a_m) + f_{x_1} (a_1, \ldots, a_m) (x_1 - a_1) + \cdots +  f_{x_m} (a_1, \ldots, a_m) (x_m - a_m).
+\end{align*}
+</div>
+</div></article><div class="para" id="subsec-linear-approximation-scalar-4">Now, while this vocabulary makes me mildly nauseous, it is completely standard and I cannot in good conscience avoid it. My nausea results from the fact that the linear approximation is \textit{not} a linear function. Rather it is what is known as an affine function which is quite close (the sum of a vector and a linear function). Indeed, it would be much better to use the term `first order approximation’, but sadly this is less popular. None the less, we can make several notes about this approximation. First, the graph of <span class="process-math">\(L\)</span> ought to give us the `linear’ subspace of <span class="process-math">\(\mathbb{R}^{m + 1}\)</span> which is tangent to the graph of <span class="process-math">\(f\)</span> at the point <span class="process-math">\((\mb{a}, f(\mb{a})\text{.}\)</span> Let us see this in an example.</div>
+<details id="subsec-linear-approximation-scalar-5" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.2.13</span><span class="period">.</span><span class="space"> </span><span class="title">Linear approximation of scalar function I.</span>
+</h4></summary><article class="example example-like"><div class="para logical" id="subsec-linear-approximation-scalar-5-2-1">
+<div class="para">Suppose</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f (x,y) = x^2 + xy - y^2
+\end{equation*}
+</div>
+<div class="para">and we want to find the tangent plane to the graph of <span class="process-math">\(f(x,y)\)</span> at <span class="process-math">\((1, 2, -1)\text{.}\)</span> For this, we can compute the partials of <span class="process-math">\(f\)</span> to see</div>
+<div class="displaymath process-math" id="subsec-linear-approximation-scalar-5-2-1-5">
+\begin{align*}
+\pd{f}{x} \amp = 2x + y, \\
+\pd{f}{y} \amp = -2y + x. 
+\end{align*}
+</div>
+<div class="para">Evaluating them at <span class="process-math">\((1, 2)\)</span> gives</div>
+<div class="displaymath process-math" id="subsec-linear-approximation-scalar-5-2-1-7">
+\begin{align*}
+\left. \pd{f}{x} \right|_{(1,2)} \amp = 4, \\
+\left. \pd{f}{y} \right|_{(1,2)} \amp = -3. 
+\end{align*}
+</div>
+<div class="para">So we have an explicit form for our derivative (writing the vector <span class="process-math">\(\twovec{b_1}{b_2}\)</span> in row form)</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\tder{(1,2)}{f} \left({b_1, b_2} \right) = 4 b_1 - 3 b_2 .
+\end{equation*}
+</div>
+<div class="para">Thus the linear approximation <span class="process-math">\(L\)</span> to <span class="process-math">\(f\)</span> at <span class="process-math">\((1,2)\)</span> is precisely</div>
+<div class="displaymath process-math">
+\begin{equation*}
+L (x, y) = f(1,2) + \tder{(1,2)}{f} (x - 1, y - 2) = -1 + 4 (x - 1) - 3(y - 2) = 1 + 4x - 3y.
+\end{equation*}
+</div>
+<div class="para">As the graph of <span class="process-math">\(L\)</span> (which has equation <span class="process-math">\(z = L(x,y)\)</span>) is the equation for the tangent plane, we obtain</div>
+<div class="displaymath process-math">
+\begin{equation*}
+z = 1 + 4x - 3y
+\end{equation*}
+</div>
+<div class="para">or</div>
+<div class="displaymath process-math">
+\begin{equation*}
+4x - 3y - z = -1
+\end{equation*}
+</div>
+<div class="para">as the equation for the tangent plane.</div>
+</div></article></details><div class="para" id="subsec-linear-approximation-scalar-6">Another application of linear approximations is to compute approximations of functions near known values.</div>
+<details id="subsec-linear-approximation-scalar-7" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.2.14</span><span class="period">.</span><span class="space"> </span><span class="title">Linear approximation of scalar function II.</span>
+</h4></summary><article class="example example-like"><div class="para logical" id="subsec-linear-approximation-scalar-7-2-1">
+<div class="para">Suppose we wish to compute <span class="process-math">\(\sqrt{4.1} + \ln (1.2)\text{.}\)</span> To do this, we consider the function</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(x,y) = \sqrt{x} + \ln y
+\end{equation*}
+</div>
+<div class="para">and it’s linear approximation at <span class="process-math">\((4,1)\text{.}\)</span> We compute to see that</div>
+<div class="displaymath process-math" id="subsec-linear-approximation-scalar-7-2-1-4">
+\begin{align*}
+f(4,1) \amp = 2 , \\
+\pd{f}{x} \amp = \frac{1}{2\sqrt{x}}, \\
+\pd{f}{y} \amp = \frac{1}{y}. 
+\end{align*}
+</div>
+<div class="para">Evaluating them at <span class="process-math">\((4,1)\)</span> gives</div>
+<div class="displaymath process-math" id="subsec-linear-approximation-scalar-7-2-1-6">
+\begin{align*}
+\left. \pd{f}{x} \right|_{(4,1)} \amp = \frac{1}{4}, \\
+\left. \pd{f}{y} \right|_{(4,1)} \amp = 1. 
+\end{align*}
+</div>
+<div class="para">so that the linear approximation is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+L(x,y) = 2 + \frac{1}{4} (x - 4) + (y - 1).
+\end{equation*}
+</div>
+<div class="para">Evaluating gives</div>
+<div class="displaymath process-math">
+\begin{equation*}
+L(4.1, 1.2) = 2 + \frac{1}{4} \frac{1}{10} + \frac{2}{10} = 2.225 
+\end{equation*}
+</div>
+<div class="para">and we conclude that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\sqrt{4.1} + \ln (1.2) \approx 2.225 .
+\end{equation*}
+</div>
+<div class="para">In fact, the value is closer to <span class="process-math">\(2.20716...\text{,}\)</span> but this approximation is definitely a step up from the first guess of <span class="process-math">\(2\text{.}\)</span>
+</div>
+</div></article></details></section><section class="subsection" id="subsec-Jacobian"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.2.4</span><span class="space"> </span><span class="title">The Jacobian matrix</span>
+</h3>
+<div class="para" id="subsec-Jacobian-2">The following theorem’s proof can be found in a standard analysis book, but quite easily follows from <a href="" class="xref" data-knowl="./knowl/xref/thm-differentiable.html" title="Theorem 1.2.11">Theorem 1.2.11</a>.</div>
+<article class="theorem theorem-like" id="thm-Jacobianmatrix"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">1.2.15</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="thm-Jacobianmatrix-1-1">
+<div class="para">Let <span class="process-math">\(U \subset \mathbb{R}^m\)</span> and <span class="process-math">\(\mb{F} : U \to \mathbb{R}^n\)</span> a function which in coordinates is given by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{F} (x_1, \ldots, x_m) = \threevec{f_1 (x_1, \ldots, x_m)}{\vdots}{f_n (x_1, \ldots,x_m)}. 
+\end{equation*}
+</div>
+<div class="para">If the partial derivatives <span class="process-math">\(\pd{f_i}{x_j}\)</span> are defined and continuous in <span class="process-math">\(U\)</span> then <span class="process-math">\(\mb{F}\)</span> is differentiable and</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\tder{\mb{a}}{\mb{F}} \left( \left[ \begin{matrix} b_1 \\ b_2 \\ \vdots \\ b_m \end{matrix} \right] \right) = \left[ \begin{matrix} \pd{f_1}{x_1} \amp \pd{f_1}{x_2} \amp \cdots \amp \pd{f_1}{x_m} \\[2pt] \pd{f_2}{x_1} \amp \pd{f_2}{x_2} \amp \cdots \amp \pd{f_2}{x_m} \\ \vdots \amp \vdots \amp \amp \vdots \\ \pd{f_n}{x_1} \amp \pd{f_n}{x_2} \amp \cdots \amp \pd{f_n}{x_m} \end{matrix} \right] \left[ \begin{matrix} b_1 \\ b_2 \\ \vdots \\ b_m \end{matrix} \right].
+\end{equation*}
+</div>
+<div class="para">The matrix on the right is called the <dfn class="terminology">Jacobian matrix</dfn> of <span class="process-math">\(\mb{F}\text{.}\)</span>
+</div>
+</div></article><div class="para" id="subsec-Jacobian-4">
+<a href="" class="xref" data-knowl="./knowl/xref/thm-Jacobianmatrix.html" title="Theorem 1.2.15">Theorem 1.2.15</a> is unfortunately rarely given in a multivariable calculus course, but gives us a concrete computational way to find derivatives of the most general types of vector valued functions. We will use the Jacobian matrix frequently, as it plays quite nicely with many important theorems and techniques. For now, we will be satisfied with the fact that we can compute derivatives and give a couple examples.</div>
+<details id="subsec-Jacobian-5" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.2.16</span><span class="period">.</span><span class="space"> </span><span class="title">Jacobian of a linear transformation.</span>
+</h4></summary><article class="example example-like"><div class="para logical" id="subsec-Jacobian-5-2-1">
+<div class="para">If <span class="process-math">\(A\)</span> is an <span class="process-math">\(n \times m\)</span> matrix with entries <span class="process-math">\((a_{ij} )\)</span> and <span class="process-math">\(T_A : \mathbb{R}^m \to \mathbb{R}^n\)</span> is obtained by multiplication of a column vector on the left by <span class="process-math">\(A\text{,}\)</span> then one can see that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+T_A \left( \threevec{x_1}{\vdots}{x_m} \right) = \threevec{a_{11} x_1 + a_{12} x_2 + \cdots + a_{1m} x_m}{\vdots}{a_{n1} x_1 + a_{n2} x_2 + \cdots + a_{nm} x_m}.
+\end{equation*}
+</div>
+<div class="para">Thus the <span class="process-math">\(i\)</span>-th coordinate function of <span class="process-math">\(T_A\)</span> is <span class="process-math">\(f_i = a_{i1} x_1 + a_{i2} x_2 + \cdots + a_{im} x_m\)</span> and the partial derivative is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\pd{f_i}{x_j} = a_{ij}.
+\end{equation*}
+</div>
+<div class="para">These are all constant functions and thus continuous implying that <span class="process-math">\(T_A\)</span> is differentiable. Furthermore, the Jacobian matrix in this case is just <span class="process-math">\(A\)</span> itself and we see that <span class="process-math">\(d T_A = T_A\text{.}\)</span> This is saying that the derivative of a linear transformation is constant and equals that linear transformation... which makes sense if you ask ‘what is the linear approximation to a linear function?’.</div>
+</div></article></details><details id="subsec-Jacobian-6" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.2.17</span><span class="period">.</span><span class="space"> </span><span class="title">Jacobian of a function of a complex variable.</span>
+</h4></summary><article class="example example-like"><div class="para logical" id="subsec-Jacobian-6-2-1">
+<div class="para">Consider the function <span class="process-math">\(\mb{f} : \mathbb{C} \to \mathbb{C}\)</span> given by <span class="process-math">\(\mb{f} (z) = e^z\text{.}\)</span> If we identify <span class="process-math">\(\mathbb{C}\)</span> with <span class="process-math">\(\mathbb{R}^2\)</span> and <span class="process-math">\(z\)</span> with <span class="process-math">\(x + iy\text{,}\)</span> this function can be written</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{f} (x,y) = e^x \cos y + i e^x \sin y = u(x,y) + i v(x,y).
+\end{equation*}
+</div>
+<div class="para">Taking partials gives</div>
+<div class="displaymath process-math" id="subsec-Jacobian-6-2-1-8">
+\begin{gather*}
+\pd{u}{x} = e^x \cos y = \pd{v}{y}, \\
+\pd{u}{y} = -e^x \sin y = - \pd{v}{x}. 
+\end{gather*}
+</div>
+<div class="para">These equations (without the middle terms) are known as the Cauchy-Riemann equations and tell us that <span class="process-math">\(\mb{f}\)</span> is what is known as a holomorphic function. Regardless, we can see that in fact all partial derivatives are continuous everywhere so <span class="process-math">\(\mb{f}\)</span> is differentiable with Jacobian matrix</div>
+<div class="displaymath process-math">
+\begin{equation*}
+d \mb{f} = \left[ \begin{matrix}  e^x \cos y \amp  - e^x \sin y \\  e^x \sin y \amp  e^x \cos y \end{matrix} \right].
+\end{equation*}
+</div>
+<div class="para">Finally, note that multiplication by this matrix is the same as complex multiplication by <span class="process-math">\(e^z\)</span> (having identified <span class="process-math">\(\mathbb{R}^2\)</span> with <span class="process-math">\(\mathbb{C}\)</span>). This can be rephrased in complex analysis as saying that the derivative of <span class="process-math">\(e^z\)</span> is <span class="process-math">\(e^z\text{.}\)</span>
+</div>
+</div></article></details></section><section class="exercises" id="exe-derivative"><h3 class="heading hide-type">
+<span class="type">Exercises</span><span class="space"> </span><span class="codenumber">1.2.5</span><span class="space"> </span><span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="exe-derivative-1"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<div class="para" id="exe-derivative-1-1-1">For the case of <span class="process-math">\(m = 1 = n\text{,}\)</span> <span class="process-math">\(\mb{F} (\mb{x}) = f(x)\text{,}\)</span> explain why <a href="" class="xref" data-knowl="./knowl/xref/def-derivative.html" title="Definition 1.2.1">Definition 1.2.1</a> is the same as the usual definition of the derivative.</div></article><article class="exercise exercise-like" id="exe-derivative-2"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<div class="para" id="exe-derivative-2-1-1">The function <span class="process-math">\(h (x,y) = 4 e^{-x^2 - y^2}\)</span> denotes the altitude of a point on a map given in Cartesian coordinates. If you are at the point <span class="process-math">\((1,1)\)</span> moving at unit speed in the north east direction, calculate the rate at which your altitude is changing.</div></article><article class="exercise exercise-like" id="exe-derivative-3"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
+<div class="para" id="exe-derivative-3-1-1">The function <span class="process-math">\(T (x,y, z) = x y z - x^2\)</span> denotes the temperature at a point in three space. If you are at the point <span class="process-math">\((0, 1,-1)\)</span> moving at unit speed towards <span class="process-math">\(\tangthree{1}{-1}{1}\text{,}\)</span> calculate the rate at which the temperature is changing.</div></article><article class="exercise exercise-like" id="exe-derivative-4"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
+<div class="para logical" id="exe-derivative-4-1-1">
+<div class="para">Let <span class="process-math">\(\mb{v} = \tangtwo{-1}{2} \)</span> and compute the directional derivative <span class="process-math">\(D_\mb{v} f\)</span> for</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f (x, y) = x + e^{xy}.
+\end{equation*}
+</div>
+</div></article><article class="exercise exercise-like" id="exe-derivative-5"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
+<div class="para" id="exe-derivative-5-1-1">Let <span class="process-math">\(\mb{v}\)</span> be a vector in the inner product space <span class="process-math">\(V\)</span> with pairing <span class="process-math">\(\langle , \rangle\)</span> and <span class="process-math">\(\mb{u}\)</span> some other vector. What is <span class="process-math">\(D_{\mb{v}} N (\mb{u})\)</span> where <span class="process-math">\(N (\mb{u} ) = \| \mb{u} \|^2\text{?}\)</span> (Express your answer without choosing a basis.)</div></article><article class="exercise exercise-like" id="exe-derivative-6"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
+<div class="introduction" id="exe-derivative-6-1"><div class="para" id="exe-derivative-6-1-1">Compute the following partial derivatives.</div></div>
+<article class="task exercise-like" id="exe-derivative-6-2"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="para" id="exe-derivative-6-2-1-1">
+<span class="process-math">\(\pd{f}{x}\)</span> and <span class="process-math">\(\pd{f}{y}\)</span> for <span class="process-math">\(f(x,y) = \ln (x + y^3) - x^2 y\text{.}\)</span>
+</div></article><article class="task exercise-like" id="exe-derivative-6-3"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para" id="exe-derivative-6-3-1-1">
+<span class="process-math">\(\pd{f}{x}\)</span> and <span class="process-math">\(\pd{f}{z}\)</span> for <span class="process-math">\(f(x,y,z) = xe^{xyz}\text{.}\)</span>
+</div></article><article class="task exercise-like" id="exe-derivative-6-4"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<div class="para" id="exe-derivative-6-4-1-1">
+<span class="process-math">\(\pd{f}{x_2}\)</span> for <span class="process-math">\(f(x_1,x_2, \ldots, x_n) = (x_1 + x_2 + x_3 + \cdots x_n)^5\text{.}\)</span>
+</div></article></article><article class="exercise exercise-like" id="exercise-notdiff"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
+<div class="introduction" id="exercise-notdiff-1"><div class="para logical" id="exercise-notdiff-1-1">
+<div class="para">Consider the function</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(x,y) = \frac{xy}{\sqrt{x^2 + y^2}}
+\end{equation*}
+</div>
+<div class="para">and define <span class="process-math">\(f(0,0)\)</span> to equal <span class="process-math">\(0\text{.}\)</span>
+</div>
+</div></div>
+<article class="task exercise-like" id="exercise-notdiff-2"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="para" id="exercise-notdiff-2-1-1">Show that <span class="process-math">\(f\)</span> is continuous at <span class="process-math">\((0,0)\text{.}\)</span>
+</div></article><article class="task exercise-like" id="exercise-notdiff-3"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para" id="exercise-notdiff-3-1-1">Show that <span class="process-math">\(\pd{f}{x}\)</span> and <span class="process-math">\(\pd{f}{y}\)</span> are both well defined everywhere (in particular they are well defined at <span class="process-math">\((0,0)\)</span>).</div></article><article class="task exercise-like" id="exercise-notdiff-4"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<div class="para" id="exercise-notdiff-4-1-1">Prove that <span class="process-math">\(f\)</span> is not differentiable at <span class="process-math">\((0,0)\text{.}\)</span>
+</div></article><div class="conclusion" id="exercise-notdiff-5">This example shows that the existence of partial derivatives is <em class="emphasis">not</em> sufficient for a function to be differentiable.</div></article><article class="exercise exercise-like" id="exe-derivative-8"><h4 class="heading"><span class="codenumber">8<span class="period">.</span></span></h4>
+<div class="para" id="exe-derivative-8-1-1">Find the linear approximation for the function <span class="process-math">\(\sin (x ) \cos (y)\)</span> and and estimate the value <span class="process-math">\(\sin (.05) \cos (.01)\text{.}\)</span>
+</div></article><article class="exercise exercise-like" id="exercise-polarjacobian"><h4 class="heading"><span class="codenumber">9<span class="period">.</span></span></h4>
+<div class="para logical" id="exercise-polarjacobian-1-1">
+<div class="para">Consider the change of coordinates from polar to Cartesian. This is given by the function</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{F} (r, \theta ) = \twovec{r \cos \theta}{r \sin \theta}. 
+\end{equation*}
+</div>
+<div class="para">Compute the Jacobian matrix of <span class="process-math">\(\mb{F}\text{.}\)</span>
+</div>
+</div></article><article class="exercise exercise-like" id="exe-derivative-10"><h4 class="heading"><span class="codenumber">10<span class="period">.</span></span></h4>
+<div class="para logical" id="exe-derivative-10-1-1">
+<div class="para">Consider the change of coordinates from spherical to Cartesian. This is given by the function</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{F} (\rho, \theta, \phi ) = \threevec{\rho \cos \theta \sin \phi}{\rho \sin \theta \sin \phi}{\rho \cos \phi} . 
+\end{equation*}
+</div>
+<div class="para">Compute the Jacobian matrix of <span class="process-math">\(\mb{F}\text{.}\)</span>
+</div>
+</div></article></section></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="sec-limit.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-chainrule.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>
+</body>
+</html>

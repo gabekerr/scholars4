@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Integrating forms</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Mathematical Scholars Calculus 4">
+<meta property="book:author" content="Gabriel Kerr">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "https://pretextbook.org/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.33/pretext_search.js"></script><link href="https://pretextbook.org/css/0.83/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.33</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.33/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.33/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.33/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+<link href="https://pretextbook.org/css/0.83/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
+<h1 class="heading"><a href="ms-calculus-3.html"><span class="title">Mathematical Scholars Calculus 4</span></a></h1>
+<p class="byline">Gabriel Kerr</p>
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="ch-integral-of-forms.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-integral-of-forms.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-scalarintegrals.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\diff}{\text{d}}
+\newcommand{\mb}[1]{\mathbf{#1}}
+\newcommand{\coord}[2]{[#1]^{#2}}
+\newcommand{\chart}[2]{[#1]_{#2}}
+\newcommand{\twovec}[2]{\left[ \begin{matrix} #1 \\ #2 \end{matrix} \right]}
+\newcommand{\threevec}[3]{\left[ \begin{matrix} #1 \\ #2 \\ #3 \end{matrix} \right]}
+\newcommand{\tangtwo}[2]{\left[ \begin{matrix} #1 \amp #2 \end{matrix} \right]}
+\newcommand{\tangthree}[3]{\left[ \begin{matrix} #1 \amp #2 \amp #3 \end{matrix} \right]}
+\newcommand{\im}{{\text{im}}}
+\newcommand{\cob}[3]{[#1]^{#3}_{#2}}
+\newcommand{\rk}{\text{rank}}
+\newcommand{\nullity}{\text{nullity}}
+\newcommand{\tder}[2]{d_{#1} {#2}}
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\ball}[2]{\text{B}_{#1} ( #2 )}
+\newcommand{\cball}[2]{\overline{\text{B}}_{#1} ( #2 )}
+\newcommand{\hball}[1]{\overline{\text{HB}}_{#1}}
+\newcommand{\vol}{\,\text{vol}}
+\newcommand{\orient}{\,\text{or}}
+\newcommand{\pball}[2]{\text{B}^*_{#1} ( #2 )}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural contains-active toc-item-list">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-differential-calculus.html" class="internal"><span class="codenumber">1</span> <span class="title">Differential Calculus in Several Variables</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-limit.html" class="internal"><span class="codenumber">1.1</span> <span class="title">The limit</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-limit.html#exe-limit" class="internal"><span class="codenumber">1.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-derivative.html" class="internal"><span class="codenumber">1.2</span> <span class="title">The derivative</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivative.html#subsec-directional-derivative" class="internal"><span class="codenumber">1.2.1</span> <span class="title">Directional and partial derivatives</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivative.html#subsec-derivatives-scalar" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Derivatives of scalar functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivative.html#subsec-linear-approximation-scalar" class="internal"><span class="codenumber">1.2.3</span> <span class="title">Linear approximation of scalar functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivative.html#subsec-Jacobian" class="internal"><span class="codenumber">1.2.4</span> <span class="title">The Jacobian matrix</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-derivative.html#exe-derivative" class="internal"><span class="codenumber">1.2.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-chainrule.html" class="internal"><span class="codenumber">1.3</span> <span class="title">The chain rule and tangent spaces</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-chainrule.html#subsec-computational" class="internal"><span class="codenumber">1.3.1</span> <span class="title">Computational considerations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-chainrule.html#subsec-tangent-spaces" class="internal"><span class="codenumber">1.3.2</span> <span class="title">Tangent spaces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-chainrule.html#subsec-subspaces" class="internal"><span class="codenumber">1.3.3</span> <span class="title">Level sets and their tangent spaces</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-chainrule.html#exe-chainrule" class="internal"><span class="codenumber">1.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-gradient.html" class="internal"><span class="codenumber">1.4</span> <span class="title">The gradient</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-gradient.html#subsec-metric-geometry" class="internal"><span class="codenumber">1.4.1</span> <span class="title">Metric geometry</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-gradient.html#subsec-steepest-ascent" class="internal"><span class="codenumber">1.4.2</span> <span class="title">Steepest ascent</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-gradient.html#exe-gradient" class="internal"><span class="codenumber">1.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-critical.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Critical points</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-critical.html#subsec-local-extrema" class="internal"><span class="codenumber">1.5.1</span> <span class="title">Local extrema</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-critical.html#sec-second-derivative-test" class="internal"><span class="codenumber">1.5.2</span> <span class="title">Second derivative test</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-critical.html#subsec-Morse" class="internal"><span class="codenumber">1.5.3</span> <span class="title">The Morse Lemma</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-critical.html#exe-critical" class="internal"><span class="codenumber">1.5.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-optimization1.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Optimization without constraints</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-optimization1.html#subsec-global-extrema" class="internal"><span class="codenumber">1.6.1</span> <span class="title">Global extrema</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-optimization1.html#subsec-least-squares" class="internal"><span class="codenumber">1.6.2</span> <span class="title">Least Squares</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-optimization1.html#subsec-gradient-descent" class="internal"><span class="codenumber">1.6.3</span> <span class="title">Gradient descent</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-optimization1.html#exe-optimization1" class="internal"><span class="codenumber">1.6.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-optimization2.html" class="internal"><span class="codenumber">1.7</span> <span class="title">Optimization with constraints</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-optimization2.html#subsec-single-constraint" class="internal"><span class="codenumber">1.7.1</span> <span class="title">Single constraint</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-optimization2.html#subsec-many-constraints" class="internal"><span class="codenumber">1.7.2</span> <span class="title">Several constraints</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-optimization2.html#exe-optimization2" class="internal"><span class="codenumber">1.7.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-differential-forms.html" class="internal"><span class="codenumber">2</span> <span class="title">Differential Forms</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exterior.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Exterior algebras</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-exterior.html#subsec-exterior-product" class="internal"><span class="codenumber">2.1.1</span> <span class="title">The exterior product</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-exterior.html#subsec-exterior-algebra-geometry" class="internal"><span class="codenumber">2.1.2</span> <span class="title">Geometry of exterior algebras</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-exterior.html#subsec-cross-product" class="internal"><span class="codenumber">2.1.3</span> <span class="title">The cross product</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exterior.html#exe-exterior" class="internal"><span class="codenumber">2.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li></ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-integral-calculus.html" class="internal"><span class="codenumber">3</span> <span class="title">Integral Calculus in Several Variables</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-cubeintegration.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Integrating over cubes in <span class="process-math">\(\mathbb{R}^n\)</span></span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-cubeintegration.html#exe-cubeintegration" class="internal"><span class="codenumber">3.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-compactintegration.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Integration over compact domains in <span class="process-math">\(\mathbb{R}^2\)</span></span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-compactintegration.html#exe-compactintegration" class="internal"><span class="codenumber">3.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-compactRnintegration.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Integration over compact domains in <span class="process-math">\(\mathbb{R}^n\)</span></span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-compactRnintegration.html#exe-compactRnintegration" class="internal"><span class="codenumber">3.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-cov.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Change of Variables</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-cov.html#subsec-polar-integration" class="internal"><span class="codenumber">3.4.1</span> <span class="title">Integration using polar coordinates</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-cov.html#exe-cov" class="internal"><span class="codenumber">3.4.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-integral-of-forms.html" class="internal"><span class="codenumber">4</span> <span class="title">Integrals of Forms</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section active">
+<div class="toc-title-box"><a href="sec-integrating-forms.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Integrating forms</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-integrating-forms.html#subsec-integrating-top-forms" class="internal"><span class="codenumber">4.1.1</span> <span class="title">Integrating top forms</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-integrating-forms.html#subsec-integrating-k-forms" class="internal"><span class="codenumber">4.1.2</span> <span class="title">Integrating <span class="process-math">\(k\)</span>-forms on oriented subspaces.</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-integrating-forms.html#exe-formintegration" class="internal"><span class="codenumber">4.1.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-scalarintegrals.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Scalar integrals</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-scalarintegrals.html#subsec-scalar-line-integrals" class="internal"><span class="codenumber">4.2.1</span> <span class="title">Scalar line integrals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-scalarintegrals.html#subsec-scalar-surface-integrals" class="internal"><span class="codenumber">4.2.2</span> <span class="title">Scalar surface integrals</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-scalarintegrals.html#exe-scalarintegrals" class="internal"><span class="codenumber">4.2.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-vectorintegrals.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Vector integrals</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-vectorintegrals.html#subsec-vector-line-integrals" class="internal"><span class="codenumber">4.3.1</span> <span class="title">Vector line integrals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-vectorintegrals.html#subsec-flux-integrals" class="internal"><span class="codenumber">4.3.2</span> <span class="title">Flux integrals</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-vectorintegrals.html#exe-vectorintegrals" class="internal"><span class="codenumber">4.3.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-stokes-theorem.html" class="internal"><span class="codenumber">5</span> <span class="title">Stokes’ Theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-derivatives.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Derivatives</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivatives.html#subsec-exterior-derivative" class="internal"><span class="codenumber">5.1.1</span> <span class="title">Exterior derivative</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivatives.html#subsec-gradient" class="internal"><span class="codenumber">5.1.2</span> <span class="title">Gradient</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivatives.html#subsec-curl" class="internal"><span class="codenumber">5.1.3</span> <span class="title">Curl</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivatives.html#subsec-2dcurl" class="internal"><span class="codenumber">5.1.4</span> <span class="title">Two dimensional curl</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivatives.html#subsec-divergence" class="internal"><span class="codenumber">5.1.5</span> <span class="title">Divergence</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-derivatives.html#exe-derivatives" class="internal"><span class="codenumber">5.1.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-stokes.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Stokes’ Theorem</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-stokes.html#exe-stokes" class="internal"><span class="codenumber">5.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-ftli.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Stokes’ Theorem on curves - The Fundamental Theorem of Line Integrals</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-ftli.html#exe-ftli" class="internal"><span class="codenumber">5.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-greens.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Stokes’ Theorem in dimension <span class="process-math">\(2\)</span> - Green’s Theorems</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-greens.html#exe-greens" class="internal"><span class="codenumber">5.4</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-classicalstokes.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Stokes’ Theorem in dimension <span class="process-math">\(3\)</span> - Classical Stokes’ and Divergence Theorems</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-classicalstokes.html#exe-classicalstokes" class="internal"><span class="codenumber">5.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-applications.html" class="internal"><span class="codenumber">5.6</span> <span class="title">Selected Applications</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-applications.html#subsec-maxwells-equations" class="internal"><span class="codenumber">5.6.1</span> <span class="title">Maxwell’s equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-applications.html#subsec-contour-integrals" class="internal"><span class="codenumber">5.6.2</span> <span class="title">Contour integrals</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-applications.html#exe-applications" class="internal"><span class="codenumber">5.6.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-partial-differential-equations.html" class="internal"><span class="codenumber">6</span> <span class="title">Partial Differential Equations</span></a></div></li>
+<li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-integrating-forms"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">4.1</span><span class="space"> </span><span class="title">Integrating forms</span>
+</h2>
+<section class="introduction" id="sec-integrating-forms-2"><div class="para logical" id="sec-integrating-forms-2-1">
+<div class="para">In this section, we consider changing both the integrand and the domain of integration to obtain an expression</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int_{D} \eta
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(D\)</span> is a <span class="process-math">\(k\)</span>-dimensional oriented domain in <span class="process-math">\(\mathbb{R}^m\)</span> and <span class="process-math">\(\eta\)</span> is a differential <span class="process-math">\(k\)</span>-form. To make sense of this, we proceed in steps.</div>
+</div></section><section class="subsection" id="subsec-integrating-top-forms"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">4.1.1</span><span class="space"> </span><span class="title">Integrating top forms</span>
+</h3>
+<div class="para" id="subsec-integrating-top-forms-2">Let <span class="process-math">\(D\)</span> be a domain in <span class="process-math">\(\mathbb{R}^m\)</span> which is the closure of an open set <span class="process-math">\(U\)</span> and has a smooth boundary (perhaps with some corners).</div>
+<article class="definition definition-like" id="def-orientation-form"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.1.1</span><span class="period">.</span>
+</h4> <div class="para" id="def-orientation-form-2-1">An <dfn class="terminology">orientation form</dfn> on <span class="process-math">\(D\)</span> is a nowhere vanishing differential <span class="process-math">\(m\)</span>-form <span class="process-math">\(\vol\)</span> for which <span class="process-math">\(\vol_p\)</span> is a unit vector in <span class="process-math">\(\wedge^m T^*_p \mathbb{R}^m\)</span> for each <span class="process-math">\(p \in D\text{.}\)</span> We say that <span class="process-math">\(D\)</span> is <dfn class="terminology">oriented</dfn> if it is equipped with an orientation form. If <span class="process-math">\(\eta\)</span> is any <span class="process-math">\(m\)</span>-form on <span class="process-math">\(D\)</span> then we say it is <dfn class="terminology">compatible with orientation</dfn> if <span class="process-math">\(\eta = f (x) \vol\)</span> for a strictly positive scalar function <span class="process-math">\(f(x)\text{.}\)</span>
+</div> <div class="para logical" id="def-orientation-form-2-2">
+<div class="para">The <dfn class="terminology">standard orientation</dfn> is the form</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\vol^{st} =   \tder{}{x_1} \wedge \cdots \wedge \tder{}{x_m}
+\end{equation*}
+</div>
+</div></article><div class="para" id="subsec-integrating-top-forms-4">The idea of an oriented domain in <span class="process-math">\(\mathbb{R}^m\)</span> is that we ignore the coordinates for a moment and imagine equipping the domain with its own orientation. The following result can be found in a topology course. To state it, we remind the student that a domain <span class="process-math">\(D\)</span> is <dfn class="terminology">connected</dfn> if, given any two open sets <span class="process-math">\(U\)</span> and <span class="process-math">\(V\)</span> for which <span class="process-math">\(D\)</span> is contained in <span class="process-math">\(U \cup V\text{,}\)</span> we must have that <span class="process-math">\(D\)</span> is contained in <span class="process-math">\(U\)</span> or <span class="process-math">\(D\)</span> is contained in <span class="process-math">\(V\text{.}\)</span>
+</div>
+<article class="proposition theorem-like" id="prop-orientation-open"><h4 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">4.1.2</span><span class="period">.</span>
+</h4>
+<div class="para" id="prop-orientation-open-1-1">If <span class="process-math">\(D\)</span> is open and connected and <span class="process-math">\(\vol\)</span> is an orientation form on <span class="process-math">\(D\)</span> then <span class="process-math">\(\vol = \pm \vol^{st}\text{.}\)</span>
+</div></article><div class="para logical" id="subsec-integrating-top-forms-6">
+<div class="para">Let’s digest this with <span class="process-math">\(m = 1\)</span> and replace <span class="process-math">\(\mathbb{R}^1\)</span> with <span class="process-math">\(V\text{.}\)</span> We could imagine an interval <span class="process-math">\(I\)</span> in <span class="process-math">\(V\)</span> and hope to find the integral</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int_I f
+\end{equation*}
+</div>
+<div class="para">for some function <span class="process-math">\(f\)</span> on <span class="process-math">\(I\text{.}\)</span> If <span class="process-math">\(F\)</span> is its anti-derivative, one could use the Fundamental Theorem of Calculus to get</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int_I f = F(b) - F(a)
+\end{equation*}
+</div>
+<div class="para">But of course this means we have <span class="process-math">\(I = [a, b]\)</span> and in a sense, have oriented <span class="process-math">\(I\text{.}\)</span> If we chose an opposite orientation, then we may obtain the opposite answer</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int_I f = F(a) - F(b).
+\end{equation*}
+</div>
+<div class="para">Indeed, we now can make a general definition.</div>
+</div>
+<article class="definition definition-like" id="def-pullback"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.1.3</span><span class="period">.</span>
+</h4> <div class="para logical" id="def-pullback-2-1">
+<div class="para">Suppose <span class="process-math">\((D, \vol)\)</span> is an oriented domain in <span class="process-math">\(\mathbb{R}^m\)</span> and <span class="process-math">\(\eta\)</span> a differential <span class="process-math">\(m\)</span>-form on <span class="process-math">\(D\text{.}\)</span> Then there is a scalar function <span class="process-math">\(f(x)\)</span> on <span class="process-math">\(D\)</span> for which</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\eta = f(x) \vol.
+\end{equation*}
+</div>
+<div class="para">Let</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int_D \eta = \idotsint_D f(x_1, \ldots, x_n) \tder{}{V}.
+\end{equation*}
+</div>
+</div></article><div class="para" id="subsec-integrating-top-forms-8">If we omit the orientation, we assume that <span class="process-math">\(D \subseteq \mathbb{R}^m\)</span> has the standard orientation.</div>
+<div class="para" id="subsec-integrating-top-forms-9">Now, why do we consider this definition when it seems to just be a repeat of the prior definitions with a lot more vocabulary? The answer is manifold (pun), but one precise answer comes from considering how to transform differential forms.</div>
+<article class="definition definition-like" id="def-integration-top-form"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.1.4</span><span class="period">.</span>
+</h4> <div class="para logical" id="def-integration-top-form-2-1">
+<div class="para">Let <span class="process-math">\(D\)</span> be a domain in <span class="process-math">\(\mathbb{R}^m\)</span> with coordinates <span class="process-math">\((u_1, \ldots, u_m)\)</span> and <span class="process-math">\(E\)</span> a domain in <span class="process-math">\(\mathbb{R}^n\)</span> with coordinates <span class="process-math">\((x_1, \ldots, x_n)\text{.}\)</span> If <span class="process-math">\(\mb{G} : D \to E\)</span> is a differential function given by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{G} (u_1, \ldots, u_m) = (x_1 (u_1, \ldots, u_m), \ldots, x_n(u_1, \ldots, u_m))
+\end{equation*}
+</div>
+<div class="para">and</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\eta = \sum_{i_1 \lt \cdots \lt i_k} f_{i_1, \ldots, i_k} (x_1, \ldots, x_n)\, \tder{}{x_{i_1}} \wedge \cdots \wedge \tder{}{x_{i_k}}
+\end{equation*}
+</div>
+<div class="para">is a differential <span class="process-math">\(k\)</span>-form on <span class="process-math">\(E\)</span> then the <dfn class="terminology">pullback</dfn> of <span class="process-math">\(\eta\)</span> to <span class="process-math">\(D\)</span> via <span class="process-math">\(\mb{G}\)</span> is the differential <span class="process-math">\(k\)</span>-form <span class="process-math">\(\mb{G}^* \eta\)</span> on <span class="process-math">\(E\)</span> given by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{G}^* \eta = \sum_{i_1 \lt \cdots \lt i_k} (f_{i_1, \ldots, i_k}\circ \mb{G}) (u_1, \ldots, u_m) \,\mb{G}^* \tder{}{x_{i_1}} \wedge \cdots \mb{G}^* \tder{}{x_{i_k}}.
+\end{equation*}
+</div>
+<div class="para">Here <span class="process-math">\(\mb{G}^* \tder{}{x_i}\)</span> is just the exterior derivative <span class="process-math">\(\tder{}{x_i(u_1, \ldots, u_m)}\text{.}\)</span>
+</div>
+</div></article><details id="subsec-integrating-top-forms-11" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.1.5</span><span class="period">.</span><span class="space"> </span><span class="title">Integrating a form.</span>
+</h4></summary><article class="example example-like"><div class="para logical" id="subsec-integrating-top-forms-11-2-1">
+<div class="para">Suppose</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{G} (u,v) = (x(u,v) , y(u,v)) = (u^2 - v^2, 2uv)
+\end{equation*}
+</div>
+<div class="para">is defined taking <span class="process-math">\(D = \mathbb{R}^2\)</span> to <span class="process-math">\(E = \mathbb{R}^2\text{.}\)</span> Consider the <span class="process-math">\(1\)</span>-form</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\eta = x \tder{}{x} + y \tder{}{y}
+\end{equation*}
+</div>
+<div class="para">and the two form</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\vol^{st} = \tder{}{x} \wedge \tder{}{y}.
+\end{equation*}
+</div>
+<div class="para">We compute the pullbacks <span class="process-math">\(\mb{G}^* \eta\)</span> and <span class="process-math">\(\mb{G}^* \vol^{st}\text{.}\)</span> To do so, we first compute</div>
+<div class="displaymath process-math" id="subsec-integrating-top-forms-11-2-1-9">
+\begin{align*}
+\mb{G}^* \tder{}{x} = \tder{}{x(u,v)} \amp = 2 u \, \tder{}{u} - 2 v \, \tder{}{v}, \\
+\mb{G}^* \tder{}{y} = \tder{}{y(u,v)} \amp = 2 v\, \tder{}{u} + 2 u\, \tder{}{v}. 
+\end{align*}
+</div>
+<div class="para">Then</div>
+<div class="displaymath process-math" id="subsec-integrating-top-forms-11-2-1-10">
+\begin{gather*}
+\mb{G}^* \eta /amp = x(u,v)  \mb{G}^* \tder{}{x} + y (u,v)  \mb{G}^* \tder{}{y}, \\
+/amp = (u^2 - v^2) ( 2 u \,\tder{}{u} - 2 v \,\tder{}{v}) + 2uv (2 v\, \tder{}{u} + 2 u \,\tder{}{v}), \\
+/amp = 2 u (u^2 + v^2)\, \tder{}{u} + 2v ( u^2 + v^2 ) \,\tder{}{v}. 
+\end{gather*}
+</div>
+<div class="para">and</div>
+<div class="displaymath process-math" id="subsec-integrating-top-forms-11-2-1-11">
+\begin{gather*}
+\mb{G}^* \vol^{st} /amp = \mb{G}^* \tder{}{x} \wedge \mb{G}^* \tder{}{y},  \\
+/amp = (2 u\, \tder{}{u} - 2 v\, \tder{}{v}) \wedge (2 v\, \tder{}{u} + 2 u\, \tder{}{v}), \\
+/amp = 4 (u^2 + v^2) \, \tder{}{u} \wedge \tder{}{v}. 
+\end{gather*}
+</div>
+</div></article></details><article class="definition definition-like" id="def-orientation-preserving"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.1.6</span><span class="period">.</span>
+</h4> <div class="para" id="def-orientation-preserving-2-1">If <span class="process-math">\((D, \vol_D)\)</span> and <span class="process-math">\((E, \vol_E)\)</span> are oriented domains, and <span class="process-math">\(\mb{G} : D \to E\)</span> is a change of variables, we say that <span class="process-math">\(\mb{G}\)</span> <dfn class="terminology">preserves orientation</dfn> if <span class="process-math">\(\mb{G}^* \vol_E\)</span> is compatible with the orientation of <span class="process-math">\(D\text{.}\)</span>
+</div></article><div class="para" id="subsec-integrating-top-forms-13">With this in mind, we can write the differential form version of change of variables.</div>
+<article class="theorem theorem-like" id="thm-covdiff"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.1.7</span><span class="period">.</span><span class="space"> </span><span class="title">Chain Rule.</span>
+</h4>
+<div class="para logical" id="thm-covdiff-2-1">
+<div class="para">Suppose <span class="process-math">\(D\)</span> and <span class="process-math">\(E\)</span> are oriented domains in <span class="process-math">\(\mathbb{R}^m\text{.}\)</span> Let <span class="process-math">\(\mb{G} : D \to E\)</span> be a change of variables which preserves orientation and <span class="process-math">\(\eta\)</span> an <span class="process-math">\(m\)</span>-form on <span class="process-math">\(E\text{.}\)</span> Then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int_D \mb{G}^* \eta = \int_E \eta.
+\end{equation*}
+</div>
+</div></article><details id="thm-covdiff-3" class="hiddenproof born-hidden-knowl"><summary><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof">Exercise.</article></details><div class="para" id="subsec-integrating-top-forms-15">While it is certainly true that there is some mathematics buried within the notation of differential forms, orientations and pullbacks, the above form shows the drastic simplifying power of using forms to express complicated formulas. This, of course, is just the beginning of their utility.</div></section><section class="subsection" id="subsec-integrating-k-forms"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">4.1.2</span><span class="space"> </span><span class="title">Integrating <span class="process-math">\(k\)</span>-forms on oriented subspaces.</span>
+</h3>
+<div class="para" id="subsec-integrating-k-forms-2">Recall from <a href="" class="xref" data-knowl="./knowl/xref/def-smooth.html" title="Definition 1.7.2">Definition 1.7.2</a> that a smooth <span class="process-math">\(m\)</span>-dimensional subspace <span class="process-math">\(X\)</span> of <span class="process-math">\(\mathbb{R}^n\)</span> is any subspace with a parameterization <span class="process-math">\(\mb{G} : U \to X\)</span> near every point <span class="process-math">\(p\)</span> of <span class="process-math">\(X\text{.}\)</span> We will need to add orientations to such subspaces as a part of their package.</div>
+<article class="definition definition-like" id="def-orientation-subspace"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.1.8</span><span class="period">.</span>
+</h4> <div class="para" id="def-orientation-subspace-2-1">Suppose <span class="process-math">\(X\)</span> is a smooth <span class="process-math">\(m\)</span>-dimensional subspace of <span class="process-math">\(\mathbb{R}^n\text{.}\)</span> An <dfn class="terminology">orientation</dfn> on <span class="process-math">\(X\)</span> is a differential <span class="process-math">\(m\)</span>-form <span class="process-math">\(\orient^X\)</span> defined on a neighborhood of <span class="process-math">\(X\)</span> such that, for any local parameterization <span class="process-math">\(\mb{G}:U \to X\)</span> the pullback <span class="process-math">\(\mb{G}^* \orient^X\)</span> is nowhere zero on <span class="process-math">\(U\text{.}\)</span> Two orientations are equivalent if their pullbacks are compatible for any local parameterization. We say <span class="process-math">\((X, \orient^X)\)</span> is an <dfn class="terminology">oriented</dfn> smooth <span class="process-math">\(m\)</span>-dimensional subspace of <span class="process-math">\(\mathbb{R}^n\text{.}\)</span>
+</div></article><div class="para logical" id="subsec-integrating-k-forms-4">
+<div class="para">Some orientations are very familiar. To see this, we first need to use inner products to take vector fields to <span class="process-math">\(1\)</span>-forms. Suppose <span class="process-math">\(X\)</span> is a vector field in <span class="process-math">\(\mathbb{R}^n\text{.}\)</span> Define the dual differential <span class="process-math">\(1\)</span>-form <span class="process-math">\(X^\vee\)</span> to be the field of cotangent vectors <span class="process-math">\(X^\vee_p\)</span> which are defined by</div>
+<div class="displaymath process-math" id="eq-dualform">
+\begin{equation}
+X^\vee_p (Y) = X \cdot Y\tag{4.1.1}
+\end{equation}
+</div>
+<div class="para">for any tangent vector <span class="process-math">\(Y \in T_p \mathbb{R}^n\text{.}\)</span>
+</div>
+</div>
+<details id="subsec-integrating-k-forms-5" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.1.9</span><span class="period">.</span><span class="space"> </span><span class="title">Oriented curve.</span>
+</h4></summary><article class="example example-like"><div class="para" id="subsec-integrating-k-forms-5-2-1">If <span class="process-math">\(\mathcal{C}\)</span> is a connected curve, then an orientation on <span class="process-math">\(\mathcal{C}\)</span> is equivalent to a continuous choice of unit tangent vector of each point of <span class="process-math">\(\mathcal{C}\text{.}\)</span> One can think of this as a vector field <span class="process-math">\(X\)</span> along <span class="process-math">\(\mathcal{C}\text{.}\)</span> To obtain an orientation as given in <a href="" class="xref" data-knowl="./knowl/xref/def-orientation-subspace.html" title="Definition 4.1.8">Definition 4.1.8</a>, define the orientation form as the dual <span class="process-math">\(1\)</span>-form <span class="process-math">\(X^\vee\text{.}\)</span>
+</div></article></details><details id="ex-normalorientation" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.1.10</span><span class="period">.</span><span class="space"> </span><span class="title">Oriented surface.</span>
+</h4></summary><article class="example example-like"><div class="para" id="ex-normalorientation-2-1">If <span class="process-math">\(\mathcal{S}\)</span> is a surface in <span class="process-math">\(\mathbb{R}^3\text{,}\)</span> then one often defines an orientation on <span class="process-math">\(\mathcal{S}\)</span> as a continuous choice of unit normal vector <span class="process-math">\(\mb{N}_p\)</span> as <span class="process-math">\(p\)</span> varies in <span class="process-math">\(\mathcal{S}\text{.}\)</span> To get from this to <a href="" class="xref" data-knowl="./knowl/xref/def-orientation-subspace.html" title="Definition 4.1.8">Definition 4.1.8</a>, take the Hodge star operator of the dual <span class="process-math">\(1\)</span>-form <span class="process-math">\(\star (\mb{N}^\vee)\text{.}\)</span>
+</div></article></details><div class="para" id="subsec-integrating-k-forms-7">As it turns out, once the dimension of the space exceeds <span class="process-math">\(1\text{,}\)</span> there are examples of subspaces that are not orientable. The M\"obius strip is one such example in dimension <span class="process-math">\(2\text{.}\)</span> One reason for orienting a smooth subspace is that for such spaces we can integrate forms.</div>
+<article class="definition definition-like" id="def-intofform"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.1.11</span><span class="period">.</span>
+</h4> <div class="para logical" id="def-intofform-2-1">
+<div class="para">Let <span class="process-math">\((X, \orient^X)\)</span> be a smooth oriented <span class="process-math">\(m\)</span>-dimensional subspace of <span class="process-math">\(\mathbb{R}^n\)</span> compatibly parameterized by <span class="process-math">\(\mb{G} : D \to X\text{.}\)</span> If <span class="process-math">\(\eta\)</span> is an <span class="process-math">\(m\)</span>-form on a neighborhood of <span class="process-math">\(X\)</span> then define</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int_X \eta = \int_D \mb{G}^* \eta.
+\end{equation*}
+</div>
+</div></article><div class="para" id="subsec-integrating-k-forms-9">This definition makes sense because of the version of the chain rule.</div>
+<article class="lemma theorem-like" id="lem-chain-rule"><h4 class="heading">
+<span class="type">Lemma</span><span class="space"> </span><span class="codenumber">4.1.12</span><span class="period">.</span><span class="space"> </span><span class="title">Chain rule.</span>
+</h4>
+<div class="para logical" id="lem-chain-rule-2-1">
+<div class="para">Let <span class="process-math">\(D_1, D_2\)</span> and <span class="process-math">\(D_3\)</span> be domains in Euclidean spaces. Suppose <span class="process-math">\(\mb{G}_1 : D_1 \to D_2\)</span> and <span class="process-math">\(\mb{G}_2 : D_2 \to D_3\)</span> are differentiable functions and <span class="process-math">\(\eta\)</span> is a differentiable <span class="process-math">\(k\)</span>-form on <span class="process-math">\(D_3\text{,}\)</span> then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(G_2 \circ G_1)^* \eta = G_2^* (G_1^* \eta ).
+\end{equation*}
+</div>
+</div></article><details id="lem-chain-rule-3" class="hiddenproof born-hidden-knowl"><summary><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof"><div class="para" id="lem-chain-rule-3-1">Exercise.</div></article></details><div class="para logical" id="subsec-integrating-k-forms-11">
+<div class="para">This lemma ensures our definition makes sense because, if <span class="process-math">\(\tilde{\mb{G}} : \tilde{D} \to X\)</span> is another parameterization then we may compose with the inverse of <span class="process-math">\(\mb{G}\)</span> to get a change of variables <span class="process-math">\(\mb{F} := \tilde{\mb{G}} \circ \mb{G}^{-1} : \tilde{D} \to D\)</span> and, applying a change of variables we see</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int_{\tilde{D}} \tilde{\mb{G}}^* \eta = \int_{\tilde{D}} \tilde{\mb{G}}^* \left( (\mb{G}^{-1})^*  \left( \mb{G}^* \eta \right) \right) =  \int_{\tilde{D}} \left(\tilde{\mb{G}} \circ \mb{G}^{-1} \right)^* \left( \mb{G}^* \eta \right) = \int_D \mb{G}^* \eta. 
+\end{equation*}
+</div>
+<div class="para">Thus the quantity obtained is independent of the parameterization.</div>
+</div>
+<div class="para logical" id="subsec-integrating-k-forms-12">
+<div class="para">To extend <a href="" class="xref" data-knowl="./knowl/xref/def-intofform.html" title="Definition 4.1.11">Definition 4.1.11</a> to any smooth oriented <span class="process-math">\(m\)</span>-dimensional subspace (not just ones with a single parameterization), one must consider a finite cover <span class="process-math">\(V_1, \ldots, V_r\)</span> of <span class="process-math">\(X\)</span> by open sets and with compatibly oriented  parameterizations <span class="process-math">\(\mb{G}_i : U_i \to X\text{.}\)</span> Then we define what is known as a <dfn class="terminology">partition of unity</dfn> <span class="process-math">\(\{\rho_1, \ldots, \rho_r\}\)</span> subordinate to the cover which is a collection of non-negative scalar functions <span class="process-math">\(\rho_i\)</span> on <span class="process-math">\(X\text{.}\)</span> Each <span class="process-math">\(\rho_i\)</span> is only non-zero on <span class="process-math">\(V_i\)</span> and their sum <span class="process-math">\(\sum \rho_i = 1\)</span> is the constant function <span class="process-math">\(1\text{.}\)</span> With such a partition of unity in hand, we can define the integration of an <span class="process-math">\(m\)</span>-form on <span class="process-math">\(X\)</span> to be</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/def-intofform.html">
+\begin{equation*}
+\int_X \eta = \sum_{i = 1}^r \int_{U_i} \mb{G}_i^* (\rho_i \eta).
+\end{equation*}
+</div>
+<div class="para">We will revisit partitions of unity with a bit more detail when we prove the Generalized Stokes’ Theorem.</div>
+</div></section><section class="exercises" id="exe-formintegration"><h3 class="heading hide-type">
+<span class="type">Exercises</span><span class="space"> </span><span class="codenumber">4.1.3</span><span class="space"> </span><span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="exe-formintegration-1"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<div class="para logical" id="exe-formintegration-1-1-1">
+<div class="para">Write down four distinct orientations for the domain</div>
+<div class="displaymath process-math">
+\begin{equation*}
+D = \{ (x,y) : x \ne 0 \}.
+\end{equation*}
+</div>
+</div></article><article class="exercise exercise-like" id="exe-formintegration-2"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<div class="introduction" id="exe-formintegration-2-1"><div class="para" id="exe-formintegration-2-1-1">Using the change of coordinates <span class="process-math">\(\mb{G} (r, \theta) = (r \cos \theta, r \sin \theta)\text{,}\)</span> find the pullback forms :</div></div>
+<article class="task exercise-like" id="exe-formintegration-2-2"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="para" id="exe-formintegration-2-2-1-1"><span class="process-math">\(\mb{G}^* [(x^2 + y^2 )\tder{}{x} - y \tder{}{y} ]\text{,}\)</span></div></article><article class="task exercise-like" id="exe-formintegration-2-3"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para" id="exe-formintegration-2-3-1-1"><span class="process-math">\(\mb{G}^* \frac{\tder{}{x} \wedge \tder{}{y}}{\sqrt{x^2 + y^2}}\)</span></div></article></article><article class="exercise exercise-like" id="exe-formintegration-3"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
+<div class="para" id="exe-formintegration-3-1-1">Prove the differential form version of the change of variables <a href="" class="xref" data-knowl="./knowl/xref/thm-covdiff.html" title="Theorem 4.1.7: Chain Rule">Theorem 4.1.7</a>.</div></article><article class="exercise exercise-like" id="exe-formintegration-4"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
+<div class="para" id="exe-formintegration-4-1-1">Prove the claim in <a href="" class="xref" data-knowl="./knowl/xref/ex-normalorientation.html" title="Example 4.1.10: Oriented surface">Example 4.1.10</a> that <span class="process-math">\(\star (\mb{N}^\vee)\)</span> defines an orientation on a surface <span class="process-math">\(\mathcal{S}\)</span> in <span class="process-math">\(\mathbb{R}^3\)</span> if <span class="process-math">\(\mb{N}\)</span> is a continuously normal vector field to <span class="process-math">\(\mathcal{S}\text{.}\)</span>
+</div></article><article class="exercise exercise-like" id="exe-formintegration-5"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
+<div class="para" id="exe-formintegration-5-1-1">Prove the differential form version of the chain rule for <span class="process-math">\(1\)</span>-forms <span class="process-math">\(\eta\text{.}\)</span>
+</div></article><article class="exercise exercise-like" id="exe-formintegration-6"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
+<div class="introduction" id="exe-formintegration-6-1"><div class="para logical" id="exe-formintegration-6-1-1">
+<div class="para">Let <span class="process-math">\(\mathcal{C}\)</span> be the ellipse given by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+x^2 + \frac{y^2}{4} = 1
+\end{equation*}
+</div>
+<div class="para">oriented counterclockwise.</div>
+</div></div>
+<article class="task exercise-like" id="exe-formintegration-6-2"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="para" id="exe-formintegration-6-2-1-1">Give a compatibly oriented and non-compatibly oriented parameterization of <span class="process-math">\(\mathcal{C}\text{.}\)</span>
+</div></article><article class="task exercise-like" id="exe-formintegration-6-3"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para logical" id="exe-formintegration-6-3-1-1">
+<div class="para">For the one form <span class="process-math">\(\eta = y \, \tder{}{x}\text{,}\)</span> compute</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int_\mathcal{C} \eta.
+\end{equation*}
+</div>
+</div></article><article class="task exercise-like" id="exe-formintegration-6-4"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<div class="para logical" id="exe-formintegration-6-4-1-1">
+<div class="para">For the one form <span class="process-math">\(\tau = 4 x \, \tder{}{x} + y \tder{}{y}\text{,}\)</span> compute</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int_\mathcal{C} \tau.
+\end{equation*}
+</div>
+</div></article></article><article class="exercise exercise-like" id="exe-formintegration-7"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
+<div class="para logical" id="exe-formintegration-7-1-1">
+<div class="para">Let <span class="process-math">\(\mathcal{C}\)</span> be a straight line curve in <span class="process-math">\(\mathbb{R}^5\)</span>  from the origin to <span class="process-math">\((1, 2, 3, 4, 5)\text{.}\)</span> Compute</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int_{\mathcal{C}} x_1 \tder{}{x_1} + \frac{x_2}{4} \tder{}{x_2} + \frac{x_3}{9} \tder{}{x_3} + \frac{x_4}{16} \tder{}{x_4} + \frac{x_5}{25} \tder{}{x_5}.
+\end{equation*}
+</div>
+</div></article><article class="exercise exercise-like" id="exe-formintegration-8"><h4 class="heading"><span class="codenumber">8<span class="period">.</span></span></h4>
+<div class="introduction" id="exe-formintegration-8-1"><div class="para" id="exe-formintegration-8-1-1">Let <span class="process-math">\(\mathcal{S}\)</span> be the unit sphere in <span class="process-math">\(\mathbb{R}^3\)</span> oriented with outward normal.</div></div>
+<article class="task exercise-like" id="exe-formintegration-8-2"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="para" id="exe-formintegration-8-2-1-1">Give an example of a <span class="process-math">\(2\)</span>-form in <span class="process-math">\(\mathbb{R}^3\)</span> that induces an orientation on <span class="process-math">\(\mathcal{S}\text{.}\)</span>
+</div></article><article class="task exercise-like" id="exe-formintegration-8-3"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para logical" id="exe-formintegration-8-3-1-1">
+<div class="para">Compute the surface integral</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int_\mathcal{S} x \, \tder{}{y} \wedge \tder{}{z} - y \, \tder{}{x} \wedge \tder{}{z} + z \, \tder{}{x} \wedge \tder{}{y}.
+\end{equation*}
+</div>
+</div></article></article></section></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="ch-integral-of-forms.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-scalarintegrals.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>
+</body>
+</html>

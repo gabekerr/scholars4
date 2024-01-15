@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>The chain rule and tangent spaces</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Mathematical Scholars Calculus 4">
+<meta property="book:author" content="Gabriel Kerr">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "https://pretextbook.org/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.33/pretext_search.js"></script><link href="https://pretextbook.org/css/0.83/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.33</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.33/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.33/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.33/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+<link href="https://pretextbook.org/css/0.83/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
+<h1 class="heading"><a href="ms-calculus-3.html"><span class="title">Mathematical Scholars Calculus 4</span></a></h1>
+<p class="byline">Gabriel Kerr</p>
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="sec-derivative.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-differential-calculus.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-gradient.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\diff}{\text{d}}
+\newcommand{\mb}[1]{\mathbf{#1}}
+\newcommand{\coord}[2]{[#1]^{#2}}
+\newcommand{\chart}[2]{[#1]_{#2}}
+\newcommand{\twovec}[2]{\left[ \begin{matrix} #1 \\ #2 \end{matrix} \right]}
+\newcommand{\threevec}[3]{\left[ \begin{matrix} #1 \\ #2 \\ #3 \end{matrix} \right]}
+\newcommand{\tangtwo}[2]{\left[ \begin{matrix} #1 \amp #2 \end{matrix} \right]}
+\newcommand{\tangthree}[3]{\left[ \begin{matrix} #1 \amp #2 \amp #3 \end{matrix} \right]}
+\newcommand{\im}{{\text{im}}}
+\newcommand{\cob}[3]{[#1]^{#3}_{#2}}
+\newcommand{\rk}{\text{rank}}
+\newcommand{\nullity}{\text{nullity}}
+\newcommand{\tder}[2]{d_{#1} {#2}}
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\ball}[2]{\text{B}_{#1} ( #2 )}
+\newcommand{\cball}[2]{\overline{\text{B}}_{#1} ( #2 )}
+\newcommand{\hball}[1]{\overline{\text{HB}}_{#1}}
+\newcommand{\vol}{\,\text{vol}}
+\newcommand{\orient}{\,\text{or}}
+\newcommand{\pball}[2]{\text{B}^*_{#1} ( #2 )}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural contains-active toc-item-list">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-differential-calculus.html" class="internal"><span class="codenumber">1</span> <span class="title">Differential Calculus in Several Variables</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-limit.html" class="internal"><span class="codenumber">1.1</span> <span class="title">The limit</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-limit.html#exe-limit" class="internal"><span class="codenumber">1.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-derivative.html" class="internal"><span class="codenumber">1.2</span> <span class="title">The derivative</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivative.html#subsec-directional-derivative" class="internal"><span class="codenumber">1.2.1</span> <span class="title">Directional and partial derivatives</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivative.html#subsec-derivatives-scalar" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Derivatives of scalar functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivative.html#subsec-linear-approximation-scalar" class="internal"><span class="codenumber">1.2.3</span> <span class="title">Linear approximation of scalar functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivative.html#subsec-Jacobian" class="internal"><span class="codenumber">1.2.4</span> <span class="title">The Jacobian matrix</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-derivative.html#exe-derivative" class="internal"><span class="codenumber">1.2.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section active">
+<div class="toc-title-box"><a href="sec-chainrule.html" class="internal"><span class="codenumber">1.3</span> <span class="title">The chain rule and tangent spaces</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-chainrule.html#subsec-computational" class="internal"><span class="codenumber">1.3.1</span> <span class="title">Computational considerations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-chainrule.html#subsec-tangent-spaces" class="internal"><span class="codenumber">1.3.2</span> <span class="title">Tangent spaces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-chainrule.html#subsec-subspaces" class="internal"><span class="codenumber">1.3.3</span> <span class="title">Level sets and their tangent spaces</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-chainrule.html#exe-chainrule" class="internal"><span class="codenumber">1.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-gradient.html" class="internal"><span class="codenumber">1.4</span> <span class="title">The gradient</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-gradient.html#subsec-metric-geometry" class="internal"><span class="codenumber">1.4.1</span> <span class="title">Metric geometry</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-gradient.html#subsec-steepest-ascent" class="internal"><span class="codenumber">1.4.2</span> <span class="title">Steepest ascent</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-gradient.html#exe-gradient" class="internal"><span class="codenumber">1.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-critical.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Critical points</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-critical.html#subsec-local-extrema" class="internal"><span class="codenumber">1.5.1</span> <span class="title">Local extrema</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-critical.html#sec-second-derivative-test" class="internal"><span class="codenumber">1.5.2</span> <span class="title">Second derivative test</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-critical.html#subsec-Morse" class="internal"><span class="codenumber">1.5.3</span> <span class="title">The Morse Lemma</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-critical.html#exe-critical" class="internal"><span class="codenumber">1.5.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-optimization1.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Optimization without constraints</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-optimization1.html#subsec-global-extrema" class="internal"><span class="codenumber">1.6.1</span> <span class="title">Global extrema</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-optimization1.html#subsec-least-squares" class="internal"><span class="codenumber">1.6.2</span> <span class="title">Least Squares</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-optimization1.html#subsec-gradient-descent" class="internal"><span class="codenumber">1.6.3</span> <span class="title">Gradient descent</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-optimization1.html#exe-optimization1" class="internal"><span class="codenumber">1.6.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-optimization2.html" class="internal"><span class="codenumber">1.7</span> <span class="title">Optimization with constraints</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-optimization2.html#subsec-single-constraint" class="internal"><span class="codenumber">1.7.1</span> <span class="title">Single constraint</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-optimization2.html#subsec-many-constraints" class="internal"><span class="codenumber">1.7.2</span> <span class="title">Several constraints</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-optimization2.html#exe-optimization2" class="internal"><span class="codenumber">1.7.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-differential-forms.html" class="internal"><span class="codenumber">2</span> <span class="title">Differential Forms</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exterior.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Exterior algebras</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-exterior.html#subsec-exterior-product" class="internal"><span class="codenumber">2.1.1</span> <span class="title">The exterior product</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-exterior.html#subsec-exterior-algebra-geometry" class="internal"><span class="codenumber">2.1.2</span> <span class="title">Geometry of exterior algebras</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-exterior.html#subsec-cross-product" class="internal"><span class="codenumber">2.1.3</span> <span class="title">The cross product</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exterior.html#exe-exterior" class="internal"><span class="codenumber">2.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li></ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-integral-calculus.html" class="internal"><span class="codenumber">3</span> <span class="title">Integral Calculus in Several Variables</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-cubeintegration.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Integrating over cubes in <span class="process-math">\(\mathbb{R}^n\)</span></span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-cubeintegration.html#exe-cubeintegration" class="internal"><span class="codenumber">3.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-compactintegration.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Integration over compact domains in <span class="process-math">\(\mathbb{R}^2\)</span></span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-compactintegration.html#exe-compactintegration" class="internal"><span class="codenumber">3.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-compactRnintegration.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Integration over compact domains in <span class="process-math">\(\mathbb{R}^n\)</span></span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-compactRnintegration.html#exe-compactRnintegration" class="internal"><span class="codenumber">3.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-cov.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Change of Variables</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-cov.html#subsec-polar-integration" class="internal"><span class="codenumber">3.4.1</span> <span class="title">Integration using polar coordinates</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-cov.html#exe-cov" class="internal"><span class="codenumber">3.4.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-integral-of-forms.html" class="internal"><span class="codenumber">4</span> <span class="title">Integrals of Forms</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-integrating-forms.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Integrating forms</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-integrating-forms.html#subsec-integrating-top-forms" class="internal"><span class="codenumber">4.1.1</span> <span class="title">Integrating top forms</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-integrating-forms.html#subsec-integrating-k-forms" class="internal"><span class="codenumber">4.1.2</span> <span class="title">Integrating <span class="process-math">\(k\)</span>-forms on oriented subspaces.</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-integrating-forms.html#exe-formintegration" class="internal"><span class="codenumber">4.1.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-scalarintegrals.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Scalar integrals</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-scalarintegrals.html#subsec-scalar-line-integrals" class="internal"><span class="codenumber">4.2.1</span> <span class="title">Scalar line integrals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-scalarintegrals.html#subsec-scalar-surface-integrals" class="internal"><span class="codenumber">4.2.2</span> <span class="title">Scalar surface integrals</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-scalarintegrals.html#exe-scalarintegrals" class="internal"><span class="codenumber">4.2.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-vectorintegrals.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Vector integrals</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-vectorintegrals.html#subsec-vector-line-integrals" class="internal"><span class="codenumber">4.3.1</span> <span class="title">Vector line integrals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-vectorintegrals.html#subsec-flux-integrals" class="internal"><span class="codenumber">4.3.2</span> <span class="title">Flux integrals</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-vectorintegrals.html#exe-vectorintegrals" class="internal"><span class="codenumber">4.3.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-stokes-theorem.html" class="internal"><span class="codenumber">5</span> <span class="title">Stokes’ Theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-derivatives.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Derivatives</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivatives.html#subsec-exterior-derivative" class="internal"><span class="codenumber">5.1.1</span> <span class="title">Exterior derivative</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivatives.html#subsec-gradient" class="internal"><span class="codenumber">5.1.2</span> <span class="title">Gradient</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivatives.html#subsec-curl" class="internal"><span class="codenumber">5.1.3</span> <span class="title">Curl</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivatives.html#subsec-2dcurl" class="internal"><span class="codenumber">5.1.4</span> <span class="title">Two dimensional curl</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivatives.html#subsec-divergence" class="internal"><span class="codenumber">5.1.5</span> <span class="title">Divergence</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-derivatives.html#exe-derivatives" class="internal"><span class="codenumber">5.1.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-stokes.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Stokes’ Theorem</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-stokes.html#exe-stokes" class="internal"><span class="codenumber">5.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-ftli.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Stokes’ Theorem on curves - The Fundamental Theorem of Line Integrals</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-ftli.html#exe-ftli" class="internal"><span class="codenumber">5.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-greens.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Stokes’ Theorem in dimension <span class="process-math">\(2\)</span> - Green’s Theorems</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-greens.html#exe-greens" class="internal"><span class="codenumber">5.4</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-classicalstokes.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Stokes’ Theorem in dimension <span class="process-math">\(3\)</span> - Classical Stokes’ and Divergence Theorems</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-classicalstokes.html#exe-classicalstokes" class="internal"><span class="codenumber">5.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-applications.html" class="internal"><span class="codenumber">5.6</span> <span class="title">Selected Applications</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-applications.html#subsec-maxwells-equations" class="internal"><span class="codenumber">5.6.1</span> <span class="title">Maxwell’s equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-applications.html#subsec-contour-integrals" class="internal"><span class="codenumber">5.6.2</span> <span class="title">Contour integrals</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-applications.html#exe-applications" class="internal"><span class="codenumber">5.6.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-partial-differential-equations.html" class="internal"><span class="codenumber">6</span> <span class="title">Partial Differential Equations</span></a></div></li>
+<li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-chainrule"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">1.3</span><span class="space"> </span><span class="title">The chain rule and tangent spaces</span>
+</h2>
+<section class="introduction" id="sec-chainrule-2"><div class="para" id="sec-chainrule-2-1">One of the most important ways one can manipulate a function is by composing it with another function. Indeed, one example of this is changing coordinates from one system to another and we will examine such coordinate systems as we progress. To see how derivatives are effected by this change, we first state some basic lemmas.</div> <article class="lemma theorem-like" id="lem-slopebound"><h3 class="heading">
+<span class="type">Lemma</span><span class="space"> </span><span class="codenumber">1.3.1</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="lem-slopebound-1-1">
+<div class="para">If <span class="process-math">\(\mb{H}\)</span> is differentiable at <span class="process-math">\(\mb{c}\)</span> then there is a neighborhood <span class="process-math">\(U\)</span> of <span class="process-math">\(\mb{c}\)</span> and a constant <span class="process-math">\(C\)</span> such that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{\| \mb{H} (\mb{x} ) - \mb{H} (\mb{c}) \|}{\| \mb{x} - \mb{c} \|} \lt C
+\end{equation*}
+</div>
+<div class="para">for all <span class="process-math">\(\mb{x}\)</span> in <span class="process-math">\(U\text{.}\)</span>
+</div>
+</div></article><details id="lem-slopebound-2" class="hiddenproof born-hidden-knowl"><summary><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></summary><article class="hiddenproof"><div class="para" id="lem-slopebound-2-1">This follows from the definition of the derivative, the triangle inequality and continuity of linear transformations.</div></article></details> <article class="definition definition-like" id="def-vanishing-higher-order"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.3.2</span><span class="period">.</span>
+</h3> <div class="para logical" id="def-vanishing-higher-order-2-1">
+<div class="para">Let <span class="process-math">\(U\)</span> be an open neighborhood of <span class="process-math">\(\mb{c}\)</span> in an inner product space <span class="process-math">\(V\)</span> and <span class="process-math">\(W\)</span> some other inner product space. We say that a function <span class="process-math">\(E : U \to W\)</span> <dfn class="terminology">vanishes higher than first order</dfn> at <span class="process-math">\(\mb{c}\)</span> if</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\lim_{\mb{x} \to \mb{c}} \frac{E (\mb{x} )}{\| \mb{x} - \mb{c}\|} = \mb{0}.
+\end{equation*}
+</div>
+</div></article> <article class="lemma theorem-like" id="lem-vanishing"><h3 class="heading">
+<span class="type">Lemma</span><span class="space"> </span><span class="codenumber">1.3.3</span><span class="period">.</span>
+</h3>
+<div class="para" id="lem-vanishing-1-1">Suppose <span class="process-math">\(U_1\)</span> and <span class="process-math">\(U_2\)</span> are neighborhoods of <span class="process-math">\(\mb{c}_1\)</span> and <span class="process-math">\(\mb{c}_2\)</span> in inner product spaces <span class="process-math">\(V_1\)</span> and <span class="process-math">\(V_2\)</span> and <span class="process-math">\(\mb{H} : U_1 \to U_2\)</span> is differentiable at <span class="process-math">\(\mb{c}_1\)</span> with <span class="process-math">\(\mb{H} (\mb{c}_1) = \mb{c}_2\text{.}\)</span> If <span class="process-math">\(E : U_2 \to K\)</span> vanishes higher than first order at <span class="process-math">\(\mb{c}_2\)</span> then <span class="process-math">\(E \circ \mb{H}\)</span> vanishes higher than first order at <span class="process-math">\(\mb{c}_2\text{.}\)</span>
+</div></article><details id="lem-vanishing-2" class="hiddenproof born-hidden-knowl"><summary><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></summary><article class="hiddenproof"><div class="para logical" id="lem-vanishing-2-1">
+<div class="para">By definition, for any <span class="process-math">\(\tilde{\varepsilon} &gt; 0\)</span> there is a <span class="process-math">\(\delta\)</span> so that if <span class="process-math">\(\| \mb{y} - \mb{c}_2\| \lt \delta\)</span> then <span class="process-math">\(\|E (\mb{y} )\| \lt \tilde{\varepsilon} \| \mb{y} - \mb{c}_2\|\text{.}\)</span> Using the continuity of <span class="process-math">\(\mb{H}\)</span> and <a href="" class="xref" data-knowl="./knowl/xref/lem-slopebound.html" title="Lemma 1.3.1">Lemma 1.3.1</a> we have that there is a <span class="process-math">\(C\)</span> and, in a neighborhood of <span class="process-math">\(\mb{c}_1\)</span> (which maps to an appropriate neighborhood of <span class="process-math">\(\mb{c}_2\)</span>),</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/lem-slopebound.html">
+\begin{equation*}
+0 \leq \frac{\|E ( \mb{H} (\mb{x} ))\|}{\| \mb{x} - \mb{c}_1\|} \lt \tilde{\varepsilon} \| \mb{H} ( \mb{x} ) - \mb{H} ( \mb{c}_1) \|{\|\mb{x} - \mb{c}_1\|}  \lt \tilde{\varepsilon} C.
+\end{equation*}
+</div>
+<div class="para">Taking <span class="process-math">\(\delta\)</span> for <span class="process-math">\(\varepsilon / C \)</span> gives the result.</div>
+</div></article></details> <div class="para" id="sec-chainrule-2-5">With these preliminary lemmas in hand, we state the following amazing result.</div> <article class="theorem theorem-like" id="thm-chainrule"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">1.3.4</span><span class="period">.</span><span class="space"> </span><span class="title">Chain Rule.</span>
+</h3>
+<div class="para logical" id="thm-chainrule-2-1">
+<div class="para">Let <span class="process-math">\(V_1, V_2\)</span> and <span class="process-math">\(V_3\)</span> be finite dimensional real inner product spaces and <span class="process-math">\(U_1, U_2\)</span> open sets in <span class="process-math">\(V_1\)</span> and <span class="process-math">\(V_2\)</span> respectively. Suppose</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{G} : U_1 \to U_2 \hspace{.3in} \mb{F} : U_2 \to V_3
+\end{equation*}
+</div>
+<div class="para">are functions for which</div>
+<ol class="decimal">
+<li id="thm-chainrule-2-1-7-1"><div class="para" id="p-derived-thm-chainrule-2-1-7-1"><span class="process-math">\(\mb{G} (\mb{a} ) = \mb{b}\text{,}\)</span></div></li>
+<li id="thm-chainrule-2-1-7-2"><div class="para" id="p-derived-thm-chainrule-2-1-7-2">
+<span class="process-math">\(\mb{G}\)</span> is differentiable at <span class="process-math">\(\mb{a}\text{,}\)</span>
+</div></li>
+<li id="thm-chainrule-2-1-7-3"><div class="para" id="p-derived-thm-chainrule-2-1-7-3">
+<span class="process-math">\(\mb{F}\)</span> is differentiable at <span class="process-math">\(\mb{b}\text{.}\)</span>
+</div></li>
+</ol>
+<div class="para">Then <span class="process-math">\(\mb{F} \circ \mb{G}\)</span> is differentiable at <span class="process-math">\(\mb{a}\)</span> and</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\tder{\mb{a}}{(\mb{F} \circ \mb{G})} = \tder{\mb{b}}{\mb{F}} \circ \tder{\mb{a}}{\mb{G}}.
+\end{equation*}
+</div>
+</div></article><details id="thm-chainrule-3" class="hiddenproof born-hidden-knowl"><summary><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></summary><article class="hiddenproof"><div class="para logical" id="thm-chainrule-3-1">
+<div class="para">We will use <a href="" class="xref" data-knowl="./knowl/xref/lem-vanishing.html" title="Lemma 1.3.3">Lemma 1.3.3</a> and the definition of the vanishing of higher than first order errors.  However, the proof is fairly basic up to this result as we now observe. The error terms <span class="process-math">\(E_F (\mb{y})\)</span> and <span class="process-math">\(E_G (\mb{x})\)</span> vanish higher than first order at <span class="process-math">\(\mb{b}\)</span> and <span class="process-math">\(\mb{a}\)</span> by the definition of the derivative. These are the terms in the equations</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/lem-vanishing.html ./knowl/xref/lem-vanishing.html" id="thm-chainrule-3-1-6">
+\begin{align*}
+\mb{F} (\mb{y}) \amp = \mb{F} ( \mb{b} ) + \tder{\mb{b}}{\mb{F}} (\mb{y} - \mb{b} ) + E_F (\mb{y}), \\
+\mb{G} (x) \amp = \mb{G} ( \mb{a} ) + \tder{\mb{a}}{\mb{G}} (\mb{x} - \mb{a} ) + E_G (\mb{x}). 
+\end{align*}
+</div>
+<div class="para">Putting these together gives</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/lem-vanishing.html ./knowl/xref/lem-vanishing.html" id="thm-chainrule-3-1-7">
+\begin{align*}
+\mb{F} \circ \mb{G} (\mb{x} ) \amp = \mb{F} (\mb{G} (\mb{x} )),  \\
+\amp = \mb{F} \left( \mb{b} \right) + \tder{\mb{b}}{\mb{F}} (\mb{G} (\mb{x} ) - \mb{b} ) + E_F (\mb{G} (\mb{x} )), \\
+\amp = \mb{F} \left( \mb{G} (\mb{a} ) \right)  + \tder{\mb{b}}{\mb{F}} (\tder{\mb{a}}{\mb{G}} (\mb{x} - \mb{a} ) + E_G (\mb{x})) + E_F (\mb{G} (\mb{x} )), \\
+\amp = \mb{F} \left( \mb{G} (\mb{a} ) \right)  + ( \tder{\mb{b}}{\mb{F}} \circ \tder{\mb{a}}{\mb{G}} ) (\mb{x} - \mb{a} ) + \tder{\mb{b}}{\mb{F}} (E_G (\mb{x})) + E_F (\mb{G} (\mb{x} )). 
+\end{align*}
+</div>
+<div class="para">Now, the function</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/lem-vanishing.html ./knowl/xref/lem-vanishing.html">
+\begin{equation*}
+\tder{\mb{b}}{\mb{F}} (E_G (\mb{x})) 
+\end{equation*}
+</div>
+<div class="para">vanishes to higher order since <span class="process-math">\(\tder{\mb{b}}{\mb{F}}\)</span> is a linear transformation so that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/lem-vanishing.html ./knowl/xref/lem-vanishing.html">
+\begin{equation*}
+\lim_{\mb{x} \to \mb{a}} \frac{\tder{\mb{b}}{\mb{F}}(E_G (\mb{x}))}{\| \mb{x} - \mb{a} \|} = \lim_{\mb{x} \to \mb{a}}\tder{\mb{b}}{\mb{F}} \left( \frac{E_G (\mb{x})}{\| \mb{x} - \mb{a} \|} \right) = \tder{\mb{b}}{\mb{F}} \lim_{\mb{x} \to \mb{a}} \frac{E_G (\mb{x})}{\| \mb{x} - \mb{a} \|} = \mb{0}.
+\end{equation*}
+</div>
+<div class="para">By <a href="" class="xref" data-knowl="./knowl/xref/lem-vanishing.html" title="Lemma 1.3.3">Lemma 1.3.3</a>, the function <span class="process-math">\(E_F (\mb{G} (\mb{x} ))\)</span> also vanishes higher than first order. By the definition of the derivative, this gives the result.</div>
+</div></article></details> <div class="para" id="sec-chainrule-2-7">A student that has never understood the chain rule in <span class="process-math">\(1\)</span>-variable should now see it for what it is : the derivative of a composition is the composition of the derivatives. Of course, to understand this, one must be careful to evaluate these derivative at the correct points (in particular, one must evaluate the derivative of <span class="process-math">\(\mb{F}\)</span> at the image point <span class="process-math">\(\mb{G} (\mb{a})\text{.}\)</span>) We now will progress in two ways, an abstract and a computational (with a geometric understanding at the end to tie these together).</div></section><section class="subsection" id="subsec-computational"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.3.1</span><span class="space"> </span><span class="title">Computational considerations</span>
+</h3>
+<div class="para" id="subsec-computational-2">While our presentation of the chain rule is by far the better way of understanding it, it is rarely given in these terms as most students are not required to understand linear algebra before taking multivariable calculus. Instead, most students learn a few of the basic versions of the chain rule.</div>
+<div class="para logical" id="subsec-computational-3">
+<div class="para">Let us take the case when <span class="process-math">\(\mb{G}\)</span> is a path <span class="process-math">\(\mb{G} (t) = ( x(t), y(t))\)</span> and <span class="process-math">\(\mb{F} = f(x,y)\)</span> is a scalar valued function. Then the derivatives can be computed as Jacobian matrices which are</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\tder{}{\mb{G}} = \twovec{\frac{d x}{d t}}{\frac{dy}{dt}},
+\end{equation*}
+</div>
+<div class="para">and</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\tder{}{\mb{F}} = \left[ \begin{matrix}  \frac{\partial f}{\partial x} \amp \frac{\partial f}{\partial y} \end{matrix} \right].
+\end{equation*}
+</div>
+<div class="para">Composing these and applying the chain rule gives</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{d f}{d t} = \frac{\partial f}{\partial x} \frac{d x}{d t} + \frac{\partial f}{\partial y} \frac{d y}{d t}.
+\end{equation*}
+</div>
+</div>
+<details id="subsec-computational-4" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.3.5</span><span class="period">.</span><span class="space"> </span><span class="title">Chain rule computation I.</span>
+</h4></summary><article class="example example-like"><div class="para logical" id="subsec-computational-4-2-1">
+<div class="para">Suppose we parameterize the unit circle as usual with <span class="process-math">\((\cos t, \sin t)\)</span> and let <span class="process-math">\(z = f(x,y) = x^2 - y^2\text{.}\)</span> One may ask how <span class="process-math">\(z\)</span> is changing relative to the parameter <span class="process-math">\(t\text{.}\)</span> This of course is given by the derivative</div>
+<div class="displaymath process-math" id="subsec-computational-4-2-1-5">
+\begin{align*}
+\frac{dz}{dt}  \amp = \frac{\partial z}{\partial x} \frac{d x}{d t} + \frac{\partial z}{\partial y} \frac{d y}{d t}, \\
+\amp =  \left( 2x \right) (- \sin t) + \left( - 2y \right) \left( \cos t \right) ,  \\
+\amp =  \left( 2\cos t \right) (- \sin t) + \left( - 2\sin t \right) \left( \cos t \right), \\
+\amp = - 4 \cos t \sin t, \\
+\amp =  - 2 \sin (2t). 
+\end{align*}
+</div>
+<div class="para">Note that here we used <span class="process-math">\(z\)</span> instead of <span class="process-math">\(f\text{.}\)</span> This is common practice when we view a given variable (like <span class="process-math">\(z\)</span>) as a dependent parameter.</div>
+</div></article></details><div class="para logical" id="subsec-computational-5">
+<div class="para">The chain rule is often used if one is changing coordinates. In other words, if <span class="process-math">\(\mb{G} (u, v) = (x ( u, v), y(u, v))\)</span> gives another coordinate system on a region in the plane and <span class="process-math">\(f(x,y)\)</span> is a scalar function, we may want to compute the change of <span class="process-math">\(f\)</span> relative to the variables <span class="process-math">\(u\)</span> and <span class="process-math">\(v\)</span> instead of <span class="process-math">\(x\)</span> and <span class="process-math">\(y\text{.}\)</span> For this, we simply write out the Jacobian matrix of <span class="process-math">\(\mb{G}\)</span> which is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\tder{}{\mb{G}} = \left[ \begin{matrix} \frac{\partial x}{\partial u} \amp \frac{\partial x}{\partial v} \\ \frac{\partial y}{\partial u} \amp \frac{\partial y}{\partial v} \end{matrix} \right]
+\end{equation*}
+</div>
+<div class="para">and compose with the Jacobian</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\tder{}{f} = \left[ \begin{matrix}  \frac{\partial f}{\partial x} \amp \frac{\partial f}{\partial y} \end{matrix} \right].
+\end{equation*}
+</div>
+<div class="para">of <span class="process-math">\(f\text{.}\)</span> This gives two formulas (one for each matrix entry of the derivative of the composition</div>
+<div class="displaymath process-math" id="subsec-computational-5-12">
+\begin{align*}
+\frac{\partial f}{\partial u} \amp = \frac{\partial f}{\partial x}   \frac{\partial x}{\partial u} +  \frac{\partial f}{\partial y}\frac{\partial y}{\partial u}, \\
+\frac{\partial f}{\partial v} \amp = \frac{\partial f}{\partial x}   \frac{\partial x}{\partial v} +  \frac{\partial f}{\partial y}\frac{\partial y}{\partial v} .
+\end{align*}
+</div>
+</div>
+<details id="subsec-computational-6" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.3.6</span><span class="period">.</span><span class="space"> </span><span class="title">Chain rule computation II.</span>
+</h4></summary><article class="example example-like"><div class="para logical" id="subsec-computational-6-2-1">
+<div class="para">One often wants to consider a function <span class="process-math">\(f(x,y)\)</span> on the plane as a function of the polar coordinates <span class="process-math">\(f(r, \theta)\text{.}\)</span> This in fact is a composition. Indeed, when we write <span class="process-math">\(f(r, \theta)\)</span> what we mean is the composition <span class="process-math">\(f \circ \mb{G}\)</span> where <span class="process-math">\(\mb{G} (r , \theta) = (r \cos \theta, r \sin \theta)\)</span> changes from cartesian to polar coordinates. I.e.</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exercise-polarjacobian.html">
+\begin{equation*}
+f(r, \theta ) : = f(r \cos \theta , r \sin \theta) = f(x (r, \theta), y ( r, \theta)) f(r \cos \theta , r \sin \theta) = f \circ \mb{G}.
+\end{equation*}
+</div>
+<div class="para">In <a href="" class="xref" data-knowl="./knowl/xref/exercise-polarjacobian.html" title="Exercise 1.2.5.9">Exercise 1.2.5.9</a>, you computed the Jacobian matrix of <span class="process-math">\(\mb{G} (r , \theta) = (r \cos \theta, r \sin \theta)\)</span> and should have found that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exercise-polarjacobian.html">
+\begin{equation*}
+\tder{}{\mb{G}} = \left[ \begin{matrix} \cos \theta \amp - r \sin \theta \\ \sin \theta \amp r \cos \theta \end{matrix} \right]. 
+\end{equation*}
+</div>
+<div class="para">Using chain rule, this then gives us that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exercise-polarjacobian.html" id="subsec-computational-6-2-1-10">
+\begin{align*}
+\frac{\partial f}{\partial r} \amp = \frac{\partial f}{\partial x} \cos \theta +  \frac{\partial f}{\partial y}\sin \theta , \\
+\frac{\partial f}{\partial \theta} \amp = - \frac{\partial f}{\partial x} r \sin  \theta +  \frac{\partial f}{\partial y}r \cos \theta . 
+\end{align*}
+</div>
+</div></article></details></section><section class="subsection" id="subsec-tangent-spaces"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.3.2</span><span class="space"> </span><span class="title">Tangent spaces</span>
+</h3>
+<div class="para" id="subsec-tangent-spaces-2">To define the tangent space of a vector space at a point, we first consider the following result concerning directional derivatives.</div>
+<article class="corollary theorem-like" id="cor-directional"><h4 class="heading">
+<span class="type">Corollary</span><span class="space"> </span><span class="codenumber">1.3.7</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="cor-directional-1-1">
+<div class="para">If <span class="process-math">\(U\)</span> is an open neighborhood of <span class="process-math">\(\mb{a}\)</span> in <span class="process-math">\(V\)</span> and <span class="process-math">\(f : U \to \mathbb{R}\)</span> is differentiable at <span class="process-math">\(\mb{a}\)</span> then for any vector <span class="process-math">\(\mb{v}\)</span> in <span class="process-math">\(V\text{,}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+D_{\mb{v}} f (\mb{a} ) = \tder{\mb{a}}{f} (\mb{v} ).
+\end{equation*}
+</div>
+<div class="para">In particular, for <span class="process-math">\(\mb{v}_1, \mb{v}_2\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+D_{\mb{v}_1 + \mb{v}_2} f ( \mb{a} ) = D_{\mb{v}_1} f (\mb{a}) + D_{\mb{v}_2} f (\mb{a} ). 
+\end{equation*}
+</div>
+</div></article><details id="cor-directional-2" class="hiddenproof born-hidden-knowl"><summary><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof"><div class="para logical" id="cor-directional-2-1">
+<div class="para">Let us reconsider the definition of the directional derivative</div>
+<div class="displaymath process-math">
+\begin{equation*}
+D_\mb{v} f ( \mb{a}) = \left. \frac{d}{dt} f (\mb{a} + t\mb{v} )\right|_{t = 0}.
+\end{equation*}
+</div>
+<div class="para">The right hand side is really the usual derivative at <span class="process-math">\(0\)</span> of the composition <span class="process-math">\(f \circ \ell_{\mb{v}}\)</span> where <span class="process-math">\(\ell_{\mb{v}} = \mb{a} + t \mb{v}\)</span> is the function from <span class="process-math">\(\mathbb{R}\)</span> to <span class="process-math">\(V\)</span> parameterizing a line through <span class="process-math">\(\mb{a}\)</span> of constant velocity <span class="process-math">\(\mb{v}\text{.}\)</span> Using the chain rule then gives</div>
+<div class="displaymath process-math" id="cor-directional-2-1-9">
+\begin{align*}
+D_\mb{v} f ( \mb{a}) \amp = \left. \frac{d}{dt} f (\mb{a} + t\mb{v} )\right|_{t = 0}, \\
+\amp = \tder{0}{\left( f \circ \ell_{v} \right)} (1), \\
+\amp = \tder{\mb{a}}{f} \circ \tder{0}{\ell_v} (1), \\
+\amp = \tder{\mb{a}}{f} (\mb{v} ). 
+\end{align*}
+</div>
+<div class="para">But <span class="process-math">\(\tder{\mb{a}}{f}\)</span> is a linear transformation so the second statement follows.</div>
+</div></article></details><div class="para" id="subsec-tangent-spaces-4">Now we proceed to define the tangent space of a point <span class="process-math">\(\mb{a}\)</span> in a real inner product space <span class="process-math">\(V\text{.}\)</span> If it helps, you may think of <span class="process-math">\(V\)</span> as <span class="process-math">\(\mathbb{R}^n\)</span> or even as <span class="process-math">\(\mathbb{R}^2\)</span> to build intuition. Recall that <span class="process-math">\(C^1 (U)\)</span> is the vector space of all differentiable (real scalar valued) functions on a set <span class="process-math">\(U\text{.}\)</span>
+</div>
+<article class="definition definition-like" id="def-tangentspace"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.3.8</span><span class="period">.</span>
+</h4> <div class="para logical" id="def-tangentspace-2-1">
+<div class="para">A <dfn class="terminology">tangent vector</dfn> <span class="process-math">\(\partial\)</span> to <span class="process-math">\(\mb{a} \in V\)</span> is a directional derivative operator</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\partial : C^1 (U) \to \mathbb{R}
+\end{equation*}
+</div>
+<div class="para">which is defined by <span class="process-math">\(\partial f = D_\mb{v} f ( \mb{a})\)</span> for some vector <span class="process-math">\(\mb{v}\)</span> in <span class="process-math">\(V\text{.}\)</span> Here <span class="process-math">\(U\)</span> is any open set containing <span class="process-math">\(\mb{a}\text{.}\)</span> The vector space of these operators is denoted <span class="process-math">\(T_{\mb{a}} V\)</span> and called the <dfn class="terminology">tangent space</dfn> of <span class="process-math">\(V\)</span> at <span class="process-math">\(\mb{a}\text{.}\)</span>
+</div>
+</div></article><div class="para" id="subsec-tangent-spaces-6">When <span class="process-math">\(V = \mathbb{R}^m\text{,}\)</span> we take <span class="process-math">\(\partial_1, \partial_2, \ldots, \partial_m\)</span> for the tangent vectors <span class="process-math">\(D_{\mb{e}_1}, \ldots, D_{\mb{e}_m}\text{.}\)</span> This forms a basis for <span class="process-math">\(T_{\mb{a}} \mathbb{R}^m\)</span> as <a href="" class="xref" data-knowl="./knowl/xref/prop-tangentisomorphism.html" title="Proposition 1.3.9">Proposition 1.3.9</a> implies.</div>
+<div class="para" id="subsec-tangent-spaces-7">This definition may look rather strange to a student seeing it for the first time, after all, why not just say that <span class="process-math">\(\partial\)</span> is <span class="process-math">\(\mb{v}\)</span> and make the tangent space <span class="process-math">\(V\text{?}\)</span> Indeed, we have the following simple result.</div>
+<article class="proposition theorem-like" id="prop-tangentisomorphism"><h4 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">1.3.9</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="prop-tangentisomorphism-1-1">
+<div class="para">For any <span class="process-math">\(\mb{a}\)</span> in an inner product space <span class="process-math">\(V\text{,}\)</span> there is a linear isomorphism</div>
+<div class="displaymath process-math">
+\begin{equation*}
+T : V \to T_{\mb{a}} V.
+\end{equation*}
+</div>
+</div></article><details id="prop-tangentisomorphism-2" class="hiddenproof born-hidden-knowl"><summary><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof"><div class="para" id="prop-tangentisomorphism-2-1">Define <span class="process-math">\(T\)</span> by taking <span class="process-math">\(T (\mb{v})\)</span> to <span class="process-math">\(D_{\mb{v}}\text{.}\)</span> By <a href="" class="xref" data-knowl="./knowl/xref/cor-directional.html" title="Corollary 1.3.7">Corollary 1.3.7</a> this is a linear transformation and by the definition of <span class="process-math">\(T_{\mb{a}} V\)</span> it is an isomorphism.</div></article></details><div class="para" id="subsec-tangent-spaces-9">While <span class="process-math">\(V\)</span> and <span class="process-math">\(T_{\mb{a}} V\)</span> are linearly isomorphic, there are many reasons to make <span class="process-math">\(T_{\mb{a}} V\)</span> its own vector space. Perhaps the most important one is that it replaces the ambient space with a new (linearly isomorphic) space `centered’ at <span class="process-math">\(\mb{a}\text{.}\)</span> This gives every tangent vector its own identity and its own space in which to perform arithmetic and operations, thereby divining the spatial structure at <span class="process-math">\(\mb{a}\)</span> from some other point. Indeed, there is a bit more to the sophisticated definition in that it should be independent of which open set <span class="process-math">\(U\)</span> we choose around <span class="process-math">\(\mb{a}\text{.}\)</span> Point being, tangent vectors of <span class="process-math">\(\mb{a}\)</span> only care about what is happening very close to the point <span class="process-math">\(\mb{a}\text{.}\)</span>
+</div>
+<div class="para" id="subsec-tangent-spaces-10">Alternative viewpoints to the tangent space help in understanding it. One way is to see it as the space of differentiable paths through <span class="process-math">\(\mb{a}\)</span> where two paths are identified if their tangent vectors are the same. The isomorphism can then be given by taking a path <span class="process-math">\(\gamma\)</span> to <span class="process-math">\(\partial\)</span> where <span class="process-math">\(\partial f = d_0 (f \circ \gamma ) (1)\text{.}\)</span>
+</div>
+<div class="para" id="subsec-tangent-spaces-11">Let us now recast a few definitions.</div>
+<article class="definition definition-like" id="def-vector-field"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.3.10</span><span class="period">.</span>
+</h4> <div class="para" id="def-vector-field-2-1">A vector field is a function <span class="process-math">\(\mb{F}\)</span> which takes a point <span class="process-math">\(\mb{a}\)</span> and defines a vector <span class="process-math">\(\mb{F} (\mb{a})\)</span> in <span class="process-math">\(T_{\mb{a}} V\text{.}\)</span>
+</div></article><article class="definition definition-like" id="def-derivative2"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.3.11</span><span class="period">.</span>
+</h4> <div class="para logical" id="def-derivative2-2-1">
+<div class="para">If <span class="process-math">\(\mb{F} : U \to V_2\)</span> is differentiable at <span class="process-math">\(\mb{a}\)</span> in <span class="process-math">\(V_1\)</span> with <span class="process-math">\(\mb{F} (\mb{a} ) = \mb{b}\text{,}\)</span> the derivative of <span class="process-math">\(\mb{F}\)</span> at <span class="process-math">\(\mb{a}\)</span> is the linear transformation</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\tder{a}{\mb{F}} : T_\mb{a} V_1 \to T_{\mb{b}} V_2
+\end{equation*}
+</div>
+<div class="para">which is defined as</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\left[ \tder{a}{\mb{F}}  ( \partial  )  \right] (f) = \partial \left( f \circ \mb{F} \right).
+\end{equation*}
+</div>
+</div></article><div class="para" id="subsec-tangent-spaces-14">These new definitions can replace our previous ones, or can live (slightly uncomfortably) along side them. However, in the latter case we will find our old viewpoints to be less conceptually workable as we advance our understanding.</div></section><section class="subsection" id="subsec-subspaces"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.3.3</span><span class="space"> </span><span class="title">Level sets and their tangent spaces</span>
+</h3>
+<div class="para logical" id="subsec-subspaces-2">
+<div class="para">When working with a set of variables, one often has additional constraints that come into play. For example, one might have some function <span class="process-math">\(f (E, m , v)\)</span> on three variables, <span class="process-math">\(E, m, v\)</span> where <span class="process-math">\(E\)</span> is the kinetic energy of a particle, <span class="process-math">\(m\)</span> is its mass and <span class="process-math">\(v\)</span> its velocity. As we all learn in middle school physics, these three variables satisfy an equation</div>
+<div class="displaymath process-math">
+\begin{equation*}
+E = \frac{1}{2} m v^2 .
+\end{equation*}
+</div>
+<div class="para">So our function is really only interesting on the points <span class="process-math">\((E, m, v) \in \mathbb{R}^3\)</span> satisfying this equation (or constraint). As it turns out, this constraint defines a surface in three dimensional space and we may wish to find its two dimensional tangent space at a given point. To do this, we consider the function</div>
+<div class="displaymath process-math">
+\begin{equation*}
+g (E, m, v) = E - \frac{1}{2} m v^2 .
+\end{equation*}
+</div>
+<div class="para">Recall that the zero level set <span class="process-math">\(X\)</span> (or level surface in this case) of <span class="process-math">\(g\)</span> is the subspace satisfying <span class="process-math">\(g (E, m, v) = 0\text{.}\)</span> If the point <span class="process-math">\(p = (E_0, m_0, v_0)\)</span> lies on <span class="process-math">\(X\text{,}\)</span> we wish to find the tangent vectors in <span class="process-math">\(T_p \mathbb{R}^3\)</span> which are tangent to <span class="process-math">\(X\text{.}\)</span> To do this, we consider any given differentiable path <span class="process-math">\(\gamma: (-1, 1) \to X\)</span> which passes through <span class="process-math">\(p\)</span> at <span class="process-math">\(0\text{.}\)</span> The tangent (or velocity) vector to such paths at <span class="process-math">\(0\)</span> should give all of the tangent vectors to <span class="process-math">\(X\text{.}\)</span> But if we apply the chain rule to this argument, then we can see that all such tangent vectors satisfy the condition</div>
+<div class="displaymath process-math" id="eq-constraintTangent">
+\begin{equation}
+\tder{p}{g} (\mb{v} ) = 0.\tag{1.3.1}
+\end{equation}
+</div>
+<div class="para">For our running example, we can compute for <span class="process-math">\(\mb{v} = \tangthree{a}{b}{c}\)</span> the equation yields</div>
+<div class="displaymath process-math">
+\begin{equation*}
+0 = \tder{p}{g} (\mb{v} ) = \left[ \begin{matrix} 1 \amp - \frac{1}{2}v_0^2 \amp - m_0 v_0 \end{matrix} \right] \tangthree{a}{b}{c} = a  - \frac{1}{2}v_0^2 b - m_0 v_0 c .
+\end{equation*}
+</div>
+<div class="para">which is an equation for a plane in the three dimensional <span class="process-math">\(T_p \mathbb{R}^3\text{.}\)</span>
+</div>
+</div>
+<div class="para" id="subsec-subspaces-3">In fact, it is a result of the Implicit Function Theorem that, if <span class="process-math">\(\tder{p}{g}\)</span> is not zero, then this equation defines the tangent space to <span class="process-math">\(X\)</span> at <span class="process-math">\(p\text{.}\)</span> Let us take this as an unproven theorem.</div>
+<article class="theorem theorem-like" id="thm-tangentspace"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">1.3.12</span><span class="period">.</span><span class="space"> </span><span class="title">Implicit Function Theorem.</span>
+</h4>
+<div class="para logical" id="thm-tangentspace-2-1">
+<div class="para">Let <span class="process-math">\(U\)</span> be an open set in <span class="process-math">\(\mathbb{R}^m\text{,}\)</span> <span class="process-math">\(\mathbb{G} : U \to \mathbb{R}^n\)</span> and <span class="process-math">\(X\)</span> the level set of all points <span class="process-math">\(p\)</span> with <span class="process-math">\(\mb{G} (p) = q\)</span> for some fixed <span class="process-math">\(q\text{.}\)</span> If <span class="process-math">\(\mb{G}\)</span> is differentiable at <span class="process-math">\(p\)</span> and <span class="process-math">\(\rk (\tder{p}{\mb{G}} ) = n\)</span> then the tangent space to <span class="process-math">\(X\)</span> at <span class="process-math">\(p\)</span> as a subspace of <span class="process-math">\(T_p \mathbb{R}^m\)</span> is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+T_p X = \left\{ \partial \in T_p \mathbb{R}^m : \tder{p}{\mb{G}} (\partial ) = 0 \right\} . 
+\end{equation*}
+</div>
+</div></article><div class="para" id="subsec-subspaces-5">This theorem may appear too abstract, so let us do a computation to show its simplicity.</div>
+<details id="subsec-subspaces-6" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.3.13</span><span class="period">.</span><span class="space"> </span><span class="title">Tangent space of a quadric.</span>
+</h4></summary><article class="example example-like"><div class="para logical" id="subsec-subspaces-6-2-1">
+<div class="para">Consider the quadric <span class="process-math">\(X\)</span> defined by the equation</div>
+<div class="displaymath process-math">
+\begin{equation*}
+x^2 + y^2 - z^2 = 1
+\end{equation*}
+</div>
+<div class="para">and take a point <span class="process-math">\(p = (1, 1, 1)\)</span> on <span class="process-math">\(X\text{.}\)</span> The subspace <span class="process-math">\(X\)</span> is a surface in three dimensions, but it is not the graph of a single function (meaning it is not the set of points satisfying <span class="process-math">\(z = f(x,y)\)</span> for some function <span class="process-math">\(f(x,y)\)</span>), so our previous method for finding the tangent plane to <span class="process-math">\(X\)</span> cannot be used. Nevertheless, we can see that the constraint can be written as</div>
+<div class="displaymath process-math">
+\begin{equation*}
+g(x,y, z) = 1
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(g(x,y, z) = x^2 + y^2 - z^2\text{.}\)</span> The derivative of <span class="process-math">\(g\)</span> is the matrix</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\tder{}{g} = \left[ \begin{matrix} 2x \amp 2y \amp -2z \end{matrix} \right]
+\end{equation*}
+</div>
+<div class="para">and at our point <span class="process-math">\(p\)</span> this gives</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\tder{p}{g} = \left[ \begin{matrix} 2 \amp 2 \amp -2 \end{matrix} \right].
+\end{equation*}
+</div>
+<div class="para">So the defining equation for the tangent space <span class="process-math">\(T_p X\)</span> is simply</div>
+<div class="displaymath process-math">
+\begin{equation*}
+2 a + 2 b - 2c = 0
+\end{equation*}
+</div>
+<div class="para">or</div>
+<div class="displaymath process-math">
+\begin{equation*}
+a + b - c = 0
+\end{equation*}
+</div>
+<div class="para">where the vector <span class="process-math">\(\tangthree{a}{b}{c}\)</span> represents <span class="process-math">\(a \partial_1 + b \partial_2 + c \partial_3\text{.}\)</span> Note that if we want to view this plane as a plane in <span class="process-math">\(\mathbb{R}^3\)</span> and not simply <span class="process-math">\(T_p \mathbb{R}^3\text{,}\)</span> we have to translate the origin to <span class="process-math">\(p\)</span> so that <span class="process-math">\(a = (x - 1)\text{,}\)</span> <span class="process-math">\(b = (y - 1)\)</span> and <span class="process-math">\(c = (z - 1)\text{.}\)</span> This then gives the tangent plane to <span class="process-math">\(X\)</span> at <span class="process-math">\(p\)</span> as a subspace of <span class="process-math">\(\mathbb{R}^3\)</span> as</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(x - 1) + (y - 1) - (z - 1) = 0
+\end{equation*}
+</div>
+<div class="para">or</div>
+<div class="displaymath process-math">
+\begin{equation*}
+x + y - z = 1.
+\end{equation*}
+</div>
+</div></article></details></section><section class="exercises" id="exe-chainrule"><h3 class="heading hide-type">
+<span class="type">Exercises</span><span class="space"> </span><span class="codenumber">1.3.4</span><span class="space"> </span><span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="exe-chainrule-1"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<div class="introduction" id="exe-chainrule-1-1"><div class="para" id="exe-chainrule-1-1-1">Verify the chain rule for the following pairs of functions.</div></div>
+<article class="task exercise-like" id="exe-chainrule-1-2"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="para logical" id="exe-chainrule-1-2-1-1">
+<div class="para">Let <span class="process-math">\(\mb{F} : \mathbb{R}^2 \to \mathbb{R}\)</span> and <span class="process-math">\(\mb{G} : \mathbb{R} \to \mathbb{R}^2\)</span> be the functions</div>
+<div class="displaymath process-math" id="exe-chainrule-1-2-1-1-3">
+\begin{align*}
+\mb{G} (t) \amp = (t, t^2),  \\
+\mb{F} (x, y) \amp = xy - x^2. 
+\end{align*}
+</div>
+</div></article><article class="task exercise-like" id="exe-chainrule-1-3"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para logical" id="exe-chainrule-1-3-1-1">
+<div class="para">Let <span class="process-math">\(\mb{F} : \mathbb{R}^2 \to \mathbb{R}\)</span> and <span class="process-math">\(\mb{G} : \mathbb{R}^2 \to \mathbb{R}^2\)</span> be the functions</div>
+<div class="displaymath process-math" id="exe-chainrule-1-3-1-1-3">
+\begin{align*}
+\mb{G} (t) \amp = (x^2 - y^2, 2xy),   \\
+\mb{F} (x, y) \amp = x + y. 
+\end{align*}
+</div>
+</div></article></article><article class="exercise exercise-like" id="exe-chainrule-2"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<div class="para logical" id="exe-chainrule-2-1-1">
+<div class="para">The Inverse Function Theorem for many variables says that if</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{F} : \mathbb{R}^n \to \mathbb{R}^n
+\end{equation*}
+</div>
+<div class="para">is differentiable at <span class="process-math">\(\mb{a}\)</span> and <span class="process-math">\(\tder{\mb{a}}{\mb{F}}\)</span> is an invertible linear transformation, then there is a neighborhood <span class="process-math">\(U\)</span> of <span class="process-math">\(\mb{a}\)</span> such that <span class="process-math">\(V = \mb{F} (U)\)</span> is a neighborhood of  <span class="process-math">\(\mb{b} = \mb{F} (\mb{a})\text{,}\)</span> and a function <span class="process-math">\(\mb{F}^{-1} : V \to U\)</span> which is inverse to the function <span class="process-math">\(\mb{F}\text{.}\)</span> Prove that if this is the case, then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\tder{\mb{b}}{\left(\mb{F}^{-1} \right)} = \left( \tder{a}{\mb{F}} \right)^{-1}
+\end{equation*}
+</div>
+</div></article><article class="exercise exercise-like" id="exe-chainrule-3"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
+<div class="introduction" id="exe-chainrule-3-1"><div class="para" id="exe-chainrule-3-1-1">Many vector fields in common use come from coordinate systems. For example, the polar coordinates <span class="process-math">\(\mb{G} (r , \theta) = (r \cos \theta, r \sin \theta)\)</span> give us vector fields <span class="process-math">\(\partial_r, \partial_\theta\)</span> on <span class="process-math">\(\mathbb{R}^2\)</span> which are simply the images of <span class="process-math">\(\partial_1\)</span> and <span class="process-math">\(\partial_2\)</span> after applying the derivative <span class="process-math">\(\tder{}{\mb{G}}\)</span> to them (i.e. <span class="process-math">\(\partial_r = \tder{}{\mb{G}} (\partial_1)\)</span> and <span class="process-math">\(\partial_\theta = \tder{}{\mb{G}} (\partial_2)\)</span>).</div></div>
+<article class="task exercise-like" id="exe-chainrule-3-2"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="para" id="exe-chainrule-3-2-1-1">Express these vector fields in Cartesian coordinates.</div></article><article class="task exercise-like" id="exe-chainrule-3-3"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para" id="exe-chainrule-3-3-1-1">Express the normalized vector fields <span class="process-math">\(\mb{e}_r = \partial_r / \|\partial_r \|\)</span> and <span class="process-math">\(\mb{e}_\theta = \partial_\theta / \|\partial_\theta \|\text{.}\)</span>
+</div></article><article class="task exercise-like" id="exe-chainrule-3-4"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<div class="para" id="exe-chainrule-3-4-1-1">Show that <span class="process-math">\(\mb{e}_r , \mb{e}_\theta\)</span> are in fact an orthonormal basis for every tangent space in <span class="process-math">\(\mathbb{R}^2\)</span> except the origin (such a pair is called an orthonormal frame).</div></article><div class="conclusion" id="exe-chainrule-3-5"></div></article><article class="exercise exercise-like" id="exe-chainrule-4"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
+<div class="para" id="exe-chainrule-4-1-1">Using the chain rule, explain why equation <a href="" class="xref" data-knowl="./knowl/xref/eq-constraintTangent.html" title="Equation 1.3.1">(1.3.1)</a> holds.</div></article><article class="exercise exercise-like" id="exe-chainrule-5"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
+<div class="introduction" id="exe-chainrule-5-1"><div class="para" id="exe-chainrule-5-1-1">Find the tangent space of the level surface as a subspace of <span class="process-math">\(T_p \mathbb{R}^3\)</span> and then as a subspace of <span class="process-math">\(\mathbb{R}^3\)</span> for the following functions.</div></div>
+<article class="task exercise-like" id="exe-chainrule-5-2"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="para" id="exe-chainrule-5-2-1-1">
+<span class="process-math">\(X\)</span> the level surface <span class="process-math">\(xyz - xy = 3\)</span> at <span class="process-math">\((3,1,2)\text{.}\)</span>
+</div></article><article class="task exercise-like" id="exe-chainrule-5-3"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para" id="exe-chainrule-5-3-1-1">
+<span class="process-math">\(Y\)</span> the level surface <span class="process-math">\(\cos (x) = \sin (yz) + 1\)</span> at <span class="process-math">\((0, \pi, 1)\text{.}\)</span>
+</div></article><article class="task exercise-like" id="exe-chainrule-5-4"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<div class="para" id="exe-chainrule-5-4-1-1">
+<span class="process-math">\(S^2\)</span> the unit sphere <span class="process-math">\(x^2 + y^2 + z^2 = 1\)</span> at <span class="process-math">\((\sqrt{3}/{3}, \sqrt{3}/{3}, - \sqrt{3}/{3})\text{.}\)</span>
+</div></article><div class="conclusion" id="exe-chainrule-5-5"></div></article><article class="exercise exercise-like" id="exe-chainrule-6"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
+<div class="para logical" id="exe-chainrule-6-1-1">
+<div class="para">Find the tangent plane of the torus in <span class="process-math">\(\mathbb{R}^4\)</span> which is given by the pair of constraints</div>
+<div class="displaymath process-math" id="exe-chainrule-6-1-1-2">
+\begin{align*}
+u^2 + v^2 \amp = 1, \\
+x^2 + y^2 \amp = 1. 
+\end{align*}
+</div>
+<div class="para">Here the coordinates of <span class="process-math">\(\mathbb{R}^4\)</span> are <span class="process-math">\((u, v, x, y)\text{.}\)</span>
+</div>
+</div></article></section></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="sec-derivative.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-gradient.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>
+</body>
+</html>

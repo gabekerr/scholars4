@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.5.8</span><span class="period">.</span><span class="space"> </span><span class="title">Solenoidal vector field with no vector potential.</span>
+</h3>
+<div class="para logical">
+<div class="para">Consider the gravitational vector field, but rescaled to remove the sign, masses and gravitational constant</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exercise-gravitysurface.html">
+\begin{equation*}
+\mb{F} = \frac{1}{\left( x^2 + y^2 + z^2 \right)^{3/2}} \left[ \begin{matrix} x \amp  y \amp  z \end{matrix} \right].
+\end{equation*}
+</div>
+<div class="para">Taking divergence gives</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exercise-gravitysurface.html">
+\begin{align*}
+\text{div} (\mb{F} ) \amp = \frac{\partial}{\partial x}  \frac{x}{\left( x^2 + y^2 + z^2 \right)^{3/2}} +  \frac{\partial}{\partial y}  \frac{y}{\left( x^2 + y^2 + z^2 \right)^{3/2}} +  \frac{\partial}{\partial z}  \frac{z}{\left( x^2 + y^2 + z^2 \right)^{3/2}}, \\
+\amp = \frac{x^2 + y^2 + z^2 - 3x^2}{\left( x^2 + y^2 + z^2 \right)^{5/2}} + \frac{x^2 + y^2 + z^2 - 3y^2}{\left( x^2 + y^2 + z^2 \right)^{5/2}} +\frac{x^2 + y^2 + z^2 - 3z^2}{\left( x^2 + y^2 + z^2 \right)^{5/2}},  \\
+\amp = 0. 
+\end{align*}
+</div>
+<div class="para">Thus <span class="process-math">\(\mb{F}\)</span> is solenoidal. However, in <a href="" class="xref" data-knowl="./knowl/xref/exercise-gravitysurface.html" title="Exercise 4.3.3.7">Exercise 4.3.3.7</a> you will have made a computation showing, for the unit sphere <span class="process-math">\(S\)</span> with outward normal,</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exercise-gravitysurface.html">
+\begin{equation*}
+\oiint_{S} \mb{F} \cdot \tder{}{\mb{S}} = 4 \pi.
+\end{equation*}
+</div>
+<div class="para">Of course, <span class="process-math">\(4 \pi\)</span> is not zero so, even though <span class="process-math">\(\mb{F}\)</span> is solenoidal, it is does <em class="emphasis">not</em> have a vector potential.</div>
+</div></article><span class="incontext"><a class="internal" href="sec-classicalstokes.html#ex-pointmass">in-context</a></span>
+</body>
+</html>

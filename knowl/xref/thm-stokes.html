@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="theorem theorem-like"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.2.7</span><span class="period">.</span><span class="space"> </span><span class="title">Stokes’ Theorem.</span>
+</h3>
+<div class="para logical">
+<div class="para">Let <span class="process-math">\((X, \vol^X)\)</span> be a smooth compact oriented <span class="process-math">\(m\)</span>-dimensional subspace of <span class="process-math">\(\mathbb{R}^n\)</span> and <span class="process-math">\(\eta\)</span> a differentiable <span class="process-math">\((m - 1)\)</span>-form on <span class="process-math">\(D\text{.}\)</span> Then</div>
+<div class="displaymath process-math">
+\begin{equation}
+\int_X \tder{}{\eta} = \int_{\partial X} \eta .\tag{5.2.2}
+\end{equation}
+</div>
+</div></article><details class="hiddenproof born-hidden-knowl"><summary><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></summary><article class="hiddenproof"><div class="para logical">
+<div class="para">First we will require the existence of a partition of unity subordinate to the cover of <span class="process-math">\(X\text{.}\)</span> For our purposes, we cover of <span class="process-math">\(X\)</span> by a finite number of parameterizations as in equation <a href="" class="xref" data-knowl="./knowl/xref/eq-cover.html" title="Equation 5.2.1">(5.2.1)</a>. Writing <span class="process-math">\(U_i = \mb{G}^h_i (H_{R_i})\)</span> and <span class="process-math">\(V_j = \mb{G}^b_j (B_{R_j})\text{,}\)</span> a partition of unity subordinate to this cover is a set of smooth maps</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-cover.html">
+\begin{equation*}
+\rho_i : U_i \to \mathbb{R}_{\geq 0} , \hspace{.3in} \tilde{\rho}_j : V_j \to \mathbb{R}_{\geq 0}
+\end{equation*}
+</div>
+<div class="para">for which there is some <span class="process-math">\(\varepsilon\)</span> where</div>
+<ol class="decimal">
+<li><div class="para">
+<span class="process-math">\(\rho_i (\mb{G}^h_i (\mb{x}) ) = 0\)</span> for all <span class="process-math">\(\|\mb{x} \| \geq R_i - \varepsilon\)</span> and all <span class="process-math">\(1 \leq i \leq r\text{,}\)</span>
+</div></li>
+<li><div class="para">
+<span class="process-math">\(\tilde{\rho}_j (\mb{G}^b_j (\mb{x}) ) = 0\)</span> for all <span class="process-math">\(\|\mb{x} \| \geq R_j - \varepsilon\)</span> and all <span class="process-math">\(1 \leq j \leq s\text{,}\)</span>
+</div></li>
+<li><div class="para">The sum satisfies the equality<div class="displaymath process-math">
+\begin{equation*}
+\left( \sum_{i = 1}^r \rho_i \right) + \left( \sum_{j = 1}^s \tilde{\rho}_j \right) = 1
+\end{equation*}
+</div>
+</div></li>
+</ol>
+<div class="para">The existence of such a partition of unity can be found in any analysis book and is obtained by defining, for each <span class="process-math">\(U_i\)</span> and <span class="process-math">\(V_j\text{,}\)</span> a smooth bump function which is nonzero on the complement of the union of all open sets except the given <span class="process-math">\(U_i\)</span> (or <span class="process-math">\(V_j\)</span>) and zero off of of it. Then adding these functions together and dividing each one by the resulting sum produces a collection <span class="process-math">\(\rho_i\)</span> and <span class="process-math">\(\tilde{\rho}_j\text{.}\)</span> We leave the details for the references and proceed with the proof.</div>
+</div> <div class="para logical">
+<div class="para">Now, we may extend each <span class="process-math">\(\rho_i\)</span> and <span class="process-math">\(\tilde{\rho}_j\)</span> to smooth functions on all of <span class="process-math">\(X\)</span> by taking them to be zero off of <span class="process-math">\(U_j\)</span> and <span class="process-math">\(V_j\)</span> respectively. Doing so, and using property (3) along with linearity of the exterior derivative, gives us an equality of forms</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-stokes.html">
+\begin{align}
+\tder{}{\eta} \amp = \tder{}{} \left(  \left( \sum_{i = 1}^r \rho_i \right) + \left( \sum_{j = 1}^s \tilde{\rho}_j \right) \right) \eta, \tag{5.2.3}\\
+\amp =  \left( \sum_{i = 1}^r \tder{}{( \rho_i \eta )} \right) + \left( \sum_{j = 1}^s \tder{}{(\tilde{\rho}_j \eta )} \right). \notag
+\end{align}
+</div>
+<div class="para">Since integration of forms is also linear, we may prove equation <a href="" class="xref" data-knowl="./knowl/xref/eq-stokes.html" title="Equation 5.2.2">(5.2.2)</a> for the forms <span class="process-math">\(\rho_i \eta\)</span> and <span class="process-math">\(\tilde{\rho}_j \eta\)</span> and the theorem will follow.</div>
+</div> <div class="para logical">
+<div class="para">The advantage of <span class="process-math">\(\rho_i \eta\)</span> (and <span class="process-math">\(\tilde{\rho}_j \eta\)</span>) over <span class="process-math">\(\eta\)</span> itself, is that when we pull these back along <span class="process-math">\(\mb{G}_i^h\)</span> (and <span class="process-math">\(\mb{G}_j^b\)</span>) respectively and write them in coordinates as</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-stokes2.html ./knowl/xref/eq-stokes3.html ./knowl/xref/eq-stokes1.html ./knowl/xref/eq-stokes2.html ./knowl/xref/eq-stokes0.html">
+\begin{equation*}
+\left( \mb{G}_i^h\right)^* (\rho_i \eta )  = \sum_{k = 1}^m f_{k} (\mb{x} ) \tder{}{x_1} \wedge \cdots \wedge \tder{}{x_{k -1}} \wedge \tder{}{x_{k + 1}} \wedge \cdots \wedge \tder{}{x_m}
+\end{equation*}
+</div>
+<div class="para">we have that <span class="process-math">\(f_k (\mb{x}) = 0\)</span> for <span class="process-math">\(\mb{x} = (x_1, \ldots, x_m)\)</span>  with <span class="process-math">\(x_m \lt 0\)</span> and <span class="process-math">\(\|\mb{x} \| \gt R_i - \varepsilon\text{.}\)</span> Clearly, this then also holds for the exterior derivative</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-stokes2.html ./knowl/xref/eq-stokes3.html ./knowl/xref/eq-stokes1.html ./knowl/xref/eq-stokes2.html ./knowl/xref/eq-stokes0.html">
+\begin{equation*}
+\tder{}{\left( \mb{G}_i^h\right)^* (\rho_i \eta )} = \left( \frac{\partial f_1}{\partial x_1} - \frac{\partial f_2}{\partial x_2} + \cdots + (-1)^{m + 1} \frac{\partial f_m}{\partial x_m} \right) \, \tder{}{x_1} \wedge \cdots \wedge \tder{}{x_m}.
+\end{equation*}
+</div>
+<div class="para">Now, consider the cube</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-stokes2.html ./knowl/xref/eq-stokes3.html ./knowl/xref/eq-stokes1.html ./knowl/xref/eq-stokes2.html ./knowl/xref/eq-stokes0.html">
+\begin{equation*}
+\mathcal{C} = [-R_i, R_i]^{m - 1} \times [0, R_i ]
+\end{equation*}
+</div>
+<div class="para">in <span class="process-math">\(\mathbb{R}^m\text{.}\)</span> Then since <span class="process-math">\(f_k\)</span> is zero outside <span class="process-math">\(\mathcal{C}\)</span> for every <span class="process-math">\(k\text{,}\)</span> we have that the form <span class="process-math">\(\tder{}{\left( \mb{G}_i^h\right)^* (\rho_i \eta )}\)</span> and its exterior derivative is as well. Thus if we integrate we obtain</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-stokes2.html ./knowl/xref/eq-stokes3.html ./knowl/xref/eq-stokes1.html ./knowl/xref/eq-stokes2.html ./knowl/xref/eq-stokes0.html">
+\begin{align}
+\int_X \tder{}{(\rho_i \eta)} \amp = \int_{H_{R_i}} \left( \mb{G}_i^h\right)^* (\tder{}{(\rho_i \eta)} ), \notag\\
+\amp = \int_{H_{R_i}} \tder{}{}\left( \mb{G}_i^h\right)^* ((\rho_i \eta)), \tag{5.2.4}\\
+\amp = \int_\mathcal{C}  \sum_{k = 1}^m (-1)^{k + 1} \frac{\partial f_k}{\partial x_k}  \, \tder{}{x_1} \wedge \cdots \wedge \tder{}{x_m}, \notag\\
+\amp = \sum_{k = 1}^m (-1)^{k + 1}  \idotsint_\mathcal{C}  \frac{\partial f_k}{\partial x_k}  \, \tder{}{x_1}  \cdots \tder{}{x_m}.\notag
+\end{align}
+</div>
+<div class="para">Now, since every <span class="process-math">\(f_k\)</span> has continuous second derivatives, each of the partials are continuous and so integrable. Thus, letting</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-stokes2.html ./knowl/xref/eq-stokes3.html ./knowl/xref/eq-stokes1.html ./knowl/xref/eq-stokes2.html ./knowl/xref/eq-stokes0.html">
+\begin{equation*}
+D = [-R_i, R_i]^{m - 2} \times [0, R_i ] \subset \mathbb{R}^{m - 1}.
+\end{equation*}
+</div>
+<div class="para">we may apply Fubini’s Theorem and integrate the <span class="process-math">\(k\)</span>-th variable first in the <span class="process-math">\(k\)</span>-th summand for <span class="process-math">\(k \lt m\)</span> to obtain</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-stokes2.html ./knowl/xref/eq-stokes3.html ./knowl/xref/eq-stokes1.html ./knowl/xref/eq-stokes2.html ./knowl/xref/eq-stokes0.html">
+\begin{equation}
+\idotsint_\mathcal{C}  \frac{\partial f_k}{\partial x_k}  \, \tder{}{x_1}  \cdots \tder{}{x_m}  = \idotsint_{D} \left. f_k (x_1, \ldots, x_m) \right|_{x_k = - R_i}^{R_i} \, \tder{}{x_1}  \cdots \tder{}{x_{m - 1}} = 0.\tag{5.2.5}
+\end{equation}
+</div>
+<div class="para">This follows from the fact that <span class="process-math">\(f_k\)</span> is zero outside of the ball of radius <span class="process-math">\(R_i - \varepsilon\text{.}\)</span> Thus, the <span class="process-math">\(m\)</span>-th summand is all that remains. Take <span class="process-math">\(E = [-R_i , R_i]^{m - 1}\text{,}\)</span> and orient it with <span class="process-math">\(\orient = (-1)^{m -1} \vol_{m -1}^{st}\)</span> (where the subscript denotes the dimension) so that <span class="process-math">\(\vol^{st}_m = - \tder{}{x_m} \wedge \orient\text{.}\)</span> Note that this means that <span class="process-math">\(E\)</span> is compatibly oriented as the <span class="process-math">\(x_m = 0\)</span> part of the boundary of <span class="process-math">\(\mathcal{C}\text{.}\)</span> Then, letting</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-stokes2.html ./knowl/xref/eq-stokes3.html ./knowl/xref/eq-stokes1.html ./knowl/xref/eq-stokes2.html ./knowl/xref/eq-stokes0.html">
+\begin{equation*}
+I =  \idotsint_\mathcal{C}  \frac{\partial f_m}{\partial x_m}  \, \tder{}{x_1}  \cdots \tder{}{x_m} 
+\end{equation*}
+</div>
+<div class="para">we obtain</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-stokes2.html ./knowl/xref/eq-stokes3.html ./knowl/xref/eq-stokes1.html ./knowl/xref/eq-stokes2.html ./knowl/xref/eq-stokes0.html">
+\begin{align}
+I \amp = \nonumber \idotsint_{E} \left. f_m (x_1, \ldots, x_m) \right|_{x_m = 0}^{R_i} \, \tder{}{x_1}  \cdots \tder{}{x_{m - 1}} , \notag\\
+\amp = \idotsint_{E}  f_m (x_1, \ldots, x_{m - 1}, 0)  \, \tder{}{x_1}  \cdots \tder{}{x_{m - 1}} ,\tag{5.2.6}\\
+\amp = (-1)^{m -1} \int_E \left( \mb{G}_i^h\right)^* (\rho_i \eta ) ,\notag\\
+\amp = (-1)^{m -1} \int_{\partial X} \rho_i \eta .\notag
+\end{align}
+</div>
+<div class="para">Putting equations <a href="" class="xref" data-knowl="./knowl/xref/eq-stokes2.html" title="Equation 5.2.5">(5.2.5)</a> and <a href="" class="xref" data-knowl="./knowl/xref/eq-stokes3.html" title="Equation 5.2.6">(5.2.6)</a> together with equation <a href="" class="xref" data-knowl="./knowl/xref/eq-stokes1.html" title="Equation 5.2.4">(5.2.4)</a> gives</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-stokes2.html ./knowl/xref/eq-stokes3.html ./knowl/xref/eq-stokes1.html ./knowl/xref/eq-stokes2.html ./knowl/xref/eq-stokes0.html">
+\begin{equation*}
+\int_X \tder{}{(\rho_i \eta)}  = \int_{\partial X} \rho_i \eta
+\end{equation*}
+</div>
+<div class="para">for every <span class="process-math">\(1 \leq i \leq r\text{.}\)</span> On the other hand, equation <a href="" class="xref" data-knowl="./knowl/xref/eq-stokes2.html" title="Equation 5.2.5">(5.2.5)</a> holds for every <span class="process-math">\(k\)</span> (including <span class="process-math">\(k = m\)</span>) when <span class="process-math">\(\rho_i\)</span> is replaced by <span class="process-math">\(\tilde{\rho}_j\)</span> since <span class="process-math">\(\tilde{\rho}_j\)</span>  (or an extension of it) vanishes on the boundary of <span class="process-math">\(\mathcal{C}\text{.}\)</span> This implies</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-stokes2.html ./knowl/xref/eq-stokes3.html ./knowl/xref/eq-stokes1.html ./knowl/xref/eq-stokes2.html ./knowl/xref/eq-stokes0.html">
+\begin{equation*}
+\int_X \tder{}{(\tilde{\rho}_j \eta)} = 0
+\end{equation*}
+</div>
+<div class="para">for all <span class="process-math">\(1 \leq j \leq s\text{.}\)</span> As was mentioned earlier, combining these results with linearity of integration and equation <a href="" class="xref" data-knowl="./knowl/xref/eq-stokes0.html" title="Equation 5.2.3">(5.2.3)</a> gives the theorem.</div>
+</div></article></details><span class="incontext"><a class="internal" href="sec-stokes.html#thm-stokes">in-context</a></span>
+</body>
+</html>

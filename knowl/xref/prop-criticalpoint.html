@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="lemma theorem-like"><h4 class="heading">
+<span class="type">Lemma</span><span class="space"> </span><span class="codenumber">1.5.8</span><span class="period">.</span>
+</h4>
+<div class="para logical">
+<div class="para">Suppose <span class="process-math">\(U\)</span> is a domain with metric in <span class="process-math">\(\mathbb{R}^m\text{,}\)</span> <span class="process-math">\(f: U \to \mathbb{R}\)</span> is scalar function with continuous second partial derivatives and let <span class="process-math">\(\gamma : (-\varepsilon, \varepsilon) \to U\)</span> be a differentiable path. Assume <span class="process-math">\(\gamma(0) = p\)</span> is a critical point of <span class="process-math">\(f\text{.}\)</span> Then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\left. \frac{d^2}{dt^2} (f \circ \gamma)\right|_{t = 0} = \gamma^\prime (0)^T \textnormal{Hess}_{\gamma (0)} (f) \gamma^\prime (0).
+\end{equation*}
+</div>
+</div></article><details class="hiddenproof born-hidden-knowl"><summary><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof"><div class="para logical">
+<div class="para">This is an exercise in using the chain rule (twice). The first use shows</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{d}{dt} (f \circ \gamma) = \tder{\gamma (t)}{f} \cdot  \gamma^\prime (t). 
+\end{equation*}
+</div>
+<div class="para">Here we have a matrix product of the Jacobian matrix <span class="process-math">\(\tder{\gamma(t)}{f}\)</span> with the tangent vector <span class="process-math">\(\gamma^\prime (t)\text{.}\)</span> Taking the derivative again with respect to <span class="process-math">\(t\)</span> forces us to use the product rule</div>
+<div class="displaymath process-math">
+\begin{align*}
+\frac{d^2}{dt^2} (f \circ \gamma) \amp = \frac{d}{dt} \left( \tder{\gamma (t)}{f} \cdot \gamma^\prime (t) \right), \\
+\amp =\left( \frac{d}{dt}  \tder{\gamma (t)}{f} \right) \gamma^\prime (t) +  \tder{\gamma (t)}{f} \left(  \frac{d}{dt} \gamma^\prime (t) \right). 
+\end{align*}
+</div>
+<div class="para">Now, examining the second summand and evaluating at <span class="process-math">\(t = 0\)</span> will give</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\tder{\gamma (0)}{f} \left( \left. \frac{d}{dt} \gamma^\prime (t) \right|_{t = 0} \right) = \tder{p}{f} \left( \left. \frac{d}{dt} \gamma^\prime (t) \right|_{t = 0} \right) = 0
+\end{equation*}
+</div>
+<div class="para">because <span class="process-math">\(p\)</span> is a critical point of <span class="process-math">\(f\text{.}\)</span> So we focus on the first summand and, in particular, the derivative</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{d}{dt}  \tder{\gamma (t)}{f}.
+\end{equation*}
+</div>
+<div class="para">The function <span class="process-math">\(\tder{\gamma (t)}{f}\)</span> can be written as the row vector</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\left[ \begin{matrix} \left( \frac{\partial f}{\partial x_1} \circ \gamma \right) (t) \amp \cdots \amp  \left( \frac{\partial f}{\partial x_m} \circ \gamma \right) (t) \end{matrix} \right]. 
+\end{equation*}
+</div>
+<div class="para">Letting <span class="process-math">\(\gamma (t) = (\gamma_1 (t) , \ldots , \gamma_m (t))\)</span> and using the chain rule on the <span class="process-math">\(j\)</span>-th entry above gives</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{d}{dt}\left( \frac{\partial f}{\partial x_j} \circ \gamma \right) (t) =  \frac{\partial^2 f}{\partial x_1 \partial x_j}  \gamma^\prime_1 (t) + \frac{\partial^2 f}{\partial x_2 \partial x_j}  \gamma^\prime_2(t) + \cdots + \frac{\partial^2 f}{\partial x_m \partial x_j}  \gamma^\prime_m (t).
+\end{equation*}
+</div>
+<div class="para">But this is simply the <span class="process-math">\(j\)</span>-th entry of the matrix product</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\gamma^\prime (t)^T \cdot \textnormal{Hess}_{\gamma (t)}(f).
+\end{equation*}
+</div>
+<div class="para">Thus we obtain the formula</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{d}{dt}  \tder{\gamma (t)}{f} = \gamma^\prime (t)^T \cdot \textnormal{Hess}_{\gamma (t)} (f)
+\end{equation*}
+</div>
+<div class="para">and conclude that, at <span class="process-math">\(t = 0\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\left. \frac{d^2}{dt^2} (f \circ \gamma)\right|_0 = \gamma^\prime (0)^T \textnormal{Hess}_{\gamma (0)}(f) \gamma^\prime (0).
+\end{equation*}
+</div>
+</div></article></details><span class="incontext"><a class="internal" href="sec-critical.html#prop-criticalpoint">in-context</a></span>
+</body>
+</html>

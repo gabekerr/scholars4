@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Scalar integrals</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Mathematical Scholars Calculus 4">
+<meta property="book:author" content="Gabriel Kerr">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "https://pretextbook.org/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.33/pretext_search.js"></script><link href="https://pretextbook.org/css/0.83/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.33</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.33/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.33/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.33/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+<link href="https://pretextbook.org/css/0.83/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
+<h1 class="heading"><a href="ms-calculus-3.html"><span class="title">Mathematical Scholars Calculus 4</span></a></h1>
+<p class="byline">Gabriel Kerr</p>
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="sec-integrating-forms.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-integral-of-forms.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-vectorintegrals.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\diff}{\text{d}}
+\newcommand{\mb}[1]{\mathbf{#1}}
+\newcommand{\coord}[2]{[#1]^{#2}}
+\newcommand{\chart}[2]{[#1]_{#2}}
+\newcommand{\twovec}[2]{\left[ \begin{matrix} #1 \\ #2 \end{matrix} \right]}
+\newcommand{\threevec}[3]{\left[ \begin{matrix} #1 \\ #2 \\ #3 \end{matrix} \right]}
+\newcommand{\tangtwo}[2]{\left[ \begin{matrix} #1 \amp #2 \end{matrix} \right]}
+\newcommand{\tangthree}[3]{\left[ \begin{matrix} #1 \amp #2 \amp #3 \end{matrix} \right]}
+\newcommand{\im}{{\text{im}}}
+\newcommand{\cob}[3]{[#1]^{#3}_{#2}}
+\newcommand{\rk}{\text{rank}}
+\newcommand{\nullity}{\text{nullity}}
+\newcommand{\tder}[2]{d_{#1} {#2}}
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\ball}[2]{\text{B}_{#1} ( #2 )}
+\newcommand{\cball}[2]{\overline{\text{B}}_{#1} ( #2 )}
+\newcommand{\hball}[1]{\overline{\text{HB}}_{#1}}
+\newcommand{\vol}{\,\text{vol}}
+\newcommand{\orient}{\,\text{or}}
+\newcommand{\pball}[2]{\text{B}^*_{#1} ( #2 )}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural contains-active toc-item-list">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-differential-calculus.html" class="internal"><span class="codenumber">1</span> <span class="title">Differential Calculus in Several Variables</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-limit.html" class="internal"><span class="codenumber">1.1</span> <span class="title">The limit</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-limit.html#exe-limit" class="internal"><span class="codenumber">1.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-derivative.html" class="internal"><span class="codenumber">1.2</span> <span class="title">The derivative</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivative.html#subsec-directional-derivative" class="internal"><span class="codenumber">1.2.1</span> <span class="title">Directional and partial derivatives</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivative.html#subsec-derivatives-scalar" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Derivatives of scalar functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivative.html#subsec-linear-approximation-scalar" class="internal"><span class="codenumber">1.2.3</span> <span class="title">Linear approximation of scalar functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivative.html#subsec-Jacobian" class="internal"><span class="codenumber">1.2.4</span> <span class="title">The Jacobian matrix</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-derivative.html#exe-derivative" class="internal"><span class="codenumber">1.2.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-chainrule.html" class="internal"><span class="codenumber">1.3</span> <span class="title">The chain rule and tangent spaces</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-chainrule.html#subsec-computational" class="internal"><span class="codenumber">1.3.1</span> <span class="title">Computational considerations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-chainrule.html#subsec-tangent-spaces" class="internal"><span class="codenumber">1.3.2</span> <span class="title">Tangent spaces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-chainrule.html#subsec-subspaces" class="internal"><span class="codenumber">1.3.3</span> <span class="title">Level sets and their tangent spaces</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-chainrule.html#exe-chainrule" class="internal"><span class="codenumber">1.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-gradient.html" class="internal"><span class="codenumber">1.4</span> <span class="title">The gradient</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-gradient.html#subsec-metric-geometry" class="internal"><span class="codenumber">1.4.1</span> <span class="title">Metric geometry</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-gradient.html#subsec-steepest-ascent" class="internal"><span class="codenumber">1.4.2</span> <span class="title">Steepest ascent</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-gradient.html#exe-gradient" class="internal"><span class="codenumber">1.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-critical.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Critical points</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-critical.html#subsec-local-extrema" class="internal"><span class="codenumber">1.5.1</span> <span class="title">Local extrema</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-critical.html#sec-second-derivative-test" class="internal"><span class="codenumber">1.5.2</span> <span class="title">Second derivative test</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-critical.html#subsec-Morse" class="internal"><span class="codenumber">1.5.3</span> <span class="title">The Morse Lemma</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-critical.html#exe-critical" class="internal"><span class="codenumber">1.5.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-optimization1.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Optimization without constraints</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-optimization1.html#subsec-global-extrema" class="internal"><span class="codenumber">1.6.1</span> <span class="title">Global extrema</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-optimization1.html#subsec-least-squares" class="internal"><span class="codenumber">1.6.2</span> <span class="title">Least Squares</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-optimization1.html#subsec-gradient-descent" class="internal"><span class="codenumber">1.6.3</span> <span class="title">Gradient descent</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-optimization1.html#exe-optimization1" class="internal"><span class="codenumber">1.6.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-optimization2.html" class="internal"><span class="codenumber">1.7</span> <span class="title">Optimization with constraints</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-optimization2.html#subsec-single-constraint" class="internal"><span class="codenumber">1.7.1</span> <span class="title">Single constraint</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-optimization2.html#subsec-many-constraints" class="internal"><span class="codenumber">1.7.2</span> <span class="title">Several constraints</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-optimization2.html#exe-optimization2" class="internal"><span class="codenumber">1.7.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-differential-forms.html" class="internal"><span class="codenumber">2</span> <span class="title">Differential Forms</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exterior.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Exterior algebras</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-exterior.html#subsec-exterior-product" class="internal"><span class="codenumber">2.1.1</span> <span class="title">The exterior product</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-exterior.html#subsec-exterior-algebra-geometry" class="internal"><span class="codenumber">2.1.2</span> <span class="title">Geometry of exterior algebras</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-exterior.html#subsec-cross-product" class="internal"><span class="codenumber">2.1.3</span> <span class="title">The cross product</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exterior.html#exe-exterior" class="internal"><span class="codenumber">2.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li></ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-integral-calculus.html" class="internal"><span class="codenumber">3</span> <span class="title">Integral Calculus in Several Variables</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-cubeintegration.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Integrating over cubes in <span class="process-math">\(\mathbb{R}^n\)</span></span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-cubeintegration.html#exe-cubeintegration" class="internal"><span class="codenumber">3.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-compactintegration.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Integration over compact domains in <span class="process-math">\(\mathbb{R}^2\)</span></span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-compactintegration.html#exe-compactintegration" class="internal"><span class="codenumber">3.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-compactRnintegration.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Integration over compact domains in <span class="process-math">\(\mathbb{R}^n\)</span></span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-compactRnintegration.html#exe-compactRnintegration" class="internal"><span class="codenumber">3.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-cov.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Change of Variables</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-cov.html#subsec-polar-integration" class="internal"><span class="codenumber">3.4.1</span> <span class="title">Integration using polar coordinates</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-cov.html#exe-cov" class="internal"><span class="codenumber">3.4.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-integral-of-forms.html" class="internal"><span class="codenumber">4</span> <span class="title">Integrals of Forms</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-integrating-forms.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Integrating forms</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-integrating-forms.html#subsec-integrating-top-forms" class="internal"><span class="codenumber">4.1.1</span> <span class="title">Integrating top forms</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-integrating-forms.html#subsec-integrating-k-forms" class="internal"><span class="codenumber">4.1.2</span> <span class="title">Integrating <span class="process-math">\(k\)</span>-forms on oriented subspaces.</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-integrating-forms.html#exe-formintegration" class="internal"><span class="codenumber">4.1.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section active">
+<div class="toc-title-box"><a href="sec-scalarintegrals.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Scalar integrals</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-scalarintegrals.html#subsec-scalar-line-integrals" class="internal"><span class="codenumber">4.2.1</span> <span class="title">Scalar line integrals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-scalarintegrals.html#subsec-scalar-surface-integrals" class="internal"><span class="codenumber">4.2.2</span> <span class="title">Scalar surface integrals</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-scalarintegrals.html#exe-scalarintegrals" class="internal"><span class="codenumber">4.2.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-vectorintegrals.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Vector integrals</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-vectorintegrals.html#subsec-vector-line-integrals" class="internal"><span class="codenumber">4.3.1</span> <span class="title">Vector line integrals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-vectorintegrals.html#subsec-flux-integrals" class="internal"><span class="codenumber">4.3.2</span> <span class="title">Flux integrals</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-vectorintegrals.html#exe-vectorintegrals" class="internal"><span class="codenumber">4.3.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-stokes-theorem.html" class="internal"><span class="codenumber">5</span> <span class="title">Stokes’ Theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-derivatives.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Derivatives</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivatives.html#subsec-exterior-derivative" class="internal"><span class="codenumber">5.1.1</span> <span class="title">Exterior derivative</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivatives.html#subsec-gradient" class="internal"><span class="codenumber">5.1.2</span> <span class="title">Gradient</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivatives.html#subsec-curl" class="internal"><span class="codenumber">5.1.3</span> <span class="title">Curl</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivatives.html#subsec-2dcurl" class="internal"><span class="codenumber">5.1.4</span> <span class="title">Two dimensional curl</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-derivatives.html#subsec-divergence" class="internal"><span class="codenumber">5.1.5</span> <span class="title">Divergence</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-derivatives.html#exe-derivatives" class="internal"><span class="codenumber">5.1.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-stokes.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Stokes’ Theorem</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-stokes.html#exe-stokes" class="internal"><span class="codenumber">5.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-ftli.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Stokes’ Theorem on curves - The Fundamental Theorem of Line Integrals</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-ftli.html#exe-ftli" class="internal"><span class="codenumber">5.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-greens.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Stokes’ Theorem in dimension <span class="process-math">\(2\)</span> - Green’s Theorems</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-greens.html#exe-greens" class="internal"><span class="codenumber">5.4</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-classicalstokes.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Stokes’ Theorem in dimension <span class="process-math">\(3\)</span> - Classical Stokes’ and Divergence Theorems</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-classicalstokes.html#exe-classicalstokes" class="internal"><span class="codenumber">5.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-applications.html" class="internal"><span class="codenumber">5.6</span> <span class="title">Selected Applications</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-applications.html#subsec-maxwells-equations" class="internal"><span class="codenumber">5.6.1</span> <span class="title">Maxwell’s equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-applications.html#subsec-contour-integrals" class="internal"><span class="codenumber">5.6.2</span> <span class="title">Contour integrals</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-applications.html#exe-applications" class="internal"><span class="codenumber">5.6.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-partial-differential-equations.html" class="internal"><span class="codenumber">6</span> <span class="title">Partial Differential Equations</span></a></div></li>
+<li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-scalarintegrals"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">4.2</span><span class="space"> </span><span class="title">Scalar integrals</span>
+</h2>
+<section class="introduction" id="sec-scalarintegrals-2"><div class="para logical" id="sec-scalarintegrals-2-1">
+<div class="para">One may want to compute the length of a curve, the surface area of a surface in <span class="process-math">\(\mathbb{R}^3\text{,}\)</span> or the mass of a curve or surface with a mass density function <span class="process-math">\(\rho\text{.}\)</span> The appropriate type of integral for these types of problems is the scalar integral. To define it, we first define a modified orientation form on a smooth subspace. If <span class="process-math">\((X, \orient^X)\)</span> is a smooth <span class="process-math">\(m\)</span>-dimensional subspace of <span class="process-math">\(\mathbb{R}^n\text{,}\)</span> then by Gram-Schmidt at each point <span class="process-math">\(p\)</span> of <span class="process-math">\(X\text{,}\)</span> the tangent space <span class="process-math">\(T_p X\)</span> has an orthonormal basis (using the dot product in <span class="process-math">\(\mathbb{R}^n\)</span>) <span class="process-math">\(\left\{ \delta_1, \ldots, \delta_m \right\}\text{.}\)</span> This can be expanded to an orthonormal basis <span class="process-math">\(\left\{ \delta_1, \ldots, \delta_n \right\}\)</span> of <span class="process-math">\(T_p \mathbb{R}^n\)</span> and write <span class="process-math">\(\delta^*_1, \ldots, \delta^*_n\)</span> for the dual cotangent vectors. Since <span class="process-math">\(\orient^X\)</span> is an orientatation <span class="process-math">\(m\)</span>-form on <span class="process-math">\(X\text{,}\)</span> its expansion at <span class="process-math">\(p\)</span> can be written</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\orient^X_p = \sum_{i_1 \lt \cdots \lt i_m} a_{i_1, \ldots, i_m} \delta^*_{i_1} \wedge \cdots \wedge \delta^*_{i_m}.
+\end{equation*}
+</div>
+<div class="para">In fact, the only summand in this expansion that matters to <span class="process-math">\(\orient^X_p\)</span> being an orientation is the one where <span class="process-math">\(i_1, \ldots, i_m\)</span> equals <span class="process-math">\(1, \ldots, m\)</span> (because all others have a form that pulls back to zero for any parameterization of <span class="process-math">\(X\)</span>). We thus may replace <span class="process-math">\(\orient^X_p\)</span> with</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\vol^X_p = \frac{a_{1, \ldots, m}}{|a_{1, \ldots, m}|}  \delta^*_{i_1} \wedge \cdots \wedge \delta^*_{i_m}
+\end{equation*}
+</div>
+<div class="para">to obtain a wedge product in <span class="process-math">\(\bigwedge^m T^*_p \mathbb{R}^n\text{.}\)</span> This replacement may be done smoothly along all of <span class="process-math">\(X\)</span> (not just at <span class="process-math">\(p\)</span>) to yield a new orientation form <span class="process-math">\(\vol^X\)</span> which gives an equivalent orientation, but also has the geometric property that <span class="process-math">\(\| \vol^X_p\| = 1\)</span> at every point <span class="process-math">\(p\)</span> in <span class="process-math">\(X\text{.}\)</span> We call <span class="process-math">\(\vol^X\)</span> the <dfn class="terminology">volume orientation</dfn> (or <dfn class="terminology">volume form</dfn>) on <span class="process-math">\(X\text{.}\)</span> We use this particular <span class="process-math">\(m\)</span>-form to define the main player in our current section.</div>
+</div> <article class="definition definition-like" id="def-scalar-integral"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.2.1</span><span class="period">.</span>
+</h3> <div class="para logical" id="def-scalar-integral-2-1">
+<div class="para">Let <span class="process-math">\((X, \vol^X)\)</span> be smooth oriented <span class="process-math">\(m\)</span>-dimensional subspace of <span class="process-math">\(\mathbb{R}^n\)</span> and <span class="process-math">\(f : X \to \mathbb{R}\)</span> a scalar function on <span class="process-math">\(X\text{.}\)</span> The <dfn class="terminology">scalar integral</dfn> of <span class="process-math">\(f\)</span> on <span class="process-math">\(X\)</span> is the integral</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int_X f \vol^X
+\end{equation*}
+</div>
+</div></article> <div class="para" id="sec-scalarintegrals-2-3">The following proposition can be taken as a definition, or proven to agree with other notions of volume (of curved subspaces in <span class="process-math">\(\mathbb{R}^n\)</span>) with some work.</div> <article class="proposition theorem-like" id="sec-scalarintegrals-2-4"><h3 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">4.2.2</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="sec-scalarintegrals-2-4-1-1">
+<div class="para">Let <span class="process-math">\((X, \orient^X)\)</span> be smooth oriented <span class="process-math">\(m\)</span>-dimensional subspace of <span class="process-math">\(\mathbb{R}^n\text{.}\)</span> The volume of <span class="process-math">\(X\)</span> is the scalar integral of <span class="process-math">\(1\)</span> given by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int_X \vol^X
+\end{equation*}
+</div>
+</div></article> <div class="para" id="sec-scalarintegrals-2-5">To compute a scalar integral, one generally needs a parameterization <span class="process-math">\(\mb{G} : D \to X\text{.}\)</span> When we have this data, there is a formula which, depending on the parameterization, may be quite simple or impossibly difficult to write down.</div> <article class="proposition theorem-like" id="prop-scalar"><h3 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">4.2.3</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="prop-scalar-1-1">
+<div class="para">Let <span class="process-math">\((X, \vol^X)\)</span> be smooth oriented <span class="process-math">\(m\)</span>-dimensional subspace of <span class="process-math">\(\mathbb{R}^n\text{,}\)</span> <span class="process-math">\(D\)</span> an domain in <span class="process-math">\(\mathbb{R}^m\text{,}\)</span>  <span class="process-math">\(\mb{G} : D \to X\)</span> an orientation preserving parameterization given by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{G}  (u_1, \ldots, u_m) = \left( x_1 (u_1, \ldots, u_m), \ldots, x_n (u_1, \ldots, u_m) \right)
+\end{equation*}
+</div>
+<div class="para">and <span class="process-math">\(f : X \to \mathbb{R}\)</span> a scalar function on <span class="process-math">\(X\text{.}\)</span> Let</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\xi_i = \tder{}{\mb{G}} \left({\partial_{u_i}} \right)
+\end{equation*}
+</div>
+<div class="para">be the tangent vector field along <span class="process-math">\(X\text{.}\)</span> Then the scalar integral</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int_X f \vol^X
+\end{equation*}
+</div>
+<div class="para">equals</div>
+<div class="displaymath process-math" id="eq-scalar">
+\begin{equation}
+\idotsint_D f\left( x_1 (u_1, \ldots, u_m), \ldots, x_n (u_1, \ldots, u_m) \right) \, \|\xi_1 \wedge \cdots \wedge \xi_m \| \, \tder{}{u_1} \cdots \tder{}{u_m}.\tag{4.2.1}
+\end{equation}
+</div>
+</div></article><details id="prop-scalar-2" class="hiddenproof born-hidden-knowl"><summary><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></summary><article class="hiddenproof"><div class="para logical" id="prop-scalar-2-1">
+<div class="para">To see this proposition holds, simply note that <span class="process-math">\(\left\{ \xi_1, \ldots, \xi_m \right\}\)</span> is a basis for the tangent space at <span class="process-math">\(X\)</span> (at any given point). This follows from the definition of parameterizations. Taking <span class="process-math">\(\xi_i^*\)</span> to be the dual cotangent vector, it is an exercise to show that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{G}^* \xi_i^* = \tder{}{u_i}.
+\end{equation*}
+</div>
+<div class="para">Now, since both <span class="process-math">\(\delta_1, \ldots, \delta_m\)</span> and <span class="process-math">\(\xi_1, \ldots, \xi_m\)</span> are oriented bases for <span class="process-math">\(T_p X\)</span> with the former an orthonormal basis, and since <span class="process-math">\(\bigwedge^m T_p X\)</span> is <span class="process-math">\(1\)</span>-dimensional, we have that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\xi_1 \wedge \cdots \wedge \xi_m = \|\xi_1 \wedge \cdots \wedge \xi_m \| \, \delta_1 \wedge \cdots \wedge \delta_m .
+\end{equation*}
+</div>
+<div class="para">The dual statement to this is that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\|\xi_1 \wedge \cdots \wedge \xi_m \| \,  \xi^*_1 \wedge \cdots \wedge \xi^*_m =  \, \delta^*_1 \wedge \cdots \wedge \delta^*_m = \vol^X.
+\end{equation*}
+</div>
+<div class="para">Thus we obtain the formula for the pullback of <span class="process-math">\(\vol^X\)</span> relative to <span class="process-math">\(\mb{G}\)</span>
+</div>
+<div class="displaymath process-math" id="prop-scalar-2-1-14">
+\begin{align*}
+\mb{G}^* \vol^X \amp = \mb{G}^*  \,  \left( \delta^*_1 \wedge \cdots \wedge \delta^*_m \right), \\
+\amp = \|\xi_1 \wedge \cdots \wedge \xi_m \| \, \mb{G}^* \left(   \xi^*_1 \wedge \cdots \wedge \xi^*_m \right), \\
+\amp = \|\xi_1 \wedge \cdots \wedge \xi_m \| \,  \mb{G}^* \xi^*_1 \wedge \cdots \wedge \mb{G}^* \xi^*_m , \\
+\amp = \|\xi_1 \wedge \cdots \wedge \xi_m \| \, \tder{}{u_1} \wedge \cdots \wedge \tder{}{u_m}. 
+\end{align*}
+</div>
+<div class="para">Putting this into the formula for the integral of an <span class="process-math">\(m\)</span>-form on <span class="process-math">\(X\)</span> gives the result.</div>
+</div></article></details> <div class="para" id="sec-scalarintegrals-2-7">As a final point, we note the following relatively easy result.</div> <article class="proposition theorem-like" id="sec-scalarintegrals-2-8"><h3 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">4.2.4</span><span class="period">.</span>
+</h3>
+<div class="para" id="sec-scalarintegrals-2-8-1-1">The scalar integral is independent of the orientation of <span class="process-math">\(X\text{.}\)</span>
+</div></article> <div class="para" id="sec-scalarintegrals-2-9">One may wonder at first why this is true since we know that switching orientations should result in changing the sign of the integral of a given differential <span class="process-math">\(m\)</span>-form. However, the scalar integral has the added ingredient that the <span class="process-math">\(m\)</span>-form being integrated is tied to the orientation, which results in an additional sign change that cancels out the one associated to the change of orientation. Of course, this makes sense intuitively as well: the surface area of a sphere should not depend on whether we orient one way or the other. A consequence of this is that one may define scalar integrals on smooth subspaces that do not have an orientation.</div> <div class="para" id="sec-scalarintegrals-2-10">There are several different notations for the scalar integral. More important than notation, there are techniques for computing these integrals which don’t rely on the orientation (which may seem mysterious given that our definition has the a multiple of the orientation form as \textit{the} form being integrated!). We will work through examples to illustrate these points.</div></section><section class="subsection" id="subsec-scalar-line-integrals"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">4.2.1</span><span class="space"> </span><span class="title">Scalar line integrals</span>
+</h3>
+<div class="para logical" id="subsec-scalar-line-integrals-2">
+<div class="para">Given a curve <span class="process-math">\(\mathcal{C}\)</span> in <span class="process-math">\(\mathbb{R}^n\text{,}\)</span> parameterized by <span class="process-math">\(\mb{r}: [a, b] \to \mathbb{R}^n\text{,}\)</span> and a scalar function <span class="process-math">\(f\)</span> on it, the most common notation for a scalar integral is</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-scalar.html" id="subsec-scalar-line-integrals-2-5">
+\begin{align*}
+\int_{\mathcal{C}} f ( \mb{r} ) \, \tder{}{s} \amp = \int_{\mathcal{C}} f \vol^X, \\
+\amp = \int_a^b f ( \mb{r} (t) ) \| \mb{r}^\prime (t) \| \, \tder{}{t} 
+\end{align*}
+</div>
+<div class="para">Such an integral on a curve is called a <dfn class="terminology">scalar line integral</dfn>. This formula follows immediately from equation <a href="" class="xref" data-knowl="./knowl/xref/eq-scalar.html" title="Equation 4.2.1">(4.2.1)</a>. Students may question why the letter <span class="process-math">\(s\)</span> is used in the <span class="process-math">\(\tder{}{s}\)</span> notation. This is because <span class="process-math">\(s\)</span> is often used as an arc-length parameter for the curve.</div>
+</div>
+<div class="para" id="subsec-scalar-line-integrals-3">Now, let me be honest with the reader here. Scalar integrals are just awful to compute. It takes great care to actually write down curves and integrands with an exact solution. Of course, a computer can do a very good job of approximating them though. Nevertheless, it is always good to go through a few well crafted examples to make sure we have a feel for the process.</div>
+<details id="subsec-scalar-line-integrals-4" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.2.5</span><span class="period">.</span><span class="space"> </span><span class="title">Scalar line integral I.</span>
+</h4></summary><article class="example example-like"><div class="para logical" id="subsec-scalar-line-integrals-4-2-1">
+<div class="para">Let <span class="process-math">\(\mathcal{C}\)</span> be the circle in <span class="process-math">\(\mathbb{R}^2\)</span> centered at the origin and of radius <span class="process-math">\(R\text{.}\)</span> This can be given by a parameterization <span class="process-math">\(\mb{r} : [0, 2\pi ] \to \mathcal{C}\)</span> via</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{r} (t) = \left( R \cos t , R \sin t \right).
+\end{equation*}
+</div>
+<div class="para">The most reasonable scalar integral to try here first is of the function <span class="process-math">\(1\)</span> which gives the circumference. For this, we need the tangent vector of <span class="process-math">\(\mb{r}\)</span> and its norm so we calculate:</div>
+<div class="displaymath process-math" id="subsec-scalar-line-integrals-4-2-1-8">
+\begin{align*}
+\mb{r}^\prime (t) \amp = \left[ \begin{matrix} - R \sin t  \amp R \cos t \end{matrix} \right], \\
+\| \mb{r}^\prime (t)\| \amp = \sqrt{ R^2 \sin^2 t + R^2 \cos^2 t} = R. 
+\end{align*}
+</div>
+<div class="para">This leads to the very simple integral</div>
+<div class="displaymath process-math" id="subsec-scalar-line-integrals-4-2-1-9">
+\begin{align*}
+\text{Length} (\mathcal{C} ) \amp = \int_{\mathcal{C}} \tder{}{s},  \\
+\amp = \int_0^{2\pi} \|\mb{r}^\prime (t) \| \, \tder{}{t}, \\
+\amp = R \int_0^{2\pi} \tder{}{t}, \\
+\amp = 2 \pi R. 
+\end{align*}
+</div>
+<div class="para">In this case, because the norm of the tangent vector for our parameterization is constant, many other scalar integrals are accessible. For example, if</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\rho (x, y) = x^2 + 2 y^2
+\end{equation*}
+</div>
+<div class="para">were a mass density function on <span class="process-math">\(\mathcal{C}\)</span> and we wanted to compute total mass, we use our prior computations and find</div>
+<div class="displaymath process-math" id="subsec-scalar-line-integrals-4-2-1-12">
+\begin{align*}
+\text{Mass} (\mathcal{C} ) \amp = \int_{\mathcal{C}} \rho (\mb{r}) \tder{}{s},  \\
+\amp = \int_0^{2\pi} (R^2 \cos^2 t + 2R^2 \sin^2 t) \|\mb{r}^\prime (t) \| \, \tder{}{t}, \\
+\amp = R^3 \int_0^{2\pi} 1 + \sin^2 t \tder{}{t}, \\
+\amp = R^3 \int_0^{2\pi} 1 + \frac{1 - \cos 2 t}{2}  \tder{}{t}, \\
+\amp = 3 \pi R^3. 
+\end{align*}
+</div>
+</div></article></details><div class="para" id="subsec-scalar-line-integrals-5">The ease at which we can compute scalar line integrals on the circle follows from the fact that there is a constant speed parameterization that we all know. While it is the case that every smooth curve has such a parameterization, finding it can be a difficult task. Let us observe an example when such a parameterization is not immediately available.</div>
+<details id="subsec-scalar-line-integrals-6" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.2.6</span><span class="period">.</span><span class="space"> </span><span class="title">Scalar line integral II.</span>
+</h4></summary><article class="example example-like"><div class="para logical" id="subsec-scalar-line-integrals-6-2-1">
+<div class="para">Suppose we want to compute the length of the twisted cubic curve <span class="process-math">\(\mathcal{C}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{r} (t) = \left( t, t^2, t^3 \right)
+\end{equation*}
+</div>
+<div class="para">for <span class="process-math">\(0 \leq t \leq 1\text{.}\)</span> We proceed by computing the tangent vector and its norm.</div>
+<div class="displaymath process-math" id="subsec-scalar-line-integrals-6-2-1-4">
+\begin{align*}
+\mb{r}^\prime (t) \amp = \left[ \begin{matrix} 1 \amp 2t \amp 3 t^2 \end{matrix} \right], \\
+\| \mb{r}^\prime (t) \| \amp = \sqrt{ 1 + 4t^2 + 9 t^4}. 
+\end{align*}
+</div>
+<div class="para">This yields the integral</div>
+<div class="displaymath process-math" id="subsec-scalar-line-integrals-6-2-1-5">
+\begin{align*}
+\text{Length} (\mathcal{C} ) \amp = \int_{\mathcal{C}} \tder{}{s}, \\
+\amp = \int_0^{1} \|\mb{r}^\prime (t) \| \, \tder{}{t}, \\
+\amp =  \int_0^{1} \sqrt{ 1 + 4t^2 + 9 t^4} \,\tder{}{t}.
+\end{align*}
+</div>
+<div class="para">Such an integral will require even the most advanced second semester calculus student a good amount of time to work on. On the other hand, a curve <span class="process-math">\(\tilde{\mathcal{C}}\)</span> that looks very similar given by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\tilde{\mb{r}} (t) = \left( t, \frac{\sqrt{2}}{2}t^2, \frac{1}{3} t^3 \right)
+\end{equation*}
+</div>
+<div class="para">can be worked with easily. We find</div>
+<div class="displaymath process-math" id="subsec-scalar-line-integrals-6-2-1-8">
+\begin{align*}
+\tilde{\mb{r}}^\prime (t) \amp = \left[ \begin{matrix} 1 \amp \sqrt{2}t \amp t^2 \end{matrix} \right], \\
+\| \tilde{\mb{r}}^\prime (t) \| \amp = \sqrt{ 1 + 2t^2 +  t^4} = 1 + t^2. 
+\end{align*}
+</div>
+<div class="para">This yields the integral</div>
+<div class="displaymath process-math" id="subsec-scalar-line-integrals-6-2-1-9">
+\begin{align*}
+\text{Length} (\tilde{\mathcal{C}} ) \amp = \int_{\tilde{\mathcal{C}}} \tder{}{s}, \\
+\amp = \int_0^{1} \|\tilde{\mb{r}}^\prime (t) \| \, \tder{}{t}, \\
+\amp =  \int_0^{1} 1 + t^2 \,\tder{}{t}, \\
+\amp = \frac{4}{3}. 
+\end{align*}
+</div>
+<div class="para">In this later case, finding the scalar integral of say</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\rho (x,y, z) = \frac{\sqrt{2} y + z}{x} 
+\end{equation*}
+</div>
+<div class="para">can be accomplished with ease</div>
+<div class="displaymath process-math" id="subsec-scalar-line-integrals-6-2-1-11">
+\begin{align*}
+\int_{\tilde{\mathcal{C}}} \rho (\mb{r}) \tder{}{s} \amp = \int_0^{1} \frac{t^2 + t^3 / 3}{t} \|\tilde{\mb{r}}^\prime (t) \| \, \tder{}{t}, \\
+\amp =  \int_0^{1} \left( t + \frac{t^2}{3} \right) (1 + t^2) \, \tder{}{t},  \\
+\amp = \int_0^1 t + t^3 + \frac{t^2}{3} + \frac{t^4}{3} \, \tder{}{t}, \\
+\amp = \frac{1}{2} + \frac{1}{4} + \frac{1}{9} + \frac{1}{15} = \frac{167}{180}. 
+\end{align*}
+</div>
+</div></article></details><div class="para" id="subsec-scalar-line-integrals-7">The lesson of the last two examples is that computing scalar line integrals can be very easy, if the parameterization has nice speed <span class="process-math">\(\| \mb{r}^\prime (t) \|\text{.}\)</span> Otherwise, it can be an impossible task.</div></section><section class="subsection" id="subsec-scalar-surface-integrals"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">4.2.2</span><span class="space"> </span><span class="title">Scalar surface integrals</span>
+</h3>
+<div class="para logical" id="subsec-scalar-surface-integrals-2">
+<div class="para">Another widely taught class of scalar integrals are scalar surface integrals. If <span class="process-math">\(\mathcal{S}\)</span> is a surface in, say <span class="process-math">\(\mathbb{R}^3\text{,}\)</span> we should think of <span class="process-math">\(\vol^\mathcal{S}\)</span> as providing an infinitesimal measure of surface area. If <span class="process-math">\(f\)</span> is a scalar function on <span class="process-math">\(\mathcal{S}\text{,}\)</span> the <dfn class="terminology">scalar surface integral</dfn> is written as</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-scalar.html ./knowl/xref/eq-scalar.html ./knowl/xref/sec-exterior.html">
+\begin{equation*}
+\iint_{\mathcal{S}} f \, \tder{}{S} := \int_{\mathcal{S}} f \vol^{\mathcal{S}}
+\end{equation*}
+</div>
+<div class="para">The first thing to note is that we can compute the pullback <span class="process-math">\(\mb{G}^* \vol^\mathcal{S}\)</span> once we have a parameterization (although it is not always so pretty!). Indeed, suppose <span class="process-math">\(\mathcal{S}\)</span> is parameterized by a function</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-scalar.html ./knowl/xref/eq-scalar.html ./knowl/xref/sec-exterior.html">
+\begin{equation*}
+\mb{G} (u, v) = \left( x(u, v), y(u, v), z (u, v) \right).
+\end{equation*}
+</div>
+<div class="para">Then the vector fields from <a href="" class="xref" data-knowl="./knowl/xref/prop-scalar.html" title="Proposition 4.2.3">Proposition 4.2.3</a> are</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-scalar.html ./knowl/xref/eq-scalar.html ./knowl/xref/sec-exterior.html" id="subsec-scalar-surface-integrals-2-12">
+\begin{align*}
+\xi_u \amp = \left[ \begin{matrix} \frac{\partial x}{\partial u} \amp \frac{\partial y}{\partial u} \amp \frac{\partial z}{\partial u}\end{matrix} \right], \\
+\xi_v \amp = \left[ \begin{matrix} \frac{\partial x}{\partial v} \amp \frac{\partial y}{\partial v} \amp \frac{\partial z}{\partial v}\end{matrix} \right]. 
+\end{align*}
+</div>
+<div class="para">One often finds these written as</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-scalar.html ./knowl/xref/eq-scalar.html ./knowl/xref/sec-exterior.html" id="subsec-scalar-surface-integrals-2-13">
+\begin{align*}
+\frac{\partial \mb{G}}{\partial u} \amp = \xi_u, \\
+\frac{\partial \mb{G}}{\partial v} \amp = \xi_v, 
+\end{align*}
+</div>
+<div class="para">and we will use this notation as well. Then by equation <a href="" class="xref" data-knowl="./knowl/xref/eq-scalar.html" title="Equation 4.2.1">(4.2.1)</a> we have</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-scalar.html ./knowl/xref/eq-scalar.html ./knowl/xref/sec-exterior.html">
+\begin{equation*}
+\mb{G}^* \vol^{\mathcal{S}} = \left\| \frac{\partial \mb{G}}{\partial u} \wedge \frac{\partial \mb{G}}{\partial v} \right\| \, \tder{}{u} \wedge \tder{}{v}.
+\end{equation*}
+</div>
+<div class="para">As the example we are considering occurs in dimension three, we have a few other tricks up our sleeve. In particular, we have the  cross product and, by our results from <a href="sec-exterior.html" class="internal" title="Section 2.1: Exterior algebras">Section 2.1</a>, we know that for a <span class="process-math">\(3\)</span>-dimensional inner product space <span class="process-math">\(\|\mb{u} \wedge \mb{v}\| = \|\mb{u} \times \mb{v} \|\text{.}\)</span> This gives the alternative (much more common) expression</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-scalar.html ./knowl/xref/eq-scalar.html ./knowl/xref/sec-exterior.html" id="eq-surfacevolumepullback">
+\begin{equation}
+\mb{G}^* \vol^{\mathcal{S}} = \left\| \frac{\partial \mb{G}}{\partial u} \times \frac{\partial \mb{G}}{\partial v} \right\| \, \tder{}{u} \wedge \tder{}{v}.\tag{4.2.2}
+\end{equation}
+</div>
+<div class="para">In turn, if <span class="process-math">\(\mb{G} : D \to \mathcal{S}\)</span> is a smooth parameterization, we obtain the computational formula for scalar surface integrals (in <span class="process-math">\(\mathbb{R}^3\)</span>)</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-scalar.html ./knowl/xref/eq-scalar.html ./knowl/xref/sec-exterior.html">
+\begin{equation*}
+\iint_{\mathcal{S}} f \, \tder{}{S} = \iint_D f  \left( x(u, v), y(u, v), z (u, v) \right) \left\| \frac{\partial \mb{G}}{\partial u} \times \frac{\partial \mb{G}}{\partial v} \right\| \, \tder{}{u}\tder{}{v}
+\end{equation*}
+</div>
+<div class="para">Let us now make a couple of computations.</div>
+</div>
+<details id="subsec-scalar-surface-integrals-3" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.2.7</span><span class="period">.</span><span class="space"> </span><span class="title">Scalar surface integral I.</span>
+</h4></summary><article class="example example-like"><div class="para logical" id="subsec-scalar-surface-integrals-3-2-1">
+<div class="para">As is our habit, we start by deriving a classical formula. Let <span class="process-math">\(\mathcal{S}\)</span> be the sphere centered at the origin of radius <span class="process-math">\(R\text{.}\)</span> Remember that this is the set of points in <span class="process-math">\(\mathbb{R}^3\)</span> satisfying the equation</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex-spheresurfacearea.html">
+\begin{equation*}
+x^2 + y^2 + z^2 = R^2
+\end{equation*}
+</div>
+<div class="para">and describes the surface boundary of the <span class="process-math">\(3\)</span>-dimensional ball of radius <span class="process-math">\(R\text{.}\)</span> We may parameterize this using spherical coordinates and fixing <span class="process-math">\(\rho = R\text{.}\)</span> This gives</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex-spheresurfacearea.html" id="eq-spherespherical">
+\begin{equation}
+\mb{G} (\varphi , \theta ) = \left( R \sin \varphi \cos \theta , R \sin \varphi \sin \theta , R \cos \varphi \right)\tag{4.2.3}
+\end{equation}
+</div>
+<div class="para">where <span class="process-math">\(\mb{G} : [0, \pi] \times [0, 2\pi] \to \mathcal{S}\text{.}\)</span> Calculating the tangent fields</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex-spheresurfacearea.html" id="subsec-scalar-surface-integrals-3-2-1-10">
+\begin{align*}
+\frac{\partial \mb{G}}{\partial \varphi} \amp = \left[ \begin{matrix} R \cos \varphi \cos \theta \amp R \cos \varphi \sin \theta \amp - R \sin \varphi \end{matrix} \right] , \\
+\frac{\partial \mb{G}}{\partial v} \amp = \left[ \begin{matrix} -R \sin \varphi \sin \theta \amp R \sin \varphi \cos \theta \amp 0 \end{matrix} \right]. 
+\end{align*}
+</div>
+<div class="para">From <a href="" class="xref" data-knowl="./knowl/xref/ex-spheresurfacearea.html" title="Exercise 4.2.3.5">Exercise 4.2.3.5</a> we have</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex-spheresurfacearea.html" id="eq-spheresurfacearea">
+\begin{equation}
+\left\| \frac{\partial \mb{G}}{\partial \varphi} \times \frac{\partial \mb{G}}{\partial \theta} \right\| \amp = R^2 \sin \varphi.\tag{4.2.4}
+\end{equation}
+</div>
+<div class="para">Using this we obtain</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex-spheresurfacearea.html" id="subsec-scalar-surface-integrals-3-2-1-13">
+\begin{align*}
+\text{Surface Area} (\mathcal{S}) \amp = \iint_\mathcal{S} \, \tder{}{S}, \\
+\amp = \iint_{[0, \pi] \times [0, 2\pi]} \left\| \frac{\partial \mb{G}}{\partial \varphi} \times \frac{\partial \mb{G}}{\partial \theta} \right\| \, \tder{}{\varphi} \tder{}{\theta},  \\
+\amp = \int_0^{2\pi} \int_0^\pi R^2 \sin \varphi \, \tder{}{\varphi} \tder{}{\theta}, \\
+\amp = \int_0^{2\pi} 2 R^2  \, \tder{}{\theta}, \\ \amp = 4 \pi R^2.  
+\end{align*}
+</div>
+<div class="para">Of course, this is yet another confirmation that the formulas we learn in elementary school do indeed hold! However, now we can also compute other quantities on the sphere fairly easily using our computations here. For example, if <span class="process-math">\(\kappa (x,y,z) = x^2 + y^2 \)</span> denotes the density of a substance on the sphere of radius <span class="process-math">\(R\)</span> we can find the total amount of this substance on the sphere by computing the scalar integral</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex-spheresurfacearea.html" id="subsec-scalar-surface-integrals-3-2-1-16">
+\begin{align*}
+\iint_{\mathcal{S}} \kappa \, \tder{}{S} \amp = \int_0^{2\pi} \int_0^\pi \left( R^2 \sin^2 \varphi \cos^2 \theta + R^2 \sin^2 \varphi \sin^2 \theta \right)R^2 \sin \varphi \, \tder{}{\varphi} \tder{}{\theta}, \\
+\amp = R^4 \int_0^{2\pi} \int_0^\pi \sin^3 \varphi  \, \tder{}{\varphi} \tder{}{\theta},\\
+\amp = 2 \pi R^4 \int_0^\pi \sin \varphi - \sin \varphi \cos^2 \varphi \, \tder{}{\varphi}, \\
+\amp = 2 \pi R^4 \left( -\cos \varphi + \frac{\cos^3 \varphi}{3} \right)_0^\pi, \\
+\amp = \frac{8 \pi R^4}{3}. 
+\end{align*}
+</div>
+</div></article></details><div class="para logical" id="subsec-scalar-surface-integrals-4">
+<div class="para">In general, it can be a difficult task to parameterize any <span class="process-math">\(m\)</span>-dimensional subspace of <span class="process-math">\(\mathbb{R}^n\text{,}\)</span> even when this subspace is a curve or a surface. However, there are cases where an easy parameterization is part of the description of the surface <span class="process-math">\(\mathcal{S}\text{,}\)</span> namely when it is the graph <span class="process-math">\(z = g (x,y)\)</span> of some differentiable function <span class="process-math">\(g: D \to \mathbb{R}\text{.}\)</span> In this case, we can use the parameterization <span class="process-math">\(\mb{G} : D \to \mathbb{R}^3\)</span> given by</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex-graphsurfacearea.html">
+\begin{equation*}
+\mb{G} (u, v) = \left( u, v, g (u, v) \right).
+\end{equation*}
+</div>
+<div class="para">Computing the tangent fields on <span class="process-math">\(\mathcal{S}\)</span> associated to <span class="process-math">\(\mb{G}\)</span> gives</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex-graphsurfacearea.html" id="subsec-scalar-surface-integrals-4-10">
+\begin{align*}
+\frac{\partial \mb{G}}{\partial u} \amp = \left[ \begin{matrix} 1 \amp 0 \amp \frac{\partial g}{\partial u} \end{matrix} \right], \\
+\frac{\partial \mb{G}}{\partial v} \amp =  \left[ \begin{matrix} 0 \amp 1 \amp \frac{\partial g}{\partial v} \end{matrix} \right].
+\end{align*}
+</div>
+<div class="para">From <a href="" class="xref" data-knowl="./knowl/xref/ex-graphsurfacearea.html" title="Exercise 4.2.3.6">Exercise 4.2.3.6</a> we have</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex-graphsurfacearea.html" id="eq-graphsurfacearea">
+\begin{equation}
+\left\| \frac{\partial \mb{G}}{\partial u} \times \frac{\partial \mb{G}}{\partial v} \right\| = \sqrt{1 + \left(\frac{\partial g}{\partial u}\right)^2 + \left( \frac{\partial g}{\partial v} \right)^2}.\tag{4.2.5}
+\end{equation}
+</div>
+<div class="para">Thus, for such surfaces, we obtain a formula for the scalar integral of <span class="process-math">\(f\)</span>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex-graphsurfacearea.html" id="eq-surfaceintegralgraph">
+\begin{equation}
+\iint_\mathcal{S} f \, \tder{}{S} = \iint_D f(u, v, g(u,v)) \sqrt{1 + \left(\frac{\partial g}{\partial u}\right)^2 + \left( \frac{\partial g}{\partial v} \right)^2} \tder{}{u} \tder{}{v}.\tag{4.2.6}
+\end{equation}
+</div>
+<div class="para">If a student protests at this point with the comment ‘This formula looks awful’, my response will be: ‘correct, but who told you life wasn’t awful!’</div>
+</div>
+<details id="subsec-scalar-surface-integrals-5" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.2.8</span><span class="period">.</span><span class="space"> </span><span class="title">Scalar surface integral II.</span>
+</h4></summary><article class="example example-like"><div class="para logical" id="subsec-scalar-surface-integrals-5-2-1">
+<div class="para">Suppose <span class="process-math">\(\mathcal{S}\)</span> is the graph of</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-surfaceintegralgraph.html">
+\begin{equation*}
+g(x,y) = e^y \cos x 
+\end{equation*}
+</div>
+<div class="para">over the domain <span class="process-math">\([-\pi / 4, \pi/4] \times [0, 1]\)</span> and we wish to integrate the scalar function</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-surfaceintegralgraph.html">
+\begin{equation*}
+f(x,y,z) = \frac{2 z e^{y}}{\cos x}. 
+\end{equation*}
+</div>
+<div class="para">We compute the surface area form first by finding</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-surfaceintegralgraph.html" id="subsec-scalar-surface-integrals-5-2-1-5">
+\begin{align*}
+\left\| \frac{\partial \mb{G}}{\partial u} \times \frac{\partial \mb{G}}{\partial v} \right\| \amp = \sqrt{1 + \left(\frac{\partial g}{\partial u}\right)^2 + \left( \frac{\partial g}{\partial v} \right)^2} \\
+\amp =  \sqrt{1 + \left(-e^v \sin u \right)^2 + \left( e^v \cos u \right)^2} \\
+\amp = \sqrt{1 + e^{2v}}. 
+\end{align*}
+</div>
+<div class="para">Using this, we compute our surface integral following formula <a href="" class="xref" data-knowl="./knowl/xref/eq-surfaceintegralgraph.html" title="Equation 4.2.6">(4.2.6)</a>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-surfaceintegralgraph.html" id="subsec-scalar-surface-integrals-5-2-1-7">
+\begin{align*}
+\iint_\mathcal{S} f \, \tder{}{S} \amp = \iint_D f(u, v, g(u,v)) \sqrt{1 + \left(\frac{\partial g}{\partial u}\right)^2 + \left( \frac{\partial g}{\partial v} \right)^2} \tder{}{u} \tder{}{v}, \\
+\amp = \iint_{[-\pi / 4, \pi/4] \times [0, 1]} \frac{2 ( e^v \cos u )e^v}{\cos u} \sqrt{1 + e^{2v}} \, \tder{}{u} \tder{}{v}, \\
+\amp = \int_0^1 \int_{-\pi / 4}^{\pi / 4} 2 e^{2v} \sqrt{1 + e^{2v}} \, \tder{}{u} \tder{}{v}, \\
+\amp = \frac{\pi}{2} \int_0^1 2 e^{2v} \sqrt{1 + e^{2v}} \,  \tder{}{v}, \\
+\amp = \frac{\pi}{3} \left. \left( 1 + e^{2v} \right)^{3 /2}\right|_0^1, \\
+\amp = \frac{\pi}{3} \left( \left( 1 + e^{2} \right)^{3 /2} -  2^{3 /2} \right). 
+\end{align*}
+</div>
+</div></article></details></section><section class="exercises" id="exe-scalarintegrals"><h3 class="heading hide-type">
+<span class="type">Exercises</span><span class="space"> </span><span class="codenumber">4.2.3</span><span class="space"> </span><span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="exe-scalarintegrals-1"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<div class="para" id="exe-scalarintegrals-1-1-1">Let <span class="process-math">\(\mb{r} (t) = ( R \cos t , R \sin t, t )\)</span> with <span class="process-math">\(a \leq t \leq b\)</span> be a helix arc. Compute the length of the curve traced by <span class="process-math">\(\mb{r}\text{.}\)</span>
+</div></article><article class="exercise exercise-like" id="exe-scalarintegrals-2"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<div class="para logical" id="exe-scalarintegrals-2-1-1">
+<div class="para">Let <span class="process-math">\(\mathcal{C}\)</span> be the graph <span class="process-math">\(y = g(x)\)</span> a differentiable function over <span class="process-math">\([a,b]\)</span> and</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(x,y) = \frac{1}{\sqrt{1 + g^\prime (x)^2}}.
+\end{equation*}
+</div>
+<div class="para">What is the scalar integral</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int_{\mathcal{C}} f (\mb{r} ) \tder{}{s} \, \, ?
+\end{equation*}
+</div>
+</div></article><article class="exercise exercise-like" id="exe-scalarintegrals-3"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
+<div class="para logical" id="exe-scalarintegrals-3-1-1">
+<div class="para">Let <span class="process-math">\(\mathcal{S}\)</span> be the cone of height <span class="process-math">\(h\)</span> and top radius <span class="process-math">\(R\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+x^2 + y^2 = \frac{R^2}{h^2} z^2 , \hspace{.3in} 0 \leq z \leq h.
+\end{equation*}
+</div>
+<div class="para">Find the surface area of <span class="process-math">\(\mathcal{S}\)</span> by computing a scalar surface integral.</div>
+</div></article><article class="exercise exercise-like" id="exe-scalarintegrals-4"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
+<div class="para logical" id="exe-scalarintegrals-4-1-1">
+<div class="para">Let <span class="process-math">\(\mathcal{S}\)</span> be the hemisphere</div>
+<div class="displaymath process-math">
+\begin{equation*}
+x^2 + y^2 + z^2 = 4, \hspace{.3in} y \geq 0.
+\end{equation*}
+</div>
+<div class="para">Compute the surface scalar integral</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\iint_\mathcal{S} y \, \tder{}{S}.
+\end{equation*}
+</div>
+</div></article><article class="exercise exercise-like" id="ex-spheresurfacearea"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
+<div class="para" id="ex-spheresurfacearea-1-1">Show that formula <a href="" class="xref" data-knowl="./knowl/xref/eq-spheresurfacearea.html" title="Equation 4.2.4">(4.2.4)</a> holds.</div></article><article class="exercise exercise-like" id="ex-graphsurfacearea"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
+<div class="para" id="ex-graphsurfacearea-1-1">Show that formula <a href="" class="xref" data-knowl="./knowl/xref/eq-graphsurfacearea.html" title="Equation 4.2.5">(4.2.5)</a> holds.</div></article></section></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="sec-integrating-forms.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-vectorintegrals.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>
+</body>
+</html>
