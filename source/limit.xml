@@ -8,7 +8,7 @@
     </me>
     <p>Of course, we can and should be more general than this. We should consider a vector <m>\mb{c}</m> of an inner product space <m>V</m> in an open set <m>U</m> and really work there. The reason for all of this additional notation is that sometimes our function <m>\mb{F}</m> may only be defined near a given point. Indeed, the limit and derivative are `local' features of a function meaning they do not care about what is going on far away from the point of focus. </p>
 
-    <p>To understand the definition of the limit, one must work through definitions and results in Appendix~\ref{sec:analysis}. As this is not in the main body of the notes, we will review a few of the important features and discuss examples in this section. First, Proposition~\ref{prop:coordinatelimit} reduces questions of a limit's existence to the scalar coordinate functions, so we will restrict our attention to scalar functions
+    <p>To understand the definition of the limit, one must work through definitions and results in a basic analysis course. As this is not in the main body of the notes, we will review a few of the important features and discuss examples in this section. First, the existence of a limit follows from the function to the scalar coordinate functions, so we will restrict our attention to scalar functions
     <me>
         f : \mathbb{R}^m \to \mathbb{R}.
     </me>
