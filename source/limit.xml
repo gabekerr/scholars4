@@ -77,7 +77,7 @@
     </theorem>
 
     <example>
-        <title>Non-existent limit with well defined limits along straight lines</title>
+        <title>Squeeze Theorem Application</title>
         <statement>
             <p> The function <me> f(x,y) = \frac{x^3 + y^3}{x^2 + y^2} </me> is continuous everywhere except at the origin where it is undefined. We can nonetheless consider the limit of <m>f(x,y)</m> as one approaches <m>(0, 0)</m>. To see this limit exists, we first observe that <m>f(x,y)</m> satisfies the inequalities <me> -2 \sqrt{x^2 + y^2} \leq f(x,y) \leq 2 \sqrt{x^2 + y^2 }. </me> To see this, just use polar coordinates <m>(x,y) = (r \cos \theta , r \sin \theta)</m> and observe that <me> f(x,y) = r \left( \cos^3 \theta + \sin^3 \theta \right). </me> Now, the function <m>\sqrt{x^2 + y^2}</m> is the composition of continuous functions, so it is continuous and thus the left and right hand bound have limit <m>0</m> as <m>(x,y) \to (0, 0)</m>. But then the Squeeze Theorem gives that <me> \lim_{(x,y) \to (0, 0)} f(x,y) = 0. </me> </p>
         </statement>
