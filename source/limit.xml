@@ -53,9 +53,17 @@
     <p>The last example is one that should be considered with great care. Unlike in <m>1</m> dimension, it is <it>not</it> the case that one can assert that a limit does exist if all straight line limits exist and are equal. </p>
 
     <example>
-        <title>Non-existent limit with well defined limits along straight lines</title>
+        <title>Non-existent limit with well defined limits along straight lines I</title>
         <statement>
             <p>Consider the function <me> f(x,y) = \begin{cases} 0 \amp y \ne x^2 , \\ 1 \amp y = x^2. \end{cases} </me> One can easily check that <m>\lim_{t \to 0} f(at, bt) = 0</m> for any real numbers <m>a</m> and <m>b</m>. However,  <m>\lim_{(x,y) \to (0, 0)} f(x,y)</m> does not exist. Indeed, this shows that straight line approaches are not enough, one must also consider parabolic approaches, and of course, an infinite set of other approaches! </p>
+        </statement>
+    </example>
+
+    <example>
+        <title>Non-existent limit with well defined limits along straight lines II</title>
+        <statement>
+            <p> The last example may make it seem that only very exotic looking functions experience this defect. To see how common such a scenario may be, consider the function <me> f(x,y) = \frac{x^8}{(y - x^2)^2 + y^4} </me> which is continuous everywhere except at the origin where it is undefined. We again consider the limit of <m>f(x,y)</m> as one approaches <m>(0, 0)</m>. One could try to examine the limit of <m>f(x,y)</m> along any line <m>(t, at)</m> through the origin (the case of <m>(0,t)</m> can be evaluated separately). Here we have
+            <me> f(t, at) = \frac{t^8}{(at - t^2)^2 + a^4t^4}= \frac{t^6}{(a - t)^2 + a^4 t^2}</me> which, if <m> a \ne 0</m> converges to <m>0</m>. The case of <m>a = 0</m> gives <m>f(t, 0) = t^4</m> which converges to <m>0</m> as well. It may than seem that the limit of <m>f(x,y)</m> as <m>(x,y) \to (0,0)</m> is zero. After all, we have approached the origin in every linear direction and found the same limit of <m>0</m>. However, the limit in fact <em>does not exist</em>! Indeed, if we approach the origin along the parabola, <m>(t, t^2)</m> we see <me>f(t,t^2) =  \frac{t^8}{(t^2 - t^2)^2 + (t^2)^4} = \frac{t^8}{t^8} = 1</me> so that the limit is <m>1</m> on this approach. This phenomena shows that, while taking different linear approaches may show that a limit does not exist, it cannot show that a limit does exist. </p>
         </statement>
     </example>
 
@@ -91,6 +99,8 @@
         <output>
         </output>
     </sage>
+
+    
 
 
     <exercises xml:id="exe-limit">
