@@ -35,7 +35,7 @@
         <statement>
             <p>If <m>\mb{F}</m> is differentiable at <m>\mb{a}</m>, then it is continuous at <m>\mb{a}</m>. </p>
         </statement>
-        <proof> <p>Suppose <m>\varepsilon \gt 0</m> is given and <m>\delta_1</m> gives us the limit in the definition of the derivative for <m>\frac{\varepsilon}{2}</m>. Since linear transformations are continuous, we also have that there is some <m>\delta_2</m> for which <m>\|\mb{x} - \mb{a} \| \lt \delta_2</m> implies <m>\tder{\mb{a}}{\mb{F}} (\mb{x} - \mb{a}) \lt \frac{\varepsilon}{2}</m>. Then letting <m>\delta = \min \{ \delta_1, \delta_2, 1\}</m> we have that for any <m>\| \mb{x} - \mb{a} \| \lt \delta</m> the triangle inequality gives 
+        <proof> <p>Suppose <m>\varepsilon \gt 0</m> is given and <m>\delta_1</m> gives us the limit in the definition of the derivative for <m>\frac{\varepsilon}{2}</m>. Since linear transformations are continuous, we also have that there is some <m>\delta_2</m> for which <m>\|\mb{x} - \mb{a} \| \lt \delta_2</m> implies <m>\|\tder{\mb{a}}{\mb{F}} (\mb{x} - \mb{a}) \| \lt \frac{\varepsilon}{2}</m>. Then letting <m>\delta = \min \{ \delta_1, \delta_2, 1\}</m> we have that for any <m>\| \mb{x} - \mb{a} \| \lt \delta</m> the triangle inequality gives 
             <md>
                 <mrow>\| \mb{F} ( \mb{x} ) - \mb{F} (\mb{a}) \| \amp =  \| \mb{F} ( \mb{x} ) - \mb{F} (\mb{a}) - \tder{\mb{a}}{\mb{F}} (\mb{x} - \mb{a}) + \tder{\mb{a}}{\mb{F}} (\mb{x} - \mb{a}) \|, </mrow>
                 <mrow> \amp \leq \| \mb{F} ( \mb{x} ) - \mb{F} (\mb{a}) - \tder{\mb{a}}{\mb{F}} (\mb{x} - \mb{a}) \| +  \| \tder{\mb{a}}{\mb{F}} (\mb{x} - \mb{a}) \|,</mrow> 
@@ -204,7 +204,7 @@
         <me>
             F(t) = f(t, a_2 + k) - f( t, a_2)
         </me>
-        defined on <m>[0, h]</m>. This function is differentiable so we can apply the Mean Value Theorem
+        defined on <m>[a_1, a_1 + h]</m>. This function is differentiable so we can apply the Mean Value Theorem
         and find <m>a_1^*</m> between <m>a_1</m> and <m>a_1 + h</m> such that <m>F^\prime (a_1^*) = \frac{F(h) - F(0)}{h}</m>. Noting that <m>F^\prime (t) = \partial_{x_1} f (t, a_2 + k) - \partial_{x_1} f (t, a_2)</m>, writing this out we have that
         <me>
             f(a_1 + h , a_2 + k) - f(a_1, a_2 + k) - f(a_1 + h, a_2) + f(a_1, a_2) 
@@ -235,7 +235,7 @@
             <statement>
                 <p>Suppose <m>f : U \to \mathbb{R}</m>  is a scalar function on an open subset <m>U</m> of <m>\mathbb{R}^m</m>. If <m>f</m> has continuous first partial derivatives then <m>f</m> is differentiable. Furthermore, in this case
                 <me>
-                    \tder{}{f} \left( \threevec{b_1}{\vdots}{b_m} \right) = b_1 \pd{f}{x_1} + b_2 \pd{f}{x_2} + \cdots + b_n \pd{f}{x_n}.
+                    \tder{}{f} \left( \threevec{b_1}{\vdots}{b_m} \right) = b_1 \pd{f}{x_1} + b_2 \pd{f}{x_2} + \cdots + b_m \pd{f}{x_m}.
                 </me> </p>
             </statement>
             <proof> We will assume <m>U</m> is a neighborhood of <m>\mb{a}</m> and <m>\mb{x}</m> is in <m>U</m>. Let <m>\mb{x} - \mb{a} = b_1 \mb{e}_1 + \cdots + b_m \mb{e}_m</m>. Write 
@@ -315,7 +315,7 @@
     <subsection xml:id="subsec-linear-approximation-scalar">
         <title>Linear approximation of scalar functions</title>
         <p> As we have just seen in <xref ref="thm-differentiable"/>, one can often check for differentiability of a scalar function by looking at the first partial derivatives. This leads us to the following unfortunate definition. </p>
-
+        
         <definition xml:id="def-linear-approximation">         
             <notation>             
                 <usage><m>L(\mb{x})</m></usage>             
@@ -469,7 +469,7 @@
 
         <exercise>
             <statement>
-                <p> For the case of <m>m = 1 = n</m>, <m>\mb{F} (\mb{x}) = f(x)</m>, explain why <xref ref="def-derivative"/> is the same as the usual definition of the derivative. </p>
+                <p> For the case when <m>V_1 = \mathbb{R} = V_2</m>, <m>\mb{F} (\mb{x}) = f(x)</m>, explain why <xref ref="def-derivative"/> is the same as the usual definition of the derivative. </p>
             </statement>
         </exercise>
 

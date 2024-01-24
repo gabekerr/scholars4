@@ -6,9 +6,101 @@
     <me>
         \mb{F} : \mathbb{R}^m \to \mathbb{R}^n.
     </me>
-    <p>Of course, we can and should be more general than this. We should consider a vector <m>\mb{c}</m> of an inner product space <m>V</m> in an open set <m>U</m> and really work there. The reason for all of this additional notation is that sometimes our function <m>\mb{F}</m> may only be defined near a given point. Indeed, the limit and derivative are `local' features of a function meaning they do not care about what is going on far away from the point of focus. </p>
+    <p>Of course, we can and should be more general than this. We should consider a vector <m>\mb{c}</m> of an inner product space <m>V</m> in an open set <m>U</m> and really work there. The reason for all of this additional notation is that sometimes our function <m>\mb{F}</m> may only be defined near a given point. Indeed, the limit and derivative are <sq>local</sq> features of a function meaning they do not care about what is going on far away from the point of focus. </p>
 
-    <p>To understand the definition of the limit, one must work through definitions and results in a basic analysis course. As this is not in the main body of the notes, we will review a few of the important features and discuss examples in this section. First, the existence of a limit follows from the function to the scalar coordinate functions, so we will restrict our attention to scalar functions
+    <p>To understand the definition of the limit, one must work through definitions and results in a basic analysis course. As this is not in the main body of the notes, we will review a few of the important features and discuss examples in this section.</p>
+    
+    <definition xml:id="def-limit">
+        <notation>             
+            <usage><m>\lim_{\mb{x} \to \mb{c}} f(\mb{x} ) </m></usage>             
+            <description>linear approximation</description>         
+        </notation>         
+                <statement>
+                    <p>Let <m>V_1</m> and <m>V_2</m> be two inner product spaces and <m>U \subseteq V_1</m> a neighborhood of <m>\mb{c}</m>. Suppose <me>f : U \to V_2 </me> is any function. We say that the <term>limit</term> of <m>f(\mb{x})</m> as <m>\mb{x}</m> approaches <m>\mb{c}</m> is <m>\mb{L}</m> if for every <m>\varepsilon \gt 0</m> there is a <m>\delta \gt 0</m> so that 
+                        <me> 0 \lt \|\mb{x} - \mb{c} \| \lt \delta </me>
+                    implies 
+                        <me> \| f(\mb{x}) - \mb{L} \| \lt \varepsilon . </me>
+                    In this case, we write
+                        <me> \lim_{\mb{x} \to \mb{c}} f(\mb{x} ) = \mb{L} . </me></p>
+                </statement>
+    </definition>
+    
+    <p>An alternative way of stating the implication is that every point in the punctured ball of radius <m>\delta</m> around <m>\mb{c}</m> is sent to the ball of radius <m>\varepsilon</m> around <m>\mb{L}</m> or, with notation, <me> \mb{x} \in \pball{\delta}{\mb{c}} \text{ implies } f(\mb{x} ) \in \ball{\varepsilon}{\mb{L}}. </me>
+    Invariably, with the notion of limit comes its cousin.</p>
+    
+    <definition xml:id="def-continuous">
+        <notation>             
+             <usage><m>f(\mb{x} )</m></usage>             
+                    <description>continuous</description>         
+                </notation>         
+                <statement>
+                    <p>Let <m>V_1</m> and <m>V_2</m> be two inner product spaces and <m>U \subseteq V_1</m> a neighborhood of <m>\mb{c}</m>. Suppose <me>f : U \to V_2 </me>
+    is any function. We say that <m>f</m> is <term>continuous</term> at <m>\mb{c}</m> if 
+    <me> \lim_{\mb{x} \to \mb{c}} f(\mb{x} ) = f ( \mb{c} ) . </me></p>
+                </statement>
+            </definition>
+    
+    <p>The definition given here for limits allows us to talk about limits for non-linear functions between inner product spaces. It is interesting to consider what exactly has become new or challenging compared to our one-dimensional understanding. In fact, there are several results that have much the same look in higher dimensions. The case where this is most obvious is scalar functions. Recall these are functions defined on an open subset <m>U</m> of an inner product space <m>V</m> to <m>K</m> (where <m>K</m> is <m>\mathbb{R}</m> or <m>\mathbb{C}</m>). In notation we would write <m>f : U \to K</m>. The reason that scalar functions are such important creatures is that we can add, multiply and divide them as well as compose them with some familiar functions from <m>K</m> to <m>K</m>.</p>
+    
+    <proposition xml:id="prop-limitsScalarArithmetic">
+    <statement>
+    <p>Suppose <m>U</m> is an open set in <m>V</m>, <m>\lambda</m> a scalar in <m>K</m>, <m>h: K \to K</m> is a continuous function at <m>L</m>, and <m>f, g : U \to K</m> are scalar functions such that
+    <me> \lim_{\mb{x} \to \mb{c}} f(\mb{x} ) = L, \hspace{.1in} \lim_{\mb{x} \to \mb{c}} g(\mb{x} ) = M . </me> Then
+    <ol>
+        <li> <me> \lim_{\mb{x} \to \mb{c}} (\lambda f + g) (\mb{x} ) = \lambda L + M </me>, </li> 
+        <li> <me> \lim_{\mb{x} \to \mb{c}} f (\mb{x} ) \, g(\mb{x}) = L  M ,</me> </li>
+        <li> if <m>M \ne 0</m>, <me> \lim_{\mb{x} \to \mb{c}} \frac{f (\mb{x} )}{g (\mb{x} )} = \frac{L}{M}. </me> </li>
+        <li> <me> \lim_{\mb{x} \to \mb{c}} (h \circ f)(\mb{x} ) = h (L). </me> </li> 
+    </ol></p>
+    </statement>
+    </proposition>
+    
+    <p>We also need the following <sq>base case</sq> result. </p>
+    
+    <proposition xml:id="prop-continuousdual">
+    <statement>
+    <p>A linear scalar function on a finite dimensional inner product space is continuous.</p>
+    </statement>
+    <proof>
+    <p>Let <m>V</m> be an inner product space over <m>K</m> and <m>\alpha : V \to K</m> a linear function. Let <m>W = \ker ( \alpha )</m> and <m>W^\perp</m> its orthogonal complement. There are two cases for <m>\alpha</m>. First, <m>\alpha</m> could be the zero function <m>\alpha (\mb{v} ) = 0</m> in which case it is easy to see that it is continuous (why?). Otherwise, restricting <m>\alpha</m> to <m>W^\perp</m> is a non-zero linear function on a one-dimensional space. Thus, choosing a unit vector <m>\mb{w}_1</m> in <m>W^\perp</m> (and therefore a basis), we have
+    <me> \alpha ( \mb{w}_1 ) = a \ne 0 . </me>
+    
+    Now, given any <m>\varepsilon \gt 0</m>, let <m>\delta = \frac{\varepsilon}{|a|}</m> and suppose
+    <me> \| \mb{x} - \mb{c} \| \lt \delta = \frac{\varepsilon}{|a|} </me> 
+    
+    Then we can use projections, the unique decomposition of vectors in <m>V = W \oplus W^\perp</m> and the Cauchy-Schwarz Inequality to see
+    <md>
+        <mrow> | \alpha ( \mb{x} ) - \alpha ( \mb{c} ) | \amp = | \alpha ( \mb{x} - \mb{c} ) |, </mrow>
+        <mrow>  \amp =  \left| \alpha \left( \text{proj}_W ( \mb{x} - \mb{c} ) + \text{proj}_{W^\perp} ( \mb{x} - \mb{c} ) \right) \right|, </mrow>
+        <mrow> \amp = \left| \alpha \left( \text{proj}_W ( \mb{x} - \mb{c} ) \right) + \alpha \left( \text{proj}_{W^\perp} ( \mb{x} - \mb{c} ) \right) \right|, </mrow>
+        <mrow> \amp = \left| \alpha \left( \langle \mb{x} - \mb{c} , \mb{w}_1 \rangle \mb{w}_1 \right) \right|, </mrow>
+        <mrow> \amp = \left| \langle \mb{x} - \mb{c} , \mb{w}_1 \rangle \alpha (\mb{w}_1 ) \right|, </mrow>
+        <mrow> \amp = \left| \langle \mb{x} - \mb{c} , \mb{w}_1 \rangle\right| \, \left|\alpha (\mb{w}_1 ) \right| , </mrow>
+        <mrow> \amp \leq \| \mb{x} - \mb{c} \| \, \| \mb{w}_1 \| |a|, \\ \amp \lt \frac{\varepsilon}{|a|} | a| = \varepsilon. </mrow>
+    </md></p>
+    </proof>
+    </proposition>
+    
+    
+    <p>The point of the last proposition is that we can use it, along with <xref ref="prop-limitsScalarArithmetic"/> to compute many continuous scalar functions. </p> 
+    
+    <example>
+        <title>Building continuous function I</title>
+        <statement>
+            <p> If <m>Q</m> is a quadratic form on <m>\mathbb{R}^n</m>, then we know it can be written as a sum <me> Q (x_1, x_2, \ldots, x_n) = \sum_{i = 1}^n \sum_{j = 1}^n a_{ij} x_i x_j .</me> By <xref ref="prop-continuousdual"/>, each of the coordinate functions <m>x_i</m> are continuous. But then so is <m>Q</m> as it is a linear combination of products of such functions.</p>
+        </statement>
+    </example>
+
+    
+    <example>
+        <title>Building continuous function II</title>
+        <statement>
+            <p> <xref ref="prop-continuousdual"/> tells us that the functions <m>x, y</m> and <m>z</m> are continuous functions from <m>\mathbb{R}^3</m> to <m>\mathbb{R}</m>. This may seem trivial, but using our arithmetic theorems and knowledge of continuous functions on <m>\mathbb{R}</m> like <m>\sin, \ln</m> and <m>\exp</m>, we can build many continuous functions. For example, we have that <me> f(x,y,z) = \sin \left(z  e^{x + y} \right) - \frac{\ln (|z| + 1)}{x^2 + y^2 + 1} </me> is a continuous function on all of <m>\mathbb{R}^3</m> as it is an arithmetic combination of well defined compositions of continuous functions. </p>
+        </statement>
+    </example>
+    
+
+    <p>The limit of a vector valued function can be found by the limits of its scalar coordinate functions (if they exist), so we will restrict our attention to scalar functions
     <me>
         f : \mathbb{R}^m \to \mathbb{R}.
     </me>
