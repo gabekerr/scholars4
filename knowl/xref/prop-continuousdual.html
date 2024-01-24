@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="proposition theorem-like"><h3 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">1.1.4</span><span class="period">.</span>
+</h3>
+<div class="para">A linear scalar function on a finite dimensional inner product space is continuous.</div></article><details class="hiddenproof born-hidden-knowl"><summary><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></summary><article class="hiddenproof"><div class="para logical">
+<div class="para">Let <span class="process-math">\(V\)</span> be an inner product space over <span class="process-math">\(K\)</span> and <span class="process-math">\(\alpha : V \to K\)</span> a linear function. Let <span class="process-math">\(W = \ker ( \alpha )\)</span> and <span class="process-math">\(W^\perp\)</span> its orthogonal complement. There are two cases for <span class="process-math">\(\alpha\text{.}\)</span> First, <span class="process-math">\(\alpha\)</span> could be the zero function <span class="process-math">\(\alpha (\mb{v} ) = 0\)</span> in which case it is easy to see that it is continuous (why?). Otherwise, restricting <span class="process-math">\(\alpha\)</span> to <span class="process-math">\(W^\perp\)</span> is a non-zero linear function on a one-dimensional space. Thus, choosing a unit vector <span class="process-math">\(\mb{w}_1\)</span> in <span class="process-math">\(W^\perp\)</span> (and therefore a basis), we have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\alpha ( \mb{w}_1 ) = a \ne 0 . 
+\end{equation*}
+</div>
+<div class="para">Now, given any <span class="process-math">\(\varepsilon \gt 0\text{,}\)</span> let <span class="process-math">\(\delta = \frac{\varepsilon}{|a|}\)</span> and suppose</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\| \mb{x} - \mb{c} \| \lt \delta = \frac{\varepsilon}{|a|} 
+\end{equation*}
+</div>
+<div class="para">Then we can use projections, the unique decomposition of vectors in <span class="process-math">\(V = W \oplus W^\perp\)</span> and the Cauchy-Schwarz Inequality to see</div>
+<div class="displaymath process-math">
+\begin{align*}
+| \alpha ( \mb{x} ) - \alpha ( \mb{c} ) | \amp = | \alpha ( \mb{x} - \mb{c} ) |, \\
+\amp =  \left| \alpha \left( \text{proj}_W ( \mb{x} - \mb{c} ) + \text{proj}_{W^\perp} ( \mb{x} - \mb{c} ) \right) \right|, \\
+\amp = \left| \alpha \left( \text{proj}_W ( \mb{x} - \mb{c} ) \right) + \alpha \left( \text{proj}_{W^\perp} ( \mb{x} - \mb{c} ) \right) \right|, \\
+\amp = \left| \alpha \left( \langle \mb{x} - \mb{c} , \mb{w}_1 \rangle \mb{w}_1 \right) \right|, \\
+\amp = \left| \langle \mb{x} - \mb{c} , \mb{w}_1 \rangle \alpha (\mb{w}_1 ) \right|, \\
+\amp = \left| \langle \mb{x} - \mb{c} , \mb{w}_1 \rangle\right| \, \left|\alpha (\mb{w}_1 ) \right| , \\
+\amp \leq \| \mb{x} - \mb{c} \| \, \| \mb{w}_1 \| |a|, \\ \amp \lt \frac{\varepsilon}{|a|} | a| = \varepsilon. 
+\end{align*}
+</div>
+</div></article></details><span class="incontext"><a class="internal" href="sec-limit.html#prop-continuousdual">in-context</a></span>
+</body>
+</html>

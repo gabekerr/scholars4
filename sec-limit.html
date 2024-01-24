@@ -340,14 +340,153 @@ sagecell.makeSagecell({
 <span class="type">Section</span><span class="space"> </span><span class="codenumber">1.1</span><span class="space"> </span><span class="title">The limit</span>
 </h2>
 <div class="para" id="sec-limit-2">In this section, we will review limits of vector valued functions of many variables</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-limitsScalarArithmetic.html ./knowl/xref/prop-continuousdual.html ./knowl/xref/prop-continuousdual.html">
 \begin{equation*}
 \mb{F} : \mathbb{R}^m \to \mathbb{R}^n.
 \end{equation*}
 </div>
-<div class="para" id="sec-limit-4">Of course, we can and should be more general than this. We should consider a vector <span class="process-math">\(\mb{c}\)</span> of an inner product space <span class="process-math">\(V\)</span> in an open set <span class="process-math">\(U\)</span> and really work there. The reason for all of this additional notation is that sometimes our function <span class="process-math">\(\mb{F}\)</span> may only be defined near a given point. Indeed, the limit and derivative are `local’ features of a function meaning they do not care about what is going on far away from the point of focus.</div>
-<div class="para logical" id="sec-limit-5">
-<div class="para">To understand the definition of the limit, one must work through definitions and results in a basic analysis course. As this is not in the main body of the notes, we will review a few of the important features and discuss examples in this section. First, the existence of a limit follows from the function to the scalar coordinate functions, so we will restrict our attention to scalar functions</div>
+<div class="para" id="sec-limit-4">Of course, we can and should be more general than this. We should consider a vector <span class="process-math">\(\mb{c}\)</span> of an inner product space <span class="process-math">\(V\)</span> in an open set <span class="process-math">\(U\)</span> and really work there. The reason for all of this additional notation is that sometimes our function <span class="process-math">\(\mb{F}\)</span> may only be defined near a given point. Indeed, the limit and derivative are ‘local’ features of a function meaning they do not care about what is going on far away from the point of focus.</div>
+<div class="para" id="sec-limit-5">To understand the definition of the limit, one must work through definitions and results in a basic analysis course. As this is not in the main body of the notes, we will review a few of the important features and discuss examples in this section.</div>
+<article class="definition definition-like" id="def-limit"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.1.1</span><span class="period">.</span>
+</h3> <div class="para logical" id="def-limit-2-1">
+<div class="para">Let <span class="process-math">\(V_1\)</span> and <span class="process-math">\(V_2\)</span> be two inner product spaces and <span class="process-math">\(U \subseteq V_1\)</span> a neighborhood of <span class="process-math">\(\mb{c}\text{.}\)</span> Suppose</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f : U \to V_2 
+\end{equation*}
+</div>
+<div class="para">is any function. We say that the <dfn class="terminology">limit</dfn> of <span class="process-math">\(f(\mb{x})\)</span> as <span class="process-math">\(\mb{x}\)</span> approaches <span class="process-math">\(\mb{c}\)</span> is <span class="process-math">\(\mb{L}\)</span> if for every <span class="process-math">\(\varepsilon \gt 0\)</span> there is a <span class="process-math">\(\delta \gt 0\)</span> so that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+0 \lt \|\mb{x} - \mb{c} \| \lt \delta 
+\end{equation*}
+</div>
+<div class="para">implies</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\| f(\mb{x}) - \mb{L} \| \lt \varepsilon . 
+\end{equation*}
+</div>
+<div class="para">In this case, we write</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\lim_{\mb{x} \to \mb{c}} f(\mb{x} ) = \mb{L} . 
+\end{equation*}
+</div>
+</div></article><div class="para logical" id="sec-limit-7">
+<div class="para">An alternative way of stating the implication is that every point in the punctured ball of radius <span class="process-math">\(\delta\)</span> around <span class="process-math">\(\mb{c}\)</span> is sent to the ball of radius <span class="process-math">\(\varepsilon\)</span> around <span class="process-math">\(\mb{L}\)</span> or, with notation,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{x} \in \pball{\delta}{\mb{c}} \text{ implies } f(\mb{x} ) \in \ball{\varepsilon}{\mb{L}}. 
+\end{equation*}
+</div>
+<div class="para">Invariably, with the notion of limit comes its cousin.</div>
+</div>
+<article class="definition definition-like" id="def-continuous"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.1.2</span><span class="period">.</span>
+</h3> <div class="para logical" id="def-continuous-2-1">
+<div class="para">Let <span class="process-math">\(V_1\)</span> and <span class="process-math">\(V_2\)</span> be two inner product spaces and <span class="process-math">\(U \subseteq V_1\)</span> a neighborhood of <span class="process-math">\(\mb{c}\text{.}\)</span> Suppose</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f : U \to V_2 
+\end{equation*}
+</div>
+<div class="para">is any function. We say that <span class="process-math">\(f\)</span> is <dfn class="terminology">continuous</dfn> at <span class="process-math">\(\mb{c}\)</span> if</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\lim_{\mb{x} \to \mb{c}} f(\mb{x} ) = f ( \mb{c} ) . 
+\end{equation*}
+</div>
+</div></article><div class="para" id="sec-limit-9">The definition given here for limits allows us to talk about limits for non-linear functions between inner product spaces. It is interesting to consider what exactly has become new or challenging compared to our one-dimensional understanding. In fact, there are several results that have much the same look in higher dimensions. The case where this is most obvious is scalar functions. Recall these are functions defined on an open subset <span class="process-math">\(U\)</span> of an inner product space <span class="process-math">\(V\)</span> to <span class="process-math">\(K\)</span> (where <span class="process-math">\(K\)</span> is <span class="process-math">\(\mathbb{R}\)</span> or <span class="process-math">\(\mathbb{C}\)</span>). In notation we would write <span class="process-math">\(f : U \to K\text{.}\)</span> The reason that scalar functions are such important creatures is that we can add, multiply and divide them as well as compose them with some familiar functions from <span class="process-math">\(K\)</span> to <span class="process-math">\(K\text{.}\)</span>
+</div>
+<article class="proposition theorem-like" id="prop-limitsScalarArithmetic"><h3 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">1.1.3</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="prop-limitsScalarArithmetic-1-1">
+<div class="para">Suppose <span class="process-math">\(U\)</span> is an open set in <span class="process-math">\(V\text{,}\)</span> <span class="process-math">\(\lambda\)</span> a scalar in <span class="process-math">\(K\text{,}\)</span> <span class="process-math">\(h: K \to K\)</span> is a continuous function at <span class="process-math">\(L\text{,}\)</span> and <span class="process-math">\(f, g : U \to K\)</span> are scalar functions such that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\lim_{\mb{x} \to \mb{c}} f(\mb{x} ) = L, \hspace{.1in} \lim_{\mb{x} \to \mb{c}} g(\mb{x} ) = M . 
+\end{equation*}
+</div>
+<div class="para">Then</div>
+<ol class="decimal">
+<li id="prop-limitsScalarArithmetic-1-1-9-1"><div class="para" id="p-derived-prop-limitsScalarArithmetic-1-1-9-1"><div class="displaymath process-math">
+\begin{equation*}
+\lim_{\mb{x} \to \mb{c}} (\lambda f + g) (\mb{x} ) = \lambda L + M \text{,}
+\end{equation*}
+</div></div></li>
+<li id="prop-limitsScalarArithmetic-1-1-9-2"><div class="para" id="p-derived-prop-limitsScalarArithmetic-1-1-9-2"><div class="displaymath process-math">
+\begin{equation*}
+\lim_{\mb{x} \to \mb{c}} f (\mb{x} ) \, g(\mb{x}) = L  M ,
+\end{equation*}
+</div></div></li>
+<li id="prop-limitsScalarArithmetic-1-1-9-3"><div class="para" id="p-derived-prop-limitsScalarArithmetic-1-1-9-3">if <span class="process-math">\(M \ne 0\text{,}\)</span><div class="displaymath process-math">
+\begin{equation*}
+\lim_{\mb{x} \to \mb{c}} \frac{f (\mb{x} )}{g (\mb{x} )} = \frac{L}{M}. 
+\end{equation*}
+</div>
+</div></li>
+<li id="prop-limitsScalarArithmetic-1-1-9-4"><div class="para" id="p-derived-prop-limitsScalarArithmetic-1-1-9-4"><div class="displaymath process-math">
+\begin{equation*}
+\lim_{\mb{x} \to \mb{c}} (h \circ f)(\mb{x} ) = h (L). 
+\end{equation*}
+</div></div></li>
+</ol>
+</div></article><div class="para" id="sec-limit-11">We also need the following ‘base case’ result.</div>
+<article class="proposition theorem-like" id="prop-continuousdual"><h3 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">1.1.4</span><span class="period">.</span>
+</h3>
+<div class="para" id="prop-continuousdual-1-1">A linear scalar function on a finite dimensional inner product space is continuous.</div></article><details id="prop-continuousdual-2" class="hiddenproof born-hidden-knowl"><summary><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></summary><article class="hiddenproof"><div class="para logical" id="prop-continuousdual-2-1">
+<div class="para">Let <span class="process-math">\(V\)</span> be an inner product space over <span class="process-math">\(K\)</span> and <span class="process-math">\(\alpha : V \to K\)</span> a linear function. Let <span class="process-math">\(W = \ker ( \alpha )\)</span> and <span class="process-math">\(W^\perp\)</span> its orthogonal complement. There are two cases for <span class="process-math">\(\alpha\text{.}\)</span> First, <span class="process-math">\(\alpha\)</span> could be the zero function <span class="process-math">\(\alpha (\mb{v} ) = 0\)</span> in which case it is easy to see that it is continuous (why?). Otherwise, restricting <span class="process-math">\(\alpha\)</span> to <span class="process-math">\(W^\perp\)</span> is a non-zero linear function on a one-dimensional space. Thus, choosing a unit vector <span class="process-math">\(\mb{w}_1\)</span> in <span class="process-math">\(W^\perp\)</span> (and therefore a basis), we have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\alpha ( \mb{w}_1 ) = a \ne 0 . 
+\end{equation*}
+</div>
+<div class="para">Now, given any <span class="process-math">\(\varepsilon \gt 0\text{,}\)</span> let <span class="process-math">\(\delta = \frac{\varepsilon}{|a|}\)</span> and suppose</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\| \mb{x} - \mb{c} \| \lt \delta = \frac{\varepsilon}{|a|} 
+\end{equation*}
+</div>
+<div class="para">Then we can use projections, the unique decomposition of vectors in <span class="process-math">\(V = W \oplus W^\perp\)</span> and the Cauchy-Schwarz Inequality to see</div>
+<div class="displaymath process-math" id="prop-continuousdual-2-1-18">
+\begin{align*}
+| \alpha ( \mb{x} ) - \alpha ( \mb{c} ) | \amp = | \alpha ( \mb{x} - \mb{c} ) |, \\
+\amp =  \left| \alpha \left( \text{proj}_W ( \mb{x} - \mb{c} ) + \text{proj}_{W^\perp} ( \mb{x} - \mb{c} ) \right) \right|, \\
+\amp = \left| \alpha \left( \text{proj}_W ( \mb{x} - \mb{c} ) \right) + \alpha \left( \text{proj}_{W^\perp} ( \mb{x} - \mb{c} ) \right) \right|, \\
+\amp = \left| \alpha \left( \langle \mb{x} - \mb{c} , \mb{w}_1 \rangle \mb{w}_1 \right) \right|, \\
+\amp = \left| \langle \mb{x} - \mb{c} , \mb{w}_1 \rangle \alpha (\mb{w}_1 ) \right|, \\
+\amp = \left| \langle \mb{x} - \mb{c} , \mb{w}_1 \rangle\right| \, \left|\alpha (\mb{w}_1 ) \right| , \\
+\amp \leq \| \mb{x} - \mb{c} \| \, \| \mb{w}_1 \| |a|, \\ \amp \lt \frac{\varepsilon}{|a|} | a| = \varepsilon. 
+\end{align*}
+</div>
+</div></article></details><div class="para" id="sec-limit-13">The point of the last proposition is that we can use it, along with <a href="" class="xref" data-knowl="./knowl/xref/prop-limitsScalarArithmetic.html" title="Proposition 1.1.3">Proposition 1.1.3</a> to compute many continuous scalar functions.</div>
+<details id="sec-limit-14" class="example example-like born-hidden-knowl"><summary><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.1.5</span><span class="period">.</span><span class="space"> </span><span class="title">Building continuous function I.</span>
+</h3></summary><article class="example example-like"><div class="para logical" id="sec-limit-14-2-1">
+<div class="para">If <span class="process-math">\(Q\)</span> is a quadratic form on <span class="process-math">\(\mathbb{R}^n\text{,}\)</span> then we know it can be written as a sum</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-continuousdual.html">
+\begin{equation*}
+Q (x_1, x_2, \ldots, x_n) = \sum_{i = 1}^n \sum_{j = 1}^n a_{ij} x_i x_j .
+\end{equation*}
+</div>
+<div class="para">By <a href="" class="xref" data-knowl="./knowl/xref/prop-continuousdual.html" title="Proposition 1.1.4">Proposition 1.1.4</a>, each of the coordinate functions <span class="process-math">\(x_i\)</span> are continuous. But then so is <span class="process-math">\(Q\)</span> as it is a linear combination of products of such functions.</div>
+</div></article></details><details id="sec-limit-15" class="example example-like born-hidden-knowl"><summary><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.1.6</span><span class="period">.</span><span class="space"> </span><span class="title">Building continuous function II.</span>
+</h3></summary><article class="example example-like"><div class="para logical" id="sec-limit-15-2-1">
+<div class="para">
+<a href="" class="xref" data-knowl="./knowl/xref/prop-continuousdual.html" title="Proposition 1.1.4">Proposition 1.1.4</a> tells us that the functions <span class="process-math">\(x, y\)</span> and <span class="process-math">\(z\)</span> are continuous functions from <span class="process-math">\(\mathbb{R}^3\)</span> to <span class="process-math">\(\mathbb{R}\text{.}\)</span> This may seem trivial, but using our arithmetic theorems and knowledge of continuous functions on <span class="process-math">\(\mathbb{R}\)</span> like <span class="process-math">\(\sin, \ln\)</span> and <span class="process-math">\(\exp\text{,}\)</span> we can build many continuous functions. For example, we have that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-continuousdual.html">
+\begin{equation*}
+f(x,y,z) = \sin \left(z  e^{x + y} \right) - \frac{\ln (|z| + 1)}{x^2 + y^2 + 1} 
+\end{equation*}
+</div>
+<div class="para">is a continuous function on all of <span class="process-math">\(\mathbb{R}^3\)</span> as it is an arithmetic combination of well defined compositions of continuous functions.</div>
+</div></article></details><div class="para logical" id="sec-limit-16">
+<div class="para">The limit of a vector valued function can be found by the limits of its scalar coordinate functions (if they exist), so we will restrict our attention to scalar functions</div>
 <div class="displaymath process-math">
 \begin{equation*}
 f : \mathbb{R}^m \to \mathbb{R}.
@@ -361,9 +500,9 @@ f : \mathbb{R}^m \to \mathbb{R}.
 </div>
 <div class="para">exists and how to calculate it for a given point <span class="process-math">\(\mb{c}\text{.}\)</span> Now, if <span class="process-math">\(f\)</span> is continuous, then we can simply put in <span class="process-math">\(\mb{c}\)</span> and move along. However, just as in one variable calculus, the most interesting examples are when <span class="process-math">\(f\)</span> is undefined at <span class="process-math">\(\mb{c}\text{.}\)</span> In these cases, we have the usual one variable issues of what can go wrong, but with the massively more complicated context of being in higher dimensions.</div>
 </div>
-<details id="sec-limit-6" class="example example-like born-hidden-knowl"><summary><h3 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.1.1</span><span class="period">.</span><span class="space"> </span><span class="title">Issue 1 - Divergence.</span>
-</h3></summary><article class="example example-like"><div class="para logical" id="sec-limit-6-2-1">
+<details id="sec-limit-17" class="example example-like born-hidden-knowl"><summary><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.1.7</span><span class="period">.</span><span class="space"> </span><span class="title">Issue 1 - Divergence.</span>
+</h3></summary><article class="example example-like"><div class="para logical" id="sec-limit-17-2-1">
 <div class="para">If we consider the function</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -377,9 +516,9 @@ f(x, y) = \frac{1}{x^2 + y^2}
 \end{equation*}
 </div>
 <div class="para">also tends to infinity as <span class="process-math">\((x,y)\)</span> approaches <span class="process-math">\((0,0)\text{.}\)</span> In these situations, it will be acceptable to say that the limit does not exist (although it is fine if you wish to be nuanced and say it is <span class="process-math">\(\infty\)</span>).</div>
-</div></article></details><details id="sec-limit-7" class="example example-like born-hidden-knowl"><summary><h3 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.1.2</span><span class="period">.</span><span class="space"> </span><span class="title">Issue 2 - Oscillation.</span>
-</h3></summary><article class="example example-like"><div class="para logical" id="sec-limit-7-2-1">
+</div></article></details><details id="sec-limit-18" class="example example-like born-hidden-knowl"><summary><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.1.8</span><span class="period">.</span><span class="space"> </span><span class="title">Issue 2 - Oscillation.</span>
+</h3></summary><article class="example example-like"><div class="para logical" id="sec-limit-18-2-1">
 <div class="para">Another strange thing that can happen with functions is that they jump around a good amount near the limiting point. For example,</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -398,9 +537,9 @@ f(x,y,z) = \sin \left( \frac{1}{x^2 + y^2 + z^2} \right)
 \text{ The limit } \lim_{(x,y,z) \to (0, 0, 0)} f(x,y,z) \text{ does not exist.} 
 \end{equation*}
 </div>
-</div></article></details><details id="sec-limit-8" class="example example-like born-hidden-knowl"><summary><h3 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.1.3</span><span class="period">.</span><span class="space"> </span><span class="title">Issue 3 - Left limit not equal to right limit.</span>
-</h3></summary><article class="example example-like"><div class="para logical" id="sec-limit-8-2-1">
+</div></article></details><details id="sec-limit-19" class="example example-like born-hidden-knowl"><summary><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.1.9</span><span class="period">.</span><span class="space"> </span><span class="title">Issue 3 - Left limit not equal to right limit.</span>
+</h3></summary><article class="example example-like"><div class="para logical" id="sec-limit-19-2-1">
 <div class="para">Here, the universe breaks. In fact, this is where, if we think about it enough, we start to appreciate how easy life was in one variable calculus. Let’s recall that we can define functions like the <dfn class="terminology">Heavyside function</dfn>
 </div>
 <div class="displaymath process-math" id="eq-heavyside">
@@ -415,7 +554,7 @@ H (x) = \begin{cases} 0 \amp  x \leq 0, \\ 1 \amp x \gt 0. \end{cases}\tag{1.1.1
 \end{equation*}
 </div>
 <div class="para">We conclude that the limit does not exist because it should indeed be the same value.</div>
-</div> <div class="para logical" id="sec-limit-8-2-2">
+</div> <div class="para logical" id="sec-limit-19-2-2">
 <div class="para">In higher dimensions, how do we phrase this? Indeed, in one dimension for any given point there is a left and a right approach and that is all. However, in higher dimensions there are an infinite number of approaches... and even more than you think! Let’s look at an example to see this. Let</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -441,10 +580,10 @@ f(x_1, \ldots, x_n) = \frac{P(x_1, \ldots, x_n)}{Q(x_1, \ldots, x_n)}
 \end{equation*}
 </div>
 <div class="para">where the degree of the homogeneous numerator equals that of the homogeneous denominator, you should expect to find this behavior.</div>
-</div></article></details><div class="para" id="sec-limit-9">The last example is one that should be considered with great care. Unlike in <span class="process-math">\(1\)</span> dimension, it is not the case that one can assert that a limit does exist if all straight line limits exist and are equal.</div>
-<details id="sec-limit-10" class="example example-like born-hidden-knowl"><summary><h3 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.1.4</span><span class="period">.</span><span class="space"> </span><span class="title">Non-existent limit with well defined limits along straight lines I.</span>
-</h3></summary><article class="example example-like"><div class="para logical" id="sec-limit-10-2-1">
+</div></article></details><div class="para" id="sec-limit-20">The last example is one that should be considered with great care. Unlike in <span class="process-math">\(1\)</span> dimension, it is not the case that one can assert that a limit does exist if all straight line limits exist and are equal.</div>
+<details id="sec-limit-21" class="example example-like born-hidden-knowl"><summary><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.1.10</span><span class="period">.</span><span class="space"> </span><span class="title">Non-existent limit with well defined limits along straight lines I.</span>
+</h3></summary><article class="example example-like"><div class="para logical" id="sec-limit-21-2-1">
 <div class="para">Consider the function</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -452,9 +591,9 @@ f(x,y) = \begin{cases} 0 \amp y \ne x^2 , \\ 1 \amp y = x^2. \end{cases}
 \end{equation*}
 </div>
 <div class="para">One can easily check that <span class="process-math">\(\lim_{t \to 0} f(at, bt) = 0\)</span> for any real numbers <span class="process-math">\(a\)</span> and <span class="process-math">\(b\text{.}\)</span> However,  <span class="process-math">\(\lim_{(x,y) \to (0, 0)} f(x,y)\)</span> does not exist. Indeed, this shows that straight line approaches are not enough, one must also consider parabolic approaches, and of course, an infinite set of other approaches!</div>
-</div></article></details><details id="sec-limit-11" class="example example-like born-hidden-knowl"><summary><h3 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.1.5</span><span class="period">.</span><span class="space"> </span><span class="title">Non-existent limit with well defined limits along straight lines II.</span>
-</h3></summary><article class="example example-like"><div class="para logical" id="sec-limit-11-2-1">
+</div></article></details><details id="sec-limit-22" class="example example-like born-hidden-knowl"><summary><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.1.11</span><span class="period">.</span><span class="space"> </span><span class="title">Non-existent limit with well defined limits along straight lines II.</span>
+</h3></summary><article class="example example-like"><div class="para logical" id="sec-limit-22-2-1">
 <div class="para">The last example may make it seem that only very exotic looking functions experience this defect. To see how common such a scenario may be, consider the function</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -474,9 +613,9 @@ f(t,t^2) =  \frac{t^8}{(t^2 - t^2)^2 + (t^2)^4} = \frac{t^8}{t^8} = 1
 \end{equation*}
 </div>
 <div class="para">so that the limit is <span class="process-math">\(1\)</span> on this approach. This phenomena shows that, while taking different linear approaches may show that a limit does not exist, it cannot show that a limit does exist.</div>
-</div></article></details><div class="para" id="sec-limit-12">This last example may leave the student a bit concerned about how in the world they will prove that certain limits exist. Such a concern is indeed warranted as there are fewer tools in many variables (for example, L’Hopital’s rule does not exist in many variables). However, there is a higher dimensional Squeeze Theorem that comes in handy which is proven in the appendix.</div>
+</div></article></details><div class="para" id="sec-limit-23">This last example may leave the student a bit concerned about how in the world they will prove that certain limits exist. Such a concern is indeed warranted as there are fewer tools in many variables (for example, L’Hopital’s rule does not exist in many variables). However, there is a higher dimensional Squeeze Theorem that comes in handy which is proven in the appendix.</div>
 <article class="theorem theorem-like" id="thm-squeeze"><h3 class="heading">
-<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">1.1.6</span><span class="period">.</span><span class="space"> </span><span class="title">Squeeze Theorem.</span>
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">1.1.12</span><span class="period">.</span><span class="space"> </span><span class="title">Squeeze Theorem.</span>
 </h3>
 <div class="para logical" id="thm-squeeze-2-1">
 <div class="para">Suppose <span class="process-math">\(U\)</span> is an open neighborhood of <span class="process-math">\(\mb{c}\)</span> in an inner product space <span class="process-math">\(V\)</span> and <span class="process-math">\(g : U \to \mathbb{R} \)</span> is a scalar valued function. If <span class="process-math">\(f : U \to \mathbb{R}\)</span> and <span class="process-math">\(h: U\to \mathbb{R}\)</span> are functions for which</div>
@@ -497,9 +636,9 @@ f(\mb{x}) \leq  g(\mb{x} ) \leq h(\mb{x}),
 \lim_{\mb{x} \to \mb{c}} g(\mb{x}) = L. 
 \end{equation*}
 </div>
-</div></article><details id="sec-limit-14" class="example example-like born-hidden-knowl"><summary><h3 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.1.7</span><span class="period">.</span><span class="space"> </span><span class="title">Squeeze Theorem Application.</span>
-</h3></summary><article class="example example-like"><div class="para logical" id="sec-limit-14-2-1">
+</div></article><details id="sec-limit-25" class="example example-like born-hidden-knowl"><summary><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.1.13</span><span class="period">.</span><span class="space"> </span><span class="title">Squeeze Theorem Application.</span>
+</h3></summary><article class="example example-like"><div class="para logical" id="sec-limit-25-2-1">
 <div class="para">The function</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -524,7 +663,7 @@ f(x,y) = r \left( \cos^3 \theta + \sin^3 \theta \right).
 \lim_{(x,y) \to (0, 0)} f(x,y) = 0. 
 \end{equation*}
 </div>
-</div></article></details><div class="para logical" id="sec-limit-15">
+</div></article></details><div class="para logical" id="sec-limit-26">
 <div class="para">When considering examples of pathological behavior for limits in two dimensions, it is often useful to use polar coordinates. In other words, to consider functions <span class="process-math">\(f(r, \theta)\)</span> and contemplate</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -545,7 +684,7 @@ f(r, \theta) =2 \cos^2 \theta  - 1 = 2 \frac{x^2}{x^2 + y^2} - 1 = \frac{x^2 - y
 </div>
 <div class="para">This can be illustrated using Sage.</div>
 </div>
-<pre id="sec-limit-16" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">x,y = var('x y')
+<pre id="sec-limit-27" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">x,y = var('x y')
 W = plot3d(((x)^2 - (y)^2)/((x)^2 + (y)^2), (x, -1, 1), (y, -1, 1),
     color='purple', opacity=0.8)
 show(W, figsize=8)
