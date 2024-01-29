@@ -11,7 +11,7 @@
             <me>
                 \frac{\| \mb{H} (\mb{x} ) - \mb{H} (\mb{c}) \|}{\| \mb{x} - \mb{c} \|} \lt C
             </me>
-            for all <m>\mb{x}</m> in <m>U</m>.</p>
+            for all <m>\mb{x} \ne \mb{c}</m> in <m>U</m>.</p>
         </statement>
         <proof><p>This follows from the definition of the derivative, the triangle inequality and continuity of linear transformations.</p></proof>
     </lemma>
@@ -19,8 +19,8 @@
     
     <definition xml:id="def-vanishing-higher-order">         
         <notation>             
-            <usage><m>T_{\mb{a}} V</m></usage>             
-            <description>Tangent space </description>         
+            <usage><m>o (E(\mb{x}))</m></usage>             
+            <description>Vanish to higher order </description>         
         </notation>         
         <statement>
             <p>Let <m>U</m> be an open neighborhood of <m>\mb{c}</m> in an inner product space <m>V</m> and <m>W</m> some other inner product space. We say that a function <m>E : U \to W</m> <term>vanishes higher than first order </term> at <m>\mb{c}</m> if 
@@ -39,7 +39,7 @@
             <p>By definition, for any <m>\tilde{\varepsilon} > 0</m> there is a <m>\delta</m> so that if <m>\| \mb{y} - \mb{c}_2\| \lt \delta</m> then <m>\|E (\mb{y} )\| \lt \tilde{\varepsilon} \| \mb{y} - \mb{c}_2\|</m>.
             Using the continuity of <m>\mb{H}</m> and <xref ref="lem-slopebound"/> we have that there is a <m>C</m> and, in a neighborhood of <m>\mb{c}_1</m> (which maps to an appropriate neighborhood of <m>\mb{c}_2</m>),
             <me>
-                0 \leq \frac{\|E ( \mb{H} (\mb{x} ))\|}{\| \mb{x} - \mb{c}_1\|} \lt \tilde{\varepsilon} \| \mb{H} ( \mb{x} ) - \mb{H} ( \mb{c}_1) \|{\|\mb{x} - \mb{c}_1\|}  \lt \tilde{\varepsilon} C.
+                0 \leq \frac{\|E ( \mb{H} (\mb{x} ))\|}{\| \mb{x} - \mb{c}_1\|} \lt \tilde{\varepsilon} \frac{\| \mb{H} ( \mb{x} ) - \mb{H} ( \mb{c}_1) \|}{\|\mb{x} - \mb{c}_1\|}  \lt \tilde{\varepsilon} C.
             </me>
             Taking <m>\delta</m> for <m>\varepsilon / C </m> gives the result.</p>
         </proof>

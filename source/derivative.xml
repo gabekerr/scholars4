@@ -328,10 +328,11 @@
                     <mrow> \amp = f(a_1, \ldots, a_m) + f_{x_1} (a_1, \ldots, a_m) (x_1 - a_1) + \cdots +  f_{x_m} (a_1, \ldots, a_m) (x_m - a_m).</mrow>
                 </md>
                 </p>
+                The graph of <m>L</m> will be called the <term>embedded tangent space </term> of the graph of <m>f</m>.
             </statement>
         </definition>
 
-        <p>Now, while this vocabulary makes me mildly nauseous, it is completely standard and I cannot in good conscience avoid it. My nausea results from the fact that the linear approximation is \textit{not} a linear function. Rather it is what is known as an affine function which is quite close (the sum of a vector and a linear function). Indeed, it would be much better to use the term `first order approximation', but sadly this is less popular. None the less, we can make several notes about this approximation. First, the graph of <m>L</m> ought to give us the `linear' subspace of <m>\mathbb{R}^{m + 1}</m> which is tangent to the graph of <m>f</m> at the point <m>(\mb{a}, f(\mb{a})</m>. Let us see this in an example.</p>
+        <p>Now, while this vocabulary makes me mildly nauseous, it is completely standard and I cannot in good conscience avoid it. My nausea results from the fact that the linear approximation is \textit{not} a linear function. Rather it is what is known as an affine function which is quite close (the sum of a vector and a linear function). Indeed, it would be much better to use the term `first order approximation', but sadly this is less popular. None the less, we can make several notes about this approximation. First, the graph of <m>L</m> ought to give us the `linear' subspace of <m>\mathbb{R}^{m + 1}</m> which is tangent to the graph of <m>f</m> at the point <m>(\mb{a}, f(\mb{a}))</m>. We use the term <sq>embedded tangent space</sq> to distinguish from a more intrinsic notion of tangent space given later on. Let us see this in an example.</p>
 
         <example>
             <title>Linear approximation of scalar function I</title>
@@ -426,7 +427,7 @@
             </statement>
         </theorem>
 
-        <p><xref ref="thm-Jacobianmatrix"/> is unfortunately rarely given in a multivariable calculus course, but gives us a concrete computational way to find derivatives of the most general types of vector valued functions. We will use the Jacobian matrix frequently, as it plays quite nicely with many important theorems and techniques. For now, we will be satisfied with the fact that we can compute derivatives and give a couple examples. 
+        <p><xref ref="thm-Jacobianmatrix"/> is unfortunately rarely provided in a multivariable calculus course, but gives us a concrete computational way to find derivatives of the most general types of vector valued functions. We will use the Jacobian matrix frequently, as it plays quite nicely with many important theorems and techniques. For now, we will be satisfied with the fact that we can compute derivatives and give a couple examples. 
         </p>
 
         <example>
