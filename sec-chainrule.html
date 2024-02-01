@@ -584,7 +584,48 @@ T : V \to T_{\mb{a}} V.
 \left[ \tder{a}{\mb{F}}  ( \partial  )  \right] (f) = \partial \left( f \circ \mb{F} \right).
 \end{equation*}
 </div>
-</div></article><div class="para" id="subsec-tangent-spaces-14">These new definitions can replace our previous ones, or can live (slightly uncomfortably) along side them. However, in the latter case we will find our old viewpoints to be less conceptually workable as we advance our understanding.</div></section><section class="subsection" id="subsec-subspaces"><h3 class="heading hide-type">
+</div></article><div class="para" id="subsec-tangent-spaces-14">These new definitions can replace our previous ones, or can live (slightly uncomfortably) along side them. However, in the latter case we will find our old viewpoints to be less conceptually workable as we advance our understanding. We may also use the new definition of the derivative as a linear transformation of tangent spaces to define tangent spaces of parameterized subspaces.</div>
+<article class="definition definition-like" id="def-parametrized-tangent"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.3.12</span><span class="period">.</span>
+</h4> Suppose <span class="process-math">\(V_1, V_2\)</span> are finite dimensional real inner product spaces, <span class="process-math">\(U \subset V_1\)</span> is an open subset and <span class="process-math">\(\mb{G} : U \to V_2\)</span> is a differentiable, one to one function with <span class="process-math">\(\mb{G} (p) = q\text{.}\)</span>  The  tangent space T_q X of X at q  is the linear subspace <div class="displaymath process-math">
+\begin{equation*}
+T_q X = text{im} \left( \tder{p}{\mb{G}}) \subset T_q V_2
+\end{equation*}
+</div>  The  embedded tangent space of X at q  is the subspace \left\{ q + \mb{v} : D_{\mb{v}} \in T_q X \right\} \subset  V_2.</article><span class="process-math">\(X = \text{gr} (f)\)</span><span class="process-math">\(\mb{f}(t) = \left( t, f (t) \right)\text{.}\)</span><span class="process-math">\(\mb{f} : \mathbb{R} \to \mathbb{R}^2\)</span><span class="process-math">\(\mb{f}\)</span><span class="process-math">\(a\)</span><div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-tangentisomorphism.html ./knowl/xref/cor-directional.html">
+\begin{equation*}
+\tder{a}{\mb{f}} = \twovec{1}{f^\prime (a)}
+\end{equation*}
+</div>
+<span class="process-math">\(a\)</span><span class="process-math">\(\partial_t\)</span><span class="process-math">\(T_a \mathbb{R}\)</span><span class="process-math">\(\mb{a} = (a, f(a))\)</span><span class="process-math">\(\left\{ \partial_x , \partial_y \right\}\text{.}\)</span><div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-tangentisomorphism.html ./knowl/xref/cor-directional.html">
+\begin{equation*}
+\tder{a}{\mb{f}} (\partial_t) = \partial_x + f^\prime (a) \partial_y
+\end{equation*}
+</div>
+<span class="process-math">\(\partial_x + f^\prime (a) \partial_y\)</span><div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-tangentisomorphism.html ./knowl/xref/cor-directional.html">
+\begin{equation*}
+T_\mb{a} X = \{ \lambda \partial_x + \lambda f^\prime (a) \partial_y : \lambda \in \mathbb{R} \}.
+\end{equation*}
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-tangentisomorphism.html ./knowl/xref/cor-directional.html">
+\begin{equation*}
+T_\mb{a} X = \left\{ \twovec{\lambda}{\lambda f^\prime (a)}  : \lambda \in \mathbb{R} \right\}.
+\end{equation*}
+</div>
+<span class="process-math">\(linear subspace\)</span><span class="process-math">\(T_{\mb{a}} \mathbb{R}^2\text{.}\)</span><dfn class="terminology">embedded</dfn><span class="process-math">\(\mathbb{R}^2\)</span><span class="process-math">\(T_{\mb{a}} \mathbb{R}^2\text{.}\)</span><div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-tangentisomorphism.html ./knowl/xref/cor-directional.html">
+\begin{equation*}
+\left\{ \twovec{a}{f(a)} + \twovec{\lambda}{\lambda f^\prime (a)} : \lambda \in \mathbb{R}\right\}
+\end{equation*}
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-tangentisomorphism.html ./knowl/xref/cor-directional.html">
+\begin{equation*}
+\left\{ \left(a + \lambda, f(a) + \lambda f^\prime (a) \right): \lambda \in \mathbb{R} \right\}.
+\end{equation*}
+</div>
+<span class="process-math">\(\lambda\)</span><div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-tangentisomorphism.html ./knowl/xref/cor-directional.html">
+\begin{equation*}
+y = f(a) + f^\prime (a) (x - a).
+\end{equation*}
+</div></section><section class="subsection" id="subsec-subspaces"><h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.3.3</span><span class="space"> </span><span class="title">Level sets and their tangent spaces</span>
 </h3>
 <div class="para logical" id="subsec-subspaces-2">
@@ -617,7 +658,7 @@ g (E, m, v) = E - \frac{1}{2} m v^2 .
 </div>
 <div class="para" id="subsec-subspaces-3">In fact, it is a result of the Implicit Function Theorem that, if <span class="process-math">\(\tder{p}{g}\)</span> is not zero, then this equation defines the tangent space to <span class="process-math">\(X\)</span> at <span class="process-math">\(p\text{.}\)</span> Let us take this as an unproven theorem.</div>
 <article class="theorem theorem-like" id="thm-tangentspace"><h4 class="heading">
-<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">1.3.12</span><span class="period">.</span><span class="space"> </span><span class="title">Implicit Function Theorem.</span>
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">1.3.13</span><span class="period">.</span><span class="space"> </span><span class="title">Implicit Function Theorem Consequence.</span>
 </h4>
 <div class="para logical" id="thm-tangentspace-2-1">
 <div class="para">Let <span class="process-math">\(U\)</span> be an open set in <span class="process-math">\(\mathbb{R}^m\text{,}\)</span> <span class="process-math">\(\mathbb{G} : U \to \mathbb{R}^n\)</span> and <span class="process-math">\(X\)</span> the level set of all points <span class="process-math">\(p\)</span> with <span class="process-math">\(\mb{G} (p) = q\)</span> for some fixed <span class="process-math">\(q\text{.}\)</span> If <span class="process-math">\(\mb{G}\)</span> is differentiable at <span class="process-math">\(p\)</span> and <span class="process-math">\(\rk (\tder{p}{\mb{G}} ) = n\)</span> then the tangent space to <span class="process-math">\(X\)</span> at <span class="process-math">\(p\)</span> as a subspace of <span class="process-math">\(T_p \mathbb{R}^m\)</span> is</div>
@@ -628,7 +669,7 @@ T_p X = \left\{ \partial \in T_p \mathbb{R}^m : \tder{p}{\mb{G}} (\partial ) = 0
 </div>
 </div></article><div class="para" id="subsec-subspaces-5">This theorem may appear too abstract, so let us do a computation to show its simplicity.</div>
 <details id="subsec-subspaces-6" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.3.13</span><span class="period">.</span><span class="space"> </span><span class="title">Tangent space of a quadric.</span>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.3.14</span><span class="period">.</span><span class="space"> </span><span class="title">Tangent space of a quadric.</span>
 </h4></summary><article class="example example-like"><div class="para logical" id="subsec-subspaces-6-2-1">
 <div class="para">Consider the quadric <span class="process-math">\(X\)</span> defined by the equation</div>
 <div class="displaymath process-math">
