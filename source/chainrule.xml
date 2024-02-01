@@ -230,6 +230,7 @@
 
         <p>Let us now recast a few definitions.</p>
 
+
         <definition xml:id="def-vector-field">         
             <notation>             
                 <usage><m>\mb{F}</m></usage>             
@@ -257,9 +258,47 @@
             </statement>
         </definition>
 
-        <p>These new definitions can replace our previous ones, or can live (slightly uncomfortably) along side them. However, in the latter case we will find our old viewpoints to be less conceptually workable as we advance our understanding.</p>
+        <p>These new definitions can replace our previous ones, or can live (slightly uncomfortably) along side them. However, in the latter case we will find our old viewpoints to be less conceptually workable as we advance our understanding. We may also use the new definition of the derivative as a linear transformation of tangent spaces to define tangent spaces of parameterized subspaces.</p>
+        
+        <definition xml:id="def-parametrized-tangent">
+            <notation>
+                <usage><m>T_p X</m></usage>
+                <description>Tangent space of <m>X</m> at <m>p</m></description>
+            </notation>
+            <statement>
+                Suppose <m>V_1, V_2</m> are finite dimensional real inner product spaces, <m>U \subset V_1</m> is an open subset and <m>\mb{G} : U \to V_2</m> is a differentiable, one to one function with <m>\mb{G} (p) = q</m>.
+                <td>
+                    <li> The <term> tangent space <m>T_q X</m> of <m>X</m> at q </term> is the linear subspace <me>T_q X = text{im} \left( \tder{p}{\mb{G}}) \subset T_q V_2</me></li>
+                    <li> The <term> embedded tangent space of <m>X</m> at q </term> is the subspace <m>\left\{ q + \mb{v} : D_{\mb{v}} \in T_q X \right\} \subset  V_2</m>.</li>
+                </td>
+            </statement>
+        </definition>
 
+        To digest this last definition, consider the case of the graph <m>X = \text{gr} (f)</m> of a one variable function <m>\mb{f}(t) = \left( t, f (t) \right)</m>. As mentioned above, since <m>\mb{f} : \mathbb{R} \to \mathbb{R}^2</m> is a path, the derivative of <m>\mb{f}</m> at <m>a</m> is <me>\tder{a}{\mb{f}} = \twovec{1}{f^\prime (a)}</me>
+        To write this as a linear transformation of tangent spaces, give each tangent space a basis. At <m>a</m> we have that <m>\partial_t</m> is a basis of the one dimensional <m>T_a \mathbb{R}</m> and at <m>\mb{a} = (a, f(a))</m> we have the basis <m>\left\{ \partial_x , \partial_y \right\}</m>. Then the expression above is the matrix representing the linear transformation so that
+        <me> \tder{a}{\mb{f}} (\partial_t) = \partial_x + f^\prime (a) \partial_y</me>
+        The image of this linear transformation then is all multiples of the vector <m> \partial_x + f^\prime (a) \partial_y</m> so that
+        <me>
+            T_\mb{a} X = \{ \lambda \partial_x + \lambda f^\prime (a) \partial_y : \lambda \in \mathbb{R} \}.
+        </me>
+        or as column vectors
+        <me>
+            T_\mb{a} X = \left\{ \twovec{\lambda}{\lambda f^\prime (a)}  : \lambda \in \mathbb{R} \right\}.
+        </me>
+        Note that this is a <m>linear subspace</m> of <m>T_{\mb{a}} \mathbb{R}^2</m>. The <term>embedded</term> tangent space is not typically a linear and is a subspace of the codomain <m>\mathbb{R}^2</m> of the function, not <m>T_{\mb{a}} \mathbb{R}^2</m>. This is just the line
+        <me>
+            \left\{ \twovec{a}{f(a)} + \twovec{\lambda}{\lambda f^\prime (a)} : \lambda \in \mathbb{R}\right\}
+        </me>
+        or in Cartesian coordinates
+        <me>
+            \left\{ \left(a + \lambda, f(a) + \lambda f^\prime (a) \right): \lambda \in \mathbb{R} \right\}.
+        </me>
+        Of course, this is just the usual tangent line to the graph of the function parameterized by <m>\lambda</m> and can be seen to be the set of points satisfying the usual familiar implicit equation
+        <me>
+            y = f(a) + f^\prime (a) (x - a).
+        </me>
     </subsection>
+
 
     <subsection xml:id="subsec-subspaces">
         <title>Level sets and their tangent spaces</title>
@@ -284,7 +323,7 @@
         <p>In fact, it is a result of the Implicit Function Theorem that, if <m>\tder{p}{g}</m> is not zero, then this equation defines the tangent space to <m>X</m> at <m>p</m>. Let us take this as an unproven theorem.</p>
 
         <theorem xml:id="thm-tangentspace">
-            <title>Implicit Function Theorem</title>
+            <title>Implicit Function Theorem Consequence</title>
             <statement>
                 <p>Let <m>U</m> be an open set in <m>\mathbb{R}^m</m>, <m>\mathbb{G} : U \to \mathbb{R}^n</m> and <m>X</m> the level set of all points <m>p</m> with <m>\mb{G} (p) = q</m> for some fixed <m>q</m>. If <m>\mb{G}</m> is differentiable at <m>p</m> and <m>\rk (\tder{p}{\mb{G}} ) = n</m> then the tangent space to <m>X</m> at <m>p</m> as a subspace of <m>T_p \mathbb{R}^m</m> is 
                     <me> T_p X = \left\{ \partial \in T_p \mathbb{R}^m : \tder{p}{\mb{G}} (\partial ) = 0 \right\} . </me></p>
