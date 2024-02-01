@@ -587,44 +587,66 @@ T : V \to T_{\mb{a}} V.
 </div></article><div class="para" id="subsec-tangent-spaces-14">These new definitions can replace our previous ones, or can live (slightly uncomfortably) along side them. However, in the latter case we will find our old viewpoints to be less conceptually workable as we advance our understanding. We may also use the new definition of the derivative as a linear transformation of tangent spaces to define tangent spaces of parameterized subspaces.</div>
 <article class="definition definition-like" id="def-parametrized-tangent"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.3.12</span><span class="period">.</span>
-</h4> Suppose <span class="process-math">\(V_1, V_2\)</span> are finite dimensional real inner product spaces, <span class="process-math">\(U \subset V_1\)</span> is an open subset and <span class="process-math">\(\mb{G} : U \to V_2\)</span> is a differentiable, one to one function with <span class="process-math">\(\mb{G} (p) = q\text{.}\)</span>  The  tangent space T_q X of X at q  is the linear subspace <div class="displaymath process-math">
+</h4> <div class="para logical" id="def-parametrized-tangent-2-1">
+<div class="para">Suppose <span class="process-math">\(V_1, V_2\)</span> are finite dimensional real inner product spaces, <span class="process-math">\(U \subset V_1\)</span> is an open subset and <span class="process-math">\(\mb{G} : U \to V_2\)</span> is a differentiable, one to one function with <span class="process-math">\(\mb{G} (p) = q\text{.}\)</span>
+</div>
+<ol class="decimal">
+<li id="def-parametrized-tangent-2-1-5-1"><div class="para" id="p-derived-def-parametrized-tangent-2-1-5-1">The <dfn class="terminology">tangent space <span class="process-math">\(T_q X\)</span> of <span class="process-math">\(X\)</span> at q</dfn> is the linear subspace<div class="displaymath process-math">
 \begin{equation*}
-T_q X = text{im} \left( \tder{p}{\mb{G}}) \subset T_q V_2
+T_q X = \text{im} \left( \tder{p}{\mb{G}}\right) \subset T_q V_2
 \end{equation*}
-</div>  The  embedded tangent space of X at q  is the subspace \left\{ q + \mb{v} : D_{\mb{v}} \in T_q X \right\} \subset  V_2.</article><span class="process-math">\(X = \text{gr} (f)\)</span><span class="process-math">\(\mb{f}(t) = \left( t, f (t) \right)\text{.}\)</span><span class="process-math">\(\mb{f} : \mathbb{R} \to \mathbb{R}^2\)</span><span class="process-math">\(\mb{f}\)</span><span class="process-math">\(a\)</span><div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-tangentisomorphism.html ./knowl/xref/cor-directional.html">
+</div>
+</div></li>
+<li id="def-parametrized-tangent-2-1-5-2"><div class="para" id="p-derived-def-parametrized-tangent-2-1-5-2">The <dfn class="terminology">embedded tangent space of <span class="process-math">\(X\)</span> at q</dfn> is the subspace<div class="displaymath process-math">
+\begin{equation*}
+\left\{ q + \mb{v} : D_{\mb{v}} \in T_q X \right\} \subset  V_2
+\end{equation*}
+</div>
+</div></li>
+</ol>
+</div></article><div class="para logical" id="subsec-tangent-spaces-16">
+<div class="para">To digest this last definition, consider the case of the graph <span class="process-math">\(X = \text{gr} (f)\)</span> of a one variable function <span class="process-math">\(\mb{f}(t) = \left( t, f (t) \right)\text{.}\)</span> As mentioned above, since <span class="process-math">\(\mb{f} : \mathbb{R} \to \mathbb{R}^2\)</span> is a path, the derivative of <span class="process-math">\(\mb{f}\)</span> at <span class="process-math">\(a\)</span> is</div>
+<div class="displaymath process-math">
 \begin{equation*}
 \tder{a}{\mb{f}} = \twovec{1}{f^\prime (a)}
 \end{equation*}
 </div>
-<span class="process-math">\(a\)</span><span class="process-math">\(\partial_t\)</span><span class="process-math">\(T_a \mathbb{R}\)</span><span class="process-math">\(\mb{a} = (a, f(a))\)</span><span class="process-math">\(\left\{ \partial_x , \partial_y \right\}\text{.}\)</span><div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-tangentisomorphism.html ./knowl/xref/cor-directional.html">
+<div class="para">To write this as a linear transformation of tangent spaces, give each tangent space a basis. At <span class="process-math">\(a\)</span> we have that <span class="process-math">\(\partial_t\)</span> is a basis of the one dimensional <span class="process-math">\(T_a \mathbb{R}\)</span> and at <span class="process-math">\(\mb{a} = (a, f(a))\)</span> we have the basis <span class="process-math">\(\left\{ \partial_x , \partial_y \right\}\text{.}\)</span> Then the expression above is the matrix representing the linear transformation so that</div>
+<div class="displaymath process-math">
 \begin{equation*}
 \tder{a}{\mb{f}} (\partial_t) = \partial_x + f^\prime (a) \partial_y
 \end{equation*}
 </div>
-<span class="process-math">\(\partial_x + f^\prime (a) \partial_y\)</span><div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-tangentisomorphism.html ./knowl/xref/cor-directional.html">
+<div class="para">The image of this linear transformation then is all multiples of the vector <span class="process-math">\(\partial_x + f^\prime (a) \partial_y\)</span> so that</div>
+<div class="displaymath process-math">
 \begin{equation*}
 T_\mb{a} X = \{ \lambda \partial_x + \lambda f^\prime (a) \partial_y : \lambda \in \mathbb{R} \}.
 \end{equation*}
 </div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-tangentisomorphism.html ./knowl/xref/cor-directional.html">
+<div class="para">or as column vectors</div>
+<div class="displaymath process-math">
 \begin{equation*}
 T_\mb{a} X = \left\{ \twovec{\lambda}{\lambda f^\prime (a)}  : \lambda \in \mathbb{R} \right\}.
 \end{equation*}
 </div>
-<span class="process-math">\(linear subspace\)</span><span class="process-math">\(T_{\mb{a}} \mathbb{R}^2\text{.}\)</span><dfn class="terminology">embedded</dfn><span class="process-math">\(\mathbb{R}^2\)</span><span class="process-math">\(T_{\mb{a}} \mathbb{R}^2\text{.}\)</span><div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-tangentisomorphism.html ./knowl/xref/cor-directional.html">
+<div class="para">Note that this is a <em class="emphasis">linear subspace</em> of <span class="process-math">\(T_{\mb{a}} \mathbb{R}^2\text{.}\)</span> The embedded tangent space is <em class="emphasis">not typically a linear subspace</em> and is a subspace of the codomain <span class="process-math">\(\mathbb{R}^2\)</span> of the function, not <span class="process-math">\(T_{\mb{a}} \mathbb{R}^2\text{.}\)</span> This is just the line</div>
+<div class="displaymath process-math">
 \begin{equation*}
 \left\{ \twovec{a}{f(a)} + \twovec{\lambda}{\lambda f^\prime (a)} : \lambda \in \mathbb{R}\right\}
 \end{equation*}
 </div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-tangentisomorphism.html ./knowl/xref/cor-directional.html">
+<div class="para">or in Cartesian coordinates</div>
+<div class="displaymath process-math">
 \begin{equation*}
 \left\{ \left(a + \lambda, f(a) + \lambda f^\prime (a) \right): \lambda \in \mathbb{R} \right\}.
 \end{equation*}
 </div>
-<span class="process-math">\(\lambda\)</span><div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-tangentisomorphism.html ./knowl/xref/cor-directional.html">
+<div class="para">Of course, this is just the usual tangent line to the graph of the function parameterized by <span class="process-math">\(\lambda\)</span> and can be seen to be the set of points satisfying the usual familiar implicit equation</div>
+<div class="displaymath process-math">
 \begin{equation*}
 y = f(a) + f^\prime (a) (x - a).
 \end{equation*}
+</div>
 </div></section><section class="subsection" id="subsec-subspaces"><h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.3.3</span><span class="space"> </span><span class="title">Level sets and their tangent spaces</span>
 </h3>
