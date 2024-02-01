@@ -266,15 +266,15 @@
                 <description>Tangent space of <m>X</m> at <m>p</m></description>
             </notation>
             <statement>
-                Suppose <m>V_1, V_2</m> are finite dimensional real inner product spaces, <m>U \subset V_1</m> is an open subset and <m>\mb{G} : U \to V_2</m> is a differentiable, one to one function with <m>\mb{G} (p) = q</m>.
-                <td>
-                    <li> The <term> tangent space <m>T_q X</m> of <m>X</m> at q </term> is the linear subspace <me>T_q X = text{im} \left( \tder{p}{\mb{G}}) \subset T_q V_2</me></li>
-                    <li> The <term> embedded tangent space of <m>X</m> at q </term> is the subspace <m>\left\{ q + \mb{v} : D_{\mb{v}} \in T_q X \right\} \subset  V_2</m>.</li>
-                </td>
+                <p>Suppose <m>V_1, V_2</m> are finite dimensional real inner product spaces, <m>U \subset V_1</m> is an open subset and <m>\mb{G} : U \to V_2</m> is a differentiable, one to one function with <m>\mb{G} (p) = q</m>.
+                <ol>
+                    <li> The <term> tangent space <m>T_q X</m> of <m>X</m> at q </term> is the linear subspace <me>T_q X = \text{im} \left( \tder{p}{\mb{G}}\right) \subset T_q V_2</me></li>
+                    <li> The <term> embedded tangent space of <m>X</m> at q </term> is the subspace <me>\left\{ q + \mb{v} : D_{\mb{v}} \in T_q X \right\} \subset  V_2</me></li>
+                </ol></p>
             </statement>
         </definition>
 
-        To digest this last definition, consider the case of the graph <m>X = \text{gr} (f)</m> of a one variable function <m>\mb{f}(t) = \left( t, f (t) \right)</m>. As mentioned above, since <m>\mb{f} : \mathbb{R} \to \mathbb{R}^2</m> is a path, the derivative of <m>\mb{f}</m> at <m>a</m> is <me>\tder{a}{\mb{f}} = \twovec{1}{f^\prime (a)}</me>
+        <p>To digest this last definition, consider the case of the graph <m>X = \text{gr} (f)</m> of a one variable function <m>\mb{f}(t) = \left( t, f (t) \right)</m>. As mentioned above, since <m>\mb{f} : \mathbb{R} \to \mathbb{R}^2</m> is a path, the derivative of <m>\mb{f}</m> at <m>a</m> is <me>\tder{a}{\mb{f}} = \twovec{1}{f^\prime (a)}</me>
         To write this as a linear transformation of tangent spaces, give each tangent space a basis. At <m>a</m> we have that <m>\partial_t</m> is a basis of the one dimensional <m>T_a \mathbb{R}</m> and at <m>\mb{a} = (a, f(a))</m> we have the basis <m>\left\{ \partial_x , \partial_y \right\}</m>. Then the expression above is the matrix representing the linear transformation so that
         <me> \tder{a}{\mb{f}} (\partial_t) = \partial_x + f^\prime (a) \partial_y</me>
         The image of this linear transformation then is all multiples of the vector <m> \partial_x + f^\prime (a) \partial_y</m> so that
@@ -285,7 +285,7 @@
         <me>
             T_\mb{a} X = \left\{ \twovec{\lambda}{\lambda f^\prime (a)}  : \lambda \in \mathbb{R} \right\}.
         </me>
-        Note that this is a <m>linear subspace</m> of <m>T_{\mb{a}} \mathbb{R}^2</m>. The <term>embedded</term> tangent space is not typically a linear and is a subspace of the codomain <m>\mathbb{R}^2</m> of the function, not <m>T_{\mb{a}} \mathbb{R}^2</m>. This is just the line
+        Note that this is a <em>linear subspace</em> of <m>T_{\mb{a}} \mathbb{R}^2</m>. The embedded tangent space is <em>not typically a linear subspace</em> and is a subspace of the codomain <m>\mathbb{R}^2</m> of the function, not <m>T_{\mb{a}} \mathbb{R}^2</m>. This is just the line
         <me>
             \left\{ \twovec{a}{f(a)} + \twovec{\lambda}{\lambda f^\prime (a)} : \lambda \in \mathbb{R}\right\}
         </me>
@@ -297,6 +297,7 @@
         <me>
             y = f(a) + f^\prime (a) (x - a).
         </me>
+        </p>
     </subsection>
 
 
