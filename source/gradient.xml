@@ -149,19 +149,19 @@
                 <description>Gradient </description>         
             </notation>         
             <statement>
-                <p>Let <m>U</m> be a domain in <m>V</m> with metric with varying inner product <m>\langle , \rangle_-</m>, and <m>f : U \to \mathbb{R}</m> a differentiable scalar function. The gradient of <m>f</m> at <m>p</m> is the tangent vector 
+                <p>Let <m>U</m> be an open subset of a vector space <m>V</m> with metric  <m>\langle , \rangle_-</m>, and <m>f : U \to \mathbb{R}</m> a differentiable scalar function. The gradient of <m>f</m> at <m>p</m> is the tangent vector 
                     <me>
                         \nabla_p f \in T_p V
                     </me>
                     for which 
-                    <me>
-                    \tder{p}{f} ( \partial ) = \langle \nabla_p f  ,  \partial \rangle_p \partial_1. 
-                    </me>
+                    <men xml:id="eq-gradient">
+                    \tder{p}{f} ( \partial ) = \langle \nabla_p f  ,  \partial \rangle_p
+                    </men>
                     The gradient <m>\nabla f</m> of <m>f</m> is the vector field with tangent vector <m>\nabla_p f</m> at <m>p</m>. </p>
             </statement>
         </definition>
 
-        <p>Let us make this definition concrete in the case of <m>V = \mathbb{R}^m</m> with the dot product.</p>
+        <p> One thing to note about this definition is that, although the right hand side of equation <xref ref="eq-gradient"/> is written as a number, it is really the tangent vector <m>\langle \nabla_p f  ,  \partial \rangle_p \partial_1</m> in <m>T_{f(p)} \mathbb{R}^1</m>. We will engage in the common practice of identifying <m>\partial_1 = \partial_x = \pd{}{x} </m> with <m>1</m> when in one dimension.  Let us make this definition concrete in the case of <m>V = \mathbb{R}^m</m> with the dot product.</p>
 
         <proposition xml:id="prop-flatgradient">
             <statement>
