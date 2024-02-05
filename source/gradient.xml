@@ -119,7 +119,7 @@
                     <mrow> \amp = \left[ \begin{matrix} \sin^2 \varphi \amp 0 \\ 0 \amp \sin^2 \varphi \end{matrix} \right],</mrow>
                     <mrow> \amp = \sin \varphi^2  \left[ \begin{matrix} 1 \amp 0 \\ 0 \amp 1 \end{matrix} \right].</mrow>
                 </md>
-                Note that the inner product at <m>(\theta , \varphi)</m> is just a multiple of the dot product by <m>\sin^2 \varphi</m>. This is a special situation to be in! Indeed, this tells us that, while the parametrization does not preserve lengths (it scales them by <m>\sin \varphi</m>), it does in fact preserve angles. One can see this intuitively by noticing that latitude and longitude lines are still perpendicular where they meet. Such a parameterization is called \textbf{conformal} and there are many interesting examples of these maps.</p>
+                Note that the inner product at <m>(\theta , \varphi)</m> is just a multiple of the dot product by <m>\sin^2 \varphi</m>. This is a special situation to be in! Indeed, this tells us that, while the parametrization does not preserve lengths (it scales them by <m>\sin \varphi</m>), it does in fact preserve angles. One can see this intuitively by noticing that latitude and longitude lines are still perpendicular where they meet. Such a parameterization is called <term>conformal</term> and there are many interesting examples of these maps.</p>
                     
                 <p>One other point which we can observe through geometric intuition about this parameterization is that the surface area of the sphere (relative to the coordinates) certainly changes. We all learn at some point, for example, that Greenland is not larger than South America, even though it may appear so on some maps. The point is that on our map coordinates, we should scale area by <m>\sin^2 \varphi</m> and so, near the poles where <m>\varphi = 0</m> and <m>\pi</m>, we must scale down area quite a bit.</p>
             </statement>
@@ -302,7 +302,7 @@
                 <me>
                  \gamma : [0, L] \to \mathcal{C}
                 </me>
-                for which <m>\gamma (0) = P</m>, <m>\gamma (L) = Q</m> and <m>\gamma^\prime (s)</m> is a unit vector for any <m>s</m> in <m>[0, L]</m>. Such a path is called the \textbf{arc length parameterization} of <m>\mathcal{C}</m>. This exercise asks you to show that such a path exists. </p></introduction>
+                for which <m>\gamma (0) = P</m>, <m>\gamma (L) = Q</m> and <m>\gamma^\prime (s)</m> is a unit vector for any <m>s</m> in <m>[0, L]</m>. Such a path is called the <term>arc length parameterization</term> of <m>\mathcal{C}</m>. This exercise asks you to show that such a path exists. </p></introduction>
         <task>
             <statement>
                 <p>  Let <m>\psi : [a, b] \to \mathcal{C}</m> be any differentiable parameterization of <m>\mathcal{C}</m> with nonzero velocity vectors. Consider the scalar function
