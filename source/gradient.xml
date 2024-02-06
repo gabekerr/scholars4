@@ -42,7 +42,7 @@
             </statement>
         </example>
 
-        <example>
+        <example xml:id="example-graphmetric">
             <title>Metrics of graphs</title>
             <statement>
                 <p>One class of examples of parameterized surfaces comes from considering graphs of functions. For example, if <m>f(x,y)</m> is a differentiable function on the plane <m>\mathbb{R}^2</m> then we can take its graph
@@ -117,9 +117,9 @@
                 <md>
                     <mrow> \tder{p}{\mb{G}}^T  \tder{p}{\mb{G}} \amp = \left[ \begin{matrix} -\sin \varphi \sin \theta \amp  \sin \varphi \cos \theta \amp  0 \\ \cos \varphi \cos \theta \amp \cos \varphi \sin \theta \amp - \sin \varphi \end{matrix} \right] \left[ \begin{matrix} -\sin \varphi \sin \theta \amp \cos \varphi \cos \theta  \\ \sin \varphi \cos \theta \amp \cos \varphi \sin \theta \\ 0 \amp - \sin \varphi \end{matrix} \right],</mrow>
                     <mrow> \amp = \left[ \begin{matrix} \sin^2 \varphi \amp 0 \\ 0 \amp \sin^2 \varphi \end{matrix} \right],</mrow>
-                    <mrow> \amp = \sin \varphi^2  \left[ \begin{matrix} 1 \amp 0 \\ 0 \amp 1 \end{matrix} \right].</mrow>
+                    <mrow> \amp =  \left[ \begin{matrix} \sin \varphi^2  \amp 0 \\ 0 \amp 1 \end{matrix} \right].</mrow>
                 </md>
-                Note that the inner product at <m>(\theta , \varphi)</m> is just a multiple of the dot product by <m>\sin^2 \varphi</m>. This is a special situation to be in! Indeed, this tells us that, while the parametrization does not preserve lengths (it scales them by <m>\sin \varphi</m>), it does in fact preserve angles. One can see this intuitively by noticing that latitude and longitude lines are still perpendicular where they meet. Such a parameterization is called <term>conformal</term> and there are many interesting examples of these maps.</p>
+                This is a special situation to be in! Indeed, this tells us that, while the parametrization does not preserve lengths (it scales one by <m>\sin \varphi</m>), it still keeps the axes orthogonal. One can see this intuitively by noticing that latitude and longitude lines are still perpendicular where they meet. </p>
                     
                 <p>One other point which we can observe through geometric intuition about this parameterization is that the surface area of the sphere (relative to the coordinates) certainly changes. We all learn at some point, for example, that Greenland is not larger than South America, even though it may appear so on some maps. The point is that on our map coordinates, we should scale area by <m>\sin^2 \varphi</m> and so, near the poles where <m>\varphi = 0</m> and <m>\pi</m>, we must scale down area quite a bit.</p>
             </statement>
@@ -171,7 +171,7 @@
                     </me>
                     Alternatively, using the basis <m>\partial_1, \ldots, \partial_m</m>, one commonly writes this as the row vector
                     <me>
-                        \nabla f = \langle \frac{\partial f}{\partial x_1} , \ldots , \frac{\partial f}{\partial x_m} \rangle.
+                        \nabla f = \threevec{\frac{\partial f}{\partial x_1}}{\vdots}{\frac{\partial f}{\partial x_m}}.
                     </me></p>
             </statement>
             <proof> <p>Exercise.</p>
@@ -185,7 +185,7 @@
             <statement>
                 <p>Consider <m>f (x,y) = x^2 - xy + y</m> and observe that <xref ref="prop-flatgradient"/> tells us that 
                     <me>
-                    \nabla f = \langle 2x - y , 1 - x \rangle.
+                    \nabla f = \twovec{2x - y}{1 - x}.
                     </me></p>
             </statement>
         </example>
@@ -195,14 +195,35 @@
             <statement>
                 <p>Take <m>g (x, y ,z) = e^{xyz} + \cos x - \sin z</m> and compute
                     <me>
-                    \nabla f = \langle yz e^{xyz} - \sin x , xz e^{xyz}, xy e^{xyz} - \cos z \rangle. 
+                    \nabla f = \threevec{yz e^{xyz} - \sin x}{xz e^{xyz}}{xy e^{xyz} - \cos z}. 
                     </me></p>
             </statement>
         </example>
 
         <p>The observant student may be shaking their head a bit at this point and asking how this is different from the derivative <m>\tder{}{f}</m>. After all, these computations look identical! The answer to this question is that the derivative of a scalar function is a cotangent vector field and the gradient is a tangent vector field. So while the computations look (and are) nearly identical, the gradient is a <em>different</em> kind of mathematical entity than the derivative.</p>
 
-        <p>Perhaps most importantly, the gradient we have computed in these examples is for flat Euclidean space where the inner products are simply dot products, and in general, one needs a slightly more sophisticated definition when the coordinates are not flat coordinates. In this case, <xref ref="prop-flatgradient"/> does not apply and we must use more care. However, in either case, the gradient exhibits a very important property. To explain this, we first need a notion of steepest ascent. </p>
+        <p>To see the difference even more clearly, we consider a function on <m>\mathbb{R}^2</m> but with a metric that is not Euclidean. Let <m>h(x,y) = x^2</m> and consider <m>X</m> to be the graph of <m>h</m>. We take the function <me>\tilde{f}(x,y,z) = -2x^2 + y^2 + z^2</me> and restrict it to <m>X</m>. This gives the function <me>f(x,y) = x^4 - 2x^2 + y^2.</me>
+        Now, it is easy enough to use <xref ref="prop-flatgradient"/> to and find that, were we on a Euclidean space,
+        <me> \nabla^{Euclid} f = \twovec{4x^3 - 4x}{2y}</me>
+        However, the domain of the function is identified with <m>X</m>, so we should first consider the metric given by the matrix in <xref ref="prop-metricmatrix"/>. The general form for this was given in <xref ref="example-graphmetric"/>. If we take <m>\mb{h} (x,y) = (x,y, x^2)</m> to parameterize the graph, we can compute the matrix for the inner product as
+        <me> G = \tder{}{\mb{h}}^T  \tder{}{\mb{h}} = \begin{bmatrix} 1 + h_x^2 \amp h_x h_y \\ h_x h_y \amp 1 + h_y^2 \end{bmatrix} = \begin{bmatrix} 1 + 4x^2 \amp 0 \\ 0 \amp 1 \end{bmatrix}  </me>
+        Since the new inner product is obtained by the dot product with <m>G \mb{u}</m>, we obtain the actual gradient by multiplying <m>\nabla^{Euclid} f</m> by the inverse of <m>G</m> to find
+        <me> \nabla f = G^{-1} \nabla^{Euclid}f = \begin{bmatrix} \frac{1}{1 + 4x^2} \amp 0 \\ 0 \amp 1 \end{bmatrix}\twovec{4x^3 - 4x}{2y} = \twovec{\frac{4x^3 - 4x}{1 + 4x^2}}{2y} </me> 
+        We can picture both vector fields, the Euclidean in red and actual in blue, using the sage cell
+        <sage>
+            <input>
+                x,y = var('x y')
+                Euc = plot_vector_field((4*x^3 - 4*x, 2*y), (x,-2,2), (y,-1,1), color='red')
+                NotEuc = plot_vector_field(((4*x^3 - 4*x)/(1+4*x^2), 2*y), (x,-2,2), (y,-1,1), color='blue')
+                show(Euc+NotEuc, figsize=8)
+            </input>
+            <output>
+            </output>
+        </sage>
+        Observe that away from the interior region of the interval <m>[-1,1]</m> on the x-axis, the two vector fields start looking quite different. This difference shows the importance of using the correct metric. 
+        </p>
+
+        <p> In either the Euclidean or varying metric case, the gradient exhibits a very important property. To explain this, we first need a notion of steepest ascent. </p>
 
         <definition xml:id="def-steepest-ascent">         
             <notation>             
