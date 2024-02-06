@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.4.2</span><span class="period">.</span><span class="space"> </span><span class="title">Metrics of graphs.</span>
+</h4>
+<div class="para logical">
+<div class="para">One class of examples of parameterized surfaces comes from considering graphs of functions. For example, if <span class="process-math">\(f(x,y)\)</span> is a differentiable function on the plane <span class="process-math">\(\mathbb{R}^2\)</span> then we can take its graph</div>
+<div class="displaymath process-math">
+\begin{equation*}
+X = \{ (x, y, z) : z = f(x,y) \}.
+\end{equation*}
+</div>
+<div class="para">Such a subspace is, in a sense, already parameterized as we can define <span class="process-math">\(\mb{G} : \mathbb{R}^2 \to \mathbb{R}^3\)</span> via</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{G} (x, y) = (x, y, f(x,y)).
+\end{equation*}
+</div>
+<div class="para">Taking the derivative gives</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\tder{}{\mb{G}} = \left[ \begin{matrix} 1 \amp 0 \\ 0 \amp 1 \\ \frac{\partial f}{\partial x} \amp \frac{\partial f}{ \partial y} \end{matrix} \right].
+\end{equation*}
+</div>
+<div class="para">Thus if we look at the tangent vectors</div>
+<div class="displaymath process-math">
+\begin{align*}
+\tder{}{\mb{G}} ( \partial_x ) \amp = \partial_x + \frac{\partial f}{\partial x} \partial_z \\
+\tder{}{\mb{G}} ( \partial_y)  \amp = \partial_y + \frac{\partial f}{\partial y} \partial_z 
+\end{align*}
+</div>
+<div class="para">we see that their dot product is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\tder{}{\mb{G}} ( \partial_x ) \cdot \tder{}{\mb{G}} ( \partial_y)  = \frac{\partial f}{\partial x} \frac{\partial f}{\partial y} . 
+\end{equation*}
+</div>
+<div class="para">This is generally non-zero, even though <span class="process-math">\(\partial_x \cdot \partial_y = 0\text{.}\)</span> This is again because the image tangent vectors fail to be orthogonal.</div>
+</div></article><span class="incontext"><a class="internal" href="sec-gradient.html#example-graphmetric">in-context</a></span>
+</body>
+</html>
