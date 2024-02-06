@@ -463,7 +463,7 @@
                         <mrow> u^2 + v^2 \amp = 1, </mrow>
                         <mrow> x^2 + y^2 \amp = 1. </mrow>
                     </md>
-                Here the coordinates of <m>\mathbb{R}^4</m> are <m>(u, v, x, y)</m>.</p>
+                at the point <m>(a,b,c,d)</m>. Here the coordinates of <m>\mathbb{R}^4</m> are <m>(u, v, x, y)</m>.</p>
             </statement>
         </exercise>
         
