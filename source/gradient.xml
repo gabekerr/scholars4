@@ -80,7 +80,7 @@
             <statement>
                 <p>Let <m>U</m> be an open subset of <m>\mathbb{R}^m</m> and <m>\mb{G} : U \to X</m> a parameterization so that for any <m>q</m> in <m>X</m> with <m>\mb{G} (p) = q</m> the tangent space <m>T_q X</m> is given by <m>\tder{p}{G} (T_p \mathbb{R}^m)</m>. The <term>inner product <m>\langle , \rangle_p</m> on <m>U</m> induced by <m>\mb{G}</m></term> is defined by
                 <me>
-                    \langle \partial , \tilde{\partial} \rangle_p := \tder{p}{G} (\partial) \cdot \tder{p}{G} (\tilde{\partial}).
+                    \langle \partial , \tilde{\partial} \rangle_p := \tder{p}{\mb{G}} (\partial) \cdot \tder{p}{\mb{G}} (\tilde{\partial}).
                 </me></p>
             </statement>
         </definition>
