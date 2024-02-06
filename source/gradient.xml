@@ -302,12 +302,12 @@
         </task>
         <task>
             <statement>
-                <p> Is <m>\mb{G}</m> a conformal map? Explain your response. </p>
+                <p> Is <m>\mb{G}</m> a conformal map? Here we mean if <m>\mb{u}, \mb{v} \in T_p \U</m> are tangent vectors with Euclidean dot product, is the angle between them the same as the angle between their image vectors <m>\tder{p}{\mb{G}} (\mb{u} ), \tder{p}{\mb{G}} (\mb{v} ) \in T_{\mb{G} (p)} \mathbb{R}^2</m> (also with the dot product). Explain your response. </p>
             </statement>
         </task>
         <task>
             <statement>
-                <p> Does <m>\mb{G}</m> preserve distance? </p>
+                <p> Does <m>\mb{G}</m> preserve distance? Here we mean if <m>\mb{u} \in T_p \U</m> is a tangent vector with Euclidean dot product, is its length the same as the length of its image vector <m>\tder{p}{\mb{G}} (\mb{u} ) \in T_{\mb{G} (p)} \mathbb{R}^2</m> (also with the dot product).</p>
             </statement>
         </task>
         </exercise>
