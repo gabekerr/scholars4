@@ -194,7 +194,7 @@
         <p>Now we proceed to define the tangent space of a point <m>\mb{a}</m> in a real inner product space <m>V</m>. If it helps, you may think of <m>V</m> as <m>\mathbb{R}^n</m> or even as <m>\mathbb{R}^2</m> to build intuition. Recall that <m>C^1 (U)</m> is the vector space of all differentiable (real scalar valued) functions on a set <m>U</m>.</p>
 
         <definition xml:id="def-tangentspace">         
-            <notation>             
+            <notation>
                 <usage><m>T_{\mb{a}} V</m></usage>             
                 <description>Tangent space </description>         
             </notation>         
@@ -401,7 +401,7 @@
             <statement>
                 <p> The Inverse Function Theorem for many variables says that if <me>\mb{F} : \mathbb{R}^n \to \mathbb{R}^n</me> is differentiable at <m>\mb{a}</m> and <m>\tder{\mb{a}}{\mb{F}}</m> is an invertible linear transformation, then there is a neighborhood <m>U</m> of <m>\mb{a}</m> such that <m>V = \mb{F} (U)</m> is a neighborhood of  <m>\mb{b} = \mb{F} (\mb{a})</m>, and a function <m>\mb{F}^{-1} : V \to U</m> which is inverse to the function <m>\mb{F}</m>. Prove that if this is the case, then
                     <me>
-                     \tder{\mb{b}}{\left(\mb{F}^{-1} \right)} = \left( \tder{a}{\mb{F}} \right)^{-1}
+                     \tder{\mb{b}}{\left(\mb{F}^{-1} \right)} = \left( \tder{\mb{a}}{\mb{F}} \right)^{-1}
                     </me> </p>
             </statement>
         </exercise>
