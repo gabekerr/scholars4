@@ -116,8 +116,7 @@
                 which, by <xref ref="prop-metricmatrix"/>, gives us our tangent space inner products (represented as matrices) via
                 <md>
                     <mrow> \tder{p}{\mb{G}}^T  \tder{p}{\mb{G}} \amp = \left[ \begin{matrix} -\sin \varphi \sin \theta \amp  \sin \varphi \cos \theta \amp  0 \\ \cos \varphi \cos \theta \amp \cos \varphi \sin \theta \amp - \sin \varphi \end{matrix} \right] \left[ \begin{matrix} -\sin \varphi \sin \theta \amp \cos \varphi \cos \theta  \\ \sin \varphi \cos \theta \amp \cos \varphi \sin \theta \\ 0 \amp - \sin \varphi \end{matrix} \right],</mrow>
-                    <mrow> \amp = \left[ \begin{matrix} \sin^2 \varphi \amp 0 \\ 0 \amp \sin^2 \varphi \end{matrix} \right],</mrow>
-                    <mrow> \amp =  \left[ \begin{matrix} \sin \varphi^2  \amp 0 \\ 0 \amp 1 \end{matrix} \right].</mrow>
+                    <mrow> \amp = \left[ \begin{matrix} \sin^2 \varphi \amp 0 \\ 0 \amp 1 \end{matrix} \right],</mrow>
                 </md>
                 This is a special situation to be in! Indeed, this tells us that, while the parametrization does not preserve lengths (it scales one by <m>\sin \varphi</m>), it still keeps the axes orthogonal. One can see this intuitively by noticing that latitude and longitude lines are still perpendicular where they meet. </p>
                     
