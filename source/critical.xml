@@ -11,7 +11,7 @@
             <description>Critical point </description>         
         </notation>         
         <statement>
-            <p>Suppose <m>U</m> is a domain with metric in <m>\mathbb{R}^m</m> and <m>f: U \to \mathbb{R}</m> is scalar function. We call <m>p \in U</m> a \textbf{critical point} of <m>f</m> if either <m>f</m> is not differentiable at <m>p</m> or if 
+            <p>Suppose <m>U</m> is a domain with metric in <m>\mathbb{R}^m</m> and <m>f: U \to \mathbb{R}</m> is scalar function. We call <m>p \in U</m> a <term>critical point</term> of <m>f</m> if either <m>f</m> is not differentiable at <m>p</m> or if 
                 <me>
                 \nabla_p f = \mb{0}.
                 </me>
@@ -118,9 +118,9 @@
             </notation>         
             <statement>
                 <p>Suppose <m>U</m> is a domain with metric in <m>\mathbb{R}^m</m> and <m>f: U \to \mathbb{R}</m> is scalar function with continuous second partial derivatives. The <term>Hessian</term> of <m>f</m> is the matrix valued function
-                    \begin{align*}
-                        \textnormal{Hess} (f) \amp = \left[ \begin{matrix} \frac{\partial^2 f}{\partial x_1^2} \amp \frac{\partial^2 f}{\partial x_1 \partial x_2} \amp \cdots \amp \frac{\partial^2 f}{\partial x_1 \partial x_m} \\ \frac{\partial^2 f}{\partial x_2 \partial x_1} \amp \frac{\partial^2 f}{\partial x_2^2} \amp \cdots \amp \frac{\partial^2 f}{\partial x_2 \partial x_m} \\ \vdots \amp \vdots \amp \amp \vdots \\ \frac{\partial^2 f}{\partial x_m \partial x_1} \amp \frac{\partial^2 f}{\partial x_m \partial x_2} \amp \cdots \amp \frac{\partial^2 f}{\partial x_m^2} \end{matrix} \right]
-                        \end{align*}
+                    <me>
+                        \textnormal{Hess} (f)  = \left[ \begin{matrix} \frac{\partial^2 f}{\partial x_1^2} \amp \frac{\partial^2 f}{\partial x_1 \partial x_2} \amp \cdots \amp \frac{\partial^2 f}{\partial x_1 \partial x_m} \\ \frac{\partial^2 f}{\partial x_2 \partial x_1} \amp \frac{\partial^2 f}{\partial x_2^2} \amp \cdots \amp \frac{\partial^2 f}{\partial x_2 \partial x_m} \\ \vdots \amp \vdots \amp \amp \vdots \\ \frac{\partial^2 f}{\partial x_m \partial x_1} \amp \frac{\partial^2 f}{\partial x_m \partial x_2} \amp \cdots \amp \frac{\partial^2 f}{\partial x_m^2} \end{matrix} \right]
+                    </me>
                     Write <m>\text{Hess}_p (f)</m> for the Hessian of <m>f</m> evaluated at <m>p</m>. We say a critical point <m>p</m> of <m>f</m> is <term>non-degenerate</term> if <m>\text{Hess}_p (f)</m> has non-zero determinant.</p>
             </statement>
         </definition>
