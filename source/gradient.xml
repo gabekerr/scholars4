@@ -376,7 +376,7 @@
 
         <exercise>
             <statement>
-                <p> For each of the functions in the previous exercise, give the direction vector for which the function, starting at <m>(-1,2)</m>, is has steepest descent.  </p>
+                <p> For part (a) and (c) in the previous exercise, give the direction vector for which the function, starting at <m>(-1,2)</m>, has steepest descent.  For part (b) in the previous exercise, give the direction vector for which the function, starting at <m>(1, -3,2)</m>, has steepest descent. </p>
             </statement>
         </exercise>
 

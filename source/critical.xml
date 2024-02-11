@@ -319,6 +319,7 @@
                     </theorem>
                 Give an explanation of why this test is identical to <xref ref="cor-secondderivativetest"/> for the case of <m>m = 2</m>. 
                 </p>
+                <hint><p> It may help to learn how to computationally determine positive definiteness (or negative definiteness) of a symmetric matrix. Perhaps look for some background reading on <sq>principal minors</sq>. </p></hint>
             </statement>
         </exercise>
         
