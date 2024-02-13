@@ -193,7 +193,7 @@
         </md>
         Since we must have this equal to zero for each <m>1 \leq i \leq m</m> we obtain the single matrix equation
         <men xml:id="eq-leastsquares1">
-           \left( \mathcal{S} \mathcal{S}^T \right) \mb{a}^T  = \mathcal{S}^T \tilde{\mb{y}}.
+           \left( \mathcal{S} \mathcal{S}^T \right) \mb{a}^T  = \mathcal{S} \tilde{\mb{y}}^T.
         </men>
         Now, if we divide both sides by <m>N</m>, and recall the definition of the covariance matrix <m>\mathbf{\Sigma}</m>, we see that this equation is 
         <men xml:id="eq-leastsquares2">
@@ -224,6 +224,31 @@
                 </mdn></p>
             </statement>
         </example>
+
+        We can impliment this formula easily using Sage.
+
+        <sage>
+            <input>
+                X = [1, 4,2,3,5]
+                Y = [3, 2,4,8, -1]
+                N = len(X)
+                dataPoints = [(X[i], Y[i]) for i in range(N)]
+                xbar = mean(X)
+                ybar = mean(Y)
+                shiftedX = vector([x - xbar for x in X],QQ)
+                shiftedy = vector([y - ybar for y in Y],QQ)
+                m = shiftedX.dot_product(shiftedY) / shiftedX.dot_product(shiftedX)
+                b = ybar - m * xbar
+                pointPlot = points(dataPoints, color="red")
+                xmin = min(X) - 1
+                xmax = max(X) + 1
+                linePlot = plot(x^2, (x, xmin, xmax))
+                W = pointPlot + linePlot
+                show(W, figsize=8)
+            </input>
+            <output>
+            </output>
+        </sage>
     
     </subsection>
 
