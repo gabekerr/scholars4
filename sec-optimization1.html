@@ -86,7 +86,19 @@ window.MathJax = {
     )}
   }
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.33/pretext_search.js"></script><link href="https://pretextbook.org/css/0.83/pretext_search.css" rel="stylesheet" type="text/css">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.33/pretext_search.js"></script><link href="https://pretextbook.org/css/0.83/pretext_search.css" rel="stylesheet" type="text/css">
 <script>js_version = 0.33</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.33/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.33/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.33/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
@@ -552,7 +564,7 @@ W(a_1, \ldots, a_m, b) = \| \mb{a}\, \mathcal{S}  - \tilde{\mb{y}}  \|^2,
 <div class="para">Since we must have this equal to zero for each <span class="process-math">\(1 \leq i \leq m\)</span> we obtain the single matrix equation</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-leastsquares1.html" id="eq-leastsquares1">
 \begin{equation}
-\left( \mathcal{S} \mathcal{S}^T \right) \mb{a}^T  = \mathcal{S}^T \tilde{\mb{y}}.\tag{1.6.1}
+\left( \mathcal{S} \mathcal{S}^T \right) \mb{a}^T  = \mathcal{S} \tilde{\mb{y}}^T.\tag{1.6.1}
 \end{equation}
 </div>
 <div class="para">Now, if we divide both sides by <span class="process-math">\(N\text{,}\)</span> and recall the definition of the covariance matrix <span class="process-math">\(\mathbf{\Sigma}\text{,}\)</span> we see that this equation is</div>
@@ -593,7 +605,23 @@ m \amp =  \frac{ (x_1 - \bar{x} ) (y_1 - \bar{y}) + \cdots + (x_N - \bar{x} ) (y
 b \amp = \bar{y} - m \bar{x}. \tag{1.6.5}
 \end{align}
 </div>
-</div></article></details></section><section class="subsection" id="subsec-gradient-descent"><h3 class="heading hide-type">
+</div></article></details><pre id="subsec-least-squares-7" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">X = [1, 4,2,3,5]
+Y = [3, 2,4,8, -1]
+N = len(X)
+dataPoints = [(X[i], Y[i]) for i in range(N)]
+xbar = mean(X)
+ybar = mean(Y)
+shiftedX = vector([x - xbar for x in X],QQ)
+shiftedy = vector([y - ybar for y in Y],QQ)
+m = shiftedX.dot_product(shiftedY) / shiftedX.dot_product(shiftedX)
+b = ybar - m * xbar
+pointPlot = points(dataPoints, color="red")
+xmin = min(X) - 1
+xmax = max(X) + 1
+linePlot = plot(x^2, (x, xmin, xmax))
+W = pointPlot + linePlot
+show(W, figsize=8)
+</script></pre></section><section class="subsection" id="subsec-gradient-descent"><h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.6.3</span><span class="space"> </span><span class="title">Gradient descent</span>
 </h3>
 <div class="para logical" id="subsec-gradient-descent-2">
