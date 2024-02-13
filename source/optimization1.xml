@@ -233,16 +233,16 @@
                 Y = [3, 2,4,8, -1]
                 N = len(X)
                 dataPoints = [(X[i], Y[i]) for i in range(N)]
-                xbar = mean(X)
-                ybar = mean(Y)
+                xbar = numpy.mean(X)
+                ybar = numpy.mean(Y)
                 shiftedX = vector([x - xbar for x in X],QQ)
-                shiftedy = vector([y - ybar for y in Y],QQ)
+                shiftedY = vector([y - ybar for y in Y],QQ)
                 m = shiftedX.dot_product(shiftedY) / shiftedX.dot_product(shiftedX)
                 b = ybar - m * xbar
                 pointPlot = points(dataPoints, color="red")
                 xmin = min(X) - 1
                 xmax = max(X) + 1
-                linePlot = plot(x^2, (x, xmin, xmax))
+                linePlot = plot(m*x + b, (x, xmin, xmax))
                 W = pointPlot + linePlot
                 show(W, figsize=8)
             </input>
