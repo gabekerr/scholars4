@@ -366,7 +366,7 @@
             <statement>
                 <p> If possible, optimize the function
                     <me>
-                    f(x,y,z) = u + x
+                    f(u,v,x,y) = u + x
                     </me>
                     on 
                     <me>
