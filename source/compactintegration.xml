@@ -4,7 +4,7 @@
     <title>Integration over compact domains in <m>\mathbb{R}^2</m></title>
     <p>In this section, we will integrate a function <m>f</m> over a nice domain <m>D</m> in <m>\mathbb{R}^n</m>. We will start by giving the general definition and then discuss a variety of specific cases and techniques.</p>
 
-    <p>Let <m>D</m> be a closed and bounded domain in <m>\mathbb{R}^n</m>. Then, since it is bounded, it is contained in a cube <m>\mathcal{C} = [a_1, b_1] \times \cdots \times [a_n , b_n]</m>. Now suppose <m>f: D \to \mathbb{R}</m> is a continuous function on <m>D</m>. At the moment, it does not make sense to integrate <m>f(x_1, \ldots, x_n)</m> over the domain <m>D</m>, because we have only defined such integrals over cubes and <m>f</m> is not defined for points not in <m>D</m>. To make sense of such a concept then, we extend our function <m>f</m> to all of <m>\mathcal{C}</m> by taking
+    <p>Let <m>D</m> be a closed and bounded domain in <m>\mathbb{R}^n</m>. Then, since it is bounded, it is contained in a cuboid <m>\mathcal{C} = [a_1, b_1] \times \cdots \times [a_n , b_n]</m>. Now suppose <m>f: D \to \mathbb{R}</m> is a continuous function on <m>D</m>. At the moment, it does not make sense to integrate <m>f(x_1, \ldots, x_n)</m> over the domain <m>D</m>, because we have only defined such integrals over cuboids and <m>f</m> is not defined for points not in <m>D</m>. To make sense of such a concept then, we extend our function <m>f</m> to all of <m>\mathcal{C}</m> by taking
         <me>
             \tilde{f} (x_1, \ldots, x_n) = \begin{cases}
             f(x_1, \ldots, x_n) \amp \text{ if } (x_1, \ldots, x_n) \text{ is in } D, \\ 0 \amp \text{ otherwise.}

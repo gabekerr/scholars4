@@ -1,17 +1,17 @@
 <?xml version='1.0' encoding='utf-8'?>
 
 <section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-cubeintegration">
-    <title>Integrating over cubes in <m>\mathbb{R}^n</m></title>
+    <title>Integrating over cuboids in <m>\mathbb{R}^n</m></title>
     <p>Having explored derivatives, we now consider integrals in many dimensions. As in the case of derivatives, the domain on which we are defined (and integrating) can make a big difference in how easy or difficult it is to compute. We will give the general definition and then discuss rectangles in detail. </p>
 
     
     <definition xml:id="def-cube">         
         <notation>             
             <usage><m>\mathcal{C}</m></usage>             
-            <description><m>n</m>-dimensional cube </description>         
+            <description><m>n</m>-dimensional cuboid </description>         
         </notation>         
         <statement>
-            <p>A <term>cube</term> <m>\mathcal{C}</m>, or <m>n</m>-cube, in <m>\mathbb{R}^n</m> is a product of intervals 
+            <p>A <term>cuboid</term> <m>\mathcal{C}</m>, or <m>n</m>-cuboid, in <m>\mathbb{R}^n</m> is a product of intervals 
                 <me>
                 [a_1 , b_1] \times [a_2, b_2] \times \cdots \times [a_n , b_n].
                 </me>
@@ -26,29 +26,29 @@
     <me>
         \idotsint_\mathcal{C} f(x_1, \ldots, x_n) \, \tder{}{\textnormal{V}}
     </me>
-    of a scalar function <m>f(x_1, \ldots, x_n)</m> on the <m>n</m>-cube 
+    of a scalar function <m>f(x_1, \ldots, x_n)</m> on the <m>n</m>-cuboid 
     <me>
         \mathcal{C} = [a_1 , b_1] \times [a_2, b_2] \times \cdots \times [a_n , b_n].
     </me> 
     Of course, as it has been some time since students may have seen this definition, let us make sure we all remember that the definite (Riemann) integral of a function of one variable is \textit{not} the anti-derivative of said function. It is rather a limit of Riemann sums. Sadly, mimicking this definition in many dimensions introduces many indices, but outside of this messiness, the idea remains the same.</p>
 
-    <p>So proceeding as in <m>1</m> dimension where we break our interval into several sub-intervals, we first break a cube into many sub-cubes by defining a partition <m>P</m> on <m>\mathcal{C}</m>. This can be done by simply breaking each interval <m>[a_i , b_i]</m> into <m>n_i</m> sub-intervals by considering a sequence
+    <p>So proceeding as in <m>1</m> dimension where we break our interval into several sub-intervals, we first break a cuboid into many sub-cuboids by defining a partition <m>P</m> on <m>\mathcal{C}</m>. This can be done by simply breaking each interval <m>[a_i , b_i]</m> into <m>n_i</m> sub-intervals by considering a sequence
     <me>
          a_i = c_{i,0} \lt c_{i, 1} \lt \cdots \lt c_{i, n_i} = b_i
     </me>
-    Then to any multi-index <m>(j_1, \ldots , j_n)</m> with <m>0 \leq j_i \leq n_i</m> we have a sub-cube
+    Then to any multi-index <m>(j_1, \ldots , j_n)</m> with <m>0 \leq j_i \leq n_i</m> we have a sub-cuboid
     <me>
         \mathcal{C}_{(j_1, \ldots , j_n)} = [c_{1, j_1 - 1}, c_{1, j_1}] \times [c_{2, j_2 - 1}, c_{2, j_2}] \times \cdots \times [c_{n, j_n - 1}, c_{n, j_n}]
     </me>
-    and these sub-cubes have union equal to our original <m>\mathcal{C}</m>.</p>
+    and these sub-cuboids have union equal to our original <m>\mathcal{C}</m>.</p>
         
-    <p>Note that the volume of one of these cubes is just the product of the lengths of the sub-intervals
+    <p>Note that the volume of one of these cuboids is just the product of the lengths of the sub-intervals
     <md>
         <mrow> \Delta V_{(j_1, \ldots , j_n)} \amp := \text{Volume} (\mathcal{C}_{(j_1, \ldots , j_n)} ), </mrow>
         <mrow> \amp = ( c_{1, j_1} - c_{1, j_1 - 1}) ( c_{2, j_2} - c_{2, j_2 - 1}) \cdots (c_{n, j_n} - c_{n, j_n - 1}), </mrow>
         <mrow> \amp = \Delta x_{1, j_1} \cdots \Delta x_{n, j_n}. </mrow>
     </md>
-    We can picture this for a rectangle by simply drawing horizontal and vertical lines to divide the rectangle into smaller rectangles. For a <m>3</m>-dimensional cube, the student should picture a cheese brick that is sliced along the three axes to make small cheese cubes. Each <m>\mathcal{C}_{(j_1, j_2, j_3)}</m> would then be one of these cubes (in the original large block). Now, just as in the one dimensional case, we need to choose sample points in our partitioned cubes. For a given cube corresponding to the multi-index <m>(j_1, \ldots, j_n)</m>, denote this choice
+    We can picture this for a rectangle by simply drawing horizontal and vertical lines to divide the rectangle into smaller rectangles. For a <m>3</m>-dimensional cuboid, the student should picture a cheese brick that is sliced along the three axes to make small cheese cuboids. Each <m>\mathcal{C}_{(j_1, j_2, j_3)}</m> would then be one of these cuboids (in the original large block). Now, just as in the one dimensional case, we need to choose sample points in our partitioned cuboids. For a given cuboid corresponding to the multi-index <m>(j_1, \ldots, j_n)</m>, denote this choice
     <me>
         x^*_{(j_1, \ldots, j_n)} \in \mathcal{C}_{(j_1, \ldots, j_n)}.
     </me>
@@ -65,7 +65,7 @@
             <description>multiple integral </description>         
         </notation>
         <statement>
-            <p>The <term>multiple integral</term> of a function <m>f</m> on the cube <m>\mathcal{C}</m> is the limit
+            <p>The <term>multiple integral</term> of a function <m>f</m> on the cuboid <m>\mathcal{C}</m> is the limit
             <me>
                 \idotsint_\mathcal{C} f(x_1, \ldots, x_n) \,  \tder{}{\textnormal{V}} = \lim_{\|\mathcal{P}\| \to 0} RS_{\mathcal{P}}
             </me>
@@ -82,11 +82,11 @@
         \idotsint_{\mathcal{C}} f(x,y,z) \tder{}{V} = \iiint_\mathcal{C} f(x, y,z) \tder{}{V}.
     </me></p>
 
-    <p>Now, these definitions are all well and good, but to understand these integrals, we need to establish some properties and computational techniques. We will begin with such a technique by understanding how to <sq>integrate out</sq> certain variables. Again let <m>f(x_1, \ldots, x_n)</m> be a function on the cube <m>\mathcal{C}</m>.  For any variable <m>x_i</m> with <m>1 \leq i \leq n</m> we may define the cube <m>\mathcal{C} (i)</m> in <m>\mathbb{R}^{n - 1}</m> by  omitting the <m>i</m>-th variable (or equivalently projecting to the all coordinates except <m>x_i</m>). I.e. take 
+    <p>Now, these definitions are all well and good, but to understand these integrals, we need to establish some properties and computational techniques. We will begin with such a technique by understanding how to <sq>integrate out</sq> certain variables. Again let <m>f(x_1, \ldots, x_n)</m> be a function on the cuboid <m>\mathcal{C}</m>.  For any variable <m>x_i</m> with <m>1 \leq i \leq n</m> we may define the cuboid <m>\mathcal{C} (i)</m> in <m>\mathbb{R}^{n - 1}</m> by  omitting the <m>i</m>-th variable (or equivalently projecting to the all coordinates except <m>x_i</m>). I.e. take 
     <me>
         \mathcal{C} (i) = [a_1 , b_1] \times \cdots \times [a_{i - 1}, b_{i - 1}] \times [a_{i + 1}, b_{i + 1}] \times \cdots \times [a_n , b_n].
     </me>
-    We take <m>\mathcal{C} (i_1, \ldots, i_k)</m> to be the cube in all dimensions except the <m>i_j</m>-th dimensions. In the case of <m>\mathcal{C} (1, \ldots, n)</m> we obtain a single point which we consider to be the zero dimensional cube. Then we make the definition:</p>
+    We take <m>\mathcal{C} (i_1, \ldots, i_k)</m> to be the cuboid in all dimensions except the <m>i_j</m>-th dimensions. In the case of <m>\mathcal{C} (1, \ldots, n)</m> we obtain a single point which we consider to be the zero dimensional cuboid. Then we make the definition:</p>
 
     <definition xml:id="def-integrating-variables">         
         <notation>             
@@ -94,11 +94,11 @@
             <description>Integral of <m>f(x_1, \ldots, x_n)</m> with respect to the <m>i</m>-th variable</description>         
         </notation>         
         <statement>
-            <p>Let <m>f(x_1, \ldots, x_n)</m> be defined on the <m>n</m>-cube <m>\mathcal{C} = [a_1, b_1] \times \cdots \times [a_n , b_n]</m>. The <term>integral of <m>f(x_1, \ldots, x_n)</m> with respect to the <m>i</m>-th variable</term> is the function 
+            <p>Let <m>f(x_1, \ldots, x_n)</m> be defined on the <m>n</m>-cuboid <m>\mathcal{C} = [a_1, b_1] \times \cdots \times [a_n , b_n]</m>. The <term>integral of <m>f(x_1, \ldots, x_n)</m> with respect to the <m>i</m>-th variable</term> is the function 
             <me>
                 F (t_1, \ldots, t_{i -1}, t_{i + 1} , \ldots , t_n) := \int_{a_i}^{b_i} f(t_1, \ldots, t_{i - 1}, x_i, t_{i + 1}, \ldots,  t_n) \, \tder{}{x_i} 
             </me>
-            on the <m>(n - 1)</m>-cube <m>\mathcal{C} (i)</m>. We say that <m>f(x_1, \ldots, x_n)</m> is integrable with respect to <m>x_i</m> if the integral of <m>f(x_1, \ldots, x_n)</m> with respect to the <m>i</m>-th variable exists.</p>
+            on the <m>(n - 1)</m>-cuboid <m>\mathcal{C} (i)</m>. We say that <m>f(x_1, \ldots, x_n)</m> is integrable with respect to <m>x_i</m> if the integral of <m>f(x_1, \ldots, x_n)</m> with respect to the <m>i</m>-th variable exists.</p>
         </statement>
     </definition>
 
@@ -341,7 +341,7 @@
                         <me>
                         B = \{ (x, y, z) : x^2 + y^2 + z^2 \leq 1\}.
                         </me>
-                        If we take <m>\tilde{f} (x,y,z)</m> to be the function on the cube 
+                        If we take <m>\tilde{f} (x,y,z)</m> to be the function on the cuboid 
                         <me>
                         \mathcal{C} = [-1, 1] \times [-1, 1] \times [-1, 1]
                         </me>
