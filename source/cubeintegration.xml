@@ -73,7 +73,7 @@
         </statement>
     </definition>
 
-    <p>Some words should be said on the meaning of the limit in this definition. What is meant here is that if we claim that <m>I</m> is the integral, then for any <m>\varepsilon \gt 0</m> there exists a <m>\delta</m> for which <m>\| \mathcal{P} \| \lt \delta</m> implies <m>| RS_\mathcal{P} - I | \lt \varepsilon</m>. We also note that in two dimensions, this is called the \textbf{double integral} and in three dimensions is called the \textbf{triple integral}. In these cases, it is more common to write
+    <p>Some words should be said on the meaning of the limit in this definition. What is meant here is that if we claim that <m>I</m> is the integral, then for any <m>\varepsilon \gt 0</m> there exists a <m>\delta</m> for which <m>\| \mathcal{P} \| \lt \delta</m> implies <m>| RS_\mathcal{P} - I | \lt \varepsilon</m>. We also note that in two dimensions, this is called the <term>double integral</term> and in three dimensions is called the <term>triple integral</term>. In these cases, it is more common to write
     <me>
         \idotsint_{\mathcal{C}} f(x,y) \tder{}{V} = \iint_\mathcal{C} f(x, y) \tder{}{A} 
     </me>
@@ -155,7 +155,7 @@
                 <me>
                     \int_{a_{i_n}}^{b_{i_n}}  \left( \cdots \left( \int_{a_{i_1}}^{b_{i_1}} f(x_1, \ldots, x_n) \, \tder{}{x_{i_1}} \right) \cdots  \right) \tder{}{x_{i_1}}.
                 </me>
-                for some ordered sequence of variables <m>x_{i_1}, x_{i_2}, \ldots, x_{i_n}</m>. We say that <m>f(x_1, \ldots, x_n)</m> has \textbf{all iterated integrals} the iterated integral exists for every ordered sequence of variables.</p>
+                for some ordered sequence of variables <m>x_{i_1}, x_{i_2}, \ldots, x_{i_n}</m>. We say that <m>f(x_1, \ldots, x_n)</m> has <em>all iterated integrals</em> the iterated integral exists for every ordered sequence of variables.</p>
         </statement>
     </definition>
 
@@ -243,9 +243,10 @@
                         \mathcal{C} = [a_1 , b_1] \times [a_2, b_2] \times \cdots \times [a_n , b_n]
                         </me>
                     which has all iterated integrals. Then for any ordering of variables <m>x_{i_1}, x_{i_2}, \ldots, x_{i_n}</m> we have
-                    \begin{align*}
-                           \int_\mathcal{C} f(x_1, \ldots, x_n) \, \tder{}{\textnormal{V}} \amp =  \int_{a_{i_n}}^{b_{i_n}}  \left( \cdots \left( \int_{a_{i_1}}^{b_{i_1}} f(x_1, \ldots, x_n) \, \tder{}{x_{i_1}} \right) \cdots  \right) \tder{}{x_{i_n}}.
-                    \end{align*}</p>
+                    <me>
+                        \int_\mathcal{C} f(x_1, \ldots, x_n) \, \tder{}{\textnormal{V}} =  \int_{a_{i_n}}^{b_{i_n}}  \left( \cdots \left( \int_{a_{i_1}}^{b_{i_1}} f(x_1, \ldots, x_n) \, \tder{}{x_{i_1}} \right) \cdots  \right) \tder{}{x_{i_n}}.
+                    </me>
+                    </p>
             </statement>
         </theorem>
 
