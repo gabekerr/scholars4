@@ -1243,308 +1243,20 @@ var ptx_lunr_docs = [
   "body": " Prove .  "
 },
 {
-  "id": "sec-exterior",
-  "level": "1",
-  "url": "sec-exterior.html",
-  "type": "Section",
-  "number": "2.1",
-  "title": "Exterior algebras",
-  "body": " Exterior algebras   This section had to come at some point, so I apologize now for presenting the inevitable content contained within! At the same time, exterior algebras could be considered a first introduction to a very intriguing subject and quite different from what you may have experienced in your mathematical education... so I retract my apology!!    The exterior product  For the last time, we return to linear algebra and consider an -dimensional vector space over where is either or . We want to take our vector space and build several new ones . These new vector spaces consists of linear combinations of wedge products (also known as exterior products ) of vectors in . We describe the rules of such a wedge product now.     Exterior algebra    Let be a vector space over . The wedge product of vectors and is a formal vector subject to the properties:  Anti-symmetry : ,  Bilinear : .  The vector space of linear combinations of exterior products of vectors is called the -th exterior product of and denoted . By convention .    The above definition should be taken as an informal one and leaves the technical notions of tensor products to a later course. In particular, the exterior product has to satisfy a so-called universal property which distinguishes it from other algebraic structures enjoying the two defining properties. Nevertheless, let us take a casual look at products in general and arrive at a more precise description of using some propositions.  Consider linear functions from to itself. Such functions form a vector space (the dual of ). We can write such functions as . Of course, taking our usual product of functions makes new (non-linear) ones like Now what about exterior products? First, we note that if we take any vector then by anti-symmetry, which implies . I.e. taking an exterior square of a vector in gives zero. This combined with bilinearity gives This type of exercise can be enhanced to the following proposition.    If is a basis for the vector space then is a basis for the -the wedge product . Furthermore, if then is the zero vector space.    We prove that this set spans and leave linear independence to a more advanced treatment. Proceed by induction on . Certainly when we have the case of itself. Assume it to be true for , and consider the exterior product in . Then by the induction hypothesis, there are scalars with and since is a basis we also have Expanding their product and applying bilinearity then gives as a linear combination of the -products The proof of linear independence relies on the construction of the exterior algebra from tensor products which we will leave to an abstract algebra course.    For an -dimensional vector space we write and note that this vector space has both addition and exterior multiplication - in mathematics we call such spaces algebras.    If is an -dimensional vector space and then    Thus is not only an algebra it is finite dimensional. Now let us examine a key result that makes these algebras so useful.    Let be vectors in . Then they are linearly independent if and only if in .    If are linearly independent, then they can be extended to a basis of . But then Proposition~\\ref{prop:wedgebasis} asserts that is a vector in a basis for and thus is non-zero. If they are linearly dependent, then we may assume that, after reordering, can be written as a linear combination But then using bilinearity we have But every summand in the last expression has a wedge product of two 's, so using anti-commutativity, we get that each of these is and we are done.    Let us observe an application of exterior products and this proposition right now. To do this, we need to define differential forms.     Tangent space    Let be an open subset of . A differential -form  on is a smooth assignment which takes to a tangent covector . A differential -form is a linear combination of -exterior products of -forms.    Equivalently, we may consider a differential -form to be an assignment from to the dual of the -th exterior space , i.e. a vector in . Differential -forms are dual to vector fields in that if we have a vector field on and a differential one form on then is a scalar function on . The most common way to create a differential -form is to take the derivative of a scalar function!     Exterior derivative of scalar function    If is an open subset of and , write the standard dual basis of as I.e. these are the dual vectors to the standard tangent vectors in that The (exterior) derivative of a scalar function is then defined as the differential -form    The student should note that this is really nothing new (yet), just a different way of expressing the usual derivative of an ordinary scalar function. For example, if we take then the original definition of the derivative of at is a linear transformation from to . Using the standard basis of vector fields, we identify these tangent spaces with and and write this derivative as the matrix As a differential -form, this is written We will see differential forms in much more detail later on as they form the heart of multivariable calculus. For now, let us use them to re-express Lagrange multipliers.   Lagrange multipliers with one constraint - exterior product version   Suppose is an open set in , and two differentiable scalar functions. If is the level set of then a smooth point is a critical point of if and only if the differential -form vanishes at .    The major advantage of this over the previous version is that there are no multipliers! Thus we have automatically eliminated one variable that needs to be solved in the previous version. Let's take another look at but using this technique.   Lagrange multiplier using differential forms   Recall that in we wanted to find critical points of on the hyperboloid We compute derivatives but now write them as differential -forms to see Now we compute the exterior product For this -form to be zero, each of the coefficient functions must be zero. The coefficient is zero if and only if either or . Again, the constraint implies not both can be zero. Consider both cases:  Suppose and . Since , the coefficient is zero. Since the coefficient being zero implies so that .  Suppose and . Since , the coefficient is zero. Since the coefficient being zero implies so that .  Putting these into the constraint then produces the critical points as before.    The procedure for several constraints also follows from as well.   Lagrange multipliers with several constraints - exterior products version   Suppose is an open set in , a differentiable vector valued function with of full rank and a differentiable scalar function. If is the level set of then a smooth point is a critical point of if and only if is zero at .      Geometry of exterior algebras  The exterior algebra is miraculous in its ability to compute geometric quantities naturally. We will start with the following result.    Let be column vectors and suppose they form the matrix Then where is the standard basis.    Exercise.    We recall that the absolute value of the determinant expresses the volume of the parallelepiped spanned by the columns, so we can see that the exterior product `knows' about their volume. In fact, the exterior product knows about many other volumes as well if we start with an inner product. In particular, if has an inner product, we can extend it to define an inner product on . This can be done by taking an orthonormal basis of and making all of their products an orthonormal basis of so that forms an orthonormal basis. To see that this makes sense, we define our inner product more intrinsically as follows.     Exterior algebra inner product    Suppose is an inner product space. The inner product on two pure -th wedge products is then given by the formula This inner product can be extended to linearly.    The fact that this definition makes sense and can be extended to all of follows from row and column linearity of the determinant as well as the alternating property. From this, we obtain the following amazing result.    Let be column vectors and the -dimensional parallelepiped spanned by them. Then Here is the -dimensional volume.    We check this by considering the subspace of spanned by . If these vectors are linearly dependent, then clearly the -dimensional parallelepiped has -dimensional volume (since it is contained in a space of smaller dimension). But Proposition~\\ref{prop:wedgelinearind} then also says that implying the result in this case. So suppose that they are linearly independent and let be an orthonormal basis for (recall this can be found through the Gram-Schmidt process). We may write as a vector in using the basis via the coordinate map and in doing so, we have that Another way of saying this is that the coordinate chart preserves distance and thus preserves volume. Taking to be the parallelepiped spanned by in , we then have that where But applying Proposition~\\ref{prop:wedgevolume1} to and using the fact that is an orthonormal basis gives    Let's run this result through an example to see how quickly it solves some problems.   Chain rule computation II   Consider the column vectors and let be the parallelogram spanned by them. Then, expanding in terms of the standard basis we have Since is an orthonormal basis for and remembering that -dimensional volume is just area, we have One should take a moment to appreciate this newfound technique. It is one thing to be able to find volumes of parallelograms in the plane with simple determinants, it is another to be able to find areas of parallelograms (and volumes of parallelepipeds) in high dimensional spaces with simple arithmetic!    Happily for some, and sadly for others, exterior products can be used to give even more geometric information about a vector space. The existence of the inner product on along with a choice of orientation induces a new duality as well. Let us define these concepts now.     Orientation    An orientation on an -dimensional real inner product space is a choice of unit vector for . If comes with such a choice, we call an oriented vector space. We say that is the standard orientation of .    Recall that the dimension of is -dimensional, so there are exactly two possible unit vectors corresponding to two orientations of . Let's consider orientations of vector spaces in low dimensions.   Orientations in one dimension   For the -dimensional vector space , we have that so that an orientation is either or . I.e. we are orienting to the right or to the left (in the standard picture of the number line).     Orientations in two dimension   Considering , we have two orientations or . In the plane, we can consider as specifying a rotational direction `from to '. So the orientation can be thought of as counter-clockwise orientation (as the act of moving to is a counter-clockwise rotation) while as clockwise orientation.     Orientations in three dimension   As a last low dimensional example, consider . We still have two orientations but can write them as wedge products of the standard basis in different ways : and As always, these two orientations are negatives of each other so that in . Why call them orientations, you ask? Well, if you point your index finger parallel to your hand, middle finger perpendicular to your hand and thumb straight upward to match the directions of three basis vectors, you'll find that equals if you used your right hand and if you used your left (unless you have severely dislocated your middle finger!). In other words, choosing the right hand rule is tantamount to choosing an orientation of .    We will see that orientations are vital ingredients in integration of differential forms. For now though, we use them to define a duality called the Hodge star operator.     Hodge star    Let be an -dimensional oriented inner product space with orientation and . The Hodge star of is the unique element for which for all .    Let us check to see that is well defined and understand its properties.    The Hodge star operator is a well defined linear isomorphism.    Let be in and define the dual vector by . It is an exercise to see that then defines a linear transformation from the -th exterior product to the dual vector space of the -th exterior product. Here sends to .  In fact, this map is an isomorphism. To see this we note that if is non-zero then must also be nonzero. Indeed, if is non-zero, then written in terms of an orthonormal basis there must be at least one non-zero coefficient, say . But taking to be the numbers in not equal to any , we can compute and so But this means that so that is one-to-one. Proposition~\\ref{prop:wedgebasis} gives us that the dimension of the codomain and domain of are the same so that Corollary~\\ref{cor:equaldim} implies is a linear isomorphism. In particular, there is an inverse linear transformation  To complete the proof, one takes to be the dual vector given by pairing with , i.e. . Then one simply checks to see that    This last proof was fairly abstract, but in practice, the Hodge star can be written concretely. Before looking at a couple of examples, let's give a general formula which determines it up to sign.    Equip with the dot product and the standard orientation. If and are two disjoint sets whose union is then In particular, preserves inner products so that    Exercise.    The sign can be determined by counting the of times one must pass an index over a index to reorder into . The sign is then .  Let's see what this looks like in dimensions two and three.   Hodge star in dimension two   In with the standard orientation we have the basis of . Then one can see that Notice in particular that restricting to , we have is the isomorphism of counter-clockwise rotation by .     Hodge star in dimension three   In with the standard orientation we have the basis of . The Hodge star operator from to just interchanges with (more generally, it interchanges with for ). The interesting cases here are the isomorphisms One can compute In the -dimensional case, we have that (in contrast to the -dimensional case where we saw that it for vectors in ).      The cross product  Now, in many ways, \\textbf{3 is special!} One of these ways is that Note that is the only number with this property. In other words, implies . Do we all agree ... ? Yes ? Good!  Because of this, we can do something in when is -dimensional that we cannot do for an oriented inner product space of a different dimension. We can define the \\textbf{cross product} on vectors as: Indeed, suppose is -dimensional. Because belong to , their wedge product is in . This means their Hodge star is in . If we want this to be a vector in then we must have that ... so must be . I am explaining this because in every one of the millions of multivariable calculus courses I have taught, a bright student has asked me whether there is a cross product in other dimensions, to which I answer: there is something, but not a cross product .  Now, while I firmly believe that in years, every college student will learn wedge products, the Hodge star operator, and higher dimensional volumes rendering cross products a strange relic of the past, we do not yet live in this idyllic future. So it is important you know how to compute cross products in order to converse with your less enlightened future colleagues. Let's derive the formula: While every multivariable calculus student sees this formula at some point, the most common way they learn to use it is to take the determinant of the following strange looking matrix Although the first row entries are vectors, the formula for determinant still makes some sense and can be seen to match up with the derived formula. The properties of the cross product are also quite universally taught, but again are much easier to verify in our general setting.    Suppose and are -dimensional vectors. Then   ,   is orthogonal to both and .   is the area of the parallelogram spanned by and .  if and span a plane, the vectors are oriented with respect to the right hand rule.      Property (1) follows from linearity of since For (2), we recall that in , is the identity. Then, using the defining property of the Hodge star operator, This implies and a similar argument (or using (1)) gives For (3), take to be the parallelogram spanned by and . Then we just apply along with equation of to get Finally, for (4) we must explain what is meant if it is not clear. A basis in an oriented vector space is positively oriented if there is a positive real number for which This is what is meant by saying are oriented with respect to the right hand rule - that they are positively oriented with respect to the standard orientation . Seeing this is simple though. Using our defining property of Hodge star we have, Because and span a plane, they are linearly independent so that implies is non-zero giving our result.    In the coming sections, we will briefly lay down exterior products, but they will make a major reappearance when we consider integration of forms and several fundamental theorems such as Stokes', Green's, and the divergence theorem.    Express the following wedge products as linear combinations of the basis .           While it is true that given a vector in , we always have , this is not true for any vector in . Show that the wedge square of is not zero in .   Compute the exterior derivatives of the following functions   ,   ,    .    Use wedge products of differential -forms to find critical points of on the ellipsoid    Show that is a linear transformation as claimed in equation .    Compute the Hodge star operators of the following vectors assuming the standard orientation of .   Compute the exterior derivatives of the following functions   in ,   in .    "
-},
-{
-  "id": "subsec-exterior-product-2",
-  "level": "2",
-  "url": "sec-exterior.html#subsec-exterior-product-2",
-  "type": "Paragraph (with a defined term)",
-  "number": "",
-  "title": "",
-  "body": "wedge products exterior products "
-},
-{
-  "id": "def-exterior-algebra",
-  "level": "2",
-  "url": "sec-exterior.html#def-exterior-algebra",
-  "type": "Definition",
-  "number": "2.1.1",
-  "title": "",
-  "body": "   Exterior algebra    Let be a vector space over . The wedge product of vectors and is a formal vector subject to the properties:  Anti-symmetry : ,  Bilinear : .  The vector space of linear combinations of exterior products of vectors is called the -th exterior product of and denoted . By convention .   "
-},
-{
-  "id": "prop-wedgebasis",
-  "level": "2",
-  "url": "sec-exterior.html#prop-wedgebasis",
-  "type": "Proposition",
-  "number": "2.1.2",
-  "title": "",
-  "body": "  If is a basis for the vector space then is a basis for the -the wedge product . Furthermore, if then is the zero vector space.    We prove that this set spans and leave linear independence to a more advanced treatment. Proceed by induction on . Certainly when we have the case of itself. Assume it to be true for , and consider the exterior product in . Then by the induction hypothesis, there are scalars with and since is a basis we also have Expanding their product and applying bilinearity then gives as a linear combination of the -products The proof of linear independence relies on the construction of the exterior algebra from tensor products which we will leave to an abstract algebra course.   "
-},
-{
-  "id": "subsec-exterior-product-8",
-  "level": "2",
-  "url": "sec-exterior.html#subsec-exterior-product-8",
-  "type": "Corollary",
-  "number": "2.1.3",
-  "title": "",
-  "body": "  If is an -dimensional vector space and then   "
-},
-{
-  "id": "prop-wedgelinearind",
-  "level": "2",
-  "url": "sec-exterior.html#prop-wedgelinearind",
-  "type": "Proposition",
-  "number": "2.1.4",
-  "title": "",
-  "body": "  Let be vectors in . Then they are linearly independent if and only if in .    If are linearly independent, then they can be extended to a basis of . But then Proposition~\\ref{prop:wedgebasis} asserts that is a vector in a basis for and thus is non-zero. If they are linearly dependent, then we may assume that, after reordering, can be written as a linear combination But then using bilinearity we have But every summand in the last expression has a wedge product of two 's, so using anti-commutativity, we get that each of these is and we are done.   "
-},
-{
-  "id": "def-differential-form",
-  "level": "2",
-  "url": "sec-exterior.html#def-differential-form",
-  "type": "Definition",
-  "number": "2.1.5",
-  "title": "",
-  "body": "   Tangent space    Let be an open subset of . A differential -form  on is a smooth assignment which takes to a tangent covector . A differential -form is a linear combination of -exterior products of -forms.   "
-},
-{
-  "id": "def-exterior-derivative",
-  "level": "2",
-  "url": "sec-exterior.html#def-exterior-derivative",
-  "type": "Definition",
-  "number": "2.1.6",
-  "title": "",
-  "body": "   Exterior derivative of scalar function    If is an open subset of and , write the standard dual basis of as I.e. these are the dual vectors to the standard tangent vectors in that The (exterior) derivative of a scalar function is then defined as the differential -form   "
-},
-{
-  "id": "prop-lagrangian-one-constaint",
-  "level": "2",
-  "url": "sec-exterior.html#prop-lagrangian-one-constaint",
-  "type": "Proposition",
-  "number": "2.1.7",
-  "title": "Lagrange multipliers with one constraint - exterior product version.",
-  "body": " Lagrange multipliers with one constraint - exterior product version   Suppose is an open set in , and two differentiable scalar functions. If is the level set of then a smooth point is a critical point of if and only if the differential -form vanishes at .   "
-},
-{
-  "id": "subsec-exterior-product-18",
-  "level": "2",
-  "url": "sec-exterior.html#subsec-exterior-product-18",
-  "type": "Example",
-  "number": "2.1.8",
-  "title": "Lagrange multiplier using differential forms.",
-  "body": " Lagrange multiplier using differential forms   Recall that in we wanted to find critical points of on the hyperboloid We compute derivatives but now write them as differential -forms to see Now we compute the exterior product For this -form to be zero, each of the coefficient functions must be zero. The coefficient is zero if and only if either or . Again, the constraint implies not both can be zero. Consider both cases:  Suppose and . Since , the coefficient is zero. Since the coefficient being zero implies so that .  Suppose and . Since , the coefficient is zero. Since the coefficient being zero implies so that .  Putting these into the constraint then produces the critical points as before.   "
-},
-{
-  "id": "prop-lagrangian-several-constaints",
-  "level": "2",
-  "url": "sec-exterior.html#prop-lagrangian-several-constaints",
-  "type": "Proposition",
-  "number": "2.1.9",
-  "title": "Lagrange multipliers with several constraints - exterior products version.",
-  "body": " Lagrange multipliers with several constraints - exterior products version   Suppose is an open set in , a differentiable vector valued function with of full rank and a differentiable scalar function. If is the level set of then a smooth point is a critical point of if and only if is zero at .   "
-},
-{
-  "id": "prop-wedgevolume1",
-  "level": "2",
-  "url": "sec-exterior.html#prop-wedgevolume1",
-  "type": "Proposition",
-  "number": "2.1.10",
-  "title": "",
-  "body": "  Let be column vectors and suppose they form the matrix Then where is the standard basis.    Exercise.   "
-},
-{
-  "id": "def-exterior-inner-product",
-  "level": "2",
-  "url": "sec-exterior.html#def-exterior-inner-product",
-  "type": "Definition",
-  "number": "2.1.11",
-  "title": "",
-  "body": "   Exterior algebra inner product    Suppose is an inner product space. The inner product on two pure -th wedge products is then given by the formula This inner product can be extended to linearly.   "
-},
-{
-  "id": "prop-parallelepipedvolume",
-  "level": "2",
-  "url": "sec-exterior.html#prop-parallelepipedvolume",
-  "type": "Proposition",
-  "number": "2.1.12",
-  "title": "",
-  "body": "  Let be column vectors and the -dimensional parallelepiped spanned by them. Then Here is the -dimensional volume.    We check this by considering the subspace of spanned by . If these vectors are linearly dependent, then clearly the -dimensional parallelepiped has -dimensional volume (since it is contained in a space of smaller dimension). But Proposition~\\ref{prop:wedgelinearind} then also says that implying the result in this case. So suppose that they are linearly independent and let be an orthonormal basis for (recall this can be found through the Gram-Schmidt process). We may write as a vector in using the basis via the coordinate map and in doing so, we have that Another way of saying this is that the coordinate chart preserves distance and thus preserves volume. Taking to be the parallelepiped spanned by in , we then have that where But applying Proposition~\\ref{prop:wedgevolume1} to and using the fact that is an orthonormal basis gives   "
-},
-{
-  "id": "subsec-exterior-algebra-geometry-9",
-  "level": "2",
-  "url": "sec-exterior.html#subsec-exterior-algebra-geometry-9",
-  "type": "Example",
-  "number": "2.1.13",
-  "title": "Chain rule computation II.",
-  "body": " Chain rule computation II   Consider the column vectors and let be the parallelogram spanned by them. Then, expanding in terms of the standard basis we have Since is an orthonormal basis for and remembering that -dimensional volume is just area, we have One should take a moment to appreciate this newfound technique. It is one thing to be able to find volumes of parallelograms in the plane with simple determinants, it is another to be able to find areas of parallelograms (and volumes of parallelepipeds) in high dimensional spaces with simple arithmetic!   "
-},
-{
-  "id": "def-orientation",
-  "level": "2",
-  "url": "sec-exterior.html#def-orientation",
-  "type": "Definition",
-  "number": "2.1.14",
-  "title": "",
-  "body": "   Orientation    An orientation on an -dimensional real inner product space is a choice of unit vector for . If comes with such a choice, we call an oriented vector space. We say that is the standard orientation of .   "
-},
-{
-  "id": "subsec-exterior-algebra-geometry-13",
-  "level": "2",
-  "url": "sec-exterior.html#subsec-exterior-algebra-geometry-13",
-  "type": "Example",
-  "number": "2.1.15",
-  "title": "Orientations in one dimension.",
-  "body": " Orientations in one dimension   For the -dimensional vector space , we have that so that an orientation is either or . I.e. we are orienting to the right or to the left (in the standard picture of the number line).   "
-},
-{
-  "id": "subsec-exterior-algebra-geometry-14",
-  "level": "2",
-  "url": "sec-exterior.html#subsec-exterior-algebra-geometry-14",
-  "type": "Example",
-  "number": "2.1.16",
-  "title": "Orientations in two dimension.",
-  "body": " Orientations in two dimension   Considering , we have two orientations or . In the plane, we can consider as specifying a rotational direction `from to '. So the orientation can be thought of as counter-clockwise orientation (as the act of moving to is a counter-clockwise rotation) while as clockwise orientation.   "
-},
-{
-  "id": "subsec-exterior-algebra-geometry-15",
-  "level": "2",
-  "url": "sec-exterior.html#subsec-exterior-algebra-geometry-15",
-  "type": "Example",
-  "number": "2.1.17",
-  "title": "Orientations in three dimension.",
-  "body": " Orientations in three dimension   As a last low dimensional example, consider . We still have two orientations but can write them as wedge products of the standard basis in different ways : and As always, these two orientations are negatives of each other so that in . Why call them orientations, you ask? Well, if you point your index finger parallel to your hand, middle finger perpendicular to your hand and thumb straight upward to match the directions of three basis vectors, you'll find that equals if you used your right hand and if you used your left (unless you have severely dislocated your middle finger!). In other words, choosing the right hand rule is tantamount to choosing an orientation of .   "
-},
-{
-  "id": "def-hodge-star",
-  "level": "2",
-  "url": "sec-exterior.html#def-hodge-star",
-  "type": "Definition",
-  "number": "2.1.18",
-  "title": "",
-  "body": "   Hodge star    Let be an -dimensional oriented inner product space with orientation and . The Hodge star of is the unique element for which for all .   "
-},
-{
-  "id": "prop-hodge-star-operator",
-  "level": "2",
-  "url": "sec-exterior.html#prop-hodge-star-operator",
-  "type": "Proposition",
-  "number": "2.1.19",
-  "title": "",
-  "body": "  The Hodge star operator is a well defined linear isomorphism.    Let be in and define the dual vector by . It is an exercise to see that then defines a linear transformation from the -th exterior product to the dual vector space of the -th exterior product. Here sends to .  In fact, this map is an isomorphism. To see this we note that if is non-zero then must also be nonzero. Indeed, if is non-zero, then written in terms of an orthonormal basis there must be at least one non-zero coefficient, say . But taking to be the numbers in not equal to any , we can compute and so But this means that so that is one-to-one. Proposition~\\ref{prop:wedgebasis} gives us that the dimension of the codomain and domain of are the same so that Corollary~\\ref{cor:equaldim} implies is a linear isomorphism. In particular, there is an inverse linear transformation  To complete the proof, one takes to be the dual vector given by pairing with , i.e. . Then one simply checks to see that   "
-},
-{
-  "id": "prop-Hodgeformula",
-  "level": "2",
-  "url": "sec-exterior.html#prop-Hodgeformula",
-  "type": "Proposition",
-  "number": "2.1.20",
-  "title": "",
-  "body": "  Equip with the dot product and the standard orientation. If and are two disjoint sets whose union is then In particular, preserves inner products so that    Exercise.   "
-},
-{
-  "id": "subsec-exterior-algebra-geometry-24",
-  "level": "2",
-  "url": "sec-exterior.html#subsec-exterior-algebra-geometry-24",
-  "type": "Example",
-  "number": "2.1.21",
-  "title": "Hodge star in dimension two.",
-  "body": " Hodge star in dimension two   In with the standard orientation we have the basis of . Then one can see that Notice in particular that restricting to , we have is the isomorphism of counter-clockwise rotation by .   "
-},
-{
-  "id": "subsec-exterior-algebra-geometry-25",
-  "level": "2",
-  "url": "sec-exterior.html#subsec-exterior-algebra-geometry-25",
-  "type": "Example",
-  "number": "2.1.22",
-  "title": "Hodge star in dimension three.",
-  "body": " Hodge star in dimension three   In with the standard orientation we have the basis of . The Hodge star operator from to just interchanges with (more generally, it interchanges with for ). The interesting cases here are the isomorphisms One can compute In the -dimensional case, we have that (in contrast to the -dimensional case where we saw that it for vectors in ).   "
-},
-{
-  "id": "prop-cross-product-properties",
-  "level": "2",
-  "url": "sec-exterior.html#prop-cross-product-properties",
-  "type": "Proposition",
-  "number": "2.1.23",
-  "title": "",
-  "body": "  Suppose and are -dimensional vectors. Then   ,   is orthogonal to both and .   is the area of the parallelogram spanned by and .  if and span a plane, the vectors are oriented with respect to the right hand rule.      Property (1) follows from linearity of since For (2), we recall that in , is the identity. Then, using the defining property of the Hodge star operator, This implies and a similar argument (or using (1)) gives For (3), take to be the parallelogram spanned by and . Then we just apply along with equation of to get Finally, for (4) we must explain what is meant if it is not clear. A basis in an oriented vector space is positively oriented if there is a positive real number for which This is what is meant by saying are oriented with respect to the right hand rule - that they are positively oriented with respect to the standard orientation . Seeing this is simple though. Using our defining property of Hodge star we have, Because and span a plane, they are linearly independent so that implies is non-zero giving our result.   "
-},
-{
-  "id": "exe-exterior-1",
-  "level": "2",
-  "url": "sec-exterior.html#exe-exterior-1",
-  "type": "Exercise",
-  "number": "2.1.4.1",
-  "title": "",
-  "body": "Express the following wedge products as linear combinations of the basis .         "
-},
-{
-  "id": "exe-exterior-2",
-  "level": "2",
-  "url": "sec-exterior.html#exe-exterior-2",
-  "type": "Exercise",
-  "number": "2.1.4.2",
-  "title": "",
-  "body": " While it is true that given a vector in , we always have , this is not true for any vector in . Show that the wedge square of is not zero in .  "
-},
-{
-  "id": "exe-exterior-3",
-  "level": "2",
-  "url": "sec-exterior.html#exe-exterior-3",
-  "type": "Exercise",
-  "number": "2.1.4.3",
-  "title": "",
-  "body": "Compute the exterior derivatives of the following functions   ,   ,    .  "
-},
-{
-  "id": "exe-exterior-4",
-  "level": "2",
-  "url": "sec-exterior.html#exe-exterior-4",
-  "type": "Exercise",
-  "number": "2.1.4.4",
-  "title": "",
-  "body": " Use wedge products of differential -forms to find critical points of on the ellipsoid  "
-},
-{
-  "id": "exe-exterior-5",
-  "level": "2",
-  "url": "sec-exterior.html#exe-exterior-5",
-  "type": "Exercise",
-  "number": "2.1.4.5",
-  "title": "",
-  "body": " Show that is a linear transformation as claimed in equation .  "
-},
-{
-  "id": "exe-exterior-6",
-  "level": "2",
-  "url": "sec-exterior.html#exe-exterior-6",
-  "type": "Exercise",
-  "number": "2.1.4.6",
-  "title": "",
-  "body": " Compute the Hodge star operators of the following vectors assuming the standard orientation of .  "
-},
-{
-  "id": "exe-exterior-7",
-  "level": "2",
-  "url": "sec-exterior.html#exe-exterior-7",
-  "type": "Exercise",
-  "number": "2.1.4.7",
-  "title": "",
-  "body": "Compute the exterior derivatives of the following functions   in ,   in .  "
-},
-{
   "id": "sec-cubeintegration",
   "level": "1",
   "url": "sec-cubeintegration.html",
   "type": "Section",
-  "number": "3.1",
+  "number": "2.1",
   "title": "Integrating over cubes in <span class=\"process-math\">\\(\\mathbb{R}^n\\)<\/span>",
-  "body": " Integrating over cubes in  Having explored derivatives, we now consider integrals in many dimensions. As in the case of derivatives, the domain on which we are defined (and integrating) can make a big difference in how easy or difficult it is to compute. We will give the general definition and then discuss rectangles in detail.     -dimensional cube    A cube  , or -cube, in is a product of intervals Alternatively, it can be described by the set of points which satisfy the inequalities    We now follow the procedure given in -dimension to define the multiple integral of a scalar function on the -cube Of course, as it has been some time since students may have seen this definition, let us make sure we all remember that the definite (Riemann) integral of a function of one variable is \\textit{not} the anti-derivative of said function. It is rather a limit of Riemann sums. Sadly, mimicking this definition in many dimensions introduces many indices, but outside of this messiness, the idea remains the same.  So proceeding as in dimension where we break our interval into several sub-intervals, we first break a cube into many sub-cubes by defining a partition on . This can be done by simply breaking each interval into sub-intervals by considering a sequence Then to any multi-index with we have a sub-cube and these sub-cubes have union equal to our original .  Note that the volume of one of these cubes is just the product of the lengths of the sub-intervals We can picture this for a rectangle by simply drawing horizontal and vertical lines to divide the rectangle into smaller rectangles. For a -dimensional cube, the student should picture a cheese brick that is sliced along the three axes to make small cheese cubes. Each would then be one of these cubes (in the original large block). Now, just as in the one dimensional case, we need to choose sample points in our partitioned cubes. For a given cube corresponding to the multi-index , denote this choice We write all of this information, the partition , the choice of sample points, as a single letter and build the Riemann sum  This sum will approximate the signed volume of the region under the graph of . As in the -variable case, we wish to define the integral as the actual volume which is a limit of such approximations as the partition becomes finer. The proper way to define this notion of finer partition is to define the norm of the partition  . Then we end up with the following definition of the multiple integral.     multiple integral    The multiple integral of a function on the cube is the limit if it exists. If the limit exists, we say that is integrable on .    Some words should be said on the meaning of the limit in this definition. What is meant here is that if we claim that is the integral, then for any there exists a for which implies . We also note that in two dimensions, this is called the \\textbf{double integral} and in three dimensions is called the \\textbf{triple integral}. In these cases, it is more common to write and  Now, these definitions are all well and good, but to understand these integrals, we need to establish some properties and computational techniques. We will begin with such a technique by understanding how to integrate out certain variables. Again let be a function on the cube . For any variable with we may define the cube in by omitting the -th variable (or equivalently projecting to the all coordinates except ). I.e. take We take to be the cube in all dimensions except the -th dimensions. In the case of we obtain a single point which we consider to be the zero dimensional cube. Then we make the definition:     Integral of with respect to the -th variable    Let be defined on the -cube . The integral of with respect to the -th variable is the function on the -cube . We say that is integrable with respect to if the integral of with respect to the -th variable exists.    This is simply a -variable definition and, for many basic functions, is easily computable.   Integrating with respect to a variable in two dimensions   Let be defined on the rectangle . We may integrate with respect to and obtain The attentive student will observe that in the second to last line of the equation, we write instead of just in the subscript. While not completely necessary, it is good form and will help you avoid mixing up coordinates as you compute more complicated integrals.    When integrating out one of the variables in a function, one treats the remaining variables as constants. This is similar to the way we compute partial derivatives. Let us go through another example where this is illustrated.   Integrating with respect to a variable in three dimensions   Let be defined on the box . We integrate this time with respect to and obtain    Now, what one can do once, one (usually) can do again and again.     Iterated integral    An iterated integral of on is the value of for some ordered sequence of variables . We say that has \\textbf{all iterated integrals} the iterated integral exists for every ordered sequence of variables.    The key thing to remember about iterated integrals is that they are computational in nature. We can see this by completing an iterated integral from .   Iterated integral computation I   There we had on the rectangle . Then using our previous computation, we compute the iterated integral Note that we can also compute the other iterated integral We clearly see, perhaps surprisingly, that these two different computations yield the same result. More on this in a moment.    There are instances when one can make quick work of an iterated integral computation. One case of this is if the integrand (which is the function to be integrated) is a product of functions of the variables. In particular, if are integrable functions and then This holds regardless of the order of integration that we choose.   Iterated integral computation II   Let and observe that    The reason we say an iterated instead of the iterated integral is that, for several strange functions, the order in which one iterates matters. Let's see a simple an example of this.   Non-commuting order of integration   Let us define subsets and of the rectangle . The subset consists of points where and is irrational and the subset of points where and is rational. Define the function Then the integrating with respect to gives the constant function so that the iterated integral On the other hand, there is not a single value of for which is integrable with respect to . It is also the case that is not integrable on (i.e. the double integral of does not exist).  In fact, this example is more of a symptom of the fact that we are using the Riemann integral rather than the Lebesgue integral (which will be developed in your next real analysis course) - but there are several examples in both cases showing that iterated integrals often depend on the choice of ordering.    Happily, there are many cases where such an order does not matter and, moreover, where the iterated integral actually equals the multiple integral. This is the content of the next theorem, whose importance cannot be overestimated.   Fubini   Suppose is a bounded function on which has all iterated integrals. Then for any ordering of variables we have \\begin{align*} \\int_\\mathcal{C} f(x_1, \\ldots, x_n) \\, \\tder{}{\\textnormal{V}} \/amp = \\int_{a_{i_n}}^{b_{i_n}} \\left( \\cdots \\left( \\int_{a_{i_1}}^{b_{i_1}} f(x_1, \\ldots, x_n) \\, \\tder{}{x_{i_1}} \\right) \\cdots \\right) \\tder{}{x_{i_n}}. \\end{align*}    The proof of this theorem will be deferred to a real analysis course, where it is better stated in terms of Lesbegue integrals (although the results for Riemann integrals can be found in Calculus on manifolds by Spivak). In fact, the condition that be bounded with all iterated integrals can be changed to being integrable on . However, this latter condition may not be something that is as easily known or checked without more tools. One thing that does follow from this is the following corollary.   Continuous functions on are integrable.   Let us now compute one more example.   Integral in two dimensions   It is well known that computing the integral of a one variable function gives the (signed) area under the graph of the function. Similarly, the (signed) volume under the graph of a two variable function is computed by a double integral. With this in mind, we consider finding the volume above the square and below the paraboloid . To do this, we take the paraboloid as the graph of So the desired volume is Noting that is continuous, using Fubini's Theorem, we can make this computation with iterated integrals      Suppose are two integrable functions on . Show that     Define the function to be away from the origin and at the origin. In fact, is integrable on the square . Is it integrable with respect to or ? Explain your answer.    Let and . Calculate the integral of with respect to the variables and as functions of , and respectively.   Compute the following multiple integrals.           where .    Let be a continuous function on the unit ball If we take to be the function on the cube which is on and off of , show that is integrable on .    "
+  "body": " Integrating over cubes in  Having explored derivatives, we now consider integrals in many dimensions. As in the case of derivatives, the domain on which we are defined (and integrating) can make a big difference in how easy or difficult it is to compute. We will give the general definition and then discuss rectangles in detail.     -dimensional cube    A cube  , or -cube, in is a product of intervals Alternatively, it can be described by the set of points which satisfy the inequalities    We now follow the procedure given in -dimension to define the multiple integral of a scalar function on the -cube Of course, as it has been some time since students may have seen this definition, let us make sure we all remember that the definite (Riemann) integral of a function of one variable is \\textit{not} the anti-derivative of said function. It is rather a limit of Riemann sums. Sadly, mimicking this definition in many dimensions introduces many indices, but outside of this messiness, the idea remains the same.  So proceeding as in dimension where we break our interval into several sub-intervals, we first break a cube into many sub-cubes by defining a partition on . This can be done by simply breaking each interval into sub-intervals by considering a sequence Then to any multi-index with we have a sub-cube and these sub-cubes have union equal to our original .  Note that the volume of one of these cubes is just the product of the lengths of the sub-intervals We can picture this for a rectangle by simply drawing horizontal and vertical lines to divide the rectangle into smaller rectangles. For a -dimensional cube, the student should picture a cheese brick that is sliced along the three axes to make small cheese cubes. Each would then be one of these cubes (in the original large block). Now, just as in the one dimensional case, we need to choose sample points in our partitioned cubes. For a given cube corresponding to the multi-index , denote this choice We write all of this information, the partition , the choice of sample points, as a single letter and build the Riemann sum  This sum will approximate the signed volume of the region under the graph of . As in the -variable case, we wish to define the integral as the actual volume which is a limit of such approximations as the partition becomes finer. The proper way to define this notion of finer partition is to define the norm of the partition  . Then we end up with the following definition of the multiple integral.     multiple integral    The multiple integral of a function on the cube is the limit if it exists. If the limit exists, we say that is integrable on .    Some words should be said on the meaning of the limit in this definition. What is meant here is that if we claim that is the integral, then for any there exists a for which implies . We also note that in two dimensions, this is called the \\textbf{double integral} and in three dimensions is called the \\textbf{triple integral}. In these cases, it is more common to write and  Now, these definitions are all well and good, but to understand these integrals, we need to establish some properties and computational techniques. We will begin with such a technique by understanding how to integrate out certain variables. Again let be a function on the cube . For any variable with we may define the cube in by omitting the -th variable (or equivalently projecting to the all coordinates except ). I.e. take We take to be the cube in all dimensions except the -th dimensions. In the case of we obtain a single point which we consider to be the zero dimensional cube. Then we make the definition:     Integral of with respect to the -th variable    Let be defined on the -cube . The integral of with respect to the -th variable is the function on the -cube . We say that is integrable with respect to if the integral of with respect to the -th variable exists.    This is simply a -variable definition and, for many basic functions, is easily computable.   Integrating with respect to a variable in two dimensions   Let be defined on the rectangle . We may integrate with respect to and obtain The attentive student will observe that in the second to last line of the equation, we write instead of just in the subscript. While not completely necessary, it is good form and will help you avoid mixing up coordinates as you compute more complicated integrals.    When integrating out one of the variables in a function, one treats the remaining variables as constants. This is similar to the way we compute partial derivatives. Let us go through another example where this is illustrated.   Integrating with respect to a variable in three dimensions   Let be defined on the box . We integrate this time with respect to and obtain    Now, what one can do once, one (usually) can do again and again.     Iterated integral    An iterated integral of on is the value of for some ordered sequence of variables . We say that has \\textbf{all iterated integrals} the iterated integral exists for every ordered sequence of variables.    The key thing to remember about iterated integrals is that they are computational in nature. We can see this by completing an iterated integral from .   Iterated integral computation I   There we had on the rectangle . Then using our previous computation, we compute the iterated integral Note that we can also compute the other iterated integral We clearly see, perhaps surprisingly, that these two different computations yield the same result. More on this in a moment.    There are instances when one can make quick work of an iterated integral computation. One case of this is if the integrand (which is the function to be integrated) is a product of functions of the variables. In particular, if are integrable functions and then This holds regardless of the order of integration that we choose.   Iterated integral computation II   Let and observe that    The reason we say an iterated instead of the iterated integral is that, for several strange functions, the order in which one iterates matters. Let's see a simple an example of this.   Non-commuting order of integration   Let us define subsets and of the rectangle . The subset consists of points where and is irrational and the subset of points where and is rational. Define the function Then the integrating with respect to gives the constant function so that the iterated integral On the other hand, there is not a single value of for which is integrable with respect to . It is also the case that is not integrable on (i.e. the double integral of does not exist).  In fact, this example is more of a symptom of the fact that we are using the Riemann integral rather than the Lebesgue integral (which will be developed in your next real analysis course) - but there are several examples in both cases showing that iterated integrals often depend on the choice of ordering.    Happily, there are many cases where such an order does not matter and, moreover, where the iterated integral actually equals the multiple integral. This is the content of the next theorem, whose importance cannot be overestimated.   Fubini   Suppose is a bounded function on which has all iterated integrals. Then for any ordering of variables we have \\begin{align*} \\int_\\mathcal{C} f(x_1, \\ldots, x_n) \\, \\tder{}{\\textnormal{V}} \\amp = \\int_{a_{i_n}}^{b_{i_n}} \\left( \\cdots \\left( \\int_{a_{i_1}}^{b_{i_1}} f(x_1, \\ldots, x_n) \\, \\tder{}{x_{i_1}} \\right) \\cdots \\right) \\tder{}{x_{i_n}}. \\end{align*}    The proof of this theorem will be deferred to a real analysis course, where it is better stated in terms of Lesbegue integrals (although the results for Riemann integrals can be found in Calculus on manifolds by Spivak). In fact, the condition that be bounded with all iterated integrals can be changed to being integrable on . However, this latter condition may not be something that is as easily known or checked without more tools. One thing that does follow from this is the following corollary.   Continuous functions on are integrable.   Let us now compute one more example.   Integral in two dimensions   It is well known that computing the integral of a one variable function gives the (signed) area under the graph of the function. Similarly, the (signed) volume under the graph of a two variable function is computed by a double integral. With this in mind, we consider finding the volume above the square and below the paraboloid . To do this, we take the paraboloid as the graph of So the desired volume is Noting that is continuous, using Fubini's Theorem, we can make this computation with iterated integrals      Suppose are two integrable functions on . Show that     Define the function to be away from the origin and at the origin. In fact, is integrable on the square . Is it integrable with respect to or ? Explain your answer.    Let and . Calculate the integral of with respect to the variables and as functions of , and respectively.   Compute the following multiple integrals.           where .    Let be a continuous function on the unit ball If we take to be the function on the cube which is on and off of , show that is integrable on .    "
 },
 {
   "id": "def-cube",
   "level": "2",
   "url": "sec-cubeintegration.html#def-cube",
   "type": "Definition",
-  "number": "3.1.1",
+  "number": "2.1.1",
   "title": "",
   "body": "   -dimensional cube    A cube  , or -cube, in is a product of intervals Alternatively, it can be described by the set of points which satisfy the inequalities   "
 },
@@ -1562,7 +1274,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-cubeintegration.html#def-multipleintegral",
   "type": "Definition",
-  "number": "3.1.2",
+  "number": "2.1.2",
   "title": "",
   "body": "   multiple integral    The multiple integral of a function on the cube is the limit if it exists. If the limit exists, we say that is integrable on .   "
 },
@@ -1571,7 +1283,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-cubeintegration.html#def-integrating-variables",
   "type": "Definition",
-  "number": "3.1.3",
+  "number": "2.1.3",
   "title": "",
   "body": "   Integral of with respect to the -th variable    Let be defined on the -cube . The integral of with respect to the -th variable is the function on the -cube . We say that is integrable with respect to if the integral of with respect to the -th variable exists.   "
 },
@@ -1580,7 +1292,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-cubeintegration.html#ex-integral1",
   "type": "Example",
-  "number": "3.1.4",
+  "number": "2.1.4",
   "title": "Integrating with respect to a variable in two dimensions.",
   "body": " Integrating with respect to a variable in two dimensions   Let be defined on the rectangle . We may integrate with respect to and obtain The attentive student will observe that in the second to last line of the equation, we write instead of just in the subscript. While not completely necessary, it is good form and will help you avoid mixing up coordinates as you compute more complicated integrals.   "
 },
@@ -1589,7 +1301,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-cubeintegration.html#sec-cubeintegration-14",
   "type": "Example",
-  "number": "3.1.5",
+  "number": "2.1.5",
   "title": "Integrating with respect to a variable in three dimensions.",
   "body": " Integrating with respect to a variable in three dimensions   Let be defined on the box . We integrate this time with respect to and obtain   "
 },
@@ -1598,7 +1310,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-cubeintegration.html#def-iterated-integral",
   "type": "Definition",
-  "number": "3.1.6",
+  "number": "2.1.6",
   "title": "",
   "body": "   Iterated integral    An iterated integral of on is the value of for some ordered sequence of variables . We say that has \\textbf{all iterated integrals} the iterated integral exists for every ordered sequence of variables.   "
 },
@@ -1607,7 +1319,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-cubeintegration.html#sec-cubeintegration-18",
   "type": "Example",
-  "number": "3.1.7",
+  "number": "2.1.7",
   "title": "Iterated integral computation I.",
   "body": " Iterated integral computation I   There we had on the rectangle . Then using our previous computation, we compute the iterated integral Note that we can also compute the other iterated integral We clearly see, perhaps surprisingly, that these two different computations yield the same result. More on this in a moment.   "
 },
@@ -1616,7 +1328,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-cubeintegration.html#sec-cubeintegration-20",
   "type": "Example",
-  "number": "3.1.8",
+  "number": "2.1.8",
   "title": "Iterated integral computation II.",
   "body": " Iterated integral computation II   Let and observe that   "
 },
@@ -1625,7 +1337,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-cubeintegration.html#sec-cubeintegration-22",
   "type": "Example",
-  "number": "3.1.9",
+  "number": "2.1.9",
   "title": "Non-commuting order of integration.",
   "body": " Non-commuting order of integration   Let us define subsets and of the rectangle . The subset consists of points where and is irrational and the subset of points where and is rational. Define the function Then the integrating with respect to gives the constant function so that the iterated integral On the other hand, there is not a single value of for which is integrable with respect to . It is also the case that is not integrable on (i.e. the double integral of does not exist).  In fact, this example is more of a symptom of the fact that we are using the Riemann integral rather than the Lebesgue integral (which will be developed in your next real analysis course) - but there are several examples in both cases showing that iterated integrals often depend on the choice of ordering.   "
 },
@@ -1634,16 +1346,16 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-cubeintegration.html#thm-fubini",
   "type": "Theorem",
-  "number": "3.1.10",
+  "number": "2.1.10",
   "title": "Fubini.",
-  "body": " Fubini   Suppose is a bounded function on which has all iterated integrals. Then for any ordering of variables we have \\begin{align*} \\int_\\mathcal{C} f(x_1, \\ldots, x_n) \\, \\tder{}{\\textnormal{V}} \/amp = \\int_{a_{i_n}}^{b_{i_n}} \\left( \\cdots \\left( \\int_{a_{i_1}}^{b_{i_1}} f(x_1, \\ldots, x_n) \\, \\tder{}{x_{i_1}} \\right) \\cdots \\right) \\tder{}{x_{i_n}}. \\end{align*}   "
+  "body": " Fubini   Suppose is a bounded function on which has all iterated integrals. Then for any ordering of variables we have \\begin{align*} \\int_\\mathcal{C} f(x_1, \\ldots, x_n) \\, \\tder{}{\\textnormal{V}} \\amp = \\int_{a_{i_n}}^{b_{i_n}} \\left( \\cdots \\left( \\int_{a_{i_1}}^{b_{i_1}} f(x_1, \\ldots, x_n) \\, \\tder{}{x_{i_1}} \\right) \\cdots \\right) \\tder{}{x_{i_n}}. \\end{align*}   "
 },
 {
   "id": "sec-cubeintegration-26",
   "level": "2",
   "url": "sec-cubeintegration.html#sec-cubeintegration-26",
   "type": "Corollary",
-  "number": "3.1.11",
+  "number": "2.1.11",
   "title": "",
   "body": " Continuous functions on are integrable.  "
 },
@@ -1652,7 +1364,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-cubeintegration.html#sec-cubeintegration-28",
   "type": "Example",
-  "number": "3.1.12",
+  "number": "2.1.12",
   "title": "Integral in two dimensions.",
   "body": " Integral in two dimensions   It is well known that computing the integral of a one variable function gives the (signed) area under the graph of the function. Similarly, the (signed) volume under the graph of a two variable function is computed by a double integral. With this in mind, we consider finding the volume above the square and below the paraboloid . To do this, we take the paraboloid as the graph of So the desired volume is Noting that is continuous, using Fubini's Theorem, we can make this computation with iterated integrals   "
 },
@@ -1661,7 +1373,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-cubeintegration.html#exe-cubeintegration-1",
   "type": "Exercise",
-  "number": "3.1.1",
+  "number": "2.1.1",
   "title": "",
   "body": " Suppose are two integrable functions on . Show that   "
 },
@@ -1670,7 +1382,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-cubeintegration.html#exe-cubeintegration-2",
   "type": "Exercise",
-  "number": "3.1.2",
+  "number": "2.1.2",
   "title": "",
   "body": " Define the function to be away from the origin and at the origin. In fact, is integrable on the square . Is it integrable with respect to or ? Explain your answer.  "
 },
@@ -1679,7 +1391,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-cubeintegration.html#exe-cubeintegration-3",
   "type": "Exercise",
-  "number": "3.1.3",
+  "number": "2.1.3",
   "title": "",
   "body": " Let and . Calculate the integral of with respect to the variables and as functions of , and respectively.  "
 },
@@ -1688,7 +1400,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-cubeintegration.html#exe-cubeintegration-4",
   "type": "Exercise",
-  "number": "3.1.4",
+  "number": "2.1.4",
   "title": "",
   "body": "Compute the following multiple integrals.           where .  "
 },
@@ -1697,7 +1409,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-cubeintegration.html#exe-cubeintegration-5",
   "type": "Exercise",
-  "number": "3.1.5",
+  "number": "2.1.5",
   "title": "",
   "body": " Let be a continuous function on the unit ball If we take to be the function on the cube which is on and off of , show that is integrable on .  "
 },
@@ -1706,7 +1418,7 @@ var ptx_lunr_docs = [
   "level": "1",
   "url": "sec-compactintegration.html",
   "type": "Section",
-  "number": "3.2",
+  "number": "2.2",
   "title": "Integration over compact domains in <span class=\"process-math\">\\(\\mathbb{R}^2\\)<\/span>",
   "body": " Integration over compact domains in  In this section, we will integrate a function over a nice domain in . We will start by giving the general definition and then discuss a variety of specific cases and techniques.  Let be a closed and bounded domain in . Then, since it is bounded, it is contained in a cube . Now suppose is a continuous function on . At the moment, it does not make sense to integrate over the domain , because we have only defined such integrals over cubes and is not defined for points not in . To make sense of such a concept then, we extend our function to all of by taking  Then we obtain the definition.     Integral over domain     The (multiple) integral of over is given by    One concern a student may have is whether is integrable.    If is a compact domain in and is continuous on , then the multiple integral exists.    We will leave the proof of this result to an analysis course and continue by developing computational techniques. First, we make the following note which can be considered a definition or a proposition (depending on the domain and perspective).     Volume of     The -dimensional volume of a compact domain is    This works fine as a definition for many domains, but one may wish to verify that indeed this agrees with the formulas of area and volume of familiar regions and solid bodies for which we are familiar. We will indeed do this as we develop more techniques.  In order to compute the integral over , we will need a nice way of describing the domain itself. Putting aside the integrand for the moment, we focus on domains in the plane of a particular type.     Bounded by continuous graphs of     A compact domain in is bounded by continuous graphs of if there is an interval and continuous functions for which The domain is \\textbf{bounded by continuous graphs of } if there is an interval and continuous functions for which    In some texts is a called a Type I or Type II domain in . There are sets which are bounded by continuous functions with respect to either variable, both variables or neither variable. Let us take a look at examples of these possibilities.   Describing a domain bounded by continuous graphs I   Consider the domain bounded by the ellipse In this case, is of both types. Indeed, we can write as satisfying the inequalities On the other hand, we can bound this by continuous graphs of by taking the bounds     Describing a domain bounded by continuous graphs II   Consider the domain which consists of all points in the square except those with coordinate greater than . This can be described as a domain bounded by continuous graphs of by taking However, there is no way to write this domain as being bounded by two graphs in . This is because there are two connected intervals in the intersection of horizontal lines and when is between and . Moreover, if we reflect over the line, it becomes impossible to describe it as being bounded by graphs in .     Describing a domain bounded by continuous graphs III   Consider all the points in the square which do not lie in the open unit disc . This domain is of neither type since the and axes intersect the domain in multiple intervals.    The reason to introduce such domains is that they are very well suited to applying Fubini's Theorem.   Fubini for domains bounded by continuous graphs   If is a domain bounded by continuous graphs of through the inequalities and is a continuous function on then If is a domain bounded by continuous graphs of through the inequalities and is a continuous function on then    This theorem follows directly from the definition of integrals over compact domains, the description of the domain , and Fubini's Theorem. Notice that, once the domain is described as one type, we lose the ability to switch the order of integration. It is thus paramount that we pay close attention to which variable we integrate first when applying this theorem. We now work through a few examples.   Fubini for bounded domains I   We start with an example that we will reexamine with other techniques later on. Let us find the area of the disc of radius . Of course, we all know from elementary school (or -variable calculus) that this is , but now we can compute it with a multiple integral. For this, we describe the disc using the inequalities Then we are expressing as a region bounded by graphs of with bounding functions are and . To find the area we apply our theorem, a trigonometric -substitution, and compute    Notice in this last example we had a choice since the disc is both Type I and II.   Fubini for bounded domains II   Suppose is the domain between the -axis and the parabola . We compute the double integral To do this, we check to see that can be described as To see this, it is helpful to find the points of intersections of the curve and the -axis. Then      Give an example of two functions and so that the domain of points between them is not a domain bounded by two continuous graphs of .    Let be the domain between the -axis, the line , the curve and the -axis. Compute the double integral     Let be the region specified by Find the volume of the region above the -plane and below the graph of the linear function .    Let be the annulus of points between the disc of radius and radius . Calculate     Let be the -dimensional simplex which has vertices at the origin, , , and for and positive. Find the volume of using a double integral.    "
 },
@@ -1715,7 +1427,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-compactintegration.html#def-",
   "type": "Definition",
-  "number": "3.2.1",
+  "number": "2.2.1",
   "title": "",
   "body": "   Integral over domain     The (multiple) integral of over is given by   "
 },
@@ -1724,7 +1436,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-compactintegration.html#prop-continuous-integrable",
   "type": "Proposition",
-  "number": "3.2.2",
+  "number": "2.2.2",
   "title": "",
   "body": "  If is a compact domain in and is continuous on , then the multiple integral exists.   "
 },
@@ -1733,7 +1445,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-compactintegration.html#def-volume",
   "type": "Definition",
-  "number": "3.2.3",
+  "number": "2.2.3",
   "title": "",
   "body": "   Volume of     The -dimensional volume of a compact domain is   "
 },
@@ -1742,7 +1454,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-compactintegration.html#def-boundedbygraphs",
   "type": "Definition",
-  "number": "3.2.4",
+  "number": "2.2.4",
   "title": "",
   "body": "   Bounded by continuous graphs of     A compact domain in is bounded by continuous graphs of if there is an interval and continuous functions for which The domain is \\textbf{bounded by continuous graphs of } if there is an interval and continuous functions for which   "
 },
@@ -1760,7 +1472,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-compactintegration.html#sec-compactintegration-14",
   "type": "Example",
-  "number": "3.2.5",
+  "number": "2.2.5",
   "title": "Describing a domain bounded by continuous graphs I.",
   "body": " Describing a domain bounded by continuous graphs I   Consider the domain bounded by the ellipse In this case, is of both types. Indeed, we can write as satisfying the inequalities On the other hand, we can bound this by continuous graphs of by taking the bounds   "
 },
@@ -1769,7 +1481,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-compactintegration.html#sec-compactintegration-15",
   "type": "Example",
-  "number": "3.2.6",
+  "number": "2.2.6",
   "title": "Describing a domain bounded by continuous graphs II.",
   "body": " Describing a domain bounded by continuous graphs II   Consider the domain which consists of all points in the square except those with coordinate greater than . This can be described as a domain bounded by continuous graphs of by taking However, there is no way to write this domain as being bounded by two graphs in . This is because there are two connected intervals in the intersection of horizontal lines and when is between and . Moreover, if we reflect over the line, it becomes impossible to describe it as being bounded by graphs in .   "
 },
@@ -1778,7 +1490,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-compactintegration.html#sec-compactintegration-16",
   "type": "Example",
-  "number": "3.2.7",
+  "number": "2.2.7",
   "title": "Describing a domain bounded by continuous graphs III.",
   "body": " Describing a domain bounded by continuous graphs III   Consider all the points in the square which do not lie in the open unit disc . This domain is of neither type since the and axes intersect the domain in multiple intervals.   "
 },
@@ -1787,7 +1499,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-compactintegration.html#thm-Fubinibounded",
   "type": "Theorem",
-  "number": "3.2.8",
+  "number": "2.2.8",
   "title": "Fubini for domains bounded by continuous graphs.",
   "body": " Fubini for domains bounded by continuous graphs   If is a domain bounded by continuous graphs of through the inequalities and is a continuous function on then If is a domain bounded by continuous graphs of through the inequalities and is a continuous function on then   "
 },
@@ -1796,7 +1508,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-compactintegration.html#ex-areaofdisc",
   "type": "Example",
-  "number": "3.2.9",
+  "number": "2.2.9",
   "title": "Fubini for bounded domains I.",
   "body": " Fubini for bounded domains I   We start with an example that we will reexamine with other techniques later on. Let us find the area of the disc of radius . Of course, we all know from elementary school (or -variable calculus) that this is , but now we can compute it with a multiple integral. For this, we describe the disc using the inequalities Then we are expressing as a region bounded by graphs of with bounding functions are and . To find the area we apply our theorem, a trigonometric -substitution, and compute   "
 },
@@ -1805,7 +1517,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-compactintegration.html#sec-compactintegration-22",
   "type": "Example",
-  "number": "3.2.10",
+  "number": "2.2.10",
   "title": "Fubini for bounded domains II.",
   "body": " Fubini for bounded domains II   Suppose is the domain between the -axis and the parabola . We compute the double integral To do this, we check to see that can be described as To see this, it is helpful to find the points of intersections of the curve and the -axis. Then   "
 },
@@ -1814,7 +1526,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-compactintegration.html#exe-compactintegration-1",
   "type": "Exercise",
-  "number": "3.2.1",
+  "number": "2.2.1",
   "title": "",
   "body": " Give an example of two functions and so that the domain of points between them is not a domain bounded by two continuous graphs of .  "
 },
@@ -1823,7 +1535,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-compactintegration.html#exe-compactintegration-2",
   "type": "Exercise",
-  "number": "3.2.2",
+  "number": "2.2.2",
   "title": "",
   "body": " Let be the domain between the -axis, the line , the curve and the -axis. Compute the double integral   "
 },
@@ -1832,7 +1544,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-compactintegration.html#exe-compactintegration-3",
   "type": "Exercise",
-  "number": "3.2.3",
+  "number": "2.2.3",
   "title": "",
   "body": " Let be the region specified by Find the volume of the region above the -plane and below the graph of the linear function .  "
 },
@@ -1841,7 +1553,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-compactintegration.html#exe-compactintegration-4",
   "type": "Exercise",
-  "number": "3.2.4",
+  "number": "2.2.4",
   "title": "",
   "body": " Let be the annulus of points between the disc of radius and radius . Calculate   "
 },
@@ -1850,7 +1562,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-compactintegration.html#exe-compactintegration-5",
   "type": "Exercise",
-  "number": "3.2.5",
+  "number": "2.2.5",
   "title": "",
   "body": " Let be the -dimensional simplex which has vertices at the origin, , , and for and positive. Find the volume of using a double integral.  "
 },
@@ -1859,7 +1571,7 @@ var ptx_lunr_docs = [
   "level": "1",
   "url": "sec-compactRnintegration.html",
   "type": "Section",
-  "number": "3.3",
+  "number": "2.3",
   "title": "Integration over compact domains in <span class=\"process-math\">\\(\\mathbb{R}^n\\)<\/span>",
   "body": " Integration over compact domains in  In this section, we extend the techniques established for integrating in to -dimensional space. We start by extending to higher dimensions.     Domain bounded by continuous graphs in     A compact domain in is bounded by continuous graphs of if there is a compact domain in and continuous functions for which    Again we may use this to compute multiple integrals.    If is a domain bounded by continuous graphs of so that and is a continuous function on then    Notice that in this theorem, we are obtaining a recursive procedure for computing a multiple integral. We start with a multiple integral over an -dimensional domain and produce a multiple over an -dimensional domain. Repeating this procedure will, in principle, allow one to compute the original multiple integral (assuming we do not hit a truly difficult integral!). Let us consider a few examples and then make some philosophical and practical comments!     Let's verify that the volume of a three dimensional ball of radius is indeed what we think it is. Here can be rewritten as where is the disc of radius . Applying our theorem then gives We have now reduced a triple integral to a double integral and can continue using methods from last section and a -substitution . To save some space, we write and see    Before computing another example, we mention one of the chief applications.     center of mass    Let be a compact domain in and a non-negative density function. The center of mass of with respect to is the point where If is a constant function we call the centroid of the domain .    This physical concept also has a very important statistical and probabilistic interpretation. This occurs when is a probability density function. Here we do not need to assume that is compact. The idea of such a function is that it measures the likelihood of an event occurring in a certain set. The rules for a function to qualify as a probability density function are simple and we'll write them as a definition.     probability density    Given a region in , a function is a probability density if   takes only non-negative values,   is integrable on and     For example, if is a disc in and we are throwing darts at this disc, there may be a distribution which tells us the probability that the dart will hit in a certain domain. I.e. if is some subset of , we determine From this perspective, the notion of the center of mass becomes the expected value  of the associated probability.   Computing a centroid   Let us find the centroid of the upper half unit ball given by inequalities First note that the coordinates and are both . This can be seen by observing that is symmetric about the and planes (and the integrand in the coordinates are odd with respect to and respectively). To find we use that the volume of is , take to be the unit disc, and compute the integral Performing a substitution and using the double angle formula (twice) gives Thus and the centroid is      Using multiple integrals, show that the volume of a cylinder of height and radius is (you may use the fact that the area of a disc of radius is ).    Suppose is the domain in the positive octant (the subspace of where all coordinates are non-negative) and whose points are distance at most from the origin. Compute    The polydisc in is the product of two discs . Suppose has radius and has radius , compute the -dimensional volume of in terms of and .  If time is money, it pays to be clever here.   Let be the -simplex which is given by the inequalities Find the centroid of .  Note that by symmetry, all three coordinates of the centroid must be equal.   "
 },
@@ -1868,7 +1580,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-compactRnintegration.html#def-bounded-by-graphs-inRn",
   "type": "Definition",
-  "number": "3.3.1",
+  "number": "2.3.1",
   "title": "",
   "body": "   Domain bounded by continuous graphs in     A compact domain in is bounded by continuous graphs of if there is a compact domain in and continuous functions for which   "
 },
@@ -1877,7 +1589,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-compactRnintegration.html#thm-iterated-Rn",
   "type": "Theorem",
-  "number": "3.3.2",
+  "number": "2.3.2",
   "title": "",
   "body": "  If is a domain bounded by continuous graphs of so that and is a continuous function on then   "
 },
@@ -1886,7 +1598,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-compactRnintegration.html#ex-ballvol",
   "type": "Example",
-  "number": "3.3.3",
+  "number": "2.3.3",
   "title": ".",
   "body": "   Let's verify that the volume of a three dimensional ball of radius is indeed what we think it is. Here can be rewritten as where is the disc of radius . Applying our theorem then gives We have now reduced a triple integral to a double integral and can continue using methods from last section and a -substitution . To save some space, we write and see   "
 },
@@ -1895,7 +1607,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-compactRnintegration.html#def-centroid",
   "type": "Definition",
-  "number": "3.3.4",
+  "number": "2.3.4",
   "title": "",
   "body": "   center of mass    Let be a compact domain in and a non-negative density function. The center of mass of with respect to is the point where If is a constant function we call the centroid of the domain .   "
 },
@@ -1904,7 +1616,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-compactRnintegration.html#def-probdensity",
   "type": "Definition",
-  "number": "3.3.5",
+  "number": "2.3.5",
   "title": "",
   "body": "   probability density    Given a region in , a function is a probability density if   takes only non-negative values,   is integrable on and    "
 },
@@ -1922,7 +1634,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-compactRnintegration.html#sec-compactRnintegration-13",
   "type": "Example",
-  "number": "3.3.6",
+  "number": "2.3.6",
   "title": "Computing a centroid.",
   "body": " Computing a centroid   Let us find the centroid of the upper half unit ball given by inequalities First note that the coordinates and are both . This can be seen by observing that is symmetric about the and planes (and the integrand in the coordinates are odd with respect to and respectively). To find we use that the volume of is , take to be the unit disc, and compute the integral Performing a substitution and using the double angle formula (twice) gives Thus and the centroid is   "
 },
@@ -1931,7 +1643,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-compactRnintegration.html#exe-compactRnintegration-1",
   "type": "Exercise",
-  "number": "3.3.1",
+  "number": "2.3.1",
   "title": "",
   "body": " Using multiple integrals, show that the volume of a cylinder of height and radius is (you may use the fact that the area of a disc of radius is ).  "
 },
@@ -1940,7 +1652,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-compactRnintegration.html#exe-compactRnintegration-2",
   "type": "Exercise",
-  "number": "3.3.2",
+  "number": "2.3.2",
   "title": "",
   "body": " Suppose is the domain in the positive octant (the subspace of where all coordinates are non-negative) and whose points are distance at most from the origin. Compute  "
 },
@@ -1949,7 +1661,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-compactRnintegration.html#exe-compactRnintegration-3",
   "type": "Exercise",
-  "number": "3.3.3",
+  "number": "2.3.3",
   "title": "",
   "body": " The polydisc in is the product of two discs . Suppose has radius and has radius , compute the -dimensional volume of in terms of and .  If time is money, it pays to be clever here. "
 },
@@ -1958,7 +1670,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-compactRnintegration.html#exe-compactRnintegration-4",
   "type": "Exercise",
-  "number": "3.3.4",
+  "number": "2.3.4",
   "title": "",
   "body": " Let be the -simplex which is given by the inequalities Find the centroid of .  Note that by symmetry, all three coordinates of the centroid must be equal. "
 },
@@ -1967,7 +1679,7 @@ var ptx_lunr_docs = [
   "level": "1",
   "url": "sec-cov.html",
   "type": "Section",
-  "number": "3.4",
+  "number": "2.4",
   "title": "Change of Variables",
   "body": " Change of Variables   When a student looks over the integrals of the past two sections, they will notice a truly disturbing trend - these computations are taking more and more of the page - they are becoming quite complicated at a computational level, even though the abstract ideas are not. This trend does not bode well for more difficult integrals that we may experience, but as it turns out, there is a stunning theorem that, in many important situations, comes to our rescue.   Change of Variables   Let be a compact domain in with coordinates , a compact domain in with coordinates and a differentiable one-to-one correspondence with invertible derivative at every point of the interior of . Suppose is an integrable function on then    Our first observation which does require a bit of work is that one can work with curved partitions in Riemann sums rather than the straight ones given in . In particular, if we take an ordinary partition on with cubes then, because is a continuous one-to-one correspondence, we will obtain a curved partition on consisting of `curved cubes' . Of course, choosing sample points in gives a choice of sample points in the curved cubes of . This assignment of partition with sample points in to curved partitions with sample points is in a sense continuous. More precisely, if one defines the diameter of a region as the maximal distance between two points, then an alternative definition of the norm of a partition is the maximal diameter of any cube in the partition. The advantage of this version of norm is that it can be extended to curved partitions and we can then use the compactness of and the continuity of to show that, as tends to zero, so does . With this in mind, the first observation is that, if is integrable, then rather than using our cubical partitions on , we may used curved partitions coming from in the definition of the definite integral. For this, we take the Riemann sums and obtain the modified, but equivalent, definition One notes that in the new Riemann sums, the nice formula for is gone and we have this fairly large question mark hovering over This is precisely where our definition of the derivative and linear algebra come in to play. Using the definition of the derivative and compactness of , with some work one can show that, for every , there exist so that if the norm then there exist parallelepipeds and for every -cube indexed by in satisfying  The parallelepipeds are -close to the partitioned cube with respect to volume. Precisely, we mean that and where we recall .  If is the linear approximation of at then  While showing such exist may require some work, the student should keep in mind that the idea behind this work is that the derivative does a good job approximating near a point. So close to a point, looks like the linear approximation and, if we had equality, we could take any and let and both equal the cube .  Now, letting to save space, using the fact that the absolute value of the determinant gives the change in volume and the definition of the linear approximations, we see that Using property (2) we then have Applying property (1) then gives Thus, for all partitions with we have both the left and right inequality. Neglecting the factors for a moment and summing the terms over all , while multiplying by as we go gives for the left and right hand sides while the middle is the Riemann sum of the curved partition Putting the terms in then gives us that The limit of the Riemann sum on either side (neglecting factor) is And as was discussed in the first part of the sketch, equation gives the limit as of the middle term as As inequalilty holds for all Riemann sums with norm less than , we may let tend to zero giving us the desired equality in equation .    Before explaining the ideas behind this theorem, we make some comments regarding notation. First, instead of using the total derivative of , the absolute value of the determinant of the Jacobian matrix is sometimes written rather than . In fact, often the function is written in terms of the coordinate function as With this notation, you may also write for (or ). Then the equation in the theorem reads equals While slightly longer, this expression can be helpful in keeping track of which variables to use in which integral. Another way of thinking about this that we will return to later is by considering that the integral on the domain is pulled back to an integral on via .  In these notes we only sketched the proof of the change of variables theorem, leaving the full proof for a real analysis course to come. The important conceptual ingredients we called upon are two key pieces of knowledge gained in this course. One being that the absolute value of the determinant of a linear transformation from an inner product space to itself measures the change in volume, and the other that the derivative of a function gives a good linear approximation to the function.  Now that we have this result, we can move forward and use it. The applications are vast...    Integration using polar coordinates  One important change of variables that we have seen early on was the function We have computed the derivative of this change of variables many times and found It is easy enough to take determinants here to see Thus a factor of appears in the integral when integrating with respect to polar coordinates. Indeed, when changing variables to polar coordinates, students are told to remember that Let's revisit some prior problems with our new tool.   Polar integrals   In , we computed the area of a disc of radius . It was a rather tedious computation due to the trigonometric change of variable that was needed. Let's try it again in polar coordinates. Here we need to use only on the rectangle Then our change of variables formula reads Hopefully a student can see the improvement! Now what about finding the volume of a ball of radius as in ? Well, there we made the computation and continued with a nasty looking double integration. But if we use change of variables (on the same domain as above) we can simply continue with Again the computation is shorter and much less complicated. The unconvinced student should try finding the centroid of the upper half ball using polar coordinates as another convincing example.    One aspect of changing variables that is of great importance and often neglected by the student eager to compute is that we must pay close attention to the function and its domain. We must be absolutely sure that it is a one-to-one correspondence (at least away from the boundaries of and ). One also needs to make certain that they are in fact simplifying the integral with their change of variables. It is quite easy to make things more difficult if the integrand or domain of integration does not have good properties. One basic thing to hope for is that the domain of is an -cube (which are usually easier to integrate over).  For students still unconvinced about polar coordinates, I offer up an improper integral computation.   Normalization factor of standard normal distribution   We have mentioned the (univariate) normal distribution previously in these notes (in particular when discussing quadratic forms). Such a distribution with mean at the origin and standard deviation is given by a probability density function on which has the form By , for this to be a probability density function, we must have that However, it would take a cruel person to ask a first year calculus student to compute this integral because it is impossible to solve with one variable techniques (so far as I am aware). We can though use a change of variables and a little trickery! Just compute the square instead to see... So that and       Compute the centroid of the region between the paraboloid and the plane .   Let be the triangle in the plane whose vertices are the points , and .  Find a linear transformation which maps the triangle with vertices , and to .   What is the determinant of the Jacobian of your transformation?   Compute     Let be a cone in with base in the plane and apex point at . Show that the volume of is the same as the volume of any other cone with base and apex point .   Recall that spherical coordinates are given by the change of variables  Compute the determinant of the Jacobian of .   What domain should be used if we would like to parameterize the ball of radius ?   Use a change of variables to compute the volume of the ball of radius .   Consider the change of variables  Compute the determinant of the Jacobian of .   What domain should be used if we would like to parameterize the -dimensional ball of radius centered at the origin?   Compute the volume of the -dimensional ball of radius .    "
 },
@@ -1976,7 +1688,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-cov.html#thm-change-of-variables",
   "type": "Theorem",
-  "number": "3.4.1",
+  "number": "2.4.1",
   "title": "Change of Variables.",
   "body": " Change of Variables   Let be a compact domain in with coordinates , a compact domain in with coordinates and a differentiable one-to-one correspondence with invertible derivative at every point of the interior of . Suppose is an integrable function on then    Our first observation which does require a bit of work is that one can work with curved partitions in Riemann sums rather than the straight ones given in . In particular, if we take an ordinary partition on with cubes then, because is a continuous one-to-one correspondence, we will obtain a curved partition on consisting of `curved cubes' . Of course, choosing sample points in gives a choice of sample points in the curved cubes of . This assignment of partition with sample points in to curved partitions with sample points is in a sense continuous. More precisely, if one defines the diameter of a region as the maximal distance between two points, then an alternative definition of the norm of a partition is the maximal diameter of any cube in the partition. The advantage of this version of norm is that it can be extended to curved partitions and we can then use the compactness of and the continuity of to show that, as tends to zero, so does . With this in mind, the first observation is that, if is integrable, then rather than using our cubical partitions on , we may used curved partitions coming from in the definition of the definite integral. For this, we take the Riemann sums and obtain the modified, but equivalent, definition One notes that in the new Riemann sums, the nice formula for is gone and we have this fairly large question mark hovering over This is precisely where our definition of the derivative and linear algebra come in to play. Using the definition of the derivative and compactness of , with some work one can show that, for every , there exist so that if the norm then there exist parallelepipeds and for every -cube indexed by in satisfying  The parallelepipeds are -close to the partitioned cube with respect to volume. Precisely, we mean that and where we recall .  If is the linear approximation of at then  While showing such exist may require some work, the student should keep in mind that the idea behind this work is that the derivative does a good job approximating near a point. So close to a point, looks like the linear approximation and, if we had equality, we could take any and let and both equal the cube .  Now, letting to save space, using the fact that the absolute value of the determinant gives the change in volume and the definition of the linear approximations, we see that Using property (2) we then have Applying property (1) then gives Thus, for all partitions with we have both the left and right inequality. Neglecting the factors for a moment and summing the terms over all , while multiplying by as we go gives for the left and right hand sides while the middle is the Riemann sum of the curved partition Putting the terms in then gives us that The limit of the Riemann sum on either side (neglecting factor) is And as was discussed in the first part of the sketch, equation gives the limit as of the middle term as As inequalilty holds for all Riemann sums with norm less than , we may let tend to zero giving us the desired equality in equation .   "
 },
@@ -1985,7 +1697,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-cov.html#subsec-polar-integration-3",
   "type": "Example",
-  "number": "3.4.2",
+  "number": "2.4.2",
   "title": "Polar integrals.",
   "body": " Polar integrals   In , we computed the area of a disc of radius . It was a rather tedious computation due to the trigonometric change of variable that was needed. Let's try it again in polar coordinates. Here we need to use only on the rectangle Then our change of variables formula reads Hopefully a student can see the improvement! Now what about finding the volume of a ball of radius as in ? Well, there we made the computation and continued with a nasty looking double integration. But if we use change of variables (on the same domain as above) we can simply continue with Again the computation is shorter and much less complicated. The unconvinced student should try finding the centroid of the upper half ball using polar coordinates as another convincing example.   "
 },
@@ -1994,7 +1706,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-cov.html#subsec-polar-integration-6",
   "type": "Example",
-  "number": "3.4.3",
+  "number": "2.4.3",
   "title": "Normalization factor of standard normal distribution.",
   "body": " Normalization factor of standard normal distribution   We have mentioned the (univariate) normal distribution previously in these notes (in particular when discussing quadratic forms). Such a distribution with mean at the origin and standard deviation is given by a probability density function on which has the form By , for this to be a probability density function, we must have that However, it would take a cruel person to ask a first year calculus student to compute this integral because it is impossible to solve with one variable techniques (so far as I am aware). We can though use a change of variables and a little trickery! Just compute the square instead to see... So that and   "
 },
@@ -2003,7 +1715,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-cov.html#exe-cov-1",
   "type": "Exercise",
-  "number": "3.4.2.1",
+  "number": "2.4.2.1",
   "title": "",
   "body": " Compute the centroid of the region between the paraboloid and the plane .  "
 },
@@ -2012,7 +1724,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-cov.html#exe-cov-2",
   "type": "Exercise",
-  "number": "3.4.2.2",
+  "number": "2.4.2.2",
   "title": "",
   "body": "Let be the triangle in the plane whose vertices are the points , and .  Find a linear transformation which maps the triangle with vertices , and to .   What is the determinant of the Jacobian of your transformation?   Compute   "
 },
@@ -2021,7 +1733,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-cov.html#exe-cov-3",
   "type": "Exercise",
-  "number": "3.4.2.3",
+  "number": "2.4.2.3",
   "title": "",
   "body": " Let be a cone in with base in the plane and apex point at . Show that the volume of is the same as the volume of any other cone with base and apex point .  "
 },
@@ -2030,7 +1742,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-cov.html#exe-cov-4",
   "type": "Exercise",
-  "number": "3.4.2.4",
+  "number": "2.4.2.4",
   "title": "",
   "body": "Recall that spherical coordinates are given by the change of variables  Compute the determinant of the Jacobian of .   What domain should be used if we would like to parameterize the ball of radius ?   Use a change of variables to compute the volume of the ball of radius .  "
 },
@@ -2039,9 +1751,297 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-cov.html#exe-cov-5",
   "type": "Exercise",
-  "number": "3.4.2.5",
+  "number": "2.4.2.5",
   "title": "",
   "body": "Consider the change of variables  Compute the determinant of the Jacobian of .   What domain should be used if we would like to parameterize the -dimensional ball of radius centered at the origin?   Compute the volume of the -dimensional ball of radius .  "
+},
+{
+  "id": "sec-exterior",
+  "level": "1",
+  "url": "sec-exterior.html",
+  "type": "Section",
+  "number": "3.1",
+  "title": "Exterior algebras",
+  "body": " Exterior algebras   This section had to come at some point, so I apologize now for presenting the inevitable content contained within! At the same time, exterior algebras could be considered a first introduction to a very intriguing subject and quite different from what you may have experienced in your mathematical education... so I retract my apology!!    The exterior product  For the last time, we return to linear algebra and consider an -dimensional vector space over where is either or . We want to take our vector space and build several new ones . These new vector spaces consists of linear combinations of wedge products (also known as exterior products ) of vectors in . We describe the rules of such a wedge product now.     Exterior algebra    Let be a vector space over . The wedge product of vectors and is a formal vector subject to the properties:  Anti-symmetry : ,  Bilinear : .  The vector space of linear combinations of exterior products of vectors is called the -th exterior product of and denoted . By convention .    The above definition should be taken as an informal one and leaves the technical notions of tensor products to a later course. In particular, the exterior product has to satisfy a so-called universal property which distinguishes it from other algebraic structures enjoying the two defining properties. Nevertheless, let us take a casual look at products in general and arrive at a more precise description of using some propositions.  Consider linear functions from to itself. Such functions form a vector space (the dual of ). We can write such functions as . Of course, taking our usual product of functions makes new (non-linear) ones like Now what about exterior products? First, we note that if we take any vector then by anti-symmetry, which implies . I.e. taking an exterior square of a vector in gives zero. This combined with bilinearity gives This type of exercise can be enhanced to the following proposition.    If is a basis for the vector space then is a basis for the -the wedge product . Furthermore, if then is the zero vector space.    We prove that this set spans and leave linear independence to a more advanced treatment. Proceed by induction on . Certainly when we have the case of itself. Assume it to be true for , and consider the exterior product in . Then by the induction hypothesis, there are scalars with and since is a basis we also have Expanding their product and applying bilinearity then gives as a linear combination of the -products The proof of linear independence relies on the construction of the exterior algebra from tensor products which we will leave to an abstract algebra course.    For an -dimensional vector space we write and note that this vector space has both addition and exterior multiplication - in mathematics we call such spaces algebras.    If is an -dimensional vector space and then    Thus is not only an algebra it is finite dimensional. Now let us examine a key result that makes these algebras so useful.    Let be vectors in . Then they are linearly independent if and only if in .    If are linearly independent, then they can be extended to a basis of . But then Proposition~\\ref{prop:wedgebasis} asserts that is a vector in a basis for and thus is non-zero. If they are linearly dependent, then we may assume that, after reordering, can be written as a linear combination But then using bilinearity we have But every summand in the last expression has a wedge product of two 's, so using anti-commutativity, we get that each of these is and we are done.    Let us observe an application of exterior products and this proposition right now. To do this, we need to define differential forms.     Tangent space    Let be an open subset of . A differential -form  on is a smooth assignment which takes to a tangent covector . A differential -form is a linear combination of -exterior products of -forms.    Equivalently, we may consider a differential -form to be an assignment from to the dual of the -th exterior space , i.e. a vector in . Differential -forms are dual to vector fields in that if we have a vector field on and a differential one form on then is a scalar function on . The most common way to create a differential -form is to take the derivative of a scalar function!     Exterior derivative of scalar function    If is an open subset of and , write the standard dual basis of as I.e. these are the dual vectors to the standard tangent vectors in that The (exterior) derivative of a scalar function is then defined as the differential -form    The student should note that this is really nothing new (yet), just a different way of expressing the usual derivative of an ordinary scalar function. For example, if we take then the original definition of the derivative of at is a linear transformation from to . Using the standard basis of vector fields, we identify these tangent spaces with and and write this derivative as the matrix As a differential -form, this is written We will see differential forms in much more detail later on as they form the heart of multivariable calculus. For now, let us use them to re-express Lagrange multipliers.   Lagrange multipliers with one constraint - exterior product version   Suppose is an open set in , and two differentiable scalar functions. If is the level set of then a smooth point is a critical point of if and only if the differential -form vanishes at .    The major advantage of this over the previous version is that there are no multipliers! Thus we have automatically eliminated one variable that needs to be solved in the previous version. Let's take another look at but using this technique.   Lagrange multiplier using differential forms   Recall that in we wanted to find critical points of on the hyperboloid We compute derivatives but now write them as differential -forms to see Now we compute the exterior product For this -form to be zero, each of the coefficient functions must be zero. The coefficient is zero if and only if either or . Again, the constraint implies not both can be zero. Consider both cases:  Suppose and . Since , the coefficient is zero. Since the coefficient being zero implies so that .  Suppose and . Since , the coefficient is zero. Since the coefficient being zero implies so that .  Putting these into the constraint then produces the critical points as before.    The procedure for several constraints also follows from as well.   Lagrange multipliers with several constraints - exterior products version   Suppose is an open set in , a differentiable vector valued function with of full rank and a differentiable scalar function. If is the level set of then a smooth point is a critical point of if and only if is zero at .      Geometry of exterior algebras  The exterior algebra is miraculous in its ability to compute geometric quantities naturally. We will start with the following result.    Let be column vectors and suppose they form the matrix Then where is the standard basis.    Exercise.    We recall that the absolute value of the determinant expresses the volume of the parallelepiped spanned by the columns, so we can see that the exterior product `knows' about their volume. In fact, the exterior product knows about many other volumes as well if we start with an inner product. In particular, if has an inner product, we can extend it to define an inner product on . This can be done by taking an orthonormal basis of and making all of their products an orthonormal basis of so that forms an orthonormal basis. To see that this makes sense, we define our inner product more intrinsically as follows.     Exterior algebra inner product    Suppose is an inner product space. The inner product on two pure -th wedge products is then given by the formula This inner product can be extended to linearly.    The fact that this definition makes sense and can be extended to all of follows from row and column linearity of the determinant as well as the alternating property. From this, we obtain the following amazing result.    Let be column vectors and the -dimensional parallelepiped spanned by them. Then Here is the -dimensional volume.    We check this by considering the subspace of spanned by . If these vectors are linearly dependent, then clearly the -dimensional parallelepiped has -dimensional volume (since it is contained in a space of smaller dimension). But Proposition~\\ref{prop:wedgelinearind} then also says that implying the result in this case. So suppose that they are linearly independent and let be an orthonormal basis for (recall this can be found through the Gram-Schmidt process). We may write as a vector in using the basis via the coordinate map and in doing so, we have that Another way of saying this is that the coordinate chart preserves distance and thus preserves volume. Taking to be the parallelepiped spanned by in , we then have that where But applying Proposition~\\ref{prop:wedgevolume1} to and using the fact that is an orthonormal basis gives    Let's run this result through an example to see how quickly it solves some problems.   Chain rule computation II   Consider the column vectors and let be the parallelogram spanned by them. Then, expanding in terms of the standard basis we have Since is an orthonormal basis for and remembering that -dimensional volume is just area, we have One should take a moment to appreciate this newfound technique. It is one thing to be able to find volumes of parallelograms in the plane with simple determinants, it is another to be able to find areas of parallelograms (and volumes of parallelepipeds) in high dimensional spaces with simple arithmetic!    Happily for some, and sadly for others, exterior products can be used to give even more geometric information about a vector space. The existence of the inner product on along with a choice of orientation induces a new duality as well. Let us define these concepts now.     Orientation    An orientation on an -dimensional real inner product space is a choice of unit vector for . If comes with such a choice, we call an oriented vector space. We say that is the standard orientation of .    Recall that the dimension of is -dimensional, so there are exactly two possible unit vectors corresponding to two orientations of . Let's consider orientations of vector spaces in low dimensions.   Orientations in one dimension   For the -dimensional vector space , we have that so that an orientation is either or . I.e. we are orienting to the right or to the left (in the standard picture of the number line).     Orientations in two dimension   Considering , we have two orientations or . In the plane, we can consider as specifying a rotational direction `from to '. So the orientation can be thought of as counter-clockwise orientation (as the act of moving to is a counter-clockwise rotation) while as clockwise orientation.     Orientations in three dimension   As a last low dimensional example, consider . We still have two orientations but can write them as wedge products of the standard basis in different ways : and As always, these two orientations are negatives of each other so that in . Why call them orientations, you ask? Well, if you point your index finger parallel to your hand, middle finger perpendicular to your hand and thumb straight upward to match the directions of three basis vectors, you'll find that equals if you used your right hand and if you used your left (unless you have severely dislocated your middle finger!). In other words, choosing the right hand rule is tantamount to choosing an orientation of .    We will see that orientations are vital ingredients in integration of differential forms. For now though, we use them to define a duality called the Hodge star operator.     Hodge star    Let be an -dimensional oriented inner product space with orientation and . The Hodge star of is the unique element for which for all .    Let us check to see that is well defined and understand its properties.    The Hodge star operator is a well defined linear isomorphism.    Let be in and define the dual vector by . It is an exercise to see that then defines a linear transformation from the -th exterior product to the dual vector space of the -th exterior product. Here sends to .  In fact, this map is an isomorphism. To see this we note that if is non-zero then must also be nonzero. Indeed, if is non-zero, then written in terms of an orthonormal basis there must be at least one non-zero coefficient, say . But taking to be the numbers in not equal to any , we can compute and so But this means that so that is one-to-one. Proposition~\\ref{prop:wedgebasis} gives us that the dimension of the codomain and domain of are the same so that Corollary~\\ref{cor:equaldim} implies is a linear isomorphism. In particular, there is an inverse linear transformation  To complete the proof, one takes to be the dual vector given by pairing with , i.e. . Then one simply checks to see that    This last proof was fairly abstract, but in practice, the Hodge star can be written concretely. Before looking at a couple of examples, let's give a general formula which determines it up to sign.    Equip with the dot product and the standard orientation. If and are two disjoint sets whose union is then In particular, preserves inner products so that    Exercise.    The sign can be determined by counting the of times one must pass an index over a index to reorder into . The sign is then .  Let's see what this looks like in dimensions two and three.   Hodge star in dimension two   In with the standard orientation we have the basis of . Then one can see that Notice in particular that restricting to , we have is the isomorphism of counter-clockwise rotation by .     Hodge star in dimension three   In with the standard orientation we have the basis of . The Hodge star operator from to just interchanges with (more generally, it interchanges with for ). The interesting cases here are the isomorphisms One can compute In the -dimensional case, we have that (in contrast to the -dimensional case where we saw that it for vectors in ).      The cross product  Now, in many ways, \\textbf{3 is special!} One of these ways is that Note that is the only number with this property. In other words, implies . Do we all agree ... ? Yes ? Good!  Because of this, we can do something in when is -dimensional that we cannot do for an oriented inner product space of a different dimension. We can define the \\textbf{cross product} on vectors as: Indeed, suppose is -dimensional. Because belong to , their wedge product is in . This means their Hodge star is in . If we want this to be a vector in then we must have that ... so must be . I am explaining this because in every one of the millions of multivariable calculus courses I have taught, a bright student has asked me whether there is a cross product in other dimensions, to which I answer: there is something, but not a cross product .  Now, while I firmly believe that in years, every college student will learn wedge products, the Hodge star operator, and higher dimensional volumes rendering cross products a strange relic of the past, we do not yet live in this idyllic future. So it is important you know how to compute cross products in order to converse with your less enlightened future colleagues. Let's derive the formula: While every multivariable calculus student sees this formula at some point, the most common way they learn to use it is to take the determinant of the following strange looking matrix Although the first row entries are vectors, the formula for determinant still makes some sense and can be seen to match up with the derived formula. The properties of the cross product are also quite universally taught, but again are much easier to verify in our general setting.    Suppose and are -dimensional vectors. Then   ,   is orthogonal to both and .   is the area of the parallelogram spanned by and .  if and span a plane, the vectors are oriented with respect to the right hand rule.      Property (1) follows from linearity of since For (2), we recall that in , is the identity. Then, using the defining property of the Hodge star operator, This implies and a similar argument (or using (1)) gives For (3), take to be the parallelogram spanned by and . Then we just apply along with equation of to get Finally, for (4) we must explain what is meant if it is not clear. A basis in an oriented vector space is positively oriented if there is a positive real number for which This is what is meant by saying are oriented with respect to the right hand rule - that they are positively oriented with respect to the standard orientation . Seeing this is simple though. Using our defining property of Hodge star we have, Because and span a plane, they are linearly independent so that implies is non-zero giving our result.    In the coming sections, we will briefly lay down exterior products, but they will make a major reappearance when we consider integration of forms and several fundamental theorems such as Stokes', Green's, and the divergence theorem.    Express the following wedge products as linear combinations of the basis .           While it is true that given a vector in , we always have , this is not true for any vector in . Show that the wedge square of is not zero in .   Compute the exterior derivatives of the following functions   ,   ,    .    Use wedge products of differential -forms to find critical points of on the ellipsoid    Show that is a linear transformation as claimed in equation .    Compute the Hodge star operators of the following vectors assuming the standard orientation of .   Compute the exterior derivatives of the following functions   in ,   in .    "
+},
+{
+  "id": "subsec-exterior-product-2",
+  "level": "2",
+  "url": "sec-exterior.html#subsec-exterior-product-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "wedge products exterior products "
+},
+{
+  "id": "def-exterior-algebra",
+  "level": "2",
+  "url": "sec-exterior.html#def-exterior-algebra",
+  "type": "Definition",
+  "number": "3.1.1",
+  "title": "",
+  "body": "   Exterior algebra    Let be a vector space over . The wedge product of vectors and is a formal vector subject to the properties:  Anti-symmetry : ,  Bilinear : .  The vector space of linear combinations of exterior products of vectors is called the -th exterior product of and denoted . By convention .   "
+},
+{
+  "id": "prop-wedgebasis",
+  "level": "2",
+  "url": "sec-exterior.html#prop-wedgebasis",
+  "type": "Proposition",
+  "number": "3.1.2",
+  "title": "",
+  "body": "  If is a basis for the vector space then is a basis for the -the wedge product . Furthermore, if then is the zero vector space.    We prove that this set spans and leave linear independence to a more advanced treatment. Proceed by induction on . Certainly when we have the case of itself. Assume it to be true for , and consider the exterior product in . Then by the induction hypothesis, there are scalars with and since is a basis we also have Expanding their product and applying bilinearity then gives as a linear combination of the -products The proof of linear independence relies on the construction of the exterior algebra from tensor products which we will leave to an abstract algebra course.   "
+},
+{
+  "id": "subsec-exterior-product-8",
+  "level": "2",
+  "url": "sec-exterior.html#subsec-exterior-product-8",
+  "type": "Corollary",
+  "number": "3.1.3",
+  "title": "",
+  "body": "  If is an -dimensional vector space and then   "
+},
+{
+  "id": "prop-wedgelinearind",
+  "level": "2",
+  "url": "sec-exterior.html#prop-wedgelinearind",
+  "type": "Proposition",
+  "number": "3.1.4",
+  "title": "",
+  "body": "  Let be vectors in . Then they are linearly independent if and only if in .    If are linearly independent, then they can be extended to a basis of . But then Proposition~\\ref{prop:wedgebasis} asserts that is a vector in a basis for and thus is non-zero. If they are linearly dependent, then we may assume that, after reordering, can be written as a linear combination But then using bilinearity we have But every summand in the last expression has a wedge product of two 's, so using anti-commutativity, we get that each of these is and we are done.   "
+},
+{
+  "id": "def-differential-form",
+  "level": "2",
+  "url": "sec-exterior.html#def-differential-form",
+  "type": "Definition",
+  "number": "3.1.5",
+  "title": "",
+  "body": "   Tangent space    Let be an open subset of . A differential -form  on is a smooth assignment which takes to a tangent covector . A differential -form is a linear combination of -exterior products of -forms.   "
+},
+{
+  "id": "def-exterior-derivative",
+  "level": "2",
+  "url": "sec-exterior.html#def-exterior-derivative",
+  "type": "Definition",
+  "number": "3.1.6",
+  "title": "",
+  "body": "   Exterior derivative of scalar function    If is an open subset of and , write the standard dual basis of as I.e. these are the dual vectors to the standard tangent vectors in that The (exterior) derivative of a scalar function is then defined as the differential -form   "
+},
+{
+  "id": "prop-lagrangian-one-constaint",
+  "level": "2",
+  "url": "sec-exterior.html#prop-lagrangian-one-constaint",
+  "type": "Proposition",
+  "number": "3.1.7",
+  "title": "Lagrange multipliers with one constraint - exterior product version.",
+  "body": " Lagrange multipliers with one constraint - exterior product version   Suppose is an open set in , and two differentiable scalar functions. If is the level set of then a smooth point is a critical point of if and only if the differential -form vanishes at .   "
+},
+{
+  "id": "subsec-exterior-product-18",
+  "level": "2",
+  "url": "sec-exterior.html#subsec-exterior-product-18",
+  "type": "Example",
+  "number": "3.1.8",
+  "title": "Lagrange multiplier using differential forms.",
+  "body": " Lagrange multiplier using differential forms   Recall that in we wanted to find critical points of on the hyperboloid We compute derivatives but now write them as differential -forms to see Now we compute the exterior product For this -form to be zero, each of the coefficient functions must be zero. The coefficient is zero if and only if either or . Again, the constraint implies not both can be zero. Consider both cases:  Suppose and . Since , the coefficient is zero. Since the coefficient being zero implies so that .  Suppose and . Since , the coefficient is zero. Since the coefficient being zero implies so that .  Putting these into the constraint then produces the critical points as before.   "
+},
+{
+  "id": "prop-lagrangian-several-constaints",
+  "level": "2",
+  "url": "sec-exterior.html#prop-lagrangian-several-constaints",
+  "type": "Proposition",
+  "number": "3.1.9",
+  "title": "Lagrange multipliers with several constraints - exterior products version.",
+  "body": " Lagrange multipliers with several constraints - exterior products version   Suppose is an open set in , a differentiable vector valued function with of full rank and a differentiable scalar function. If is the level set of then a smooth point is a critical point of if and only if is zero at .   "
+},
+{
+  "id": "prop-wedgevolume1",
+  "level": "2",
+  "url": "sec-exterior.html#prop-wedgevolume1",
+  "type": "Proposition",
+  "number": "3.1.10",
+  "title": "",
+  "body": "  Let be column vectors and suppose they form the matrix Then where is the standard basis.    Exercise.   "
+},
+{
+  "id": "def-exterior-inner-product",
+  "level": "2",
+  "url": "sec-exterior.html#def-exterior-inner-product",
+  "type": "Definition",
+  "number": "3.1.11",
+  "title": "",
+  "body": "   Exterior algebra inner product    Suppose is an inner product space. The inner product on two pure -th wedge products is then given by the formula This inner product can be extended to linearly.   "
+},
+{
+  "id": "prop-parallelepipedvolume",
+  "level": "2",
+  "url": "sec-exterior.html#prop-parallelepipedvolume",
+  "type": "Proposition",
+  "number": "3.1.12",
+  "title": "",
+  "body": "  Let be column vectors and the -dimensional parallelepiped spanned by them. Then Here is the -dimensional volume.    We check this by considering the subspace of spanned by . If these vectors are linearly dependent, then clearly the -dimensional parallelepiped has -dimensional volume (since it is contained in a space of smaller dimension). But Proposition~\\ref{prop:wedgelinearind} then also says that implying the result in this case. So suppose that they are linearly independent and let be an orthonormal basis for (recall this can be found through the Gram-Schmidt process). We may write as a vector in using the basis via the coordinate map and in doing so, we have that Another way of saying this is that the coordinate chart preserves distance and thus preserves volume. Taking to be the parallelepiped spanned by in , we then have that where But applying Proposition~\\ref{prop:wedgevolume1} to and using the fact that is an orthonormal basis gives   "
+},
+{
+  "id": "subsec-exterior-algebra-geometry-9",
+  "level": "2",
+  "url": "sec-exterior.html#subsec-exterior-algebra-geometry-9",
+  "type": "Example",
+  "number": "3.1.13",
+  "title": "Chain rule computation II.",
+  "body": " Chain rule computation II   Consider the column vectors and let be the parallelogram spanned by them. Then, expanding in terms of the standard basis we have Since is an orthonormal basis for and remembering that -dimensional volume is just area, we have One should take a moment to appreciate this newfound technique. It is one thing to be able to find volumes of parallelograms in the plane with simple determinants, it is another to be able to find areas of parallelograms (and volumes of parallelepipeds) in high dimensional spaces with simple arithmetic!   "
+},
+{
+  "id": "def-orientation",
+  "level": "2",
+  "url": "sec-exterior.html#def-orientation",
+  "type": "Definition",
+  "number": "3.1.14",
+  "title": "",
+  "body": "   Orientation    An orientation on an -dimensional real inner product space is a choice of unit vector for . If comes with such a choice, we call an oriented vector space. We say that is the standard orientation of .   "
+},
+{
+  "id": "subsec-exterior-algebra-geometry-13",
+  "level": "2",
+  "url": "sec-exterior.html#subsec-exterior-algebra-geometry-13",
+  "type": "Example",
+  "number": "3.1.15",
+  "title": "Orientations in one dimension.",
+  "body": " Orientations in one dimension   For the -dimensional vector space , we have that so that an orientation is either or . I.e. we are orienting to the right or to the left (in the standard picture of the number line).   "
+},
+{
+  "id": "subsec-exterior-algebra-geometry-14",
+  "level": "2",
+  "url": "sec-exterior.html#subsec-exterior-algebra-geometry-14",
+  "type": "Example",
+  "number": "3.1.16",
+  "title": "Orientations in two dimension.",
+  "body": " Orientations in two dimension   Considering , we have two orientations or . In the plane, we can consider as specifying a rotational direction `from to '. So the orientation can be thought of as counter-clockwise orientation (as the act of moving to is a counter-clockwise rotation) while as clockwise orientation.   "
+},
+{
+  "id": "subsec-exterior-algebra-geometry-15",
+  "level": "2",
+  "url": "sec-exterior.html#subsec-exterior-algebra-geometry-15",
+  "type": "Example",
+  "number": "3.1.17",
+  "title": "Orientations in three dimension.",
+  "body": " Orientations in three dimension   As a last low dimensional example, consider . We still have two orientations but can write them as wedge products of the standard basis in different ways : and As always, these two orientations are negatives of each other so that in . Why call them orientations, you ask? Well, if you point your index finger parallel to your hand, middle finger perpendicular to your hand and thumb straight upward to match the directions of three basis vectors, you'll find that equals if you used your right hand and if you used your left (unless you have severely dislocated your middle finger!). In other words, choosing the right hand rule is tantamount to choosing an orientation of .   "
+},
+{
+  "id": "def-hodge-star",
+  "level": "2",
+  "url": "sec-exterior.html#def-hodge-star",
+  "type": "Definition",
+  "number": "3.1.18",
+  "title": "",
+  "body": "   Hodge star    Let be an -dimensional oriented inner product space with orientation and . The Hodge star of is the unique element for which for all .   "
+},
+{
+  "id": "prop-hodge-star-operator",
+  "level": "2",
+  "url": "sec-exterior.html#prop-hodge-star-operator",
+  "type": "Proposition",
+  "number": "3.1.19",
+  "title": "",
+  "body": "  The Hodge star operator is a well defined linear isomorphism.    Let be in and define the dual vector by . It is an exercise to see that then defines a linear transformation from the -th exterior product to the dual vector space of the -th exterior product. Here sends to .  In fact, this map is an isomorphism. To see this we note that if is non-zero then must also be nonzero. Indeed, if is non-zero, then written in terms of an orthonormal basis there must be at least one non-zero coefficient, say . But taking to be the numbers in not equal to any , we can compute and so But this means that so that is one-to-one. Proposition~\\ref{prop:wedgebasis} gives us that the dimension of the codomain and domain of are the same so that Corollary~\\ref{cor:equaldim} implies is a linear isomorphism. In particular, there is an inverse linear transformation  To complete the proof, one takes to be the dual vector given by pairing with , i.e. . Then one simply checks to see that   "
+},
+{
+  "id": "prop-Hodgeformula",
+  "level": "2",
+  "url": "sec-exterior.html#prop-Hodgeformula",
+  "type": "Proposition",
+  "number": "3.1.20",
+  "title": "",
+  "body": "  Equip with the dot product and the standard orientation. If and are two disjoint sets whose union is then In particular, preserves inner products so that    Exercise.   "
+},
+{
+  "id": "subsec-exterior-algebra-geometry-24",
+  "level": "2",
+  "url": "sec-exterior.html#subsec-exterior-algebra-geometry-24",
+  "type": "Example",
+  "number": "3.1.21",
+  "title": "Hodge star in dimension two.",
+  "body": " Hodge star in dimension two   In with the standard orientation we have the basis of . Then one can see that Notice in particular that restricting to , we have is the isomorphism of counter-clockwise rotation by .   "
+},
+{
+  "id": "subsec-exterior-algebra-geometry-25",
+  "level": "2",
+  "url": "sec-exterior.html#subsec-exterior-algebra-geometry-25",
+  "type": "Example",
+  "number": "3.1.22",
+  "title": "Hodge star in dimension three.",
+  "body": " Hodge star in dimension three   In with the standard orientation we have the basis of . The Hodge star operator from to just interchanges with (more generally, it interchanges with for ). The interesting cases here are the isomorphisms One can compute In the -dimensional case, we have that (in contrast to the -dimensional case where we saw that it for vectors in ).   "
+},
+{
+  "id": "prop-cross-product-properties",
+  "level": "2",
+  "url": "sec-exterior.html#prop-cross-product-properties",
+  "type": "Proposition",
+  "number": "3.1.23",
+  "title": "",
+  "body": "  Suppose and are -dimensional vectors. Then   ,   is orthogonal to both and .   is the area of the parallelogram spanned by and .  if and span a plane, the vectors are oriented with respect to the right hand rule.      Property (1) follows from linearity of since For (2), we recall that in , is the identity. Then, using the defining property of the Hodge star operator, This implies and a similar argument (or using (1)) gives For (3), take to be the parallelogram spanned by and . Then we just apply along with equation of to get Finally, for (4) we must explain what is meant if it is not clear. A basis in an oriented vector space is positively oriented if there is a positive real number for which This is what is meant by saying are oriented with respect to the right hand rule - that they are positively oriented with respect to the standard orientation . Seeing this is simple though. Using our defining property of Hodge star we have, Because and span a plane, they are linearly independent so that implies is non-zero giving our result.   "
+},
+{
+  "id": "exe-exterior-1",
+  "level": "2",
+  "url": "sec-exterior.html#exe-exterior-1",
+  "type": "Exercise",
+  "number": "3.1.4.1",
+  "title": "",
+  "body": "Express the following wedge products as linear combinations of the basis .         "
+},
+{
+  "id": "exe-exterior-2",
+  "level": "2",
+  "url": "sec-exterior.html#exe-exterior-2",
+  "type": "Exercise",
+  "number": "3.1.4.2",
+  "title": "",
+  "body": " While it is true that given a vector in , we always have , this is not true for any vector in . Show that the wedge square of is not zero in .  "
+},
+{
+  "id": "exe-exterior-3",
+  "level": "2",
+  "url": "sec-exterior.html#exe-exterior-3",
+  "type": "Exercise",
+  "number": "3.1.4.3",
+  "title": "",
+  "body": "Compute the exterior derivatives of the following functions   ,   ,    .  "
+},
+{
+  "id": "exe-exterior-4",
+  "level": "2",
+  "url": "sec-exterior.html#exe-exterior-4",
+  "type": "Exercise",
+  "number": "3.1.4.4",
+  "title": "",
+  "body": " Use wedge products of differential -forms to find critical points of on the ellipsoid  "
+},
+{
+  "id": "exe-exterior-5",
+  "level": "2",
+  "url": "sec-exterior.html#exe-exterior-5",
+  "type": "Exercise",
+  "number": "3.1.4.5",
+  "title": "",
+  "body": " Show that is a linear transformation as claimed in equation .  "
+},
+{
+  "id": "exe-exterior-6",
+  "level": "2",
+  "url": "sec-exterior.html#exe-exterior-6",
+  "type": "Exercise",
+  "number": "3.1.4.6",
+  "title": "",
+  "body": " Compute the Hodge star operators of the following vectors assuming the standard orientation of .  "
+},
+{
+  "id": "exe-exterior-7",
+  "level": "2",
+  "url": "sec-exterior.html#exe-exterior-7",
+  "type": "Exercise",
+  "number": "3.1.4.7",
+  "title": "",
+  "body": "Compute the exterior derivatives of the following functions   in ,   in .  "
 },
 {
   "id": "sec-integrating-forms",
