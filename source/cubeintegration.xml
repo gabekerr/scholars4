@@ -44,9 +44,9 @@
         
     <p>Note that the volume of one of these cubes is just the product of the lengths of the sub-intervals
     <md>
-        <mrow> \Delta V_{(j_1, \ldots , j_n)} /amp := \text{Volume} (\mathcal{C}_{(j_1, \ldots , j_n)} ), </mrow>
-        <mrow> /amp = ( c_{1, j_1} - c_{1, j_1 - 1}) ( c_{2, j_2} - c_{2, j_2 - 1}) \cdots (c_{n, j_n} - c_{n, j_n - 1}), </mrow>
-        <mrow> /amp = \Delta x_{1, j_1} \cdots \Delta x_{n, j_n}. </mrow>
+        <mrow> \Delta V_{(j_1, \ldots , j_n)} \amp := \text{Volume} (\mathcal{C}_{(j_1, \ldots , j_n)} ), </mrow>
+        <mrow> \amp = ( c_{1, j_1} - c_{1, j_1 - 1}) ( c_{2, j_2} - c_{2, j_2 - 1}) \cdots (c_{n, j_n} - c_{n, j_n - 1}), </mrow>
+        <mrow> \amp = \Delta x_{1, j_1} \cdots \Delta x_{n, j_n}. </mrow>
     </md>
     We can picture this for a rectangle by simply drawing horizontal and vertical lines to divide the rectangle into smaller rectangles. For a <m>3</m>-dimensional cube, the student should picture a cheese brick that is sliced along the three axes to make small cheese cubes. Each <m>\mathcal{C}_{(j_1, j_2, j_3)}</m> would then be one of these cubes (in the original large block). Now, just as in the one dimensional case, we need to choose sample points in our partitioned cubes. For a given cube corresponding to the multi-index <m>(j_1, \ldots, j_n)</m>, denote this choice
     <me>
@@ -113,9 +113,9 @@
                 </me>
                 be defined on the rectangle <m>[-1, 1] \times [0, 3]</m>. We may integrate <m>f(x,y)</m> with respect to <m>x</m> and obtain
                 <md>
-                    <mrow> F (y) /amp = \int_{-1}^1 x - y \, \tder{}{x}, </mrow>
-                    <mrow> /amp = \left. \frac{x^2}{2} - y x \right|_{x = -1}^1 , </mrow>
-                    <mrow>  /amp = -2 y. </mrow>
+                    <mrow> F (y) \amp = \int_{-1}^1 x - y \, \tder{}{x}, </mrow>
+                    <mrow> \amp = \left. \frac{x^2}{2} - y x \right|_{x = -1}^1 , </mrow>
+                    <mrow>  \amp = -2 y. </mrow>
                 </md>
                 The attentive student will observe that in the second to last line of the equation, we write <m>x = -1</m> instead of just <m>-1</m> in the subscript. While not completely necessary, it is good form and will help you avoid mixing up coordinates as you compute more complicated integrals.</p>
         </statement>
@@ -132,9 +132,9 @@
                 </me>
                 be defined on the box <m>[0, 1] \times [0, 2] \times [1, 2]</m>. We integrate <m>f(x,y, z)</m> this time with respect to <m>y</m> and obtain
                 <md>
-                    <mrow> F (x, z) /amp = \int_{0}^2 x e^{xy} - \sin (yz) \, \tder{}{y}, </mrow>
-                    <mrow> /amp = \left. e^{xy} + \frac{\cos (yz)}{z} \right|_{y = 0}^2 , </mrow>
-                    <mrow> /amp = e^{2x} + \frac{\cos (2z)}{z} - 1 - \frac{1}{z}. </mrow>
+                    <mrow> F (x, z) \amp = \int_{0}^2 x e^{xy} - \sin (yz) \, \tder{}{y}, </mrow>
+                    <mrow> \amp = \left. e^{xy} + \frac{\cos (yz)}{z} \right|_{y = 0}^2 , </mrow>
+                    <mrow> \amp = e^{2x} + \frac{\cos (2z)}{z} - 1 - \frac{1}{z}. </mrow>
                 </md></p>
         </statement>
     </example>
@@ -170,18 +170,18 @@
                 </me>
                 on the rectangle <m>[-1, 1] \times [0, 3]</m>. Then using our previous computation, we compute the iterated integral
             <md>
-                <mrow> \int_0^1 \int_{-1}^1 x - y \, \tder{}{x} \tder{}{y} /amp = \int_0^1 \left( \int_{-1}^1 x - y \, \tder{}{x} \right) \tder{}{y},  </mrow>
-                <mrow>  /amp = \int_0^1  -2 y \, \tder{}{y}, </mrow>
-                <mrow> /amp = \left. -y^2 \right|_0^1, </mrow>
-                <mrow>  /amp = -1. </mrow>
+                <mrow> \int_0^1 \int_{-1}^1 x - y \, \tder{}{x} \tder{}{y} \amp = \int_0^1 \left( \int_{-1}^1 x - y \, \tder{}{x} \right) \tder{}{y},  </mrow>
+                <mrow>  \amp = \int_0^1  -2 y \, \tder{}{y}, </mrow>
+                <mrow> \amp = \left. -y^2 \right|_0^1, </mrow>
+                <mrow>  \amp = -1. </mrow>
             </md>
             Note that we can also compute the other iterated integral
             <md>
-                <mrow> \int_{-1}^1 \int_0^1  x - y \, \tder{}{y} \tder{}{x} /amp = \int_{-1}^1 \left(  \int_0^1  x - y \, \tder{}{y} \right) \tder{}{x},  </mrow>
-                <mrow>  /amp = \int_{-1}^1  \left. xy - \frac{y^2}{2} \right|_0^1 \, \tder{}{x},  </mrow>
-                <mrow>  /amp = \int_{-1}^1   x - \frac{1}{2} \, \tder{}{x},  </mrow>
-                <mrow>  /amp = \left. \frac{x^2}{2} - \frac{x}{2} \right|_{-1}^1, </mrow>
-                <mrow> /amp = -1. </mrow>
+                <mrow> \int_{-1}^1 \int_0^1  x - y \, \tder{}{y} \tder{}{x} \amp = \int_{-1}^1 \left(  \int_0^1  x - y \, \tder{}{y} \right) \tder{}{x},  </mrow>
+                <mrow>  \amp = \int_{-1}^1  \left. xy - \frac{y^2}{2} \right|_0^1 \, \tder{}{x},  </mrow>
+                <mrow>  \amp = \int_{-1}^1   x - \frac{1}{2} \, \tder{}{x},  </mrow>
+                <mrow>  \amp = \left. \frac{x^2}{2} - \frac{x}{2} \right|_{-1}^1, </mrow>
+                <mrow> \amp = -1. </mrow>
             </md>
             We clearly see, perhaps surprisingly, that these two different computations yield the same result. More on this in a moment.</p>
         </statement>
@@ -204,10 +204,10 @@
                     <me> f(x,y, z) = e^{x + y + z}</me>
                     and observe that
                     <md>
-                        <mrow> \int_0^1 \int_0^2 \int_0^3 f(x,y, z) \, \tder{}{x} \tder{}{y} \tder{}{z} /amp =  \int_0^1 \int_0^2 \int_0^3 e^{x + y + z} \, \tder{}{x} \tder{}{y} \tder{}{z}, </mrow>
-                        <mrow> /amp = \int_0^1 \int_0^2 \int_0^3 e^x e^y e^z \, \tder{}{x} \tder{}{y} \tder{}{z}, </mrow>
-                        <mrow> /amp = \left( \int_0^1 e^{x} \, \tder{}{x} \right) \left( \int_0^2 e^{y} \, \tder{}{y} \right)\left( \int_0^3 e^{z} \, \tder{}{z} \right), </mrow>
-                        <mrow> /amp = (e - 1 ) (e^2 - 1) (e^3 - 1). </mrow>
+                        <mrow> \int_0^1 \int_0^2 \int_0^3 f(x,y, z) \, \tder{}{x} \tder{}{y} \tder{}{z} \amp =  \int_0^1 \int_0^2 \int_0^3 e^{x + y + z} \, \tder{}{x} \tder{}{y} \tder{}{z}, </mrow>
+                        <mrow> \amp = \int_0^1 \int_0^2 \int_0^3 e^x e^y e^z \, \tder{}{x} \tder{}{y} \tder{}{z}, </mrow>
+                        <mrow> \amp = \left( \int_0^1 e^{x} \, \tder{}{x} \right) \left( \int_0^2 e^{y} \, \tder{}{y} \right)\left( \int_0^3 e^{z} \, \tder{}{z} \right), </mrow>
+                        <mrow> \amp = (e - 1 ) (e^2 - 1) (e^3 - 1). </mrow>
                     </md></p>
             </statement>
         </example>
@@ -219,13 +219,13 @@
             <statement>
                 <p>Let us define subsets <m>A</m> and <m>B</m> of the rectangle <m>[-1,1] \times [0,1]</m>. The subset <m>A</m> consists of points <m>(x,y)</m> where <m>x \geq 0</m> and <m>y</m> is irrational and the subset <m>B</m> of points <m>(x,y)</m> where <m>x \lt 0</m> and <m>y</m> is rational. Define the function
                     <me>
-                    f(x,y) = \begin{cases} 1 /amp \textnormal{ if } (x,y) \textnormal{ is in } A \cup B, \\ 0 /amp \textnormal{ otherwise.}
+                    f(x,y) = \begin{cases} 1 \amp \textnormal{ if } (x,y) \textnormal{ is in } A \cup B, \\ 0 \amp \textnormal{ otherwise.}
                     \end{cases}
                     </me>
                     Then the integrating <m>f(x,y)</m> with respect to <m>x</m> gives the constant function <m>1</m> so that the iterated integral
                     <md>
-                        <mrow> \int_0^1 \int_{-1}^1 f(x,y) \, \tder{}{x} \tder{}{y} /amp = \int_0^1 \tder{}{y}, </mrow>
-                        <mrow> /amp = 1. </mrow>
+                        <mrow> \int_0^1 \int_{-1}^1 f(x,y) \, \tder{}{x} \tder{}{y} \amp = \int_0^1 \tder{}{y}, </mrow>
+                        <mrow> \amp = 1. </mrow>
                     </md>
                     On the other hand, there is not a single value of <m>x</m> for which <m>f(x,y)</m> is integrable with respect to <m>y</m>. It is also the case that <m>f(x,y)</m> is not integrable on <m>\mathcal{C}</m> (i.e. the double integral of <m>f(x,y)</m> does not exist). </p>
                     
@@ -244,7 +244,7 @@
                         </me>
                     which has all iterated integrals. Then for any ordering of variables <m>x_{i_1}, x_{i_2}, \ldots, x_{i_n}</m> we have
                     \begin{align*}
-                           \int_\mathcal{C} f(x_1, \ldots, x_n) \, \tder{}{\textnormal{V}} /amp =  \int_{a_{i_n}}^{b_{i_n}}  \left( \cdots \left( \int_{a_{i_1}}^{b_{i_1}} f(x_1, \ldots, x_n) \, \tder{}{x_{i_1}} \right) \cdots  \right) \tder{}{x_{i_n}}.
+                           \int_\mathcal{C} f(x_1, \ldots, x_n) \, \tder{}{\textnormal{V}} \amp =  \int_{a_{i_n}}^{b_{i_n}}  \left( \cdots \left( \int_{a_{i_1}}^{b_{i_1}} f(x_1, \ldots, x_n) \, \tder{}{x_{i_1}} \right) \cdots  \right) \tder{}{x_{i_n}}.
                     \end{align*}</p>
             </statement>
         </theorem>
@@ -272,12 +272,12 @@
                     </me>
                     Noting that <m>f(x,y)</m> is continuous, using Fubini's Theorem, we can make this computation with iterated integrals
                     <md>
-                        <mrow> \text{Volume} /amp = \iint_{\mathcal{C}} f(x,y) \, \tder{}{A},  </mrow>
-                        <mrow> /amp = \int_0^1 \int_0^1 x^2 + y^2 \, \tder{}{x} \tder{}{y},  </mrow>
-                        <mrow> /amp = \int_0^1 \left. \frac{x^3}{3} + x y^2 \right|_{x = 0}^{1} \tder{}{y}, </mrow>
-                        <mrow> /amp = \int_0^1 \frac{1}{3} + y^2 \, \tder{}{y}, </mrow>
-                        <mrow> /amp = \left. \frac{y}{3} + \frac{y^3}{3} \right|_0^1, </mrow>
-                        <mrow> /amp = \frac{2}{3}. </mrow>
+                        <mrow> \text{Volume} \amp = \iint_{\mathcal{C}} f(x,y) \, \tder{}{A},  </mrow>
+                        <mrow> \amp = \int_0^1 \int_0^1 x^2 + y^2 \, \tder{}{x} \tder{}{y},  </mrow>
+                        <mrow> \amp = \int_0^1 \left. \frac{x^3}{3} + x y^2 \right|_{x = 0}^{1} \tder{}{y}, </mrow>
+                        <mrow> \amp = \int_0^1 \frac{1}{3} + y^2 \, \tder{}{y}, </mrow>
+                        <mrow> \amp = \left. \frac{y}{3} + \frac{y^3}{3} \right|_0^1, </mrow>
+                        <mrow> \amp = \frac{2}{3}. </mrow>
                     </md></p>
             </statement>
         </example>

@@ -74,12 +74,7 @@
       <xi:include href="critical.xml" />
       <xi:include href="optimization1.xml" />
       <xi:include href="optimization2.xml" />
-    </chapter>
-
-    <chapter xml:id="ch-differential-forms">
-      <title>Differential Forms</title>
-      <xi:include href="exterior.xml" />
-    </chapter>
+    </chapter>    
 
     <chapter xml:id="ch-integral-calculus">
       <title>Integral Calculus in Several Variables</title>
@@ -87,6 +82,11 @@
       <xi:include href="compactintegration.xml" />
       <xi:include href="compactRnintegration.xml" />
       <xi:include href="cov.xml" />
+    </chapter>
+
+    <chapter xml:id="ch-differential-forms">
+      <title>Differential Forms</title>
+      <xi:include href="exterior.xml" />
     </chapter>
 
     <chapter xml:id="ch-integral-of-forms">
