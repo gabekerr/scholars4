@@ -410,7 +410,7 @@ RS_{\mathcal{P}} = \sum_{(j_1, \ldots, j_n)} f \left( x^*_{(j_1, \ldots, j_n)} \
 <div class="para">if it exists. If the limit exists, we say that <span class="process-math">\(f\)</span> is <dfn class="terminology">integrable</dfn> on <span class="process-math">\(\mathcal{C}\text{.}\)</span>
 </div>
 </div></article><div class="para logical" id="sec-cubeintegration-8">
-<div class="para">Some words should be said on the meaning of the limit in this definition. What is meant here is that if we claim that <span class="process-math">\(I\)</span> is the integral, then for any <span class="process-math">\(\varepsilon \gt 0\)</span> there exists a <span class="process-math">\(\delta\)</span> for which <span class="process-math">\(\| \mathcal{P} \| \lt \delta\)</span> implies <span class="process-math">\(| RS_\mathcal{P} - I | \lt \varepsilon\text{.}\)</span> We also note that in two dimensions, this is called the \textbf{double integral} and in three dimensions is called the \textbf{triple integral}. In these cases, it is more common to write</div>
+<div class="para">Some words should be said on the meaning of the limit in this definition. What is meant here is that if we claim that <span class="process-math">\(I\)</span> is the integral, then for any <span class="process-math">\(\varepsilon \gt 0\)</span> there exists a <span class="process-math">\(\delta\)</span> for which <span class="process-math">\(\| \mathcal{P} \| \lt \delta\)</span> implies <span class="process-math">\(| RS_\mathcal{P} - I | \lt \varepsilon\text{.}\)</span> We also note that in two dimensions, this is called the <dfn class="terminology">double integral</dfn> and in three dimensions is called the <dfn class="terminology">triple integral</dfn>. In these cases, it is more common to write</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \idotsint_{\mathcal{C}} f(x,y) \tder{}{V} = \iint_\mathcal{C} f(x, y) \tder{}{A} 
@@ -495,7 +495,7 @@ F (x, z) \amp = \int_{0}^2 x e^{xy} - \sin (yz) \, \tder{}{y}, \\
 \int_{a_{i_n}}^{b_{i_n}}  \left( \cdots \left( \int_{a_{i_1}}^{b_{i_1}} f(x_1, \ldots, x_n) \, \tder{}{x_{i_1}} \right) \cdots  \right) \tder{}{x_{i_1}}.
 \end{equation*}
 </div>
-<div class="para">for some ordered sequence of variables <span class="process-math">\(x_{i_1}, x_{i_2}, \ldots, x_{i_n}\text{.}\)</span> We say that <span class="process-math">\(f(x_1, \ldots, x_n)\)</span> has \textbf{all iterated integrals} the iterated integral exists for every ordered sequence of variables.</div>
+<div class="para">for some ordered sequence of variables <span class="process-math">\(x_{i_1}, x_{i_2}, \ldots, x_{i_n}\text{.}\)</span> We say that <span class="process-math">\(f(x_1, \ldots, x_n)\)</span> has <em class="emphasis">all iterated integrals</em> the iterated integral exists for every ordered sequence of variables.</div>
 </div></article><div class="para" id="sec-cubeintegration-17">The key thing to remember about iterated integrals is that they are computational in nature. We can see this by completing an iterated integral from <a href="" class="xref" data-knowl="./knowl/xref/ex-integral1.html" title="Example 2.1.4: Integrating with respect to a variable in two dimensions">Example 2.1.4</a>.</div>
 <details id="sec-cubeintegration-18" class="example example-like born-hidden-knowl"><summary><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.7</span><span class="period">.</span><span class="space"> </span><span class="title">Iterated integral computation I.</span>
@@ -589,7 +589,12 @@ f(x,y) = \begin{cases} 1 \amp \textnormal{ if } (x,y) \textnormal{ is in } A \cu
 \mathcal{C} = [a_1 , b_1] \times [a_2, b_2] \times \cdots \times [a_n , b_n]
 \end{equation*}
 </div>
-<div class="para">which has all iterated integrals. Then for any ordering of variables <span class="process-math">\(x_{i_1}, x_{i_2}, \ldots, x_{i_n}\)</span> we have \begin{align*} \int_\mathcal{C} f(x_1, \ldots, x_n) \, \tder{}{\textnormal{V}} \amp =  \int_{a_{i_n}}^{b_{i_n}}  \left( \cdots \left( \int_{a_{i_1}}^{b_{i_1}} f(x_1, \ldots, x_n) \, \tder{}{x_{i_1}} \right) \cdots  \right) \tder{}{x_{i_n}}. \end{align*}</div>
+<div class="para">which has all iterated integrals. Then for any ordering of variables <span class="process-math">\(x_{i_1}, x_{i_2}, \ldots, x_{i_n}\)</span> we have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int_\mathcal{C} f(x_1, \ldots, x_n) \, \tder{}{\textnormal{V}} =  \int_{a_{i_n}}^{b_{i_n}}  \left( \cdots \left( \int_{a_{i_1}}^{b_{i_1}} f(x_1, \ldots, x_n) \, \tder{}{x_{i_1}} \right) \cdots  \right) \tder{}{x_{i_n}}.
+\end{equation*}
+</div>
 </div></article><div class="para" id="sec-cubeintegration-25">The proof of this theorem will be deferred to a real analysis course, where it is better stated in terms of Lesbegue integrals (although the results for Riemann integrals can be found in ‘Calculus on manifolds’ by Spivak). In fact, the condition that <span class="process-math">\(f(x_1, \ldots, x_n)\)</span> be bounded with all iterated integrals can be changed to <span class="process-math">\(f(x_1, \ldots, x_n)\)</span> being integrable on <span class="process-math">\(\mathcal{C}\text{.}\)</span> However, this latter condition may not be something that is as easily known or checked without more tools. One thing that does follow from this is the following corollary.</div>
 <article class="corollary theorem-like" id="sec-cubeintegration-26"><h3 class="heading">
 <span class="type">Corollary</span><span class="space"> </span><span class="codenumber">2.1.11</span><span class="period">.</span>
