@@ -153,7 +153,7 @@
                 </me>
                 is the value of 
                 <me>
-                    \int_{a_{i_n}}^{b_{i_n}}  \left( \cdots \left( \int_{a_{i_1}}^{b_{i_1}} f(x_1, \ldots, x_n) \, \tder{}{x_{i_1}} \right) \cdots  \right) \tder{}{x_{i_1}}.
+                    \int_{a_{i_n}}^{b_{i_n}}  \left( \cdots \left( \int_{a_{i_1}}^{b_{i_1}} f(x_1, \ldots, x_n) \, \tder{}{x_{i_1}} \right) \cdots  \right) \tder{}{x_{i_n}}.
                 </me>
                 for some ordered sequence of variables <m>x_{i_1}, x_{i_2}, \ldots, x_{i_n}</m>. We say that <m>f(x_1, \ldots, x_n)</m> has <em>all iterated integrals</em> the iterated integral exists for every ordered sequence of variables.</p>
         </statement>
@@ -244,7 +244,7 @@
                         </me>
                     which has all iterated integrals. Then for any ordering of variables <m>x_{i_1}, x_{i_2}, \ldots, x_{i_n}</m> we have
                     <me>
-                        \int_\mathcal{C} f(x_1, \ldots, x_n) \, \tder{}{\textnormal{V}} =  \int_{a_{i_n}}^{b_{i_n}}  \left( \cdots \left( \int_{a_{i_1}}^{b_{i_1}} f(x_1, \ldots, x_n) \, \tder{}{x_{i_1}} \right) \cdots  \right) \tder{}{x_{i_n}}.
+                        \idotsint_\mathcal{C} f(x_1, \ldots, x_n) \, \tder{}{\textnormal{V}} =  \int_{a_{i_n}}^{b_{i_n}}  \left( \cdots \left( \int_{a_{i_1}}^{b_{i_1}} f(x_1, \ldots, x_n) \, \tder{}{x_{i_1}} \right) \cdots  \right) \tder{}{x_{i_n}}.
                     </me>
                     </p>
             </statement>
@@ -345,7 +345,8 @@
                         <me>
                         \mathcal{C} = [-1, 1] \times [-1, 1] \times [-1, 1]
                         </me>
-                        which is <m>f(x,y,z)</m> on <m>B</m> and <m>0</m> off of <m>B</m>, show that <m>\tilde{f} (x,y,z)</m> is integrable on <m>\mathcal{C}</m>.  </p>
+                        which is <m>f(x,y,z)</m> on <m>B</m> and <m>0</m> off of <m>B</m>, show that <m>\tilde{f} (x,y,z)</m> is integrable on <m>\mathcal{C}</m>.
+                    </p>
                 </statement>
             </exercise>
     
