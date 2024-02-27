@@ -492,7 +492,7 @@ F (x, z) \amp = \int_{0}^2 x e^{xy} - \sin (yz) \, \tder{}{y}, \\
 <div class="para">is the value of</div>
 <div class="displaymath process-math">
 \begin{equation*}
-\int_{a_{i_n}}^{b_{i_n}}  \left( \cdots \left( \int_{a_{i_1}}^{b_{i_1}} f(x_1, \ldots, x_n) \, \tder{}{x_{i_1}} \right) \cdots  \right) \tder{}{x_{i_1}}.
+\int_{a_{i_n}}^{b_{i_n}}  \left( \cdots \left( \int_{a_{i_1}}^{b_{i_1}} f(x_1, \ldots, x_n) \, \tder{}{x_{i_1}} \right) \cdots  \right) \tder{}{x_{i_n}}.
 \end{equation*}
 </div>
 <div class="para">for some ordered sequence of variables <span class="process-math">\(x_{i_1}, x_{i_2}, \ldots, x_{i_n}\text{.}\)</span> We say that <span class="process-math">\(f(x_1, \ldots, x_n)\)</span> has <em class="emphasis">all iterated integrals</em> the iterated integral exists for every ordered sequence of variables.</div>
@@ -592,7 +592,7 @@ f(x,y) = \begin{cases} 1 \amp \textnormal{ if } (x,y) \textnormal{ is in } A \cu
 <div class="para">which has all iterated integrals. Then for any ordering of variables <span class="process-math">\(x_{i_1}, x_{i_2}, \ldots, x_{i_n}\)</span> we have</div>
 <div class="displaymath process-math">
 \begin{equation*}
-\int_\mathcal{C} f(x_1, \ldots, x_n) \, \tder{}{\textnormal{V}} =  \int_{a_{i_n}}^{b_{i_n}}  \left( \cdots \left( \int_{a_{i_1}}^{b_{i_1}} f(x_1, \ldots, x_n) \, \tder{}{x_{i_1}} \right) \cdots  \right) \tder{}{x_{i_n}}.
+\idotsint_\mathcal{C} f(x_1, \ldots, x_n) \, \tder{}{\textnormal{V}} =  \int_{a_{i_n}}^{b_{i_n}}  \left( \cdots \left( \int_{a_{i_1}}^{b_{i_1}} f(x_1, \ldots, x_n) \, \tder{}{x_{i_1}} \right) \cdots  \right) \tder{}{x_{i_n}}.
 \end{equation*}
 </div>
 </div></article><div class="para" id="sec-cubeintegration-25">The proof of this theorem will be deferred to a real analysis course, where it is better stated in terms of Lesbegue integrals (although the results for Riemann integrals can be found in ‘Calculus on manifolds’ by Spivak). In fact, the condition that <span class="process-math">\(f(x_1, \ldots, x_n)\)</span> be bounded with all iterated integrals can be changed to <span class="process-math">\(f(x_1, \ldots, x_n)\)</span> being integrable on <span class="process-math">\(\mathcal{C}\text{.}\)</span> However, this latter condition may not be something that is as easily known or checked without more tools. One thing that does follow from this is the following corollary.</div>
