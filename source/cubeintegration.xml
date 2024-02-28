@@ -96,13 +96,13 @@
         <statement>
             <p>Let <m>f(x_1, \ldots, x_n)</m> be defined on the <m>n</m>-cuboid <m>\mathcal{C} = [a_1, b_1] \times \cdots \times [a_n , b_n]</m>. The <term>integral of <m>f(x_1, \ldots, x_n)</m> with respect to the <m>i</m>-th variable</term> is the function 
             <me>
-                F (t_1, \ldots, t_{i -1}, t_{i + 1} , \ldots , t_n) := \int_{a_i}^{b_i} f(t_1, \ldots, t_{i - 1}, x_i, t_{i + 1}, \ldots,  t_n) \, \tder{}{x_i} 
+                F (x_1, \ldots, x_{i -1}, x_{i + 1} , \ldots , x_n) := \int_{a_i}^{b_i} f(x_1, \ldots, x_{i - 1}, t, x_{i + 1}, \ldots,  x_n) \, \tder{}{t} 
             </me>
             on the <m>(n - 1)</m>-cuboid <m>\mathcal{C} (i)</m>. We say that <m>f(x_1, \ldots, x_n)</m> is integrable with respect to <m>x_i</m> if the integral of <m>f(x_1, \ldots, x_n)</m> with respect to the <m>i</m>-th variable exists.</p>
         </statement>
     </definition>
 
-    <p>This is simply a <m>1</m>-variable definition and, for many basic functions, is easily computable. </p>
+    <p>In the previous definition, we use the variable <m>t</m> to emphasize that it is the <m>i</m>-th variable that is being integrated. However, no matter which variable is chosen, it is simply a <m>1</m>-variable integral and, for many basic functions, is easily computable. </p>
 
     <example xml:id="ex-integral1">
         <title>Integrating with respect to a variable in two dimensions</title>

@@ -30,7 +30,7 @@
 
     <proposition xml:id="prop-continuous-integrable">
         <statement>
-            <p>If <m>D</m> is a compact domain in <m>\mathbb{R}^n</m> and <m>f</m> is continuous on <m>D</m>, then the multiple integral 
+            <p>If <m>D</m> is a compact domain in <m>\mathbb{R}^n</m> with smooth boundary and <m>f</m> is continuous on <m>D</m>, then the multiple integral 
                 <me>
                 \idotsint_\mathcal{D} f(x_1, \ldots, x_n) \, \tder{}{V}
                 </me>
