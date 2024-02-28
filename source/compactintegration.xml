@@ -69,7 +69,7 @@
                 </me>
                 The domain <m>D</m> is \textbf{bounded by continuous graphs of <m>y</m>} if there is an interval <m>[c,d]</m> and continuous functions <m>h_1, h_2 : [c,d] \to \mathbb{R}</m> for which
                 <me>
-                    D = \left\{ (x,y) : c \leq y \leq d , h_1 (y) \leq y \leq h_2 (y) \right\}.
+                    D = \left\{ (x,y) : c \leq y \leq d , h_1 (y) \leq x \leq h_2 (y) \right\}.
                 </me></p>
         </statement>
     </definition>
