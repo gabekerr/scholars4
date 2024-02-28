@@ -438,11 +438,11 @@ RS_{\mathcal{P}} = \sum_{(j_1, \ldots, j_n)} f \left( x^*_{(j_1, \ldots, j_n)} \
 <div class="para">Let <span class="process-math">\(f(x_1, \ldots, x_n)\)</span> be defined on the <span class="process-math">\(n\)</span>-cuboid <span class="process-math">\(\mathcal{C} = [a_1, b_1] \times \cdots \times [a_n , b_n]\text{.}\)</span> The <dfn class="terminology">integral of <span class="process-math">\(f(x_1, \ldots, x_n)\)</span> with respect to the <span class="process-math">\(i\)</span>-th variable</dfn> is the function</div>
 <div class="displaymath process-math">
 \begin{equation*}
-F (t_1, \ldots, t_{i -1}, t_{i + 1} , \ldots , t_n) := \int_{a_i}^{b_i} f(t_1, \ldots, t_{i - 1}, x_i, t_{i + 1}, \ldots,  t_n) \, \tder{}{x_i} 
+F (x_1, \ldots, x_{i -1}, x_{i + 1} , \ldots , x_n) := \int_{a_i}^{b_i} f(x_1, \ldots, x_{i - 1}, t, x_{i + 1}, \ldots,  x_n) \, \tder{}{t} 
 \end{equation*}
 </div>
 <div class="para">on the <span class="process-math">\((n - 1)\)</span>-cuboid <span class="process-math">\(\mathcal{C} (i)\text{.}\)</span> We say that <span class="process-math">\(f(x_1, \ldots, x_n)\)</span> is integrable with respect to <span class="process-math">\(x_i\)</span> if the integral of <span class="process-math">\(f(x_1, \ldots, x_n)\)</span> with respect to the <span class="process-math">\(i\)</span>-th variable exists.</div>
-</div></article><div class="para" id="sec-cubeintegration-11">This is simply a <span class="process-math">\(1\)</span>-variable definition and, for many basic functions, is easily computable.</div>
+</div></article><div class="para" id="sec-cubeintegration-11">In the previous definition, we use the variable <span class="process-math">\(t\)</span> to emphasize that it is the <span class="process-math">\(i\)</span>-th variable that is being integrated. However, no matter which variable is chosen, it is simply a <span class="process-math">\(1\)</span>-variable integral and, for many basic functions, is easily computable.</div>
 <details id="ex-integral1" class="example example-like born-hidden-knowl"><summary><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.4</span><span class="period">.</span><span class="space"> </span><span class="title">Integrating with respect to a variable in two dimensions.</span>
 </h3></summary><article class="example example-like"><div class="para logical" id="ex-integral1-2-1">
