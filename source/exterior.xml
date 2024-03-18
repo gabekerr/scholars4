@@ -3,7 +3,7 @@
 <section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-exterior">
     <title>Exterior algebras</title>
     <introduction>
-    <p>This section had to come at some point, so I apologize now for presenting the inevitable content contained within! At the same time, exterior algebras could be considered a first introduction to a very intriguing subject and quite different from what you may have experienced in your mathematical education... so I retract my apology!!</p>
+    <p>Wedge products were seen last section to create alternating forms. In this section, we treat them as fundamental ways to build vectors in a new vector space called the exterior algebra.</p>
     </introduction>
     <subsection xml:id="subsec-exterior-product">
         <title>The exterior product</title>
@@ -36,9 +36,11 @@
             (2x + 3y ) (x - y ) = 2x^2 - 2x y + 3 y x - 3 y^2 = 2 x^2 + xy - 3 y^2.
         </me>
         Now what about exterior products? First, we note that if we take any vector <m>\mb{v}</m> then by anti-symmetry, <m>\mb{v} \wedge \mb{v} = - \mb{v} \wedge \mb{v}</m> which implies <m>\mb{v} \wedge \mb{v} = 0</m>. I.e. taking an <sq>exterior square</sq> of a vector in <m>V</m> gives zero. This combined with bilinearity gives 
-        <me>
-            (2x + 3y ) \wedge (x - y ) = 2x \wedge x - 2x\wedge y + 3 y\wedge x - 3 y\wedge y = - 2x\wedge y - 3 x\wedge y = - 5 x \wedge y.
-        </me>
+        <md>
+            <mrow>(2x + 3y ) \wedge (x - y ) \amp = 2x \wedge x - 2x\wedge y + 3 y\wedge x - 3 y\wedge y </mrow> 
+            <mrow> \amp = - 2x\wedge y - 3 x\wedge y </mrow>
+            <mrow> \amp = - 5 x \wedge y. </mrow>
+        </md>
         This type of exercise can be enhanced to the following proposition.</p>
 
         <proposition xml:id="prop-wedgebasis">
@@ -104,103 +106,9 @@
             </proof>
         </proposition>
 
-        <p>Let us observe an application of exterior products and this proposition right now. To do this, we need to define differential forms.</p>
+        
 
-        <definition xml:id="def-differential-form">         
-            <notation>             
-                <usage><m>\Omega^k \mathbb{R}^m </m></usage>             
-                <description>Tangent space </description>         
-            </notation>         
-            <statement>
-                <p>Let <m>U</m> be an open subset of <m>\mathbb{R}^m</m>. A <term>differential <m>1</m>-form</term> <m>\eta</m> on <m>U</m> is a smooth assignment which takes <m>p</m> to a tangent covector <m>\eta (p) \in T^*_p \mathbb{R}^m = \text{Hom} (T_p \mathbb{R}^m , \mathbb{R})</m>. A <term>differential <m>k</m>-form</term> is a linear combination of <m>k</m>-exterior products of <m>1</m>-forms.</p>
-            </statement>
-        </definition>
-
-        <p>Equivalently, we may consider a differential <m>k</m>-form to be an assignment from <m>p</m> to the dual of the <m>k</m>-th exterior space <m>\bigwedge^k V</m>, i.e. a vector in <m>\text{Hom} (\bigwedge^k T_p \mathbb{R}^m , \mathbb{R})</m>. Differential <m>1</m>-forms are dual to vector fields in that if we have a vector field <m>\mb{Y}</m> on <m>U</m> and a differential one form <m>\eta</m> on <m>U</m> then <m>\eta (\mb{Y})</m> is a scalar function on <m>U</m>. The most common way to create a differential <m>1</m>-form is to take the derivative of a scalar function!</p>
-
-        <definition xml:id="def-exterior-derivative">
-            <notation>
-                <usage><m>\tder{}{f} </m></usage>             
-                <description>Exterior derivative of scalar function </description>         
-            </notation>         
-            <statement>
-                <p>If <m>U</m> is an open subset of <m>\mathbb{R}^m</m> and <m>p \in U</m>, write the standard dual basis of <m>T_p^* \mathbb{R}^m</m> as 
-                <me>
-                    \tder{}{x_1}, \ldots, \tder{}{x_m}.
-                </me>
-                I.e. these are the dual vectors to the standard tangent vectors <m>\partial_1 , \ldots, \partial_m</m> in that 
-                <me>
-                    \tder{}{x_i} (\partial_j) \amp = \begin{cases} 1 \amp \text{ if } i = j, \\ 0 \amp \text{ otherwise} \end{cases}
-                </me>
-                The (exterior) derivative of a scalar function is then defined as the differential <m>1</m>-form
-                <me>
-                    \tder{}{f} = \frac{\partial f}{\partial x_1} \tder{}{x_1} + \cdots + \frac{\partial f}{\partial x_n} \tder{}{x_n} .
-                </me></p>
-            </statement>
-        </definition>
-
-        <p>The student should note that this is really nothing new (yet), just a different way of expressing the usual derivative of an ordinary scalar function. For example, if we take 
-        <me>
-            f(x,y) = x^2 \ln y
-        </me>
-        then the original definition of the derivative of <m>f(x,y)</m> at <m>(x,y)</m> is a linear transformation from <m>T_{(x,y)} \mathbb{R}^2</m> to <m>T_{x^2 \ln y} \mathbb{R}</m>. Using the standard basis of vector fields, we identify these tangent spaces with <m>\mathbb{R}^2</m> and <m>\mathbb{R}</m> and write this derivative as the <m>1 \times 2</m> matrix
-        <me>
-            \tder{}{f} = \left[ \begin{matrix} 2x \ln y \amp \frac{x^2}{y} \end{matrix} \right].
-        </me>
-        As a differential <m>1</m>-form, this is written
-        <me>
-            \tder{}{f} = 2x \ln y \,\tder{}{x} +   \frac{x^2}{y}\, \tder{}{y}.
-        </me>
-        We will see differential forms in much more detail later on as they form the heart of multivariable calculus. For now, let us use them to re-express Lagrange multipliers.</p>
-
-        <proposition xml:id="prop-lagrangian-one-constaint">
-            <title>Lagrange multipliers with one constraint - exterior product version</title>
-            <statement>
-                <p>Suppose <m>V</m> is an open set in <m>\mathbb{R}^n</m>, <m>g : V \to \mathbb{R}</m> and <m>f: V \to \mathbb{R}</m> two differentiable scalar functions. If <m>X</m> is the level set of <m>g</m> then a smooth point <m>q \in X</m> is a critical point of <m>f|_X</m> if and only if the differential <m>2</m>-form <m>\tder{}{f} \wedge \tder{}{g}</m> vanishes at <m>q</m>.</p>
-            </statement>
-        </proposition>
-
-        <p>The major advantage of this over the previous version is that <em> there are no multipliers!</em> Thus we have automatically eliminated one variable that needs to be solved in the previous version. Let's take another look at <xref ref="ex-lagrange1"/> but using this technique. </p>
-
-        <example>
-            <title>Lagrange multiplier using differential forms</title>
-            <statement>
-                <p>Recall that in <xref ref="ex-lagrange1"/> we wanted to find critical points of <m>f(x,y,z) = x^2 - y^2 + z</m> on the hyperboloid
-                <me>
-                    g(x,y, z) = x^2 + y^2 - 4 z^2 = 1.
-                </me>
-                We compute derivatives but now write them as differential <m>1</m>-forms to see 
-                <md>
-                    <mrow> \tder{}{f} \amp =  2x \,\tder{}{x} -2y \,\tder{}{y} + \tder{}{z}, </mrow>
-                    <mrow> \tder{}{g} \amp =  2x\,\tder{}{x} + 2y\,\tder{}{y} - 8z\,\tder{}{z}. </mrow>
-                </md>
-                Now we compute the exterior product
-                <md>
-                    <mrow> \tder{}{f} \wedge \tder{}{g} \amp = ( 2x \,\tder{}{x} -2y \,\tder{}{y} + \tder{}{z}) \wedge (2x\,\tder{}{x} + 2y\,\tder{}{y} - 8z\,\tder{}{z}) , </mrow>
-                    <mrow> \amp = 4xy \, \tder{}{x} \wedge \tder{}{y} - 2x ( 1 + 8z )\, \tder{}{x} \wedge \tder{}{z} + 2y (8z - 1)\, \tder{}{y}\wedge \tder{}{z}. </mrow>
-                </md>
-                For this <m>2</m>-form to be zero, each of the coefficient functions must be zero. The coefficient <m>4xy</m> is zero if and only if either <m>x = 0</m> or <m>y = 0</m>. Again, the constraint <m>g(x,y,z) = 1</m> implies not both can be zero. Consider both cases:
-                <ol>
-                    <li> Suppose <m>x = 0</m> and <m>y \ne 0</m>. Since <m>x = 0</m>, the <m>\tder{}{x} \wedge \tder{}{y}</m> coefficient is zero. Since <m>y \ne 0</m> the <m>\tder{}{y} \wedge \tder{}{z}</m> coefficient being zero implies <m>8z - 1 = 0</m> so that <m>z = 1/8</m>.</li>
-                    <li> Suppose <m>y = 0</m> and <m>x \ne 0</m>. Since <m>y = 0</m>, the <m>\tder{}{y} \wedge \tder{}{z}</m> coefficient is zero. Since <m>x \ne 0</m> the <m>\tder{}{x} \wedge \tder{}{z}</m> coefficient being zero implies <m>1 + 8z= 0</m> so that <m>z = -1/8</m>. </li>
-                </ol>
-                Putting these into the constraint then produces the critical points as before.</p>
-            </statement>
-        </example>
-
-        <p>The procedure for several constraints also follows from <xref ref="prop-wedgelinearind"/> as well.</p>
-
-        <proposition xml:id="prop-lagrangian-several-constaints">
-            <title>Lagrange multipliers with several constraints - exterior products version</title>
-            <statement>
-                <p>Suppose <m>V</m> is an open set in <m>\mathbb{R}^n</m>, <m>\mb{G} : V \to \mathbb{R}^k</m> a differentiable vector valued function 
-                <me>
-                    \mb{G} (x_1, \ldots, x_n) = (g_1(x_1, \ldots, x_n), \ldots, g_k(x_1, \ldots, x_n))
-                </me>
-                with <m>\tder{}{\mb{G}}</m> of full rank and <m>f: V \to \mathbb{R}</m> a differentiable scalar function. If <m>X</m> is the level set of <m>\mb{G}</m> then a smooth point <m>q \in X</m> is a critical point of <m>f|_X</m> if and only if <m>\tder{}{f} \wedge  \tder{}{g_1}\wedge \cdots \wedge  \tder{}{g_k}</m> is zero at <m>q</m>.</p>
-            </statement>
-        </proposition>
-
+        
     </subsection>
 
     <subsection xml:id="subsec-exterior-algebra-geometry">
@@ -278,7 +186,7 @@
         <p>Let's run this result through an example to see how quickly it solves some problems.</p>
 
         <example>
-            <title>Chain rule computation II</title>
+            <title>Area computation</title>
             <statement>
                 <p>Consider the column vectors
                 <me>
@@ -297,6 +205,12 @@
                 One should take a moment to appreciate this newfound technique. It is one thing to be able to find volumes of parallelograms in the plane with simple determinants, it is another to be able to find areas of parallelograms (and volumes of parallelepipeds) in high dimensional spaces <m>\mathbb{R}^n</m> with simple arithmetic!</p>
             </statement>
         </example>
+        <p> Now, there is a connection between the exterior algebra of a dual space <m>V^*</m> and multilinear forms on <m>V</m>. Indeed, equation <xref ref="eq-wedge-form"/> gives a direct isomorphism
+            <me>
+                \bigwedge^k V^* \stackrel{\cong}{\longrightarrow} \mathcal{L}^k (V).
+            </me>
+        This isomorphism gives a way to equate the two perspectives.
+        </p>
 
         <p>Happily for some, and sadly for others, exterior products can be used to give even more geometric information about a vector space. The existence of the inner product on <m>\bigwedge^* V</m> along with a choice of orientation induces a new duality as well. Let us define these concepts now.</p>
 
@@ -552,7 +466,7 @@
             </proof>
         </proposition>
 
-        <p>In the coming sections, we will briefly lay down exterior products, but they will make a major reappearance when we consider integration of forms and several fundamental theorems such as Stokes', Green's, and the divergence theorem.</p>
+        <p>In the coming sections, we will see that exterior products play a central role when we consider integration of forms and several fundamental theorems such as Stokes', Green's, and the divergence theorem.</p>
 
     </subsection>
 
@@ -624,12 +538,22 @@
 
         <exercise>
             <statement>
+                <p> Calculate the cross product
+                    <me>
+                        \threevec{2}{3}{-1} \times \threevec{1}{0}{2}
+                    </me>
+                </p>
+            </statement>
+        </exercise>
+
+        <exercise>
+            <statement>
                 <p> Compute the Hodge star operators of the following vectors assuming the standard orientation of <m>\mathbb{R}^n</m>.</p>
             </statement>
         </exercise>
 
         <exercise>
-            <introduction><p> Compute the exterior derivatives of the following functions </p></introduction>
+            <introduction><p> Compute the Hodge star of the following vectors </p></introduction>
         <task>
             <statement>
                 <p> <m>\threevec{3}{1}{1}</m> in <m>\mathbb{R}^3</m>, </p>

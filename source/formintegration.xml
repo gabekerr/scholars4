@@ -50,7 +50,7 @@
             \int_I f = F(a) - F(b).
         </me>
         Indeed, we now can make a general definition.</p>
-        <definition xml:id="def-pullback">         
+        <definition xml:id="def-integration-top-form">         
             <notation>             
                 <usage><m>\int_D \eta </m></usage>             
                 <description>Integration of <m>m</m>-form </description>         
@@ -67,66 +67,9 @@
             </statement>
         </definition>
 
-        <p>If we omit the orientation, we assume that <m>D \subseteq \mathbb{R}^m</m> has the standard orientation.</p>
+        <p>If we omit the orientation, we assume that <m>D \subseteq \mathbb{R}^m</m> has the standard orientation. To calculate with orientations, we need to know when a parameterization of an oriented domain retains the correct orientation information. </p>
 
-        <p>Now, why do we consider this definition when it seems to just be a repeat of the prior definitions with a lot more vocabulary? The answer is manifold (pun), but one precise answer comes from considering how to transform differential forms. </p>
-
-        <definition xml:id="def-integration-top-form">         
-            <notation>             
-                <usage><m>\mb{G}^* \eta </m></usage>             
-                <description>Pullback of <m>m</m>-form </description> 
-            </notation>         
-            <statement>
-                <p>Let <m>D</m> be a domain in <m>\mathbb{R}^m</m> with coordinates <m>(u_1, \ldots, u_m)</m> and <m>E</m> a domain in <m>\mathbb{R}^n</m> with coordinates <m>(x_1, \ldots, x_n)</m>. If <m>\mb{G} : D \to E</m> is a differential function given by 
-                    <me>
-                    \mb{G} (u_1, \ldots, u_m) = (x_1 (u_1, \ldots, u_m), \ldots, x_n(u_1, \ldots, u_m))
-                    </me>
-                    and 
-                    <me>
-                    \eta = \sum_{i_1 \lt \cdots \lt i_k} f_{i_1, \ldots, i_k} (x_1, \ldots, x_n)\, \tder{}{x_{i_1}} \wedge \cdots \wedge \tder{}{x_{i_k}}
-                    </me>
-                    is a differential <m>k</m>-form on <m>E</m> then the <term>pullback</term> of <m>\eta</m> to <m>D</m> via <m>\mb{G}</m> is the differential <m>k</m>-form <m>\mb{G}^* \eta</m> on <m>E</m> given by 
-                    <me>
-                    \mb{G}^* \eta = \sum_{i_1 \lt \cdots \lt i_k} (f_{i_1, \ldots, i_k}\circ \mb{G}) (u_1, \ldots, u_m) \,\mb{G}^* \tder{}{x_{i_1}} \wedge \cdots \mb{G}^* \tder{}{x_{i_k}}.
-                    </me>
-                    Here <m>\mb{G}^* \tder{}{x_i}</m> is just the exterior derivative <m>\tder{}{x_i(u_1, \ldots, u_m)}</m>.</p>
-            </statement>
-        </definition>
-
-        <example>
-            <title>Integrating a form</title>
-            <statement>
-                <p>Suppose 
-                    <me>
-                    \mb{G} (u,v) = (x(u,v) , y(u,v)) = (u^2 - v^2, 2uv)
-                    </me>
-                    is defined taking <m>D = \mathbb{R}^2</m> to <m>E = \mathbb{R}^2</m>. Consider the <m>1</m>-form
-                    <me>
-                    \eta = x \tder{}{x} + y \tder{}{y}
-                    </me>
-                    and the two form
-                    <me>
-                    \vol^{st} = \tder{}{x} \wedge \tder{}{y}.
-                    </me>
-                    We compute the pullbacks <m>\mb{G}^* \eta</m> and <m>\mb{G}^* \vol^{st}</m>. To do so, we first compute 
-                    <md>
-                        <mrow> \mb{G}^* \tder{}{x} = \tder{}{x(u,v)} \amp = 2 u \, \tder{}{u} - 2 v \, \tder{}{v}, </mrow> 
-                        <mrow> \mb{G}^* \tder{}{y} = \tder{}{y(u,v)} \amp = 2 v\, \tder{}{u} + 2 u\, \tder{}{v}. </mrow>
-                    </md>
-                    Then
-                    <md>
-                        <mrow> \mb{G}^* \eta /amp = x(u,v)  \mb{G}^* \tder{}{x} + y (u,v)  \mb{G}^* \tder{}{y}, </mrow>
-                        <mrow> /amp = (u^2 - v^2) ( 2 u \,\tder{}{u} - 2 v \,\tder{}{v}) + 2uv (2 v\, \tder{}{u} + 2 u \,\tder{}{v}), </mrow>
-                        <mrow> /amp = 2 u (u^2 + v^2)\, \tder{}{u} + 2v ( u^2 + v^2 ) \,\tder{}{v}. </mrow>
-                    </md>
-                    and 
-                    <md>
-                        <mrow> \mb{G}^* \vol^{st} /amp = \mb{G}^* \tder{}{x} \wedge \mb{G}^* \tder{}{y},  </mrow>
-                        <mrow> /amp = (2 u\, \tder{}{u} - 2 v\, \tder{}{v}) \wedge (2 v\, \tder{}{u} + 2 u\, \tder{}{v}), </mrow>
-                        <mrow> /amp = 4 (u^2 + v^2) \, \tder{}{u} \wedge \tder{}{v}. </mrow>
-                    </md></p>
-            </statement>
-        </example>
+        
 
         <definition xml:id="def-orientation-preserving">         
             <notation>             

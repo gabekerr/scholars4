@@ -86,7 +86,9 @@
 
     <chapter xml:id="ch-differential-forms">
       <title>Differential Forms</title>
+      <xi:include href="multilinear.xml" />
       <xi:include href="exterior.xml" />
+      <xi:include href="forms.xml" />
     </chapter>
 
     <chapter xml:id="ch-integral-of-forms">

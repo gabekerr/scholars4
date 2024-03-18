@@ -3,7 +3,6 @@
 <section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-cubeintegration">
     <title>Integrating over cuboids in <m>\mathbb{R}^n</m></title>
     <p>Having explored derivatives, we now consider integrals in many dimensions. As in the case of derivatives, the domain on which we are defined (and integrating) can make a big difference in how easy or difficult it is to compute. We will give the general definition and then discuss rectangles in detail. </p>
-
     
     <definition xml:id="def-cube">         
         <notation>             
@@ -254,7 +253,7 @@
 
         <corollary>
             <statement>
-                Continuous functions on <m>\mathbb{R}^n</m> are integrable.
+                Continuous functions on <m>\mathbb{R}^n</m> are integrable on cubiods.
             </statement>
         </corollary>
 

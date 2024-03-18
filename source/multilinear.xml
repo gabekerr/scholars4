@@ -1,0 +1,188 @@
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-multilinear">
+    <title>Alternating forms</title>
+    <introduction>
+    <p>This section had to come at some point, so I apologize now for presenting the inevitable content contained within! At the same time, exterior algebras could be considered a first introduction to a very intriguing subject and quite different from what you may have experienced in your mathematical education... so I retract my apology!!</p>
+    </introduction>
+    <subsection xml:id="subsec-multilinear">
+        <title>Multilinear maps</title>
+        <p>The following definition generalizes, in some sense, the notion of a linear function. First though, recall that if <m>V</m> is a vector space over <m>K</m> and <m>k</m> a natural number, then <m>V^k</m> is the set of tuples
+        <me>
+            V^k = \left\{ (v_1, \ldots, v_k) : v_i \in V \right\}.
+        </me>
+        When <m>k = 0</m> we take <m>V^0</m> to be <m>K</m> by definition.
+        </p>
+        <definition xml:id="def-multilinear">         
+            <notation>             
+                <usage><m>\nu : V \times \cdots \times V \to V</m></usage>             
+                <description>Multilinear map</description>         
+            </notation>         
+            <statement>
+                <p>Let <m>V</m> be a vector space over <m>K</m>. A <term>multilinear <m>k</m>-form</term> is a function
+                    <me>
+                    \eta : V^k \to V
+                    </me>
+                    subject to the property that, for every <m>1 \leq i \leq k</m>
+                    <me>
+                        \begin{matrix} \eta (v_1, \cdots , av_i + bw_i, \cdots ,v_k ) \\ \parallel \\  a \eta (v_1, \ldots, v_i, \cdots ,v_k) + b \eta (v_1, \ldots, w_i, \cdots, v_k) 
+                        \end{matrix}
+                    </me>
+                </p>
+            </statement>
+        </definition>
+        There are several examples of multilinear forms that we have already encountered.
+        <example>
+            <title>Dual vector space</title>
+            <statement>
+                <p>The dual <m>V^*</m> of <m>V</m> can be thought of as multilinear <m>1</m>-forms. Recall that this is the vector space of linear transformations
+                <me>V^* = \left\{ \delta : V \to K : \delta \text{ a linear transformation } \right\}.</me>
+            </p>
+            </statement>
+        </example>
+        <p>As is the case for the dual space, the set of multilinear <m>k</m>-forms is also a vector space with addition and scalar multiplication defined as usual for functions
+        <me>
+            \begin{matrix} (a\eta + b \nu) (v_1, \cdots , v_k ) \\ \parallel \\  a \eta (v_1, \ldots, v_k) + b \nu (v_1, \ldots,v_k) 
+                        \end{matrix}
+        </me>
+        In fact, multilinear forms, when taken altogether, have even more structure than a vector space. We can take the product of a <m>k</m>-form <m>\eta</m> and a <m>l</m>-form <m>\nu</m> to get a <m>(k + l)</m>-form by taking
+        <me>
+            \eta \otimes \nu (v_1, \ldots, v_{k + l}) = \eta (v_1 , \ldots, v_k) \, \nu (v_{k + 1}, \ldots, v_{k + l}).
+        </me>
+        We will write this vector space as
+        <me>
+            \mathcal{L}^k (V)
+        </me>
+        </p>
+        <example>
+            <title>Real inner products</title>
+            <statement>
+                <p>If <m>V</m> is a real vector space then an inner product
+                    <me>
+                        \langle , \rangle : V^2 \to \mathbb{R}
+                    </me>
+                is a <m>2</m>-form on <m>V</m>. This <m>2</m>-form has the added properties of non-degeneracy and symmetry. 
+            </p>
+            </statement>
+        </example>
+        <example>
+            <title>The determinant</title>
+            <statement>
+                <p>If <m>\mathbb{R}^n</m> is the real vector space of row vectors, then we consider
+                    <me>
+                        \eta (\mb{v}_1, \ldots, \mb{v}_n) = \det \begin{bmatrix} - \amp \mb{v}_1 \amp - \\ \amp \vdots \amp \\ - \amp \mb{v}_n \amp - \end{bmatrix}
+                    </me>
+                By the row linearity property of determinants, this is an <m>n</m>-form. Of course, this also has the properties of being alternating and normalized. 
+            </p>
+            </statement>
+        </example>
+        <proposition xml:id="prop-form-basis">
+            <statement>
+                <p>Suppose <m>V</m> is an <m>n</m>-dimensional vector space and <m>\delta_1 , \ldots, \delta_n</m> a basis of the dual space <m>V^*</m>. Then the vector space <m>\mathcal{L}^k (V)</m> is <m>n^k</m>-dimensional with basis
+                <me>
+                    \mathcal{B} = \left\{ \delta_{i_1} \otimes \cdots \otimes \delta_{i_k} : 1 \leq i_j \leq n, \text{ for } 1 \leq j \leq k \right\}.
+                </me> </p>
+            </statement>
+            <proof> <p>To see that this is so, one first takes <m>\mb{v}_1, \ldots, \mb{v}_n</m> to be the dual basis of <m>\delta_1 , \ldots, \delta_n</m>. To see that it <m>\mathcal{B}</m> spans <m>\mathcal{L}^k (V)</m>, suppose <m>\eta</m> is a <m>k</m>-form. Consider the <m>k</m>-form 
+            <me>
+                \nu = \sum_{(i_1, \ldots, i_k)} \eta \left( \mb{v}_{i_1}, \ldots, \mb{v}_{i_k}\right) \delta_{i_1} \otimes \cdots \otimes \delta_{i_k}
+            </me>
+            where the sum is over all <m>k</m>-tuples of numbers between <m>1</m> and <m>n</m>. It follows then that, for any tuple <m>(i_1, \ldots, i_k)</m> we have
+            <men xml:id="eq-kformequality">
+                \nu  \left( \mb{v}_{i_1}, \ldots, \mb{v}_{i_k}\right) = \eta  \left( \mb{v}_{i_1}, \ldots, \mb{v}_{i_k}\right).
+            </men>
+            But then, using the fact that these are multilinear forms, it follows that <m>\nu = \eta</m> so that <m> \eta </m> is in the span of <m>\mathcal{B}</m>. The linear independence of <m>\mathcal{B}</m> is left as an exercise.
+        </p>
+            </proof>
+        </proposition>
+
+    </subsection>
+    <subsection xml:id="subsec-alternating">
+        <title>Alternating multilinear maps</title>
+        <p>As we see in these examples, there are many types of multilinear forms. Some satisfy additional conditions that help us understand them. </p>
+        <definition xml:id="def-alternating-multilinear">         
+            <notation>             
+                <usage><m>\nu : V \times \cdots \times V \to V</m></usage>             
+                <description>Alternating multilinear map</description>         
+            </notation>         
+            <statement>
+                <p>Let <m>V</m> be a vector space over <m>K</m>. An <term>alternating multilinear <m>k</m>-form</term> is a multilinear map 
+                    <me>
+                    \eta : V^k \to V
+                    </me>
+                    subject to the property that, for every <m>1 \leq i \lt j \leq k</m>
+                    <me>
+                     \eta (v_1, \cdots , v_i, \cdots , v_j, \cdots ,v_k ) = - \eta (v_1, \cdots , v_j, \cdots , v_i, \cdots ,v_k ) 
+                    </me>
+                </p>
+            </statement>
+        </definition>
+
+        <p>It is immediate from the definition that the determinant is an alternating form, but in fact there are many others. We construct alternating forms using wedge products which we will explore from another perspective in the next section. Let <m>V</m> be a vector space and suppose <m>\mb{u}_1, \ldots, \mb{u}_k</m> are vectors in <m>V</m>.
+        Given a set of dual vectors <m>\delta_1, \ldots, \delta_k</m>  define the matrix
+        <me>
+            A (\mb{u}_1, \ldots, \mb{u}_k ) = \begin{bmatrix} \delta_1 (\mb{u}_1) \amp  \cdots \amp \delta_1 (\mb{u}_k) \\ \vdots \amp \ddots \amp \vdots \\  \delta_k (\mb{u}_1) \amp \cdots \amp  \delta_k (\mb{u}_k) \end{bmatrix}.
+        </me>
+        Using this matrix, we can define the wedge product 
+        <men xml:id="eq-wedge-form">
+            \delta_{i_1} \wedge \cdots \wedge \delta_{i_k} (\mb{u}_1, \ldots, \mb{u}_k ) = \det A (\mb{u}_1, \ldots, \mb{u}_k ) .
+        </men>
+        While this appears rather abstract, when working in <m>K^n</m>, it is in fact quite concrete as the next example shows. </p>
+
+        <example>
+            <title>Wedge product computation</title>
+            <statement>
+                <p>Consider the standard dual basis <m>\mb{e}_1^*, \ldots , \mb{e}_4^*</m> of row <m>\mathbb{R}^4</m>. Then we can calculate
+                    <md> 
+                        <mrow>\mb{e}_1^* \wedge \mb{e}_3^* \wedge \mb{e}_4^* \left(\begin{bmatrix} 1 \\ -1 \\ 0 \\ 1 \end{bmatrix}, \begin{bmatrix} 0 \\ 2 \\ 1 \\ 0 \end{bmatrix}, \begin{bmatrix} 3 \\ 0 \\ 2 \\ 1 \end{bmatrix} \right) \amp = \det  \begin{bmatrix} 1 \amp 0 \amp 3 \\ 0 \amp 1 \amp 2 \\ 1 \amp 0 \amp 1 \end{bmatrix}</mrow>
+                        <mrow> \amp = -2</mrow>
+                    </md>
+            </p>
+            </statement>
+        </example>
+        </subsection>
+
+        <exercises xml:id="exe-multilinear">
+
+            <exercise>
+                <statement>
+                    <p> Show that every multilinear <m>2</m>-form on <m>V</m> is the sum of a symmetric form and an alternating form. </p>
+                </statement>
+                <hint> If <m>\eta</m> is any <m>2</m>-form, consider the forms <m>\eta^{sym} (v_1, v_2) = \eta (v_1 , v_2) + \eta (v_2, v_1)</m> and <m>\eta^{alt} (v_1, v_2) = \eta (v_1, v_2) - \eta (v_2, v_1)</m>.</hint>
+            </exercise>
+
+            <exercise>
+                <introduction><p>Verify the statements from the proof of <xref ref="prop-form-basis"/> </p></introduction>
+            <task>
+                <statement>
+                    <p>Verify equation <xref ref="eq-kformequality"/> </p>
+                </statement>
+            </task>
+            <task>
+                <statement>
+                    <p> Show that <m>\mathcal{B}</m> is a linearly independent set by considering any linear relation and testing it against the tuple <m>(\mb{v}_{i_1}, \ldots, \mb{v}_{i_k})</m>. </p>
+                </statement>
+            </task>
+            </exercise>
+    
+            <exercise>
+                <introduction><p> For <m>\mb{e}_1^*, \mb{e}_2^*, \mb{e}_3^*</m> the standard dual basis of <m>\mathbb{R}^3</m> calculate </p></introduction>
+            <task>
+                <statement>
+                    <p> <me>\mb{e}_1^* \wedge \mb{e}_3^* \left(\begin{bmatrix}  -1 \\ 0 \\ 1 \end{bmatrix}, \begin{bmatrix} 3 \\  2 \\ 1 \end{bmatrix} \right)</me> </p>
+                </statement>
+            </task>
+            <task>
+                <statement>
+                    <p> <me>(\mb{e}_1^* - \mb{e}_2^*) \wedge (2 \mb{e}_2^* + \mb{e}_3^*) \left(\begin{bmatrix}  1 \\ 1 \\ 1 \end{bmatrix}, \begin{bmatrix} 2 \\  1 \\ 1 \end{bmatrix} \right)</me> </p>
+                </statement>
+            </task>
+            </exercise>
+
+            <exercise>
+                <statement>
+                    <p> Show that the wedge product <m>\delta_1 \wedge \cdots \wedge \delta_k</m> does define an alternating <m>k</m>-form. In particular, show that it is multilinear and alternating.</p>
+                </statement>
+            </exercise>
+    
+            
+        </exercises>
+    </section>
