@@ -242,15 +242,29 @@ window.MathJax = {
 </li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch-differential-forms.html" class="internal"><span class="codenumber">3</span> <span class="title">Differential Forms</span></a></div>
-<ul class="structural toc-item-list"><li class="toc-item toc-section">
-<div class="toc-title-box"><a href="sec-exterior.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Exterior algebras</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-exterior.html#subsec-exterior-product" class="internal"><span class="codenumber">3.1.1</span> <span class="title">The exterior product</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-exterior.html#subsec-exterior-algebra-geometry" class="internal"><span class="codenumber">3.1.2</span> <span class="title">Geometry of exterior algebras</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-exterior.html#subsec-cross-product" class="internal"><span class="codenumber">3.1.3</span> <span class="title">The cross product</span></a></div></li>
-<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exterior.html#exe-exterior" class="internal"><span class="codenumber">3.1.4</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-multilinear.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Alternating forms</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-multilinear.html#subsec-multilinear" class="internal"><span class="codenumber">3.1.1</span> <span class="title">Multilinear maps</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-multilinear.html#subsec-alternating" class="internal"><span class="codenumber">3.1.2</span> <span class="title">Alternating multilinear maps</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-multilinear.html#exe-multilinear" class="internal"><span class="codenumber">3.1.3</span> <span class="title">Exercises</span></a></div></li>
 </ul>
-</li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exterior.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Exterior algebras</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-exterior.html#subsec-exterior-product" class="internal"><span class="codenumber">3.2.1</span> <span class="title">The exterior product</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-exterior.html#subsec-exterior-algebra-geometry" class="internal"><span class="codenumber">3.2.2</span> <span class="title">Geometry of exterior algebras</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-exterior.html#subsec-cross-product" class="internal"><span class="codenumber">3.2.3</span> <span class="title">The cross product</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exterior.html#exe-exterior" class="internal"><span class="codenumber">3.2.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-forms.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Differential forms</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-forms.html#exe-forms" class="internal"><span class="codenumber">3.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
 </li>
 <li class="toc-item toc-chapter contains-active">
 <div class="toc-title-box"><a href="ch-integral-of-forms.html" class="internal"><span class="codenumber">4</span> <span class="title">Integrals of Forms</span></a></div>
@@ -376,9 +390,9 @@ window.MathJax = {
 </div>
 <div class="para">Indeed, we now can make a general definition.</div>
 </div>
-<article class="definition definition-like" id="def-pullback"><h4 class="heading">
+<article class="definition definition-like" id="def-integration-top-form"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.1.3</span><span class="period">.</span>
-</h4> <div class="para logical" id="def-pullback-2-1">
+</h4> <div class="para logical" id="def-integration-top-form-2-1">
 <div class="para">Suppose <span class="process-math">\((D, \vol)\)</span> is an oriented domain in <span class="process-math">\(\mathbb{R}^m\)</span> and <span class="process-math">\(\eta\)</span> a differential <span class="process-math">\(m\)</span>-form on <span class="process-math">\(D\text{.}\)</span> Then there is a scalar function <span class="process-math">\(f(x)\)</span> on <span class="process-math">\(D\)</span> for which</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -391,81 +405,13 @@ window.MathJax = {
 \int_D \eta = \idotsint_D f(x_1, \ldots, x_n) \tder{}{V}.
 \end{equation*}
 </div>
-</div></article><div class="para" id="subsec-integrating-top-forms-8">If we omit the orientation, we assume that <span class="process-math">\(D \subseteq \mathbb{R}^m\)</span> has the standard orientation.</div>
-<div class="para" id="subsec-integrating-top-forms-9">Now, why do we consider this definition when it seems to just be a repeat of the prior definitions with a lot more vocabulary? The answer is manifold (pun), but one precise answer comes from considering how to transform differential forms.</div>
-<article class="definition definition-like" id="def-integration-top-form"><h4 class="heading">
+</div></article><div class="para" id="subsec-integrating-top-forms-8">If we omit the orientation, we assume that <span class="process-math">\(D \subseteq \mathbb{R}^m\)</span> has the standard orientation. To calculate with orientations, we need to know when a parameterization of an oriented domain retains the correct orientation information.</div>
+<article class="definition definition-like" id="def-orientation-preserving"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.1.4</span><span class="period">.</span>
-</h4> <div class="para logical" id="def-integration-top-form-2-1">
-<div class="para">Let <span class="process-math">\(D\)</span> be a domain in <span class="process-math">\(\mathbb{R}^m\)</span> with coordinates <span class="process-math">\((u_1, \ldots, u_m)\)</span> and <span class="process-math">\(E\)</span> a domain in <span class="process-math">\(\mathbb{R}^n\)</span> with coordinates <span class="process-math">\((x_1, \ldots, x_n)\text{.}\)</span> If <span class="process-math">\(\mb{G} : D \to E\)</span> is a differential function given by</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\mb{G} (u_1, \ldots, u_m) = (x_1 (u_1, \ldots, u_m), \ldots, x_n(u_1, \ldots, u_m))
-\end{equation*}
-</div>
-<div class="para">and</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\eta = \sum_{i_1 \lt \cdots \lt i_k} f_{i_1, \ldots, i_k} (x_1, \ldots, x_n)\, \tder{}{x_{i_1}} \wedge \cdots \wedge \tder{}{x_{i_k}}
-\end{equation*}
-</div>
-<div class="para">is a differential <span class="process-math">\(k\)</span>-form on <span class="process-math">\(E\)</span> then the <dfn class="terminology">pullback</dfn> of <span class="process-math">\(\eta\)</span> to <span class="process-math">\(D\)</span> via <span class="process-math">\(\mb{G}\)</span> is the differential <span class="process-math">\(k\)</span>-form <span class="process-math">\(\mb{G}^* \eta\)</span> on <span class="process-math">\(E\)</span> given by</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\mb{G}^* \eta = \sum_{i_1 \lt \cdots \lt i_k} (f_{i_1, \ldots, i_k}\circ \mb{G}) (u_1, \ldots, u_m) \,\mb{G}^* \tder{}{x_{i_1}} \wedge \cdots \mb{G}^* \tder{}{x_{i_k}}.
-\end{equation*}
-</div>
-<div class="para">Here <span class="process-math">\(\mb{G}^* \tder{}{x_i}\)</span> is just the exterior derivative <span class="process-math">\(\tder{}{x_i(u_1, \ldots, u_m)}\text{.}\)</span>
-</div>
-</div></article><details id="subsec-integrating-top-forms-11" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.1.5</span><span class="period">.</span><span class="space"> </span><span class="title">Integrating a form.</span>
-</h4></summary><article class="example example-like"><div class="para logical" id="subsec-integrating-top-forms-11-2-1">
-<div class="para">Suppose</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\mb{G} (u,v) = (x(u,v) , y(u,v)) = (u^2 - v^2, 2uv)
-\end{equation*}
-</div>
-<div class="para">is defined taking <span class="process-math">\(D = \mathbb{R}^2\)</span> to <span class="process-math">\(E = \mathbb{R}^2\text{.}\)</span> Consider the <span class="process-math">\(1\)</span>-form</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\eta = x \tder{}{x} + y \tder{}{y}
-\end{equation*}
-</div>
-<div class="para">and the two form</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\vol^{st} = \tder{}{x} \wedge \tder{}{y}.
-\end{equation*}
-</div>
-<div class="para">We compute the pullbacks <span class="process-math">\(\mb{G}^* \eta\)</span> and <span class="process-math">\(\mb{G}^* \vol^{st}\text{.}\)</span> To do so, we first compute</div>
-<div class="displaymath process-math" id="subsec-integrating-top-forms-11-2-1-9">
-\begin{align*}
-\mb{G}^* \tder{}{x} = \tder{}{x(u,v)} \amp = 2 u \, \tder{}{u} - 2 v \, \tder{}{v}, \\
-\mb{G}^* \tder{}{y} = \tder{}{y(u,v)} \amp = 2 v\, \tder{}{u} + 2 u\, \tder{}{v}. 
-\end{align*}
-</div>
-<div class="para">Then</div>
-<div class="displaymath process-math" id="subsec-integrating-top-forms-11-2-1-10">
-\begin{gather*}
-\mb{G}^* \eta /amp = x(u,v)  \mb{G}^* \tder{}{x} + y (u,v)  \mb{G}^* \tder{}{y}, \\
-/amp = (u^2 - v^2) ( 2 u \,\tder{}{u} - 2 v \,\tder{}{v}) + 2uv (2 v\, \tder{}{u} + 2 u \,\tder{}{v}), \\
-/amp = 2 u (u^2 + v^2)\, \tder{}{u} + 2v ( u^2 + v^2 ) \,\tder{}{v}. 
-\end{gather*}
-</div>
-<div class="para">and</div>
-<div class="displaymath process-math" id="subsec-integrating-top-forms-11-2-1-11">
-\begin{gather*}
-\mb{G}^* \vol^{st} /amp = \mb{G}^* \tder{}{x} \wedge \mb{G}^* \tder{}{y},  \\
-/amp = (2 u\, \tder{}{u} - 2 v\, \tder{}{v}) \wedge (2 v\, \tder{}{u} + 2 u\, \tder{}{v}), \\
-/amp = 4 (u^2 + v^2) \, \tder{}{u} \wedge \tder{}{v}. 
-\end{gather*}
-</div>
-</div></article></details><article class="definition definition-like" id="def-orientation-preserving"><h4 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.1.6</span><span class="period">.</span>
 </h4> <div class="para" id="def-orientation-preserving-2-1">If <span class="process-math">\((D, \vol_D)\)</span> and <span class="process-math">\((E, \vol_E)\)</span> are oriented domains, and <span class="process-math">\(\mb{G} : D \to E\)</span> is a change of variables, we say that <span class="process-math">\(\mb{G}\)</span> <dfn class="terminology">preserves orientation</dfn> if <span class="process-math">\(\mb{G}^* \vol_E\)</span> is compatible with the orientation of <span class="process-math">\(D\text{.}\)</span>
-</div></article><div class="para" id="subsec-integrating-top-forms-13">With this in mind, we can write the differential form version of change of variables.</div>
+</div></article><div class="para" id="subsec-integrating-top-forms-10">With this in mind, we can write the differential form version of change of variables.</div>
 <article class="theorem theorem-like" id="thm-covdiff"><h4 class="heading">
-<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.1.7</span><span class="period">.</span><span class="space"> </span><span class="title">Chain Rule.</span>
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.1.5</span><span class="period">.</span><span class="space"> </span><span class="title">Chain Rule.</span>
 </h4>
 <div class="para logical" id="thm-covdiff-2-1">
 <div class="para">Suppose <span class="process-math">\(D\)</span> and <span class="process-math">\(E\)</span> are oriented domains in <span class="process-math">\(\mathbb{R}^m\text{.}\)</span> Let <span class="process-math">\(\mb{G} : D \to E\)</span> be a change of variables which preserves orientation and <span class="process-math">\(\eta\)</span> an <span class="process-math">\(m\)</span>-form on <span class="process-math">\(E\text{.}\)</span> Then</div>
@@ -474,12 +420,12 @@ window.MathJax = {
 \int_D \mb{G}^* \eta = \int_E \eta.
 \end{equation*}
 </div>
-</div></article><details id="thm-covdiff-3" class="hiddenproof born-hidden-knowl"><summary><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof">Exercise.</article></details><div class="para" id="subsec-integrating-top-forms-15">While it is certainly true that there is some mathematics buried within the notation of differential forms, orientations and pullbacks, the above form shows the drastic simplifying power of using forms to express complicated formulas. This, of course, is just the beginning of their utility.</div></section><section class="subsection" id="subsec-integrating-k-forms"><h3 class="heading hide-type">
+</div></article><details id="thm-covdiff-3" class="hiddenproof born-hidden-knowl"><summary><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof">Exercise.</article></details><div class="para" id="subsec-integrating-top-forms-12">While it is certainly true that there is some mathematics buried within the notation of differential forms, orientations and pullbacks, the above form shows the drastic simplifying power of using forms to express complicated formulas. This, of course, is just the beginning of their utility.</div></section><section class="subsection" id="subsec-integrating-k-forms"><h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space"> </span><span class="codenumber">4.1.2</span><span class="space"> </span><span class="title">Integrating <span class="process-math">\(k\)</span>-forms on oriented subspaces.</span>
 </h3>
 <div class="para" id="subsec-integrating-k-forms-2">Recall from <a href="" class="xref" data-knowl="./knowl/xref/def-smooth.html" title="Definition 1.7.2">Definition 1.7.2</a> that a smooth <span class="process-math">\(m\)</span>-dimensional subspace <span class="process-math">\(X\)</span> of <span class="process-math">\(\mathbb{R}^n\)</span> is any subspace with a parameterization <span class="process-math">\(\mb{G} : U \to X\)</span> near every point <span class="process-math">\(p\)</span> of <span class="process-math">\(X\text{.}\)</span> We will need to add orientations to such subspaces as a part of their package.</div>
 <article class="definition definition-like" id="def-orientation-subspace"><h4 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.1.8</span><span class="period">.</span>
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.1.6</span><span class="period">.</span>
 </h4> <div class="para" id="def-orientation-subspace-2-1">Suppose <span class="process-math">\(X\)</span> is a smooth <span class="process-math">\(m\)</span>-dimensional subspace of <span class="process-math">\(\mathbb{R}^n\text{.}\)</span> An <dfn class="terminology">orientation</dfn> on <span class="process-math">\(X\)</span> is a differential <span class="process-math">\(m\)</span>-form <span class="process-math">\(\orient^X\)</span> defined on a neighborhood of <span class="process-math">\(X\)</span> such that, for any local parameterization <span class="process-math">\(\mb{G}:U \to X\)</span> the pullback <span class="process-math">\(\mb{G}^* \orient^X\)</span> is nowhere zero on <span class="process-math">\(U\text{.}\)</span> Two orientations are equivalent if their pullbacks are compatible for any local parameterization. We say <span class="process-math">\((X, \orient^X)\)</span> is an <dfn class="terminology">oriented</dfn> smooth <span class="process-math">\(m\)</span>-dimensional subspace of <span class="process-math">\(\mathbb{R}^n\text{.}\)</span>
 </div></article><div class="para logical" id="subsec-integrating-k-forms-4">
 <div class="para">Some orientations are very familiar. To see this, we first need to use inner products to take vector fields to <span class="process-math">\(1\)</span>-forms. Suppose <span class="process-math">\(X\)</span> is a vector field in <span class="process-math">\(\mathbb{R}^n\text{.}\)</span> Define the dual differential <span class="process-math">\(1\)</span>-form <span class="process-math">\(X^\vee\)</span> to be the field of cotangent vectors <span class="process-math">\(X^\vee_p\)</span> which are defined by</div>
@@ -492,14 +438,14 @@ X^\vee_p (Y) = X \cdot Y\tag{4.1.1}
 </div>
 </div>
 <details id="subsec-integrating-k-forms-5" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.1.9</span><span class="period">.</span><span class="space"> </span><span class="title">Oriented curve.</span>
-</h4></summary><article class="example example-like"><div class="para" id="subsec-integrating-k-forms-5-2-1">If <span class="process-math">\(\mathcal{C}\)</span> is a connected curve, then an orientation on <span class="process-math">\(\mathcal{C}\)</span> is equivalent to a continuous choice of unit tangent vector of each point of <span class="process-math">\(\mathcal{C}\text{.}\)</span> One can think of this as a vector field <span class="process-math">\(X\)</span> along <span class="process-math">\(\mathcal{C}\text{.}\)</span> To obtain an orientation as given in <a href="" class="xref" data-knowl="./knowl/xref/def-orientation-subspace.html" title="Definition 4.1.8">Definition 4.1.8</a>, define the orientation form as the dual <span class="process-math">\(1\)</span>-form <span class="process-math">\(X^\vee\text{.}\)</span>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.1.7</span><span class="period">.</span><span class="space"> </span><span class="title">Oriented curve.</span>
+</h4></summary><article class="example example-like"><div class="para" id="subsec-integrating-k-forms-5-2-1">If <span class="process-math">\(\mathcal{C}\)</span> is a connected curve, then an orientation on <span class="process-math">\(\mathcal{C}\)</span> is equivalent to a continuous choice of unit tangent vector of each point of <span class="process-math">\(\mathcal{C}\text{.}\)</span> One can think of this as a vector field <span class="process-math">\(X\)</span> along <span class="process-math">\(\mathcal{C}\text{.}\)</span> To obtain an orientation as given in <a href="" class="xref" data-knowl="./knowl/xref/def-orientation-subspace.html" title="Definition 4.1.6">Definition 4.1.6</a>, define the orientation form as the dual <span class="process-math">\(1\)</span>-form <span class="process-math">\(X^\vee\text{.}\)</span>
 </div></article></details><details id="ex-normalorientation" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.1.10</span><span class="period">.</span><span class="space"> </span><span class="title">Oriented surface.</span>
-</h4></summary><article class="example example-like"><div class="para" id="ex-normalorientation-2-1">If <span class="process-math">\(\mathcal{S}\)</span> is a surface in <span class="process-math">\(\mathbb{R}^3\text{,}\)</span> then one often defines an orientation on <span class="process-math">\(\mathcal{S}\)</span> as a continuous choice of unit normal vector <span class="process-math">\(\mb{N}_p\)</span> as <span class="process-math">\(p\)</span> varies in <span class="process-math">\(\mathcal{S}\text{.}\)</span> To get from this to <a href="" class="xref" data-knowl="./knowl/xref/def-orientation-subspace.html" title="Definition 4.1.8">Definition 4.1.8</a>, take the Hodge star operator of the dual <span class="process-math">\(1\)</span>-form <span class="process-math">\(\star (\mb{N}^\vee)\text{.}\)</span>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.1.8</span><span class="period">.</span><span class="space"> </span><span class="title">Oriented surface.</span>
+</h4></summary><article class="example example-like"><div class="para" id="ex-normalorientation-2-1">If <span class="process-math">\(\mathcal{S}\)</span> is a surface in <span class="process-math">\(\mathbb{R}^3\text{,}\)</span> then one often defines an orientation on <span class="process-math">\(\mathcal{S}\)</span> as a continuous choice of unit normal vector <span class="process-math">\(\mb{N}_p\)</span> as <span class="process-math">\(p\)</span> varies in <span class="process-math">\(\mathcal{S}\text{.}\)</span> To get from this to <a href="" class="xref" data-knowl="./knowl/xref/def-orientation-subspace.html" title="Definition 4.1.6">Definition 4.1.6</a>, take the Hodge star operator of the dual <span class="process-math">\(1\)</span>-form <span class="process-math">\(\star (\mb{N}^\vee)\text{.}\)</span>
 </div></article></details><div class="para" id="subsec-integrating-k-forms-7">As it turns out, once the dimension of the space exceeds <span class="process-math">\(1\text{,}\)</span> there are examples of subspaces that are not orientable. The M\"obius strip is one such example in dimension <span class="process-math">\(2\text{.}\)</span> One reason for orienting a smooth subspace is that for such spaces we can integrate forms.</div>
 <article class="definition definition-like" id="def-intofform"><h4 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.1.11</span><span class="period">.</span>
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.1.9</span><span class="period">.</span>
 </h4> <div class="para logical" id="def-intofform-2-1">
 <div class="para">Let <span class="process-math">\((X, \orient^X)\)</span> be a smooth oriented <span class="process-math">\(m\)</span>-dimensional subspace of <span class="process-math">\(\mathbb{R}^n\)</span> compatibly parameterized by <span class="process-math">\(\mb{G} : D \to X\text{.}\)</span> If <span class="process-math">\(\eta\)</span> is an <span class="process-math">\(m\)</span>-form on a neighborhood of <span class="process-math">\(X\)</span> then define</div>
 <div class="displaymath process-math">
@@ -509,7 +455,7 @@ X^\vee_p (Y) = X \cdot Y\tag{4.1.1}
 </div>
 </div></article><div class="para" id="subsec-integrating-k-forms-9">This definition makes sense because of the version of the chain rule.</div>
 <article class="lemma theorem-like" id="lem-chain-rule"><h4 class="heading">
-<span class="type">Lemma</span><span class="space"> </span><span class="codenumber">4.1.12</span><span class="period">.</span><span class="space"> </span><span class="title">Chain rule.</span>
+<span class="type">Lemma</span><span class="space"> </span><span class="codenumber">4.1.10</span><span class="period">.</span><span class="space"> </span><span class="title">Chain rule.</span>
 </h4>
 <div class="para logical" id="lem-chain-rule-2-1">
 <div class="para">Let <span class="process-math">\(D_1, D_2\)</span> and <span class="process-math">\(D_3\)</span> be domains in Euclidean spaces. Suppose <span class="process-math">\(\mb{G}_1 : D_1 \to D_2\)</span> and <span class="process-math">\(\mb{G}_2 : D_2 \to D_3\)</span> are differentiable functions and <span class="process-math">\(\eta\)</span> is a differentiable <span class="process-math">\(k\)</span>-form on <span class="process-math">\(D_3\text{,}\)</span> then</div>
@@ -528,7 +474,7 @@ X^\vee_p (Y) = X \cdot Y\tag{4.1.1}
 <div class="para">Thus the quantity obtained is independent of the parameterization.</div>
 </div>
 <div class="para logical" id="subsec-integrating-k-forms-12">
-<div class="para">To extend <a href="" class="xref" data-knowl="./knowl/xref/def-intofform.html" title="Definition 4.1.11">Definition 4.1.11</a> to any smooth oriented <span class="process-math">\(m\)</span>-dimensional subspace (not just ones with a single parameterization), one must consider a finite cover <span class="process-math">\(V_1, \ldots, V_r\)</span> of <span class="process-math">\(X\)</span> by open sets and with compatibly oriented  parameterizations <span class="process-math">\(\mb{G}_i : U_i \to X\text{.}\)</span> Then we define what is known as a <dfn class="terminology">partition of unity</dfn> <span class="process-math">\(\{\rho_1, \ldots, \rho_r\}\)</span> subordinate to the cover which is a collection of non-negative scalar functions <span class="process-math">\(\rho_i\)</span> on <span class="process-math">\(X\text{.}\)</span> Each <span class="process-math">\(\rho_i\)</span> is only non-zero on <span class="process-math">\(V_i\)</span> and their sum <span class="process-math">\(\sum \rho_i = 1\)</span> is the constant function <span class="process-math">\(1\text{.}\)</span> With such a partition of unity in hand, we can define the integration of an <span class="process-math">\(m\)</span>-form on <span class="process-math">\(X\)</span> to be</div>
+<div class="para">To extend <a href="" class="xref" data-knowl="./knowl/xref/def-intofform.html" title="Definition 4.1.9">Definition 4.1.9</a> to any smooth oriented <span class="process-math">\(m\)</span>-dimensional subspace (not just ones with a single parameterization), one must consider a finite cover <span class="process-math">\(V_1, \ldots, V_r\)</span> of <span class="process-math">\(X\)</span> by open sets and with compatibly oriented  parameterizations <span class="process-math">\(\mb{G}_i : U_i \to X\text{.}\)</span> Then we define what is known as a <dfn class="terminology">partition of unity</dfn> <span class="process-math">\(\{\rho_1, \ldots, \rho_r\}\)</span> subordinate to the cover which is a collection of non-negative scalar functions <span class="process-math">\(\rho_i\)</span> on <span class="process-math">\(X\text{.}\)</span> Each <span class="process-math">\(\rho_i\)</span> is only non-zero on <span class="process-math">\(V_i\)</span> and their sum <span class="process-math">\(\sum \rho_i = 1\)</span> is the constant function <span class="process-math">\(1\text{.}\)</span> With such a partition of unity in hand, we can define the integration of an <span class="process-math">\(m\)</span>-form on <span class="process-math">\(X\)</span> to be</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/def-intofform.html">
 \begin{equation*}
 \int_X \eta = \sum_{i = 1}^r \int_{U_i} \mb{G}_i^* (\rho_i \eta).
@@ -551,8 +497,8 @@ D = \{ (x,y) : x \ne 0 \}.
 <article class="task exercise-like" id="exe-formintegration-2-2"><h5 class="heading"><span class="codenumber">(a)</span></h5>
 <div class="para" id="exe-formintegration-2-2-1-1"><span class="process-math">\(\mb{G}^* [(x^2 + y^2 )\tder{}{x} - y \tder{}{y} ]\text{,}\)</span></div></article><article class="task exercise-like" id="exe-formintegration-2-3"><h5 class="heading"><span class="codenumber">(b)</span></h5>
 <div class="para" id="exe-formintegration-2-3-1-1"><span class="process-math">\(\mb{G}^* \frac{\tder{}{x} \wedge \tder{}{y}}{\sqrt{x^2 + y^2}}\)</span></div></article></article><article class="exercise exercise-like" id="exe-formintegration-3"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
-<div class="para" id="exe-formintegration-3-1-1">Prove the differential form version of the change of variables <a href="" class="xref" data-knowl="./knowl/xref/thm-covdiff.html" title="Theorem 4.1.7: Chain Rule">Theorem 4.1.7</a>.</div></article><article class="exercise exercise-like" id="exe-formintegration-4"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
-<div class="para" id="exe-formintegration-4-1-1">Prove the claim in <a href="" class="xref" data-knowl="./knowl/xref/ex-normalorientation.html" title="Example 4.1.10: Oriented surface">Example 4.1.10</a> that <span class="process-math">\(\star (\mb{N}^\vee)\)</span> defines an orientation on a surface <span class="process-math">\(\mathcal{S}\)</span> in <span class="process-math">\(\mathbb{R}^3\)</span> if <span class="process-math">\(\mb{N}\)</span> is a continuously normal vector field to <span class="process-math">\(\mathcal{S}\text{.}\)</span>
+<div class="para" id="exe-formintegration-3-1-1">Prove the differential form version of the change of variables <a href="" class="xref" data-knowl="./knowl/xref/thm-covdiff.html" title="Theorem 4.1.5: Chain Rule">Theorem 4.1.5</a>.</div></article><article class="exercise exercise-like" id="exe-formintegration-4"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
+<div class="para" id="exe-formintegration-4-1-1">Prove the claim in <a href="" class="xref" data-knowl="./knowl/xref/ex-normalorientation.html" title="Example 4.1.8: Oriented surface">Example 4.1.8</a> that <span class="process-math">\(\star (\mb{N}^\vee)\)</span> defines an orientation on a surface <span class="process-math">\(\mathcal{S}\)</span> in <span class="process-math">\(\mathbb{R}^3\)</span> if <span class="process-math">\(\mb{N}\)</span> is a continuously normal vector field to <span class="process-math">\(\mathcal{S}\text{.}\)</span>
 </div></article><article class="exercise exercise-like" id="exe-formintegration-5"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
 <div class="para" id="exe-formintegration-5-1-1">Prove the differential form version of the chain rule for <span class="process-math">\(1\)</span>-forms <span class="process-math">\(\eta\text{.}\)</span>
 </div></article><article class="exercise exercise-like" id="exe-formintegration-6"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>

@@ -8,7 +8,7 @@
 <html lang="en-US" dir="ltr">
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Partial Differential Equations</title>
+<title>Differential forms</title>
 <meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:type" content="book">
@@ -123,7 +123,7 @@ window.MathJax = {
 <ol id="searchresults" class="searchresults"></ol>
 </div>
 </div>
-<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="sec-applications.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ms-calculus-3.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="sec-exterior.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-differential-forms.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="ch-integral-of-forms.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
 \newcommand{\C}{\mathbb C}
 \newcommand{\diff}{\text{d}}
 \newcommand{\mb}[1]{\mathbf{#1}}
@@ -240,9 +240,9 @@ window.MathJax = {
 </li>
 </ul>
 </li>
-<li class="toc-item toc-chapter">
+<li class="toc-item toc-chapter contains-active">
 <div class="toc-title-box"><a href="ch-differential-forms.html" class="internal"><span class="codenumber">3</span> <span class="title">Differential Forms</span></a></div>
-<ul class="structural toc-item-list">
+<ul class="structural toc-item-list contains-active">
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec-multilinear.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Alternating forms</span></a></div>
 <ul class="structural toc-item-list">
@@ -260,7 +260,7 @@ window.MathJax = {
 <li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exterior.html#exe-exterior" class="internal"><span class="codenumber">3.2.4</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
-<li class="toc-item toc-section">
+<li class="toc-item toc-section active">
 <div class="toc-title-box"><a href="sec-forms.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Differential forms</span></a></div>
 <ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-forms.html#exe-forms" class="internal"><span class="codenumber">3.3</span> <span class="title">Exercises</span></a></div></li></ul>
 </li>
@@ -335,14 +335,212 @@ window.MathJax = {
 </li>
 </ul>
 </li>
-<li class="toc-item toc-chapter active"><div class="toc-title-box"><a href="ch-partial-differential-equations.html" class="internal"><span class="codenumber">6</span> <span class="title">Partial Differential Equations</span></a></div></li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-partial-differential-equations.html" class="internal"><span class="codenumber">6</span> <span class="title">Partial Differential Equations</span></a></div></li>
 <li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
 </ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="chapter" id="ch-partial-differential-equations"><h2 class="heading">
-<span class="type">Chapter</span><span class="space"> </span><span class="codenumber">6</span><span class="space"> </span><span class="title">Partial Differential Equations</span>
-</h2></section></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-forms"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">3.3</span><span class="space"> </span><span class="title">Differential forms</span>
+</h2>
+<section class="introduction" id="sec-forms-2"><div class="para" id="sec-forms-2-1">As we have seen, much of multivariable calculus is concerned with linearization of non-linear functions. This is done by placing a vector space <span class="process-math">\(T_p V\text{,}\)</span> the tangent space, at every point in the space we’re interested in. What we have witnessed in the prior sections is a way to take any space and build new ones such as multilinear <span class="process-math">\(k\)</span>-forms or exterior algebras. The idea of differential forms is to build such new vector spaces at every point and consider fields of forms as we have considered vector fields when studying differential equations.</div></section><div class="para" id="sec-forms-3">Let us observe an application of exterior products and this proposition right now. To do this, we need to define differential forms.</div>
+<article class="definition definition-like" id="def-differential-form"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.3.1</span><span class="period">.</span>
+</h3> <div class="para" id="def-differential-form-2-1">Let <span class="process-math">\(U\)</span> be an open subset of <span class="process-math">\(\mathbb{R}^m\text{.}\)</span> A <dfn class="terminology">differential <span class="process-math">\(1\)</span>-form</dfn> <span class="process-math">\(\eta\)</span> on <span class="process-math">\(U\)</span> is a smooth assignment which takes <span class="process-math">\(p\)</span> to a tangent covector <span class="process-math">\(\eta (p) \in T^*_p \mathbb{R}^m\text{.}\)</span> A <dfn class="terminology">differential <span class="process-math">\(k\)</span>-form</dfn> is a linear combination of <span class="process-math">\(k\)</span>-exterior products of <span class="process-math">\(1\)</span>-forms or, equivalently, a smooth assignment to alternating <span class="process-math">\(k\)</span>-forms on the tangent spaces.</div></article><div class="para" id="sec-forms-5">Equivalently, we may consider a differential <span class="process-math">\(k\)</span>-form to be an assignment from <span class="process-math">\(p\)</span> to the dual of the <span class="process-math">\(k\)</span>-th exterior space <span class="process-math">\(\bigwedge^k V\text{,}\)</span> i.e. a vector in <span class="process-math">\(\text{Hom} (\bigwedge^k T_p \mathbb{R}^m , \mathbb{R})\text{.}\)</span> Differential <span class="process-math">\(1\)</span>-forms are dual to vector fields in that if we have a vector field <span class="process-math">\(\mb{Y}\)</span> on <span class="process-math">\(U\)</span> and a differential one form <span class="process-math">\(\eta\)</span> on <span class="process-math">\(U\)</span> then <span class="process-math">\(\eta (\mb{Y})\)</span> is a scalar function on <span class="process-math">\(U\text{.}\)</span> The most common way to create a differential <span class="process-math">\(1\)</span>-form is to take the derivative of a scalar function!</div>
+<article class="definition definition-like" id="def-exterior-derivative"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.3.2</span><span class="period">.</span>
+</h3> <div class="para logical" id="def-exterior-derivative-2-1">
+<div class="para">If <span class="process-math">\(U\)</span> is an open subset of <span class="process-math">\(\mathbb{R}^m\)</span> and <span class="process-math">\(p \in U\text{,}\)</span> write the standard dual basis of <span class="process-math">\(T_p^* \mathbb{R}^m\)</span> as</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\tder{}{x_1}, \ldots, \tder{}{x_m}.
+\end{equation*}
+</div>
+<div class="para">I.e. these are the dual vectors to the standard tangent vectors <span class="process-math">\(\partial_1 , \ldots, \partial_m\)</span> in that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\tder{}{x_i} (\partial_j) = \begin{cases} 1 \amp \text{ if } i = j, \\ 0 \amp \text{ otherwise} \end{cases}
+\end{equation*}
+</div>
+<div class="para">The (exterior) derivative of a scalar function is then defined as the differential <span class="process-math">\(1\)</span>-form</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\tder{}{f} = \frac{\partial f}{\partial x_1} \tder{}{x_1} + \cdots + \frac{\partial f}{\partial x_n} \tder{}{x_n} .
+\end{equation*}
+</div>
+</div></article><div class="para logical" id="sec-forms-7">
+<div class="para">The student should note that this is really nothing new (yet), just a different way of expressing the usual derivative of an ordinary scalar function. For example, if we take</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(x,y) = x^2 \ln y
+\end{equation*}
+</div>
+<div class="para">then the original definition of the derivative of <span class="process-math">\(f(x,y)\)</span> at <span class="process-math">\((x,y)\)</span> is a linear transformation from <span class="process-math">\(T_{(x,y)} \mathbb{R}^2\)</span> to <span class="process-math">\(T_{x^2 \ln y} \mathbb{R}\text{.}\)</span> Using the standard basis of vector fields, we identify these tangent spaces with <span class="process-math">\(\mathbb{R}^2\)</span> and <span class="process-math">\(\mathbb{R}\)</span> and write this derivative as the <span class="process-math">\(1 \times 2\)</span> matrix</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\tder{}{f} = \left[ \begin{matrix} 2x \ln y \amp \frac{x^2}{y} \end{matrix} \right].
+\end{equation*}
+</div>
+<div class="para">As a differential <span class="process-math">\(1\)</span>-form, this is written</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\tder{}{f} = 2x \ln y \,\tder{}{x} +   \frac{x^2}{y}\, \tder{}{y}.
+\end{equation*}
+</div>
+<div class="para">We will see differential forms in much more detail later on as they form the heart of multivariable calculus. For now, let us use them to re-express Lagrange multipliers.</div>
+</div>
+<article class="proposition theorem-like" id="prop-lagrangian-one-constaint"><h3 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">3.3.3</span><span class="period">.</span><span class="space"> </span><span class="title">Lagrange multipliers with one constraint - exterior product version.</span>
+</h3>
+<div class="para" id="prop-lagrangian-one-constaint-2-1">Suppose <span class="process-math">\(V\)</span> is an open set in <span class="process-math">\(\mathbb{R}^n\text{,}\)</span> <span class="process-math">\(g : V \to \mathbb{R}\)</span> and <span class="process-math">\(f: V \to \mathbb{R}\)</span> two differentiable scalar functions. If <span class="process-math">\(X\)</span> is the level set of <span class="process-math">\(g\)</span> then a smooth point <span class="process-math">\(q \in X\)</span> is a critical point of <span class="process-math">\(f|_X\)</span> if and only if the differential <span class="process-math">\(2\)</span>-form <span class="process-math">\(\tder{}{f} \wedge \tder{}{g}\)</span> vanishes at <span class="process-math">\(q\text{.}\)</span>
+</div></article><div class="para" id="sec-forms-9">The major advantage of this over the previous version is that <em class="emphasis">there are no multipliers!</em> Thus we have automatically eliminated one variable that needs to be solved in the previous version. Let’s take another look at <a href="" class="xref" data-knowl="./knowl/xref/ex-lagrange1.html" title="Example 1.7.10: Optimization on a hyperboloid">Example 1.7.10</a> but using this technique.</div>
+<details id="sec-forms-10" class="example example-like born-hidden-knowl"><summary><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.3.4</span><span class="period">.</span><span class="space"> </span><span class="title">Lagrange multiplier using differential forms.</span>
+</h3></summary><article class="example example-like"><div class="para logical" id="sec-forms-10-2-1">
+<div class="para">Recall that in <a href="" class="xref" data-knowl="./knowl/xref/ex-lagrange1.html" title="Example 1.7.10: Optimization on a hyperboloid">Example 1.7.10</a> we wanted to find critical points of <span class="process-math">\(f(x,y,z) = x^2 - y^2 + z\)</span> on the hyperboloid</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex-lagrange1.html">
+\begin{equation*}
+g(x,y, z) = x^2 + y^2 - 4 z^2 = 1.
+\end{equation*}
+</div>
+<div class="para">We compute derivatives but now write them as differential <span class="process-math">\(1\)</span>-forms to see</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex-lagrange1.html" id="sec-forms-10-2-1-5">
+\begin{align*}
+\tder{}{f} \amp =  2x \,\tder{}{x} -2y \,\tder{}{y} + \tder{}{z}, \\
+\tder{}{g} \amp =  2x\,\tder{}{x} + 2y\,\tder{}{y} - 8z\,\tder{}{z}. 
+\end{align*}
+</div>
+<div class="para">Now we compute the exterior product</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex-lagrange1.html" id="sec-forms-10-2-1-6">
+\begin{align*}
+\tder{}{f} \wedge \tder{}{g} \amp = ( 2x \,\tder{}{x} -2y \,\tder{}{y} + \tder{}{z}) \wedge (2x\,\tder{}{x} + 2y\,\tder{}{y} - 8z\,\tder{}{z}) , \\
+\amp = 4xy \, \tder{}{x} \wedge \tder{}{y} - 2x ( 1 + 8z )\, \tder{}{x} \wedge \tder{}{z} + 2y (8z - 1)\, \tder{}{y}\wedge \tder{}{z}. 
+\end{align*}
+</div>
+<div class="para">For this <span class="process-math">\(2\)</span>-form to be zero, each of the coefficient functions must be zero. The coefficient <span class="process-math">\(4xy\)</span> is zero if and only if either <span class="process-math">\(x = 0\)</span> or <span class="process-math">\(y = 0\text{.}\)</span> Again, the constraint <span class="process-math">\(g(x,y,z) = 1\)</span> implies not both can be zero. Consider both cases:</div>
+<ol class="decimal">
+<li id="sec-forms-10-2-1-12-1"><div class="para" id="p-derived-sec-forms-10-2-1-12-1">Suppose <span class="process-math">\(x = 0\)</span> and <span class="process-math">\(y \ne 0\text{.}\)</span> Since <span class="process-math">\(x = 0\text{,}\)</span> the <span class="process-math">\(\tder{}{x} \wedge \tder{}{y}\)</span> coefficient is zero. Since <span class="process-math">\(y \ne 0\)</span> the <span class="process-math">\(\tder{}{y} \wedge \tder{}{z}\)</span> coefficient being zero implies <span class="process-math">\(8z - 1 = 0\)</span> so that <span class="process-math">\(z = 1/8\text{.}\)</span>
+</div></li>
+<li id="sec-forms-10-2-1-12-2"><div class="para" id="p-derived-sec-forms-10-2-1-12-2">Suppose <span class="process-math">\(y = 0\)</span> and <span class="process-math">\(x \ne 0\text{.}\)</span> Since <span class="process-math">\(y = 0\text{,}\)</span> the <span class="process-math">\(\tder{}{y} \wedge \tder{}{z}\)</span> coefficient is zero. Since <span class="process-math">\(x \ne 0\)</span> the <span class="process-math">\(\tder{}{x} \wedge \tder{}{z}\)</span> coefficient being zero implies <span class="process-math">\(1 + 8z= 0\)</span> so that <span class="process-math">\(z = -1/8\text{.}\)</span>
+</div></li>
+</ol>
+<div class="para">Putting these into the constraint then produces the critical points as before.</div>
+</div></article></details><div class="para" id="sec-forms-11">The procedure for several constraints also follows from <a href="" class="xref" data-knowl="./knowl/xref/prop-wedgelinearind.html" title="Proposition 3.2.4">Proposition 3.2.4</a> as well.</div>
+<article class="proposition theorem-like" id="prop-lagrangian-several-constaints"><h3 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">3.3.5</span><span class="period">.</span><span class="space"> </span><span class="title">Lagrange multipliers with several constraints - exterior products version.</span>
+</h3>
+<div class="para logical" id="prop-lagrangian-several-constaints-2-1">
+<div class="para">Suppose <span class="process-math">\(V\)</span> is an open set in <span class="process-math">\(\mathbb{R}^n\text{,}\)</span> <span class="process-math">\(\mb{G} : V \to \mathbb{R}^k\)</span> a differentiable vector valued function</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{G} (x_1, \ldots, x_n) = (g_1(x_1, \ldots, x_n), \ldots, g_k(x_1, \ldots, x_n))
+\end{equation*}
+</div>
+<div class="para">with <span class="process-math">\(\tder{}{\mb{G}}\)</span> of full rank and <span class="process-math">\(f: V \to \mathbb{R}\)</span> a differentiable scalar function. If <span class="process-math">\(X\)</span> is the level set of <span class="process-math">\(\mb{G}\)</span> then a smooth point <span class="process-math">\(q \in X\)</span> is a critical point of <span class="process-math">\(f|_X\)</span> if and only if <span class="process-math">\(\tder{}{f} \wedge  \tder{}{g_1}\wedge \cdots \wedge  \tder{}{g_k}\)</span> is zero at <span class="process-math">\(q\text{.}\)</span>
+</div>
+</div></article><div class="para" id="sec-forms-13">Differential forms also exhibit naturality when it comes to functions between vector spaces.</div>
+<div class="para" id="sec-forms-14">Now, why do we consider this definition when it seems to just be a repeat of the prior definitions with a lot more vocabulary? The answer is manifold (pun), but one precise answer comes from considering how to transform differential forms.</div>
+<article class="definition definition-like" id="def-pullback"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.3.6</span><span class="period">.</span>
+</h3> <div class="para logical" id="def-pullback-2-1">
+<div class="para">Let <span class="process-math">\(D\)</span> be a domain in <span class="process-math">\(\mathbb{R}^m\)</span> with coordinates <span class="process-math">\((u_1, \ldots, u_m)\)</span> and <span class="process-math">\(E\)</span> a domain in <span class="process-math">\(\mathbb{R}^n\)</span> with coordinates <span class="process-math">\((x_1, \ldots, x_n)\text{.}\)</span> If <span class="process-math">\(\mb{G} : D \to E\)</span> is a differential function given by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{G} (u_1, \ldots, u_m) = (x_1 (u_1, \ldots, u_m), \ldots, x_n(u_1, \ldots, u_m))
+\end{equation*}
+</div>
+<div class="para">and</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\eta = \sum_{i_1 \lt \cdots \lt i_k} f_{i_1, \ldots, i_k} (x_1, \ldots, x_n)\, \tder{}{x_{i_1}} \wedge \cdots \wedge \tder{}{x_{i_k}}
+\end{equation*}
+</div>
+<div class="para">is a differential <span class="process-math">\(k\)</span>-form on <span class="process-math">\(E\)</span> then the <dfn class="terminology">pullback</dfn> of <span class="process-math">\(\eta\)</span> to <span class="process-math">\(D\)</span> via <span class="process-math">\(\mb{G}\)</span> is the differential <span class="process-math">\(k\)</span>-form <span class="process-math">\(\mb{G}^* \eta\)</span> on <span class="process-math">\(E\)</span> given by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{G}^* \eta = \sum_{i_1 \lt \cdots \lt i_k} (f_{i_1, \ldots, i_k}\circ \mb{G}) (u_1, \ldots, u_m) \,\mb{G}^* \tder{}{x_{i_1}} \wedge \cdots \wedge \mb{G}^* \tder{}{x_{i_k}}.
+\end{equation*}
+</div>
+<div class="para">Here <span class="process-math">\(\mb{G}^* \tder{}{x_i}\)</span> is just the exterior derivative <span class="process-math">\(\tder{}{x_i(u_1, \ldots, u_m)}\text{.}\)</span>
+</div>
+</div></article><details id="sec-forms-16" class="example example-like born-hidden-knowl"><summary><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.3.7</span><span class="period">.</span><span class="space"> </span><span class="title">Pullback of a form.</span>
+</h3></summary><article class="example example-like"><div class="para logical" id="sec-forms-16-2-1">
+<div class="para">Suppose</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{G} (u,v) = (x(u,v) , y(u,v)) = (u^2 - v^2, 2uv)
+\end{equation*}
+</div>
+<div class="para">is defined taking <span class="process-math">\(D = \mathbb{R}^2\)</span> to <span class="process-math">\(E = \mathbb{R}^2\text{.}\)</span> Consider the <span class="process-math">\(1\)</span>-form</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\eta = x \tder{}{x} + y \tder{}{y}
+\end{equation*}
+</div>
+<div class="para">and the two form</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\vol^{st} = \tder{}{x} \wedge \tder{}{y}.
+\end{equation*}
+</div>
+<div class="para">We compute the pullbacks <span class="process-math">\(\mb{G}^* \eta\)</span> and <span class="process-math">\(\mb{G}^* \vol^{st}\text{.}\)</span> To do so, we first compute</div>
+<div class="displaymath process-math" id="sec-forms-16-2-1-9">
+\begin{align*}
+\mb{G}^* \tder{}{x} = \tder{}{x(u,v)} \amp = 2 u \, \tder{}{u} - 2 v \, \tder{}{v}, \\
+\mb{G}^* \tder{}{y} = \tder{}{y(u,v)} \amp = 2 v\, \tder{}{u} + 2 u\, \tder{}{v}. 
+\end{align*}
+</div>
+<div class="para">Then</div>
+<div class="displaymath process-math" id="sec-forms-16-2-1-10">
+\begin{align*}
+\mb{G}^* \eta \amp = x(u,v)  \mb{G}^* \tder{}{x} + y (u,v)  \mb{G}^* \tder{}{y}, \\
+\amp = (u^2 - v^2) ( 2 u \,\tder{}{u} - 2 v \,\tder{}{v}) + 2uv (2 v\, \tder{}{u} + 2 u \,\tder{}{v}), \\
+\amp = 2 u (u^2 + v^2)\, \tder{}{u} + 2v ( u^2 + v^2 ) \,\tder{}{v}. 
+\end{align*}
+</div>
+<div class="para">and</div>
+<div class="displaymath process-math" id="sec-forms-16-2-1-11">
+\begin{align*}
+\mb{G}^* \vol^{st} \amp = \mb{G}^* \tder{}{x} \wedge \mb{G}^* \tder{}{y},  \\
+\amp = (2 u\, \tder{}{u} - 2 v\, \tder{}{v}) \wedge (2 v\, \tder{}{u} + 2 u\, \tder{}{v}), \\
+\amp = 4 (u^2 + v^2) \, \tder{}{u} \wedge \tder{}{v}. 
+\end{align*}
+</div>
+</div></article></details><div class="para" id="sec-forms-17">Pullbacks satisfy some key properties that make them natural operations to consider.</div>
+<article class="proposition theorem-like" id="prop-pullback-properties"><h3 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">3.3.8</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="prop-pullback-properties-1-1">
+<div class="para">Let <span class="process-math">\(D\)</span> be a domain in <span class="process-math">\(\mathbb{R}^m\text{,}\)</span> <span class="process-math">\(E\)</span> a domain in <span class="process-math">\(\mathbb{R}^n\text{,}\)</span> and <span class="process-math">\(\mb{G} : D \to E\)</span> is a differential function. If <span class="process-math">\(\nu\)</span> and <span class="process-math">\(\eta\)</span> are differential forms on <span class="process-math">\(E\)</span> then</div>
+<ol class="decimal">
+<li id="prop-pullback-properties-1-1-9-1"><div class="para" id="p-derived-prop-pullback-properties-1-1-9-1"><span class="process-math">\(\displaystyle \mb{G}^* (\eta \wedge \nu) = (\mb{G}^* \eta ) \wedge (\mb{G}^* \nu )\)</span></div></li>
+<li id="prop-pullback-properties-1-1-9-2"><div class="para" id="p-derived-prop-pullback-properties-1-1-9-2"><span class="process-math">\(\displaystyle \mb{G}^* \, \tder{}{\eta} = \tder{}{\mb{G}^* \eta } \)</span></div></li>
+</ol>
+</div></article><section class="exercises" id="exe-forms"><h3 class="heading hide-type">
+<span class="type">Exercises</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="exe-forms-1"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<div class="introduction" id="exe-forms-1-1"><div class="para" id="exe-forms-1-1-1">Compute the exterior derivatives of the following functions</div></div>
+<article class="task exercise-like" id="exe-forms-1-2"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="para" id="exe-forms-1-2-1-1"><span class="process-math">\(f(x,y) = \cos (xy) - \ln (x^2 + 1)\text{,}\)</span></div></article><article class="task exercise-like" id="exe-forms-1-3"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para" id="exe-forms-1-3-1-1"><span class="process-math">\(g(x_1, x_2 , \ldots, x_n) = x_1 + x_2 + \cdots + x_n\text{,}\)</span></div></article><article class="task exercise-like" id="exe-forms-1-4"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<div class="para" id="exe-forms-1-4-1-1"><span class="process-math">\(h(x, y, z) = y^2\text{.}\)</span></div></article></article><article class="exercise exercise-like" id="exe-forms-2"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<div class="para logical" id="exe-forms-2-1-1">
+<div class="para">Use wedge products of differential <span class="process-math">\(1\)</span>-forms to find critical points of</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(x,y, z) = x + 2y + 3z
+\end{equation*}
+</div>
+<div class="para">on the ellipsoid</div>
+<div class="displaymath process-math">
+\begin{equation*}
+4x^2 + y^2 + 9z^2 = 1.
+\end{equation*}
+</div>
+</div></article><article class="exercise exercise-like" id="exe-forms-3"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
+<div class="para" id="exe-forms-3-1-1">Prove one of the two conclusions in <a href="" class="xref" data-knowl="./knowl/xref/prop-pullback-properties.html" title="Proposition 3.3.8">Proposition 3.3.8</a>.</div></article></section></section></div>
 <div class="ptx-content-footer">
-<a class="previous-button button" href="sec-applications.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+<a class="previous-button button" href="sec-exterior.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="ch-integral-of-forms.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">
