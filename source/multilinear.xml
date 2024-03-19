@@ -43,14 +43,15 @@
             \begin{matrix} (a\eta + b \nu) (v_1, \cdots , v_k ) \\ \parallel \\  a \eta (v_1, \ldots, v_k) + b \nu (v_1, \ldots,v_k) 
                         \end{matrix}
         </me>
+        We will write the vector space of multilinear <m>k</m>-forms on <m>V</m> as
+        <me>
+            \mathcal{L}^k (V)
+        </me>
         In fact, multilinear forms, when taken altogether, have even more structure than a vector space. We can take the product of a <m>k</m>-form <m>\eta</m> and a <m>l</m>-form <m>\nu</m> to get a <m>(k + l)</m>-form by taking
         <me>
             \eta \otimes \nu (v_1, \ldots, v_{k + l}) = \eta (v_1 , \ldots, v_k) \, \nu (v_{k + 1}, \ldots, v_{k + l}).
         </me>
-        We will write this vector space as
-        <me>
-            \mathcal{L}^k (V)
-        </me>
+        
         </p>
         <example>
             <title>Real inner products</title>
@@ -81,7 +82,7 @@
                     \mathcal{B} = \left\{ \delta_{i_1} \otimes \cdots \otimes \delta_{i_k} : 1 \leq i_j \leq n, \text{ for } 1 \leq j \leq k \right\}.
                 </me> </p>
             </statement>
-            <proof> <p>To see that this is so, one first takes <m>\mb{v}_1, \ldots, \mb{v}_n</m> to be the dual basis of <m>\delta_1 , \ldots, \delta_n</m>. To see that it <m>\mathcal{B}</m> spans <m>\mathcal{L}^k (V)</m>, suppose <m>\eta</m> is a <m>k</m>-form. Consider the <m>k</m>-form 
+            <proof> <p>To see that this is so, one first takes <m>\mb{v}_1, \ldots, \mb{v}_n</m> to be the dual basis of <m>\delta_1 , \ldots, \delta_n</m>. We show that <m>\mathcal{B}</m> spans <m>\mathcal{L}^k (V)</m>. Suppose <m>\eta</m> is a <m>k</m>-form and consider the <m>k</m>-form 
             <me>
                 \nu = \sum_{(i_1, \ldots, i_k)} \eta \left( \mb{v}_{i_1}, \ldots, \mb{v}_{i_k}\right) \delta_{i_1} \otimes \cdots \otimes \delta_{i_k}
             </me>
@@ -97,7 +98,7 @@
     </subsection>
     <subsection xml:id="subsec-alternating">
         <title>Alternating multilinear maps</title>
-        <p>As we see in these examples, there are many types of multilinear forms. Some satisfy additional conditions that help us understand them. </p>
+        <p>As we saw in the examples above, there are many types of multilinear forms. Some satisfy additional conditions that help us understand them. </p>
         <definition xml:id="def-alternating-multilinear">         
             <notation>             
                 <usage><m>\nu : V \times \cdots \times V \to V</m></usage>             

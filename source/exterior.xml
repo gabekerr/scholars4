@@ -93,14 +93,17 @@
                     </me>
                     in <m>\bigwedge^* V</m>.</p>
             </statement>
-            <proof> <p>If <m>\mb{v}_1, \ldots, \mb{v}_k</m> are linearly independent, then they can be extended to a basis of <m>V</m>. But then Proposition~\ref{prop:wedgebasis} asserts that <m>\mb{v}_1 \wedge \cdots \wedge \mb{v}_k</m> is a vector in a basis for <m>\bigwedge^k V</m> and thus is non-zero. If they are linearly dependent, then we may assume that, after reordering, <m>\mb{v}_k</m> can be written as a linear combination 
+            <proof> <p>If <m>\mb{v}_1, \ldots, \mb{v}_k</m> are linearly independent, then they can be extended to a basis of <m>V</m>. But then <xref ref="prop-wedgebasis"/> asserts that <m>\mb{v}_1 \wedge \cdots \wedge \mb{v}_k</m> is a vector in a basis for <m>\bigwedge^k V</m> and thus is non-zero. </p>
+
+            <p>Conversely, if they are linearly dependent, then we may assume that, after reordering, <m>\mb{v}_k</m> can be written as a linear combination 
             <me>
                 \mb{v}_k = a_1 \mb{v}_1 + \cdots + a_{k - 1} \mb{v}_{k - 1}.
             </me> 
             But then using bilinearity we have
             <md>
                 <mrow> \mb{v}_1 \wedge \cdots \wedge \mb{v}_k \amp = \mb{v}_1 \wedge \cdots \wedge \mb{v}_{k - 1} \wedge (a_1 \mb{v}_1 + \cdots + a_{k - 1} \mb{v}_{k - 1} ), </mrow>
-                <mrow> \amp = a_1 \mb{v}_1 \wedge \cdots \wedge \mb{v}_{k - 1} \wedge  \mb{v}_1 + \cdots + a_{k - 1}\mb{v}_1 \wedge \cdots \wedge \mb{v}_{k - 1} \wedge  . \mb{v}_{k - 1}. </mrow>
+                <mrow> \amp = a_1 \mb{v}_1 \wedge \cdots \wedge \mb{v}_{k - 1} \wedge  \mb{v}_1 + \cdots  </mrow>
+                <mrow> \amp   \cdots + a_{k - 1}\mb{v}_1 \wedge \cdots \wedge \mb{v}_{k - 1} \wedge \mb{v}_{k - 1}. </mrow>
             </md>
             But every summand in the last expression has a wedge product of two <m>\mb{v}_i</m>'s, so using anti-commutativity, we get that each of these is <m>\mb{0}</m> and we are done.</p>
             </proof>
@@ -382,9 +385,9 @@
 
     <subsection xml:id="subsec-cross-product">
         <title>The cross product</title>
-        <p>Now, in many ways, \textbf{3 is special!} One of these ways is that 
+        <p>Now, in many ways, <term>3</term> is special! One of these ways is that 
         <me>
-            3 - (1 + 1) = 1 !!
+            3 - (1 + 1) = 1 
         </me>
         Note that <m>3</m> is the only number with this property. In other words,
         <me>
@@ -392,7 +395,7 @@
         </me>
         implies <m>n = 3</m>. Do we all agree ... ? Yes ? Good!</p>
             
-        <p>Because of this, we can do something in <m>\bigwedge^* V</m> when <m>V</m> is <m>3</m>-dimensional that we cannot do for an oriented inner product space of a different dimension. We can define the \textbf{cross product} on vectors <m>\mb{u}, \mb{v} \in V</m> as:
+        <p>Because of this, we can do something in <m>\bigwedge^* V</m> when <m>V</m> is <m>3</m>-dimensional that we cannot do for an oriented inner product space of a different dimension. We can define the <term>cross product</term> on vectors <m>\mb{u}, \mb{v} \in V</m> as:
         <me>
             \mb{u} \times \mb{v} := \star \left( \mb{u} \wedge \mb{v} \right).
         </me>
