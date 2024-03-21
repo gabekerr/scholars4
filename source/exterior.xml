@@ -500,39 +500,6 @@
             </statement>
         </exercise>
 
-
-        <exercise>
-            <introduction><p> Compute the exterior derivatives of the following functions </p></introduction>
-        <task>
-            <statement>
-                <p> <m>f(x,y) = \cos (xy) - \ln (x^2 + 1)</m>, </p>
-            </statement>
-        </task>
-        <task>
-            <statement>
-                <p><m>g(x_1, x_2 , \ldots, x_n) = x_1 + x_2 + \cdots + x_n</m>,</p>
-            </statement>
-        </task>
-        <task>
-            <statement>
-                <p> <m>h(x, y, z) = y^2</m>. </p>
-            </statement>
-        </task>
-        </exercise>
-
-        <exercise>
-            <statement>
-                <p> Use wedge products of differential <m>1</m>-forms to find critical points of 
-                    <me>
-                    f(x,y, z) = x + 2y + 3z
-                    </me>
-                    on the ellipsoid
-                    <me>
-                    4x^2 + y^2 + 9z^2 = 1.
-                    </me></p>
-            </statement>
-        </exercise>
-
         <exercise>
             <statement>
                 <p> Show that <m>\ell_-</m> is a linear transformation as claimed in equation <xref ref="eq-hodgeexercise1"/>. </p>
