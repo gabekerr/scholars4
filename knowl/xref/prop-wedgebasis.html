@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="proposition theorem-like"><h4 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">3.2.2</span><span class="period">.</span>
+</h4>
+<div class="para logical">
+<div class="para">If <span class="process-math">\(\mathcal{B} = \{ \mb{v}_1 , \ldots, \mb{v}_n \}\)</span> is a basis for the vector space <span class="process-math">\(V\)</span> then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\left\{ \mb{v}_{i_1} \wedge \cdots \wedge \mb{v}_{i_k} :1 \leq i_1 \lt i_2 \lt \cdots \lt i_k \leq n\right\}
+\end{equation*}
+</div>
+<div class="para">is a basis for the <span class="process-math">\(k\)</span>-the wedge product <span class="process-math">\(\bigwedge^k V\text{.}\)</span> Furthermore, if <span class="process-math">\(k \gt n\)</span> then <span class="process-math">\(\bigwedge^k V\)</span> is the zero vector space.</div>
+</div></article><details class="hiddenproof born-hidden-knowl"><summary><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof"><div class="para logical">
+<div class="para">We prove that this set spans <span class="process-math">\(\bigwedge^k V\)</span> and leave linear independence to a more advanced treatment. Proceed by induction on <span class="process-math">\(k\text{.}\)</span> Certainly when <span class="process-math">\(k = 1\)</span> we have the case of <span class="process-math">\(V\)</span> itself. Assume it to be true for <span class="process-math">\((k - 1)\text{,}\)</span> and consider the exterior product <span class="process-math">\(\mb{u}_1 \wedge \cdots \wedge \mb{u}_k\)</span> in <span class="process-math">\(\bigwedge^k V\text{.}\)</span> Then by the induction hypothesis, there are scalars <span class="process-math">\(a_{i_1, \ldots, i_{k - 1}}\)</span> with</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{u}_1 \wedge \cdots \wedge \mb{u}_{k - 1} = \sum_{i_1 \lt \cdots \lt i_{k - 1}} a_{i_1, \ldots, i_{k - 1}}\mb{v}_{i_1} \wedge \cdots \mb{v}_{i_{k - 1}}
+\end{equation*}
+</div>
+<div class="para">and since <span class="process-math">\(\mathcal{B}\)</span> is a basis we also have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{u}_k = \sum_{j = 1}^n b_j \mb{v}_j.
+\end{equation*}
+</div>
+<div class="para">Expanding their product and applying bilinearity then gives <span class="process-math">\(\mb{u}_1 \wedge \cdots \wedge \mb{u}_k\)</span> as a linear combination of the <span class="process-math">\(k\)</span>-products</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\left\{ \mb{v}_{i_1} \wedge \cdots \wedge \mb{v}_{i_k} :1 \leq i_1 \lt i_2 \lt \cdots \lt i_k \leq n\right\}.
+\end{equation*}
+</div>
+<div class="para">The proof of linear independence relies on the construction of the exterior algebra from tensor products which we will leave to an abstract algebra course.</div>
+</div></article></details><span class="incontext"><a class="internal" href="sec-exterior.html#prop-wedgebasis">in-context</a></span>
+</body>
+</html>
