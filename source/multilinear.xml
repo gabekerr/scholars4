@@ -101,13 +101,13 @@
         <p>As we saw in the examples above, there are many types of multilinear forms. Some satisfy additional conditions that help us understand them. </p>
         <definition xml:id="def-alternating-multilinear">         
             <notation>             
-                <usage><m>\nu : V \times \cdots \times V \to V</m></usage>             
+                <usage><m>\nu : V \times \cdots \times V \to K</m></usage>             
                 <description>Alternating multilinear map</description>         
             </notation>         
             <statement>
                 <p>Let <m>V</m> be a vector space over <m>K</m>. An <term>alternating multilinear <m>k</m>-form</term> is a multilinear map 
                     <me>
-                    \eta : V^k \to V
+                    \eta : V^k \to K
                     </me>
                     subject to the property that, for every <m>1 \leq i \lt j \leq k</m>
                     <me>
