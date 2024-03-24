@@ -516,14 +516,9 @@
             </statement>
         </exercise>
 
-        <exercise>
-            <statement>
-                <p> Compute the Hodge star operators of the following vectors assuming the standard orientation of <m>\mathbb{R}^n</m>.</p>
-            </statement>
-        </exercise>
 
         <exercise>
-            <introduction><p> Compute the Hodge star of the following vectors </p></introduction>
+            <introduction><p> Compute the Hodge star operators of the following vectors assuming the standard orientation of <m>\mathbb{R}^n</m>.</p></introduction>
         <task>
             <statement>
                 <p> <m>\threevec{3}{1}{1}</m> in <m>\mathbb{R}^3</m>, </p>
