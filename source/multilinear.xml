@@ -13,13 +13,13 @@
         </p>
         <definition xml:id="def-multilinear">         
             <notation>             
-                <usage><m>\nu : V \times \cdots \times V \to V</m></usage>             
+                <usage><m>\nu : V \times \cdots \times V \to K</m></usage>             
                 <description>Multilinear map</description>         
             </notation>         
             <statement>
                 <p>Let <m>V</m> be a vector space over <m>K</m>. A <term>multilinear <m>k</m>-form</term> is a function
                     <me>
-                    \eta : V^k \to V
+                    \eta : V^k \to K
                     </me>
                     subject to the property that, for every <m>1 \leq i \leq k</m>
                     <me>
