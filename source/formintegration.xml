@@ -111,6 +111,19 @@
             </statement>
         </definition>
 
+        <p> From this definition, the student may wonder if orientable smooth spaces are hard to find. The next proposition shows that, in fact, they are in ample supply.</p>
+
+        <proposition xml:id="prop-orientation-levelspace">
+            <statement>
+                <p>Suppose <m>f : \mathbb{R}^n \to \mathbb{R}</m> is a smooth scalar function on Euclidean space for which <m>c</m> is not a critical value. Then the smooth level subspace 
+                    <me>X = \left\{ \mb{x} \in \mathbb{R}^n : f (\mb{x} ) = c \right\}</me>
+                is orientable with orientation form 
+                    <me>\orient^X = \star \tder{}{f} </me>
+                    </p>
+            </statement>
+            <proof>Exercise.</proof>
+        </proposition>
+
         <p>Some orientations are very familiar. To see this, we first need to use inner products to take vector fields to <m>1</m>-forms. Suppose <m>X</m> is a vector field in <m>\mathbb{R}^n</m>. Define the dual differential <m>1</m>-form <m>X^\vee</m> to be the field of cotangent vectors <m>X^\vee_p</m> which are defined by 
         <men xml:id="eq-dualform">
             X^\vee_p (Y) = X \cdot Y
@@ -153,7 +166,7 @@
             <statement>
                 <p>Let <m>D_1, D_2</m> and <m>D_3</m> be domains in Euclidean spaces. Suppose <m>\mb{G}_1 : D_1 \to D_2</m> and <m>\mb{G}_2 : D_2 \to D_3</m> are differentiable functions and <m>\eta</m> is a differentiable <m>k</m>-form on <m>D_3</m>, then
                     <me>
-                    (G_2 \circ G_1)^* \eta = G_2^* (G_1^* \eta ).
+                    (\mb{G}_2 \circ \mb{G}_1)^* \eta = \mb{G}_2^* (\mb{G}_1^* \eta ).
                     </me></p>
             </statement>
             <proof> <p>Exercise.</p>
@@ -248,6 +261,12 @@
                     <me>
                     \int_{\mathcal{C}} x_1 \tder{}{x_1} + \frac{x_2}{4} \tder{}{x_2} + \frac{x_3}{9} \tder{}{x_3} + \frac{x_4}{16} \tder{}{x_4} + \frac{x_5}{25} \tder{}{x_5}.
                     </me></p>
+            </statement>
+        </exercise>
+
+        <exercise>
+            <statement>
+                <p>Prove <xref ref="prop-orientation-levelspace"/>.</p>
             </statement>
         </exercise>
 

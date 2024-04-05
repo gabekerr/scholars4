@@ -92,7 +92,7 @@
 
     <p>One may wonder at first why this is true since we know that switching orientations should result in changing the sign of the integral of a given differential <m>m</m>-form. However, the scalar integral has the added ingredient that the <m>m</m>-form being integrated is tied to the orientation, which results in an additional sign change that cancels out the one associated to the change of orientation. Of course, this makes sense intuitively as well: the surface area of a sphere should not depend on whether we orient one way or the other. A consequence of this is that one may define scalar integrals on smooth subspaces that do not have an orientation.</p>
 
-    <p>There are several different notations for the scalar integral. More important than notation, there are techniques for computing these integrals which don't rely on the orientation (which may seem mysterious given that our definition has the a multiple of the orientation form as \textit{the} form being integrated!). We will work through examples to illustrate these points.</p>
+    <p>There are several different notations for the scalar integral. More important than notation, there are techniques for computing these integrals which don't rely on the orientation (which may seem mysterious given that our definition has the a multiple of the orientation form as <em>the</em> form being integrated!). We will work through examples to illustrate these points.</p>
     </introduction>
 
     <subsection xml:id="subsec-scalar-line-integrals">
