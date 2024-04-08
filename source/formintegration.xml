@@ -166,7 +166,7 @@
             <statement>
                 <p>Let <m>D_1, D_2</m> and <m>D_3</m> be domains in Euclidean spaces. Suppose <m>\mb{G}_1 : D_1 \to D_2</m> and <m>\mb{G}_2 : D_2 \to D_3</m> are differentiable functions and <m>\eta</m> is a differentiable <m>k</m>-form on <m>D_3</m>, then
                     <me>
-                    (\mb{G}_2 \circ \mb{G}_1)^* \eta = \mb{G}_2^* (\mb{G}_1^* \eta ).
+                    (\mb{G}_2 \circ \mb{G}_1)^* \eta = \mb{G}_1^* (\mb{G}_2^* \eta ).
                     </me></p>
             </statement>
             <proof> <p>Exercise.</p>
