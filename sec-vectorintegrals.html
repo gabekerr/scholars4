@@ -596,15 +596,16 @@ v \geq \sqrt{ \frac{ 2 G M }{R} }.
 \end{equation*}
 </div>
 <div class="para">then</div>
-<div class="displaymath process-math" id="eq-stardual">
-\begin{equation}
-\star \mb{F}^\vee (x,y) \amp = \star \left( P (x,y) \, \tder{}{x} + Q (x,y) \, \tder{}{y} \right), \\ \amp = - Q (x,y) \, \tder{}{x} + P(x,y)\, \tder{}{y}.\tag{4.3.1}
-\end{equation}
+<div class="displaymath process-math" id="subsec-flux-integrals-5-4">
+\begin{align}
+\star \mb{F}^\vee (x,y) \amp = \star \left( P (x,y) \, \tder{}{x} + Q (x,y) \, \tder{}{y} \right),\tag{4.3.1}\\
+\amp = - Q (x,y) \, \tder{}{x} + P(x,y)\, \tder{}{y}. \tag{4.3.2}
+\end{align}
 </div>
 <div class="para">This implies that the flux integral of <span class="process-math">\(\mb{F}\)</span> along a curve <span class="process-math">\(\mathcal{C}\)</span> in the plane is</div>
 <div class="displaymath process-math" id="eq-fluxline">
 \begin{equation}
-\int_{\mathcal{C}} \mb{F} \cdot \tder{}{\mb{n}} = \int_\mathcal{C} - Q (x,y) \, \tder{}{x} + P(x,y)\, \tder{}{y}.\tag{4.3.2}
+\int_{\mathcal{C}} \mb{F} \cdot \tder{}{\mb{n}} = \int_\mathcal{C} - Q (x,y) \, \tder{}{x} + P(x,y)\, \tder{}{y}.\tag{4.3.3}
 \end{equation}
 </div>
 <div class="para">However, this may not get us closer to seeing the meaning of this integral. We can see this by considering the normal unit vector along the curve <span class="process-math">\(\mathcal{C}\text{.}\)</span> Recall that the orientation of <span class="process-math">\(\mathcal{C}\)</span> can be understood as the dual to the unit tangent vector <span class="process-math">\(\mb{T}\text{.}\)</span> Taking negative of the Hodge star of <span class="process-math">\(\mb{T}\)</span> is denoted</div>
@@ -635,10 +636,10 @@ v \geq \sqrt{ \frac{ 2 G M }{R} }.
 \end{align*}
 </div>
 </div></article><details id="prop-fluxline-2" class="hiddenproof born-hidden-knowl"><summary><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof"><div class="para logical" id="prop-fluxline-2-1">
-<div class="para">The second equation follows from equation <a href="" class="xref" data-knowl="./knowl/xref/eq-fluxline.html" title="Equation 4.3.2">(4.3.2)</a>. On the other hand, equation <a href="" class="xref" data-knowl="./knowl/xref/eq-stardual.html" title="Equation 4.3.1">(4.3.1)</a> gives the form for the Hodge star of the dual of <span class="process-math">\(\mb{F}\text{.}\)</span>  One can check here that <span class="process-math">\(\star \mb{F}^\vee = \left( \star \mb{F} \right)^\vee\)</span> and</div>
+<div class="para">The second equation follows from equation <a href="" class="xref" data-knowl="./knowl/xref/eq-fluxline.html" title="Equation 4.3.3">(4.3.3)</a>. On the other hand, equation <a href="" class="xref" data-knowl="./knowl/xref/eq-stardual.html" title="Equation 4.3.1">(4.3.1)</a> gives the form for the Hodge star of the dual of <span class="process-math">\(\mb{F}\text{.}\)</span>  One can check here that <span class="process-math">\(\star \mb{F}^\vee = \left( \star \mb{F} \right)^\vee\)</span> and</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-fluxline.html ./knowl/xref/eq-stardual.html ./knowl/xref/prop-vectorscalar.html">
 \begin{equation*}
-\star \mb{F} \amp =   -Q  \, \partial_{x} + P  \, \partial_{y}.
+\star \mb{F} =   -Q  \, \partial_{x} + P  \, \partial_{y}.
 \end{equation*}
 </div>
 <div class="para">Thus, using <a href="" class="xref" data-knowl="./knowl/xref/prop-vectorscalar.html" title="Proposition 4.3.3">Proposition 4.3.3</a> to relate the vector line integral to the scalar line integral gives</div>
@@ -746,37 +747,37 @@ v \geq \sqrt{ \frac{ 2 G M }{R} }.
 </div>
 </div></article><div class="para logical" id="subsec-flux-integrals-13">
 <div class="para">There are again two important tasks to accomplish in this case. First, we would like to understand what this integral means and second, we would like to know how to compute it (at least in some cases). For the first task, we may generalize what was done for curves to the arbitrary <span class="process-math">\(n\)</span>-dimensional case. Let us work through this procedure for <span class="process-math">\(X\)</span> an <span class="process-math">\((n - 1)\)</span>-dimensional smooth subspace of <span class="process-math">\(\mathbb{R}^n\)</span> and then apply it to <span class="process-math">\(n = 3\text{.}\)</span> On <span class="process-math">\(X\)</span> we have the unit volume form <span class="process-math">\(\vol^X\)</span> which is an <span class="process-math">\((n - 1)\)</span>-form. Likewise, we have the <span class="process-math">\((n - 1)\)</span>-form <span class="process-math">\(\star \mb{F}^\vee\text{.}\)</span> We may connect these two forms by finding the <dfn class="terminology">unit normal vector field</dfn> <span class="process-math">\(\mb{N}\)</span> along <span class="process-math">\(X\)</span> for which</div>
-<div class="displaymath process-math" id="eq-star1">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-Hodgeformula.html" id="eq-star1">
 \begin{equation}
-\star \mb{N}^\vee =  \vol^X .\tag{4.3.3}
+\star \mb{N}^\vee =  \vol^X .\tag{4.3.4}
 \end{equation}
 </div>
 <div class="para">Then we claim that, for any smooth parameterization <span class="process-math">\(\mb{G} : U \to X\)</span> of <span class="process-math">\(X\text{,}\)</span> we claim that</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-Hodgeformula.html">
 \begin{equation*}
 \mb{G}^* \left( \star \mb{F}^\vee \right) = \mb{G}^* \left( \mb{F} \cdot \mb{N} \, \vol^X \right).
 \end{equation*}
 </div>
 <div class="para">To see this, note that <span class="process-math">\(\mb{N}\)</span> is a unit normal vector to <span class="process-math">\(X\)</span> and, at any point <span class="process-math">\(p\)</span> in <span class="process-math">\(X\text{,}\)</span> we may find an oriented orthonormal basis <span class="process-math">\(\{\xi_1, \ldots, \xi_{n - 1} \}\)</span> of <span class="process-math">\(T_p X\text{.}\)</span> The dual cotangent vectors then are <span class="process-math">\(\{\xi_1^\vee, \ldots, \xi_{n - 1}^\vee \}\)</span> and <span class="process-math">\(\vol^X = \xi_1^\vee \wedge \cdots \wedge \xi_{n - 1}^\vee\text{.}\)</span> Now that we have a basis, we can write <span class="process-math">\(\mb{F}\)</span> at <span class="process-math">\(p\)</span> as the linear combination</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-Hodgeformula.html">
 \begin{equation*}
 \mb{F} = a_1 \xi_1 + \cdots + a_{n - 1} \xi_{n - 1} + b \mb{N}.
 \end{equation*}
 </div>
 <div class="para">Its dual is then</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-Hodgeformula.html">
 \begin{equation*}
 \mb{F}^\vee = a_1 \xi_1^\vee + \cdots + a_{n - 1} \xi_{n - 1}^\vee + b \mb{N}^\vee.
 \end{equation*}
 </div>
 <div class="para">Now we note that</div>
-<div class="displaymath process-math" id="eq-normaldualstozero">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-Hodgeformula.html" id="eq-normaldualstozero">
 \begin{equation}
-\mb{G}^* \mb{N}^\vee = \mb{0}\tag{4.3.4}
+\mb{G}^* \mb{N}^\vee = \mb{0}\tag{4.3.5}
 \end{equation}
 </div>
-<div class="para">as a cotangent vector. On the other hand, by Proposition~\label{prop:Hodgeformula} the Hodge star <span class="process-math">\(\star \xi_i^\vee\)</span> is a wedge product containing the factor <span class="process-math">\(\mb{N}^\vee\text{.}\)</span> But then the pullback <span class="process-math">\(\mb{G}^* \star \xi_i^\vee = \mb{0}\)</span> for every <span class="process-math">\(1 \leq i \leq n - 1\)</span> and, using linearity, we are left with</div>
-<div class="displaymath process-math" id="subsec-flux-integrals-13-35">
+<div class="para">as a cotangent vector. On the other hand, by <a href="" class="xref" data-knowl="./knowl/xref/prop-Hodgeformula.html" title="Proposition 3.2.15">Proposition 3.2.15</a> the Hodge star <span class="process-math">\(\star \xi_i^\vee\)</span> is a wedge product containing the factor <span class="process-math">\(\mb{N}^\vee\text{.}\)</span> But then the pullback <span class="process-math">\(\mb{G}^* \star \xi_i^\vee = \mb{0}\)</span> for every <span class="process-math">\(1 \leq i \leq n - 1\)</span> and, using linearity, we are left with</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-Hodgeformula.html" id="subsec-flux-integrals-13-36">
 \begin{align*}
 \mb{G}^* \star \mb{F}^\vee \amp = b \mb{G}^* \star \mb{N}^\vee , \\
 \amp = b \mb{G}^* \vol^X, \\ \amp = \mb{G}^* \left( \mb{F} \cdot \mb{N} \, \vol^X \right) 
@@ -900,7 +901,7 @@ v \geq \sqrt{ \frac{ 2 G M }{R} }.
 </div>
 </div></article><article class="exercise exercise-like" id="exe-vectorintegrals-3"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
 <div class="para" id="exe-vectorintegrals-3-1-1">A fundamental principle in physics is conservation of energy. One case of this is that if <span class="process-math">\(\mb{F} = -g \partial_z\)</span> is a constant gravitational force, then the work done by <span class="process-math">\(\mb{F}\)</span> on a particle starting at height <span class="process-math">\(a\)</span> and ending at height <span class="process-math">\(b\)</span> does not depend on the path that was taken from <span class="process-math">\(a\)</span> to <span class="process-math">\(b\text{.}\)</span> Explain why the principle holds in this case.</div></article><article class="exercise exercise-like" id="exe-vectorintegrals-4"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
-<div class="para" id="exe-vectorintegrals-4-1-1">Explain why equation <a href="" class="xref" data-knowl="./knowl/xref/eq-normaldualstozero.html" title="Equation 4.3.4">(4.3.4)</a> is true.</div></article><article class="exercise exercise-like" id="exe-vectorintegrals-5"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
+<div class="para" id="exe-vectorintegrals-4-1-1">Explain why equation <a href="" class="xref" data-knowl="./knowl/xref/eq-normaldualstozero.html" title="Equation 4.3.5">(4.3.5)</a> is true.</div></article><article class="exercise exercise-like" id="exe-vectorintegrals-5"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
 <div class="para logical" id="exe-vectorintegrals-5-1-1">
 <div class="para">Suppose <span class="process-math">\(\mathcal{S}\)</span> is an oriented surface in <span class="process-math">\(\mathbb{R}^3\)</span> and <span class="process-math">\(\mb{F}\)</span> is a vector field which is tangent to <span class="process-math">\(\mathcal{S}\text{.}\)</span> In other words, at any point <span class="process-math">\(p\)</span> of <span class="process-math">\(\mathcal{S}\text{,}\)</span> the tangent field vector <span class="process-math">\(\mb{F}_p\)</span> is in <span class="process-math">\(T_p \mathcal{S}\text{.}\)</span> What is</div>
 <div class="displaymath process-math">
