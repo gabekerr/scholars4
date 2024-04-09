@@ -28,7 +28,7 @@
       \newcommand{\pball}[2]{\text{B}^*_{#1} ( #2 )}
     </macros>
     <latex-image-preamble>
-      \usepackage{tikz, tikz-cd, amscd}
+      \usepackage{tikz, tikz-cd, amscd, esint}
       \usetikzlibrary{arrows}
     </latex-image-preamble>
   </docinfo>

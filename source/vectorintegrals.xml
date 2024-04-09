@@ -236,9 +236,10 @@
             \mb{F} (x,y) = P (x,y) \, \partial_{x} + Q (x,y) \, \partial_{y}
         </me>
         then
-        <men xml:id="eq-stardual">
-           \star \mb{F}^\vee (x,y) \amp = \star \left( P (x,y) \, \tder{}{x} + Q (x,y) \, \tder{}{y} \right), \\ \amp = - Q (x,y) \, \tder{}{x} + P(x,y)\, \tder{}{y}.
-        </men>
+        <mdn>
+           <mrow  xml:id="eq-stardual">\star \mb{F}^\vee (x,y) \amp = \star \left( P (x,y) \, \tder{}{x} + Q (x,y) \, \tder{}{y} \right),</mrow> 
+           <mrow> \amp = - Q (x,y) \, \tder{}{x} + P(x,y)\, \tder{}{y}. </mrow>
+        </mdn>
         This implies that the flux integral of <m>\mb{F}</m> along a curve <m>\mathcal{C}</m> in the plane is
         <men xml:id="eq-fluxline">
             \int_{\mathcal{C}} \mb{F} \cdot \tder{}{\mb{n}} = \int_\mathcal{C} - Q (x,y) \, \tder{}{x} + P(x,y)\, \tder{}{y}.
@@ -265,7 +266,7 @@
             </statement>
             <proof> <p>The second equation follows from equation <xref ref="eq-fluxline"/>. On the other hand, equation <xref ref="eq-stardual"/> gives the form for the Hodge star of the dual of <m>\mb{F}</m>.  One can check here that <m>\star \mb{F}^\vee = \left( \star \mb{F} \right)^\vee</m> and
             <me>
-                \star \mb{F} \amp =   -Q  \, \partial_{x} + P  \, \partial_{y}.
+                \star \mb{F} =   -Q  \, \partial_{x} + P  \, \partial_{y}.
             </me>
             Thus, using <xref ref="prop-vectorscalar"/> to relate the vector line integral to the scalar line integral gives
             <md>
@@ -377,7 +378,7 @@
             <men xml:id="eq-normaldualstozero">
                 \mb{G}^* \mb{N}^\vee = \mb{0}
             </men>
-            as a cotangent vector. On the other hand, by Proposition~\label{prop:Hodgeformula} the Hodge star <m> \star \xi_i^\vee</m> is a wedge product containing the factor <m>\mb{N}^\vee</m>. But then the pullback <m>\mb{G}^* \star \xi_i^\vee = \mb{0}</m> for every <m>1 \leq i \leq n - 1</m> and, using linearity, we are left with 
+            as a cotangent vector. On the other hand, by <xref ref="prop-Hodgeformula"/> the Hodge star <m> \star \xi_i^\vee</m> is a wedge product containing the factor <m>\mb{N}^\vee</m>. But then the pullback <m>\mb{G}^* \star \xi_i^\vee = \mb{0}</m> for every <m>1 \leq i \leq n - 1</m> and, using linearity, we are left with 
             <md>
                 <mrow> \mb{G}^* \star \mb{F}^\vee \amp = b \mb{G}^* \star \mb{N}^\vee , </mrow>
                 <mrow> \amp = b \mb{G}^* \vol^X, \\ \amp = \mb{G}^* \left( \mb{F} \cdot \mb{N} \, \vol^X \right) </mrow>

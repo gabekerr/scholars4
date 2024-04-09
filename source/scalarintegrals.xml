@@ -248,7 +248,7 @@
                 </md>
                 From <xref ref="ex-spheresurfacearea"/> we have
                 <men xml:id="eq-spheresurfacearea">
-                    \left\| \frac{\partial \mb{G}}{\partial \varphi} \times \frac{\partial \mb{G}}{\partial \theta} \right\| \amp = R^2 \sin \varphi.
+                    \left\| \frac{\partial \mb{G}}{\partial \varphi} \times \frac{\partial \mb{G}}{\partial \theta} \right\| = R^2 \sin \varphi.
                 </men>
                 Using this we obtain
                 <md>
