@@ -61,7 +61,7 @@
 
             <p>Now, let us make a very intriguing and strange sounding assumption:
             <me>
-                \text{Assumption:  There are no <term> magnetic monopoles</term>.}
+                \text{Assumption:  There are no magnetic monopoles.}
             </me>
             If you have ever played with a pair of magnets, you will notice that, when held up to each other, they either connect and hold together or repel and re-orient themselves. That's because magnets seem to always come as a dipole. The mathematical way of saying this is that the total flux of the magnetic field through any oriented surface is zero (i.e. there is just as much of the magnetic field coming in as going out). Alternatively, we may say that <m>\mb{B}</m> is <em>surface independent</em> as in <xref ref="prop-surfaceindependent"/>. We saw in <xref ref="prop-vectorpotential"/> that this property is equivalent to the existence of a vector potential <m>\mb{A}</m> called the <term>magnetic potential</term> where
             <me>
@@ -126,7 +126,7 @@
                         </men>
                         Furthermore, the four potential shows that <m>F</m> is an exact two form with 
                         <men xml:id="eq-pot1">
-                            \tder{}{A} \amp = F.
+                            \tder{}{A}  = F.
                         </men></p>
                 </statement>
             </proposition>

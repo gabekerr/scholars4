@@ -257,7 +257,7 @@
             <statement>
                 <p> For any positive real number <m>R</m> let
                     <me>
-                    S^{n - 1} (R) = \{ (x_1, \ldots, x_n) \in \mathbb{R}^{n -  1} : x_1^2 + \cdots + x_n^2 = R^2 \}
+                    S^{n - 1} (R) = \{ (x_1, \ldots, x_n) \in \mathbb{R}^{n} : x_1^2 + \cdots + x_n^2 = R^2 \}
                     </me>
                     be the <m>(n - 1)</m>-dimensional sphere of radius <m>R</m>. Let 
                     <me>
