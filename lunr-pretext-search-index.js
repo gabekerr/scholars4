@@ -3661,7 +3661,7 @@ var ptx_lunr_docs = [
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
-  "body": "magnetic monopoles magnetic potential "
+  "body": "magnetic potential "
 },
 {
   "id": "subsec-maxwells-equations-5",
