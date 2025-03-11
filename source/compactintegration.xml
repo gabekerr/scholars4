@@ -67,7 +67,7 @@
                 <me>
                     D = \left\{ (x,y) : a \leq x \leq b , g_1 (x) \leq y \leq g_2 (x) \right\}.
                 </me>
-                The domain <m>D</m> is \textbf{bounded by continuous graphs of <m>y</m>} if there is an interval <m>[c,d]</m> and continuous functions <m>h_1, h_2 : [c,d] \to \mathbb{R}</m> for which
+                The domain <m>D</m> is <m>\textbf{bounded by continuous graphs of } y</m> if there is an interval <m>[c,d]</m> and continuous functions <m>h_1, h_2 : [c,d] \to \mathbb{R}</m> for which
                 <me>
                     D = \left\{ (x,y) : c \leq y \leq d , h_1 (y) \leq x \leq h_2 (y) \right\}.
                 </me></p>

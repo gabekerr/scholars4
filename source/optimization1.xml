@@ -254,7 +254,7 @@
 
     <subsection xml:id="subsec-gradient-descent">
         <title>Gradient descent</title>
-        <p>A neural network can be tasked with learning a particular function <m>h_{\theta} : U \to \mathbb{R}</m> which is defined using parameters <m>\theta = (\theta_1, \ldots, \theta_r)</m>. The goal is to find the function that best predicts an outcome of observed values <m>y</m> for a data point <m>\mb{X}</m> in <m>U \subset \mathbb{R}^m</m>. Thus the program aims to find the parameters <m>\theta</m> which define the best possible function <m>h_\theta</m>. A key ingredient in accomplishing this is the \textbf{cost function}
+        <p>A neural network can be tasked with learning a particular function <m>h_{\theta} : U \to \mathbb{R}</m> which is defined using parameters <m>\theta = (\theta_1, \ldots, \theta_r)</m>. The goal is to find the function that best predicts an outcome of observed values <m>y</m> for a data point <m>\mb{X}</m> in <m>U \subset \mathbb{R}^m</m>. Thus the program aims to find the parameters <m>\theta</m> which define the best possible function <m>h_\theta</m>. A key ingredient in accomplishing this is the <m>\textbf{cost function}</m>
         <me>
             J (\theta ) := \frac{1}{2m} \sum_{j = 1}^m \left( h_\theta (\mb{X}_j ) - y_j \right)^2.
         </me>

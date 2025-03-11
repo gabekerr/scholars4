@@ -105,7 +105,7 @@
                 <description>Critical point on subspace</description>         
             </notation>         
             <statement>
-                <p>Suppose <m>X</m> is a subspace of <m>\mathbb{R}^n</m> contained in an open set <m>V</m> and <m>f: V \to \mathbb{R}</m> is a scalar function. We say that a point <m>q</m> of <m>X</m> is a \textbf{critical point of <m>f|_X</m> restricted to <m>X</m>} if either:
+                <p>Suppose <m>X</m> is a subspace of <m>\mathbb{R}^n</m> contained in an open set <m>V</m> and <m>f: V \to \mathbb{R}</m> is a scalar function. We say that a point <m>q</m> of <m>X</m> is a <m>\textbf{critical point of } f|_X \textbf{ restricted to } X</m> if either:
                 <ol>
                     <li> <m>X</m> is not smooth at <m>q</m>, </li>
                     <li> <m>X</m> is smooth at <m>q</m> and, given any parameterization <m>\mb{r} : U \to X</m> of <m>X</m> near <m>q</m> with <m>\mb{r} (p) = q</m>, <m>p</m> is a critical point of the composition <m>f \circ \mb{r}</m>. </li>
