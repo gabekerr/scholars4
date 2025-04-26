@@ -26,11 +26,9 @@
       \newcommand{\vol}{\,\text{vol}}
       \newcommand{\orient}{\,\text{or}}
       \newcommand{\pball}[2]{\text{B}^*_{#1} ( #2 )}
-      \newcommand{\oiint}{{\subset\!\supset} \llap{\iint}}
-      \newcommand{\oiiint}{{\large{\subset\!\supset}} \llap{\iiint}}
     </macros>
     <latex-image-preamble>
-      \usepackage{tikz, tikz-cd, amscd}
+      \usepackage{tikz, tikz-cd, amscd, esint}
       \usetikzlibrary{arrows}
     </latex-image-preamble>
   </docinfo>
