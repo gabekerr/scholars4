@@ -110,7 +110,7 @@
                 <description>Pullback of <m>m</m>-form </description> 
             </notation>         
             <statement>
-                <p>Let <m>D</m> be a domain in <m>\mathbb{R}^m</m> with coordinates <m>(u_1, \ldots, u_m)</m> and <m>E</m> a domain in <m>\mathbb{R}^n</m> with coordinates <m>(x_1, \ldots, x_n)</m>. If <m>\mb{G} : D \to E</m> is a differential function given by 
+                <p>Let <m>D</m> be a domain in <m>\mathbb{R}^m</m> with coordinates <m>(u_1, \ldots, u_m)</m> and <m>E</m> a domain in <m>\mathbb{R}^n</m> with coordinates <m>(x_1, \ldots, x_n)</m>. If <m>\mb{G} : D \to E</m> is a smooth differentiable function given by 
                     <me>
                     \mb{G} (u_1, \ldots, u_m) = (x_1 (u_1, \ldots, u_m), \ldots, x_n(u_1, \ldots, u_m))
                     </me>
@@ -163,7 +163,7 @@
         <p>Pullbacks satisfy some key properties that make them natural operations to consider.</p>
         <proposition xml:id="prop-pullback-properties">
             <statement>
-                <p>Let <m>D</m> be a domain in <m>\mathbb{R}^m</m>, <m>E</m> a domain in <m>\mathbb{R}^n</m>, and <m>\mb{G} : D \to E</m> is a differential function. If <m>\nu</m> and <m>\eta</m> are differential forms on <m>E</m> then
+                <p>Let <m>D</m> be a domain in <m>\mathbb{R}^m</m>, <m>E</m> a domain in <m>\mathbb{R}^n</m>, and <m>\mb{G} : D \to E</m> is a smooth differentiable function. If <m>\nu</m> and <m>\eta</m> are differential forms on <m>E</m> then
                 <ol>
                     <li> <m>\mb{G}^* (\eta \wedge \nu) = (\mb{G}^* \eta ) \wedge (\mb{G}^* \nu )</m> </li>
                     <li> <m> \mb{G}^* \, \tder{}{\eta} = \tder{}{\mb{G}^* \eta } </m></li>
