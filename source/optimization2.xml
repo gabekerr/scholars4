@@ -80,7 +80,7 @@
                 <description>Smooth parameterization </description>         
             </notation>         
             <statement>
-                <p>We say that a subspace <m>X</m> of <m>\mathbb{R}^n</m> is <term>smooth at <m>p</m></term> if the there is an open set <m>U</m> of <m>\mathbb{R}^m</m> and a smooth parameterization <m>\mb{r}: U \to X</m> with image equal to a ball in <m>\mathbb{R}^n</m> intersected with <m>X</m>. We say that <m>X</m> is smooth if it is closed and smooth at every point <m>p</m> in <m>X</m>.</p>
+                <p>We say that a subspace <m>X</m> of <m>\mathbb{R}^n</m> is <term>smooth at <m>p</m></term> if there is an open set <m>U</m> of <m>\mathbb{R}^m</m> and a smooth parameterization <m>\mb{r}: U \to X</m> with image equal to a ball in <m>\mathbb{R}^n</m> intersected with <m>X</m>. We say that <m>X</m> is smooth if it is closed and smooth at every point <m>p</m> in <m>X</m>.</p>
             </statement>
         </definition>
 
