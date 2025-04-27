@@ -79,7 +79,7 @@
     <theorem xml:id="thm-ftli">
         <title>Fundamental Theorem of Line Integrals</title>
         <statement>
-            <p>Suppose <m>\mathcal{C}</m> is a piecewise linear curve in <m>\mathbb{R}^n</m> oriented from <m>\mb{a}</m> to <m>\mb{b}</m> and <m>\mb{F}</m> is a conservative vector field defined on a neighborhood of <m>\mathcal{C}</m> with potential <m>V</m>. Then
+            <p>Suppose <m>\mathcal{C}</m> is a piecewise smooth curve in <m>\mathbb{R}^n</m> oriented from <m>\mb{a}</m> to <m>\mb{b}</m> and <m>\mb{F}</m> is a conservative vector field defined on a neighborhood of <m>\mathcal{C}</m> with potential <m>V</m>. Then
                 <me>
                     \int_{\mathcal{C}} \mb{F} \cdot \tder{}{\mb{r}} = V (\mb{b}) - V (\mb{a} ).
                 </me></p>
