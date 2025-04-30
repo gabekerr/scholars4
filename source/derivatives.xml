@@ -35,7 +35,7 @@
             <statement>
                 <p>For a differentiable function <m>f</m> on an open set <m>U</m>, which is a <m>0</m>-form by definition, of <m>\mathbb{R}^n</m>, we recall 
                 <me>
-                    \tder{}{f} = \frac{\partial f}{\partial x_1} \tder{}{x_1} + \cdots + \frac{\partial f{\partial x_n} \tder{}{x_n} .
+                    \tder{}{f} = \frac{\partial f}{\partial x_1} \tder{}{x_1} + \cdots + \frac{\partial f}{\partial x_n} \tder{}{x_n} .
                 </me>
                 So, for example if <m>f(x,y) = x \cos (xy)</m> then 
                 <me>
@@ -67,7 +67,7 @@
             <statement>
                 <p>For the <m>2</m>-form 
                     <me>
-                        \xi \amp = xz \, \tder{}{x} \wedge \tder{}{y} - xy \, \tder{}{y} \wedge \tder{}{z}
+                        \xi = xz \, \tder{}{x} \wedge \tder{}{y} - xy \, \tder{}{y} \wedge \tder{}{z}
                     </me> 
                     one calculates
                     <md>
