@@ -144,7 +144,7 @@
             </statement>
         </example>
 
-        <p>As it turns out, once the dimension of the space exceeds <m>1</m>, there are examples of subspaces that are not orientable. The M\"obius strip is one such example in dimension <m>2</m>. One reason for orienting a smooth subspace is that for such spaces we can integrate forms.</p>
+        <p>As it turns out, once the dimension of the space exceeds <m>1</m>, there are examples of subspaces that are not orientable. The Möbius strip is one such example in dimension <m>2</m>. One reason for orienting a smooth subspace is that for such spaces we can integrate forms.</p>
 
         <definition xml:id="def-intofform">         
             <notation>             
