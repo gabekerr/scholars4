@@ -12,24 +12,24 @@
 </head>
 <body class="ignore-math">
 <article class="theorem theorem-like"><h3 class="heading">
-<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.2.7</span><span class="period">.</span><span class="space"> </span><span class="title">Stokes’ Theorem.</span>
+<span class="type">Theorem</span><span xmlns:xlink="http://www.w3.org/1999/xlink" class="space"> </span><span class="codenumber">5.2.7</span><span xmlns:xlink="http://www.w3.org/1999/xlink" class="period">.</span><span xmlns:xlink="http://www.w3.org/1999/xlink" class="space"> </span><span class="title">Stokes’ Theorem.</span>
 </h3>
-<div class="para logical">
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="para logical">
 <div class="para">Let <span class="process-math">\((X, \vol^X)\)</span> be a smooth compact oriented <span class="process-math">\(m\)</span>-dimensional subspace of <span class="process-math">\(\mathbb{R}^n\)</span> and <span class="process-math">\(\eta\)</span> a differentiable <span class="process-math">\((m - 1)\)</span>-form on <span class="process-math">\(D\text{.}\)</span> Then</div>
 <div class="displaymath process-math">
 \begin{equation}
 \int_X \tder{}{\eta} = \int_{\partial X} \eta .\tag{5.2.2}
 \end{equation}
 </div>
-</div></article><details class="hiddenproof born-hidden-knowl"><summary><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></summary><article class="hiddenproof"><div class="para logical">
-<div class="para">First we will require the existence of a partition of unity subordinate to the cover of <span class="process-math">\(X\text{.}\)</span> For our purposes, we cover of <span class="process-math">\(X\)</span> by a finite number of parameterizations as in equation <a href="" class="xref" data-knowl="./knowl/xref/eq-cover.html" title="Equation 5.2.1">(5.2.1)</a>. Writing <span class="process-math">\(U_i = \mb{G}^h_i (H_{R_i})\)</span> and <span class="process-math">\(V_j = \mb{G}^b_j (B_{R_j})\text{,}\)</span> a partition of unity subordinate to this cover is a set of smooth maps</div>
+</div></article><details xmlns:xlink="http://www.w3.org/1999/xlink" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></summary><article class="hiddenproof knowl__content"><div class="para logical">
+<div class="para">First we will require the existence of a partition of unity subordinate to the cover of <span class="process-math">\(X\text{.}\)</span> For our purposes, we cover of <span class="process-math">\(X\)</span> by a finite number of parameterizations as in equation <a href="sec-stokes.html#eq-cover" class="xref" data-knowl="./knowl/xref/eq-cover.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.2.1">(5.2.1)</a>. Writing <span class="process-math">\(U_i = \mb{G}^h_i (H_{R_i})\)</span> and <span class="process-math">\(V_j = \mb{G}^b_j (B_{R_j})\text{,}\)</span> a partition of unity subordinate to this cover is a set of smooth maps</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-cover.html">
 \begin{equation*}
 \rho_i : U_i \to \mathbb{R}_{\geq 0} , \hspace{.3in} \tilde{\rho}_j : V_j \to \mathbb{R}_{\geq 0}
 \end{equation*}
 </div>
 <div class="para">for which there is some <span class="process-math">\(\varepsilon\)</span> where</div>
-<ol class="decimal">
+<ol class="decimal" id="thm-stokes-3-1-8">
 <li><div class="para">
 <span class="process-math">\(\rho_i (\mb{G}^h_i (\mb{x}) ) = 0\)</span> for all <span class="process-math">\(\|\mb{x} \| \geq R_i - \varepsilon\)</span> and all <span class="process-math">\(1 \leq i \leq r\text{,}\)</span>
 </div></li>
@@ -44,7 +44,8 @@
 </div></li>
 </ol>
 <div class="para">The existence of such a partition of unity can be found in any analysis book and is obtained by defining, for each <span class="process-math">\(U_i\)</span> and <span class="process-math">\(V_j\text{,}\)</span> a smooth bump function which is nonzero on the complement of the union of all open sets except the given <span class="process-math">\(U_i\)</span> (or <span class="process-math">\(V_j\)</span>) and zero off of of it. Then adding these functions together and dividing each one by the resulting sum produces a collection <span class="process-math">\(\rho_i\)</span> and <span class="process-math">\(\tilde{\rho}_j\text{.}\)</span> We leave the details for the references and proceed with the proof.</div>
-</div> <div class="para logical">
+</div>
+<div class="para logical">
 <div class="para">Now, we may extend each <span class="process-math">\(\rho_i\)</span> and <span class="process-math">\(\tilde{\rho}_j\)</span> to smooth functions on all of <span class="process-math">\(X\)</span> by taking them to be zero off of <span class="process-math">\(U_j\)</span> and <span class="process-math">\(V_j\)</span> respectively. Doing so, and using property (3) along with linearity of the exterior derivative, gives us an equality of forms</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-stokes.html">
 \begin{align}
@@ -52,8 +53,9 @@
 \amp =  \left( \sum_{i = 1}^r \tder{}{( \rho_i \eta )} \right) + \left( \sum_{j = 1}^s \tder{}{(\tilde{\rho}_j \eta )} \right). \notag
 \end{align}
 </div>
-<div class="para">Since integration of forms is also linear, we may prove equation <a href="" class="xref" data-knowl="./knowl/xref/eq-stokes.html" title="Equation 5.2.2">(5.2.2)</a> for the forms <span class="process-math">\(\rho_i \eta\)</span> and <span class="process-math">\(\tilde{\rho}_j \eta\)</span> and the theorem will follow.</div>
-</div> <div class="para logical">
+<div class="para">Since integration of forms is also linear, we may prove equation <a href="sec-stokes.html#eq-stokes" class="xref" data-knowl="./knowl/xref/eq-stokes.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.2.2">(5.2.2)</a> for the forms <span class="process-math">\(\rho_i \eta\)</span> and <span class="process-math">\(\tilde{\rho}_j \eta\)</span> and the theorem will follow.</div>
+</div>
+<div class="para logical">
 <div class="para">The advantage of <span class="process-math">\(\rho_i \eta\)</span> (and <span class="process-math">\(\tilde{\rho}_j \eta\)</span>) over <span class="process-math">\(\eta\)</span> itself, is that when we pull these back along <span class="process-math">\(\mb{G}_i^h\)</span> (and <span class="process-math">\(\mb{G}_j^b\)</span>) respectively and write them in coordinates as</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-stokes2.html ./knowl/xref/eq-stokes3.html ./knowl/xref/eq-stokes1.html ./knowl/xref/eq-stokes2.html ./knowl/xref/eq-stokes0.html">
 \begin{equation*}
@@ -108,19 +110,19 @@ I \amp = \nonumber \idotsint_{E} \left. f_m (x_1, \ldots, x_m) \right|_{x_m = 0}
 \amp = (-1)^{m -1} \int_{\partial X} \rho_i \eta .\notag
 \end{align}
 </div>
-<div class="para">Putting equations <a href="" class="xref" data-knowl="./knowl/xref/eq-stokes2.html" title="Equation 5.2.5">(5.2.5)</a> and <a href="" class="xref" data-knowl="./knowl/xref/eq-stokes3.html" title="Equation 5.2.6">(5.2.6)</a> together with equation <a href="" class="xref" data-knowl="./knowl/xref/eq-stokes1.html" title="Equation 5.2.4">(5.2.4)</a> gives</div>
+<div class="para">Putting equations <a href="sec-stokes.html#eq-stokes2" class="xref" data-knowl="./knowl/xref/eq-stokes2.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.2.5">(5.2.5)</a> and <a href="sec-stokes.html#thm-stokes-3-3-35" class="xref" data-knowl="./knowl/xref/eq-stokes3.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.2.6">(5.2.6)</a> together with equation <a href="sec-stokes.html#thm-stokes-3-3-18" class="xref" data-knowl="./knowl/xref/eq-stokes1.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.2.4">(5.2.4)</a> gives</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-stokes2.html ./knowl/xref/eq-stokes3.html ./knowl/xref/eq-stokes1.html ./knowl/xref/eq-stokes2.html ./knowl/xref/eq-stokes0.html">
 \begin{equation*}
 \int_X \tder{}{(\rho_i \eta)}  = \int_{\partial X} \rho_i \eta
 \end{equation*}
 </div>
-<div class="para">for every <span class="process-math">\(1 \leq i \leq r\text{.}\)</span> On the other hand, equation <a href="" class="xref" data-knowl="./knowl/xref/eq-stokes2.html" title="Equation 5.2.5">(5.2.5)</a> holds for every <span class="process-math">\(k\)</span> (including <span class="process-math">\(k = m\)</span>) when <span class="process-math">\(\rho_i\)</span> is replaced by <span class="process-math">\(\tilde{\rho}_j\)</span> since <span class="process-math">\(\tilde{\rho}_j\)</span>  (or an extension of it) vanishes on the boundary of <span class="process-math">\(\mathcal{C}\text{.}\)</span> This implies</div>
+<div class="para">for every <span class="process-math">\(1 \leq i \leq r\text{.}\)</span> On the other hand, equation <a href="sec-stokes.html#eq-stokes2" class="xref" data-knowl="./knowl/xref/eq-stokes2.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.2.5">(5.2.5)</a> holds for every <span class="process-math">\(k\)</span> (including <span class="process-math">\(k = m\)</span>) when <span class="process-math">\(\rho_i\)</span> is replaced by <span class="process-math">\(\tilde{\rho}_j\)</span> since <span class="process-math">\(\tilde{\rho}_j\)</span>  (or an extension of it) vanishes on the boundary of <span class="process-math">\(\mathcal{C}\text{.}\)</span> This implies</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-stokes2.html ./knowl/xref/eq-stokes3.html ./knowl/xref/eq-stokes1.html ./knowl/xref/eq-stokes2.html ./knowl/xref/eq-stokes0.html">
 \begin{equation*}
 \int_X \tder{}{(\tilde{\rho}_j \eta)} = 0
 \end{equation*}
 </div>
-<div class="para">for all <span class="process-math">\(1 \leq j \leq s\text{.}\)</span> As was mentioned earlier, combining these results with linearity of integration and equation <a href="" class="xref" data-knowl="./knowl/xref/eq-stokes0.html" title="Equation 5.2.3">(5.2.3)</a> gives the theorem.</div>
+<div class="para">for all <span class="process-math">\(1 \leq j \leq s\text{.}\)</span> As was mentioned earlier, combining these results with linearity of integration and equation <a href="sec-stokes.html#thm-stokes-3-2-6" class="xref" data-knowl="./knowl/xref/eq-stokes0.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.2.3">(5.2.3)</a> gives the theorem.</div>
 </div></article></details><span class="incontext"><a class="internal" href="sec-stokes.html#thm-stokes">in-context</a></span>
 </body>
 </html>

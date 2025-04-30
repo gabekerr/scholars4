@@ -5,16 +5,20 @@
 <!--*         https://pretextbook.org          *-->
 <!--*                                          *-->
 <!--********************************************-->
-<html lang="en-US" dir="ltr">
+<html lang="en-US" dir="ltr" data-legacy-colorscheme="blue_red">
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Scalar integrals</title>
-<meta name="Keywords" content="Authored in PreTeXt">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta property="og:type" content="book">
-<meta property="book:title" content="Mathematical Scholars Calculus 4">
-<meta property="book:author" content="Gabriel Kerr">
-<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>
+<link xmlns:xlink="http://www.w3.org/1999/xlink" rel="preconnect" href="https://fonts.googleapis.com">
+<link xmlns:xlink="http://www.w3.org/1999/xlink" rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link xmlns:xlink="http://www.w3.org/1999/xlink" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;" rel="stylesheet">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link xmlns:xlink="http://www.w3.org/1999/xlink" href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script>
 var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
 window.MathJax = {
   "tex": {
@@ -74,7 +78,7 @@ window.MathJax = {
       "[pretext]/mathjaxknowl3.js"
     ],
     "paths": {
-      "pretext": "https://pretextbook.org/js/lib"
+      "pretext": "_static/pretext/js/lib"
     }
   },
   "startup": {
@@ -86,33 +90,51 @@ window.MathJax = {
     )}
   }
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.33/pretext_search.js"></script><link href="https://pretextbook.org/css/0.83/pretext_search.css" rel="stylesheet" type="text/css">
-<script>js_version = 0.33</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.33/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.33/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.33/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
-</script><link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
-<link href="https://pretextbook.org/css/0.83/pretext.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/pretext_add_on.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/shell_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/banner_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/navbar_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/toc_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/knowls_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/style_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/colors_blue_red.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/setcolors.css" rel="stylesheet" type="text/css">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta xmlns:xlink="http://www.w3.org/1999/xlink" name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta xmlns:xlink="http://www.w3.org/1999/xlink" property="og:type" content="book">
+<meta xmlns:xlink="http://www.w3.org/1999/xlink" property="book:title" content="Mathematical Scholars Calculus 4">
+<meta xmlns:xlink="http://www.w3.org/1999/xlink" property="book:author" content="Gabriel Kerr">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.6.1';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.c7804631fa963734.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.f7a03b209751032d.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.541c9106f2c605b9.css">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script xmlns:xlink="http://www.w3.org/1999/xlink" src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
 </head>
 <body class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
-<a id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
 <h1 class="heading"><a href="ms-calculus-3.html"><span class="title">Mathematical Scholars Calculus 4</span></a></h1>
 <p class="byline">Gabriel Kerr</p>
-</div>
-</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+</div></div></header><nav xmlns:xlink="http://www.w3.org/1999/xlink" id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
 <div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
 <div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
 <div class="search-results-controls">
@@ -123,7 +145,8 @@ window.MathJax = {
 <ol id="searchresults" class="searchresults"></ol>
 </div>
 </div>
-<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="sec-integrating-forms.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-integral-of-forms.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-vectorintegrals.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="sec-integrating-forms.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-integral-of-forms.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-vectorintegrals.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div xmlns:xlink="http://www.w3.org/1999/xlink" id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
 \newcommand{\C}{\mathbb C}
 \newcommand{\diff}{\text{d}}
 \newcommand{\mb}[1]{\mathbf{#1}}
@@ -145,6 +168,8 @@ window.MathJax = {
 \newcommand{\vol}{\,\text{vol}}
 \newcommand{\orient}{\,\text{or}}
 \newcommand{\pball}[2]{\text{B}^*_{#1} ( #2 )}
+\newcommand{\oiint}{{\subset\!\supset} \llap{\iint}}
+\newcommand{\oiiint}{{\large{\subset\!\supset}} \llap{\iiint}}
 \newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
 \newcommand{\amp}{&amp;}
@@ -152,7 +177,7 @@ window.MathJax = {
 \newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
 \)</span></div>
 <div class="ptx-page">
-<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural contains-active toc-item-list">
+<div xmlns:xlink="http://www.w3.org/1999/xlink" id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural toc-item-list contains-active">
 <li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch-differential-calculus.html" class="internal"><span class="codenumber">1</span> <span class="title">Differential Calculus in Several Variables</span></a></div>
@@ -277,9 +302,9 @@ window.MathJax = {
 <li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-integrating-forms.html#exe-formintegration" class="internal"><span class="codenumber">4.1.3</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
-<li class="toc-item toc-section active">
+<li class="toc-item toc-section contains-active">
 <div class="toc-title-box"><a href="sec-scalarintegrals.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Scalar integrals</span></a></div>
-<ul class="structural toc-item-list">
+<ul class="structural toc-item-list active">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-scalarintegrals.html#subsec-scalar-line-integrals" class="internal"><span class="codenumber">4.2.1</span> <span class="title">Scalar line integrals</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-scalarintegrals.html#subsec-scalar-surface-integrals" class="internal"><span class="codenumber">4.2.2</span> <span class="title">Scalar surface integrals</span></a></div></li>
 <li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-scalarintegrals.html#exe-scalarintegrals" class="internal"><span class="codenumber">4.2.3</span> <span class="title">Exercises</span></a></div></li>
@@ -338,7 +363,7 @@ window.MathJax = {
 <li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-partial-differential-equations.html" class="internal"><span class="codenumber">6</span> <span class="title">Partial Differential Equations</span></a></div></li>
 <li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
 </ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-scalarintegrals"><h2 class="heading hide-type">
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section xmlns:xlink="http://www.w3.org/1999/xlink" class="section" id="sec-scalarintegrals"><h2 class="heading hide-type">
 <span class="type">Section</span><span class="space"> </span><span class="codenumber">4.2</span><span class="space"> </span><span class="title">Scalar integrals</span>
 </h2>
 <section class="introduction" id="sec-scalarintegrals-2"><div class="para logical" id="sec-scalarintegrals-2-1">
@@ -355,16 +380,19 @@ window.MathJax = {
 \end{equation*}
 </div>
 <div class="para">to obtain a wedge product in <span class="process-math">\(\bigwedge^m T^*_p \mathbb{R}^n\text{.}\)</span> This replacement may be done smoothly along all of <span class="process-math">\(X\)</span> (not just at <span class="process-math">\(p\)</span>) to yield a new orientation form <span class="process-math">\(\vol^X\)</span> which gives an equivalent orientation, but also has the geometric property that <span class="process-math">\(\| \vol^X_p\| = 1\)</span> at every point <span class="process-math">\(p\)</span> in <span class="process-math">\(X\text{.}\)</span> We call <span class="process-math">\(\vol^X\)</span> the <dfn class="terminology">volume orientation</dfn> (or <dfn class="terminology">volume form</dfn>) on <span class="process-math">\(X\text{.}\)</span> We use this particular <span class="process-math">\(m\)</span>-form to define the main player in our current section.</div>
-</div> <article class="definition definition-like" id="def-scalar-integral"><h3 class="heading">
+</div>
+<article class="definition definition-like" id="def-scalar-integral"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.2.1</span><span class="period">.</span>
-</h3> <div class="para logical" id="def-scalar-integral-2-1">
+</h3>
+<div class="para logical" id="def-scalar-integral-2-1">
 <div class="para">Let <span class="process-math">\((X, \vol^X)\)</span> be smooth oriented <span class="process-math">\(m\)</span>-dimensional subspace of <span class="process-math">\(\mathbb{R}^n\)</span> and <span class="process-math">\(f : X \to \mathbb{R}\)</span> a scalar function on <span class="process-math">\(X\text{.}\)</span> The <dfn class="terminology">scalar integral</dfn> of <span class="process-math">\(f\)</span> on <span class="process-math">\(X\)</span> is the integral</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \int_X f \vol^X
 \end{equation*}
 </div>
-</div></article> <div class="para" id="sec-scalarintegrals-2-3">The following proposition can be taken as a definition, or proven to agree with other notions of volume (of curved subspaces in <span class="process-math">\(\mathbb{R}^n\)</span>) with some work.</div> <article class="proposition theorem-like" id="sec-scalarintegrals-2-4"><h3 class="heading">
+</div></article><div class="para" id="sec-scalarintegrals-2-3">The following proposition can be taken as a definition, or proven to agree with other notions of volume (of curved subspaces in <span class="process-math">\(\mathbb{R}^n\)</span>) with some work.</div>
+<article class="proposition theorem-like" id="sec-scalarintegrals-2-4"><h3 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">4.2.2</span><span class="period">.</span>
 </h3>
 <div class="para logical" id="sec-scalarintegrals-2-4-1-1">
@@ -374,7 +402,8 @@ window.MathJax = {
 \int_X \vol^X
 \end{equation*}
 </div>
-</div></article> <div class="para" id="sec-scalarintegrals-2-5">To compute a scalar integral, one generally needs a parameterization <span class="process-math">\(\mb{G} : D \to X\text{.}\)</span> When we have this data, there is a formula which, depending on the parameterization, may be quite simple or impossibly difficult to write down.</div> <article class="proposition theorem-like" id="prop-scalar"><h3 class="heading">
+</div></article><div class="para" id="sec-scalarintegrals-2-5">To compute a scalar integral, one generally needs a parameterization <span class="process-math">\(\mb{G} : D \to X\text{.}\)</span> When we have this data, there is a formula which, depending on the parameterization, may be quite simple or impossibly difficult to write down.</div>
+<article class="proposition theorem-like" id="prop-scalar"><h3 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">4.2.3</span><span class="period">.</span>
 </h3>
 <div class="para logical" id="prop-scalar-1-1">
@@ -402,7 +431,7 @@ window.MathJax = {
 \idotsint_D f\left( x_1 (u_1, \ldots, u_m), \ldots, x_n (u_1, \ldots, u_m) \right) \, \|\xi_1 \wedge \cdots \wedge \xi_m \| \, \tder{}{u_1} \cdots \tder{}{u_m}.\tag{4.2.1}
 \end{equation}
 </div>
-</div></article><details id="prop-scalar-2" class="hiddenproof born-hidden-knowl"><summary><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></summary><article class="hiddenproof"><div class="para logical" id="prop-scalar-2-1">
+</div></article><details id="prop-scalar-2" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></summary><article class="hiddenproof knowl__content"><div class="para logical" id="prop-scalar-2-1">
 <div class="para">To see this proposition holds, simply note that <span class="process-math">\(\left\{ \xi_1, \ldots, \xi_m \right\}\)</span> is a basis for the tangent space at <span class="process-math">\(X\)</span> (at any given point). This follows from the definition of parameterizations. Taking <span class="process-math">\(\xi_i^*\)</span> to be the dual cotangent vector, it is an exercise to show that</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -432,11 +461,13 @@ window.MathJax = {
 \end{align*}
 </div>
 <div class="para">Putting this into the formula for the integral of an <span class="process-math">\(m\)</span>-form on <span class="process-math">\(X\)</span> gives the result.</div>
-</div></article></details> <div class="para" id="sec-scalarintegrals-2-7">As a final point, we note the following relatively easy result.</div> <article class="proposition theorem-like" id="sec-scalarintegrals-2-8"><h3 class="heading">
+</div></article></details><div class="para" id="sec-scalarintegrals-2-7">As a final point, we note the following relatively easy result.</div>
+<article class="proposition theorem-like" id="sec-scalarintegrals-2-8"><h3 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">4.2.4</span><span class="period">.</span>
 </h3>
 <div class="para" id="sec-scalarintegrals-2-8-1-1">The scalar integral is independent of the orientation of <span class="process-math">\(X\text{.}\)</span>
-</div></article> <div class="para" id="sec-scalarintegrals-2-9">One may wonder at first why this is true since we know that switching orientations should result in changing the sign of the integral of a given differential <span class="process-math">\(m\)</span>-form. However, the scalar integral has the added ingredient that the <span class="process-math">\(m\)</span>-form being integrated is tied to the orientation, which results in an additional sign change that cancels out the one associated to the change of orientation. Of course, this makes sense intuitively as well: the surface area of a sphere should not depend on whether we orient one way or the other. A consequence of this is that one may define scalar integrals on smooth subspaces that do not have an orientation.</div> <div class="para" id="sec-scalarintegrals-2-10">There are several different notations for the scalar integral. More important than notation, there are techniques for computing these integrals which don’t rely on the orientation (which may seem mysterious given that our definition has the a multiple of the orientation form as <em class="emphasis">the</em> form being integrated!). We will work through examples to illustrate these points.</div></section><section class="subsection" id="subsec-scalar-line-integrals"><h3 class="heading hide-type">
+</div></article><div class="para" id="sec-scalarintegrals-2-9">One may wonder at first why this is true since we know that switching orientations should result in changing the sign of the integral of a given differential <span class="process-math">\(m\)</span>-form. However, the scalar integral has the added ingredient that the <span class="process-math">\(m\)</span>-form being integrated is tied to the orientation, which results in an additional sign change that cancels out the one associated to the change of orientation. Of course, this makes sense intuitively as well: the surface area of a sphere should not depend on whether we orient one way or the other. A consequence of this is that one may define scalar integrals on smooth subspaces that do not have an orientation.</div>
+<div class="para" id="sec-scalarintegrals-2-10">There are several different notations for the scalar integral. More important than notation, there are techniques for computing these integrals which don’t rely on the orientation (which may seem mysterious given that our definition has the a multiple of the orientation form as <em class="emphasis">the</em> form being integrated!). We will work through examples to illustrate these points.</div></section><section class="subsection" id="subsec-scalar-line-integrals"><h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space"> </span><span class="codenumber">4.2.1</span><span class="space"> </span><span class="title">Scalar line integrals</span>
 </h3>
 <div class="para logical" id="subsec-scalar-line-integrals-2">
@@ -447,12 +478,12 @@ window.MathJax = {
 \amp = \int_a^b f ( \mb{r} (t) ) \| \mb{r}^\prime (t) \| \, \tder{}{t} 
 \end{align*}
 </div>
-<div class="para">Such an integral on a curve is called a <dfn class="terminology">scalar line integral</dfn>. This formula follows immediately from equation <a href="" class="xref" data-knowl="./knowl/xref/eq-scalar.html" title="Equation 4.2.1">(4.2.1)</a>. Students may question why the letter <span class="process-math">\(s\)</span> is used in the <span class="process-math">\(\tder{}{s}\)</span> notation. This is because <span class="process-math">\(s\)</span> is often used as an arc-length parameter for the curve.</div>
+<div class="para">Such an integral on a curve is called a <dfn class="terminology">scalar line integral</dfn>. This formula follows immediately from equation <a href="sec-scalarintegrals.html#eq-scalar" class="xref" data-knowl="./knowl/xref/eq-scalar.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 4.2.1">(4.2.1)</a>. Students may question why the letter <span class="process-math">\(s\)</span> is used in the <span class="process-math">\(\tder{}{s}\)</span> notation. This is because <span class="process-math">\(s\)</span> is often used as an arc-length parameter for the curve.</div>
 </div>
 <div class="para" id="subsec-scalar-line-integrals-3">Now, let me be honest with the reader here. Scalar integrals are just awful to compute. It takes great care to actually write down curves and integrands with an exact solution. Of course, a computer can do a very good job of approximating them though. Nevertheless, it is always good to go through a few well crafted examples to make sure we have a feel for the process.</div>
-<details id="subsec-scalar-line-integrals-4" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+<details id="subsec-scalar-line-integrals-4" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">4.2.5</span><span class="period">.</span><span class="space"> </span><span class="title">Scalar line integral I.</span>
-</h4></summary><article class="example example-like"><div class="para logical" id="subsec-scalar-line-integrals-4-2-1">
+</h4></summary><article class="example example-like knowl__content"><div class="para logical" id="subsec-scalar-line-integrals-4-2-1">
 <div class="para">Let <span class="process-math">\(\mathcal{C}\)</span> be the circle in <span class="process-math">\(\mathbb{R}^2\)</span> centered at the origin and of radius <span class="process-math">\(R\text{.}\)</span> This can be given by a parameterization <span class="process-math">\(\mb{r} : [0, 2\pi ] \to \mathcal{C}\)</span> via</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -492,9 +523,9 @@ window.MathJax = {
 \end{align*}
 </div>
 </div></article></details><div class="para" id="subsec-scalar-line-integrals-5">The ease at which we can compute scalar line integrals on the circle follows from the fact that there is a constant speed parameterization that we all know. While it is the case that every smooth curve has such a parameterization, finding it can be a difficult task. Let us observe an example when such a parameterization is not immediately available.</div>
-<details id="subsec-scalar-line-integrals-6" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+<details id="subsec-scalar-line-integrals-6" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">4.2.6</span><span class="period">.</span><span class="space"> </span><span class="title">Scalar line integral II.</span>
-</h4></summary><article class="example example-like"><div class="para logical" id="subsec-scalar-line-integrals-6-2-1">
+</h4></summary><article class="example example-like knowl__content"><div class="para logical" id="subsec-scalar-line-integrals-6-2-1">
 <div class="para">Suppose we want to compute the length of the twisted cubic curve <span class="process-math">\(\mathcal{C}\)</span>
 </div>
 <div class="displaymath process-math">
@@ -570,7 +601,7 @@ window.MathJax = {
 \mb{G} (u, v) = \left( x(u, v), y(u, v), z (u, v) \right).
 \end{equation*}
 </div>
-<div class="para">Then the vector fields from <a href="" class="xref" data-knowl="./knowl/xref/prop-scalar.html" title="Proposition 4.2.3">Proposition 4.2.3</a> are</div>
+<div class="para">Then the vector fields from <a href="sec-scalarintegrals.html#prop-scalar" class="xref" data-knowl="./knowl/xref/prop-scalar.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 4.2.3">Proposition 4.2.3</a> are</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-scalar.html ./knowl/xref/eq-scalar.html ./knowl/xref/sec-exterior.html" id="subsec-scalar-surface-integrals-2-12">
 \begin{align*}
 \xi_u \amp = \left[ \begin{matrix} \frac{\partial x}{\partial u} \amp \frac{\partial y}{\partial u} \amp \frac{\partial z}{\partial u}\end{matrix} \right], \\
@@ -584,7 +615,7 @@ window.MathJax = {
 \frac{\partial \mb{G}}{\partial v} \amp = \xi_v, 
 \end{align*}
 </div>
-<div class="para">and we will use this notation as well. Then by equation <a href="" class="xref" data-knowl="./knowl/xref/eq-scalar.html" title="Equation 4.2.1">(4.2.1)</a> we have</div>
+<div class="para">and we will use this notation as well. Then by equation <a href="sec-scalarintegrals.html#eq-scalar" class="xref" data-knowl="./knowl/xref/eq-scalar.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 4.2.1">(4.2.1)</a> we have</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-scalar.html ./knowl/xref/eq-scalar.html ./knowl/xref/sec-exterior.html">
 \begin{equation*}
 \mb{G}^* \vol^{\mathcal{S}} = \left\| \frac{\partial \mb{G}}{\partial u} \wedge \frac{\partial \mb{G}}{\partial v} \right\| \, \tder{}{u} \wedge \tder{}{v}.
@@ -604,9 +635,9 @@ window.MathJax = {
 </div>
 <div class="para">Let us now make a couple of computations.</div>
 </div>
-<details id="subsec-scalar-surface-integrals-3" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+<details id="subsec-scalar-surface-integrals-3" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">4.2.7</span><span class="period">.</span><span class="space"> </span><span class="title">Scalar surface integral I.</span>
-</h4></summary><article class="example example-like"><div class="para logical" id="subsec-scalar-surface-integrals-3-2-1">
+</h4></summary><article class="example example-like knowl__content"><div class="para logical" id="subsec-scalar-surface-integrals-3-2-1">
 <div class="para">As is our habit, we start by deriving a classical formula. Let <span class="process-math">\(\mathcal{S}\)</span> be the sphere centered at the origin of radius <span class="process-math">\(R\text{.}\)</span> Remember that this is the set of points in <span class="process-math">\(\mathbb{R}^3\)</span> satisfying the equation</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex-spheresurfacearea.html">
 \begin{equation*}
@@ -626,7 +657,7 @@ x^2 + y^2 + z^2 = R^2
 \frac{\partial \mb{G}}{\partial v} \amp = \left[ \begin{matrix} -R \sin \varphi \sin \theta \amp R \sin \varphi \cos \theta \amp 0 \end{matrix} \right]. 
 \end{align*}
 </div>
-<div class="para">From <a href="" class="xref" data-knowl="./knowl/xref/ex-spheresurfacearea.html" title="Exercise 4.2.3.5">Exercise 4.2.3.5</a> we have</div>
+<div class="para">From <a href="sec-scalarintegrals.html#ex-spheresurfacearea" class="xref" data-knowl="./knowl/xref/ex-spheresurfacearea.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 4.2.3.5">Exercise 4.2.3.5</a> we have</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex-spheresurfacearea.html" id="eq-spheresurfacearea">
 \begin{equation}
 \left\| \frac{\partial \mb{G}}{\partial \varphi} \times \frac{\partial \mb{G}}{\partial \theta} \right\| = R^2 \sin \varphi.\tag{4.2.4}
@@ -665,7 +696,7 @@ x^2 + y^2 + z^2 = R^2
 \frac{\partial \mb{G}}{\partial v} \amp =  \left[ \begin{matrix} 0 \amp 1 \amp \frac{\partial g}{\partial v} \end{matrix} \right].
 \end{align*}
 </div>
-<div class="para">From <a href="" class="xref" data-knowl="./knowl/xref/ex-graphsurfacearea.html" title="Exercise 4.2.3.6">Exercise 4.2.3.6</a> we have</div>
+<div class="para">From <a href="sec-scalarintegrals.html#ex-graphsurfacearea" class="xref" data-knowl="./knowl/xref/ex-graphsurfacearea.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 4.2.3.6">Exercise 4.2.3.6</a> we have</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex-graphsurfacearea.html" id="eq-graphsurfacearea">
 \begin{equation}
 \left\| \frac{\partial \mb{G}}{\partial u} \times \frac{\partial \mb{G}}{\partial v} \right\| = \sqrt{1 + \left(\frac{\partial g}{\partial u}\right)^2 + \left( \frac{\partial g}{\partial v} \right)^2}.\tag{4.2.5}
@@ -680,9 +711,9 @@ x^2 + y^2 + z^2 = R^2
 </div>
 <div class="para">If a student protests at this point with the comment ‘This formula looks awful’, my response will be: ‘correct, but who told you life wasn’t awful!’</div>
 </div>
-<details id="subsec-scalar-surface-integrals-5" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+<details id="subsec-scalar-surface-integrals-5" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">4.2.8</span><span class="period">.</span><span class="space"> </span><span class="title">Scalar surface integral II.</span>
-</h4></summary><article class="example example-like"><div class="para logical" id="subsec-scalar-surface-integrals-5-2-1">
+</h4></summary><article class="example example-like knowl__content"><div class="para logical" id="subsec-scalar-surface-integrals-5-2-1">
 <div class="para">Suppose <span class="process-math">\(\mathcal{S}\)</span> is the graph of</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-surfaceintegralgraph.html">
 \begin{equation*}
@@ -703,7 +734,7 @@ f(x,y,z) = \frac{2 z e^{y}}{\cos x}.
 \amp = \sqrt{1 + e^{2v}}. 
 \end{align*}
 </div>
-<div class="para">Using this, we compute our surface integral following formula <a href="" class="xref" data-knowl="./knowl/xref/eq-surfaceintegralgraph.html" title="Equation 4.2.6">(4.2.6)</a>
+<div class="para">Using this, we compute our surface integral following formula <a href="sec-scalarintegrals.html#eq-surfaceintegralgraph" class="xref" data-knowl="./knowl/xref/eq-surfaceintegralgraph.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 4.2.6">(4.2.6)</a>
 </div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-surfaceintegralgraph.html" id="subsec-scalar-surface-integrals-5-2-1-7">
 \begin{align*}
@@ -759,14 +790,14 @@ x^2 + y^2 + z^2 = 4, \hspace{.3in} y \geq 0.
 \end{equation*}
 </div>
 </div></article><article class="exercise exercise-like" id="ex-spheresurfacearea"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
-<div class="para" id="ex-spheresurfacearea-1-1">Show that formula <a href="" class="xref" data-knowl="./knowl/xref/eq-spheresurfacearea.html" title="Equation 4.2.4">(4.2.4)</a> holds.</div></article><article class="exercise exercise-like" id="ex-graphsurfacearea"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
-<div class="para" id="ex-graphsurfacearea-1-1">Show that formula <a href="" class="xref" data-knowl="./knowl/xref/eq-graphsurfacearea.html" title="Equation 4.2.5">(4.2.5)</a> holds.</div></article></section></section></div>
+<div class="para" id="ex-spheresurfacearea-1-1">Show that formula <a href="sec-scalarintegrals.html#eq-spheresurfacearea" class="xref" data-knowl="./knowl/xref/eq-spheresurfacearea.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 4.2.4">(4.2.4)</a> holds.</div></article><article class="exercise exercise-like" id="ex-graphsurfacearea"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
+<div class="para" id="ex-graphsurfacearea-1-1">Show that formula <a href="sec-scalarintegrals.html#eq-graphsurfacearea" class="xref" data-knowl="./knowl/xref/eq-graphsurfacearea.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 4.2.5">(4.2.5)</a> holds.</div></article></section></section></div>
 <div class="ptx-content-footer">
-<a class="previous-button button" href="sec-integrating-forms.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-vectorintegrals.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+<a class="previous-button button" href="sec-integrating-forms.html" title="Previous"><span xmlns:xlink="http://www.w3.org/1999/xlink" class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span xmlns:xlink="http://www.w3.org/1999/xlink" class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-vectorintegrals.html" title="Next"><span class="name">Next</span><span xmlns:xlink="http://www.w3.org/1999/xlink" class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">
-<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+<a xmlns:xlink="http://www.w3.org/1999/xlink" class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a xmlns:xlink="http://www.w3.org/1999/xlink" class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a xmlns:xlink="http://www.w3.org/1999/xlink" class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
 </div>
 </body>
 </html>

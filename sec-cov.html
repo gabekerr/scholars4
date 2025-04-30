@@ -5,16 +5,20 @@
 <!--*         https://pretextbook.org          *-->
 <!--*                                          *-->
 <!--********************************************-->
-<html lang="en-US" dir="ltr">
+<html lang="en-US" dir="ltr" data-legacy-colorscheme="blue_red">
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Change of Variables</title>
-<meta name="Keywords" content="Authored in PreTeXt">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta property="og:type" content="book">
-<meta property="book:title" content="Mathematical Scholars Calculus 4">
-<meta property="book:author" content="Gabriel Kerr">
-<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>
+<link xmlns:xlink="http://www.w3.org/1999/xlink" rel="preconnect" href="https://fonts.googleapis.com">
+<link xmlns:xlink="http://www.w3.org/1999/xlink" rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link xmlns:xlink="http://www.w3.org/1999/xlink" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;" rel="stylesheet">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link xmlns:xlink="http://www.w3.org/1999/xlink" href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script>
 var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
 window.MathJax = {
   "tex": {
@@ -74,7 +78,7 @@ window.MathJax = {
       "[pretext]/mathjaxknowl3.js"
     ],
     "paths": {
-      "pretext": "https://pretextbook.org/js/lib"
+      "pretext": "_static/pretext/js/lib"
     }
   },
   "startup": {
@@ -86,33 +90,51 @@ window.MathJax = {
     )}
   }
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.33/pretext_search.js"></script><link href="https://pretextbook.org/css/0.83/pretext_search.css" rel="stylesheet" type="text/css">
-<script>js_version = 0.33</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.33/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.33/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.33/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
-</script><link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
-<link href="https://pretextbook.org/css/0.83/pretext.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/pretext_add_on.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/shell_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/banner_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/navbar_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/toc_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/knowls_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/style_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/colors_blue_red.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/setcolors.css" rel="stylesheet" type="text/css">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta xmlns:xlink="http://www.w3.org/1999/xlink" name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta xmlns:xlink="http://www.w3.org/1999/xlink" property="og:type" content="book">
+<meta xmlns:xlink="http://www.w3.org/1999/xlink" property="book:title" content="Mathematical Scholars Calculus 4">
+<meta xmlns:xlink="http://www.w3.org/1999/xlink" property="book:author" content="Gabriel Kerr">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.6.1';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.c7804631fa963734.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.f7a03b209751032d.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.541c9106f2c605b9.css">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script xmlns:xlink="http://www.w3.org/1999/xlink" src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
 </head>
 <body class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
-<a id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
 <h1 class="heading"><a href="ms-calculus-3.html"><span class="title">Mathematical Scholars Calculus 4</span></a></h1>
 <p class="byline">Gabriel Kerr</p>
-</div>
-</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+</div></div></header><nav xmlns:xlink="http://www.w3.org/1999/xlink" id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
 <div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
 <div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
 <div class="search-results-controls">
@@ -123,7 +145,8 @@ window.MathJax = {
 <ol id="searchresults" class="searchresults"></ol>
 </div>
 </div>
-<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="sec-compactRnintegration.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-integral-calculus.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="ch-differential-forms.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="sec-compactRnintegration.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-integral-calculus.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="ch-differential-forms.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div xmlns:xlink="http://www.w3.org/1999/xlink" id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
 \newcommand{\C}{\mathbb C}
 \newcommand{\diff}{\text{d}}
 \newcommand{\mb}[1]{\mathbf{#1}}
@@ -145,6 +168,8 @@ window.MathJax = {
 \newcommand{\vol}{\,\text{vol}}
 \newcommand{\orient}{\,\text{or}}
 \newcommand{\pball}[2]{\text{B}^*_{#1} ( #2 )}
+\newcommand{\oiint}{{\subset\!\supset} \llap{\iint}}
+\newcommand{\oiiint}{{\large{\subset\!\supset}} \llap{\iiint}}
 \newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
 \newcommand{\amp}{&amp;}
@@ -152,7 +177,7 @@ window.MathJax = {
 \newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
 \)</span></div>
 <div class="ptx-page">
-<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural contains-active toc-item-list">
+<div xmlns:xlink="http://www.w3.org/1999/xlink" id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural toc-item-list contains-active">
 <li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch-differential-calculus.html" class="internal"><span class="codenumber">1</span> <span class="title">Differential Calculus in Several Variables</span></a></div>
@@ -231,9 +256,9 @@ window.MathJax = {
 <div class="toc-title-box"><a href="sec-compactRnintegration.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Integration over compact domains in <span class="process-math">\(\mathbb{R}^n\)</span></span></a></div>
 <ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-compactRnintegration.html#exe-compactRnintegration" class="internal"><span class="codenumber">2.3</span> <span class="title">Exercises</span></a></div></li></ul>
 </li>
-<li class="toc-item toc-section active">
+<li class="toc-item toc-section contains-active">
 <div class="toc-title-box"><a href="sec-cov.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Change of Variables</span></a></div>
-<ul class="structural toc-item-list">
+<ul class="structural toc-item-list active">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-cov.html#subsec-polar-integration" class="internal"><span class="codenumber">2.4.1</span> <span class="title">Integration using polar coordinates</span></a></div></li>
 <li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-cov.html#exe-cov" class="internal"><span class="codenumber">2.4.2</span> <span class="title">Exercises</span></a></div></li>
 </ul>
@@ -338,10 +363,11 @@ window.MathJax = {
 <li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-partial-differential-equations.html" class="internal"><span class="codenumber">6</span> <span class="title">Partial Differential Equations</span></a></div></li>
 <li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
 </ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-cov"><h2 class="heading hide-type">
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section xmlns:xlink="http://www.w3.org/1999/xlink" class="section" id="sec-cov"><h2 class="heading hide-type">
 <span class="type">Section</span><span class="space"> </span><span class="codenumber">2.4</span><span class="space"> </span><span class="title">Change of Variables</span>
 </h2>
-<section class="introduction" id="sec-cov-2"><div class="para" id="sec-cov-2-1">When a student looks over the integrals of the past two sections, they will notice a truly disturbing trend - these computations are taking more and more of the page - they are becoming quite complicated at a computational level, even though the abstract ideas are not. This trend does not bode well for more difficult integrals that we may experience, but as it turns out, there is a stunning theorem that, in many important situations, comes to our rescue.</div> <article class="theorem theorem-like" id="thm-change-of-variables"><h3 class="heading">
+<section class="introduction" id="sec-cov-2"><div class="para" id="sec-cov-2-1">When a student looks over the integrals of the past two sections, they will notice a truly disturbing trend - these computations are taking more and more of the page - they are becoming quite complicated at a computational level, even though the abstract ideas are not. This trend does not bode well for more difficult integrals that we may experience, but as it turns out, there is a stunning theorem that, in many important situations, comes to our rescue.</div>
+<article class="theorem theorem-like" id="thm-change-of-variables"><h3 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.4.1</span><span class="period">.</span><span class="space"> </span><span class="title">Change of Variables.</span>
 </h3>
 <div class="para logical" id="thm-change-of-variables-2-1">
@@ -357,8 +383,8 @@ window.MathJax = {
 \idotsint_E f(\mb{x}) \, \tder{}{V} = \idotsint_D \left( f \circ \mb{G} \right) (\mb{u}) \, \left| \det \left(\tder{}{\mb{G}} \right) \right| \, \tder{}{V}.\tag{2.4.1}
 \end{equation}
 </div>
-</div></article><details id="thm-change-of-variables-3" class="hiddenproof born-hidden-knowl"><summary><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></summary><article class="hiddenproof"><div class="para logical" id="thm-change-of-variables-3-1">
-<div class="para">Our first observation which does require a bit of work is that one can work with curved partitions in Riemann sums rather than the straight ones given in <a href="" class="xref" data-knowl="./knowl/xref/def-multipleintegral.html" title="Definition 2.1.2">Definition 2.1.2</a>. In particular, if we take <span class="process-math">\(P\)</span> an ordinary partition on <span class="process-math">\(D\)</span> with cuboids <span class="process-math">\(\mathcal{C}_{(j_1, \ldots, j_n)}\)</span> then, because <span class="process-math">\(\mb{G}\)</span> is a continuous one-to-one correspondence, we will obtain a curved partition <span class="process-math">\(\mb{G} (P)\)</span> on <span class="process-math">\(E\)</span> consisting of `curved cuboids’ <span class="process-math">\(\mb{G} (\mathcal{C}_{(j_1, \ldots, j_n)})\text{.}\)</span> Of course, choosing sample points <span class="process-math">\(\{u_{(j_1, \ldots, j_n)}^*\}\)</span> in <span class="process-math">\(P\)</span> gives a choice of sample points <span class="process-math">\(\{\mb{G} (u_{(j_1, \ldots, j_n)}^* )\}\)</span> in the curved cuboids of <span class="process-math">\(E\text{.}\)</span> This assignment of partition with sample points <span class="process-math">\(\mathcal{P} = (P , \{u_{(j_1, \ldots, j_n)}^*\})\)</span> in <span class="process-math">\(D\)</span> to curved partitions with sample points <span class="process-math">\(\mb{G} (\mathcal{P}) = (\mb{G} (P), \{\mb{G} (u_{(j_1, \ldots, j_n)}^*)\})\)</span> is in a sense continuous. More precisely, if one defines the diameter of a region as the maximal distance between two points, then an alternative definition of the norm of a partition is the maximal diameter of any cuboid in the partition. The advantage of this version of norm is that it can be extended to curved partitions and we can then use the compactness of <span class="process-math">\(D\)</span> and the continuity of <span class="process-math">\(\mb{G}\)</span> to show that, as <span class="process-math">\(\| \mathcal{P} \|\)</span> tends to zero, so does <span class="process-math">\(\| \mb{G} (\mathcal{P}) \|\text{.}\)</span> With this in mind, the first observation is that, if <span class="process-math">\(f(\mb{x})\)</span> is integrable, then rather than using our cubical partitions on <span class="process-math">\(E\text{,}\)</span> we may used curved partitions coming from <span class="process-math">\(\mb{G}\)</span> in the definition of the definite integral. For this, we take the Riemann sums</div>
+</div></article><details id="thm-change-of-variables-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></summary><article class="hiddenproof knowl__content"><div class="para logical" id="thm-change-of-variables-3-1">
+<div class="para">Our first observation which does require a bit of work is that one can work with curved partitions in Riemann sums rather than the straight ones given in <a href="sec-cubeintegration.html#def-multipleintegral" class="xref" data-knowl="./knowl/xref/def-multipleintegral.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 2.1.2">Definition 2.1.2</a>. In particular, if we take <span class="process-math">\(P\)</span> an ordinary partition on <span class="process-math">\(D\)</span> with cuboids <span class="process-math">\(\mathcal{C}_{(j_1, \ldots, j_n)}\)</span> then, because <span class="process-math">\(\mb{G}\)</span> is a continuous one-to-one correspondence, we will obtain a curved partition <span class="process-math">\(\mb{G} (P)\)</span> on <span class="process-math">\(E\)</span> consisting of `curved cuboids’ <span class="process-math">\(\mb{G} (\mathcal{C}_{(j_1, \ldots, j_n)})\text{.}\)</span> Of course, choosing sample points <span class="process-math">\(\{u_{(j_1, \ldots, j_n)}^*\}\)</span> in <span class="process-math">\(P\)</span> gives a choice of sample points <span class="process-math">\(\{\mb{G} (u_{(j_1, \ldots, j_n)}^* )\}\)</span> in the curved cuboids of <span class="process-math">\(E\text{.}\)</span> This assignment of partition with sample points <span class="process-math">\(\mathcal{P} = (P , \{u_{(j_1, \ldots, j_n)}^*\})\)</span> in <span class="process-math">\(D\)</span> to curved partitions with sample points <span class="process-math">\(\mb{G} (\mathcal{P}) = (\mb{G} (P), \{\mb{G} (u_{(j_1, \ldots, j_n)}^*)\})\)</span> is in a sense continuous. More precisely, if one defines the diameter of a region as the maximal distance between two points, then an alternative definition of the norm of a partition is the maximal diameter of any cuboid in the partition. The advantage of this version of norm is that it can be extended to curved partitions and we can then use the compactness of <span class="process-math">\(D\)</span> and the continuity of <span class="process-math">\(\mb{G}\)</span> to show that, as <span class="process-math">\(\| \mathcal{P} \|\)</span> tends to zero, so does <span class="process-math">\(\| \mb{G} (\mathcal{P}) \|\text{.}\)</span> With this in mind, the first observation is that, if <span class="process-math">\(f(\mb{x})\)</span> is integrable, then rather than using our cubical partitions on <span class="process-math">\(E\text{,}\)</span> we may used curved partitions coming from <span class="process-math">\(\mb{G}\)</span> in the definition of the definite integral. For this, we take the Riemann sums</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/def-multipleintegral.html">
 \begin{equation*}
 RS_{\mb{G}(\mathcal{P})} \left( f \circ \mb{G} \right) = \sum_{(j_1, \ldots, j_n)} f \left( \mb{G} (u^*_{(j_1, \ldots, j_n)}) \right) \text{Vol} \left( \mb{G} (\mathcal{C}_{(j_1, \ldots , j_n)}) \right)
@@ -377,7 +403,7 @@ RS_{\mb{G}(\mathcal{P})} \left( f \circ \mb{G} \right) = \sum_{(j_1, \ldots, j_n
 \end{equation*}
 </div>
 <div class="para">This is precisely where our definition of the derivative and linear algebra come in to play. Using the definition of the derivative and compactness of <span class="process-math">\(D\text{,}\)</span> with some work one can show that, for every <span class="process-math">\(\varepsilon\text{,}\)</span> there exist <span class="process-math">\(\delta\)</span> so that if the norm <span class="process-math">\(\| P \| \lt \delta\)</span> then  there exist parallelepipeds <span class="process-math">\(Q^{small}_{(j_1, \ldots, j_n)}\)</span> and <span class="process-math">\(Q^{big}_{(j_1, \ldots, j_n)}\)</span> for every <span class="process-math">\(n\)</span>-cuboid indexed by <span class="process-math">\((j_1, \ldots, j_n)\)</span> in <span class="process-math">\(P\)</span> satisfying</div>
-<ol class="decimal">
+<ol class="decimal" id="thm-change-of-variables-3-1-36">
 <li id="thm-change-of-variables-3-1-36-1"><div class="para" id="p-derived-thm-change-of-variables-3-1-36-1">The parallelepipeds are <span class="process-math">\(\varepsilon\)</span>-close to the partitioned cuboid with respect to volume. Precisely, we mean that<div class="displaymath process-math">
 \begin{equation*}
 (1 - \varepsilon) \Delta V_{(j_1, \ldots, j_n)} \lt \text{Vol} (Q^{small}_{(j_1, \ldots, j_n)}) 
@@ -397,7 +423,8 @@ L\left( Q^{small}_{(j_1, \ldots, j_n)}\right) \subseteq  \mb{G} \left(\mathcal{C
 </ol>
 <div class="para">While showing such <span class="process-math">\(\varepsilon, \delta, Q^{big}, Q^{small}\)</span> exist may require some work, the student should keep in mind that the idea behind this work is that the derivative <span class="process-math">\(\tder{}{G}\)</span> does a good job approximating <span class="process-math">\(\mb{G}\)</span> near a point. So close to a point, <span class="process-math">\(\mb{G}\)</span> looks like the linear approximation and, if we had equality, we could take any <span class="process-math">\(\delta\)</span> and let <span class="process-math">\(Q^{big}\)</span> and <span class="process-math">\(Q^{small}\)</span> both equal the cuboid <span class="process-math">\(\mathcal{C}_{(j_1, \ldots, j_n)}\text{.}\)</span>
 </div>
-</div> <div class="para logical" id="thm-change-of-variables-3-2">
+</div>
+<div class="para logical" id="thm-change-of-variables-3-2">
 <div class="para">Now, letting <span class="process-math">\(p = u^*_{(j_1, \ldots, j_n)}\)</span> to save space, using the fact that the absolute value of the determinant gives the change in volume and the definition of the linear approximations, we see that</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-curvedpart.html ./knowl/xref/eq-rsineq.html ./knowl/xref/eq-cov.html" id="thm-change-of-variables-3-2-2">
 \begin{align*}
@@ -441,14 +468,14 @@ RS_{\mb{G} (\mathcal{P})} \left( f \circ \mb{G} \right) = \sum_{(j_1, \ldots, j_
 \lim_{\|\mathcal{P}\| \to 0} RS_{\mathcal{P}} \left( (f \circ \mb{G}) |\det \tder{}{\mb{G}}| \right) = \idotsint_D \left( f \circ \mb{G} \right) (\mb{u}) \, \left| \det \left(\tder{}{\mb{G}} \right) \right| \, \tder{}{V}
 \end{equation*}
 </div>
-<div class="para">And as was discussed in the first part of the sketch, equation <a href="" class="xref" data-knowl="./knowl/xref/eq-curvedpart.html" title="Equation 2.4.2">(2.4.2)</a> gives the limit as <span class="process-math">\(\| \mathcal{P} \| \to 0\)</span> of the middle term as</div>
+<div class="para">And as was discussed in the first part of the sketch, equation <a href="sec-cov.html#eq-curvedpart" class="xref" data-knowl="./knowl/xref/eq-curvedpart.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.4.2">(2.4.2)</a> gives the limit as <span class="process-math">\(\| \mathcal{P} \| \to 0\)</span> of the middle term as</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-curvedpart.html ./knowl/xref/eq-rsineq.html ./knowl/xref/eq-cov.html">
 \begin{equation*}
 \idotsint_\mathcal{E} f(x_1, \ldots, x_n) \,  \tder{}{\text{V}}.
 \end{equation*}
 </div>
-<div class="para">As inequalilty <a href="" class="xref" data-knowl="./knowl/xref/eq-rsineq.html" title="Equation 2.4.3">(2.4.3)</a> holds for all Riemann sums with norm less than <span class="process-math">\(\delta\text{,}\)</span> we may let <span class="process-math">\(\varepsilon\)</span> tend to zero giving us the desired equality in equation <a href="" class="xref" data-knowl="./knowl/xref/eq-cov.html" title="Equation 2.4.1">(2.4.1)</a>.</div>
-</div></article></details> <div class="para logical" id="sec-cov-2-3">
+<div class="para">As inequalilty <a href="sec-cov.html#eq-rsineq" class="xref" data-knowl="./knowl/xref/eq-rsineq.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.4.3">(2.4.3)</a> holds for all Riemann sums with norm less than <span class="process-math">\(\delta\text{,}\)</span> we may let <span class="process-math">\(\varepsilon\)</span> tend to zero giving us the desired equality in equation <a href="sec-cov.html#eq-cov" class="xref" data-knowl="./knowl/xref/eq-cov.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.4.1">(2.4.1)</a>.</div>
+</div></article></details><div class="para logical" id="sec-cov-2-3">
 <div class="para">Before explaining the ideas behind this theorem, we make some comments regarding notation. First, instead of using the total derivative of <span class="process-math">\(\mb{G}\text{,}\)</span> the absolute value of the determinant of the Jacobian matrix is sometimes written <span class="process-math">\(| \text{Jac}( \mb{G} )|\)</span> rather than <span class="process-math">\(|\det \tder{}{\mb{G}}|\text{.}\)</span> In fact, often the function <span class="process-math">\(\mb{G}\)</span> is written in terms of the coordinate function as</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -475,7 +502,9 @@ RS_{\mb{G} (\mathcal{P})} \left( f \circ \mb{G} \right) = \sum_{(j_1, \ldots, j_
 </div>
 <div class="para">While slightly longer, this expression can be helpful in keeping track of which variables to use in which integral. Another way of thinking about this that we will return to later is by considering that the integral on the domain <span class="process-math">\(E\)</span> is ‘pulled back’ to an integral on <span class="process-math">\(D\)</span> via <span class="process-math">\(\mb{G}\text{.}\)</span>
 </div>
-</div> <div class="para" id="sec-cov-2-4">In these notes we only sketched the proof of the change of variables theorem, leaving the full proof for a real analysis course to come. The important conceptual ingredients we called upon are two key pieces of knowledge gained in this course. One being that the absolute value of the determinant of a linear transformation from an inner product space to itself measures the change in volume, and the other that the derivative of a function gives a good linear approximation to the function.</div> <div class="para" id="sec-cov-2-5">Now that we have this result, we can move forward and use it. The applications are vast...</div></section><section class="subsection" id="subsec-polar-integration"><h3 class="heading hide-type">
+</div>
+<div class="para" id="sec-cov-2-4">In these notes we only sketched the proof of the change of variables theorem, leaving the full proof for a real analysis course to come. The important conceptual ingredients we called upon are two key pieces of knowledge gained in this course. One being that the absolute value of the determinant of a linear transformation from an inner product space to itself measures the change in volume, and the other that the derivative of a function gives a good linear approximation to the function.</div>
+<div class="para" id="sec-cov-2-5">Now that we have this result, we can move forward and use it. The applications are vast...</div></section><section class="subsection" id="subsec-polar-integration"><h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space"> </span><span class="codenumber">2.4.1</span><span class="space"> </span><span class="title">Integration using polar coordinates</span>
 </h3>
 <div class="para logical" id="subsec-polar-integration-2">
@@ -505,10 +534,10 @@ RS_{\mb{G} (\mathcal{P})} \left( f \circ \mb{G} \right) = \sum_{(j_1, \ldots, j_
 </div>
 <div class="para">Let’s revisit some prior problems with our new tool.</div>
 </div>
-<details id="subsec-polar-integration-3" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+<details id="subsec-polar-integration-3" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.4.2</span><span class="period">.</span><span class="space"> </span><span class="title">Polar integrals.</span>
-</h4></summary><article class="example example-like"><div class="para logical" id="subsec-polar-integration-3-2-1">
-<div class="para">In <a href="" class="xref" data-knowl="./knowl/xref/ex-areaofdisc.html" title="Example 2.2.9: Fubini for bounded domains I">Example 2.2.9</a>, we computed the area of a disc <span class="process-math">\(D\)</span> of radius <span class="process-math">\(R\text{.}\)</span> It was a rather tedious computation due to the trigonometric change of variable that was needed. Let’s try it again in polar coordinates. Here we need to use <span class="process-math">\(\mb{G}\)</span> only on the rectangle</div>
+</h4></summary><article class="example example-like knowl__content"><div class="para logical" id="subsec-polar-integration-3-2-1">
+<div class="para">In <a href="sec-compactintegration.html#ex-areaofdisc" class="xref" data-knowl="./knowl/xref/ex-areaofdisc.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 2.2.9: Fubini for bounded domains I">Example 2.2.9</a>, we computed the area of a disc <span class="process-math">\(D\)</span> of radius <span class="process-math">\(R\text{.}\)</span> It was a rather tedious computation due to the trigonometric change of variable that was needed. Let’s try it again in polar coordinates. Here we need to use <span class="process-math">\(\mb{G}\)</span> only on the rectangle</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex-areaofdisc.html ./knowl/xref/ex-ballvol.html">
 \begin{equation*}
 \mb{G} : [0, R] \times [0, 2\pi] \to D
@@ -524,7 +553,7 @@ RS_{\mb{G} (\mathcal{P})} \left( f \circ \mb{G} \right) = \sum_{(j_1, \ldots, j_
 \amp = \pi R^2. 
 \end{align*}
 </div>
-<div class="para">Hopefully a student can see the improvement! Now what about finding the volume of a ball of radius <span class="process-math">\(R\)</span> as in <a href="" class="xref" data-knowl="./knowl/xref/ex-ballvol.html" title="Example 2.3.3: ">Example 2.3.3</a>? Well, there we made the computation</div>
+<div class="para">Hopefully a student can see the improvement! Now what about finding the volume of a ball of radius <span class="process-math">\(R\)</span> as in <a href="sec-compactRnintegration.html#ex-ballvol" class="xref" data-knowl="./knowl/xref/ex-ballvol.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 2.3.3: ">Example 2.3.3</a>? Well, there we made the computation</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex-areaofdisc.html ./knowl/xref/ex-ballvol.html" id="subsec-polar-integration-3-2-1-9">
 \begin{align*}
 \text{Vol} (B) \amp = \iiint_B \, \tder{}{V}, \\
@@ -545,16 +574,16 @@ RS_{\mb{G} (\mathcal{P})} \left( f \circ \mb{G} \right) = \sum_{(j_1, \ldots, j_
 <div class="para">Again the computation is shorter and much less complicated. The unconvinced student should try finding the centroid of the upper half ball using polar coordinates as another convincing example.</div>
 </div></article></details><div class="para" id="subsec-polar-integration-4">One aspect of changing variables that is of great importance and often neglected by the student eager to compute is that we must pay close attention to the function <span class="process-math">\(\mb{G}\)</span> and its domain. We must be absolutely  sure that it is a one-to-one correspondence (at least away from the boundaries of <span class="process-math">\(D\)</span> and <span class="process-math">\(E\)</span>). One also needs to make certain that they are in fact simplifying the integral with their change of variables. It is quite easy to make things more difficult if the integrand or domain of integration does not have good properties. One basic thing to hope for is that the domain <span class="process-math">\(D\)</span> of <span class="process-math">\(\mb{G} : D \to E\)</span> is an <span class="process-math">\(n\)</span>-cuboid (which are usually easier to integrate over).</div>
 <div class="para" id="subsec-polar-integration-5">For students still unconvinced about polar coordinates, I offer up an improper integral computation.</div>
-<details id="subsec-polar-integration-6" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+<details id="subsec-polar-integration-6" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.4.3</span><span class="period">.</span><span class="space"> </span><span class="title">Normalization factor of standard normal distribution.</span>
-</h4></summary><article class="example example-like"><div class="para logical" id="subsec-polar-integration-6-2-1">
+</h4></summary><article class="example example-like knowl__content"><div class="para logical" id="subsec-polar-integration-6-2-1">
 <div class="para">We have mentioned the (univariate) normal distribution previously in these notes (in particular when discussing quadratic forms). Such a distribution with mean at the origin and standard deviation <span class="process-math">\(1\)</span> is given by a probability density function on <span class="process-math">\(\mathbb{R}\)</span> which has the form</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/def-probdensity.html">
 \begin{equation*}
 \rho (x) =  C e^{-\frac{x^2}{2}}.
 \end{equation*}
 </div>
-<div class="para">By <a href="" class="xref" data-knowl="./knowl/xref/def-probdensity.html" title="Definition 2.3.5">Definition 2.3.5</a>, for this to be a probability density function, we must have that</div>
+<div class="para">By <a href="sec-compactRnintegration.html#def-probdensity" class="xref" data-knowl="./knowl/xref/def-probdensity.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 2.3.5">Definition 2.3.5</a>, for this to be a probability density function, we must have that</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/def-probdensity.html">
 \begin{equation*}
 C^{-1} = \int_{-\infty}^{\infty} e^{-\frac{x^2}{2}} \tder{}{x}.
@@ -639,11 +668,11 @@ C^{-1} = \sqrt{2 \pi}
 <div class="para" id="exe-cov-5-4-1-1">Compute the volume of the <span class="process-math">\(4\)</span>-dimensional ball of radius <span class="process-math">\(R\text{.}\)</span>
 </div></article></article></section></section></div>
 <div class="ptx-content-footer">
-<a class="previous-button button" href="sec-compactRnintegration.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="ch-differential-forms.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+<a class="previous-button button" href="sec-compactRnintegration.html" title="Previous"><span xmlns:xlink="http://www.w3.org/1999/xlink" class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span xmlns:xlink="http://www.w3.org/1999/xlink" class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="ch-differential-forms.html" title="Next"><span class="name">Next</span><span xmlns:xlink="http://www.w3.org/1999/xlink" class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">
-<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+<a xmlns:xlink="http://www.w3.org/1999/xlink" class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a xmlns:xlink="http://www.w3.org/1999/xlink" class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a xmlns:xlink="http://www.w3.org/1999/xlink" class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
 </div>
 </body>
 </html>

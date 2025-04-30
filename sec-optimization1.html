@@ -5,16 +5,20 @@
 <!--*         https://pretextbook.org          *-->
 <!--*                                          *-->
 <!--********************************************-->
-<html lang="en-US" dir="ltr">
+<html lang="en-US" dir="ltr" data-legacy-colorscheme="blue_red">
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Optimization without constraints</title>
-<meta name="Keywords" content="Authored in PreTeXt">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta property="og:type" content="book">
-<meta property="book:title" content="Mathematical Scholars Calculus 4">
-<meta property="book:author" content="Gabriel Kerr">
-<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>
+<link xmlns:xlink="http://www.w3.org/1999/xlink" rel="preconnect" href="https://fonts.googleapis.com">
+<link xmlns:xlink="http://www.w3.org/1999/xlink" rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link xmlns:xlink="http://www.w3.org/1999/xlink" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;" rel="stylesheet">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link xmlns:xlink="http://www.w3.org/1999/xlink" href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script>
 var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
 window.MathJax = {
   "tex": {
@@ -74,7 +78,7 @@ window.MathJax = {
       "[pretext]/mathjaxknowl3.js"
     ],
     "paths": {
-      "pretext": "https://pretextbook.org/js/lib"
+      "pretext": "_static/pretext/js/lib"
     }
   },
   "startup": {
@@ -86,10 +90,47 @@ window.MathJax = {
     )}
   }
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta xmlns:xlink="http://www.w3.org/1999/xlink" name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta xmlns:xlink="http://www.w3.org/1999/xlink" property="og:type" content="book">
+<meta xmlns:xlink="http://www.w3.org/1999/xlink" property="book:title" content="Mathematical Scholars Calculus 4">
+<meta xmlns:xlink="http://www.w3.org/1999/xlink" property="book:author" content="Gabriel Kerr">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.6.1';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.c7804631fa963734.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.f7a03b209751032d.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.541c9106f2c605b9.css">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script xmlns:xlink="http://www.w3.org/1999/xlink" src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><script>// Make *any* div with class 'sagecell-sage' an executable Sage cell
 // Their results will be linked, only within language type
 sagecell.makeSagecell({
-  "inputLocation": "pre.sagecell-sage",
+  "inputLocation": "div.sagecell-sage",
   "linked": true,
   "linkKey": "linked-sage",
   "autoeval": false,
@@ -98,33 +139,14 @@ sagecell.makeSagecell({
   ],
   "evalButtonText": "Evaluate (Sage)"
 });
-</script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.33/pretext_search.js"></script><link href="https://pretextbook.org/css/0.83/pretext_search.css" rel="stylesheet" type="text/css">
-<script>js_version = 0.33</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.33/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.33/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.33/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
-</script><link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
-<link href="https://pretextbook.org/css/0.83/pretext.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/pretext_add_on.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/shell_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/banner_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/navbar_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/toc_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/knowls_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/style_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/colors_blue_red.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/setcolors.css" rel="stylesheet" type="text/css">
+</script>
 </head>
 <body class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
-<a id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
 <h1 class="heading"><a href="ms-calculus-3.html"><span class="title">Mathematical Scholars Calculus 4</span></a></h1>
 <p class="byline">Gabriel Kerr</p>
-</div>
-</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+</div></div></header><nav xmlns:xlink="http://www.w3.org/1999/xlink" id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
 <div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
 <div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
 <div class="search-results-controls">
@@ -135,7 +157,8 @@ sagecell.makeSagecell({
 <ol id="searchresults" class="searchresults"></ol>
 </div>
 </div>
-<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="sec-critical.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-differential-calculus.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-optimization2.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="sec-critical.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-differential-calculus.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-optimization2.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div xmlns:xlink="http://www.w3.org/1999/xlink" id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
 \newcommand{\C}{\mathbb C}
 \newcommand{\diff}{\text{d}}
 \newcommand{\mb}[1]{\mathbf{#1}}
@@ -157,6 +180,8 @@ sagecell.makeSagecell({
 \newcommand{\vol}{\,\text{vol}}
 \newcommand{\orient}{\,\text{or}}
 \newcommand{\pball}[2]{\text{B}^*_{#1} ( #2 )}
+\newcommand{\oiint}{{\subset\!\supset} \llap{\iint}}
+\newcommand{\oiiint}{{\large{\subset\!\supset}} \llap{\iiint}}
 \newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
 \newcommand{\amp}{&amp;}
@@ -164,7 +189,7 @@ sagecell.makeSagecell({
 \newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
 \)</span></div>
 <div class="ptx-page">
-<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural contains-active toc-item-list">
+<div xmlns:xlink="http://www.w3.org/1999/xlink" id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural toc-item-list contains-active">
 <li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
 <li class="toc-item toc-chapter contains-active">
 <div class="toc-title-box"><a href="ch-differential-calculus.html" class="internal"><span class="codenumber">1</span> <span class="title">Differential Calculus in Several Variables</span></a></div>
@@ -209,9 +234,9 @@ sagecell.makeSagecell({
 <li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-critical.html#exe-critical" class="internal"><span class="codenumber">1.5.4</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
-<li class="toc-item toc-section active">
+<li class="toc-item toc-section contains-active">
 <div class="toc-title-box"><a href="sec-optimization1.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Optimization without constraints</span></a></div>
-<ul class="structural toc-item-list">
+<ul class="structural toc-item-list active">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-optimization1.html#subsec-global-extrema" class="internal"><span class="codenumber">1.6.1</span> <span class="title">Global extrema</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-optimization1.html#subsec-least-squares" class="internal"><span class="codenumber">1.6.2</span> <span class="title">Least Squares</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-optimization1.html#subsec-gradient-descent" class="internal"><span class="codenumber">1.6.3</span> <span class="title">Gradient descent</span></a></div></li>
@@ -350,7 +375,7 @@ sagecell.makeSagecell({
 <li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-partial-differential-equations.html" class="internal"><span class="codenumber">6</span> <span class="title">Partial Differential Equations</span></a></div></li>
 <li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
 </ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-optimization1"><h2 class="heading hide-type">
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section xmlns:xlink="http://www.w3.org/1999/xlink" class="section" id="sec-optimization1"><h2 class="heading hide-type">
 <span class="type">Section</span><span class="space"> </span><span class="codenumber">1.6</span><span class="space"> </span><span class="title">Optimization without constraints</span>
 </h2>
 <section class="introduction" id="sec-optimization1-2"><div class="para" id="sec-optimization1-2-1">The methods of the last section allow us to find local minima and maxima, but often we are interested in finding a global maximum and minimum. As it turns out, the methods used to find such extreme points depends heavily on the type of domain you are working with.</div></section><section class="subsection" id="subsec-global-extrema"><h3 class="heading hide-type">
@@ -368,7 +393,7 @@ sagecell.makeSagecell({
 f(p ) \leq f(\mb{x}) \leq f (q).
 \end{equation*}
 </div>
-</div></article><details id="thm-extremevaluetheorem-3" class="hiddenproof born-hidden-knowl"><summary><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof"><div class="para logical" id="thm-extremevaluetheorem-3-1">
+</div></article><details id="thm-extremevaluetheorem-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para logical" id="thm-extremevaluetheorem-3-1">
 <div class="para">The key result we need is that closed and bounded domains satisfy the property of being <dfn class="terminology">compact</dfn> (this fact is the Heine-Borel Theorem). Compactness of a set can be defined in a few ways, but we will use the following characterization: any sequence of points <span class="process-math">\(\{p_i\}_{i \in \mathbb{N}}\)</span> in <span class="process-math">\(D\)</span> will have a convergent subsequence <span class="process-math">\(\{p_{i_j}\}_{j \in \mathbb{N}}\text{.}\)</span> Now if <span class="process-math">\(L_{max}\)</span> and <span class="process-math">\(L_{min}\)</span> are the least upper and greatest lower bounds of <span class="process-math">\(f(D)\)</span> (allowing <span class="process-math">\(\pm \infty\)</span> as well). Then we can find a sequence <span class="process-math">\(\{p_i\}_{i \in \mathbb{N}}\)</span> and <span class="process-math">\(\{q_i \}_{i \in \mathbb{N}}\)</span> for which</div>
 <div class="displaymath process-math" id="thm-extremevaluetheorem-3-1-11">
 \begin{align*}
@@ -399,9 +424,9 @@ f(q) = f \left( \lim_{j \to \infty} q_{i_j} \right)  \amp = \lim_{j \to \infty} 
 </div>
 <div class="para">This completes the proof.</div>
 </div></article></details><div class="para" id="subsec-global-extrema-4">For now, let us mention how this theorem fails if we do not satisfy the hypothesis.</div>
-<details id="subsec-global-extrema-5" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+<details id="subsec-global-extrema-5" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">1.6.2</span><span class="period">.</span><span class="space"> </span><span class="title">Failure to obtain a global extreme value.</span>
-</h4></summary><article class="example example-like"><div class="para logical" id="subsec-global-extrema-5-2-1">
+</h4></summary><article class="example example-like knowl__content"><div class="para logical" id="subsec-global-extrema-5-2-1">
 <div class="para">Recall that a closed domain in <span class="process-math">\(\mathbb{R}^m\)</span> is a subset for which, given any point <span class="process-math">\(q\)</span> <em class="emphasis">not</em> in <span class="process-math">\(D\text{,}\)</span> there exists a ball around <span class="process-math">\(q\)</span> which does not intersect <span class="process-math">\(D\)</span> (alternatively, the complement of <span class="process-math">\(D\)</span> is open). For example, closed balls are open and so is all of <span class="process-math">\(\mathbb{R}^m\text{.}\)</span> However, a bounded domain is a domain that can be put inside a large enough ball, implying that while <span class="process-math">\(\mathbb{R}^m\)</span> is closed, it is not bounded. But of course the continuous function</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -416,7 +441,7 @@ f(x,y,z) = \frac{1}{x^2 + y^2 + z^2}
 </div>
 <div class="para">has no maximum value on this set, but is continuous. So again, the closed condition is vital to guarantee that a global minimum and maximum exist.</div>
 </div></article></details><div class="para" id="subsec-global-extrema-6">While it is important to understand that there may not exist a global maximum or minimum for functions on certain domains, often they may exist and we can use our prior results to find good candidates for them. Suppose <span class="process-math">\(U\)</span> is an open domain in <span class="process-math">\(\mathbb{R}^m\)</span> and <span class="process-math">\(f: U \to \mathbb{R}\)</span> is a function. To find <em class="emphasis">possible</em> extreme values, we follow the instructions:</div>
-<div class="para logical" id="subsec-global-extrema-7"><ol class="decimal">
+<div class="para logical" id="subsec-global-extrema-7"><ol class="decimal" id="subsec-global-extrema-7-1">
 <li id="subsec-global-extrema-7-1-1"><div class="para" id="p-derived-subsec-global-extrema-7-1-1">Find critical points of <span class="process-math">\(f (x_1, \ldots, x_m)\text{,}\)</span>
 </div></li>
 <li id="subsec-global-extrema-7-1-2"><div class="para" id="p-derived-subsec-global-extrema-7-1-2">Identify local minima and maxima,</div></li>
@@ -424,9 +449,9 @@ f(x,y,z) = \frac{1}{x^2 + y^2 + z^2}
 <li id="subsec-global-extrema-7-1-4"><div class="para" id="p-derived-subsec-global-extrema-7-1-4">Examine boundary or asymptotic behavior of <span class="process-math">\(f\)</span> to see if it exceeds the candidate extremes.</div></li>
 </ol></div>
 <div class="para" id="subsec-global-extrema-8">Note that if we only find saddle points at step (3), we can conclude that no global extremes for <span class="process-math">\(f\)</span> exist on <span class="process-math">\(U\)</span> because a global extreme must also be a local extreme. The last item in our instruction set may prove to be fairly difficult, depending on the domain and function <span class="process-math">\(f\text{.}\)</span> However, we illustrate this simple technique in a few examples.</div>
-<details id="subsec-global-extrema-9" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+<details id="subsec-global-extrema-9" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">1.6.3</span><span class="period">.</span><span class="space"> </span><span class="title">Optimization I.</span>
-</h4></summary><article class="example example-like"><div class="para logical" id="subsec-global-extrema-9-2-1">
+</h4></summary><article class="example example-like knowl__content"><div class="para logical" id="subsec-global-extrema-9-2-1">
 <div class="para">Let</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -454,9 +479,9 @@ f(x,y) = (x - 1)^2 + ( y - 1)^2
 \end{equation*}
 </div>
 <div class="para">and come to the same conclusion more quickly, but at least we verify here that our instruction set works.</div>
-</div></article></details><details id="subsec-global-extrema-10" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+</div></article></details><details id="subsec-global-extrema-10" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">1.6.4</span><span class="period">.</span><span class="space"> </span><span class="title">Optimization II.</span>
-</h4></summary><article class="example example-like"><div class="para logical" id="subsec-global-extrema-10-2-1">
+</h4></summary><article class="example example-like knowl__content"><div class="para logical" id="subsec-global-extrema-10-2-1">
 <div class="para">Let</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exercise-2dsecondderivativetest.html">
 \begin{equation*}
@@ -487,7 +512,7 @@ f (x,y) = x^2 y^3 - 2x - 3y.
 \text{Hess}_{(-1, -1 )} f = \left[ \begin{matrix} -2 \amp -6  \\ -6 \amp -6 \end{matrix} \right]
 \end{equation*}
 </div>
-<div class="para">The determinant of this matrix is negative which implies that <span class="process-math">\((-1, -1)\)</span> is a saddle point (see <a href="" class="xref" data-knowl="./knowl/xref/exercise-2dsecondderivativetest.html" title="Exercise 1.5.4.3">Exercise 1.5.4.3</a> ).</div>
+<div class="para">The determinant of this matrix is negative which implies that <span class="process-math">\((-1, -1)\)</span> is a saddle point (see <a href="sec-critical.html#exercise-2dsecondderivativetest" class="xref" data-knowl="./knowl/xref/exercise-2dsecondderivativetest.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 1.5.4.3">Exercise 1.5.4.3</a> ).</div>
 </div> <div class="para logical" id="subsec-global-extrema-10-2-2">
 <div class="para">Evaluating at the critical point <span class="process-math">\((1, 1)\)</span> gives</div>
 <div class="displaymath process-math">
@@ -587,19 +612,19 @@ W(a_1, \ldots, a_m, b) = \| \mb{a}\, \mathcal{S}  - \tilde{\mb{y}}  \|^2,
 \mathbf{\Sigma} \, \mb{a}^T = \text{Cov} (  \mathbf{X}, y).\tag{1.6.2}
 \end{equation}
 </div>
-<div class="para">Here we take <span class="process-math">\(\text{Cov} (  \mathbf{X}, y)\)</span> to be the right hand side of equation <a href="" class="xref" data-knowl="./knowl/xref/eq-leastsquares1.html" title="Equation 1.6.1">(1.6.1)</a> divided by <span class="process-math">\(N\text{.}\)</span> This is the vector of covariances of the coordinates of <span class="process-math">\(\mathbf{X}\)</span> and the observed value <span class="process-math">\(y\)</span> (although this is a bit non-standard as it is mixing a vector random variable with a scalar random variable. In general, one will create a larger covariance matrix to encode this vector).</div>
+<div class="para">Here we take <span class="process-math">\(\text{Cov} (  \mathbf{X}, y)\)</span> to be the right hand side of equation <a href="sec-optimization1.html#eq-leastsquares1" class="xref" data-knowl="./knowl/xref/eq-leastsquares1.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.6.1">(1.6.1)</a> divided by <span class="process-math">\(N\text{.}\)</span> This is the vector of covariances of the coordinates of <span class="process-math">\(\mathbf{X}\)</span> and the observed value <span class="process-math">\(y\)</span> (although this is a bit non-standard as it is mixing a vector random variable with a scalar random variable. In general, one will create a larger covariance matrix to encode this vector).</div>
 </div>
 <div class="para logical" id="subsec-least-squares-5">
-<div class="para">Now, as was pointed out during the discussion on the covariance matrix, most data sets will have a positive definite (not just semi-definite) covariance matrix, so that <span class="process-math">\(\mathbf{\Sigma}\)</span> is invertible. This means that equation <a href="" class="xref" data-knowl="./knowl/xref/eq-leastsquares1.html" title="Equation 1.6.1">(1.6.1)</a> has a unique solution</div>
+<div class="para">Now, as was pointed out during the discussion on the covariance matrix, most data sets will have a positive definite (not just semi-definite) covariance matrix, so that <span class="process-math">\(\mathbf{\Sigma}\)</span> is invertible. This means that equation <a href="sec-optimization1.html#eq-leastsquares1" class="xref" data-knowl="./knowl/xref/eq-leastsquares1.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.6.1">(1.6.1)</a> has a unique solution</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-leastsquares1.html" id="eq-leastsquares3">
 \begin{equation}
 \mb{a}^T = \mathbf{\Sigma}^{-1} \,\textnormal{Cov} (  \mathbf{X}, y).\tag{1.6.3}
 \end{equation}
 </div>
 </div>
-<details id="subsec-least-squares-6" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+<details id="subsec-least-squares-6" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">1.6.5</span><span class="period">.</span><span class="space"> </span><span class="title">Best fit line.</span>
-</h4></summary><article class="example example-like"><div class="para logical" id="subsec-least-squares-6-2-1">
+</h4></summary><article class="example example-like knowl__content"><div class="para logical" id="subsec-least-squares-6-2-1">
 <div class="para">The most common application of the above procedure (by far) is to use least squares to find the best fit line (the case of <span class="process-math">\(m =1\)</span>). In this case, the covariance matrix is simply the variance of the data points <span class="process-math">\(S = \left\{ x_1, \ldots, x_N \right\}\)</span> in <span class="process-math">\(\mathbb{R}\)</span> and <span class="process-math">\(\text{Cov} (\mathbf{X}, y)\)</span> is the usual covariance between two random variables <span class="process-math">\(x\)</span> and <span class="process-math">\(y\text{.}\)</span> Of course, here, we are looking for the affine function</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -619,7 +644,7 @@ m \amp =  \frac{ (x_1 - \bar{x} ) (y_1 - \bar{y}) + \cdots + (x_N - \bar{x} ) (y
 b \amp = \bar{y} - m \bar{x}. \tag{1.6.5}
 \end{align}
 </div>
-</div></article></details><pre id="subsec-least-squares-7" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">X = [1, 4,2,3,5]
+</div></article></details><div id="subsec-least-squares-7" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">X = [1, 4,2,3,5]
 Y = [3, 2,4,8, -1]
 N = len(X)
 dataPoints = [(X[i], Y[i]) for i in range(N)]
@@ -635,11 +660,12 @@ xmax = max(X) + 1
 linePlot = plot(m*x + b, (x, xmin, xmax))
 W = pointPlot + linePlot
 show(W, figsize=8)
-</script></pre></section><section class="subsection" id="subsec-gradient-descent"><h3 class="heading hide-type">
+</script></div></section><section class="subsection" id="subsec-gradient-descent"><h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.6.3</span><span class="space"> </span><span class="title">Gradient descent</span>
 </h3>
 <div class="para logical" id="subsec-gradient-descent-2">
-<div class="para">A neural network can be tasked with learning a particular function <span class="process-math">\(h_{\theta} : U \to \mathbb{R}\)</span> which is defined using parameters <span class="process-math">\(\theta = (\theta_1, \ldots, \theta_r)\text{.}\)</span> The goal is to find the function that best predicts an outcome of observed values <span class="process-math">\(y\)</span> for a data point <span class="process-math">\(\mb{X}\)</span> in <span class="process-math">\(U \subset \mathbb{R}^m\text{.}\)</span> Thus the program aims to find the parameters <span class="process-math">\(\theta\)</span> which define the best possible function <span class="process-math">\(h_\theta\text{.}\)</span> A key ingredient in accomplishing this is the \textbf{cost function}</div>
+<div class="para">A neural network can be tasked with learning a particular function <span class="process-math">\(h_{\theta} : U \to \mathbb{R}\)</span> which is defined using parameters <span class="process-math">\(\theta = (\theta_1, \ldots, \theta_r)\text{.}\)</span> The goal is to find the function that best predicts an outcome of observed values <span class="process-math">\(y\)</span> for a data point <span class="process-math">\(\mb{X}\)</span> in <span class="process-math">\(U \subset \mathbb{R}^m\text{.}\)</span> Thus the program aims to find the parameters <span class="process-math">\(\theta\)</span> which define the best possible function <span class="process-math">\(h_\theta\text{.}\)</span> A key ingredient in accomplishing this is the <span class="process-math">\(\textbf{cost function}\)</span>
+</div>
 <div class="displaymath process-math">
 \begin{equation*}
 J (\theta ) := \frac{1}{2m} \sum_{j = 1}^m \left( h_\theta (\mb{X}_j ) - y_j \right)^2.
@@ -753,11 +779,11 @@ h_\theta (x,y) = e^{\theta_1 x + \theta_2}.
 <div class="para">In this case, write the gradient of the cost function <span class="process-math">\(J_\theta\)</span> for <span class="process-math">\(m\)</span> sample points.</div>
 </div></article></section></section></div>
 <div class="ptx-content-footer">
-<a class="previous-button button" href="sec-critical.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-optimization2.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+<a class="previous-button button" href="sec-critical.html" title="Previous"><span xmlns:xlink="http://www.w3.org/1999/xlink" class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span xmlns:xlink="http://www.w3.org/1999/xlink" class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-optimization2.html" title="Next"><span class="name">Next</span><span xmlns:xlink="http://www.w3.org/1999/xlink" class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">
-<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+<a xmlns:xlink="http://www.w3.org/1999/xlink" class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a xmlns:xlink="http://www.w3.org/1999/xlink" class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a xmlns:xlink="http://www.w3.org/1999/xlink" class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
 </div>
 </body>
 </html>

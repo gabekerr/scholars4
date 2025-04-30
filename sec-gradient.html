@@ -5,16 +5,20 @@
 <!--*         https://pretextbook.org          *-->
 <!--*                                          *-->
 <!--********************************************-->
-<html lang="en-US" dir="ltr">
+<html lang="en-US" dir="ltr" data-legacy-colorscheme="blue_red">
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>The gradient</title>
-<meta name="Keywords" content="Authored in PreTeXt">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta property="og:type" content="book">
-<meta property="book:title" content="Mathematical Scholars Calculus 4">
-<meta property="book:author" content="Gabriel Kerr">
-<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>
+<link xmlns:xlink="http://www.w3.org/1999/xlink" rel="preconnect" href="https://fonts.googleapis.com">
+<link xmlns:xlink="http://www.w3.org/1999/xlink" rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link xmlns:xlink="http://www.w3.org/1999/xlink" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;" rel="stylesheet">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link xmlns:xlink="http://www.w3.org/1999/xlink" href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script>
 var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
 window.MathJax = {
   "tex": {
@@ -74,7 +78,7 @@ window.MathJax = {
       "[pretext]/mathjaxknowl3.js"
     ],
     "paths": {
-      "pretext": "https://pretextbook.org/js/lib"
+      "pretext": "_static/pretext/js/lib"
     }
   },
   "startup": {
@@ -86,10 +90,47 @@ window.MathJax = {
     )}
   }
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta xmlns:xlink="http://www.w3.org/1999/xlink" name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta xmlns:xlink="http://www.w3.org/1999/xlink" property="og:type" content="book">
+<meta xmlns:xlink="http://www.w3.org/1999/xlink" property="book:title" content="Mathematical Scholars Calculus 4">
+<meta xmlns:xlink="http://www.w3.org/1999/xlink" property="book:author" content="Gabriel Kerr">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.6.1';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.c7804631fa963734.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.f7a03b209751032d.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.541c9106f2c605b9.css">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script xmlns:xlink="http://www.w3.org/1999/xlink" src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><script>// Make *any* div with class 'sagecell-sage' an executable Sage cell
 // Their results will be linked, only within language type
 sagecell.makeSagecell({
-  "inputLocation": "pre.sagecell-sage",
+  "inputLocation": "div.sagecell-sage",
   "linked": true,
   "linkKey": "linked-sage",
   "autoeval": false,
@@ -98,33 +139,14 @@ sagecell.makeSagecell({
   ],
   "evalButtonText": "Evaluate (Sage)"
 });
-</script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.33/pretext_search.js"></script><link href="https://pretextbook.org/css/0.83/pretext_search.css" rel="stylesheet" type="text/css">
-<script>js_version = 0.33</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.33/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.33/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.33/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
-</script><link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
-<link href="https://pretextbook.org/css/0.83/pretext.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/pretext_add_on.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/shell_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/banner_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/navbar_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/toc_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/knowls_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/style_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/colors_blue_red.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/setcolors.css" rel="stylesheet" type="text/css">
+</script>
 </head>
 <body class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
-<a id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
 <h1 class="heading"><a href="ms-calculus-3.html"><span class="title">Mathematical Scholars Calculus 4</span></a></h1>
 <p class="byline">Gabriel Kerr</p>
-</div>
-</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+</div></div></header><nav xmlns:xlink="http://www.w3.org/1999/xlink" id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
 <div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
 <div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
 <div class="search-results-controls">
@@ -135,7 +157,8 @@ sagecell.makeSagecell({
 <ol id="searchresults" class="searchresults"></ol>
 </div>
 </div>
-<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="sec-chainrule.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-differential-calculus.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-critical.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="sec-chainrule.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-differential-calculus.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-critical.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div xmlns:xlink="http://www.w3.org/1999/xlink" id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
 \newcommand{\C}{\mathbb C}
 \newcommand{\diff}{\text{d}}
 \newcommand{\mb}[1]{\mathbf{#1}}
@@ -157,6 +180,8 @@ sagecell.makeSagecell({
 \newcommand{\vol}{\,\text{vol}}
 \newcommand{\orient}{\,\text{or}}
 \newcommand{\pball}[2]{\text{B}^*_{#1} ( #2 )}
+\newcommand{\oiint}{{\subset\!\supset} \llap{\iint}}
+\newcommand{\oiiint}{{\large{\subset\!\supset}} \llap{\iiint}}
 \newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
 \newcommand{\amp}{&amp;}
@@ -164,7 +189,7 @@ sagecell.makeSagecell({
 \newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
 \)</span></div>
 <div class="ptx-page">
-<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural contains-active toc-item-list">
+<div xmlns:xlink="http://www.w3.org/1999/xlink" id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural toc-item-list contains-active">
 <li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
 <li class="toc-item toc-chapter contains-active">
 <div class="toc-title-box"><a href="ch-differential-calculus.html" class="internal"><span class="codenumber">1</span> <span class="title">Differential Calculus in Several Variables</span></a></div>
@@ -192,9 +217,9 @@ sagecell.makeSagecell({
 <li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-chainrule.html#exe-chainrule" class="internal"><span class="codenumber">1.3.4</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
-<li class="toc-item toc-section active">
+<li class="toc-item toc-section contains-active">
 <div class="toc-title-box"><a href="sec-gradient.html" class="internal"><span class="codenumber">1.4</span> <span class="title">The gradient</span></a></div>
-<ul class="structural toc-item-list">
+<ul class="structural toc-item-list active">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-gradient.html#subsec-metric-geometry" class="internal"><span class="codenumber">1.4.1</span> <span class="title">Metric geometry</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-gradient.html#subsec-steepest-ascent" class="internal"><span class="codenumber">1.4.2</span> <span class="title">Steepest ascent</span></a></div></li>
 <li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-gradient.html#exe-gradient" class="internal"><span class="codenumber">1.4.3</span> <span class="title">Exercises</span></a></div></li>
@@ -350,7 +375,7 @@ sagecell.makeSagecell({
 <li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-partial-differential-equations.html" class="internal"><span class="codenumber">6</span> <span class="title">Partial Differential Equations</span></a></div></li>
 <li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
 </ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-gradient"><h2 class="heading hide-type">
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section xmlns:xlink="http://www.w3.org/1999/xlink" class="section" id="sec-gradient"><h2 class="heading hide-type">
 <span class="type">Section</span><span class="space"> </span><span class="codenumber">1.4</span><span class="space"> </span><span class="title">The gradient</span>
 </h2>
 <section class="introduction" id="sec-gradient-2"><div class="para" id="sec-gradient-2-1">There is a vast untold conspiracy to misinform all students of multivariable calculus that the gradient is the same thing as the derivative. We state here that the key difference is that the derivative at <span class="process-math">\(p\)</span> is a dual vector of the tangent space <span class="process-math">\(T_p V\)</span> while the gradient is a vector in the tangent space <span class="process-math">\(T_p V\text{.}\)</span> To see how to define and connect these concepts, we need to briefly discuss charts and metrics.</div></section><section class="subsection" id="subsec-metric-geometry"><h3 class="heading hide-type">
@@ -381,9 +406,9 @@ sagecell.makeSagecell({
 </div>
 <div class="para">The non-existence of such a parameterization can be seen by something called <dfn class="terminology">curvature</dfn>, but we will leave this subject to future study. For now, we mention only that the map <span class="process-math">\(\mb{G}\)</span> will preserve distance if and only if the above inequality is an equality (this will be justified when we consider line integrals later).</div>
 </div>
-<details id="subsec-metric-geometry-5" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+<details id="subsec-metric-geometry-5" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">1.4.1</span><span class="period">.</span><span class="space"> </span><span class="title">Circle parametrization.</span>
-</h4></summary><article class="example example-like"><div class="para logical" id="subsec-metric-geometry-5-2-1">
+</h4></summary><article class="example example-like knowl__content"><div class="para logical" id="subsec-metric-geometry-5-2-1">
 <div class="para">Consider the circle <span class="process-math">\(C\)</span> of radius <span class="process-math">\(2\)</span> centered at the origin and take the usual parameterization</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -398,9 +423,9 @@ g ( t) = (2 \cos t , 2 \sin t)
 </div>
 <div class="para">Now, the norm <span class="process-math">\(\|\partial_t \|\)</span>  is <span class="process-math">\(1\)</span> (here we identify a tangent vector with the vector for which it is the directional derivative) while the norm of <span class="process-math">\(\tder{p}{g}\)</span> can be calculated to be <span class="process-math">\(2\text{.}\)</span> This is because the parametrization is scaling the length of the interval <span class="process-math">\([0, 2\pi]\)</span> by <span class="process-math">\(2\text{.}\)</span>
 </div>
-</div></article></details><details id="example-graphmetric" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+</div></article></details><details id="example-graphmetric" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">1.4.2</span><span class="period">.</span><span class="space"> </span><span class="title">Metrics of graphs.</span>
-</h4></summary><article class="example example-like"><div class="para logical" id="example-graphmetric-2-1">
+</h4></summary><article class="example example-like knowl__content"><div class="para logical" id="example-graphmetric-2-1">
 <div class="para">One class of examples of parameterized surfaces comes from considering graphs of functions. For example, if <span class="process-math">\(f(x,y)\)</span> is a differentiable function on the plane <span class="process-math">\(\mathbb{R}^2\)</span> then we can take its graph</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -436,7 +461,8 @@ X = \{ (x, y, z) : z = f(x,y) \}.
 </div></article></details><div class="para" id="subsec-metric-geometry-7">With these examples in mind, it may seem to be a hopeless task to recover the geometry of <span class="process-math">\(X\)</span> using the coordinates given by a parameterization. However, there is a way to do this, we just need to introduce a new inner product <span class="process-math">\(\langle , \rangle_p\)</span> for every tangent space <span class="process-math">\(T_p U\)</span> of our domain <span class="process-math">\(\mb{G} : U \to X\text{.}\)</span> We define this inner product as follows.</div>
 <article class="definition definition-like" id="def-induced-inner-product"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.4.3</span><span class="period">.</span>
-</h4> <div class="para logical" id="def-induced-inner-product-2-1">
+</h4>
+<div class="para logical" id="def-induced-inner-product-2-1">
 <div class="para">Let <span class="process-math">\(U\)</span> be an open subset of <span class="process-math">\(\mathbb{R}^m\)</span> and <span class="process-math">\(\mb{G} : U \to X\)</span> a parameterization so that for any <span class="process-math">\(q\)</span> in <span class="process-math">\(X\)</span> with <span class="process-math">\(\mb{G} (p) = q\)</span> the tangent space <span class="process-math">\(T_q X\)</span> is given by <span class="process-math">\(\tder{p}{G} (T_p \mathbb{R}^m)\text{.}\)</span> The <dfn class="terminology">inner product <span class="process-math">\(\langle , \rangle_p\)</span> on <span class="process-math">\(U\)</span> induced by <span class="process-math">\(\mb{G}\)</span></dfn> is defined by</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -455,9 +481,9 @@ X = \{ (x, y, z) : z = f(x,y) \}.
 \end{equation*}
 </div>
 </div></article><div class="para" id="subsec-metric-geometry-11">Note that the matrix we obtain <span class="process-math">\(\tder{p}{\mb{G}}^T  \tder{p}{\mb{G}}\)</span> is in fact symmetric as one would expect from the symmetric property of an inner product.</div>
-<details id="subsec-metric-geometry-12" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+<details id="subsec-metric-geometry-12" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">1.4.5</span><span class="period">.</span><span class="space"> </span><span class="title">Metric for spherical coordinates.</span>
-</h4></summary><article class="example example-like"><div class="para logical" id="subsec-metric-geometry-12-2-1">
+</h4></summary><article class="example example-like knowl__content"><div class="para logical" id="subsec-metric-geometry-12-2-1">
 <div class="para">The world is not flat, but spherical coordinates gives us a flat domain on which to chart the world. Indeed, fixing the variable <span class="process-math">\(\rho = 1\)</span> we may parameterize the unit sphere <span class="process-math">\(X\text{,}\)</span> which consists of all <span class="process-math">\((x,y,z)\)</span> satisfying the constraint equation <span class="process-math">\(x^2 + y^2 + z^2 = 1\text{,}\)</span> using</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-metricmatrix.html">
 \begin{equation*}
@@ -476,7 +502,7 @@ X = \{ (x, y, z) : z = f(x,y) \}.
 \tder{p}{\mb{G}} = \left[ \begin{matrix} -\sin \varphi \sin \theta \amp \cos \varphi \cos \theta \\ \sin \varphi \cos \theta \amp \cos \varphi \sin \theta \\ 0 \amp - \sin \varphi \end{matrix} \right] 
 \end{equation*}
 </div>
-<div class="para">which, by <a href="" class="xref" data-knowl="./knowl/xref/prop-metricmatrix.html" title="Proposition 1.4.4">Proposition 1.4.4</a>, gives us our tangent space inner products (represented as matrices) via</div>
+<div class="para">which, by <a href="sec-gradient.html#prop-metricmatrix" class="xref" data-knowl="./knowl/xref/prop-metricmatrix.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 1.4.4">Proposition 1.4.4</a>, gives us our tangent space inner products (represented as matrices) via</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-metricmatrix.html" id="subsec-metric-geometry-12-2-1-12">
 \begin{align*}
 \tder{p}{\mb{G}}^T  \tder{p}{\mb{G}} \amp = \left[ \begin{matrix} -\sin \varphi \sin \theta \amp  \sin \varphi \cos \theta \amp  0 \\ \cos \varphi \cos \theta \amp \cos \varphi \sin \theta \amp - \sin \varphi \end{matrix} \right] \left[ \begin{matrix} -\sin \varphi \sin \theta \amp \cos \varphi \cos \theta  \\ \sin \varphi \cos \theta \amp \cos \varphi \sin \theta \\ 0 \amp - \sin \varphi \end{matrix} \right],\\
@@ -487,14 +513,16 @@ X = \{ (x, y, z) : z = f(x,y) \}.
 </div> <div class="para" id="subsec-metric-geometry-12-2-2">One other point which we can observe through geometric intuition about this parameterization is that the surface area of the sphere (relative to the coordinates) certainly changes. We all learn at some point, for example, that Greenland is not larger than South America, even though it may appear so on some maps. The point is that on our map coordinates, we should scale area by <span class="process-math">\(\sin^2 \varphi\)</span> and so, near the poles where <span class="process-math">\(\varphi = 0\)</span> and <span class="process-math">\(\pi\text{,}\)</span> we must scale down area quite a bit.</div></article></details><div class="para" id="subsec-metric-geometry-13">Having motivated the need for a varying inner product on a domain <span class="process-math">\(U\)</span> in <span class="process-math">\(\mathbb{R}^m\text{,}\)</span> let us give the formal definition so we may use it as notation.</div>
 <article class="definition definition-like" id="def-Riemannian-metric"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.4.6</span><span class="period">.</span>
-</h4> <div class="para" id="def-Riemannian-metric-2-1">A domain <span class="process-math">\(U\)</span> in <span class="process-math">\(\mathbb{R}^m\)</span> is said to have a <dfn class="terminology">Riemannian metric</dfn> (or simply <dfn class="terminology">metric</dfn>) <span class="process-math">\(\langle , \rangle_-\)</span> if there is a differentiable assignment of points <span class="process-math">\(p\)</span> in <span class="process-math">\(U\)</span> to inner products <span class="process-math">\(\langle , \rangle_p\)</span> on their tangent space.</div></article><div class="para" id="subsec-metric-geometry-15">We will leave details of ‘differentiable assignment’ to later courses, just noting that this means the inner products, when written as matrices, should have entries that are differentiable functions of the coordinates in <span class="process-math">\(U\text{.}\)</span>
+</h4>
+<div class="para" id="def-Riemannian-metric-2-1">A domain <span class="process-math">\(U\)</span> in <span class="process-math">\(\mathbb{R}^m\)</span> is said to have a <dfn class="terminology">Riemannian metric</dfn> (or simply <dfn class="terminology">metric</dfn>) <span class="process-math">\(\langle , \rangle_-\)</span> if there is a differentiable assignment of points <span class="process-math">\(p\)</span> in <span class="process-math">\(U\)</span> to inner products <span class="process-math">\(\langle , \rangle_p\)</span> on their tangent space.</div></article><div class="para" id="subsec-metric-geometry-15">We will leave details of ‘differentiable assignment’ to later courses, just noting that this means the inner products, when written as matrices, should have entries that are differentiable functions of the coordinates in <span class="process-math">\(U\text{.}\)</span>
 </div></section><section class="subsection" id="subsec-steepest-ascent"><h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.4.2</span><span class="space"> </span><span class="title">Steepest ascent</span>
 </h3>
 <div class="para" id="subsec-steepest-ascent-2">We now arrive at our our featured definition.</div>
 <article class="definition definition-like" id="def-gradient"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.4.7</span><span class="period">.</span>
-</h4> <div class="para logical" id="def-gradient-2-1">
+</h4>
+<div class="para logical" id="def-gradient-2-1">
 <div class="para">Let <span class="process-math">\(U\)</span> be an open subset of a vector space <span class="process-math">\(V\)</span> with metric  <span class="process-math">\(\langle , \rangle_-\text{,}\)</span> and <span class="process-math">\(f : U \to \mathbb{R}\)</span> a differentiable scalar function. The gradient of <span class="process-math">\(f\)</span> at <span class="process-math">\(p\)</span> is the tangent vector</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -509,7 +537,7 @@ X = \{ (x, y, z) : z = f(x,y) \}.
 </div>
 <div class="para">The gradient <span class="process-math">\(\nabla f\)</span> of <span class="process-math">\(f\)</span> is the vector field with tangent vector <span class="process-math">\(\nabla_p f\)</span> at <span class="process-math">\(p\text{.}\)</span>
 </div>
-</div></article><div class="para" id="subsec-steepest-ascent-4">One thing to note about this definition is that, although the right hand side of equation <a href="" class="xref" data-knowl="./knowl/xref/eq-gradient.html" title="Equation 1.4.1">(1.4.1)</a> is written as a number, it is really the tangent vector <span class="process-math">\(\langle \nabla_p f  ,  \partial \rangle_p \partial_1\)</span> in <span class="process-math">\(T_{f(p)} \mathbb{R}^1\text{.}\)</span> We will engage in the common practice of identifying <span class="process-math">\(\partial_1 = \partial_x = \pd{}{x} \)</span> with <span class="process-math">\(1\)</span> when in one dimension.  Let us make this definition concrete in the case of <span class="process-math">\(V = \mathbb{R}^m\)</span> with the dot product.</div>
+</div></article><div class="para" id="subsec-steepest-ascent-4">One thing to note about this definition is that, although the right hand side of equation <a href="sec-gradient.html#eq-gradient" class="xref" data-knowl="./knowl/xref/eq-gradient.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.4.1">(1.4.1)</a> is written as a number, it is really the tangent vector <span class="process-math">\(\langle \nabla_p f  ,  \partial \rangle_p \partial_1\)</span> in <span class="process-math">\(T_{f(p)} \mathbb{R}^1\text{.}\)</span> We will engage in the common practice of identifying <span class="process-math">\(\partial_1 = \partial_x = \pd{}{x} \)</span> with <span class="process-math">\(1\)</span> when in one dimension.  Let us make this definition concrete in the case of <span class="process-math">\(V = \mathbb{R}^m\)</span> with the dot product.</div>
 <article class="proposition theorem-like" id="prop-flatgradient"><h4 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">1.4.8</span><span class="period">.</span>
 </h4>
@@ -526,19 +554,19 @@ X = \{ (x, y, z) : z = f(x,y) \}.
 \nabla f = \threevec{\frac{\partial f}{\partial x_1}}{\vdots}{\frac{\partial f}{\partial x_m}}.
 \end{equation*}
 </div>
-</div></article><details id="prop-flatgradient-2" class="hiddenproof born-hidden-knowl"><summary><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof"><div class="para" id="prop-flatgradient-2-1">Exercise.</div></article></details><div class="para" id="subsec-steepest-ascent-6">The gradient is among the most important vector fields that one may consider. Before seeing why this is the case, let us compute a few examples.</div>
-<details id="subsec-steepest-ascent-7" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+</div></article><details id="prop-flatgradient-2" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para" id="prop-flatgradient-2-1">Exercise.</div></article></details><div class="para" id="subsec-steepest-ascent-6">The gradient is among the most important vector fields that one may consider. Before seeing why this is the case, let us compute a few examples.</div>
+<details id="subsec-steepest-ascent-7" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">1.4.9</span><span class="period">.</span><span class="space"> </span><span class="title">Gradient computation I.</span>
-</h4></summary><article class="example example-like"><div class="para logical" id="subsec-steepest-ascent-7-2-1">
-<div class="para">Consider <span class="process-math">\(f (x,y) = x^2 - xy + y\)</span> and observe that <a href="" class="xref" data-knowl="./knowl/xref/prop-flatgradient.html" title="Proposition 1.4.8">Proposition 1.4.8</a> tells us that</div>
+</h4></summary><article class="example example-like knowl__content"><div class="para logical" id="subsec-steepest-ascent-7-2-1">
+<div class="para">Consider <span class="process-math">\(f (x,y) = x^2 - xy + y\)</span> and observe that <a href="sec-gradient.html#prop-flatgradient" class="xref" data-knowl="./knowl/xref/prop-flatgradient.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 1.4.8">Proposition 1.4.8</a> tells us that</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-flatgradient.html">
 \begin{equation*}
 \nabla f = \twovec{2x - y}{1 - x}.
 \end{equation*}
 </div>
-</div></article></details><details id="subsec-steepest-ascent-8" class="example example-like born-hidden-knowl"><summary><h4 class="heading">
+</div></article></details><details id="subsec-steepest-ascent-8" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">1.4.10</span><span class="period">.</span><span class="space"> </span><span class="title">Gradient computation II.</span>
-</h4></summary><article class="example example-like"><div class="para logical" id="subsec-steepest-ascent-8-2-1">
+</h4></summary><article class="example example-like knowl__content"><div class="para logical" id="subsec-steepest-ascent-8-2-1">
 <div class="para">Take <span class="process-math">\(g (x, y ,z) = e^{xyz} + \cos x - \sin z\)</span> and compute</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -559,13 +587,13 @@ X = \{ (x, y, z) : z = f(x,y) \}.
 f(x,y) = x^4 - 2x^2 + y^2.
 \end{equation*}
 </div>
-<div class="para">Now, it is easy enough to use <a href="" class="xref" data-knowl="./knowl/xref/prop-flatgradient.html" title="Proposition 1.4.8">Proposition 1.4.8</a> to and find that, were we on a Euclidean space,</div>
+<div class="para">Now, it is easy enough to use <a href="sec-gradient.html#prop-flatgradient" class="xref" data-knowl="./knowl/xref/prop-flatgradient.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 1.4.8">Proposition 1.4.8</a> to and find that, were we on a Euclidean space,</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-flatgradient.html ./knowl/xref/prop-metricmatrix.html ./knowl/xref/example-graphmetric.html">
 \begin{equation*}
 \nabla^{Euclid} f = \twovec{4x^3 - 4x}{2y}
 \end{equation*}
 </div>
-<div class="para">However, the domain of the function is identified with <span class="process-math">\(X\text{,}\)</span> so we should first consider the metric given by the matrix in <a href="" class="xref" data-knowl="./knowl/xref/prop-metricmatrix.html" title="Proposition 1.4.4">Proposition 1.4.4</a>. The general form for this was given in <a href="" class="xref" data-knowl="./knowl/xref/example-graphmetric.html" title="Example 1.4.2: Metrics of graphs">Example 1.4.2</a>. If we take <span class="process-math">\(\mb{h} (x,y) = (x,y, x^2)\)</span> to parameterize the graph, we can compute the matrix for the inner product as</div>
+<div class="para">However, the domain of the function is identified with <span class="process-math">\(X\text{,}\)</span> so we should first consider the metric given by the matrix in <a href="sec-gradient.html#prop-metricmatrix" class="xref" data-knowl="./knowl/xref/prop-metricmatrix.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 1.4.4">Proposition 1.4.4</a>. The general form for this was given in <a href="sec-gradient.html#example-graphmetric" class="xref" data-knowl="./knowl/xref/example-graphmetric.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 1.4.2: Metrics of graphs">Example 1.4.2</a>. If we take <span class="process-math">\(\mb{h} (x,y) = (x,y, x^2)\)</span> to parameterize the graph, we can compute the matrix for the inner product as</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-flatgradient.html ./knowl/xref/prop-metricmatrix.html ./knowl/xref/example-graphmetric.html">
 \begin{equation*}
 G = \tder{}{\mb{h}}^T  \tder{}{\mb{h}} = \begin{bmatrix} 1 + h_x^2 \amp h_x h_y \\ h_x h_y \amp 1 + h_y^2 \end{bmatrix} = \begin{bmatrix} 1 + 4x^2 \amp 0 \\ 0 \amp 1 \end{bmatrix}  
@@ -577,21 +605,22 @@ G = \tder{}{\mb{h}}^T  \tder{}{\mb{h}} = \begin{bmatrix} 1 + h_x^2 \amp h_x h_y 
 \nabla f = G^{-1} \nabla^{Euclid}f = \begin{bmatrix} \frac{1}{1 + 4x^2} \amp 0 \\ 0 \amp 1 \end{bmatrix}\twovec{4x^3 - 4x}{2y} = \twovec{\frac{4x^3 - 4x}{1 + 4x^2}}{2y} 
 \end{equation*}
 </div>
-<div class="para">We can picture both vector fields, the Euclidean in red and actual in blue, using the sage cell <pre id="subsec-steepest-ascent-10-19" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">x,y = var('x y')
+<div class="para">We can picture both vector fields, the Euclidean in red and actual in blue, using the sage cell <div id="subsec-steepest-ascent-10-19" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">x,y = var('x y')
 Euc = plot_vector_field((4*x^3 - 4*x, 2*y), (x,-2,2), (y,-1,1), color='red')
 NotEuc = plot_vector_field(((4*x^3 - 4*x)/(1+4*x^2), 2*y), (x,-2,2), (y,-1,1), color='blue')
 show(Euc+NotEuc, figsize=8)
-</script></pre> Observe that away from the interior region of the interval <span class="process-math">\([-1,1]\)</span> on the x-axis, the two vector fields start looking quite different. This difference shows the importance of using the correct metric.</div>
+</script></div> Observe that away from the interior region of the interval <span class="process-math">\([-1,1]\)</span> on the x-axis, the two vector fields start looking quite different. This difference shows the importance of using the correct metric.</div>
 </div>
 <div class="para" id="subsec-steepest-ascent-11">In either the Euclidean or varying metric case, the gradient exhibits a very important property. To explain this, we first need a notion of steepest ascent.</div>
 <article class="definition definition-like" id="def-steepest-ascent"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.4.11</span><span class="period">.</span>
-</h4> <div class="para" id="def-steepest-ascent-2-1">Suppose <span class="process-math">\(U\)</span> is a domain in <span class="process-math">\(V\)</span> with metric and <span class="process-math">\(f: U \to \mathbb{R}\)</span> is a differentiable scalar function at <span class="process-math">\(p \in U\text{.}\)</span> The <dfn class="terminology">direction of steepest ascent</dfn> of <span class="process-math">\(f\)</span> at <span class="process-math">\(p\)</span> is the unit tangent vector <span class="process-math">\(\partial \in T_p V\)</span> for which <span class="process-math">\(\partial f\)</span> is maximized. I.e. for any other unit tangent vector <span class="process-math">\(\tilde{\partial} \ne \partial\text{,}\)</span> <span class="process-math">\(\partial f \gt \tilde{\partial} f\text{.}\)</span>  Similarly,  the <dfn class="terminology">direction of steepest descent</dfn> of <span class="process-math">\(f\)</span> at <span class="process-math">\(p\)</span> is the unit tangent vector <span class="process-math">\(\partial \in T_p V\)</span> for which <span class="process-math">\(\partial f\)</span> is minimized.</div></article><div class="para" id="subsec-steepest-ascent-13">To understand this definition, recall that tangent vectors are just directional derivatives. So the value <span class="process-math">\(\partial f\)</span> is the same as the directional derivative <span class="process-math">\(D_\mb{v} f (p)\)</span> and we think of <span class="process-math">\(\partial\)</span> as the arrow <span class="process-math">\(\mb{v}\)</span> starting at <span class="process-math">\(p\text{.}\)</span> If you think of a topographical map, you can consider a vector starting at a point on the map to give the steepest ascent if, were you actual at that location and started moving in that direction, you would have the steepest climb ahead of you.</div>
+</h4>
+<div class="para" id="def-steepest-ascent-2-1">Suppose <span class="process-math">\(U\)</span> is a domain in <span class="process-math">\(V\)</span> with metric and <span class="process-math">\(f: U \to \mathbb{R}\)</span> is a differentiable scalar function at <span class="process-math">\(p \in U\text{.}\)</span> The <dfn class="terminology">direction of steepest ascent</dfn> of <span class="process-math">\(f\)</span> at <span class="process-math">\(p\)</span> is the unit tangent vector <span class="process-math">\(\partial \in T_p V\)</span> for which <span class="process-math">\(\partial f\)</span> is maximized. I.e. for any other unit tangent vector <span class="process-math">\(\tilde{\partial} \ne \partial\text{,}\)</span> <span class="process-math">\(\partial f \gt \tilde{\partial} f\text{.}\)</span>  Similarly,  the <dfn class="terminology">direction of steepest descent</dfn> of <span class="process-math">\(f\)</span> at <span class="process-math">\(p\)</span> is the unit tangent vector <span class="process-math">\(\partial \in T_p V\)</span> for which <span class="process-math">\(\partial f\)</span> is minimized.</div></article><div class="para" id="subsec-steepest-ascent-13">To understand this definition, recall that tangent vectors are just directional derivatives. So the value <span class="process-math">\(\partial f\)</span> is the same as the directional derivative <span class="process-math">\(D_\mb{v} f (p)\)</span> and we think of <span class="process-math">\(\partial\)</span> as the arrow <span class="process-math">\(\mb{v}\)</span> starting at <span class="process-math">\(p\text{.}\)</span> If you think of a topographical map, you can consider a vector starting at a point on the map to give the steepest ascent if, were you actual at that location and started moving in that direction, you would have the steepest climb ahead of you.</div>
 <article class="proposition theorem-like" id="subsec-steepest-ascent-14"><h4 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">1.4.12</span><span class="period">.</span>
 </h4>
-<div class="para" id="subsec-steepest-ascent-14-1-1">Suppose <span class="process-math">\(U\)</span> is a domain in <span class="process-math">\(V\)</span> with metric and <span class="process-math">\(f: U \to \mathbb{R}\)</span> is a differentiable scalar function. If <span class="process-math">\(\nabla_p f\)</span> is not zero, then its normalization is the direction of steepest ascent of <span class="process-math">\(f\)</span> at <span class="process-math">\(p\text{.}\)</span> The negative of its normalization is the direction of steepest descent.</div></article><details id="subsec-steepest-ascent-14-2" class="hiddenproof born-hidden-knowl"><summary><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof"><div class="para logical" id="subsec-steepest-ascent-14-2-1">
-<div class="para">Let <span class="process-math">\(\partial\)</span> be any unit tangent vector. By <a href="" class="xref" data-knowl="./knowl/xref/cor-directional.html" title="Corollary 1.3.7">Corollary 1.3.7</a> we have</div>
+<div class="para" id="subsec-steepest-ascent-14-1-1">Suppose <span class="process-math">\(U\)</span> is a domain in <span class="process-math">\(V\)</span> with metric and <span class="process-math">\(f: U \to \mathbb{R}\)</span> is a differentiable scalar function. If <span class="process-math">\(\nabla_p f\)</span> is not zero, then its normalization is the direction of steepest ascent of <span class="process-math">\(f\)</span> at <span class="process-math">\(p\text{.}\)</span> The negative of its normalization is the direction of steepest descent.</div></article><details id="subsec-steepest-ascent-14-2" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para logical" id="subsec-steepest-ascent-14-2-1">
+<div class="para">Let <span class="process-math">\(\partial\)</span> be any unit tangent vector. By <a href="sec-chainrule.html#cor-directional" class="xref" data-knowl="./knowl/xref/cor-directional.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 1.3.7">Corollary 1.3.7</a> we have</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cor-directional.html">
 \begin{equation*}
 \partial f (p) = \tder{p}{f} (\partial ). 
@@ -614,7 +643,7 @@ show(Euc+NotEuc, figsize=8)
 <article class="proposition theorem-like" id="prop-increasingGradient"><h4 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">1.4.13</span><span class="period">.</span>
 </h4>
-<div class="para" id="prop-increasingGradient-1-1">Suppose <span class="process-math">\(U\)</span> is a domain in <span class="process-math">\(V\)</span> with metric and <span class="process-math">\(f: U \to \mathbb{R}\)</span> is a differentiable scalar function. If <span class="process-math">\(\nabla_p f\)</span> is non-zero, there is a positive <span class="process-math">\(\varepsilon\)</span> and a differentiable path <span class="process-math">\(\gamma : (-\varepsilon , \varepsilon) \to U\)</span> with <span class="process-math">\(\gamma (0) = p\)</span> such that <span class="process-math">\(f \circ \gamma\)</span> is strictly increasing.</div></article><details id="prop-increasingGradient-2" class="hiddenproof born-hidden-knowl"><summary><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof"><div class="para logical" id="prop-increasingGradient-2-1">
+<div class="para" id="prop-increasingGradient-1-1">Suppose <span class="process-math">\(U\)</span> is a domain in <span class="process-math">\(V\)</span> with metric and <span class="process-math">\(f: U \to \mathbb{R}\)</span> is a differentiable scalar function. If <span class="process-math">\(\nabla_p f\)</span> is non-zero, there is a positive <span class="process-math">\(\varepsilon\)</span> and a differentiable path <span class="process-math">\(\gamma : (-\varepsilon , \varepsilon) \to U\)</span> with <span class="process-math">\(\gamma (0) = p\)</span> such that <span class="process-math">\(f \circ \gamma\)</span> is strictly increasing.</div></article><details id="prop-increasingGradient-2" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para logical" id="prop-increasingGradient-2-1">
 <div class="para">Let us identify <span class="process-math">\(\nabla_p f\)</span> with the vector <span class="process-math">\(\mb{v}\)</span> for which <span class="process-math">\(\nabla_p f = D_\mb{v}\text{.}\)</span> Define <span class="process-math">\(\gamma\)</span> to be the straight line parameterized through <span class="process-math">\(p\)</span> as</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -631,7 +660,7 @@ show(Euc+NotEuc, figsize=8)
 </div>
 <div class="para">At <span class="process-math">\(t = 0\text{,}\)</span> we have <span class="process-math">\(\gamma (t) = p\)</span> so that the derivative is <span class="process-math">\(\|\nabla_p f \|^2\)</span> which is positive. But since <span class="process-math">\(\gamma (t)\text{,}\)</span> <span class="process-math">\(\langle , \rangle_-\)</span> and <span class="process-math">\(\nabla f\)</span> are continuous, this means that <span class="process-math">\(\tder{t}{f \circ \gamma}\)</span> is positive for all <span class="process-math">\(t\)</span> in a small neighborhood around <span class="process-math">\(0\text{.}\)</span> Taking <span class="process-math">\(\varepsilon\)</span> to be a small value for which this is true, we have that <span class="process-math">\(f \circ \gamma\)</span> is a differentiable function with positive derivative and thus is strictly increasing.</div>
 </div></article></details><div class="para logical" id="subsec-steepest-ascent-17">
-<div class="para">A more refined version of <a href="" class="xref" data-knowl="./knowl/xref/prop-increasingGradient.html" title="Proposition 1.4.13">Proposition 1.4.13</a> is to perform what is known as gradient flow. For this, we mean to solve the ordinary differential equation</div>
+<div class="para">A more refined version of <a href="sec-gradient.html#prop-increasingGradient" class="xref" data-knowl="./knowl/xref/prop-increasingGradient.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 1.4.13">Proposition 1.4.13</a> is to perform what is known as gradient flow. For this, we mean to solve the ordinary differential equation</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-increasingGradient.html" id="eq-gradientflow">
 \begin{equation}
 \dot{\mb{x}} (t) = \nabla_{\mb{x} (t)} f\tag{1.4.2}
@@ -692,7 +721,7 @@ s(t) = \int_{a}^t \| \psi^\prime (u) \| \, \diff{u}.
 </div></article><article class="task exercise-like" id="exe-gradient-3-4"><h5 class="heading"><span class="codenumber">(c)</span></h5>
 <div class="para" id="exe-gradient-3-4-1-1">Show that <span class="process-math">\(\psi (t (s))\)</span> is an arc-length parameterization of <span class="process-math">\(\mathcal{C}\text{.}\)</span>
 </div></article><div class="conclusion" id="exe-gradient-3-5"></div></article><article class="exercise exercise-like" id="exe-gradient-4"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
-<div class="para" id="exe-gradient-4-1-1">Verify <a href="" class="xref" data-knowl="./knowl/xref/prop-metricmatrix.html" title="Proposition 1.4.4">Proposition 1.4.4</a>
+<div class="para" id="exe-gradient-4-1-1">Verify <a href="sec-gradient.html#prop-metricmatrix" class="xref" data-knowl="./knowl/xref/prop-metricmatrix.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 1.4.4">Proposition 1.4.4</a>
 </div></article><article class="exercise exercise-like" id="exe-gradient-5"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
 <div class="introduction" id="exe-gradient-5-1"><div class="para" id="exe-gradient-5-1-1">Write the gradients of the following functions for a flat metric.</div></div>
 <article class="task exercise-like" id="exe-gradient-5-2"><h5 class="heading"><span class="codenumber">(a)</span></h5>
@@ -705,13 +734,13 @@ s(t) = \int_{a}^t \| \psi^\prime (u) \| \, \diff{u}.
 <div class="para" id="exe-gradient-7-2-1-1">Write down an example of a non-zero quadratic form <span class="process-math">\(Q(x,y)\)</span> on <span class="process-math">\(\mathbb{R}^2\text{.}\)</span>
 </div></article><article class="task exercise-like" id="exe-gradient-7-3"><h5 class="heading"><span class="codenumber">(b)</span></h5>
 <div class="para" id="exe-gradient-7-3-1-1">Write down and solve the associated gradient flow ordinary differential equation.</div></article></article><article class="exercise exercise-like" id="exe-gradient-8"><h4 class="heading"><span class="codenumber">8<span class="period">.</span></span></h4>
-<div class="para" id="exe-gradient-8-1-1">Verify <a href="" class="xref" data-knowl="./knowl/xref/prop-flatgradient.html" title="Proposition 1.4.8">Proposition 1.4.8</a>.</div></article></section></section></div>
+<div class="para" id="exe-gradient-8-1-1">Verify <a href="sec-gradient.html#prop-flatgradient" class="xref" data-knowl="./knowl/xref/prop-flatgradient.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 1.4.8">Proposition 1.4.8</a>.</div></article></section></section></div>
 <div class="ptx-content-footer">
-<a class="previous-button button" href="sec-chainrule.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-critical.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+<a class="previous-button button" href="sec-chainrule.html" title="Previous"><span xmlns:xlink="http://www.w3.org/1999/xlink" class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span xmlns:xlink="http://www.w3.org/1999/xlink" class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-critical.html" title="Next"><span class="name">Next</span><span xmlns:xlink="http://www.w3.org/1999/xlink" class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">
-<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+<a xmlns:xlink="http://www.w3.org/1999/xlink" class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a xmlns:xlink="http://www.w3.org/1999/xlink" class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a xmlns:xlink="http://www.w3.org/1999/xlink" class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
 </div>
 </body>
 </html>

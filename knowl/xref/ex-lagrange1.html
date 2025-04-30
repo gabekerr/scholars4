@@ -12,9 +12,9 @@
 </head>
 <body class="ignore-math">
 <article class="example example-like"><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.7.10</span><span class="period">.</span><span class="space"> </span><span class="title">Optimization on a hyperboloid.</span>
+<span class="type">Example</span><span xmlns:xlink="http://www.w3.org/1999/xlink" class="space"> </span><span class="codenumber">1.7.10</span><span xmlns:xlink="http://www.w3.org/1999/xlink" class="period">.</span><span xmlns:xlink="http://www.w3.org/1999/xlink" class="space"> </span><span class="title">Optimization on a hyperboloid.</span>
 </h4>
-<div class="para logical">
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="para logical">
 <div class="para">Let <span class="process-math">\(X\)</span> be the hyperboloid</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/thm-tangentspace.html">
 \begin{equation*}
@@ -43,7 +43,7 @@ g(x,y,z) = x^2 + y^2 - 4z^2
 \end{align*}
 </div>
 <div class="para">We now must be somewhat careful proceeding. A common mistake is to forget special cases and thereby miss critical points. For example, one may overlook that the first equation does \textit{not} imply that <span class="process-math">\(\lambda = 1\text{!}\)</span> Instead, we have two possible cases:</div>
-<ol class="decimal">
+<ol class="decimal" id="ex-lagrange1-2-1-11">
 <li><div class="para">First we assume <span class="process-math">\(x = 0\)</span> so that the first equation is satisfied. If <span class="process-math">\(y\)</span> is also zero, then we have a problem because our constraint has that <span class="process-math">\(-4z^2 = 1\)</span> which is not possible in the real numbers. So we may assume <span class="process-math">\(y \ne 0\)</span> and <span class="process-math">\(\lambda = - 1\text{.}\)</span> Putting this into the last equation gives that <span class="process-math">\(z = 1/8\)</span> and our solution set consists of points <span class="process-math">\((0, y, 1/8)\text{.}\)</span> Returning to the constraint equation gives <span class="process-math">\(y^2 = 33/32\)</span> or <span class="process-math">\(y = \pm \sqrt{33/32}\text{.}\)</span> So we attain critical points<div class="displaymath process-math">
 \begin{equation*}
 \left(0, \pm \sqrt{\frac{33}{32}} ,\frac{1}{8} \right)
@@ -63,7 +63,7 @@ g(x,y,z) = x^2 + y^2 - 4z^2
 \text{Hess}(f) = \left[ \begin{matrix} 2 \amp 0 \amp 0 \\ 0 \amp - 2 \amp 0 \\ 0 \amp 0 \amp 0 \end{matrix} \right] 
 \end{equation*}
 </div>
-<div class="para">and restrict it to the tangent space of <span class="process-math">\(X\)</span> at the corresponding critical point. Recall that <a href="" class="xref" data-knowl="./knowl/xref/thm-tangentspace.html" title="Theorem 1.3.13: Implicit Function Theorem Consequence">Theorem 1.3.13</a> specifies the tangent space to <span class="process-math">\(X\)</span> at <span class="process-math">\(p\)</span> as the kernel of <span class="process-math">\(\tder{p}{g}\text{.}\)</span> It is left as an exercise to then see that the Hessian restricted to each tangent space gives a non-degenerate quadratic form (even though <span class="process-math">\(\textnormal{Hess}(f)\)</span> is degenerate on <span class="process-math">\(T_p \mathbb{R}^3\)</span>) and is neither positive nor negative definite. Thus each of these critical points are saddle points.</div>
+<div class="para">and restrict it to the tangent space of <span class="process-math">\(X\)</span> at the corresponding critical point. Recall that <a href="sec-chainrule.html#thm-tangentspace" class="xref" data-knowl="./knowl/xref/thm-tangentspace.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 1.3.13: Implicit Function Theorem Consequence">Theorem 1.3.13</a> specifies the tangent space to <span class="process-math">\(X\)</span> at <span class="process-math">\(p\)</span> as the kernel of <span class="process-math">\(\tder{p}{g}\text{.}\)</span> It is left as an exercise to then see that the Hessian restricted to each tangent space gives a non-degenerate quadratic form (even though <span class="process-math">\(\textnormal{Hess}(f)\)</span> is degenerate on <span class="process-math">\(T_p \mathbb{R}^3\)</span>) and is neither positive nor negative definite. Thus each of these critical points are saddle points.</div>
 </div></article><span class="incontext"><a class="internal" href="sec-optimization2.html#ex-lagrange1">in-context</a></span>
 </body>
 </html>

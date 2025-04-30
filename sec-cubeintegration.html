@@ -5,16 +5,20 @@
 <!--*         https://pretextbook.org          *-->
 <!--*                                          *-->
 <!--********************************************-->
-<html lang="en-US" dir="ltr">
+<html lang="en-US" dir="ltr" data-legacy-colorscheme="blue_red">
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Integrating over cuboids in \mathbb{R}^n</title>
-<meta name="Keywords" content="Authored in PreTeXt">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta property="og:type" content="book">
-<meta property="book:title" content="Mathematical Scholars Calculus 4">
-<meta property="book:author" content="Gabriel Kerr">
-<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>
+<link xmlns:xlink="http://www.w3.org/1999/xlink" rel="preconnect" href="https://fonts.googleapis.com">
+<link xmlns:xlink="http://www.w3.org/1999/xlink" rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link xmlns:xlink="http://www.w3.org/1999/xlink" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;" rel="stylesheet">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link xmlns:xlink="http://www.w3.org/1999/xlink" href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script>
 var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
 window.MathJax = {
   "tex": {
@@ -74,7 +78,7 @@ window.MathJax = {
       "[pretext]/mathjaxknowl3.js"
     ],
     "paths": {
-      "pretext": "https://pretextbook.org/js/lib"
+      "pretext": "_static/pretext/js/lib"
     }
   },
   "startup": {
@@ -86,33 +90,51 @@ window.MathJax = {
     )}
   }
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.33/pretext_search.js"></script><link href="https://pretextbook.org/css/0.83/pretext_search.css" rel="stylesheet" type="text/css">
-<script>js_version = 0.33</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.33/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.33/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.33/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
-</script><link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
-<link href="https://pretextbook.org/css/0.83/pretext.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/pretext_add_on.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/shell_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/banner_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/navbar_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/toc_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/knowls_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/style_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/colors_blue_red.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/setcolors.css" rel="stylesheet" type="text/css">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta xmlns:xlink="http://www.w3.org/1999/xlink" name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta xmlns:xlink="http://www.w3.org/1999/xlink" property="og:type" content="book">
+<meta xmlns:xlink="http://www.w3.org/1999/xlink" property="book:title" content="Mathematical Scholars Calculus 4">
+<meta xmlns:xlink="http://www.w3.org/1999/xlink" property="book:author" content="Gabriel Kerr">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.6.1';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.c7804631fa963734.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.f7a03b209751032d.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.541c9106f2c605b9.css">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script xmlns:xlink="http://www.w3.org/1999/xlink" src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
 </head>
 <body class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
-<a id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
 <h1 class="heading"><a href="ms-calculus-3.html"><span class="title">Mathematical Scholars Calculus 4</span></a></h1>
 <p class="byline">Gabriel Kerr</p>
-</div>
-</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+</div></div></header><nav xmlns:xlink="http://www.w3.org/1999/xlink" id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
 <div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
 <div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
 <div class="search-results-controls">
@@ -123,7 +145,8 @@ window.MathJax = {
 <ol id="searchresults" class="searchresults"></ol>
 </div>
 </div>
-<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="ch-integral-calculus.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-integral-calculus.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-compactintegration.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="ch-integral-calculus.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-integral-calculus.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-compactintegration.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div xmlns:xlink="http://www.w3.org/1999/xlink" id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
 \newcommand{\C}{\mathbb C}
 \newcommand{\diff}{\text{d}}
 \newcommand{\mb}[1]{\mathbf{#1}}
@@ -145,6 +168,8 @@ window.MathJax = {
 \newcommand{\vol}{\,\text{vol}}
 \newcommand{\orient}{\,\text{or}}
 \newcommand{\pball}[2]{\text{B}^*_{#1} ( #2 )}
+\newcommand{\oiint}{{\subset\!\supset} \llap{\iint}}
+\newcommand{\oiiint}{{\large{\subset\!\supset}} \llap{\iiint}}
 \newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
 \newcommand{\amp}{&amp;}
@@ -152,7 +177,7 @@ window.MathJax = {
 \newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
 \)</span></div>
 <div class="ptx-page">
-<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural contains-active toc-item-list">
+<div xmlns:xlink="http://www.w3.org/1999/xlink" id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural toc-item-list contains-active">
 <li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch-differential-calculus.html" class="internal"><span class="codenumber">1</span> <span class="title">Differential Calculus in Several Variables</span></a></div>
@@ -219,9 +244,9 @@ window.MathJax = {
 <li class="toc-item toc-chapter contains-active">
 <div class="toc-title-box"><a href="ch-integral-calculus.html" class="internal"><span class="codenumber">2</span> <span class="title">Integral Calculus in Several Variables</span></a></div>
 <ul class="structural toc-item-list contains-active">
-<li class="toc-item toc-section active">
+<li class="toc-item toc-section contains-active">
 <div class="toc-title-box"><a href="sec-cubeintegration.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Integrating over cuboids in <span class="process-math">\(\mathbb{R}^n\)</span></span></a></div>
-<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-cubeintegration.html#exe-cubeintegration" class="internal"><span class="codenumber">2.1</span> <span class="title">Exercises</span></a></div></li></ul>
+<ul class="structural toc-item-list active"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-cubeintegration.html#exe-cubeintegration" class="internal"><span class="codenumber">2.1</span> <span class="title">Exercises</span></a></div></li></ul>
 </li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec-compactintegration.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Integration over compact domains in <span class="process-math">\(\mathbb{R}^2\)</span></span></a></div>
@@ -338,13 +363,14 @@ window.MathJax = {
 <li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-partial-differential-equations.html" class="internal"><span class="codenumber">6</span> <span class="title">Partial Differential Equations</span></a></div></li>
 <li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
 </ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-cubeintegration"><h2 class="heading hide-type">
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section xmlns:xlink="http://www.w3.org/1999/xlink" class="section" id="sec-cubeintegration"><h2 class="heading hide-type">
 <span class="type">Section</span><span class="space"> </span><span class="codenumber">2.1</span><span class="space"> </span><span class="title">Integrating over cuboids in <span class="process-math">\(\mathbb{R}^n\)</span></span>
 </h2>
 <div class="para" id="sec-cubeintegration-2">Having explored derivatives, we now consider integrals in many dimensions. As in the case of derivatives, the domain on which we are defined (and integrating) can make a big difference in how easy or difficult it is to compute. We will give the general definition and then discuss rectangles in detail.</div>
 <article class="definition definition-like" id="def-cube"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.1.1</span><span class="period">.</span>
-</h3> <div class="para logical" id="def-cube-2-1">
+</h3>
+<div class="para logical" id="def-cube-2-1">
 <div class="para">A <dfn class="terminology">cuboid</dfn> <span class="process-math">\(\mathcal{C}\text{,}\)</span> or <span class="process-math">\(n\)</span>-cuboid, in <span class="process-math">\(\mathbb{R}^n\)</span> is a product of intervals</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -414,7 +440,8 @@ RS_{\mathcal{P}} = \sum_{(j_1, \ldots, j_n)} f \left( x^*_{(j_1, \ldots, j_n)} \
 </div>
 <article class="definition definition-like" id="def-multipleintegral"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.1.2</span><span class="period">.</span>
-</h3> <div class="para logical" id="def-multipleintegral-2-1">
+</h3>
+<div class="para logical" id="def-multipleintegral-2-1">
 <div class="para">The <dfn class="terminology">multiple integral</dfn> of a function <span class="process-math">\(f\)</span> on the cuboid <span class="process-math">\(\mathcal{C}\)</span> is the limit</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -448,7 +475,8 @@ RS_{\mathcal{P}} = \sum_{(j_1, \ldots, j_n)} f \left( x^*_{(j_1, \ldots, j_n)} \
 </div>
 <article class="definition definition-like" id="def-integrating-variables"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.1.3</span><span class="period">.</span>
-</h3> <div class="para logical" id="def-integrating-variables-2-1">
+</h3>
+<div class="para logical" id="def-integrating-variables-2-1">
 <div class="para">Let <span class="process-math">\(f(x_1, \ldots, x_n)\)</span> be defined on the <span class="process-math">\(n\)</span>-cuboid <span class="process-math">\(\mathcal{C} = [a_1, b_1] \times \cdots \times [a_n , b_n]\text{.}\)</span> The <dfn class="terminology">integral of <span class="process-math">\(f(x_1, \ldots, x_n)\)</span> with respect to the <span class="process-math">\(i\)</span>-th variable</dfn> is the function</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -457,9 +485,9 @@ F (x_1, \ldots, x_{i -1}, x_{i + 1} , \ldots , x_n) := \int_{a_i}^{b_i} f(x_1, \
 </div>
 <div class="para">on the <span class="process-math">\((n - 1)\)</span>-cuboid <span class="process-math">\(\mathcal{C} (i)\text{.}\)</span> We say that <span class="process-math">\(f(x_1, \ldots, x_n)\)</span> is integrable with respect to <span class="process-math">\(x_i\)</span> if the integral of <span class="process-math">\(f(x_1, \ldots, x_n)\)</span> with respect to the <span class="process-math">\(i\)</span>-th variable exists.</div>
 </div></article><div class="para" id="sec-cubeintegration-11">In the previous definition, we use the variable <span class="process-math">\(t\)</span> to emphasize that it is the <span class="process-math">\(i\)</span>-th variable that is being integrated. However, no matter which variable is chosen, it is simply a <span class="process-math">\(1\)</span>-variable integral and, for many basic functions, is easily computable.</div>
-<details id="ex-integral1" class="example example-like born-hidden-knowl"><summary><h3 class="heading">
+<details id="ex-integral1" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.4</span><span class="period">.</span><span class="space"> </span><span class="title">Integrating with respect to a variable in two dimensions.</span>
-</h3></summary><article class="example example-like"><div class="para logical" id="ex-integral1-2-1">
+</h3></summary><article class="example example-like knowl__content"><div class="para logical" id="ex-integral1-2-1">
 <div class="para">Let</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -476,9 +504,9 @@ F (y) \amp = \int_{-1}^1 x - y \, \tder{}{x}, \\
 </div>
 <div class="para">The attentive student will observe that in the second to last line of the equation, we write <span class="process-math">\(x = -1\)</span> instead of just <span class="process-math">\(-1\)</span> in the subscript. While not completely necessary, it is good form and will help you avoid mixing up coordinates as you compute more complicated integrals.</div>
 </div></article></details><div class="para" id="sec-cubeintegration-13">When integrating out one of the variables in a function, one treats the remaining variables as constants. This is similar to the way we compute partial derivatives. Let us go through another example where this is illustrated.</div>
-<details id="sec-cubeintegration-14" class="example example-like born-hidden-knowl"><summary><h3 class="heading">
+<details id="sec-cubeintegration-14" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.5</span><span class="period">.</span><span class="space"> </span><span class="title">Integrating with respect to a variable in three dimensions.</span>
-</h3></summary><article class="example example-like"><div class="para logical" id="sec-cubeintegration-14-2-1">
+</h3></summary><article class="example example-like knowl__content"><div class="para logical" id="sec-cubeintegration-14-2-1">
 <div class="para">Let</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -496,7 +524,8 @@ F (x, z) \amp = \int_{0}^2 x e^{xy} - \sin (yz) \, \tder{}{y}, \\
 </div></article></details><div class="para" id="sec-cubeintegration-15">Now, what one can do once, one (usually) can do again and again.</div>
 <article class="definition definition-like" id="def-iterated-integral"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.1.6</span><span class="period">.</span>
-</h3> <div class="para logical" id="def-iterated-integral-2-1">
+</h3>
+<div class="para logical" id="def-iterated-integral-2-1">
 <div class="para">An <dfn class="terminology">iterated integral</dfn> of <span class="process-math">\(f(x_1, \ldots, x_n)\)</span> on</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -510,10 +539,10 @@ F (x, z) \amp = \int_{0}^2 x e^{xy} - \sin (yz) \, \tder{}{y}, \\
 \end{equation*}
 </div>
 <div class="para">for some ordered sequence of variables <span class="process-math">\(x_{i_1}, x_{i_2}, \ldots, x_{i_n}\text{.}\)</span> We say that <span class="process-math">\(f(x_1, \ldots, x_n)\)</span> has <em class="emphasis">all iterated integrals</em> the iterated integral exists for every ordered sequence of variables.</div>
-</div></article><div class="para" id="sec-cubeintegration-17">The key thing to remember about iterated integrals is that they are computational in nature. We can see this by completing an iterated integral from <a href="" class="xref" data-knowl="./knowl/xref/ex-integral1.html" title="Example 2.1.4: Integrating with respect to a variable in two dimensions">Example 2.1.4</a>.</div>
-<details id="sec-cubeintegration-18" class="example example-like born-hidden-knowl"><summary><h3 class="heading">
+</div></article><div class="para" id="sec-cubeintegration-17">The key thing to remember about iterated integrals is that they are computational in nature. We can see this by completing an iterated integral from <a href="sec-cubeintegration.html#ex-integral1" class="xref" data-knowl="./knowl/xref/ex-integral1.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 2.1.4: Integrating with respect to a variable in two dimensions">Example 2.1.4</a>.</div>
+<details id="sec-cubeintegration-18" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.7</span><span class="period">.</span><span class="space"> </span><span class="title">Iterated integral computation I.</span>
-</h3></summary><article class="example example-like"><div class="para logical" id="sec-cubeintegration-18-2-1">
+</h3></summary><article class="example example-like knowl__content"><div class="para logical" id="sec-cubeintegration-18-2-1">
 <div class="para">There we had</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -555,9 +584,9 @@ f(x_1, \ldots, x_n) = g_1 (x_1) g_2 (x_2) \cdots g_n (x_n)
 </div>
 <div class="para">This holds regardless of the order of integration that we choose.</div>
 </div>
-<details id="sec-cubeintegration-20" class="example example-like born-hidden-knowl"><summary><h3 class="heading">
+<details id="sec-cubeintegration-20" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.8</span><span class="period">.</span><span class="space"> </span><span class="title">Iterated integral computation II.</span>
-</h3></summary><article class="example example-like"><div class="para logical" id="sec-cubeintegration-20-2-1">
+</h3></summary><article class="example example-like knowl__content"><div class="para logical" id="sec-cubeintegration-20-2-1">
 <div class="para">Let</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -574,9 +603,9 @@ f(x,y, z) = e^{x + y + z}
 \end{align*}
 </div>
 </div></article></details><div class="para" id="sec-cubeintegration-21">The reason we say ‘an’ iterated instead of ‘the’ iterated integral is that, for several strange functions, the order in which one iterates matters. Let’s see a simple an example of this.</div>
-<details id="sec-cubeintegration-22" class="example example-like born-hidden-knowl"><summary><h3 class="heading">
+<details id="sec-cubeintegration-22" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.9</span><span class="period">.</span><span class="space"> </span><span class="title">Non-commuting order of integration.</span>
-</h3></summary><article class="example example-like"><div class="para logical" id="sec-cubeintegration-22-2-1">
+</h3></summary><article class="example example-like knowl__content"><div class="para logical" id="sec-cubeintegration-22-2-1">
 <div class="para">Let us define subsets <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> of the rectangle <span class="process-math">\([-1,1] \times [0,1]\text{.}\)</span> The subset <span class="process-math">\(A\)</span> consists of points <span class="process-math">\((x,y)\)</span> where <span class="process-math">\(x \geq 0\)</span> and <span class="process-math">\(y\)</span> is irrational and the subset <span class="process-math">\(B\)</span> of points <span class="process-math">\((x,y)\)</span> where <span class="process-math">\(x \lt 0\)</span> and <span class="process-math">\(y\)</span> is rational. Define the function</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -613,9 +642,9 @@ f(x,y) = \begin{cases} 1 \amp \textnormal{ if } (x,y) \textnormal{ is in } A \cu
 <article class="corollary theorem-like" id="sec-cubeintegration-26"><h3 class="heading">
 <span class="type">Corollary</span><span class="space"> </span><span class="codenumber">2.1.11</span><span class="period">.</span>
 </h3>Continuous functions on <span class="process-math">\(\mathbb{R}^n\)</span> are integrable on cubiods.</article><div class="para" id="sec-cubeintegration-27">Let us now compute one more example.</div>
-<details id="sec-cubeintegration-28" class="example example-like born-hidden-knowl"><summary><h3 class="heading">
+<details id="sec-cubeintegration-28" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.12</span><span class="period">.</span><span class="space"> </span><span class="title">Integral in two dimensions.</span>
-</h3></summary><article class="example example-like"><div class="para logical" id="sec-cubeintegration-28-2-1">
+</h3></summary><article class="example example-like knowl__content"><div class="para logical" id="sec-cubeintegration-28-2-1">
 <div class="para">It is well known that computing the integral of a one variable function gives the (signed) area under the graph of the function. Similarly, the (signed) volume under the graph of a two variable function <span class="process-math">\(f(x,y)\)</span> is computed by a double integral. With this in mind, we consider finding the volume above the square <span class="process-math">\([0,1] \times [0,1]\)</span> and below the paraboloid <span class="process-math">\(z = x^2 + y^2\text{.}\)</span> To do this, we take the paraboloid as the graph of</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -699,11 +728,11 @@ B = \{ (x, y, z) : x^2 + y^2 + z^2 \leq 1\}.
 </div>
 </div></article></section></section></div>
 <div class="ptx-content-footer">
-<a class="previous-button button" href="ch-integral-calculus.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-compactintegration.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+<a class="previous-button button" href="ch-integral-calculus.html" title="Previous"><span xmlns:xlink="http://www.w3.org/1999/xlink" class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span xmlns:xlink="http://www.w3.org/1999/xlink" class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-compactintegration.html" title="Next"><span class="name">Next</span><span xmlns:xlink="http://www.w3.org/1999/xlink" class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">
-<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+<a xmlns:xlink="http://www.w3.org/1999/xlink" class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a xmlns:xlink="http://www.w3.org/1999/xlink" class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a xmlns:xlink="http://www.w3.org/1999/xlink" class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
 </div>
 </body>
 </html>

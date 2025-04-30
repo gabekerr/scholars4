@@ -12,79 +12,93 @@
 </head>
 <body class="ignore-math">
 <article class="theorem theorem-like"><h4 class="heading">
-<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">1.2.11</span><span class="period">.</span>
+<span class="type">Theorem</span><span xmlns:xlink="http://www.w3.org/1999/xlink" class="space"> </span><span class="codenumber">1.2.11</span><span xmlns:xlink="http://www.w3.org/1999/xlink" class="period">.</span>
 </h4>
-<div class="para logical">
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="para logical">
 <div class="para">Suppose <span class="process-math">\(f : U \to \mathbb{R}\)</span>  is a scalar function on an open subset <span class="process-math">\(U\)</span> of <span class="process-math">\(\mathbb{R}^m\text{.}\)</span> If <span class="process-math">\(f\)</span> has continuous first partial derivatives then <span class="process-math">\(f\)</span> is differentiable. Furthermore, in this case</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \tder{}{f} \left( \threevec{b_1}{\vdots}{b_m} \right) = b_1 \pd{f}{x_1} + b_2 \pd{f}{x_2} + \cdots + b_m \pd{f}{x_m}.
 \end{equation*}
 </div>
-</div></article><details class="hiddenproof born-hidden-knowl"><summary><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof">We will assume <span class="process-math">\(U\)</span> is a neighborhood of <span class="process-math">\(\mb{a}\)</span> and <span class="process-math">\(\mb{x}\)</span> is in <span class="process-math">\(U\text{.}\)</span> Let <span class="process-math">\(\mb{x} - \mb{a} = b_1 \mb{e}_1 + \cdots + b_m \mb{e}_m\text{.}\)</span> Write<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-derivative.html">
+</div></article><details xmlns:xlink="http://www.w3.org/1999/xlink" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><span class="process-math">\(U\)</span><span class="process-math">\(\mb{a}\)</span><span class="process-math">\(\mb{x}\)</span><span class="process-math">\(U\text{.}\)</span><span class="process-math">\(\mb{x} - \mb{a} = b_1 \mb{e}_1 + \cdots + b_m \mb{e}_m\text{.}\)</span><div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-derivative.html">
 \begin{align*}
 \mb{v}_1 \amp = b_1 \mb{e}_1 + \cdots + b_m \mb{e}_m, \\
 \mb{v}_2 \amp = b_2 \mb{e}_2 + \cdots + b_m \mb{e}_m, \\
 \amp \vdots \\
 \mb{v}_m \amp = b_m \mb{e}_m. 
 \end{align*}
-</div>Then<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-derivative.html">
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-derivative.html">
 \begin{align*}
 f(\mb{x} ) - f (\mb{a}) \amp = \left( f(\mb{a} + \mb{v}_1 ) - f (\mb{a} + \mb{v}_2) \right)  + \cdots + \left( f(\mb{a} + \mb{v}_m ) - f (\mb{a}) \right), \\
 \amp = \left( f(\mb{a} + \mb{v}_2 + b_1 \mb{e}_1 ) - f (\mb{a} + \mb{v}_2) \right)  + \cdots + \left( f(\mb{a} + b_m \mb{e}_m ) - f (\mb{a}) \right), 
 \end{align*}
-</div>The summands in this final expression are of the form<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-derivative.html">
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-derivative.html">
 \begin{equation*}
 f(\mb{a} + \mb{v}_{k + 1} + b_k \mb{e}_k ) - f(\mb{a} + \mb{v}_{k + 1}). 
 \end{equation*}
-</div>Now, by the Mean Value Theorem, for each such <span class="process-math">\(k\)</span> there exists a <span class="process-math">\(t_k\)</span> between <span class="process-math">\(0\)</span> and <span class="process-math">\(b_k\)</span> with<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-derivative.html">
+</div>
+<span class="process-math">\(k\)</span><span class="process-math">\(t_k\)</span><span class="process-math">\(0\)</span><span class="process-math">\(b_k\)</span><div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-derivative.html">
 \begin{equation*}
 \left. \pd{f}{x_k} \right|_{\mb{a} + t_k \mb{e}_{k}} =  \frac{f(\mb{a} + \mb{v}_{k + 1} + b_k \mb{e}_k ) - f(\mb{a} + \mb{v}_{k + 1})}{b_k}
 \end{equation*}
-</div>or<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-derivative.html">
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-derivative.html">
 \begin{equation*}
 f(\mb{a} + \mb{v}_{k + 1} + b_k \mb{e}_k ) - f(\mb{a} + \mb{v}_{k + 1}) = b_k \left. \pd{f}{x_k} \right|_{\mb{a} + \mb{v}_{k + 1} + t_k \mb{e}_{k}}.
 \end{equation*}
-</div>Thus<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-derivative.html">
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-derivative.html">
 \begin{align*}
 f(\mb{x} ) - f (\mb{a}) \amp = \left( f(\mb{a} + \mb{v}_2 + b_1 \mb{e}_1 ) - f (\mb{a} + \mb{v}_2) \right)  + \cdots + \left( f(\mb{a} + b_m \mb{e}_m ) - f (\mb{a}) \right), \\
 \amp = b_1  \left. \pd{f}{x_1} \right|_{\mb{a} + \mb{v}_{2} + t_1 \mb{e}_{1}} + \cdots + b_m  \left. \pd{f}{x_m} \right|_{\mb{a} + t_m \mb{e}_{m}} 
 \end{align*}
-</div>Write<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-derivative.html">
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-derivative.html">
 \begin{equation*}
 L (\mb{x} - \mb{a} ) =  b_1  \left. \pd{f}{x_1} \right|_{\mb{a}} + \cdots + b_m  \left. \pd{f}{x_m} \right|_{\mb{a}}
 \end{equation*}
-</div>for the conjectured derivative of <span class="process-math">\(f\)</span> at <span class="process-math">\(\mb{a}\text{.}\)</span> Then the numerator<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-derivative.html">
+</div>
+<span class="process-math">\(f\)</span><span class="process-math">\(\mb{a}\text{.}\)</span><div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-derivative.html">
 \begin{equation*}
 N (\mb{x} ) = f(\mb{x} ) - f (\mb{a}) - L (\mb{x} - \mb{a} )
 \end{equation*}
-</div>of equation <a href="" class="xref" data-knowl="./knowl/xref/eq-derivative.html" title="Equation 1.2.1">(1.2.1)</a> is<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-derivative.html">
+</div>
+<a href="sec-derivative.html#eq-derivative" class="xref" data-knowl="./knowl/xref/eq-derivative.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.2.1">(1.2.1)</a><div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-derivative.html">
 \begin{align*}
 N(\mb{x}) \amp =  b_1 \left(  \left. \pd{f}{x_1} \right|_{\mb{a} + \mb{v}_{2} + t_1 \mb{e}_{1}} - \left. \pd{f}{x_1} \right|_{\mb{a}} \right) + \cdots + b_m \left(  \left. \pd{f}{x_m} \right|_{\mb{a} + t_m \mb{e}_{m}} - \left. \pd{f}{x_m} \right|_{\mb{a}} \right), \\
 \amp = \left( \mb{x} - \mb{a} \right) \cdot  \threevec{\left. \pd{f}{x_1} \right|_{\mb{a} + \mb{v}_{2} + t_1 \mb{e}_{1}} - \left. \pd{f}{x_1} \right|_{\mb{a}} }{\vdots}{ \left. \pd{f}{x_m} \right|_{\mb{a} + t_m \mb{e}_{m}} - \left. \pd{f}{x_m} \right|_{\mb{a}} }. 
 \end{align*}
-</div>Now, as <span class="process-math">\(\mb{x}\)</span> tends to <span class="process-math">\(\mb{a}\text{,}\)</span> the <span class="process-math">\(t_k\)</span> values must tend towards zero (since <span class="process-math">\(b_k\)</span> are tending to zero) and so are <span class="process-math">\(\mb{v}_k\text{.}\)</span> By the continuity of the first partials, we then have<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-derivative.html">
+</div>
+<span class="process-math">\(\mb{x}\)</span><span class="process-math">\(\mb{a}\text{,}\)</span><span class="process-math">\(t_k\)</span><span class="process-math">\(b_k\)</span><span class="process-math">\(\mb{v}_k\text{.}\)</span><div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-derivative.html">
 \begin{equation*}
 \lim_{\mb{x} \to \mb{a}} \threevec{\left. \pd{f}{x_1} \right|_{\mb{a} + \mb{v}_{2} + t_1 \mb{e}_{1}} - \left. \pd{f}{x_1} \right|_{\mb{a}} }{\vdots}{ \left. \pd{f}{x_m} \right|_{\mb{a} + t_m \mb{e}_{m}} - \left. \pd{f}{x_m} \right|_{\mb{a}} } = \mb{0}.
 \end{equation*}
-</div>and moreover<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-derivative.html">
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-derivative.html">
 \begin{equation*}
 \lim_{\mb{x} \to \mb{a}} \left\|  \threevec{\left. \pd{f}{x_1} \right|_{\mb{a} + \mb{v}_{2} + t_1 \mb{e}_{1}} - \left. \pd{f}{x_1} \right|_{\mb{a}} }{\vdots}{ \left. \pd{f}{x_m} \right|_{\mb{a} + t_m \mb{e}_{m}} - \left. \pd{f}{x_m} \right|_{\mb{a}} } \right\| = 0
 \end{equation*}
-</div>But dividing <span class="process-math">\(\mb{x} - \mb{a}\)</span> by <span class="process-math">\(\| \mb{x} - \mb{a} \|\)</span> simply normalizes it. So taking <span class="process-math">\(\mb{u}\)</span> to be<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-derivative.html">
+</div>
+<span class="process-math">\(\mb{x} - \mb{a}\)</span><span class="process-math">\(\| \mb{x} - \mb{a} \|\)</span><span class="process-math">\(\mb{u}\)</span><div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-derivative.html">
 \begin{equation*}
 \mb{u} = \frac{1}{\| \mb{v}_1\|} \mb{v}_1 = \frac{\mb{x} - \mb{a}}{\| \mb{x} - \mb{a}\|} 
 \end{equation*}
-</div>we have<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-derivative.html">
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-derivative.html">
 \begin{align*}
 \frac{N(\mb{x})}{\| \mb{x} - \mb{a}\|} \amp =  \left( \frac{\mb{x} - \mb{a}}{\|\mb{x} - \mb{a} \|} \right) \cdot  \threevec{\left. \pd{f}{x_1} \right|_{\mb{a} + \mb{v}_{2} + t_1 \mb{e}_{1}} - \left. \pd{f}{x_1} \right|_{\mb{a}} }{\vdots}{ \left. \pd{f}{x_m} \right|_{\mb{a} + t_m \mb{e}_{m}} - \left. \pd{f}{x_m} \right|_{\mb{a}} }, \\
 \amp = \cos \theta_{\mb{x}} \|\mb{u} \| \left\| \threevec{\left. \pd{f}{x_1} \right|_{\mb{a} + \mb{v}_{2} + t_1 \mb{e}_{1}} - \left. \pd{f}{x_1} \right|_{\mb{a}} }{\vdots}{ \left. \pd{f}{x_m} \right|_{\mb{a} + t_m \mb{e}_{m}} - \left. \pd{f}{x_m} \right|_{\mb{a}} } \right\|, \\
 \amp = \cos \theta_{\mb{x}} \left\| \threevec{\left. \pd{f}{x_1} \right|_{\mb{a} + \mb{v}_{2} + t_1 \mb{e}_{1}} - \left. \pd{f}{x_1} \right|_{\mb{a}} }{\vdots}{ \left. \pd{f}{x_m} \right|_{\mb{a} + t_m \mb{e}_{m}} - \left. \pd{f}{x_m} \right|_{\mb{a}} } \right\|.
 \end{align*}
-</div>Thus, a quick application of the Squeeze Theorem gives<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-derivative.html">
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-derivative.html">
 \begin{equation*}
 \lim_{\mb{x} \to \mb{a}} \frac{N(\mb{x})}{\| \mb{x} - \mb{a}\|} = 0
 \end{equation*}
-</div>which by definition implies <span class="process-math">\(\tder{\mb{a}}{f} = L\)</span> and proves the theorem.</article></details><span class="incontext"><a class="internal" href="sec-derivative.html#thm-differentiable">in-context</a></span>
+</div>
+<span class="process-math">\(\tder{\mb{a}}{f} = L\)</span></article></details><span class="incontext"><a class="internal" href="sec-derivative.html#thm-differentiable">in-context</a></span>
 </body>
 </html>

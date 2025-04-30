@@ -5,16 +5,20 @@
 <!--*         https://pretextbook.org          *-->
 <!--*                                          *-->
 <!--********************************************-->
-<html lang="en-US" dir="ltr">
+<html lang="en-US" dir="ltr" data-legacy-colorscheme="blue_red">
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Stokes’ Theorem</title>
-<meta name="Keywords" content="Authored in PreTeXt">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta property="og:type" content="book">
-<meta property="book:title" content="Mathematical Scholars Calculus 4">
-<meta property="book:author" content="Gabriel Kerr">
-<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>
+<link xmlns:xlink="http://www.w3.org/1999/xlink" rel="preconnect" href="https://fonts.googleapis.com">
+<link xmlns:xlink="http://www.w3.org/1999/xlink" rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link xmlns:xlink="http://www.w3.org/1999/xlink" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;" rel="stylesheet">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link xmlns:xlink="http://www.w3.org/1999/xlink" href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script>
 var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
 window.MathJax = {
   "tex": {
@@ -74,7 +78,7 @@ window.MathJax = {
       "[pretext]/mathjaxknowl3.js"
     ],
     "paths": {
-      "pretext": "https://pretextbook.org/js/lib"
+      "pretext": "_static/pretext/js/lib"
     }
   },
   "startup": {
@@ -86,33 +90,51 @@ window.MathJax = {
     )}
   }
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.33/pretext_search.js"></script><link href="https://pretextbook.org/css/0.83/pretext_search.css" rel="stylesheet" type="text/css">
-<script>js_version = 0.33</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.33/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.33/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.33/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
-</script><link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
-<link href="https://pretextbook.org/css/0.83/pretext.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/pretext_add_on.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/shell_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/banner_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/navbar_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/toc_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/knowls_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/style_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/colors_blue_red.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.83/setcolors.css" rel="stylesheet" type="text/css">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta xmlns:xlink="http://www.w3.org/1999/xlink" name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta xmlns:xlink="http://www.w3.org/1999/xlink" property="og:type" content="book">
+<meta xmlns:xlink="http://www.w3.org/1999/xlink" property="book:title" content="Mathematical Scholars Calculus 4">
+<meta xmlns:xlink="http://www.w3.org/1999/xlink" property="book:author" content="Gabriel Kerr">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.6.1';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.c7804631fa963734.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.f7a03b209751032d.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.541c9106f2c605b9.css">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script xmlns:xlink="http://www.w3.org/1999/xlink" src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
 </head>
 <body class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
-<a id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
 <h1 class="heading"><a href="ms-calculus-3.html"><span class="title">Mathematical Scholars Calculus 4</span></a></h1>
 <p class="byline">Gabriel Kerr</p>
-</div>
-</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+</div></div></header><nav xmlns:xlink="http://www.w3.org/1999/xlink" id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
 <div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
 <div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
 <div class="search-results-controls">
@@ -123,7 +145,8 @@ window.MathJax = {
 <ol id="searchresults" class="searchresults"></ol>
 </div>
 </div>
-<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="sec-derivatives.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-stokes-theorem.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-ftli.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="sec-derivatives.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-stokes-theorem.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-ftli.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div xmlns:xlink="http://www.w3.org/1999/xlink" id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
 \newcommand{\C}{\mathbb C}
 \newcommand{\diff}{\text{d}}
 \newcommand{\mb}[1]{\mathbf{#1}}
@@ -145,6 +168,8 @@ window.MathJax = {
 \newcommand{\vol}{\,\text{vol}}
 \newcommand{\orient}{\,\text{or}}
 \newcommand{\pball}[2]{\text{B}^*_{#1} ( #2 )}
+\newcommand{\oiint}{{\subset\!\supset} \llap{\iint}}
+\newcommand{\oiiint}{{\large{\subset\!\supset}} \llap{\iiint}}
 \newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
 \newcommand{\amp}{&amp;}
@@ -152,7 +177,7 @@ window.MathJax = {
 \newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
 \)</span></div>
 <div class="ptx-page">
-<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural contains-active toc-item-list">
+<div xmlns:xlink="http://www.w3.org/1999/xlink" id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural toc-item-list contains-active">
 <li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch-differential-calculus.html" class="internal"><span class="codenumber">1</span> <span class="title">Differential Calculus in Several Variables</span></a></div>
@@ -309,9 +334,9 @@ window.MathJax = {
 <li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-derivatives.html#exe-derivatives" class="internal"><span class="codenumber">5.1.6</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
-<li class="toc-item toc-section active">
+<li class="toc-item toc-section contains-active">
 <div class="toc-title-box"><a href="sec-stokes.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Stokes’ Theorem</span></a></div>
-<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-stokes.html#exe-stokes" class="internal"><span class="codenumber">5.2</span> <span class="title">Exercises</span></a></div></li></ul>
+<ul class="structural toc-item-list active"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-stokes.html#exe-stokes" class="internal"><span class="codenumber">5.2</span> <span class="title">Exercises</span></a></div></li></ul>
 </li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec-ftli.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Stokes’ Theorem on curves - The Fundamental Theorem of Line Integrals</span></a></div>
@@ -338,7 +363,7 @@ window.MathJax = {
 <li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-partial-differential-equations.html" class="internal"><span class="codenumber">6</span> <span class="title">Partial Differential Equations</span></a></div></li>
 <li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
 </ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-stokes"><h2 class="heading hide-type">
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section xmlns:xlink="http://www.w3.org/1999/xlink" class="section" id="sec-stokes"><h2 class="heading hide-type">
 <span class="type">Section</span><span class="space"> </span><span class="codenumber">5.2</span><span class="space"> </span><span class="title">Stokes’ Theorem</span>
 </h2>
 <div class="para logical" id="sec-stokes-2">
@@ -353,13 +378,15 @@ H_R = \left\{ (x_1, \ldots, x_{m - 1}, x_m) : x_1^2 + \cdots + x_m^2 \lt R^2 , x
 </div>
 <article class="definition definition-like" id="def-subspace-with-boundary"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.2.1</span><span class="period">.</span>
-</h3> <div class="para" id="def-subspace-with-boundary-2-1">A subset <span class="process-math">\(X\)</span> of <span class="process-math">\(\mathbb{R}^n\)</span> is a smooth <span class="process-math">\(m\)</span>-dimensional subspace with boundary if every point <span class="process-math">\(p\)</span> in <span class="process-math">\(X\)</span> there is either a smooth parameterization <span class="process-math">\(\mb{G} : B_R \to X\)</span> or <span class="process-math">\(\mb{G} : H_R \to X\)</span> with <span class="process-math">\(\mb{G} (\mb{0}) = p\text{.}\)</span> The boundary <span class="process-math">\(\partial X\)</span> of <span class="process-math">\(X\)</span> is the subspace of points in the images <span class="process-math">\(\mb{G} (\partial H_R)\)</span> over all parameterizations from <span class="process-math">\(H_R\)</span> to <span class="process-math">\(X\text{.}\)</span>
+</h3>
+<div class="para" id="def-subspace-with-boundary-2-1">A subset <span class="process-math">\(X\)</span> of <span class="process-math">\(\mathbb{R}^n\)</span> is a smooth <span class="process-math">\(m\)</span>-dimensional subspace with boundary if every point <span class="process-math">\(p\)</span> in <span class="process-math">\(X\)</span> there is either a smooth parameterization <span class="process-math">\(\mb{G} : B_R \to X\)</span> or <span class="process-math">\(\mb{G} : H_R \to X\)</span> with <span class="process-math">\(\mb{G} (\mb{0}) = p\text{.}\)</span> The boundary <span class="process-math">\(\partial X\)</span> of <span class="process-math">\(X\)</span> is the subspace of points in the images <span class="process-math">\(\mb{G} (\partial H_R)\)</span> over all parameterizations from <span class="process-math">\(H_R\)</span> to <span class="process-math">\(X\text{.}\)</span>
 </div></article><div class="para" id="sec-stokes-4">Usually, there are a few other conditions for a smooth subspace with boundary, but we will not need these extra conditions for our purposes.  However, let us clarify in this case what is meant by `parameterization’. Here, we mean that <span class="process-math">\(\mb{G}\)</span> is a 1-1 correspondence between either <span class="process-math">\(H_R\)</span> or <span class="process-math">\(B_R\)</span> and the intersection <span class="process-math">\(U \cap X\)</span> where <span class="process-math">\(U\)</span> is an open ball around <span class="process-math">\(p\text{.}\)</span> If <span class="process-math">\(p\)</span> is not a boundary point, then we can take the radius of <span class="process-math">\(U\)</span> small enough that <span class="process-math">\(\mb{G}: B_R \to X\)</span> is the parameterization, whereas when <span class="process-math">\(p\)</span> is on the boundary, we must use <span class="process-math">\(H_R\)</span> as the domain of <span class="process-math">\(\mb{G}\text{.}\)</span>
 </div>
 <div class="para" id="sec-stokes-5">We will also need the notion of a compatible orientation.</div>
 <article class="definition definition-like" id="def-oriented-boundary"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.2.2</span><span class="period">.</span>
-</h3> <div class="para logical" id="def-oriented-boundary-2-1">
+</h3>
+<div class="para logical" id="def-oriented-boundary-2-1">
 <div class="para">Let <span class="process-math">\((X, \vol^X)\)</span> be a smooth oriented <span class="process-math">\(m\)</span>-dimensional space with boundary. Then <span class="process-math">\(\partial X\)</span> has an orientation <span class="process-math">\(\vol^{\partial X}\)</span> for which, if <span class="process-math">\(\bf{n}\)</span> is the outward unit normal of <span class="process-math">\(\partial X\)</span> along <span class="process-math">\(\partial X\)</span> and <span class="process-math">\(\nu = \bf{n}^\vee\)</span> is its dual, then</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -368,12 +395,12 @@ H_R = \left\{ (x_1, \ldots, x_{m - 1}, x_m) : x_1^2 + \cdots + x_m^2 \lt R^2 , x
 </div>
 <div class="para">We say that <span class="process-math">\(\partial X\)</span> has the boundary orientation.</div>
 </div></article><div class="para" id="sec-stokes-7">Let us look at a few example to see how this works.</div>
-<details id="sec-stokes-8" class="example example-like born-hidden-knowl"><summary><h3 class="heading">
+<details id="sec-stokes-8" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">5.2.3</span><span class="period">.</span><span class="space"> </span><span class="title">One dimensional subspace with boundary.</span>
-</h3></summary><article class="example example-like"><div class="para" id="sec-stokes-8-2-1">The most elementary example is an interval <span class="process-math">\([a,b]\)</span> in <span class="process-math">\(\mathbb{R}\text{.}\)</span> The boundary, of course, is <span class="process-math">\(\{a,b\}\text{.}\)</span> Let us take the standard orientation <span class="process-math">\(\tder{}{x}\)</span> on <span class="process-math">\([a,b]\text{.}\)</span> We see that the outward pointing normal vector at <span class="process-math">\(a\)</span> is <span class="process-math">\(- \partial_x\)</span> and at <span class="process-math">\(b\)</span> is <span class="process-math">\(\partial_x\text{.}\)</span> The dual cotangent vectors are <span class="process-math">\(- \tder{}{x}\)</span> and <span class="process-math">\(\tder{}{x}\)</span> respectively, which means that the orientation of the boundary <span class="process-math">\(\{a, b\}\)</span> is <span class="process-math">\(-1\)</span> at <span class="process-math">\(a\)</span> and <span class="process-math">\(+1\)</span> at <span class="process-math">\(b\text{.}\)</span> Notice that this is indeed an orientation of a <span class="process-math">\(0\)</span>-dimensional subspace because the top forms are scalar functions.</div></article></details><div class="para" id="sec-stokes-9">A more common example discussed is the following.</div>
-<details id="sec-stokes-10" class="example example-like born-hidden-knowl"><summary><h3 class="heading">
+</h3></summary><article class="example example-like knowl__content"><div class="para" id="sec-stokes-8-2-1">The most elementary example is an interval <span class="process-math">\([a,b]\)</span> in <span class="process-math">\(\mathbb{R}\text{.}\)</span> The boundary, of course, is <span class="process-math">\(\{a,b\}\text{.}\)</span> Let us take the standard orientation <span class="process-math">\(\tder{}{x}\)</span> on <span class="process-math">\([a,b]\text{.}\)</span> We see that the outward pointing normal vector at <span class="process-math">\(a\)</span> is <span class="process-math">\(- \partial_x\)</span> and at <span class="process-math">\(b\)</span> is <span class="process-math">\(\partial_x\text{.}\)</span> The dual cotangent vectors are <span class="process-math">\(- \tder{}{x}\)</span> and <span class="process-math">\(\tder{}{x}\)</span> respectively, which means that the orientation of the boundary <span class="process-math">\(\{a, b\}\)</span> is <span class="process-math">\(-1\)</span> at <span class="process-math">\(a\)</span> and <span class="process-math">\(+1\)</span> at <span class="process-math">\(b\text{.}\)</span> Notice that this is indeed an orientation of a <span class="process-math">\(0\)</span>-dimensional subspace because the top forms are scalar functions.</div></article></details><div class="para" id="sec-stokes-9">A more common example discussed is the following.</div>
+<details id="sec-stokes-10" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">5.2.4</span><span class="period">.</span><span class="space"> </span><span class="title">Two dimensional subspace with boundary I.</span>
-</h3></summary><article class="example example-like"><div class="para logical" id="sec-stokes-10-2-1">
+</h3></summary><article class="example example-like knowl__content"><div class="para logical" id="sec-stokes-10-2-1">
 <div class="para">Let <span class="process-math">\(D\)</span> be the closure of an open set <span class="process-math">\(U\)</span> in <span class="process-math">\(\mathbb{R}^2\)</span> and orient <span class="process-math">\(D\)</span> with the standard orientation <span class="process-math">\(\tder{}{x} \wedge \tder{}{y}\text{.}\)</span> Suppose <span class="process-math">\(p\)</span> is on the boundary <span class="process-math">\(\partial D\text{,}\)</span> <span class="process-math">\(\nu\)</span> is the dual of the normal vector <span class="process-math">\(\mb{n}\)</span> pointing outward, and <span class="process-math">\(\mb{T}\)</span> is the unit tangent vector of <span class="process-math">\(\partial D\)</span> positively pairs with the orientation <span class="process-math">\(\vol^{\partial D}\text{.}\)</span> Since</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -382,12 +409,12 @@ H_R = \left\{ (x_1, \ldots, x_{m - 1}, x_m) : x_1^2 + \cdots + x_m^2 \lt R^2 , x
 </div>
 <div class="para">we must have that <span class="process-math">\(\mb{T}\)</span> is a <span class="process-math">\(\pi / 2\)</span> counter-clockwise rotation of <span class="process-math">\(\mb{n}\)</span> to ensure that <span class="process-math">\(\vol^D = \nu \wedge \vol^{\partial D}\text{.}\)</span>
 </div>
-</div> <div class="para" id="sec-stokes-10-2-2">One way to remember this is to say that the orientation of the boundary is always made so that the interior is to the left of the direction of travel.</div></article></details><details id="sec-stokes-11" class="example example-like born-hidden-knowl"><summary><h3 class="heading">
+</div> <div class="para" id="sec-stokes-10-2-2">One way to remember this is to say that the orientation of the boundary is always made so that the interior is to the left of the direction of travel.</div></article></details><details id="sec-stokes-11" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">5.2.5</span><span class="period">.</span><span class="space"> </span><span class="title">Two dimensional subspace with boundary II.</span>
-</h3></summary><article class="example example-like"><div class="para" id="sec-stokes-11-2-1">For an oriented surface <span class="process-math">\(\mathcal{S}\)</span> in <span class="process-math">\(\mathbb{R}^3\)</span> we take <span class="process-math">\(\mathbf{N}\)</span> as the normal vector to the surface inducing the orientation (so that <span class="process-math">\(\vol^{\mathcal{S}} = \star \mathbf{N}_{\mathcal{S}}^\vee\)</span>). Along the boundary <span class="process-math">\(\partial \mathcal{S}\)</span> there is an outward pointing normal vector field <span class="process-math">\(\mb{n}\)</span> which is tangent to <span class="process-math">\(\mathcal{S}\)</span> and orthogonal to <span class="process-math">\(\mb{N}\text{.}\)</span> If <span class="process-math">\(\mb{T}\)</span> is the oriented unit tangent field along the boundary, then <span class="process-math">\(\{\mb{n}, \mb{T}, \mb{N}\}\)</span> forms the orthonormal basis (also known as a frame) of the tangent space <span class="process-math">\(T_p \mathbb{R}^3\)</span> for each <span class="process-math">\(p \in \partial \mathcal{S}\text{.}\)</span> The way to remember this is to imagine moving along the boundary of <span class="process-math">\(\mathcal{S}\)</span> in such a way that the orientation <span class="process-math">\(\mb{N}\)</span> is up and the surface <span class="process-math">\(\mathcal{S}\)</span> is to your left.</div></article></details><details id="sec-stokes-12" class="example example-like born-hidden-knowl"><summary><h3 class="heading">
+</h3></summary><article class="example example-like knowl__content"><div class="para" id="sec-stokes-11-2-1">For an oriented surface <span class="process-math">\(\mathcal{S}\)</span> in <span class="process-math">\(\mathbb{R}^3\)</span> we take <span class="process-math">\(\mathbf{N}\)</span> as the normal vector to the surface inducing the orientation (so that <span class="process-math">\(\vol^{\mathcal{S}} = \star \mathbf{N}_{\mathcal{S}}^\vee\)</span>). Along the boundary <span class="process-math">\(\partial \mathcal{S}\)</span> there is an outward pointing normal vector field <span class="process-math">\(\mb{n}\)</span> which is tangent to <span class="process-math">\(\mathcal{S}\)</span> and orthogonal to <span class="process-math">\(\mb{N}\text{.}\)</span> If <span class="process-math">\(\mb{T}\)</span> is the oriented unit tangent field along the boundary, then <span class="process-math">\(\{\mb{n}, \mb{T}, \mb{N}\}\)</span> forms the orthonormal basis (also known as a frame) of the tangent space <span class="process-math">\(T_p \mathbb{R}^3\)</span> for each <span class="process-math">\(p \in \partial \mathcal{S}\text{.}\)</span> The way to remember this is to imagine moving along the boundary of <span class="process-math">\(\mathcal{S}\)</span> in such a way that the orientation <span class="process-math">\(\mb{N}\)</span> is up and the surface <span class="process-math">\(\mathcal{S}\)</span> is to your left.</div></article></details><details id="sec-stokes-12" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">5.2.6</span><span class="period">.</span><span class="space"> </span><span class="title">Three dimensional subspace with boundary.</span>
-</h3></summary><article class="example example-like"><div class="para logical" id="sec-stokes-12-2-1">
-<div class="para">A last example to understand is that of a region <span class="process-math">\(R \subset \mathbb{R}^3\)</span> which is the closure of an open set and <span class="process-math">\(R\)</span> inherits the standard orientation <span class="process-math">\(\vol^{st} = \tder{}{x} \wedge \tder{}{y} \wedge \tder{}{z}\text{.}\)</span> In this case, if <span class="process-math">\(\mb{n}\)</span> is the outward pointing unit normal vector to <span class="process-math">\(\partial R\)</span> then it must also compatibly orient <span class="process-math">\(\partial R\)</span> (i.e. <span class="process-math">\(\mb{n} = \mb{N}\)</span>). This is because, by the definition of the Hodge star operator in equation <a href="" class="xref" data-knowl="./knowl/xref/eq-stardef.html" title="Equation 3.2.2">(3.2.2)</a>, we have</div>
+</h3></summary><article class="example example-like knowl__content"><div class="para logical" id="sec-stokes-12-2-1">
+<div class="para">A last example to understand is that of a region <span class="process-math">\(R \subset \mathbb{R}^3\)</span> which is the closure of an open set and <span class="process-math">\(R\)</span> inherits the standard orientation <span class="process-math">\(\vol^{st} = \tder{}{x} \wedge \tder{}{y} \wedge \tder{}{z}\text{.}\)</span> In this case, if <span class="process-math">\(\mb{n}\)</span> is the outward pointing unit normal vector to <span class="process-math">\(\partial R\)</span> then it must also compatibly orient <span class="process-math">\(\partial R\)</span> (i.e. <span class="process-math">\(\mb{n} = \mb{N}\)</span>). This is because, by the definition of the Hodge star operator in equation <a href="sec-exterior.html#eq-stardef" class="xref" data-knowl="./knowl/xref/eq-stardef.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 3.2.2">(3.2.2)</a>, we have</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-stardef.html">
 \begin{equation*}
 \mb{n}^\vee \wedge ( \star \mb{n}^\vee ) = \|\mb{n}^\vee\|^2 \vol^{st} = \vol^{st}.
@@ -411,15 +438,15 @@ X = \left( \bigcup_{i = 1}^r \mb{G}^h_i (H_{R_i} ) \right) \cup \left( \bigcup_{
 \int_X \tder{}{\eta} = \int_{\partial X} \eta .\tag{5.2.2}
 \end{equation}
 </div>
-</div></article><details id="thm-stokes-3" class="hiddenproof born-hidden-knowl"><summary><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></summary><article class="hiddenproof"><div class="para logical" id="thm-stokes-3-1">
-<div class="para">First we will require the existence of a partition of unity subordinate to the cover of <span class="process-math">\(X\text{.}\)</span> For our purposes, we cover of <span class="process-math">\(X\)</span> by a finite number of parameterizations as in equation <a href="" class="xref" data-knowl="./knowl/xref/eq-cover.html" title="Equation 5.2.1">(5.2.1)</a>. Writing <span class="process-math">\(U_i = \mb{G}^h_i (H_{R_i})\)</span> and <span class="process-math">\(V_j = \mb{G}^b_j (B_{R_j})\text{,}\)</span> a partition of unity subordinate to this cover is a set of smooth maps</div>
+</div></article><details id="thm-stokes-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></summary><article class="hiddenproof knowl__content"><div class="para logical" id="thm-stokes-3-1">
+<div class="para">First we will require the existence of a partition of unity subordinate to the cover of <span class="process-math">\(X\text{.}\)</span> For our purposes, we cover of <span class="process-math">\(X\)</span> by a finite number of parameterizations as in equation <a href="sec-stokes.html#eq-cover" class="xref" data-knowl="./knowl/xref/eq-cover.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.2.1">(5.2.1)</a>. Writing <span class="process-math">\(U_i = \mb{G}^h_i (H_{R_i})\)</span> and <span class="process-math">\(V_j = \mb{G}^b_j (B_{R_j})\text{,}\)</span> a partition of unity subordinate to this cover is a set of smooth maps</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-cover.html">
 \begin{equation*}
 \rho_i : U_i \to \mathbb{R}_{\geq 0} , \hspace{.3in} \tilde{\rho}_j : V_j \to \mathbb{R}_{\geq 0}
 \end{equation*}
 </div>
 <div class="para">for which there is some <span class="process-math">\(\varepsilon\)</span> where</div>
-<ol class="decimal">
+<ol class="decimal" id="thm-stokes-3-1-8">
 <li id="thm-stokes-3-1-8-1"><div class="para" id="p-derived-thm-stokes-3-1-8-1">
 <span class="process-math">\(\rho_i (\mb{G}^h_i (\mb{x}) ) = 0\)</span> for all <span class="process-math">\(\|\mb{x} \| \geq R_i - \varepsilon\)</span> and all <span class="process-math">\(1 \leq i \leq r\text{,}\)</span>
 </div></li>
@@ -434,7 +461,8 @@ X = \left( \bigcup_{i = 1}^r \mb{G}^h_i (H_{R_i} ) \right) \cup \left( \bigcup_{
 </div></li>
 </ol>
 <div class="para">The existence of such a partition of unity can be found in any analysis book and is obtained by defining, for each <span class="process-math">\(U_i\)</span> and <span class="process-math">\(V_j\text{,}\)</span> a smooth bump function which is nonzero on the complement of the union of all open sets except the given <span class="process-math">\(U_i\)</span> (or <span class="process-math">\(V_j\)</span>) and zero off of of it. Then adding these functions together and dividing each one by the resulting sum produces a collection <span class="process-math">\(\rho_i\)</span> and <span class="process-math">\(\tilde{\rho}_j\text{.}\)</span> We leave the details for the references and proceed with the proof.</div>
-</div> <div class="para logical" id="thm-stokes-3-2">
+</div>
+<div class="para logical" id="thm-stokes-3-2">
 <div class="para">Now, we may extend each <span class="process-math">\(\rho_i\)</span> and <span class="process-math">\(\tilde{\rho}_j\)</span> to smooth functions on all of <span class="process-math">\(X\)</span> by taking them to be zero off of <span class="process-math">\(U_j\)</span> and <span class="process-math">\(V_j\)</span> respectively. Doing so, and using property (3) along with linearity of the exterior derivative, gives us an equality of forms</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-stokes.html" id="thm-stokes-3-2-6">
 \begin{align}
@@ -442,8 +470,9 @@ X = \left( \bigcup_{i = 1}^r \mb{G}^h_i (H_{R_i} ) \right) \cup \left( \bigcup_{
 \amp =  \left( \sum_{i = 1}^r \tder{}{( \rho_i \eta )} \right) + \left( \sum_{j = 1}^s \tder{}{(\tilde{\rho}_j \eta )} \right). \notag
 \end{align}
 </div>
-<div class="para">Since integration of forms is also linear, we may prove equation <a href="" class="xref" data-knowl="./knowl/xref/eq-stokes.html" title="Equation 5.2.2">(5.2.2)</a> for the forms <span class="process-math">\(\rho_i \eta\)</span> and <span class="process-math">\(\tilde{\rho}_j \eta\)</span> and the theorem will follow.</div>
-</div> <div class="para logical" id="thm-stokes-3-3">
+<div class="para">Since integration of forms is also linear, we may prove equation <a href="sec-stokes.html#eq-stokes" class="xref" data-knowl="./knowl/xref/eq-stokes.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.2.2">(5.2.2)</a> for the forms <span class="process-math">\(\rho_i \eta\)</span> and <span class="process-math">\(\tilde{\rho}_j \eta\)</span> and the theorem will follow.</div>
+</div>
+<div class="para logical" id="thm-stokes-3-3">
 <div class="para">The advantage of <span class="process-math">\(\rho_i \eta\)</span> (and <span class="process-math">\(\tilde{\rho}_j \eta\)</span>) over <span class="process-math">\(\eta\)</span> itself, is that when we pull these back along <span class="process-math">\(\mb{G}_i^h\)</span> (and <span class="process-math">\(\mb{G}_j^b\)</span>) respectively and write them in coordinates as</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-stokes2.html ./knowl/xref/eq-stokes3.html ./knowl/xref/eq-stokes1.html ./knowl/xref/eq-stokes2.html ./knowl/xref/eq-stokes0.html">
 \begin{equation*}
@@ -498,20 +527,20 @@ I \amp = \nonumber \idotsint_{E} \left. f_m (x_1, \ldots, x_m) \right|_{x_m = 0}
 \amp = (-1)^{m -1} \int_{\partial X} \rho_i \eta .\notag
 \end{align}
 </div>
-<div class="para">Putting equations <a href="" class="xref" data-knowl="./knowl/xref/eq-stokes2.html" title="Equation 5.2.5">(5.2.5)</a> and <a href="" class="xref" data-knowl="./knowl/xref/eq-stokes3.html" title="Equation 5.2.6">(5.2.6)</a> together with equation <a href="" class="xref" data-knowl="./knowl/xref/eq-stokes1.html" title="Equation 5.2.4">(5.2.4)</a> gives</div>
+<div class="para">Putting equations <a href="sec-stokes.html#eq-stokes2" class="xref" data-knowl="./knowl/xref/eq-stokes2.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.2.5">(5.2.5)</a> and <a href="sec-stokes.html#thm-stokes-3-3-35" class="xref" data-knowl="./knowl/xref/eq-stokes3.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.2.6">(5.2.6)</a> together with equation <a href="sec-stokes.html#thm-stokes-3-3-18" class="xref" data-knowl="./knowl/xref/eq-stokes1.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.2.4">(5.2.4)</a> gives</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-stokes2.html ./knowl/xref/eq-stokes3.html ./knowl/xref/eq-stokes1.html ./knowl/xref/eq-stokes2.html ./knowl/xref/eq-stokes0.html">
 \begin{equation*}
 \int_X \tder{}{(\rho_i \eta)}  = \int_{\partial X} \rho_i \eta
 \end{equation*}
 </div>
-<div class="para">for every <span class="process-math">\(1 \leq i \leq r\text{.}\)</span> On the other hand, equation <a href="" class="xref" data-knowl="./knowl/xref/eq-stokes2.html" title="Equation 5.2.5">(5.2.5)</a> holds for every <span class="process-math">\(k\)</span> (including <span class="process-math">\(k = m\)</span>) when <span class="process-math">\(\rho_i\)</span> is replaced by <span class="process-math">\(\tilde{\rho}_j\)</span> since <span class="process-math">\(\tilde{\rho}_j\)</span>  (or an extension of it) vanishes on the boundary of <span class="process-math">\(\mathcal{C}\text{.}\)</span> This implies</div>
+<div class="para">for every <span class="process-math">\(1 \leq i \leq r\text{.}\)</span> On the other hand, equation <a href="sec-stokes.html#eq-stokes2" class="xref" data-knowl="./knowl/xref/eq-stokes2.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.2.5">(5.2.5)</a> holds for every <span class="process-math">\(k\)</span> (including <span class="process-math">\(k = m\)</span>) when <span class="process-math">\(\rho_i\)</span> is replaced by <span class="process-math">\(\tilde{\rho}_j\)</span> since <span class="process-math">\(\tilde{\rho}_j\)</span>  (or an extension of it) vanishes on the boundary of <span class="process-math">\(\mathcal{C}\text{.}\)</span> This implies</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-stokes2.html ./knowl/xref/eq-stokes3.html ./knowl/xref/eq-stokes1.html ./knowl/xref/eq-stokes2.html ./knowl/xref/eq-stokes0.html">
 \begin{equation*}
 \int_X \tder{}{(\tilde{\rho}_j \eta)} = 0
 \end{equation*}
 </div>
-<div class="para">for all <span class="process-math">\(1 \leq j \leq s\text{.}\)</span> As was mentioned earlier, combining these results with linearity of integration and equation <a href="" class="xref" data-knowl="./knowl/xref/eq-stokes0.html" title="Equation 5.2.3">(5.2.3)</a> gives the theorem.</div>
-</div></article></details><div class="para" id="sec-stokes-15">The elegant equation <a href="" class="xref" data-knowl="./knowl/xref/eq-stokes.html" title="Equation 5.2.2">(5.2.2)</a> can be summarized verbally as the idea that the integral of a derivative of a form on an <span class="process-math">\(m\)</span>-dimensional space equals the integral of the form on the boundary. The proof of Stokes’ Theorem is provided up to some technical results which will be outsourced.</div>
+<div class="para">for all <span class="process-math">\(1 \leq j \leq s\text{.}\)</span> As was mentioned earlier, combining these results with linearity of integration and equation <a href="sec-stokes.html#thm-stokes-3-2-6" class="xref" data-knowl="./knowl/xref/eq-stokes0.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.2.3">(5.2.3)</a> gives the theorem.</div>
+</div></article></details><div class="para" id="sec-stokes-15">The elegant equation <a href="sec-stokes.html#eq-stokes" class="xref" data-knowl="./knowl/xref/eq-stokes.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.2.2">(5.2.2)</a> can be summarized verbally as the idea that the integral of a derivative of a form on an <span class="process-math">\(m\)</span>-dimensional space equals the integral of the form on the boundary. The proof of Stokes’ Theorem is provided up to some technical results which will be outsourced.</div>
 <figure class="table table-like" id="fig-stokes"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">5.2.8<span class="period">.</span></span><span class="space"> </span>Application of Stokes’ Theorem for <span class="process-math">\(X \subset \mathbb{R}^n\)</span></figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr class="header-horizontal">
 <th scope="col" class="c m b1 r0 l0 t0 lines">Theorem</th>
@@ -543,7 +572,7 @@ I \amp = \nonumber \idotsint_{E} \left. f_m (x_1, \ldots, x_m) \right|_{x_m = 0}
 <td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(3\)</span></td>
 <td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(3\)</span></td>
 </tr>
-</table></div></figure><div class="para" id="sec-stokes-17">Stokes’ Theorem has several consequences and instances, some major cases listed in <a href="" class="xref" data-knowl="./knowl/xref/fig-stokes.html" title="Table 5.2.8: Application of Stokes’ Theorem for X \subset \mathbb{R}^n">Table 5.2.8</a>. One basic corollary is that when <span class="process-math">\(X\)</span> is a closed smooth oriented subspace then certain integrals vanish.</div>
+</table></div></figure><div class="para" id="sec-stokes-17">Stokes’ Theorem has several consequences and instances, some major cases listed in <a href="sec-stokes.html#fig-stokes" class="xref" data-knowl="./knowl/xref/fig-stokes.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 5.2.8: Application of Stokes’ Theorem for X \subset \mathbb{R}^n">Table 5.2.8</a>. One basic corollary is that when <span class="process-math">\(X\)</span> is a closed smooth oriented subspace then certain integrals vanish.</div>
 <article class="corollary theorem-like" id="cor-closedstokes"><h3 class="heading">
 <span class="type">Corollary</span><span class="space"> </span><span class="codenumber">5.2.9</span><span class="period">.</span>
 </h3>
@@ -554,7 +583,7 @@ I \amp = \nonumber \idotsint_{E} \left. f_m (x_1, \ldots, x_m) \right|_{x_m = 0}
 \oint_X \tder{}{\eta} = 0.
 \end{equation*}
 </div>
-</div></article><details id="cor-closedstokes-2" class="hiddenproof born-hidden-knowl"><summary><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></summary><article class="hiddenproof"><div class="para logical" id="cor-closedstokes-2-1">
+</div></article><details id="cor-closedstokes-2" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></summary><article class="hiddenproof knowl__content"><div class="para logical" id="cor-closedstokes-2-1">
 <div class="para">This can be seen by removing a small ball <span class="process-math">\(B\)</span> in <span class="process-math">\(X\)</span> so that <span class="process-math">\(X = B \cup (X - B)\text{.}\)</span> The boundary of both <span class="process-math">\(B\)</span> and <span class="process-math">\(X - B\)</span> are the same space <span class="process-math">\(Y\text{,}\)</span> with opposite orientations. So</div>
 <div class="displaymath process-math" id="cor-closedstokes-2-1-7">
 \begin{align*}
@@ -622,11 +651,11 @@ S^{n - 1} (R) = \{ (x_1, \ldots, x_n) \in \mathbb{R}^{n} : x_1^2 + \cdots + x_n^
 </div>
 </div></article></section></section></div>
 <div class="ptx-content-footer">
-<a class="previous-button button" href="sec-derivatives.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-ftli.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+<a class="previous-button button" href="sec-derivatives.html" title="Previous"><span xmlns:xlink="http://www.w3.org/1999/xlink" class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span xmlns:xlink="http://www.w3.org/1999/xlink" class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-ftli.html" title="Next"><span class="name">Next</span><span xmlns:xlink="http://www.w3.org/1999/xlink" class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">
-<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+<a xmlns:xlink="http://www.w3.org/1999/xlink" class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a xmlns:xlink="http://www.w3.org/1999/xlink" class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a xmlns:xlink="http://www.w3.org/1999/xlink" class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
 </div>
 </body>
 </html>
